@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // localApiURL: 'http://13.213.66.25:8080',
+  localApiURL: 'https://api.giveaspark.com'
+
 };
 
 /*

@@ -1,0 +1,522 @@
+<div class="container-fluid">
+    <!-- header -->
+    <header>
+
+        <div class="row align-items-center position-relative">
+            <div class="mouse_move">
+                <img id="img1" src="assets/images/logo-an.png" class="mouse" value="5" />
+
+                <img id="img2" src="assets/images/btn-an.png" class="mouse" value="-5" />
+            </div>
+            <div class="col-md-3 col-lg-3 align-self-center logo-bg ">
+                <a class="navbar-brand " href="index.html">
+                    <img src="assets/images/logo.png" class="img-fl">
+                </a>
+            </div>
+            <div class="col-md-8 col-lg-8 position-relative">
+
+                <div class="nav-bg">
+                    <img src="assets/images/Vector 1.png">
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light mt-4 ps-5">
+                    <div class="container-fluid">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">What We Do</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        About Us
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                                        <li><a class="dropdown-item" href="#">Our Vision</a></li>
+
+                                    </ul>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Quotes
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Stories
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Contact US
+                                    </a>
+                                </li>
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+          
+
+
+            <div class="col-md-1 col-lg-1 p-0">
+                <form class="d-flex">
+
+                    <button class="btn pink-btn" type="submit">Search</button>
+
+                </form>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="section-padding">
+    <div class="container">
+        <div class="text-center ">
+            <h3> "Inspire Someone Today...... Including Yourself"</h3>
+
+        </div>
+        <div class="row m-0 p-0 mt-5 pt-5">
+            <div class="col-md-4 col-lg-6 position-relative">
+                <div class=" circle-width  bg-darkgray rounded-circle">
+                    <p class=" p-1 position-absolute top-50 start-50 translate-middle "
+                        aria-label="Hi! I'm a developer">
+                        " &nbsp;<span class="typewriter">{{quotesData}}</span>"
+                    </p>
+                    <img class="img-edit" src="assets/images/gif-circle.gif">
+                </div>
+
+
+
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="card-box bg-darkgray p-4 pe-2 ps-2">
+                    <div class="row m-0">
+                        <div class="col-md-3 col-lg-3 self-align-center">
+                            <img class="wh-150" src="assets/images/profile-image.png">
+                        </div>
+                        <div class="col-md-7 col-lg-6 ps-2 pe-0">
+                            <h4 class=""><span class="text-darkblue">John</span> Doe</h4>
+                            <h6 class="mb-3">Marketing Expert</h6>
+
+                            <div class="d-flex justify-content-between pe-5 ps-3">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <p class=" fs-12">+1129457850 | +1129457850 </p>
+                            </div>
+                            <div class="d-flex justify-content-between pe-5 ps-3">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <p class=" fs-12">shreybhardwaj@gmail.com </p>
+                            </div>
+                            <div class="d-flex justify-content-between pe-5 ps-3">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <p class=" fs-12">www.perfectiongeeks.com</p>
+                            </div>
+                           
+                            
+                        </div>
+                        <div class="col-md-2 col-lg-3 pe-0 ps-0">
+                            <img class="img-fluid" src="assets/images/scan.png">
+                            <p class=" fs-12">Scan/Click QR</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 text-center">
+                            <!-- <p>“Business opportunities are like buses, there’s always another one coming.”
+                            </p>
+                            <h6> – Richard Branson</h6> -->
+                            <ng-container *ngFor="let item of profileData">
+                                <div>
+                                    <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
+                                    <p class=" fs-12">"{{item}}"</p>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-gray section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+
+                <div class="section-heading  text-center" data-wow-duration="1s" data-wow-delay="0.5s"
+                    style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+                    <img src="assets/images/heading-line-dec.png" class="line" alt="">
+                    <h4>When You Belong To<em> Our Give A Spark</em> Community. </h4>
+
+
+                </div>
+            </div>
+            <div class="col-lg-12 position-relative">
+                <div class="outside-circle position-absolute top-50 start-50 translate-middle">
+                    <img src="assets/images/outside-circle.png">
+
+                </div>
+                <div id="wrapper">
+
+                    <div id="circle">
+                        <div class="prems-fading-circle">
+                            <div class="prems-circle1 prems-circle">
+                                <div class="circle-6-1"> </div>
+                            </div>
+                            <div class="prems-circle2 prems-circle">
+                                <div class="circle-6-1"> </div>
+                            </div>
+                            <div class="prems-circle3 prems-circle">
+                                <div class="circle-6-1"> </div>
+                            </div>
+                            <div class="prems-circle4 prems-circle">
+                                <div class="circle-6-1"> </div>
+                            </div>
+                            <div class="prems-circle5 prems-circle">
+                                <div> </div>
+                            </div>
+                            <div class="prems-circle6 prems-circle">
+                                <div class="circle-1-2"></div>
+                            </div>
+                            <div class="prems-circle7 prems-circle">
+                                <div class="circle-1-2"></div>
+                            </div>
+                            <div class="prems-circle8 prems-circle">
+                                <div class="circle-1-2"></div>
+                            </div>
+                            <div class="prems-circle9 prems-circle">
+                                <div class="circle-1-2"></div>
+                            </div>
+                            <div class="prems-circle10 prems-circle">
+                                <div class="circle-1-2"></div>
+                            </div>
+                            <div class="prems-circle11 prems-circle">
+                                <div></div>
+                            </div>
+                            <div class="prems-circle12 prems-circle">
+                                <div class="circle-2-3"></div>
+                            </div>
+                            <div class="prems-circle13 prems-circle">
+                                <div class="circle-2-3"></div>
+                            </div>
+                            <div class="prems-circle14 prems-circle">
+                                <div class="circle-2-3"></div>
+                            </div>
+                            <div class="prems-circle15 prems-circle">
+                                <div class="circle-2-3"></div>
+                            </div>
+                            <div class="prems-circle16 prems-circle">
+                                <div class="circle-2-3"></div>
+                            </div>
+                            <div class="prems-circle17 prems-circle">
+                                <div> </div>
+                            </div>
+                            <div class="prems-circle18 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle19 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle20 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle21 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle22 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle23 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle24 prems-circle">
+                                <div class="circle-3-4"></div>
+                            </div>
+                            <div class="prems-circle25 prems-circle">
+                                <div></div>
+                            </div>
+                            <div class="prems-circle26 prems-circle">
+                                <div class="circle-4-5"></div>
+                            </div>
+                            <div class="prems-circle27 prems-circle">
+                                <div class="circle-4-5"></div>
+                            </div>
+                            <div class="prems-circle28 prems-circle">
+                                <div class="circle-4-5"></div>
+                            </div>
+                            <div class="prems-circle29 prems-circle">
+                                <div class="circle-4-5"></div>
+                            </div>
+                            <div class="prems-circle30 prems-circle">
+                                <div class="circle-4-5"></div>
+                            </div>
+                            <div class="prems-circle31 prems-circle">
+                                <div></div>
+                            </div>
+                            <div class="prems-circle32 prems-circle">
+                                <div class="circle-5-6"></div>
+                            </div>
+                            <div class="prems-circle33 prems-circle">
+                                <div class="circle-5-6"></div>
+                            </div>
+                            <div class="prems-circle34 prems-circle">
+                                <div class="circle-5-6"></div>
+                            </div>
+                            <div class="prems-circle35 prems-circle">
+                                <div class="circle-5-6"></div>
+                            </div>
+                            <div class="prems-circle36 prems-circle">
+                                <div class="circle-5-6"></div>
+                            </div>
+                            <div class="prems-circle37 prems-circle">
+                                <div></div>
+                            </div>
+                            <div class="prems-circle38 prems-circle">
+                                <div class="circle-6-1"></div>
+                            </div>
+                            <div class="prems-circle39 prems-circle">
+                                <div class="circle-6-1"></div>
+                            </div>
+                            <div class="prems-circle40 prems-circle">
+                                <div class="circle-6-1"></div>
+                            </div>
+                            <div class="prems-circle41 prems-circle">
+                                <div class="circle-6-1"></div>
+                            </div>
+
+                            <div id="inner">
+                                <img src="assets/images/center-circle.png">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="containr d-flex align-items-center container1">
+                        <img class="img-fluid" src="assets/images/door.png">
+                        <p class="fs-14">You open doors to new relationships... personal and business</p>
+
+                    </div>
+
+                    <div class="containr d-flex align-items-center container2">
+                        <img class="w-25 h-25" src="assets/images/emoji.png">
+                        <p class="fs-14">You Give A Spark to someone who really needs it</p>
+                    </div>
+
+                    <div class="containr d-flex align-items-center container3">
+                        <img class="w-25 h-25" src="assets/images/man.png">
+                        <p class="fs-14">Your reputation will soar
+                        </p>
+                    </div>
+
+
+                    <div class="containr d-flex align-items-center container4">
+
+                        <img class="w-25 h-25" src="assets/images/dollor.png">
+                        <p class="fs-14">Your business will increase </p>
+                    </div>
+
+                    <div class="containr d-flex align-items-center container5">
+
+                        <img class="w-25 h-25" src="assets/images/group.png">
+                        <p class="fs-14">You will get inspired when you inspire someone
+                    </div>
+
+                    <div class="containr d-flex align-items-center container6">
+
+                        <img class="w-25 h-25" src="assets/images/six.png">
+                        <p class="fs-14">“Send inspirational quotes
+                            the easiest way”
+                        </p>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="section-padding text-center">
+
+    <div class="container">
+        <div class="d-flex justify-content-around">
+            <button class="white-btn p-2 pe-4 ps-4">
+                CEOs </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                TEAMS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                INDIVIDUALS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                ORGANIZATIONS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                COMPANIES </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                MARKETERS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                IT </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                HR TEAMS </button>
+        </div>
+        <div class="d-flex justify-content-around mt-4">
+            <button class="white-btn p-2 pe-4 ps-4">
+                REALTORES </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                PHOTOGRAPHERS</button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                CONSULTANTS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                BRAND MANAGERS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                LEGAL </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                SUPPORT </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                ACADEMICS</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+
+                <div class="section-heading  text-center" data-wow-duration="1s" data-wow-delay="0.5s"
+                    style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+                    <img src="assets/images/heading-line-dec.png" class="line" alt="">
+                    <h4>Templates</h4>
+                    <!-- TESTIMONIALS -->
+
+
+                </div>
+            </div>
+            <div id="carouselExampleSlidesOnly" class=" carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner row position-relative">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="carousel-item  active testimonial-first" data-bs-interval="500">
+
+                      <img  class="testimonial-first" src="assets/images/templates 1.png">
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="carousel-item testimonial-center">
+                             <img  class=" position-absolute top-46 start-50 translate-middle" src="assets/images/templates 2.png">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="carousel-item testimonial-last">
+                        <img  class=" testimonial-last" src="assets/images/templates3.png">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="section-padding text-center">
+    <div class="col-lg-8 offset-lg-2">
+
+        <div class="section-heading  text-center" data-wow-duration="1s" data-wow-delay="0.5s"
+            style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+            <img src="assets/images/heading-line-dec.png" class="line" alt="">
+            <h4>Looks Great In:</h4>
+            <!-- TESTIMONIALS -->
+
+
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-around">
+            <button class="white-btn p-2 pe-4 ps-4">
+                Gmail </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                TEAMS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                INDIVIDUALS </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                ORGANIZATIONS </button>
+
+        </div>
+        <div class="d-flex justify-content-around mt-4">
+            <button class="white-btn p-2 pe-4 ps-4">
+                REALTORES </button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                PHOTOGRAPHERS</button>
+            <button class="white-btn p-2 pe-4 ps-4">
+                CONSULTANTS </button>
+
+
+        </div>
+    </div>
+</div>
+<div class="bg-gray section-padding">
+    <div class="col-lg-8 offset-lg-2">
+
+        <div class="section-heading  text-center" data-wow-duration="1s" data-wow-delay="0.5s"
+            style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+            <img src="assets/images/heading-line-dec.png" class="line" alt="">
+            <h4>Fully Customizable Email Signature Generator:</h4>
+            <!-- TESTIMONIALS -->
+
+
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-lg-8">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <h5>Control your signature design</h5>
+                        <p>Choose the right layout, font, colors, image-shapes and more with our easy-to-use email
+                            signature designer.</p>
+                        <button class="bg-darkblue rounded-5 p-2 pe-4 ps-4">
+                            CONSULTANTS </button>
+
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        Gmail </div>
+                    <div class="col-md-6 col-lg-6">
+                        Gmail </div>
+                    <div class="col-md-6 col-lg-6">
+                        Gmail </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+               <img class="img-fluid" src="assets/images/girl-animation.gif"> </div>
+               <button (click)="logout()" >logout</button>
+
+        </div>
+
+    </div>
+</div>

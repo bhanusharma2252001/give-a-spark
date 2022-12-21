@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+
+
+  localApiURL: 'https://api.giveaspark.com'
 };

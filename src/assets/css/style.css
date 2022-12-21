@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Square+Peg&display=swap");
+
+
+
+:root {
+  --body-bg: hsl(0deg 0% 22%);
+  --box-bg: hsl(0deg 0% 27%);
+  --dark-bg: hsl(0deg 0% 16%);
+  --bg-gray: #EFF0F2;
+  --white: white;
+  --color-blues: hsl(225, 100%, 60%);
+  --blue: #53abf5;
+  
+  --pink: #ff4058;
+  --shadow: 0px 0px 25px 4px #2929296e;
+
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: transparent !important;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+
+}
+
+a {
+  text-decoration: none;
+}
+.bg-darkgray{
+  background-color: #DADBDD;
+}
+.bg-gray {
+  background-color: var(--bg-gray);
+}
+.bg-lgblue{
+  background-color: #55D4BF;
+}
+.text-darkblue{
+  color:#006683;
+}
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+img.wh-150 {
+  width: 110px;
+  height: 125px;
+}
+.wh-250 {
+  width: 450px !important;
+  height: 400px !important;
+}
+.w-450{
+  width: 380px !important;
+}
+.section-padding {
+  padding: 110px 0;
+}
+
+.form-control:active i .fa-lock{
+  display: none;
+}
+.form-control:focus >  i .fa-lock {
+  display: none;
+}
+.wh-30{
+  width:30px;
+  height:30px;
+}
+.card-box {
+
+  width: 530px;
+  height: 291px;
+}
+img.img-edit {
+  position: absolute;
+  top: -450px;
+  left: -228px;
+  height: 1026px;
+  width: 1696px;
+}
+/* button */
+.pink-btn {
+  background-color: var(--pink);
+  color: var(--white);
+  border: 1px solid var(--pink);
+  border-radius: 25px;
+}
+.bg-darkblue{
+  background-color: #006683;
+}
+.white-btn {
+  background-color: var(--white);
+  color: black;
+  border: 1px solid #006683;
+  border-radius: 25px;
+}
+
+.white-btn:hover {
+  background-color: var(--pink);
+  color: var(--white);
+  border: 1px solid var(--pink);
+  border-radius: 25px;
+
+}
+
+.outside-circle {
+  position: absolute;
+
+}
+.testimonial-first,.testimonial-last{
+  z-index: 0;
+opacity: 1;
+  width: 300px;
+  height: 430px;
+}
+.top-46 {
+  top:46% !important;
+}
+.testimonial-center{
+  z-index:1;
+
+  width: 550px;
+  height: 470px;
+}
+.active {
+  background-color: transparent !important;
+}
+.nav-bg {
+  position: absolute;
+  top: -113px ;
+  left: 110px;
+}
+
+/* Parallax CSS */
+.logo-bg {
+  /* background-image: url("../images/logo-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; */
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+.line {
+  height: 2px;
+  width: 10%;
+}
+
+.img-fl {
+  position: absolute;
+  top: -18px;
+  left: 138px;
+  width: 145px;
+  height: 96px;
+  /* max-width: 100%; */
+  /* height: auto; */
+}
+
+.circle-width {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.carousel-item {
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .6s ease-in-out
+}
+
+.carousel-item.active {
+ align-items: center;
+ place-self: center;
+ float: center;
+}
+
+.carousel-item-next {
+  position: fixed;
+
+}
+
+.carousel-item-prev {
+  position: fixed;
+  right: 0px;
+  float: left;
+}
+
+.active.carousel-item-end,
+.carousel-item-next:not(.carousel-item-start) {
+  transform: translateX(100%)
+}
+
+.active.carousel-item-start,
+.carousel-item-prev:not(.carousel-item-end) {
+  transform: translateX(-100%)
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-property: opacity;
+  transform: none
+}
+
+.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel-fade .carousel-item-prev.carousel-item-end,
+.carousel-fade .carousel-item.active {
+  z-index: 1;
+  opacity: 1
+}
+.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel-fade .carousel-item-prev.carousel-item-end {
+  z-index: 0;
+  opacity: 1.2;
+}
+.carousel-fade .active.carousel-item-end,
+.carousel-fade .active.carousel-item-start {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0s .6s
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+  .carousel-fade .active.carousel-item-end,
+  .carousel-fade .active.carousel-item-start {
+    transition: none
+  }
+}
+
+/* .carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  opacity: .5;
+  transition: opacity .15s ease
+} */
+
+@media (prefers-reduced-motion:reduce) {
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    transition: none
+  }
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: .9
+}
+
+.carousel-control-prev {
+  left: 0
+}
+
+.carousel-control-next {
+  right: 0
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 13.5s infinite;
+}
+
+.typewriter::after {
+  content: "";
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+  border-right: 0;
+}
+
+
+@media (prefers-reduced-motion) {
+  .typewriter::after {
+    animation: none;
+  }
+
+  @keyframes sequencePopup {
+
+    0%,
+    100% {
+      content: "Business Opportunities are like buses, there's always another one coming.<b>-Richard Branson<b>";
+    }
+
+    25% {
+      content: "writer";
+    }
+
+    50% {
+      content: "reader";
+    }
+
+    75% {
+      content: "human";
+    }
+  }
+
+  .typewriter::before {
+    content: "Business Opportunities are like buses, there's always another one coming.<b>-Richard Branson<b>";
+    animation: sequencePopup 10s linear infinite;
+  }
+}
+
+/* ======= MOBILE RESPONSIVE MEDIA QUERY CSS ====== */
+@media only screen and (max-width: 600px) {}
+
+
+/* ====== TABLET RESPONSIVE QUERY CSS ====== */
+@media (min-width: 481px) and (max-width: 769px) {}
