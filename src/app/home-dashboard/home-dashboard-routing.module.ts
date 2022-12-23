@@ -13,7 +13,9 @@ const routes: Routes = [
 
       { path: 'basic-template', loadChildren: () => import('./basic-template/basic-template.module').then((m) => m.BasicTemplateModule)},
       
-      { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)}
+      { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
+      { path: 'mystory', loadChildren: () => import('./mystory/mystory.module').then((m) => m.MystoryModule)},
+      { path: 'myquote', loadChildren: () => import('./myquote/myquote.module').then((m) => m.MyquoteModule)}
     ]}
 
 ];

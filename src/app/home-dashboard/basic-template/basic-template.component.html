@@ -60,8 +60,8 @@
                                         <a href="#" class="nav-link active  py-3 border-0" title="Dashboard"
                                             data-bs-toggle="tooltip" data-bs-placement="right">
                                             <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/signaturetemplate.png" class="img-menu" width="24"
-                                                    height="24">
+                                                <img src="assets/images/signaturetemplate.png" class="img-menu"
+                                                    width="24" height="24">
                                                 <p class="menu-text mb-0">Signature Template</p>
                                             </div>
                                         </a>
@@ -135,172 +135,221 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link box-link m-1 p-2 bg-white" id="social-tab"
                                             data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab"
-                                            aria-controls="social" aria-selected="true">
+                                            aria-controls="social" aria-selected="true" (click)="onClick()
+                                            ">
                                             <div class="box">
                                                 <img class="wh-35" src="assets/images/social.png">
                                                 <p class="mb-0 fs-5">Social</p>
                                             </div>
-                                        </button> </li>
+                                        </button>
+                                    </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1  p-2 " id="home-tab"
-                                            data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
-                                            aria-controls="home" aria-selected="true">
+                                        <button class="nav-link box-link m-1  p-2 " id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
                                             <div class="box">
                                                 <img class="wh-35" src="assets/images/template.png">
                                                 <p class="mb-0 fs-5">Template</p>
                                             </div>
-                                        </button> </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link box-link m-1 p-2 " id="home-tab"
-                                                data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
-                                                aria-controls="home" aria-selected="true">
-                                                <div class="box">
-                                                    <img class="wh-35" src="assets/images/design.png">
-                                                    <p class="mb-0 fs-5">Design</p>
-                                                </div>
-                                            </button> </li>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 " id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35" src="assets/images/design.png">
+                                                <p class="mb-0 fs-5">Design</p>
+                                            </div>
+                                        </button>
+                                    </li>
                                 </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show " id="details" role="tabpanel"
-                                        aria-labelledby="details-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                            <div class="">
+                                <!-- form start -->
 
-                                                <h4 class="mb-4">Signature Details</h4>
+                                <form [formGroup]="signatureDetailsForm" (ngSubmit)="onSubmit(signatureDetailsForm.value)">
+
+
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show " id="details" role="tabpanel"
+                                            aria-labelledby="details-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Signature Details</h4>
+                                                </div>
+
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled" class="form-label">Your
+                                                                Name</label>
+                                                            <input type="text" formControlName="yourName"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Designation</label>
+                                                            <input type="text" formControlName="designation"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Phone</label>
+                                                            <input type="text" formControlName="phoneNo"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Address</label>
+                                                            <input type="text" formControlName="address"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Email</label>
+                                                            <input type="text" formControlName="email"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Website</label>
+                                                            <input type="text" formControlName="companyWebsite"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <!-- <div class="mb-4">
+                                                            <label for="exampleInputfiled" class="form-label">
+                                                                Quote</label>
+                                                            <input type="text" formControlName=""
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div> -->
+                                                        <div class="col-md-4 col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="exampleInputfiled" class="form-label">
+                                                                    Quote</label>
+                                                                <select class="form-select form-select-lg p-3 bg-gray text-black-50 fs-14" style="    width: 332px;
+                                                                height: 16px;" aria-label=".form-select-lg example" formControlName="quotesId">
+                                                                    <option value="" disabled selected>Select Quote</option>
+                                                                    <option  [value]=""> </option>
+                                                                  </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="exampleInputfiled" class="form-label">
+                                                                 My Quote</label>
+                                                                <select class="form-select form-select-lg p-3 bg-gray text-black-50 fs-14" style="    width: 332px;
+                                                                height: 16px;" aria-label=".form-select-lg example" formControlName="planId">
+                                                                    <option value="" disabled selected>Select Quote </option>
+                                                                    <option  [value]=""> </option>
+                                                                  </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-1 col-lg-3">
+                                                        <div class="position-absolute top-0">
+                                                            <img class="img-fluid" src="assets/images/square-image.png">
+                                                            <p class="text-blue fs-14 mb-0">Change Photo</p>
+                                                            <p class="text-blue fs-14 mb-0">Remove</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             </div>
-
-                                            <form class="row position-relative">
-                                                <div class="col-md-11 col-lg-9">
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled" class="form-label">Your
-                                                            Name</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Designation</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Phone</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Address</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Email</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Website</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled" class="form-label">
-                                                            Quote</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="col-md-1 col-lg-3">
-                                                    <div class="position-absolute top-0">
-                                                        <img class="img-fluid" src="assets/images/square-image.png">
-                                                        <p class="text-blue fs-14 mb-0">Change Photo</p>
-                                                        <p class="text-blue fs-14 mb-0">Remove</p>
-                                                    </div>
-                                                </div>
-
-                                            </form>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="social" role="tabpanel"
-                                        aria-labelledby="social-tab"><div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                                        <div class="tab-pane fade" id="social" role="tabpanel"
+                                            aria-labelledby="social-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                            <div class="">
+                                                <div class="">
 
-                                                <h4 class="mb-4">Add Social Links</h4>
-                                            </div>
+                                                    <h4 class="mb-4">Add Social Links</h4>
+                                                </div>
 
-                                            <form class="row position-relative">
-                                                <div class="col-md-11 col-lg-9">
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled" class="form-label">Facebook
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled" class="form-label">Facebook
                                                             </label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
+                                                            <input type="text" formControlName="fbProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Instagram</label>
+                                                            <input type="text" formControlName="instagramProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">LinkedIn</label>
+                                                            <input type="text" formControlName="linkedInProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Youtube</label>
+                                                            <input type="text" formControlName="youtubeChannel"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-4 d-flex">
+
+                                                            <p class="mb-0 bg-lgblue rounded-pill "><i
+                                                                    class="fa fs-12 fa-plus p-1" aria-hidden="true"></i>
+                                                            </p>
+                                                            <p class="mb-0 ps-2">
+                                                                Add New Field</p>
+                                                        </div>
 
                                                     </div>
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Instagram</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
+                                                    <div class="col-md-1 col-lg-3">
 
                                                     </div>
-                                                    <div class="mb-2">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">LinkedIn</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
 
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label">Youtube</label>
-                                                        <input type="text"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-4 d-flex">
-                                                        
-                          <p class="mb-0 bg-lgblue rounded-pill "><i class="fa fs-12 fa-plus p-1" aria-hidden="true"></i></p>
-                                                        <p  class="mb-0 ps-2">
-                                                            Add New Field</p>
-                                                    </div>
-                                                   
                                                 </div>
-                                                <div class="col-md-1 col-lg-3">
-                                                   
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="contact" role="tabpanel"
+                                            aria-labelledby="contact-tab">...</div>
+                                    </div>
 
-                                            </form>
-                                        </div></div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel"
-                                        aria-labelledby="contact-tab">...</div>
-                                </div>
+                                    <div class="mt-4 text-end">
+                                        <button type="submit" class="btn green-btn">Create Signature</button>
+                                    </div>
+
+                                </form>
+
+
+
+                                <!-- form End -->
+
+
                             </div>
                             <div class="col-md-6 col-lg-6 pe-3">
                                 <div class="card-box  border-10 p-4 pe-2 ps-2">
@@ -309,9 +358,11 @@
                                             <img class="wh-150" src="assets/images/profile-image.png">
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                                              <h4 class=""><span class="text-darkblue"  *ngIf="!username">John &nbsp; Doe</span> </h4>
-                                              <h4 class="">
-                                                <span class="text-darkblue" *ngIf="username">{{username}}</span></h4>
+                                            <h4 class=""><span class="text-darkblue" *ngIf="!username">John &nbsp;
+                                                    Doe</span> </h4>
+                                            <h4 class="">
+                                                <span class="text-darkblue" *ngIf="username">{{username}}</span>
+                                            </h4>
                                             <h6 class="mb-3">Marketing Expert</h6>
 
                                             <div class="d-flex justify-content-between pe-5 ps-3">
@@ -344,9 +395,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="mt-4 text-end">
+                                    <!-- <div class="mt-4 text-end">
                                         <button type="submit" class="btn green-btn ">Create Signature</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -361,218 +412,5 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-gray">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Company Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body m-4">
-                    <ul class="nav nav-tabs" id="" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                aria-selected="true">Company Info</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                type="button" role="tab" aria-controls="profile" aria-selected="false">Company
-                                Social Links</button>
-                        </li>
 
-                    </ul>
-                    <div class="tab-content  mt-4" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form [formGroup]="templateForm"  (ngSubmit)="onSubmit()">
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Name :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img
-                                                    class="w-10 h-25" src="assets/images/cross.png"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Website
-                                                :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Address
-                                                :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Phone :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Fax :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Logo :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn pink-btn">Cancel</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn green-btn">Apply Changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <form>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/facebook.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/instagram.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/linkedin.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/youtube.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/twitter.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <p class="text-blue"><i class="fa fa-plus-circle"
-                                                    aria-hidden="true"></i>
-                                                Add New Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn pink-btn">Cancel</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn green-btn">Apply Changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
-

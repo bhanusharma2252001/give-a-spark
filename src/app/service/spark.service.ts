@@ -99,12 +99,15 @@ addCompanyDetails(data:any){
     headers: { Authorization: `bearer ${this.token}` },
   }
 );
-
-
-
 }
+  // signatureDetails--basicTemplates
 
-
-
+  addsignatureDetails(data:any){
+    return this.http.post(environment.localApiURL+ '/api/template/signatureDetails', data,
+    {
+      headers: { Authorization: `bearer ${this.token}` },
+    }
+  );
+  }
 
 }
