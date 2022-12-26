@@ -7,12 +7,16 @@ const path = require("path");
 console.log(port);
 app.listen(port);
 
-app.use(express.static("dist/giveaspark-client"));
+
+// /home/perfectiongeeks/giveasparkClient/Giveaspark_client/dist/giveaspark-client/index.html - path
+
+// /home/shrey/giveaspark_client/dist/giveaspark-client/index.html- wrong path
+app.use(express.static("dist/giveaspark_client"));
 
 app.get("/*", function (req, res) {
-  res.sendFile(__dirname + "/dist/giveaspark-client/index.html");
+  res.sendFile(__dirname + "/dist/giveaspark_client/index.html");
 });
 
-app.use(express.static(path.join(__dirname, "dist/giveaspark-client")));
+app.use(express.static(path.join(__dirname, "dist/giveaspark_client")));
 //test commit
 
