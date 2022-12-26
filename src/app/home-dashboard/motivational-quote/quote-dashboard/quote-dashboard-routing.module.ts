@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { QuoteDashboardComponent } from './quote-dashboard.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'', component:QuoteDashboardComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

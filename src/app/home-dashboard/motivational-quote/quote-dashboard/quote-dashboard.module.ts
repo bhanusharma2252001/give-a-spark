@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { QuoteDashboardRoutingModule } from './quote-dashboard-routing.module';
 import { QuoteDashboardComponent } from './quote-dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { QuoteDashboardComponent } from './quote-dashboard.component';
   ],
   imports: [
     CommonModule,
-    QuoteDashboardRoutingModule
+    QuoteDashboardRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class QuoteDashboardModule { }

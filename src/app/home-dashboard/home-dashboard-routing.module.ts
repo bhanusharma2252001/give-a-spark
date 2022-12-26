@@ -15,7 +15,11 @@ const routes: Routes = [
       
       { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
       { path: 'mystory', loadChildren: () => import('./mystory/mystory.module').then((m) => m.MystoryModule)},
-      { path: 'myquote', loadChildren: () => import('./myquote/myquote.module').then((m) => m.MyquoteModule)}
+      { path: 'myquote', loadChildren: () => import('./myquote/myquote.module').then((m) => m.MyquoteModule)},
+      { path: 'motivational-quote', loadChildren: () => import('./motivational-quote/motivational-quote.module').then((m) => m.MotivationalQuoteModule)},
+      { path: 'motivational-story', loadChildren: () => import('./motivational-story/motivational-story.module').then((m) => m.MotivationalStoryModule)},
+      { path: 'plan', loadChildren: () => import('./plan/plan.module').then((m) => m.PlanModule)},
+
     ]}
 
 ];

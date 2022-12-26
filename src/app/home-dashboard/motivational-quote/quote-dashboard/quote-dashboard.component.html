@@ -1,1 +1,91 @@
-<p>quote-dashboard works!</p>
+<form [formGroup]="showQuotesForm" >
+    <div class="row m-0 p-0 justify-content-center mt-3">
+        <div class="col-md-4 col-lg-4">
+            <select class="form-select fs-12 text-light bg-dark  border-1 p-3 w-100" aria-label="Default select example"
+                formControlName="categoriesId" (change)="getSubCategory()">
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
+
+            </select>
+            <!-- <div *ngIf="addQuotesForm.get('categoriesId')?.hasError('required') && addQuotesForm.get('categoriesId')?.touched"
+        class="invalid-alert">
+        <div *ngIf="f['categoriesId'].touched && f['categoriesId'].invalid"
+            class="invalid-alert">Category is required </div>
+    </div> -->
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+            <select class="form-select fs-12 text-light bg-dark   border-1 p-3 w-100"
+                aria-label="Default select example" formControlName="subCategoriesId" (change)="
+            getSubsubCategory()">
+                <option value="" disabled selected>Select Sub Category</option>
+                <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}</option>
+
+            </select>
+            <!-- <div *ngIf="addQuotesForm.get('subCategoriesId')?.hasError('required') && addQuotesForm.get('subCategoriesId')?.touched"
+        class="invalid-alert">
+        <div *ngIf="f['subCategoriesId'].touched && f['subCategoriesId'].invalid"
+            class="invalid-alert">Sub category is required </div>
+    </div> -->
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+            <select class="form-select fs-12 text-light bg-dark   border-1 p-3 w-100"
+                aria-label="Default select example" formControlName="subSubCategoriesId" (change)="showQuote(showQuotesForm.value)">
+                <option value="" disabled selected>Select Sub Sub Category</option>
+                <option *ngFor="let subsubcat of subSubCategory?.subSubCategories" [value]="subsubcat?._id">
+                    {{subsubcat?.name}}
+                </option>
+            </select>
+            <!-- <div *ngIf="addQuotesForm.get('subSubCategoriesId')?.hasError('required') && addQuotesForm.get('subSubCategoriesId')?.touched"
+        class="invalid-alert">
+        <div *ngIf="f['subSubCategoriesId'].touched && f['subSubCategoriesId'].invalid"
+            class="invalid-alert">Sub sub category is required </div>
+    </div> -->
+        </div>
+
+    </div>
+</form>
+
+
+
+<!-- show Quote -->
+
+<div class="col-6 m-3">
+
+
+    <div class="border border-dark p-3 m-2" *ngFor="let quote of quoteList">
+
+        <h3> Quotes Name </h3>
+        <p>{{quote?.longQuotes}}</p>
+
+        <h3>Author Name :-</h3>
+        <div>{{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</div>
+
+    </div>
+
+<!-- 
+    <div class="border border-dark p-3 m-2">
+
+        <h3> Quotes Name </h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, facere? Magnam id repellendus nisi
+            mollitia aliquam modi labore ea ab ducimus architecto. Commodi, qui.</p>
+
+        <h3>Author Name :-</h3>
+        <div>Elena Gilbert</div>
+
+    </div>
+
+    <div class="border border-dark p-3 m-2">
+
+        <h3> Quotes Name </h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, facere? Magnam id repellendus nisi
+            mollitia aliquam modi labore ea ab ducimus architecto. Commodi, qui.</p>
+
+        <h3>Author Name :-</h3>
+        <div>Elena Gilbert</div>
+
+    </div> -->
+
+
+</div>

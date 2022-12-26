@@ -142,17 +142,38 @@ getMyStory(){
 }
 
 
+// Motivational Quotes
+
+getCategoryList(): Observable<any> {
+  return this.http.get(environment.localApiURL + '/api/categories/getAllCategories', {
+    headers: {
+       Authorization: `bearer ${this.token}`},
+  });
+}
+
+getSubCategoryList(id: any): Observable<any> {
+  return this.http.get(environment.localApiURL+ '/api/categories/subCat?id=' + id, {
+      headers: {
+        Authorization: `bearer ${this.token}`},
+    });
+}
 
 
 
+getSubSubCat(id: any) {
+  return this.http.get(environment.localApiURL + '/api/categories/getSubCategories/' + id, {
+      headers: { Authorization: `bearer ${this.token}` },
+    });
+}
 
 
-
-
-
-
-
-
+motivaionalQuotebyFilter(data:any){
+  return this.http.post(environment.localApiURL+ '/api/Quotes/motivationalFilterQuotesByCat', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` },
+  }
+);
+}
 
 
 
