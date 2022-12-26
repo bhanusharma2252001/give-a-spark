@@ -110,4 +110,50 @@ addCompanyDetails(data:any){
   );
   }
 
+
+//  My quote Create
+addQuote(data:any){
+  return this.http.post(environment.localApiURL+ '/api/Quotes/createQuotesByUser', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` },
+  }
+);
+}
+getMyQuotes(){
+  return this.http.get(environment.localApiURL + '/api/Quotes/myQuotes' ,{
+    headers: { Authorization: `bearer ${this.token}` },
+  });
+}
+//  My Story
+
+
+addMyStory(data:any){
+  return this.http.post(environment.localApiURL+ '/api/Stories/createStoriesByUser', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` },
+  }
+);
+}
+
+getMyStory(){
+  return this.http.get(environment.localApiURL + '/api/Stories/myStories' ,{
+    headers: { Authorization: `bearer ${this.token}` },
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -6,7 +6,7 @@ import { HomeDashboardComponent } from './home-dashboard.component';
 
 
 @NgModule({
-  declarations: [HomeDashboardComponent],
+  declarations: [HomeDashboardComponent,SidebarComponent],
   imports: [
     CommonModule,
     HomeDashboardRoutingModule,

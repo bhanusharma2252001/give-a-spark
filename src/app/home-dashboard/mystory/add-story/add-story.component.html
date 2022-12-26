@@ -1,1 +1,47 @@
-<p>add-story works!</p>
+<div>
+    <form  [formGroup]="addStoryForm" (ngSubmit)="  saveStory(addStoryForm.value)">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label text-blue fs-12">Writer Name</label>
+            <input type="text" class="form-control text-dark bg-semiblack p-3" id="exampleFormControlInput1"
+                placeholder="writefrName" formControlName="writerName">
+
+                <div *ngIf="f['writerName'].touched && f['writerName'].invalid" class="alert  text-danger">
+                    <div *ngIf="f['writerName'].errors?.['required']">Please provide name</div>
+                    <!-- <div *ngIf="m.writerName.errors?.minlength">Name must be 4 characters</div>
+                    <div *ngIf="m.writerName.errors?.noWhiteSpace">Whitespace is not allowed</div> -->
+                  </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class=" form-floating mt-2 upload-file  text-white bg-semiblack">
+                <!-- <button class="btn-upload p-2 w-100 text-end" type="button">{{imageData2?
+                    imageData2:""}}<i class="fa fa-folder fs-3 text-blue"></i></button> -->
+                <input type="file" accept="image/png, image/gif, image/jpeg"
+                    class="p-2 form-control text-dark  fs-14 fw-light" placeholder="name@example.com"
+                    formControlName="writerProfile" (change)="onSelectImage($event)">
+                <!-- <div *ngIf="addQuotesForm.get('uploadImage')?.hasError('required') && addQuotesForm.get('uploadImage')?.touched"
+                    class="invalid-alert">
+                    <div *ngIf="f['uploadImage'].touched && f['uploadImage'].invalid" class="invalid-alert">Image is
+                        required </div>
+                </div> -->
+                <label for="floatingInput" class="upload-document p-2 fs-14 pt-3 text-white">Upload
+                    Image</label>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label text-blue fs-12">
+                Quote</label>
+            <input type="text" class="form-control text-dark bg-semiblack p-3" id="exampleFormControlInput1"
+                placeholder="Write Quote" formControlName="enterStories"
+                >
+           
+            
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class="mt-2">
+                <button class="blue-btn  p-1 pe-3 ps-3" type="submit"
+                    >Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
