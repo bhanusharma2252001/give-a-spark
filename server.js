@@ -7,12 +7,12 @@ const path = require("path");
 console.log(port);
 app.listen(port);
 
-app.use(express.static("dist/giveaspark_client"));
+app.use(express.static("dist/giveaspark-client"));
 
 app.get("/*", function (req, res) {
-  res.sendFile(__dirname + "/dist/giveaspark_client/index.html");
+  res.sendFile(__dirname + "/dist/giveaspark-client/index.html");
 });
 
-app.use(express.static(path.join(__dirname, "dist/giveaspark_client")));
+app.use(express.static(path.join(__dirname, "dist/giveaspark-client")));
 //test commit
 
