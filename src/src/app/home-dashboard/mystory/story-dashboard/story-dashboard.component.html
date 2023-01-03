@@ -1,0 +1,36 @@
+<div class="box-2 mt-2">
+   
+    <table class="table">
+        <thead class="position-sticky">
+          <tr>
+
+            <th scope="col">Images</th>
+            <th scope="col">Name</th>
+            <th scope="col">Story</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-dark text-light" *ngFor="let story of storyList">
+          
+            <td scope="row">         
+
+              <div
+                *ngIf="story?.writerProfile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                <img class="img-fluid w-40 rounded-circle"
+                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{story?.writerProfile }}" />
+              </div>
+              <div
+                *ngIf="story?.writerProfile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                <img class="w-40 p-2" src="{{story?.writerProfile }}">
+              </div>
+            </td>
+            <td>{{story?.writerName}}</td>
+            <td>{{story?.enterStories}}</td>
+
+          </tr>
+
+
+        </tbody>
+      </table>
+</div>
+
