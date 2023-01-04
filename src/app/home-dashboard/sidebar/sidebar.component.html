@@ -3,12 +3,12 @@
         <div class="col-md-1 col-lg-1 p-0 side-nav-sec dekstop-menu">
             <div class="position-relative h-100"> -->
 
-                <div class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
+                <div *ngIf="href !='/home-dashboard/user-profile'" class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
 
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                         <li class="nav-item mb-2">
 
-                            <a href="" class="nav-link py-3 rounded-0" aria-current="page" title="Free"
+                            <a routerLink="./homepage" class="nav-link py-3 rounded-0" aria-current="page" title="Free"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/dashboard.png" class="img-menu" width="24"
@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a href="#" class="nav-link   py-3 border-0" title="quotes"
+                            <a routerLink="./motivational-quote" class="nav-link   py-3 border-0" title="quotes"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/quotes.png" class="img-menu" width="24"
@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
+                            <a routerLink="./motivational-story" class="nav-link   py-3 border-0" title="Dashboard"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/my-stories.png" class="img-menu" width="24"
@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
+                            <a routerLink="./myquote" class="nav-link   py-3 border-0" title="Dashboard"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/quotes.png" class="img-menu" width="24"
@@ -94,7 +94,7 @@
                         </li>
 
                         <li class="nav-item mb-2">
-                            <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
+                            <a routerLink="./mystory" class="nav-link   py-3 border-0" title="Dashboard"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/my-stories.png" class="img-menu" width="24"

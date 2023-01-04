@@ -23,12 +23,16 @@ export class PlanDashboardComponent implements OnInit {
   // var elements = stripe.elements();
 
 
-    makePayment(amount: number) {
+    makePayment(amount: number,plan:string) {
       const paymentHandler = (<any>window).StripeCheckout.configure({
         key: 'pk_test_51MJyl0SI2wocFxEub2GS0sq6z8Vsk1okWggvmGWbEqkXUKlEfOsKxFalhxx495rwgTYul5ewkASzYDWTidswI7GE00guo4NJo8',
         locale: 'auto',
         token: function (stripeToken: any) {
-          stripeToken.selectPlan= "Plan B"
+          if(plan == 'planB') {
+            stripeToken.SelectPlan= "Plan B"
+          } else if(plan == 'planC') {
+            stripeToken.SelectPlan= "Plan C"
+          }
           console.log(stripeToken);
   console.log(amount);
 
@@ -41,7 +45,7 @@ export class PlanDashboardComponent implements OnInit {
       const paymentStripe = (stripeToken: any) => {
         this.api.makePayment(stripeToken).subscribe((data:any)=>{
           console.log(data);
-
+          alert('Payment Successfully')
         })
 
       }
@@ -79,4 +83,10 @@ export class PlanDashboardComponent implements OnInit {
     }
 
 
+
+    submit(){
+      let body:{
+        
+      }
+    }
 }

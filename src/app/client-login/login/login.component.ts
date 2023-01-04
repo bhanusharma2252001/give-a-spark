@@ -11,6 +11,8 @@ import {
   FacebookLoginProvider,
   SocialUser,
 } from 'angularx-social-login';
+import { CredentialResponse, PromptMomentNotification } from 'google-one-tap';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,11 +20,14 @@ import {
 })
 export class LoginComponent implements OnInit {
 auth2: any;
-  @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
+  // @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
+  // @ViewChild('loginRef', {static: true })loginElement!: ElementRef;
   LoginForm: FormGroup;
 
   submitted = false;
+  show: any;
 
+  Name: any;
   isLoggin = false;
   model: any;
   loggedInUserData: any;
@@ -35,11 +40,12 @@ auth2: any;
   repeatFieldTextType!: boolean;
 
 token:any;
-
+private clientId = environment.clientId
 
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
-  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { console.log(this.isLoggedin);
+  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { 
+    console.log(this.isLoggedin);
 
  
     this.LoginForm = this.fb.group({
@@ -61,17 +67,78 @@ token:any;
     // }, 1000);
 
 
-
+    // this.googleInitialize();
    
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
       this.isLoggedin = user != null;
+      console.log(user);
+      this.socialLogin(user)
      this._ngZone.run(() => {
         this._Router.navigate(['home-dashboard']);
       }) 
     });
   
-    this.googleAuthSDK();
+    // this.googleAuthSDK();
+    window.onload = () => {
+      // @ts-ignore
+      google.accounts.id.initialize({
+        client_id: this.clientId,
+        callback: this.handleCredentialResponse.bind(this),
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+      // @ts-ignore
+      google.accounts.id.renderButton(
+      // @ts-ignore
+      document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large", width: "100%" } 
+      );
+      // @ts-ignore
+      google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+    };
+  }
+
+  async handleCredentialResponse(response: CredentialResponse) {
+    console.log(response.credential,'hghjuygtujyujy');
+    console.log(response, 'kkkkkkkkkkkkkkkkkkk')
+    debugger;
+    await this.sparkService.LoginWithGoogle(response.credential).subscribe(
+      (x:any) => {
+        debugger;
+        localStorage.setItem("token", x.token);
+        this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard']);
+        })},
+      (error:any) => {
+          console.log(error);
+        }
+      );  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  socialLogin(user:any) {
+    let body :any ={
+      token:user.authToken
+    }
+    console.log(body,'json');
     
   }
 
@@ -145,60 +212,69 @@ token:any;
 // Google Login
 
 
-callLogin() {
-
-  this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
-    (googleAuthUser: any) => {
-
-      sessionStorage.setItem ;
-
-      let profile = googleAuthUser.getBasicProfile();
 
 
-      console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+// googleInitialize() {
+//   (window as any)['googleSDKLoaded'] = () => {
+//     (window as any)['gapi'].load('auth2', () => {
+//       this.auth2 = (window as any)['gapi'].auth2.getAuthInstance({
+//         client_id: '935459196417-oju7vlqs42s41rfame001tspj2foon4q.apps.googleusercontent.com',
+//         cookie_policy: 'single_host_origin',
+//         scope: 'profile email',
+//         plugin_name:'Giveaspark'
+//       });
+//       this.prepareLogin();
+//     });
+//   }
+//   (function(d, s, id){
+//     var js, fjs = d.getElementsByTagName(s)[0] as any;
+//     if (d.getElementById(id)) {return;}
+//     js = d.createElement(s); js.id = id;
+//     js.setAttribute('src',"https://apis.google.com/js/platform.js?onload=googleSDKLoaded");
+//     fjs.parentNode.insertBefore(js, fjs);
+//   }(document, 'script', 'google-jssdk'));
+// }
 
-      // this._Router.navigate(['home-dashboard']);
-      this._ngZone.run(() => {
-        this._Router.navigate(['home-dashboard']);
-      })
+// prepareLogin() {
+//   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
+//     (googleUser: any) => {
+//       let profile = googleUser.getBasicProfile();
+      
+      
+//       console.log('Token || ' + googleUser.getAuthResponse().id_token);
+//       this.show = true;
+//       this.Name =  profile.getName();
+//       console.log('Image URL: ' + profile.getImageUrl());
+//       console.log('Email: ' + profile.getEmail());
+//       console.log(profile);
+//       let data = {
+//         email: profile.getEmail(),
+//         firstName: profile.getName(),
+//         socialId: profile.getId(),
+//         isGoogle: true,
+//         // isFacebook: false
+//       }
+//       console.log(data);
+//       this.sparkService.registerSocialUser(data).subscribe
+//       (
+//        (successData:any) => this.success(successData),
+//        (reject:any) => {
+//          this.toast.error("Please Try Again");
+//        }
+//      );
+//       // this.toastr.successToastr("Successfully logged in",'' , {toastTimeout: 2000});
+//     }, (error: any) => {
+//       // alert(JSON.stringify(error, undefined, 2));
+//       console.log(error);
+      
+//       // this.toastr.errorToastr("Please Try Again");
+//     });
+// }
 
 
 
 
-    }, (error: any) => {
-      alert(JSON.stringify(error, undefined, 2));
-    });
 
-}
-googleAuthSDK() {
-  
-  (<any>window)['googleSDKLoaded'] = () => {
-    (<any>window)['gapi'].load('auth2', () => {
-      this.auth2 = (<any>window)['gapi'].auth2.getAuthInstance({
-        client_id:'670734614925-ve5lmgfrjcjg37oj3scepn5tfvdga00u.apps.googleusercontent.com',
-        plugin_name:'login',
-        cookiepolicy: 'single_host_origin',
-        scope: 'profile email'
-      });
-      this.callLogin();
-     
-    });
-   
-  }
-
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) { return; }
-    js = d.createElement('script');
-    js.id = id;
-    js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
-    fjs?.parentNode?.insertBefore(js, fjs);
-  }(document, 'script', 'google-jssdk'));
-}
 
 
 

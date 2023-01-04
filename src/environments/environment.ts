@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   // localApiURL: 'http://13.213.66.25:8080',
-  localApiURL: 'https://api.giveaspark.com'
-
+  localApiURL: 'https://api.giveaspark.com',
+  clientId: "935459196417-oju7vlqs42s41rfame001tspj2foon4q.apps.googleusercontent.com"
 };
 
 /*

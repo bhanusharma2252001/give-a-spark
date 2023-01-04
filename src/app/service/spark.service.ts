@@ -36,6 +36,21 @@ export class SparkService {
 onSignup(data:any): Observable<any> {
   return this.http.post(environment.localApiURL + '/api/user/register', data);
 }
+//  GOOGLE LOGIN
+
+public signOutExternal = () => {
+  localStorage.removeItem("token");
+  console.log("token deleted")
+}
+
+LoginWithGoogle(credentials: string): Observable<any> {
+const header = new HttpHeaders().set('Content-type', 'application/json');
+return this.http.post(environment.localApiURL + '/api/user/socialLogin', JSON.stringify(credentials), { headers: header });
+}
+
+registerSocialUser(data: any): Observable<any>{
+  return this.http.post(environment.localApiURL + '/api/user/socialLogin',data);
+ }
 
 // email verfication
 
@@ -182,7 +197,8 @@ motivaionalQuotebyFilter(data:any){
 makePayment(stripeToken:any, ):Observable<any>{
   // const url = "https://api.giveaspark.com/api/stripe/paymentIntent"
   // return this.http.post<any>(url,{token:stripeToken})
-  return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
+  // return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
+    return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', stripeToken,
   {
     headers: { Authorization: `bearer ${this.token}` }
   }

@@ -1,1 +1,109 @@
-<p>story-dashboard works!</p>
+<header>
+
+    <div class="row align-items-center position-relative">
+        <div class="mouse_move">
+            <img id="img1" src="assets/images/logo-an.png" class="mouse" value="5" />
+
+            <img id="img2" src="assets/images/btn-an.png" class="mouse" value="-5" />
+        </div>
+        <div class="col-md-3 col-lg-3 align-self-center logo-bg ">
+            <a class="navbar-brand " href="index.html">
+                <img src="assets/images/logo.png" class="img-fl">
+            </a>
+        </div>
+        <div class="col-md-8 col-lg-8 position-relative">
+
+
+            <nav class="mt-4 container">
+                <div class="d-flex align-items-start">
+                    <p class="bg-yellow p-2 mb-0">Your free trial ends in 10 days.Upgrade now and get 15% early
+                        bird
+                        discount.
+                    </p>
+                    <button class="btn pink-btn p-2 ms-3" type="submit">Upgrade Plan</button>
+                </div>
+            </nav>
+
+        </div>
+        <div class="col-md-1 col-lg-1 p-0">
+            <form class="d-flex">
+                <img src="assets/images/profile.png">
+            </form>
+        </div>
+    </div>
+</header>
+
+
+<div class="row m-0 p-0 mt-5 align-items-center">
+    <div class="col-md-12 col-lg-12">
+        <div class="border-bottom">
+            <h3>Motivational Stories</h3>
+        </div>
+        <div class="row m-0 p-0 mt-4">
+            <div class="col-md-12 col-lg-12">
+                <form [formGroup]="showStoriesForm" >
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <select class="form-select light-bg  p-3"
+                            aria-label="Default select example" formControlName="categoriesId" (change)="getSubCategory()">
+                            <option value="" disabled selected>Open this select menu</option>
+                            <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <select class="form-select light-bg  p-3"
+                            aria-label="Default select example" formControlName="subCategoriesId" (change)="getSubsubCategory()">
+                            
+                            <option value="" disabled selected>Select Sub Category</option>
+                            <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}</option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <select class="form-select light-bg  p-3"
+                            aria-label="Default select example" formControlName="subSubCategoriesId" (change)="showStory(showStoriesForm.value)">
+                            <option value="" disabled selected>Select Sub Sub Category</option>
+                            <option *ngFor="let subsubcat of subSubCategory?.subSubCategories" [value]="subsubcat?._id">
+                                {{subsubcat?.name}}
+                            </option>
+                        </select>
+                    </div>
+                    
+
+                </div>
+            </form>
+
+
+                <div class="row mt-4">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="border-10 box-border p-2" *ngFor="let quote of quoteList">
+                            <figure class="text-center">
+                                <blockquote class="blockquote">
+                                  <p class="fs-14"> {{quote?.longQuotes}} </p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+                                   
+                                  <cite class="fs-24" title="Source Title">{{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</cite>
+                                </figcaption>
+                              </figure>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 col-lg-6">
+                        <div class="border-10 box-border p-2">
+                            <figure class="text-center">
+                                <blockquote class="blockquote">
+                                  <p class="fs-14"> “Don't settle for average. Bring your best to the moment. Then, whether it fails or succeeds, at least you know you gave all you had.” 
+                                    </p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+                                   
+                                  <cite class="fs-24" title="Source Title"> Angela Bassett</cite>
+                                </figcaption>
+                              </figure>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

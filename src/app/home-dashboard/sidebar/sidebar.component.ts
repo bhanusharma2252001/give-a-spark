@@ -8,19 +8,32 @@ import { SparkService } from 'src/app/service/spark.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
+  public href:string="";
   constructor(private api:SparkService,private _ngZone:NgZone, private router:Router) { }
 
+
+ 
+
   ngOnInit(): void {
+    this.href=this.router.url;
+    console.log(this.router.url)
   }
 
-  logout() {
+  public logout() {
     // this.socialAuthService.signOut();
     sessionStorage.clear();
     this.api.isLoggedIn = false;
+    this.api.signOutExternal();
     this._ngZone.run(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['']).then(() => window.location.reload());
     })
 
   }
+
+  // public logout(){
+  //   this.SparkService.signOutExternal();
+  //   this._ngZone.run(() => {
+  //     this.router.navigate(['/']).then(() => window.location.reload());
+  //   })
+  // }
 }

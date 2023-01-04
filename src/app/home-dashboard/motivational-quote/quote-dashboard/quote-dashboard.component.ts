@@ -76,6 +76,7 @@ export class QuoteDashboardComponent implements OnInit {
       console.log(res);
       // this.toast.success('Added  Successfully');
 console.log(body)
+console.log(this.quoteList, "qqqq")
 
 
     },

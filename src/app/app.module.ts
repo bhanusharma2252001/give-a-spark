@@ -50,7 +50,7 @@ import { EnterOtpComponent } from './client-login/enter-otp/enter-otp.component'
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '486740440162-2ksipn0ripe704rkm9fcttvgjhgduv26.apps.googleusercontent.com'
+              '648209548530-4qh4h2oru21vmpnt8hngjdiv4ja7h2tl.apps.googleusercontent.com'
             )
           },
           {
