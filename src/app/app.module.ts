@@ -35,6 +35,7 @@ const googleLoginOptions = {
       timeOut: 3000,
       positionClass: 'toast-top-right',
       progressBar: true,
+      
       progressAnimation: 'decreasing',
       closeButton: true,
       preventDuplicates: true,
