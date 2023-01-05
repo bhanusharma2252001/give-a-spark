@@ -66,9 +66,9 @@ token:any;
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
       this.isLoggedin = user != null;
-    //  this._ngZone.run(() => {
-    //     this._Router.navigate(['home-dashboard']);
-    //   }) 
+     this._ngZone.run(() => {
+        this._Router.navigate(['home-dashboard']);
+      }) 
     });
   
     this.googleAuthSDK();
