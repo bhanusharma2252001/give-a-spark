@@ -48,10 +48,10 @@ const header = new HttpHeaders().set('Content-type', 'application/json');
 return this.http.post(environment.localApiURL + '/api/user/socialLogin', JSON.stringify(credentials), { headers: header });
 }
 
-registerSocialUser(data: any): Observable<any>{
+
+ registerSocialUser(data: any): Observable<any>{
   return this.http.post(environment.localApiURL + '/api/user/socialLogin',data);
  }
-
 // email verfication
 
 enterEmailForVerify(data:any):Observable<any>{
@@ -194,11 +194,11 @@ motivaionalQuotebyFilter(data:any){
 
 // planpurchase
 
-makePayment(stripeToken:any, ):Observable<any>{
+makePayment(stripeToken:any ):Observable<any>{
   // const url = "https://api.giveaspark.com/api/stripe/paymentIntent"
   // return this.http.post<any>(url,{token:stripeToken})
   // return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
-    return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', stripeToken,
+    return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntentKey', {token:stripeToken},
   {
     headers: { Authorization: `bearer ${this.token}` }
   }

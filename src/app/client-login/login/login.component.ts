@@ -11,8 +11,6 @@ import {
   FacebookLoginProvider,
   SocialUser,
 } from 'angularx-social-login';
-import { CredentialResponse, PromptMomentNotification } from 'google-one-tap';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,14 +18,11 @@ import { CredentialResponse, PromptMomentNotification } from 'google-one-tap';
 })
 export class LoginComponent implements OnInit {
 auth2: any;
-  // @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
-  // @ViewChild('loginRef', {static: true })loginElement!: ElementRef;
+  @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
   LoginForm: FormGroup;
 
   submitted = false;
-  show: any;
 
-  Name: any;
   isLoggin = false;
   model: any;
   loggedInUserData: any;
@@ -40,12 +35,11 @@ auth2: any;
   repeatFieldTextType!: boolean;
 
 token:any;
-private clientId = environment.clientId
+
 
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
-  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { 
-    console.log(this.isLoggedin);
+  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { console.log(this.isLoggedin);
 
  
     this.LoginForm = this.fb.group({
@@ -67,78 +61,17 @@ private clientId = environment.clientId
     // }, 1000);
 
 
-    // this.googleInitialize();
+
    
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
       this.isLoggedin = user != null;
-      console.log(user);
-      this.socialLogin(user)
-     this._ngZone.run(() => {
-        this._Router.navigate(['home-dashboard']);
-      }) 
+    //  this._ngZone.run(() => {
+    //     this._Router.navigate(['home-dashboard']);
+    //   }) 
     });
   
-    // this.googleAuthSDK();
-    window.onload = () => {
-      // @ts-ignore
-      google.accounts.id.initialize({
-        client_id: this.clientId,
-        callback: this.handleCredentialResponse.bind(this),
-        auto_select: false,
-        cancel_on_tap_outside: true
-      });
-      // @ts-ignore
-      google.accounts.id.renderButton(
-      // @ts-ignore
-      document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large", width: "100%" } 
-      );
-      // @ts-ignore
-      google.accounts.id.prompt((notification: PromptMomentNotification) => {});
-    };
-  }
-
-  async handleCredentialResponse(response: CredentialResponse) {
-    console.log(response.credential,'hghjuygtujyujy');
-    console.log(response, 'kkkkkkkkkkkkkkkkkkk')
-    debugger;
-    await this.sparkService.LoginWithGoogle(response.credential).subscribe(
-      (x:any) => {
-        debugger;
-        localStorage.setItem("token", x.token);
-        this._ngZone.run(() => {
-          this._Router.navigate(['home-dashboard']);
-        })},
-      (error:any) => {
-          console.log(error);
-        }
-      );  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  socialLogin(user:any) {
-    let body :any ={
-      token:user.authToken
-    }
-    console.log(body,'json');
+    this.googleAuthSDK();
     
   }
 
@@ -193,7 +126,10 @@ private clientId = environment.clientId
       console.log(this.sparkService.isLoggedIn);
       if(data?.result?.roleId == 0) {
         sessionStorage.setItem('roleId', data?.result?.roleId);
-        this._Router.navigate(['home-dashboard']);
+        this._ngZone.run(() => {
+              this._Router.navigate(['home-dashboard']);
+            }) 
+        // this._Router.navigate(['home-dashboard']);
       } 
       // else {
       //   sessionStorage.setItem('roleId', data?.result?.roleId);
@@ -202,6 +138,7 @@ private clientId = environment.clientId
       
       
     }
+    
   }
 
   logout() {
@@ -212,69 +149,64 @@ private clientId = environment.clientId
 // Google Login
 
 
+callLogin() {  
+  this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
+    (googleAuthUser: any) => {
+      let profile = googleAuthUser.getBasicProfile();
+      console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
 
+      let data = {
+        email: profile.getEmail(),
+        firstName: profile.getName(),
+        socialId: profile.getId(),
+        isGoogle: true,
+        isFacebook: false
+      }
+        this.sparkService.registerSocialUser(data).subscribe
+        (
+         (successData) => this.success(successData),
+         (reject) => {
+          console.log(reject);
+          
+          //  this.toastr.errorToastr("Please Try Again");
+          alert(reject.error.error)
+         }
+       );
+    }, (error: any) => {
+      console.log(error);
+      alert(JSON.stringify(error, undefined, 2));
+    });
 
-// googleInitialize() {
-//   (window as any)['googleSDKLoaded'] = () => {
-//     (window as any)['gapi'].load('auth2', () => {
-//       this.auth2 = (window as any)['gapi'].auth2.getAuthInstance({
-//         client_id: '935459196417-oju7vlqs42s41rfame001tspj2foon4q.apps.googleusercontent.com',
-//         cookie_policy: 'single_host_origin',
-//         scope: 'profile email',
-//         plugin_name:'Giveaspark'
-//       });
-//       this.prepareLogin();
-//     });
-//   }
-//   (function(d, s, id){
-//     var js, fjs = d.getElementsByTagName(s)[0] as any;
-//     if (d.getElementById(id)) {return;}
-//     js = d.createElement(s); js.id = id;
-//     js.setAttribute('src',"https://apis.google.com/js/platform.js?onload=googleSDKLoaded");
-//     fjs.parentNode.insertBefore(js, fjs);
-//   }(document, 'script', 'google-jssdk'));
-// }
+}
+googleAuthSDK() {
+  
+  (<any>window)['googleSDKLoaded'] = () => {
+    (<any>window)['gapi'].load('auth2', () => {
+      this.auth2 = (<any>window)['gapi'].auth2.getAuthInstance({
+        client_id:'601328888286-spmfslu2dh5p42u8tbg6876kquvptg0m.apps.googleusercontent.com',
+        plugin_name:'login',
+        cookiepolicy: 'single_host_origin',
+        scope: 'profile email'
+      });
+      this.callLogin();
+     
+    });
+   
+  }
 
-// prepareLogin() {
-//   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
-//     (googleUser: any) => {
-//       let profile = googleUser.getBasicProfile();
-      
-      
-//       console.log('Token || ' + googleUser.getAuthResponse().id_token);
-//       this.show = true;
-//       this.Name =  profile.getName();
-//       console.log('Image URL: ' + profile.getImageUrl());
-//       console.log('Email: ' + profile.getEmail());
-//       console.log(profile);
-//       let data = {
-//         email: profile.getEmail(),
-//         firstName: profile.getName(),
-//         socialId: profile.getId(),
-//         isGoogle: true,
-//         // isFacebook: false
-//       }
-//       console.log(data);
-//       this.sparkService.registerSocialUser(data).subscribe
-//       (
-//        (successData:any) => this.success(successData),
-//        (reject:any) => {
-//          this.toast.error("Please Try Again");
-//        }
-//      );
-//       // this.toastr.successToastr("Successfully logged in",'' , {toastTimeout: 2000});
-//     }, (error: any) => {
-//       // alert(JSON.stringify(error, undefined, 2));
-//       console.log(error);
-      
-//       // this.toastr.errorToastr("Please Try Again");
-//     });
-// }
-
-
-
-
-
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement('script');
+    js.id = id;
+    js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+    fjs?.parentNode?.insertBefore(js, fjs);
+  }(document, 'script', 'google-jssdk'));
+}
 
 
 

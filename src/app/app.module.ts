@@ -16,6 +16,10 @@ import {
 import { SignupComponent } from './client-login/signup/signup.component';
 import { EnterEmailComponent } from './client-login/enter-email/enter-email.component';
 import { EnterOtpComponent } from './client-login/enter-otp/enter-otp.component';
+const googleLoginOptions = {
+  scope: 'profile email',
+  plugin_name:'google-login' //you use any name here
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +54,8 @@ import { EnterOtpComponent } from './client-login/enter-otp/enter-otp.component'
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '648209548530-4qh4h2oru21vmpnt8hngjdiv4ja7h2tl.apps.googleusercontent.com'
+              '601328888286-spmfslu2dh5p42u8tbg6876kquvptg0m.apps.googleusercontent.com',
+              googleLoginOptions
             )
           },
           {

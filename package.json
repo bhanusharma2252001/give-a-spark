@@ -21,6 +21,7 @@
     "@types/google-one-tap": "^1.2.2",
     "angularx-social-login": "^4.1.0",
     "gapi-script": "^1.2.0",
+    "ngx-stripe": "^7.4.4",
     "ngx-toastr": "^16.0.1",
     "platform-js": "^0.8.2",
     "rxjs": "~7.5.0",

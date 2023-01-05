@@ -25,7 +25,7 @@ export class PlanDashboardComponent implements OnInit {
 
     makePayment(amount: number,plan:string) {
       const paymentHandler = (<any>window).StripeCheckout.configure({
-        key: 'pk_test_51MJyl0SI2wocFxEub2GS0sq6z8Vsk1okWggvmGWbEqkXUKlEfOsKxFalhxx495rwgTYul5ewkASzYDWTidswI7GE00guo4NJo8',
+        key: 'pk_test_51MBbpvSIdADNOmjRYROfVBFFqQAIYAIDuhhtXRcc48QwGumM0cjiC0LmMqwQ8TSzZ0f4pzGNp5EuywRbO7iXbcOY00ZRZ7osjZ',
         locale: 'auto',
         token: function (stripeToken: any) {
           if(plan == 'planB') {
@@ -71,7 +71,7 @@ export class PlanDashboardComponent implements OnInit {
         script.src = 'https://checkout.stripe.com/checkout.js';
         script.onload = () => {
           this.paymentHandler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_51MJyl0SI2wocFxEub2GS0sq6z8Vsk1okWggvmGWbEqkXUKlEfOsKxFalhxx495rwgTYul5ewkASzYDWTidswI7GE00guo4NJo8',
+            key: 'pk_test_51MBbpvSIdADNOmjRYROfVBFFqQAIYAIDuhhtXRcc48QwGumM0cjiC0LmMqwQ8TSzZ0f4pzGNp5EuywRbO7iXbcOY00ZRZ7osjZ',
             locale: 'auto',
             token: function (stripeToken: any) {
               console.log(stripeToken);
@@ -82,11 +82,17 @@ export class PlanDashboardComponent implements OnInit {
       }
     }
 
+    
+payment(){
+
+}
 
 
-    submit(){
-      let body:{
-        
-      }
-    }
+
+
+
+
+    
+
+    
 }
