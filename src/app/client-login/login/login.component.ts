@@ -75,8 +75,31 @@ token:any;
     
   }
 
+ 
+
+
   loginWithFacebook(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((res:any)=>{
+      console.log(res,'fb result');
+      let profile = res.response
+      let data = {
+        email: profile.email,
+        firstName: profile.name,
+        socialId: profile.id,
+        isGoogle: false,
+        isFacebook: true
+      }
+        this.sparkService.registerSocialUser(data).subscribe
+        (
+         (successData) => this.success(successData),
+         (reject) => {
+          console.log(reject);
+          
+          //  this.toastr.errorToastr("Please Try Again");
+          alert(reject.error.error)
+         }
+       );
+    });
   }
   signOut(): void {
     this.socialAuthService.signOut();
