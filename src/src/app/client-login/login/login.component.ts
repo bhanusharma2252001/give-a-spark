@@ -22,6 +22,7 @@ auth2: any;
   LoginForm: FormGroup;
 
   submitted = false;
+  
 
   isLoggin = false;
   model: any;
