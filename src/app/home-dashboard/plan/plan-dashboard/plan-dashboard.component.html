@@ -278,6 +278,7 @@
                 <button id="submit">
                   <div class="spinner hidden" id="spinner"></div>
                   <span id="button-text">Pay now</span>
+        
                 </button>
                 <div id="payment-message" class="hidden"></div>
               </form>    
@@ -299,6 +300,7 @@
  <form [formGroup]="stripeForm"  class="mb-5" (ngSubmit)="payment()">
 
 <input type="text" formControlName="name" >
+
 
 
 
