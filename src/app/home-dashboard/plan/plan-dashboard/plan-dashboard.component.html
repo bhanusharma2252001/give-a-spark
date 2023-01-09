@@ -256,42 +256,6 @@
     </div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title
-              </h5>
-              <button type="button" class="btn-close"
-                  data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-     
-              <form id="payment-form">
-                <div id="link-authentication-element">
-                  <!--Stripe.js injects the Link Authentication Element-->
-                </div>
-                <div id="payment-element">
-                  <!--Stripe.js injects the Payment Element-->
-                </div>
-                <button id="submit">
-                  <div class="spinner hidden" id="spinner"></div>
-                  <span id="button-text">Pay now</span>
-        
-                </button>
-                <div id="payment-message" class="hidden"></div>
-              </form>    
-             </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary"
-                  data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save
-                  changes</button>
-          </div>
-      </div>
-  </div>
-</div>
 
 
 
@@ -299,12 +263,37 @@
 <h3 class="pb-5">Please Payment</h3>
  <form [formGroup]="stripeForm"  class="mb-5" (ngSubmit)="payment()">
 
-<input type="text" formControlName="name" >
+<input type="text" formControlName="name" placeholder="full name" >
+<br>
+<input type="number" formControlName="amount" placeholder="Amount">
 
-
-
+<button class="btn btn-info border-shadow" type="submit" data-toggle="modal" data-target="exampleModal" ></button>
 
 
 
  </form> -->
 
+
+ <div class="modal fade" id="exampleModal" tabindex="-1"
+ aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Modal title
+             </h5>
+             <button type="button" class="btn-close"
+                 data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+    
+           
+            </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-secondary"
+                 data-bs-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-primary">Save
+                 changes</button>
+         </div>
+     </div>
+ </div>
+</div>

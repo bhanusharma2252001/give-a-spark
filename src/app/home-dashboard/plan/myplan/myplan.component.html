@@ -1,0 +1,68 @@
+<div class="col-md-7 col-lg-10">
+    <div class="row m-0 p-0 align-items-center">
+        <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
+            <div class="rounded-circle bg-darkgray wh-225 position-relative">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <img class="wh-225 p-2" src="assets/images/profile-image.png">
+              
+                </div>
+                <div class="position-absolute top-50 start-0 ps-5 translate-middle">
+                    <div class="rounded-circle bg-black position-relative">
+                        <i class="fa fa-camera text-white p-1 fs-14" aria-hidden="true"></i>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 mt-2 m-0 p-0 ">
+            <div class="bg-darkblue details-plan  p-0">
+                <div class="row ps-5 p-3">
+                    <div class="col-md-5 col-lg-5">
+                        <h4 class="text-white">
+                            Defini Shippers
+                        </h4>
+                        <h6 class="text-yellow">Digital Marketing</h6>
+                        <p class="text-gray">perfectiongeeks@gmail.com</p>
+                    </div>
+                    <div class="col-md-7 col-lg-7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row m-0 p-0 mt-5 align-items-center">
+        <div class="col-md-12 col-lg-12">
+            <div class="border-bottom">
+                <h3>My Plans</h3>
+            </div>
+            <div class="row m-0 p-0 mt-4">
+                <div class="col-md-6 col-lg-6">
+                    <div class="mt-3">
+                        <h5 class="border-bottom w-50">Plan Details</h5>
+                    </div>
+                    <div class="mt-4">
+                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails.planName}})</p>
+                        <button class="pink-btn p-2 fs-12 pe-3 ps-3">Upgrade Plan</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="mt-3">
+                        <h5 class="border-bottom w-50">Billing Details</h5>
+                    </div>
+                    <div class="mt-4">
+                        <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
+                        <p class="fw-400 fs-14">Price : {{plandetails.amount}}</p>
+                        <p class="fw-400 fs-14">Time Duration : {{plandetails.timeDuration}}</p>
+                        <div class="d-flex justify-content-between">
+                            <p class="fw-400 fs-14">From : {{plandetails.creationDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14">To : {{plandetails.expiryDate| date:'dd/MM/yyyy'}}</p>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>`
+    </div>
+</div>

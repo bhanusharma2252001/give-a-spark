@@ -26,11 +26,11 @@ export class HomepageComponent implements OnInit,OnDestroy {
   getQuotes() {
    
     let count=0;
-    this.quotesData = this.quotesList[count]?.quotesName
+    this.quotesData = this.quotesList[count]?.enterQuotes
     this.source = setInterval(()=>{
       this.profileData=[]
       this.profileData.push(this.quotesData)
-      this.quotesData = this.quotesList[count+1].quotesName;
+      this.quotesData = this.quotesList[count+1].enterQuotes;
       count++;
       if(count==this.quotesList.length) {
         clearInterval(this.source)

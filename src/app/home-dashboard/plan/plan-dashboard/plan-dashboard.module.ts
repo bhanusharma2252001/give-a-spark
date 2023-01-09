@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanDashboardComponent } from './plan-dashboard.component';
-// import { NgxStripeModule } from 'ngx-stripe';
+import { NgxStripeModule } from 'ngx-stripe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,9 @@ import { PlanDashboardComponent } from './plan-dashboard.component';
   imports: [
     CommonModule,
     PlanDashboardModule,
-    // NgxStripeModule.forRoot('')
+    ReactiveFormsModule,
+    FormsModule,
+    NgxStripeModule.forRoot('')
   ]
 })
 export class PlanDashboardModule { }

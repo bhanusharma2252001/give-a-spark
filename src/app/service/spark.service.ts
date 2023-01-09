@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SparkService {
+  [x: string]: any;
 
   token: any;
   isLoggedIn = false;
@@ -220,5 +221,28 @@ makePayment(stripeToken:any ):Observable<any>{
 // confirmOrder(id:string): Promise<any> {
 //   return this.http.patch(`${environment.api}/orders/confirm/${id}`, {}).toPromise()
 // }
+
+
+
+
+// My Plan
+
+
+
+
+getMyPlan(){
+  return this.http.get(environment.localApiURL + '/api/plan/myPlans' ,{
+    headers: { Authorization: `bearer ${this.token}` },
+  });
+}
+
+
+
+
+
+
+
+
+
 
 }
