@@ -150,7 +150,7 @@ token:any;
       if(data?.result?.roleId == 0) {
         sessionStorage.setItem('roleId', data?.result?.roleId);
         this._ngZone.run(() => {
-              this._Router.navigate(['home-dashboard']);
+              this._Router.navigate(['home-dashboard/user-profile']);
             }) 
         // this._Router.navigate(['home-dashboard']);
       } 

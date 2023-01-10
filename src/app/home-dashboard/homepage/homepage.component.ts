@@ -30,8 +30,12 @@ export class HomepageComponent implements OnInit,OnDestroy {
     this.source = setInterval(()=>{
       this.profileData=[]
       this.profileData.push(this.quotesData)
-      this.quotesData = this.quotesList[count+1].enterQuotes;
       count++;
+      if(this.quotesList.length >= count+1) {
+        this.quotesData = this.quotesList[count+1]?.enterQuotes;
+        console.log(this.quotesData);
+        
+      }      
       if(count==this.quotesList.length) {
         clearInterval(this.source)
       }
@@ -69,6 +73,12 @@ ngOnDestroy() {
 
     })
 
+  }
+
+  login() {
+    console.log('jkk');
+    
+    this.router.navigate(['./client-login/login'])
   }
  
 }

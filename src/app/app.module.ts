@@ -16,6 +16,8 @@ import {
 import { SignupComponent } from './client-login/signup/signup.component';
 import { EnterEmailComponent } from './client-login/enter-email/enter-email.component';
 import { EnterOtpComponent } from './client-login/enter-otp/enter-otp.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+// import { NgxColorsModule } from 'ngx-colors';
 const googleLoginOptions = {
   scope: 'profile email',
   plugin_name:'google-login' //you use any name here
@@ -44,7 +46,9 @@ const googleLoginOptions = {
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ColorPickerModule,
+    // NgxColorsModule
   ],
   providers: [
     {

@@ -6,20 +6,22 @@ const routes: Routes = [
   {
     path:'', component:HomeDashboardComponent,
     children: [
-      { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
+      { path: '', redirectTo: 'homepage', pathMatch: 'full'},
+      { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
+      // { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
       { path: 'user-profile', loadChildren: () => import('./user-profile/user-profile.module').then((m) => m.UserProfileModule)},
 
       { path: 'basicdetails-company', loadChildren: () => import('./basicdetails-company/basicdetails-company.module').then((m) => m.BasicdetailsCompanyModule)},
 
       { path: 'basic-template', loadChildren: () => import('./basic-template/basic-template.module').then((m) => m.BasicTemplateModule)},
       
-      { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
+      // { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
       { path: 'mystory', loadChildren: () => import('./mystory/mystory.module').then((m) => m.MystoryModule)},
       { path: 'myquote', loadChildren: () => import('./myquote/myquote.module').then((m) => m.MyquoteModule)},
       { path: 'motivational-quote', loadChildren: () => import('./motivational-quote/motivational-quote.module').then((m) => m.MotivationalQuoteModule)},
       { path: 'motivational-story', loadChildren: () => import('./motivational-story/motivational-story.module').then((m) => m.MotivationalStoryModule)},
       { path: 'plan', loadChildren: () => import('./plan/plan.module').then((m) => m.PlanModule)},
-
+      { path: 'myprofile', loadChildren: () => import('./myprofile/myprofile.module').then((m) => m.MyprofileModule)},
     ]}
 
 ];

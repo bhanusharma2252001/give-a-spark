@@ -2,8 +2,7 @@
 <!-- 
         <div class="col-md-1 col-lg-1 p-0 side-nav-sec dekstop-menu">
             <div class="position-relative h-100"> -->
-
-                <div *ngIf="href !='/home-dashboard/user-profile'" class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
+                <div *ngIf="!(href =='/home-dashboard/user-profile' || '/homepage') " class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
 
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                         <li class="nav-item mb-2">
@@ -104,7 +103,7 @@
                             </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a href="#" class="nav-link active  py-3 border-0" title="Dashboard"
+                            <a routerLink="./myprofile/profile-dashboard"  class="nav-link active  py-3 border-0" title="Dashboard"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
                                 <div class="d-flex justify-content-start  align-items-center bg-gray">
                                     <img src="assets/images/my-profile.png" class="img-menu" width="24"

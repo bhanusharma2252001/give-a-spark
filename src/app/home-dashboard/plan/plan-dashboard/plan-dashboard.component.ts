@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ElementOptions, Elements } from 'ngx-stripe';
+// import { ElementOptions, Elements } from 'ngx-stripe';
 import { ToastrService } from 'ngx-toastr';
 import { PaymentService } from 'src/app/service/payment.service';
 import { SparkService } from 'src/app/service/spark.service';

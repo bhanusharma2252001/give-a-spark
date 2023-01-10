@@ -6,7 +6,7 @@ import { LoginComponent } from './client-login/login/login.component';
 import { SignupComponent } from './client-login/signup/signup.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'client-login', component: LoginComponent },
   {
     path:'client-login/login',
     component:LoginComponent
@@ -23,6 +23,9 @@ const routes: Routes = [
   {
     path:'client-login/enter-otp',
     component:EnterOtpComponent
+  },
+  {
+    path:'',loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 
   },
   {
     path:'home-dashboard',loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 

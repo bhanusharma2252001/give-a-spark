@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BasicTemplateRoutingModule } from './basic-template-routing.module';
 import { BasicTemplateComponent } from './basic-template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BasicTemplateRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ColorPickerModule,
   ]
 })
 export class BasicTemplateModule { }
