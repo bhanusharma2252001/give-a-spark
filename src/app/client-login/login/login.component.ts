@@ -232,7 +232,11 @@ googleAuthSDK() {
 }
 
 
-
+signup() {
+  console.log('jkk');
+  
+  this._Router.navigate(['./client-login/enter-email'])
+}
 }
 
 

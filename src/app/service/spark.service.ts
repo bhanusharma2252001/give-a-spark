@@ -126,7 +126,11 @@ addCompanyDetails(data:any){
     }
   );
   }
-
+getsignatureDetails(){
+  return this.http.get(environment.localApiURL + '/api/template/getTemplateList' ,{
+    headers: { Authorization: `bearer ${this.token}` },
+  });
+}
 
 //  My quote Create
 addQuote(data:any){

@@ -99,9 +99,17 @@ a {
 }
 
 .fs-12 {
-  font-size: 12px;
+  font-size: 12px !important;
 }
-
+.active-icon{
+  display: none !important;
+}
+.active .active-icon{
+  display: block !important;
+}
+.active .active-black{
+  display: none !important;
+}
 .fs-24 {
   font-size: 24px;
 }

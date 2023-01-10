@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from '../client-login/login/login.component';
 import { HomeDashboardComponent } from './home-dashboard.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'motivational-story', loadChildren: () => import('./motivational-story/motivational-story.module').then((m) => m.MotivationalStoryModule)},
       { path: 'plan', loadChildren: () => import('./plan/plan.module').then((m) => m.PlanModule)},
       { path: 'myprofile', loadChildren: () => import('./myprofile/myprofile.module').then((m) => m.MyprofileModule)},
+     
     ]}
 
 ];

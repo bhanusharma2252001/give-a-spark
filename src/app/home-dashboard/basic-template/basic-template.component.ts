@@ -52,6 +52,10 @@ export class BasicTemplateComponent implements OnInit {
   public color18: string = '#2d5964';
 
   public color19: string = '#070606';
+  storyList: any;
+  quotesList: any;
+  desig: any;
+  addr: any;
   // public cmykValue: string = '';
 
   // public cmykColor: Cmyk = new Cmyk(0, 0, 0, 0);
@@ -75,6 +79,9 @@ export class BasicTemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBasicProfile()
+    this.getMyStories();
+    this.getmyQuote();
+    this. getTemplateDetails();
   }
 
 
@@ -83,13 +90,13 @@ export class BasicTemplateComponent implements OnInit {
 
   getBasicProfile() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
-      this.details = res.result;
+      this.details = res.result[0];
 
-      this.username = res.result[0]?.firstName
-      this.Email = res.result[0]?.email
-      this.compName = res.result[0]?.companyName
-      this.compWebsite = res.result[0]?.companyWebsite
-      this.number = res.result[0]?.phone
+      // this.username = res.result[0]?.firstName
+      // this.Email = res.result[0]?.email
+      // this.compName = res.result[0]?.companyName
+      // this.compWebsite = res.result[0]?.companyWebsite
+      // this.number = res.result[0]?.phone
 
 
 
@@ -101,7 +108,31 @@ export class BasicTemplateComponent implements OnInit {
 
 
   }
+ getTemplateDetails(){
+  this.api.getsignatureDetails().subscribe((res:any)=>{
 
+    this.details = res.result;
+
+    this.username = res.result[0]?.yourName
+    this.Email = res.result[0]?.email
+    this.compName = res.result[0]?.companyName
+    this.compWebsite = res.result[0]?.companyWebsite
+    this.number = res.result[0]?.phoneNo
+
+    this.desig= res.result[0]?.designation,
+    this.addr=res.result[0]?.address
+    // yourName:[''],
+    // designation:[''],
+    // email:[''],
+    // phoneNo:[''],
+    // companyWebsite:[''],
+    // address:[''],
+    // fbProfile:[''],
+    // instagramProfile:[''],
+    // linkedInProfile:[''],
+    // youtubeChannel:[''],
+  })
+ }
 
 
 
@@ -137,7 +168,7 @@ export class BasicTemplateComponent implements OnInit {
 
     this.api.addsignatureDetails(body).subscribe((res: any) => {
       console.log(res);
-      this.toast.success('Logged in Successfully');
+      this.toast.success('Template  Created Successfully');
 
 
     },
@@ -157,6 +188,16 @@ export class BasicTemplateComponent implements OnInit {
   }
 
 
+  getMyStories(){
+    this.api.getMyStory().subscribe((res:any)=>{
+    this.storyList = res?.result
+    })
+  }
+  getmyQuote(){
+    this.api.getMyQuotes().subscribe((res:any)=>{
+  this.quotesList=res?.result
+    })
+  }
 
   // public onEventLog(event: string, data: any): void {
   //   console.log(event, data);

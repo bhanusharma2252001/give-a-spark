@@ -14,7 +14,7 @@
                 <div class="mb-3 position-relative">
                     <label for="exampleInputinput-field" class="form-label fw-semibold">User Name</label>
                     <input type="email" class="form-control" id="exampleInputinput-field" aria-describedby="emailHelp" formControlName="email"    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
-                    <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                       <div *ngIf="f['email'].errors['required']">Email is required</div>
                       <div *ngIf="f['email'].errors'[email]'">Email must be a valid email address</div>
@@ -33,7 +33,8 @@
                     (click)="toggleFieldTextType()"
                   ></i> 
                  <div >
-                    <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" hide aria-hidden="true"></i></div>
+                    <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" hide aria-hidden="true"></i> -->
+                </div>
                     <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                         <div *ngIf="f['password'].errors['required']">Password is required</div>
                         <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
@@ -66,7 +67,7 @@
                 <div class="text-center mt-5">
 
                     <p class="fw-semibold mb-0">You haven’t account</p>
-                    <p class="fw-semibold"><a routerLink ="client-login/enter-email">Sign Up</a></p>
+                    <p class="fw-semibold"><a (click)="signup()">Sign Up</a></p>
                 </div>
             </form>
           
