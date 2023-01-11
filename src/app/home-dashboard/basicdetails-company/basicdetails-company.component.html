@@ -124,94 +124,99 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                type="button" role="tab" aria-controls="profile" aria-selected="false">Company
+                                type="button" role="tab" aria-controls="profile" aria-selected="false">My
                                 Social Links</button>
                         </li>
 
                     </ul>
                     <div class="tab-content  mt-4" id="myTabContent">
                         <form [formGroup]="companyDetailForm" (ngSubmit)="onSubmit()">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
 
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Name :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Name :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
 
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyName" [(ngModel)]="compName">
+                                                <input type="text" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="companyName" [(ngModel)]="compName">
 
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img
-                                                    class="w-10 h-25" src="assets/images/cross.png"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Website :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" [(ngModel)]="compWebsite"
-                                                aria-describedby="emailHelp" formControlName="companyWebsite">
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <div class="d-flex"> <img class="w-10 h-25"
+                                                        src="assets/images/pen.png"><img class="w-10 h-25"
+                                                        src="assets/images/cross.png"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Address :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyAddress">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Phone :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="number" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyPhone">
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Website
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="text" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" [(ngModel)]="compWebsite"
+                                                    aria-describedby="emailHelp" formControlName="companyWebsite">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Fax :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyFax">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Logo :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="file" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" (change)="onSelectImage($event)"
-                                                aria-describedby="emailHelp" formControlName="companyLogo">
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Address
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="text" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="companyAddress">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- <div class="mb-3 mt-3">
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Phone :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="number" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="companyPhone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Fax :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="text" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="companyFax">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext" class="form-label">Company Logo :</label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="file" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" (change)="onSelectImage($event)"
+                                                    aria-describedby="emailHelp" formControlName="companyLogo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="mb-3 mt-3">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-6">
                                             <button type="submit" class="btn pink-btn">Cancel</button>
@@ -223,107 +228,111 @@
                                 </div> -->
 
 
-                            </div>
-                            <div class="tab-pane fade mt-edit" id="profile" role="tabpanel"
-                                aria-labelledby="profile-tab" style="position:relative;">
-                              
-                          
-
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/facebook.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="fbProfile">
-
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/instagram.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="instagramProfile">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/linkedin.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="linkedInProfile">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/youtube.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="youtubeChannel">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/twitter.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="email" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="twitterProfile">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <p class="text-blue"><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                Add New Field</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+                                    style=" 
+                                    position: absolute;
+                                    top: 25%;">
 
 
-                            </div>
 
-                            <div class="mb-3 mt-3 mt-edit">
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn pink-btn" data-bs-dismiss="modal"
-                                            aria-label="Close">Cancel</button>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext"
+                                                    class="form-label bg-white rounded-circle"><img
+                                                        src="assets/images/facebook.png"></label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+
+                                                <input type="text" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="fbProfile">
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn green-btn" data-bs-dismiss="modal"
-                                            aria-label="Close">Apply Changes</button>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext"
+                                                    class="form-label bg-white rounded-circle"><img
+                                                        src="assets/images/instagram.png"></label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="email" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="instagramProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext"
+                                                    class="form-label bg-white rounded-circle"><img
+                                                        src="assets/images/linkedin.png"></label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="email" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="linkedInProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext"
+                                                    class="form-label bg-white rounded-circle"><img
+                                                        src="assets/images/youtube.png"></label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="email" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="youtubeChannel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                                <label for="exampleInputtext"
+                                                    class="form-label bg-white rounded-circle"><img
+                                                        src="assets/images/twitter.png"></label>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <input type="email" class="form-control border-none bottom-border"
+                                                    id="exampleInputtext" aria-describedby="emailHelp"
+                                                    formControlName="twitterProfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-4 col-lg-4">
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <p class="text-blue"><i class="fa fa-plus-circle"
+                                                        aria-hidden="true"></i>
+                                                    Add New Field</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="mb-3 mt-3 mt-edit">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn pink-btn" data-bs-dismiss="modal"
+                                                aria-label="Close">Cancel</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn green-btn" data-bs-dismiss="modal"
+                                                aria-label="Close">Apply Changes</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
