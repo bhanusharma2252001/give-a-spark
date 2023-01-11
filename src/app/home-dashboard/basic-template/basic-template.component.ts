@@ -79,10 +79,12 @@ export class BasicTemplateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getBasicProfile()
+    // this.getBasicProfile()
     this.getMyStories();
     this.getmyQuote();
-    this. getTemplateDetails();
+   
+    
+  this.getBasicProfile();
 
   }
 
@@ -94,11 +96,14 @@ export class BasicTemplateComponent implements OnInit {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
       this.details = res.result[0];
 
-      // this.username = res.result[0]?.firstName
-      // this.Email = res.result[0]?.email
-      // this.compName = res.result[0]?.companyName
-      // this.compWebsite = res.result[0]?.companyWebsite
-      // this.number = res.result[0]?.phone
+      this.username = res.result[0]?.firstName
+    this.Email = res.result[0]?.email
+    this.compName = res.result[0]?.companyName
+    this.compWebsite = res.result[0]?.companyWebsite
+    this.number = res.result[0]?.phone
+
+    this.desig= res.result[0]?.designation,
+    this.addr=res.result[0]?.addressne
 
 
 
@@ -110,31 +115,22 @@ export class BasicTemplateComponent implements OnInit {
 
 
   }
- getTemplateDetails(){
-  this.api.getsignatureDetails().subscribe((res:any)=>{
+//  getTemplateDetails(){
+//   this.api.getsignatureDetails().subscribe((res:any)=>{
 
-    this.details = res.result;
+//     this.details = res.result;
 
-    this.username = res.result[0]?.yourName
-    this.Email = res.result[0]?.email
-    this.compName = res.result[0]?.companyName
-    this.compWebsite = res.result[0]?.companyWebsite
-    this.number = res.result[0]?.phoneNo
+//     this.username = res.result[0]?.yourName
+//     this.Email = res.result[0]?.email
+//     this.compName = res.result[0]?.companyName
+//     this.compWebsite = res.result[0]?.companyWebsite
+//     this.number = res.result[0]?.phoneNo
 
-    this.desig= res.result[0]?.designation,
-    this.addr=res.result[0]?.address
-    // yourName:[''],
-    // designation:[''],
-    // email:[''],
-    // phoneNo:[''],
-    // companyWebsite:[''],
-    // address:[''],
-    // fbProfile:[''],
-    // instagramProfile:[''],
-    // linkedInProfile:[''],
-    // youtubeChannel:[''],
-  })
- }
+//     this.desig= res.result[0]?.designation,
+//     this.addr=res.result[0]?.address
+ 
+//   })
+//  }
 
 
 

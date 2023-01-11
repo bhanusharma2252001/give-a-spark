@@ -39,6 +39,8 @@
       <div class="col-md-12 col-lg-12">
           <div class="border-bottom">
               <h3>My Quotes</h3>
+              
+              <button (click)="navigate()" class="btn btn-green">Add qupte</button>
           </div>
           <div class="row mt-4" *ngFor="let quote of quotesList">
               <div class="col-md-6 col-lg-6">

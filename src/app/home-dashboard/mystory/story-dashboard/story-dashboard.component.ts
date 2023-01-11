@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SparkService } from 'src/app/service/spark.service';
 })
 export class StoryDashboardComponent implements OnInit {
   storyList:any;
-  constructor(private api:SparkService) { }
+  constructor(private api:SparkService, private router:Router) { }
 
   ngOnInit(): void {
     this.getMyStories()
@@ -21,6 +22,8 @@ getMyStories(){
   this.storyList = res?.result
   })
 }
-
+navigate(){
+  this.router.navigate(['mystory/add-story'])
+}
 
 }

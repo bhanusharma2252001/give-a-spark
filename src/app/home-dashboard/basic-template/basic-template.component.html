@@ -82,7 +82,7 @@
                                                             <input type="text" formControlName="yourName"
                                                                 [(ngModel)]="username "
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" readonly>
 
                                                         </div>
                                                         <div class="mb-2">
@@ -99,7 +99,7 @@
                                                                 class="form-label">Phone</label>
                                                             <input type="text" formControlName="phoneNo"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="number" readonly>
 
                                                         </div>
                                                         <div class="mb-4">
@@ -116,7 +116,7 @@
                                                                 class="form-label">Email</label>
                                                             <input type="text" formControlName="email"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Email" readonly>
 
                                                         </div>
                                                         <div class="mb-4">
@@ -135,7 +135,7 @@
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
                                                         </div> -->
-                                                        <div class="col-md-4 col-lg-4">
+                                                        <!-- <div class="col-md-4 col-lg-4">
                                                             <div class="mb-3">
                                                                 <label for="exampleInputfiled" class="form-label">
                                                                     Quote</label>
@@ -145,7 +145,7 @@
                                                                     <option [value]="quotes?._id">{{quotes?.quotesName}} </option>
                                                                 </select>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
 <!-- 
                                                         <div class="col-md-4 col-lg-4">
                                                             <div class="mb-3">

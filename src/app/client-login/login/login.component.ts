@@ -210,7 +210,7 @@ googleAuthSDK() {
   (<any>window)['googleSDKLoaded'] = () => {
     (<any>window)['gapi'].load('auth2', () => {
       this.auth2 = (<any>window)['gapi'].auth2.getAuthInstance({
-        client_id:'601328888286-spmfslu2dh5p42u8tbg6876kquvptg0m.apps.googleusercontent.com',
+        client_id:'538732973134-hcoh31a8sbf6t3gu2mlkngj5co0qebg8.apps.googleusercontent.com',
         plugin_name:'login',
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'

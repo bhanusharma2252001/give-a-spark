@@ -39,7 +39,7 @@
                                         <div class="col-md-11 col-lg-9">
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Your Name</label>
-                                                <input type="text" [(ngModel)]="userName"
+                                                <input type="text" [(ngModel)]="userName"  pattern="[A-Za-z]+"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp" formControlName="firstName">
 
@@ -47,7 +47,7 @@
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
                                                     Name</label>
-                                                <input type="text"
+                                                <input type="text" 
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp" formControlName="companyName" [(ngModel)]="compname">
 

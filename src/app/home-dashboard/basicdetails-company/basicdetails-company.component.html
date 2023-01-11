@@ -1,91 +1,11 @@
 <div class="container-fluid">
     <!-- header -->
-   
+
     <main class="padding-top">
         <section>
             <div class="container-fluid p-0 mt-5">
                 <div class="row m-0 p-0 mt-3">
-                    <!-- <div class="col-md-3 col-lg-2 p-0 side-nav-sec dekstop-menu">
-                        <div class="position-relative h-100">
 
-                            <div class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
-
-                                <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                                    <li class="nav-item mb-2">
-
-                                        <a href="" class="nav-link py-3 rounded-0" aria-current="page" title="Home"
-                                            data-bs-toggle="tooltip" data-bs-placement="right">
-                                            <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/dashboard.png" class="img-menu" width="24"
-                                                    height="24">
-                                                <p class="menu-text mb-0">Home</p>
-                                            </div>
-                                        </a>
-
-
-                                    </li>
-                                    <li class="nav-item mb-2">
-                                        <a href="#" class="nav-link active  py-3 border-0" title="Dashboard"
-                                            data-bs-toggle="tooltip" data-bs-placement="right">
-                                            <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/signaturetemplate.png" class="img-menu"
-                                                    width="24" height="24">
-                                                <p class="menu-text mb-0">Signature Template</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mb-2">
-
-                                        <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
-                                            data-bs-toggle="tooltip" data-bs-placement="right">
-                                            <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/saved-signature.png" class="img-menu" width="24"
-                                                    height="24">
-                                                <p class="menu-text mb-0">Saved Signature</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mb-2">
-                                        <a href="#" class="nav-link   py-3 border-0" title="Quotes"
-                                            data-bs-toggle="tooltip" data-bs-placement="right">
-                                            <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/quotes.png" class="img-menu" width="24"
-                                                    height="24">
-                                                <p class="menu-text mb-0">Quotes</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mb-2">
-                                        <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
-                                            data-bs-toggle="tooltip" data-bs-placement="right">
-                                            <div class="d-flex justify-content-start  bg-gray">
-                                                <img src="assets/images/saved-signature.png" class="img-menu" width="24"
-                                                    height="24">
-                                                <p class="menu-text mb-0">Saved Signature</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="dropdown border-top">
-                                    <a href="#"
-                                        class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24"
-                                            class="rounded-circle">
-                                    </a>
-                                    <ul class="dropdown-menu text-small shadow">
-                                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="col-md-7 col-lg-10">
                         <div class="row pe-5">
                             <div class="col-md-6 col-lg-6">
@@ -152,10 +72,10 @@
                                                 <i class="fa fa-globe pe-2" aria-hidden="true"></i>
                                                 <p class=" fs-12" *ngIf="!compWebsite ">
                                                     www.perfectiongeeks.com</p>
-                                               
-                                                    <p class=" fs-12" *ngIf="compWebsite ">{{compWebsite}}</p>
-                                                
-                                              
+
+                                                <p class=" fs-12" *ngIf="compWebsite ">{{compWebsite}}</p>
+
+
 
 
                                             </div>
@@ -304,7 +224,10 @@
 
 
                             </div>
-                            <div class="tab-pane fade mt-edit" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="tab-pane fade mt-edit" id="profile" role="tabpanel"
+                                aria-labelledby="profile-tab" style="position:relative;">
+                              
+                          
 
                                 <div class="mb-3">
                                     <div class="row g-3 align-items-center">
@@ -388,17 +311,19 @@
                                         </div>
                                     </div>
                                 </div>
-                              
+
 
                             </div>
-                            
+
                             <div class="mb-3 mt-3 mt-edit">
                                 <div class="row g-3 align-items-center">
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn pink-btn" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                        <button type="button" class="btn pink-btn" data-bs-dismiss="modal"
+                                            aria-label="Close">Cancel</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn green-btn" data-bs-dismiss="modal" aria-label="Close">Apply Changes</button>
+                                        <button type="submit" class="btn green-btn" data-bs-dismiss="modal"
+                                            aria-label="Close">Apply Changes</button>
                                     </div>
                                 </div>
                             </div>
