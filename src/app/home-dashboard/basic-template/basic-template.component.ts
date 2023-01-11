@@ -74,6 +74,7 @@ export class BasicTemplateComponent implements OnInit {
       instagramProfile:[''],
       linkedInProfile:[''],
       youtubeChannel:[''],
+      quotesId:['']
     })
   }
 
@@ -82,6 +83,7 @@ export class BasicTemplateComponent implements OnInit {
     this.getMyStories();
     this.getmyQuote();
     this. getTemplateDetails();
+
   }
 
 
@@ -160,7 +162,7 @@ export class BasicTemplateComponent implements OnInit {
       instagramProfile:data.instagramProfile,
       linkedInProfile:data.linkedInProfile,
       youtubeChannel:data.youtubeChannel,   
-
+      quotesId:data.quotesId
 
     }
 
@@ -194,7 +196,7 @@ export class BasicTemplateComponent implements OnInit {
     })
   }
   getmyQuote(){
-    this.api.getMyQuotes().subscribe((res:any)=>{
+    this.api.getQuoteById().subscribe((res:any)=>{
   this.quotesList=res?.result
     })
   }

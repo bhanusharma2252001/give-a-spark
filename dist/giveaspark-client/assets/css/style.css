@@ -187,7 +187,14 @@ a {
   width: 35px;
   height: 35px;
 }
-
+.wh-140{
+  width:140px;
+  height:140px;
+}
+.quotes-box {
+  width: 440px;
+  height: 100px;
+}
 .menu-text {
   display: none;
   position: absolute;

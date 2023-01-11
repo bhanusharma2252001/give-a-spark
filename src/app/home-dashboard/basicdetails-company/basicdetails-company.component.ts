@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
-
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-basicdetails-company',
   templateUrl: './basicdetails-company.component.html',
@@ -32,7 +32,7 @@ export class BasicdetailsCompanyComponent implements OnInit {
   details: any;
   Email: any;
   number: any;
-  constructor(private api:SparkService, private fb:FormBuilder, private router:Router, private toast : ToastrService ) { 
+  constructor(private api:SparkService, private fb:FormBuilder, private router:Router, private toast : ToastrService,private meta:Meta,private title: Title ) { 
     this.companyDetailForm=this.fb.group({
       companyName:['', Validators.required],
       companyWebsite:['', Validators.required],
@@ -46,8 +46,7 @@ export class BasicdetailsCompanyComponent implements OnInit {
       youtubeChannel:['', Validators.required],
       twitterProfile:['', Validators.required],
     })
-
-
+    this.meta.updateTag({ name:'author',content:'angulartpoint.com'});    
 
 
   
@@ -58,6 +57,7 @@ export class BasicdetailsCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBasicProfile();
+    this.title.setTitle('Templates');
 // if(sessionStorage.getItem('website')){
 //   this.compWebsite= sessionStorage.getItem('website')
 // }

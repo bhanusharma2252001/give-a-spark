@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SparkService } from 'src/app/service/spark.service';
 })
 export class MyplanComponent implements OnInit {
 plandetails:any;
-  constructor(private api:SparkService) { }
+  constructor(private api:SparkService, private router:Router) { }
 
   ngOnInit(): void {
     this.myPlans();
@@ -22,7 +23,9 @@ this.plandetails=res?.result[0];
   })
 }
 
-
+navigate(){
+  this.router.navigate(['/plan/plan-dashboard'])
+}
 
 
 }

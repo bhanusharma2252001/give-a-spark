@@ -6,13 +6,11 @@ import { LoginComponent } from './client-login/login/login.component';
 import { SignupComponent } from './client-login/signup/signup.component';
 
 const routes: Routes = [
-  // { path: 'client-login', component: LoginComponent },
+    { path: '', redirectTo: 'client-login/login', pathMatch: 'full'},
   {
     path:'client-login/login',
     component:LoginComponent,
-    data: {
-      title: 'Login for better experience'
-    }
+
   },
 
   {

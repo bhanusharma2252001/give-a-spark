@@ -47,17 +47,17 @@
                       
                             <div
                             *ngIf="quote?.writerProfile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="img-fluid w-40 rounded-circle"
+                            <img class="wh-140"
                               src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
                           </div>
                           <div
                             *ngIf="quote?.writerProfile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="w-40 p-2" src="{{quote?.writerProfile }}">
+                            <img class="p-2" src="{{quote?.writerProfile }}">
                           </div>
                      
                       </div>
                       <div class="col-md-9 col-lg-9 p-0 pe-1  ">
-                          <div class="bg-darkgray p-2">
+                          <div class="bg-darkgray p-2  quotes-box">
                               <figure>
                                   <blockquote class="blockquote">
                                     <p class="fs-12"> {{quote?.enterQuotes}}</p>

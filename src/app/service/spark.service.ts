@@ -204,7 +204,7 @@ makePayment(stripeToken:any ):Observable<any>{
   // const url = "https://api.giveaspark.com/api/stripe/paymentIntent"
   // return this.http.post<any>(url,{token:stripeToken})
   // return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
-    return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
+    return this.http.post('http://localhost:8000'+ '/api/stripe/paymentIntent', {token:stripeToken},
   {
     headers: { Authorization: `bearer ${this.token}` }
   }
@@ -243,10 +243,13 @@ getMyPlan(){
 
 
 
+//  basic temoplate
+
+getQuoteById(){
+  return this. http.get(environment.localApiURL +'/api/Quotes/getQuotes',{
+    headers: { Authorization: `bearer ${this.token}` },
+});
 
 
-
-
-
-
+}
 }
