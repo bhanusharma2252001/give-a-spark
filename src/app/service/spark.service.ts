@@ -64,18 +64,26 @@ enterOtp(data:any):Observable<any>{
   return this.http.post(environment.localApiURL + '/api/user/emailVerify',data)
   
 }
-  // google Login
+  // forget password
+
+  forgetPasswordSendOtp(data:any):Observable<any>{
+    return this.http.post(environment.localApiURL + '/api/user/sendOTPForForgotPassword',data)
+    
+  }
+  // email verify
+  enterOtpforForget(data:any):Observable<any>{
+    return this.http.post(environment.localApiURL + '/api/user/emailVerify',data)
+    
+  }
+  //reset password api
+  resetPassword(data:any) {
+    return this.http.put(environment.localApiURL + '/api/user/forgetPassword',data)
+  
+  }
 
 
-//   public signOutExternal = () => {
-//     localStorage.removeItem("token");
-//     console.log("token deleted")
-// }
 
-// LoginWithGoogle(credentials: string): Observable<any> {
-//   const header = new HttpHeaders().set('Content-type', 'application/json');
-//   return this.http.post(this.path + "LoginWithGoogle", JSON.stringify(credentials), { headers: header });
-// }
+
 
 
 // userProfile

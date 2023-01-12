@@ -1,0 +1,33 @@
+<div class="row m-0 p-0">
+    <div class="col-md-6 position-relative col-lg-6 bg-lgblue min-vh-100">
+        <div class="box p-2 ">
+          
+            <form class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450" [formGroup]="enterOtpForm" (ngSubmit)="otpSubmit()">
+                <div  class="text-center mb-3 ">
+                    <h3 class="mb-0">Enter OTP</h3>
+                    <img src="assets/images/pink-line.png"  class="img-fluid">
+                </div>
+               
+                <div class="mb-3 position-relative">
+                    <label for="exampleInputEmail1" class="form-label fw-semibold">OTP</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  formControlName="otp">
+                    <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
+                </div>
+                
+              
+               
+                <button class="pink-btn w-100 p-2" type="submit">Send</button>
+              
+                
+            </form>
+            <img src="assets/images/s-line.png"  class="img-fluid position-absolute bottom-0 end-0">
+            <img src="assets/images/f-line.png"  class="img-fluid position-absolute top-0 start-0">
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6 bg-white position-relative min-vh-100">
+        <div class="position-absolute top-50 start-50 translate-middle ">
+            
+            <img src="assets/images/sign-up.png" class="wh-250">
+        </div>
+    </div>
+</div>

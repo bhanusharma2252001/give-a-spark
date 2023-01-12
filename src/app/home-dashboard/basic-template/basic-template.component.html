@@ -55,7 +55,7 @@
                                                 <p class="mb-0 fs-5 fs-12">Design</p>
                                             </div>
                                         </button>
-                                    </li>
+                                    </li>Signature Details
                                 </ul>
 
                                 <!-- form start -->
@@ -82,7 +82,8 @@
                                                             <input type="text" formControlName="yourName"
                                                                 [(ngModel)]="username "
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" readonly>
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                readonly>
 
                                                         </div>
                                                         <div class="mb-2">
@@ -99,7 +100,8 @@
                                                                 class="form-label">Phone</label>
                                                             <input type="text" formControlName="phoneNo"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="number" readonly>
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="number" readonly>
 
                                                         </div>
                                                         <div class="mb-4">
@@ -116,7 +118,8 @@
                                                                 class="form-label">Email</label>
                                                             <input type="text" formControlName="email"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Email" readonly>
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Email" readonly>
 
                                                         </div>
                                                         <div class="mb-4">
@@ -126,6 +129,21 @@
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Quotes</label>
+                                                            <input type="text" formControlName=""
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div _ngcontent-njx-c64="" class="mb-4 d-flex">
+                                                            <p _ngcontent-njx-c64=""
+                                                                class="mb-0 bg-lgblue rounded-pill">
+                                                            </p>
+                                                            <p _ngcontent-njx-c64="" class="mb-0 ps-2"> Add New Field
+                                                            </p>
                                                         </div>
                                                         <!-- <div class="mb-4">
                                                             <label for="exampleInputfiled" class="form-label">
@@ -146,7 +164,7 @@
                                                                 </select>
                                                             </div>
                                                         </div> -->
-<!-- 
+                                                        <!-- 
                                                         <div class="col-md-4 col-lg-4">
                                                             <div class="mb-3">
                                                                 <label for="exampleInputfiled" class="form-label">
@@ -164,10 +182,12 @@
                                                         </div> -->
 
                                                     </div>
-                                                    <div class="col-md-1 col-lg-3">
+                                                    <div class="col-md-1 col-lg-3 ps-0">
                                                         <div class="position-absolute top-0">
-                                                            <img class="img-fluid" src="assets/images/square-image.png">
-                                                            <p class="text-blue fs-14 mb-0 text-nowrap pe-2">Change
+                                                            <img class="wh-100" src="assets/images/square-image.png">
+                                                            <p class="text-blue fs-14 mb-0 text-nowrap pe-2"
+                                                                data-bs-toggle="modal" data-bs-target="#change-image">
+                                                                Change
                                                                 Photo</p>
                                                             <p class="text-blue fs-14 mb-0">Remove</p>
                                                         </div>
@@ -409,7 +429,7 @@
                                     </div>
 
                                     <div class="mt-4 text-end">
-                                        <button type="submit" class="green-btn">Create Signature</button>
+                                        <button type="submit" class="green-btn p-2 pe-3 ps-3">Create Signature</button>
                                     </div>
 
                                 </form>
@@ -478,7 +498,20 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog quotes-box">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                                    aria-hidden="true"></i></div>
 
+                            <input class="green-btn wh-100 pe-3 ps-2" type="file"
+                                accept="image/jpg,image/jpeg,image/bmp,image/png,image/gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <!-- Button trigger modal -->

@@ -222,4 +222,29 @@ export class BasicTemplateComponent implements OnInit {
 
   //   return '';
   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

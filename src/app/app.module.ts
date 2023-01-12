@@ -17,6 +17,9 @@ import { SignupComponent } from './client-login/signup/signup.component';
 import { EnterEmailComponent } from './client-login/enter-email/enter-email.component';
 import { EnterOtpComponent } from './client-login/enter-otp/enter-otp.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { PasswordResetComponent } from './client-login/forget-password/password-reset/password-reset.component';
+import { ForgetEmailComponent } from './client-login/forget-password/forget-email/forget-email.component';
+import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/forget-otp.component';
 // import { NgxColorsModule } from 'ngx-colors';
 const googleLoginOptions = {
   scope: 'profile email',
@@ -28,7 +31,10 @@ const googleLoginOptions = {
     LoginComponent,
     SignupComponent,
     EnterEmailComponent,
-    EnterOtpComponent
+    EnterOtpComponent,
+    PasswordResetComponent,
+    ForgetEmailComponent,
+    ForgetOtpComponent
   ],
   imports: [
     BrowserModule,
