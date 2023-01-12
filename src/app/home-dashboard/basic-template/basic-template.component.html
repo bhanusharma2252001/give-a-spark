@@ -138,13 +138,15 @@
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
                                                         </div>
-                                                        <div _ngcontent-njx-c64="" class="mb-4 d-flex">
-                                                            <p _ngcontent-njx-c64=""
-                                                                class="mb-0 bg-lgblue rounded-pill">
+                                                        <div class="mb-4 d-flex">
+
+                                                            <p class=" ">
+                                                                <i class="fa fa-plus-circle text-blue"></i>
                                                             </p>
-                                                            <p _ngcontent-njx-c64="" class="mb-0 ps-2"> Add New Field
-                                                            </p>
+                                                            <p class="mb-0 ps-2 text-blue">
+                                                                Add Quotes</p>
                                                         </div>
+
                                                         <!-- <div class="mb-4">
                                                             <label for="exampleInputfiled" class="form-label">
                                                                 Quote</label>
@@ -212,7 +214,7 @@
                                                             </label>
                                                             <input type="text" formControlName="fbProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="faceB">
 
                                                         </div>
                                                         <div class="mb-2">
@@ -220,7 +222,7 @@
                                                                 class="form-label">Instagram</label>
                                                             <input type="text" formControlName="instagramProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="insta">
 
                                                         </div>
                                                         <div class="mb-2">
@@ -228,7 +230,7 @@
                                                                 class="form-label">LinkedIn</label>
                                                             <input type="text" formControlName="linkedInProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Linkedin">
 
                                                         </div>
                                                         <div class="mb-4">
@@ -236,15 +238,15 @@
                                                                 class="form-label">Youtube</label>
                                                             <input type="text" formControlName="youtubeChannel"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="uTube">
 
                                                         </div>
                                                         <div class="mb-4 d-flex">
 
-                                                            <p class="mb-0 bg-lgblue rounded-pill "><i
-                                                                    class="fa fs-12 fa-plus p-1" aria-hidden="true"></i>
+                                                            <p class=" ">
+                                                                <i class="fa fa-plus-circle text-blue"></i>
                                                             </p>
-                                                            <p class="mb-0 ps-2">
+                                                            <p class="mb-0 ps-2 text-blue">
                                                                 Add New Field</p>
                                                         </div>
 
@@ -505,9 +507,19 @@
                         <div class="modal-body">
                             <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
                                     aria-hidden="true"></i></div>
-
-                            <input class="green-btn wh-100 pe-3 ps-2" type="file"
-                                accept="image/jpg,image/jpeg,image/bmp,image/png,image/gif">
+                                    <div class="Neon Neon-theme-dragdropbox">
+                                        <input
+                                            style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                                            name="files[]" id="filer_input2" multiple="multiple" type="file">
+                                        <div class="Neon-input-dragDrop">
+                                            <div class="Neon-input-inner">
+                                                <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                                                <div class="Neon-input-text">
+                                                    <h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span>
+                                                </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div>

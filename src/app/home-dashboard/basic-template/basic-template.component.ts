@@ -56,6 +56,11 @@ export class BasicTemplateComponent implements OnInit {
   quotesList: any;
   desig: any;
   addr: any;
+  insta: any;
+  uTube: any;
+  Linkedin: any;
+  Twitter: any;
+  faceB: any;
   // public cmykValue: string = '';
 
   // public cmykColor: Cmyk = new Cmyk(0, 0, 0, 0);
@@ -102,9 +107,15 @@ export class BasicTemplateComponent implements OnInit {
     this.compWebsite = res.result[0]?.companyWebsite
     this.number = res.result[0]?.phone
 
-    this.desig= res.result[0]?.designation,
+    this.desig= res.result[0]?.designation
     this.addr=res.result[0]?.addressne
 
+    this.insta = res.result[0]?.instagramProfile
+    this.uTube = res.result[0]?.youtubeChannel
+
+    this.Linkedin= res.result[0]?.linkedInProfile
+    this.Twitter=res.result[0]?.addressne
+      this.faceB=res.result[0]?.fbProfile
 
 
       console.log(this.compWebsite, 'jojo')
@@ -197,31 +208,7 @@ export class BasicTemplateComponent implements OnInit {
     })
   }
 
-  // public onEventLog(event: string, data: any): void {
-  //   console.log(event, data);
-  // }
-
-  // public onChangeColorCmyk(color: string): Cmyk {
-  //   const hsva = this.cpService.stringToHsva(color);
-
-  //   if (hsva) {
-  //     const rgba = this.cpService.hsvaToRgba(hsva);
-
-  //     return this.cpService.rgbaToCmyk(rgba);
-  //   }
-
-  //   return new Cmyk(0, 0, 0, 0);
-  // }
-
-  // public onChangeColorHex8(color: string): string {
-  //   const hsva = this.cpService.stringToHsva(color, true);
-
-  //   if (hsva) {
-  //     return this.cpService.outputFormat(hsva, 'rgba', null);
-  //   }
-
-  //   return '';
-  // }
+ 
 
 
 

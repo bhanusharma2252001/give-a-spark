@@ -41,14 +41,14 @@ export class PasswordResetComponent implements OnInit {
 
   submit() {
     let body = {
-      email: this.resetPasswordForm.value.email,
+      email: this.emailId,
       password: this.resetPasswordForm.value.password,
     };
 
     this.sparkservice.resetPassword(body).subscribe((res:any)=>{
       console.log(res);
       this.toast.success('Your password is sucessfully reset')
-      this.router.navigate(['login'])
+      this.router.navigate(['./client-login/login'])
     },err=>{
       
     })

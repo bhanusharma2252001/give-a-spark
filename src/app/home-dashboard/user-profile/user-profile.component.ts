@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { max, merge } from 'rxjs';
 import { SparkService } from 'src/app/service/spark.service';
-
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -24,6 +24,15 @@ details:any;
 
 
   Submitted: boolean = false;
+  // Qrcode  
+
+  //https:localhost:4200/home-dashboard/myprofile/profile-dashboard
+  elementType = NgxQrcodeElementTypes.URL;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = ""
+
+
+
   constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone) {
     this.profileForm=this.fb.group({
       firstName:['',Validators.required],
@@ -53,13 +62,15 @@ details:any;
  console.log(this.userName, this.Email)
 
  
-
+this.getScanText()
   }
 
- showInput(){
 
- } 
-
+  getScanText() {
+    let token:any = sessionStorage.getItem('ClientSpark')
+    this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token='+btoa(token)
+    // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
+  }
 
   onSubmit(data:any){  this.Submitted = true;
     let body = {

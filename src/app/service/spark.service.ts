@@ -260,4 +260,36 @@ getQuoteById(){
 
 
 }
+
+
+
+
+myProfile(){
+  return this. http.get(environment.localApiURL +'/api/Quotes/getQuotes',{
+    headers: { Authorization: `bearer ${this.token}` },
+});
+
+}
+
+
+
+// for QR code
+
+getUserProfile(token:any) {
+  return this. http.get(environment.localApiURL +'/api/user/getProfile',{
+    headers: { Authorization: `bearer ${token}` },
+});}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

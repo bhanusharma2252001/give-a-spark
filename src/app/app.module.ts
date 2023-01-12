@@ -21,6 +21,7 @@ import { PasswordResetComponent } from './client-login/forget-password/password-
 import { ForgetEmailComponent } from './client-login/forget-password/forget-email/forget-email.component';
 import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/forget-otp.component';
 // import { NgxColorsModule } from 'ngx-colors';
+
 const googleLoginOptions = {
   scope: 'profile email',
   plugin_name:'google-login' //you use any name here
@@ -34,7 +35,8 @@ const googleLoginOptions = {
     EnterOtpComponent,
     PasswordResetComponent,
     ForgetEmailComponent,
-    ForgetOtpComponent
+    ForgetOtpComponent,
+ 
   ],
   imports: [
     BrowserModule,

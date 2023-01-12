@@ -1,2 +1,155 @@
-<p>profile-dashboard works!</p>
+<!-- <div class="col-md-7 col-lg-10">
+    <div class="row m-0 p-0 align-items-center">
+        <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
+            <div class="rounded-circle bg-darkgray wh-225 position-relative">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <img class="wh-225 p-2" src="assets/images/profile-image.png">
 
+                </div>
+                <div class="position-absolute top-50 start-0 ps-5 translate-middle">
+                    <div class="rounded-circle bg-black position-relative">
+                        <i class="fa fa-camera text-white p-1 fs-14" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 mt-2 m-0 p-0 ">
+            <div class="bg-darkblue details-plan  p-0">
+                <div class="row ps-5 p-3">
+                    <div class="col-md-5 col-lg-5">
+                        <div class="d-flex justify-content-between">
+                        <h4 class="text-white">
+                            Defini Shippers
+                        </h4>
+                        <img src="assets/images/edit.png" alt="" class="wh-30"></div>
+                        <h6 class="text-yellow">Digital Marketing</h6>
+                        <p class="text-gray">perfectiongeeks@gmail.com</p>
+                    </div>
+                    <div class="col-md-7 col-lg-7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row m-0 p-0 mt-5 align-items-center">
+        <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
+        </div>
+        <div class="col-md-10 col-lg-10">
+
+            <div class="row m-0 p-0 ">
+                <div class="col-md-6 col-lg-6">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Phone : </p>
+                        <p class="fw-400 fs-16 ps-3"> 8736434342 </p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Country : </p>
+                        <p class="fw-400 fs-16 ps-3"> India </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Address : </p>
+                        <p class="fw-400 fs-16 ps-3"> Gurugram phase-4,sector-18,121015 </p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">D.O.B : </p>
+                        <p class="fw-400 fs-16 ps-3">28 march 2000 </p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold text-nowrap">Bio : </p>
+                        <p class="fw-400 fs-16 ps-3">  There are many variations of passages of Lorem Ipsum available, but the majority 
+                            have suffered alteration in some form, by injected humour, or randomised words which 
+                            don't look even slightly believable.  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="col-md-7 col-lg-10">
+    <div class="row m-0 p-0 align-items-center">
+        <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
+            <div class="rounded-circle bg-darkgray wh-225 position-relative">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <img class="wh-225 p-2" src="images/profile-image.png">
+
+                </div>
+                <div class="position-absolute top-50 start-0 ps-5 translate-middle">
+                    <div class="rounded-circle bg-black position-relative">
+                        <i class="fa fa-camera text-white p-1 fs-14" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 mt-2 m-0 p-0 ">
+            <div class="bg-darkblue details-plan  p-0">
+                <div class="row ps-5 p-3">
+                    <div class="col-md-5 col-lg-5">
+                        <div class="d-flex justify-content-between">
+                        <h4 class="text-white">
+                            Defini Shippers
+                        </h4>
+                        <img src="images/edit.png" alt="" class="wh-30"></div>
+                        <h6 class="text-yellow">Digital Marketing</h6>
+                        <p class="text-gray">{{userDetails?.email}}</p>
+                    </div>
+                    <div class="col-md-7 col-lg-7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row m-0 p-0 mt-5 align-items-center">
+        <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
+        </div>
+        <div class="col-md-10 col-lg-10">
+
+            <div class="row m-0 p-0 ">
+                <div class="col-md-6 col-lg-6">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Phone : </p>
+                        <p class="fw-400 fs-16 ps-3"> {{userDetails?.companyPhone}} </p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Country : </p>
+                        <p class="fw-400 fs-16 ps-3"> {{userDetails?.nationallity}} </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">Address : </p>
+                        <p class="fw-400 fs-16 ps-3"> Gurugram phase-4,sector-18,121015 </p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold">D.O.B : </p>
+                        <p class="fw-400 fs-16 ps-3">28 march 2000 </p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+
+                    <div class=" d-flex">
+                        <p class="fw-400 fs-16 text-black fw-bold text-nowrap">Bio : </p>
+                        <p class="fw-400 fs-16 ps-3">  There are many variations of passages of Lorem Ipsum available, but the majority 
+                            have suffered alteration in some form, by injected humour, or randomised words which 
+                            don't look even slightly believable.  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
