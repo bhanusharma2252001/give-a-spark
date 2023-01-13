@@ -14,11 +14,17 @@ export class ProfileDashboardComponent implements OnInit {
       if(params?.token) {
         let decodeToken:any= atob(params?.token)
         this.profileData(decodeToken)
+      } else {
+        if(sessionStorage.getItem('ClientSpark')) {
+          let token = sessionStorage.getItem('ClientSpark')
+          this.profileData(token)
+        }
       }
   });
   }
 
   ngOnInit(): void {
+   
   }
 
   profileData(token:any) {

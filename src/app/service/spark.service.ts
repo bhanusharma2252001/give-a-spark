@@ -212,13 +212,13 @@ makePayment(stripeToken:any ):Observable<any>{
   // const url = "https://api.giveaspark.com/api/stripe/paymentIntent"
   // return this.http.post<any>(url,{token:stripeToken})
   // return this.http.post(environment.localApiURL+ '/api/stripe/paymentIntent', {token:stripeToken},
-    return this.http.post('http://localhost:8000'+ '/api/stripe/paymentIntent', {token:stripeToken},
+    return this.http.post(environment.localApiURL+ '/api/stripe/api/stripe/paymentIntent', {token:stripeToken},
   {
     headers: { Authorization: `bearer ${this.token}` }
   }
 );
 }
-
+//api.giveaspark.com/api/stripe/api/stripe/paymentIntent
 // sendPayment(token: string, id: string): Promise<any> {
 //   return this.http.patch(`${environment.api}/orders/${id}`,
 //     {

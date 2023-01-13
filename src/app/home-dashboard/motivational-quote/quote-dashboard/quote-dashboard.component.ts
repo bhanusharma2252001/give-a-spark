@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class QuoteDashboardComponent implements OnInit {
   showQuotesForm:FormGroup;
 
   quoteList:any;
-  constructor( private api:SparkService, private fb:FormBuilder) {
+  quotedata: any;
+  quoteId: any;
+  LongQuotes: any;
+  constructor( private api:SparkService, private fb:FormBuilder, private router:Router) {
     this.showQuotesForm=this.fb.group({
       categoriesId:[''],
       subCategoriesId:[''],
@@ -54,8 +58,20 @@ export class QuoteDashboardComponent implements OnInit {
       console.log(this.subSubCategory)
     }))
   }
+//  selectQuoot4e
 
 
+getQuoteEvent(event:any, data:any){
+  this.quotedata = data;
+  this.quoteId = this.quotedata._id;
+  this.LongQuotes=data?.longQuotes
+this.router.navigate(['/home-dashboard/basic-template'])
+  sessionStorage.setItem(this.quoteId, "kaya")
+
+  sessionStorage.setItem(this.LongQuotes, "Quotessssss")
+  console.log(this.quotedata, "quote data");
+  
+}
 
 
   showQuote(data:any) {

@@ -50,12 +50,13 @@
                                             data-bs-target="#design" type="button" role="tab" aria-controls="home"
                                             aria-selected="true">
                                             <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png">
+                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
+                                                    (click)="openTemp()">
                                                 <img class="wh-35 active-black" src="assets/images/design.png">
                                                 <p class="mb-0 fs-5 fs-12">Design</p>
                                             </div>
                                         </button>
-                                    </li>Signature Details
+                                    </li>
                                 </ul>
 
                                 <!-- form start -->
@@ -133,15 +134,20 @@
                                                         <div class="mb-4">
                                                             <label for="exampleInputfiled"
                                                                 class="form-label">Quotes</label>
-                                                            <input type="text" formControlName=""
+                                                            <input type="text" formControlName="quotes"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
                                                         </div>
+
+
+
+
+                                                        
                                                         <div class="mb-4 d-flex">
 
                                                             <p class=" ">
-                                                                <i class="fa fa-plus-circle text-blue"></i>
+                                                                <i class="fa fa-plus-circle text-blue" routerLink="/home-dashboard/motivational-quote/quote-dashboard"></i >
                                                             </p>
                                                             <p class="mb-0 ps-2 text-blue">
                                                                 Add Quotes</p>
@@ -214,7 +220,8 @@
                                                             </label>
                                                             <input type="text" formControlName="fbProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="faceB">
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="faceB">
 
                                                         </div>
                                                         <div class="mb-2">
@@ -222,7 +229,8 @@
                                                                 class="form-label">Instagram</label>
                                                             <input type="text" formControlName="instagramProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="insta">
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="insta">
 
                                                         </div>
                                                         <div class="mb-2">
@@ -230,7 +238,8 @@
                                                                 class="form-label">LinkedIn</label>
                                                             <input type="text" formControlName="linkedInProfile"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Linkedin">
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Linkedin">
 
                                                         </div>
                                                         <div class="mb-4">
@@ -238,7 +247,8 @@
                                                                 class="form-label">Youtube</label>
                                                             <input type="text" formControlName="youtubeChannel"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="uTube">
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="uTube">
 
                                                         </div>
                                                         <div class="mb-4 d-flex">
@@ -268,7 +278,8 @@
                                                 </div>
                                                 <div class="">
                                                     <p class="mb-1 fw-semibold">Free</p>
-                                                    <img class="img-fluid" src="assets/images/free-template.png">
+                                                    <img class="img-fluid" src="assets/images/free-template.png" (click)="
+                                                    openTemp()">
                                                 </div>
                                                 <hr class="">
 
@@ -338,7 +349,7 @@
 
 
                                                         </div>
-                                                        <div class="col-md-1 col-lg-3">
+                                                  pe      <div class="col-md-1 col-lg-3">
 
                                                         </div>
 
@@ -442,8 +453,17 @@
 
 
                             </div>
+
+
+
+
+
+
+                            <!-- T E M P L A T E S -->
+
+
                             <div class="col-md-6 col-lg-6 pe-3">
-                                <div class="card-box  border-10 p-4 pe-2 ps-2">
+                                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                                     <div class="row m-0">
                                         <div class="col-md-3 col-lg-3 self-align-center">
                                             <img class="wh-150" src="assets/images/profile-image.png">
@@ -494,7 +514,277 @@
                                         <button type="submit" class="btn green-btn ">Create Signature</button>
                                     </div> -->
                                 </div>
+                                
+                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" *ngIf="showPro"
+                                style="vertical-align: -webkit-baseline-middle; font-size: large;  min-width:450px;">
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <img
+                                                src="https://drive.google.com/uc?id=1bf8JtJ4Ymq6BcMFEBcyXN3CDgbbzvM3C"
+                                                role="presentation" width="130" class="sc-cHGsZl bHiaRe"
+                                                style="max-width: 130px; display: inline-block;">
+                                              
+                                            
+                                            </td>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr style="text-align: center;">
+                                                        <td>
+                                                            <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                                style="margin: 0px; font-size: 20px; color: rgb(0, 0, 0);" *ngIf="!username">
+                                                                <span>Ali</span><span>&nbsp;</span><span>smith</span>
+                                                            </h2>
+
+                                                            <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                            style="margin: 0px; font-size: 20px; color: rgb(0, 0, 0);" *ngIf="username">
+                                                            <span>{{username}}</span>
+                                                        </h2>
+
+                                                            <p color="#000000" font-size="large"
+                                                                class="sc-dVhcbM fghLuF"
+                                                                style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                                                <span>digital
+                                                                    marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
+                                                                    geeks</span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td color="#f2547d" direction="horizontal" height="1"
+                                                            class="sc-jhAzac hmXDXQ"
+                                                            style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr style="vertical-align: middle;">
+                                                        <td>
+                                                            <table cellpadding="0" cellspacing="0"
+                                                                class="sc-gPEVay eQYmiW"
+                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                <tbody>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px; color: rgb(0, 0, 0);">
+                                                                            <a href="tel:889987328563" color="#000000"
+                                                                                class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>889987328563</span></a>
+                                                                            | <a href="tel:325874589923" color="#000000"
+                                                                                class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>325874589923</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;"><a
+                                                                                href="mailto:perfectiongeeks@gmail.com"
+                                                                                color="#000000" class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>perfectiongeeks@gmail.com</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;"><a
+                                                                                href="//perfectiongeeks.com"
+                                                                                color="#000000" class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>perfectiongeeks.com</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;"><span color="#000000"
+                                                                                class="sc-csuQGl CQhxV"
+                                                                                style="font-size: 12px; color: rgb(0, 0, 0);"><span>kotdwar,
+                                                                                    gurugram</span></span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <table cellpadding="0" cellspacing="0"
+                                                                class="sc-gPEVay eQYmiW"
+                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!-- <img src="https://drive.google.com/uc?id=1pi6PgHFhBQy1UdzB_BpKB8C9aTh-qNa7"
+                                                                                role="presentation" width="130"
+                                                                                class="sc-cHGsZl bHiaRe"
+                                                                                style="max-width: 130px; display: inline-block;"> -->
+
+                                                                                <ngx-qrcode style="width:150px;height:150px;"
+                                                                                [elementType]="elementType"
+                                                                                [errorCorrectionLevel]="correctionLevel"
+                                                                                [value]="value"
+                                                                                cssClass="bshadow"></ngx-qrcode>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>"Money and success don’t change people; they merely amplify
+                                                            <br>
+                                                            what is already there."
+                                                            — Will Smith</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td color="#f2547d" direction="horizontal" height="1"
+                                                            class="sc-jhAzac hmXDXQ"
+                                                            style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td height="10"></td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
                             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
 
                     </div>
@@ -507,19 +797,20 @@
                         <div class="modal-body">
                             <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
                                     aria-hidden="true"></i></div>
-                                    <div class="Neon Neon-theme-dragdropbox">
-                                        <input
-                                            style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                                            name="files[]" id="filer_input2" multiple="multiple" type="file">
-                                        <div class="Neon-input-dragDrop">
-                                            <div class="Neon-input-inner">
-                                                <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
-                                                <div class="Neon-input-text">
-                                                    <h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span>
-                                                </div><a class="Neon-input-choose-btn blue">Browse Files</a>
-                                            </div>
-                                        </div>
+                            <div class="Neon Neon-theme-dragdropbox">
+                                <input
+                                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                                    name="files[]" id="filer_input2" multiple="multiple" type="file">
+                                <div class="Neon-input-dragDrop">
+                                    <div class="Neon-input-inner">
+                                        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                                        <div class="Neon-input-text">
+                                            <h3>Drag&amp;Drop files here</h3> <span
+                                                style="display:inline-block; margin: 15px 0">or</span>
+                                        </div><a class="Neon-input-choose-btn blue">Browse Files</a>
                                     </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

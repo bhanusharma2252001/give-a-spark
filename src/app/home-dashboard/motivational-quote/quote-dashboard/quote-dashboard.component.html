@@ -98,7 +98,7 @@
                         <div class="border-10 box-border p-2" *ngFor="let quote of quoteList">
                             <figure class="text-center">
                                 <blockquote class="blockquote">
-                                  <p class="fs-14"> {{quote?.longQuotes}} </p>
+                                  <p class="fs-14" (click)="getQuoteEvent($event, quote)"> {{quote?.longQuotes}} </p>
                                 </blockquote>
                                 <figcaption class="blockquote-footer">
                                    

@@ -70,15 +70,15 @@ export class PlanDashboardComponent implements OnInit {
   // var elements = stripe.elements();
 
 
-    makePayment(amount: number,plan:string) {
+    makePayment(amount:number, plan:string) {
       const paymentHandler = (<any>window).StripeCheckout.configure({
         key: 'pk_test_51MBbpvSIdADNOmjRYROfVBFFqQAIYAIDuhhtXRcc48QwGumM0cjiC0LmMqwQ8TSzZ0f4pzGNp5EuywRbO7iXbcOY00ZRZ7osjZ',
         locale: 'auto',
         token: function (stripeToken: any) {
           if(plan == 'planB') {
-            stripeToken.SelectPlan= "Plan B"
+            stripeToken.SelectPlan = "Plan B"
           } else if(plan == 'planC') {
-            stripeToken.SelectPlan= "Plan C"
+            stripeToken.SelectPlan = "Plan C"
           }
           console.log(stripeToken);
   console.log(amount);

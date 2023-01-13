@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 @Component({
   selector: 'app-basic-template',
   templateUrl: './basic-template.component.html',
@@ -19,6 +20,17 @@ export class BasicTemplateComponent implements OnInit {
   signatureDetailsForm: FormGroup
   planShow = false;
   public toggle: boolean = false;
+showPro:boolean=false;
+
+QuoteId:any;
+LongQuote:any;
+
+
+
+
+
+
+
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
@@ -64,7 +76,19 @@ export class BasicTemplateComponent implements OnInit {
   // public cmykValue: string = '';
 
   // public cmykColor: Cmyk = new Cmyk(0, 0, 0, 0);
+  showMainContent: Boolean = true;
+ templatData:boolean=true;
 
+// QR Code
+elementType = NgxQrcodeElementTypes.URL;
+correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+value = ""
+
+getScanText() {
+  let token:any = sessionStorage.getItem('ClientSpark')
+  this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token='+btoa(token)
+  // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
+}
 
   constructor(private api: SparkService,
     private fb: FormBuilder, private toast:ToastrService, ) {
@@ -79,18 +103,30 @@ export class BasicTemplateComponent implements OnInit {
       instagramProfile:[''],
       linkedInProfile:[''],
       youtubeChannel:[''],
-      quotesId:['']
+      quotesId:[''],
+      quotes:['']
     })
   }
 
   ngOnInit(): void {
     // this.getBasicProfile()
-    this.getMyStories();
-    this.getmyQuote();
+    // this.getMyStories();
+    // this.getmyQuote();
    
     
   this.getBasicProfile();
+  this.getScanText();
 
+
+
+  if(sessionStorage.getItem('quoteId')){
+    this.QuoteId= sessionStorage.getItem('quoteId')
+  console.log(this.QuoteId, "klfdgfpoklfgjlflgfljdl")
+   }
+   if(sessionStorage.getItem('LongQuotes')){
+    this.LongQuote= sessionStorage.getItem('LongQuotes')
+  console.log(this.LongQuote, "klfdgfpoklfgjlflgfljdl")
+   }
   }
 
 
@@ -142,7 +178,6 @@ export class BasicTemplateComponent implements OnInit {
  
 //   })
 //  }
-
 
 
   onSubmit(data:any) {
@@ -197,19 +232,24 @@ export class BasicTemplateComponent implements OnInit {
   }
 
 
-  getMyStories(){
-    this.api.getMyStory().subscribe((res:any)=>{
-    this.storyList = res?.result
-    })
-  }
-  getmyQuote(){
-    this.api.getQuoteById().subscribe((res:any)=>{
-  this.quotesList=res?.result
-    })
-  }
+  // getMyStories(){
+  //   this.api.getMyStory().subscribe((res:any)=>{
+  //   this.storyList = res?.result
+  //   })
+  // }
+  // getmyQuote(){
+  //   this.api.getQuoteById().subscribe((res:any)=>{
+  // this.quotesList=res?.result
+  //   })
+  // }
 
  
-
+  openTemp(){
+   if( this.showPro =!this.showPro){
+    this.templatData=false;
+   }
+  
+  }
 
 
 
