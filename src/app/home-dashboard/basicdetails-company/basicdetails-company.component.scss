@@ -1,3 +1,17 @@
 .mt-edit {
     margin-top: -310px;
 }
+.bshadow {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px #222222);
+    opacity: .5;
+  
+  }
+  ::ng-deep .bshadow img{
+    max-height:100px ;
+    min-width:100px ;
+  }

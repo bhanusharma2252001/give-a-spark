@@ -131,12 +131,20 @@
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
                                                         </div>
-                                                        <div class="mb-4">
+                                                        <div class="mb-4" *ngIf="!LongQuote">
                                                             <label for="exampleInputfiled"
                                                                 class="form-label">Quotes</label>
                                                             <input type="text" formControlName="quotes"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                                                                id="exampleInputfiled" aria-describedby="textHelp" placeholder="opgkpoik">
+
+                                                        </div>
+                                                        <div class="mb-4" *ngIf="LongQuote">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Quotes</label>
+                                                            <input type="text" formControlName="quotesId"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="LongQuote" >
 
                                                         </div>
 
@@ -144,10 +152,12 @@
 
 
                                                         
-                                                        <div class="mb-4 d-flex">
+                                                        <div class="mb-4 d-flex" (click)="addQuote()">
 
                                                             <p class=" ">
-                                                                <i class="fa fa-plus-circle text-blue" routerLink="/home-dashboard/motivational-quote/quote-dashboard"></i >
+                                                                <i class="fa fa-plus-circle text-blue" ></i>
+                                                               
+                                                               
                                                             </p>
                                                             <p class="mb-0 ps-2 text-blue">
                                                                 Add Quotes</p>
@@ -496,7 +506,12 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                                            <img class="img-fluid" src="assets/images/scan.png">
+                                         
+                                            <ngx-qrcode style="width:150px;height:150px;"
+                                            [elementType]="elementType"
+                                            [errorCorrectionLevel]="correctionLevel"
+                                            [value]="value"
+                                            cssClass="bshadow"></ngx-qrcode>
                                             <p class=" fs-12">Scan/Click QR</p>
                                         </div>
                                     </div>
@@ -800,7 +815,7 @@
                             <div class="Neon Neon-theme-dragdropbox">
                                 <input
                                     style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                                    name="files[]" id="filer_input2" multiple="multiple" type="file">
+                                    name="files[]" id="filer_input2" multiple="multiple" type="file" (change)="onSelectImage($event)">
                                 <div class="Neon-input-dragDrop">
                                     <div class="Neon-input-inner">
                                         <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>

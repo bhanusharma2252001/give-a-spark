@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 @Component({
   selector: 'app-basicdetails-company',
   templateUrl: './basicdetails-company.component.html',
@@ -58,41 +59,21 @@ export class BasicdetailsCompanyComponent implements OnInit {
   ngOnInit(): void {
     this.getBasicProfile();
     this.title.setTitle('Templates');
-// if(sessionStorage.getItem('website')){
-//   this.compWebsite= sessionStorage.getItem('website')
-// }
 
-
-// if(sessionStorage.getItem('phone')){
-//   this.userphone= sessionStorage.getItem('phone')
-// }
-
-
-// if(sessionStorage.getItem('username')){
-//   this.username= sessionStorage.getItem('username')
-
-//  }
-//  if(sessionStorage.getItem('email')){
-//   this.useremail= sessionStorage.getItem('email')
-
-//  }
-//  if(sessionStorage.getItem('compname')){
-//   this.compName= sessionStorage.getItem('compname')
-
-//  }
- 
-//  if(sessionStorage.getItem('newcompanyname')){
-//   this.NewcompName= sessionStorage.getItem('newcompanyname')
-
-//  }
-//  if(sessionStorage.getItem('companyWebsite')){
-//   this.NewcompWeb= sessionStorage.getItem('companyWebsite')
-
-//  }
  
  
 
+    this.getScanText()
   }
+  elementType = NgxQrcodeElementTypes.URL;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = ""
+  getScanText() {
+    let token:any = sessionStorage.getItem('ClientSpark')
+    this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token='+btoa(token)
+    // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
+  }
+
  getBasicProfile(){
    this.api.getbasicDetaiofUseer().subscribe((res:any)=>{
 this.details=res.result;

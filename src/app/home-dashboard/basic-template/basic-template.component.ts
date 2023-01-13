@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-basic-template',
   templateUrl: './basic-template.component.html',
@@ -25,11 +26,18 @@ showPro:boolean=false;
 QuoteId:any;
 LongQuote:any;
 
+  ShowOneQuote:boolean=true;
 
 
 
-
-
+  url: string | ArrayBuffer | null | undefined;
+  Submitted=false
+  fileData = [] as any;
+  fileImageName: any = '';
+  isImage = true;
+  uploadImage: any;
+  imageData1: any;
+  imageData2: any;
 
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
@@ -73,9 +81,7 @@ LongQuote:any;
   Linkedin: any;
   Twitter: any;
   faceB: any;
-  // public cmykValue: string = '';
-
-  // public cmykColor: Cmyk = new Cmyk(0, 0, 0, 0);
+ 
   showMainContent: Boolean = true;
  templatData:boolean=true;
 
@@ -91,7 +97,7 @@ getScanText() {
 }
 
   constructor(private api: SparkService,
-    private fb: FormBuilder, private toast:ToastrService, ) {
+    private fb: FormBuilder, private toast:ToastrService, private router:Router ) {
     this.signatureDetailsForm = this.fb.group({
       yourName:[''],
       designation:[''],
@@ -104,7 +110,8 @@ getScanText() {
       linkedInProfile:[''],
       youtubeChannel:[''],
       quotesId:[''],
-      quotes:['']
+      quotes:[''],
+      profileImage:['']
     })
   }
 
@@ -113,20 +120,21 @@ getScanText() {
     // this.getMyStories();
     // this.getmyQuote();
    
-    
+  if(sessionStorage.getItem('quoteId')){
+    this.QuoteId = sessionStorage.getItem('quoteId')
+
+   }
+   
+   if(sessionStorage.getItem('LongQuotes')){
+    this.LongQuote= sessionStorage.getItem('LongQuotes')
+  
+   }
+   console.log(this.LongQuote, this.QuoteId)
   this.getBasicProfile();
   this.getScanText();
 
 
 
-  if(sessionStorage.getItem('quoteId')){
-    this.QuoteId= sessionStorage.getItem('quoteId')
-  console.log(this.QuoteId, "klfdgfpoklfgjlflgfljdl")
-   }
-   if(sessionStorage.getItem('LongQuotes')){
-    this.LongQuote= sessionStorage.getItem('LongQuotes')
-  console.log(this.LongQuote, "klfdgfpoklfgjlflgfljdl")
-   }
   }
 
 
@@ -204,7 +212,9 @@ getScanText() {
       instagramProfile:data.instagramProfile,
       linkedInProfile:data.linkedInProfile,
       youtubeChannel:data.youtubeChannel,   
-      quotesId:data.quotesId
+      quotesId:data.quotesId,
+      quotes:data.quotes,
+      profileImage:this.imageData2
 
     }
 
@@ -225,10 +235,9 @@ getScanText() {
   showOnPlan() {
     this.planShow == true
   }
+  addQuote(){
 
-  onClick(){
-
-
+    this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'])
   }
 
 
@@ -253,6 +262,9 @@ getScanText() {
 
 
 
+onClick(){
+
+}
 
 
 
@@ -268,8 +280,49 @@ getScanText() {
 
 
 
+onSelectImage(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.uploadImage = files[0]
+    this.subImageSubmit()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url = event.target?.result;
+    };
+  }
+}
+subImageSubmit(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.uploadImage);
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+      console.log(res);
+      this.imageData1 = res;
+      this.imageData2 = this.imageData1[0].key;
+      console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+  
+      console.log(err);
+      
+    }
+  )
 
-
+}
 
 
 

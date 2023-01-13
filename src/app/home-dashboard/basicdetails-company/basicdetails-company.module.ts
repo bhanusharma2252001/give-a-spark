@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BasicdetailsCompanyRoutingModule } from './basicdetails-company-routing.module';
 import { BasicdetailsCompanyComponent } from './basicdetails-company.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BasicdetailsCompanyRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxQRCodeModule
   ]
 })
 export class BasicdetailsCompanyModule { }

@@ -81,7 +81,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                                            <img class="img-fluid" src="assets/images/scan.png">
+                                            <!-- <img class="img-fluid" src="assets/images/scan.png"> -->
+                                            
+                                            <ngx-qrcode style="width:150px;height:150px;"
+                                            [elementType]="elementType"
+                                            [errorCorrectionLevel]="correctionLevel"
+                                            [value]="value"
+                                            cssClass="bshadow"></ngx-qrcode>
                                             <p class=" fs-12 text-center mt-1">Scan/Click QR</p>
                                         </div>
                                     </div>
