@@ -16,7 +16,7 @@ export class PlanDashboardComponent implements OnInit {
    amount:any;
   paymentHandler: any = null
 
-  
+
   stripeForm!:FormGroup;
 
 // elements!:Elements;
@@ -73,7 +73,7 @@ export class PlanDashboardComponent implements OnInit {
 
     makePayment(amount:number, plan:string) {
       const paymentHandler = (<any>window).StripeCheckout.configure({
-        key: 'pk_test_51JpbUZSAdRYr9RTGuQJ8Yh9HJpH1SI7xHnzefvyQb9NfhH4DXtugdMngkFl4v3rcrx76KLirrE4yujRNvwGO0X5r00WMnp6t5T',
+        key: 'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
         locale: 'auto',
         token: function (stripeToken: any) {
           if(plan == 'planB') {
@@ -119,7 +119,7 @@ export class PlanDashboardComponent implements OnInit {
         script.src = 'https://checkout.stripe.com/checkout.js';
         script.onload = () => {
           this.paymentHandler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_51JpbUZSAdRYr9RTGuQJ8Yh9HJpH1SI7xHnzefvyQb9NfhH4DXtugdMngkFl4v3rcrx76KLirrE4yujRNvwGO0X5r00WMnp6t5T',
+            key: 'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
             locale: 'auto',
             token: function (stripeToken: any) {
               console.log(stripeToken);
