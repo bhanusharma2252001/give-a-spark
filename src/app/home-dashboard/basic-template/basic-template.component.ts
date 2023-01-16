@@ -22,12 +22,9 @@ export class BasicTemplateComponent implements OnInit {
   planShow = false;
   public toggle: boolean = false;
 showPro:boolean=false;
-
 QuoteId:any;
 LongQuote:any;
-
   ShowOneQuote:boolean=true;
-
 
 
   url: string | ArrayBuffer | null | undefined;
@@ -42,34 +39,32 @@ LongQuote:any;
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
-  public arrayColors: any = {
-    color1: '#2883e9',
-    color2: '#e920e9',
-    color3: 'rgb(255,245,0)',
-    color4: 'rgb(236,64,64)',
-    color5: 'rgba(45,208,45,1)'
-  };
+  // public arrayColors: any = {
+  //   color1: '#2883e9',
+  //   contactDetailColor: '#e920e9',
+  //   lastNameColor: 'rgb(255,245,0)',
+  //   designationColor: 'rgb(236,64,64)',
+  //   color5: 'rgba(45,208,45,1)'
+  // };
 
-  public selectedColor: string = 'color18';
+  public selectedColor: string = 'firstNameColor';
 
   public color1: string = '#2889e9';
-  public color2: string = '#e920e9';
-  public color3: string = '#fff500';
-  public color4: string = 'rgb(236,64,64)';
-  public color5: string = 'rgba(45,208,45,1)';
-  public color6: string = '#1973c0';
-  public color7: string = '#f200bd';
-  public color8: string = '#a8ff00';
-  public color9: string = '#278ce2';
-  public color10: string = '#0a6211';
-  public color11: string = '#f2ff00';
-  public color12: string = '#f200bd';
-  public color13: string = 'rgba(0,255,0,0.5)';
-  public color14: string = 'rgb(0,255,255)';
-  public color15: string = 'rgb(255,0,0)';
-  public color16: string = '#a51ad633';
-  public color17: string = '#666666';
-  public color18: string = '#2d5964';
+
+
+  // public color5: string = 'rgba(45,208,45,1)';
+  // public color6: string = '#1973c0';
+  // public color7: string = '#f200bd';
+  // public color8: string = '#a8ff00';
+  // public color9: string = '#278ce2';
+  // public color10: string = '#0a6211';
+  // public color11: string = '#f2ff00';
+  // public color12: string = '#f200bd';
+  // public color13: string = 'rgba(0,255,0,0.5)';
+  // public color14: string = 'rgb(0,255,255)';
+  // public color15: string = 'rgb(255,0,0)';
+  // public color16: string = '#a51ad633';
+  // public color17: string = '#666666';
 
   public color19: string = '#070606';
   storyList: any;
@@ -84,13 +79,44 @@ LongQuote:any;
  
   showMainContent: Boolean = true;
  templatData:boolean=true;
-
+// fontSizeChange:any=3
 // QR Code
 elementType = NgxQrcodeElementTypes.URL;
 correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 value = ""
+// change new
+templateFontSize:any=24;
+public contactDetailColor: string = '#e920e9';
+public lastNameColor: string = '#fff500';
+public designationColor: string = 'rgb(236,64,64)';
+public firstNameColor: string = '#2d5964';
+fontFamilyNew:any = 'Poppins, sans-serif'
+lineHeight:any=1.5
   tempDetails: any;
-
+  templateDesign:any = {
+    firstNameColor:this.firstNameColor,
+    lastNameColor:this.lastNameColor,
+    designationColor:this.designationColor,
+    contactDetailColor:this.contactDetailColor,
+    fontFamily:this.fontFamilyNew,
+    fontSize:this.templateFontSize,
+    lineHeight:this.lineHeight,
+    
+  }
+  fontFamilyList:any = [ 'Poppins, sans-serif','serif',
+    'sans-serif',
+    'monospace',
+    'cursive',
+    'fantasy',
+    'system-ui',
+    'ui-serif',
+    'ui-sans-serif',
+    'ui-monospace',
+    'ui-rounded',
+    'emoji',
+    'math',
+    'fangsong']
+// chnage end
 getScanText() {
   let token:any = sessionStorage.getItem('ClientSpark')
   this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token='+btoa(token)
@@ -138,14 +164,43 @@ getScanText() {
 
   }
 
-
-
-
+  // new change start
+  changeSize(evt:any) {
+    let currnetSize = Number(evt.target.value);        
+    if(currnetSize == 4) {
+      this.templateFontSize = 34            
+    } else if(currnetSize == 5) {
+      this.templateFontSize = 44      
+    } else if(currnetSize == 3) {
+      this.templateFontSize = 24
+    } else if(currnetSize == 2) {
+      this.templateFontSize = 20
+    } else {
+      this.templateFontSize = 10
+    }
+  
+  }
+  changeLine(evt:any){
+    let currnetSize = Number(evt.target.value);        
+    if(currnetSize == 4) {
+      this.lineHeight = 2.4            
+    } else if(currnetSize == 5) {
+      this.lineHeight = 3.4      
+    } else if(currnetSize == 3) {
+      this.lineHeight = 1.4
+    } else if(currnetSize == 2) {
+      this.lineHeight = 1.1
+    } else {
+      this.lineHeight = 0.5
+    }
+  }
+  //new change end
 
   getBasicProfile() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
       this.details = res.result[0];
-
+      console.log(res,'xasds');
+      
       this.username = res.result[0]?.firstName
     this.Email = res.result[0]?.email
     this.compName = res.result[0]?.companyName

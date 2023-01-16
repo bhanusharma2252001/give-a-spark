@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <!-- header -->
+<!-- <div class="container-fluid">
+
 
     <main class="padding-top">
         <section>
@@ -59,7 +59,850 @@
                                     </li>
                                 </ul>
 
-                                <!-- form start -->
+                                
+
+                                <form [formGroup]="signatureDetailsForm"
+                                    (ngSubmit)="onSubmit(signatureDetailsForm.value)">
+
+
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show " id="details" role="tabpanel"
+                                            aria-labelledby="details-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Signature Details</h4>
+                                                </div>
+
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled" class="form-label">Your
+                                                                Name</label>
+                                                            <input type="text" formControlName="yourName"
+                                                                [(ngModel)]="username "
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                readonly>
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Designation</label>
+                                                            <input type="text" formControlName="designation"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="desig">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Phone</label>
+                                                            <input type="text" formControlName="phoneNo"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="number" readonly>
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Address</label>
+                                                            <input type="text" formControlName="address"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Email</label>
+                                                            <input type="text" formControlName="email"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Email" readonly>
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Website</label>
+                                                            <input type="text" formControlName="companyWebsite"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+                                                        <div class="mb-4" *ngIf="!LongQuote">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Quotes</label>
+                                                            <input type="text" formControlName="quotes"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp" placeholder="opgkpoik">
+
+                                                        </div>
+                                                        <div class="mb-4" *ngIf="LongQuote">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Quotes</label>
+                                                               
+                                                               <p>{{LongQuote}}</p>
+                                                            <input type="text" formControlName="quotesId"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"  >
+
+                                                        </div>
+
+
+
+
+                                                        
+                                                        <div class="mb-4 d-flex" (click)="addQuote()">
+
+                                                            <p class=" ">
+                                                                <i class="fa fa-plus-circle text-blue" ></i>
+                                                               
+                                                               
+                                                            </p>
+                                                            <p class="mb-0 ps-2 text-blue">
+                                                                Add Quotes</p>
+                                                        </div>
+
+                                                 
+                                                    </div>
+                                                    <div class="col-md-1 col-lg-3 ps-0">
+                                                        <div class="position-absolute top-0">
+                                                        
+
+                                                            <div
+                                                            *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                            <img class="wh-150 rounded-circle"
+                                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                                          </div>
+                                                          <div
+                                                            *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                            <img class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                                                          </div>
+
+
+                                                            <p class="text-blue fs-14 mb-0 text-nowrap pe-2"
+                                                                data-bs-toggle="modal" data-bs-target="#change-image">
+                                                                Change
+                                                                Photo</p>
+                                                            <p class="text-blue fs-14 mb-0">Remove</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="social" role="tabpanel"
+                                            aria-labelledby="social-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Add Social Links</h4>
+                                                </div>
+
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled" class="form-label">Facebook
+                                                            </label>
+                                                            <input type="text" formControlName="fbProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="faceB">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Instagram</label>
+                                                            <input type="text" formControlName="instagramProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="insta">
+
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">LinkedIn</label>
+                                                            <input type="text" formControlName="linkedInProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Linkedin">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label">Youtube</label>
+                                                            <input type="text" formControlName="youtubeChannel"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="uTube">
+
+                                                        </div>
+                                                        <div class="mb-4 d-flex">
+
+                                                            <p class=" ">
+                                                                <i class="fa fa-plus-circle text-blue"></i>
+                                                            </p>
+                                                            <p class="mb-0 ps-2 text-blue">
+                                                                Add New Field</p>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-1 col-lg-3">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="template" role="tabpanel"
+                                            aria-labelledby="template-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Templates</h4>
+                                                </div>
+                                                <div class="">
+                                                    <p class="mb-1 fw-semibold">Free</p>
+                                                    <img class="img-fluid" src="assets/images/free-template.png" (click)="
+                                                    openTemp()">
+                                                </div>
+                                                <hr class="">
+
+                                                <div class="mt-2">
+                                                    <p class="mb-1 fw-semibold">Pro</p>
+                                                    <img class="img-fluid" src="assets/images/pro-img.png">
+                                                </div>
+                                                <div class="mt-2">
+                                                    <p class="mb-1 fw-semibold">Pro</p>
+                                                    <img class="img-fluid" src="assets/images/pro-pro-img.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="design" role="tabpanel"
+                                            aria-labelledby="design-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Font Styles & Colors</h4>
+                                                </div>
+                                                <div class="">
+                                                    <h6 class="mb-4 fw-semibold">Font Styles</h6>
+
+                                                    <form class="row position-relative">
+                                                        <div class="col-md-11 col-lg-9">
+                                                            <div class="mb-2 grid-2">
+                                                                <label for="exampleInputfiled"
+                                                                    class="form-label mt-1 ">Font
+                                                                    Family :
+                                                                </label>
+                                                                <select class="form-select "
+                                                                    aria-label="Default select example">
+                                                                    <option selected>Arial</option>
+                                                                    <option value="1">One</option>
+                                                                    <option value="2">Two</option>
+                                                                    <option value="3">Three</option>
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+
+                                                                <label for="slider" class="form-label">Size
+                                                                    :</label>
+                                                                <input type="range" class="form-range" min="1" max="5" 
+                                                                    id="slider" (onchange)="changeSizeBySlider()" >
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+
+                                                                <label for="customRange2" class="form-label">Line
+                                                                    Height :</label>
+                                                                <input type="range" class="form-range" min="0" max="5"
+                                                                id="customRange2" value="20" />
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+                                                                <div>Align :</div>
+                                                                <div class="d-flex">
+                                                                    <i class="m-1 fa fa-align-left"
+                                                                        aria-hidden="true"></i>
+                                                                    <i class="m-1 fa fa-align-center"
+                                                                        aria-hidden="true"></i>
+                                                                    <i class="m-1 fa fa-align-right"
+                                                                        aria-hidden="true"></i>
+                                                                    <i class="m-1 fa fa-align-justify"
+                                                                        aria-hidden="true"></i>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                            <div class="col-md-1 col-lg-3">
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <h6 class="mb-4 fw-semibold">Color</h6>
+                                                    <div class="mb-2 grid-2">
+                                                        <div class="">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">First Name:</p>
+                                                             
+                                                                <input [(colorPicker)]="color18"
+                                                                    [style.background]="color18" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Designation :</p>
+                                                               
+                                                                <input [(colorPicker)]="color4"
+                                                                    [style.background]="color4" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Contact Details :</p>
+                                                               
+                                                                <input [(colorPicker)]="color2"
+                                                                    [style.background]="color2" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Last Name:</p>
+                                                               
+                                                                <input [(colorPicker)]="color3"
+                                                                    [style.background]="color3" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Shapes</h4>
+                                                </div>
+                                                <div class="bg-darkgray w-25">
+
+                                                    <div class="row p-1">
+                                                        <div class="col-md-4 rounded-3">
+                                                            <i class="p-2  fa fa-square" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-4 rounded-3">
+                                                            <i class="p-2  fa fa-circle" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-4 rounded-3">
+                                                            <i class="p-2  fa fa-line" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row p-1 mt-4">
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Width:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Height:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Color:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 text-end">
+                                        <button type="submit" class="green-btn p-2 pe-3 ps-3">Create Signature</button>
+                                    </div>
+
+                                </form>
+
+
+
+                        
+
+
+                            </div>
+
+
+
+
+
+
+                        
+
+
+                            <div class="col-md-6 col-lg-6 pe-3">
+                                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
+                                    <div class="row m-0">
+                                        <div class="col-md-3 col-lg-3 self-align-center">
+                                            <img class="wh-150" src="assets/images/profile-image.png">
+                                        </div>
+                                        <div class="col-md-7 col-lg-6 ps-2 pe-0">
+                                            <h4 class=""><span class="text-darkblue" *ngIf="!username">John &nbsp;
+                                                    Doe</span> </h4>
+                                            <h4 class="">
+                                                <span class="text-darkblue" *ngIf="username"
+                                                    [style.color]="color18">{{username}}</span>
+                                            </h4>
+                                            <h6 class="mb-3" *ngIf="!desig" [style.color]="color4">Marketing Expert</h6>
+                                            <h6 class="mb-3" *ngIf="desig" [style.color]="color4">{{desig}}</h6>
+
+                                            <div class="d-flex pe-5 ps-3">
+
+                                                <i class="fa fa-phone pe-2" aria-hidden="true"></i>
+                                                <p class=" fs-12" *ngIf="!number">+1129457850 | +1129457850 </p>
+                                                <p class=" fs-12" *ngIf="number">{{number}} </p>
+                                            </div>
+                                            <div class="d-flex pe-5 ps-3">
+                                                <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
+                                                <p class=" fs-12" *ngIf="!Email">shreybhardwaj@gmail.com </p>
+                                                <p class=" fs-12" *ngIf="Email">{{Email}} </p>
+                                            </div>
+                                            <div class="d-flex pe-5 ps-3">
+                                                <i class="fa fa-globe pe-2" aria-hidden="true"></i>
+                                                <p class=" fs-12" *ngIf="!compWebsite">www.perfectiongeek.com</p>
+                                                <p class=" fs-12" *ngIf="compWebsite">{{compWebsite}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-lg-3 pe-0 ps-0">
+                                         
+                                            <ngx-qrcode style="width:150px;height:150px;"
+                                            [elementType]="elementType"
+                                            [errorCorrectionLevel]="correctionLevel"
+                                            [value]="value"
+                                            cssClass="bshadow"></ngx-qrcode>
+                                            <p class=" fs-12">Scan/Click QR</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 offset-lg-2 text-center">
+                                            <p>“Business opportunities are like buses, there’s always another one
+                                                coming.”
+                                            </p>
+                                            <p>{{details?.quotesId?.quotesName}}</p>
+                                            <h6> – Richard Branson</h6>
+                                        </div>
+
+                                    </div>
+                                  
+                                </div>
+                                
+                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" *ngIf="showPro"
+                                style="
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;"  *ngIf="tempDetails?.profileImage">
+                                            
+        
+                                                <div
+                            *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                            <img class="wh-150 rounded-circle"
+                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                          </div>
+                          <div
+                            *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                            <img class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                          </div>
+                                            
+                                            </td>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr style="text-align: center;">
+                                                        <td style=" padding-top:15px;">
+                                                            <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                                style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);" *ngIf="!tempDetails?.yourName">
+                                                                <span style="margin: 0px; padding-top:15px; font-size: 34px;">Ali</span><span>&nbsp;</span><span>smith</span>
+                                                            </h2>
+
+                                                            <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                            style="margin: 0px; font-size: 24px; font-weight:bold; color: rgb(0, 0, 0);" *ngIf="tempDetails?.yourName">
+                                                            <span style="margin: 0px; font-size: 34px;" [style.color]="color18" id="container" >{{tempDetails?.yourName}}</span>
+                                                        </h2>
+
+                                                            <p color="#000000" font-size="large" *ngIf="!tempDetails?.designation"
+                                                                class="sc-dVhcbM fghLuF"
+                                                                style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                                                <span>digital
+                                                                    marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
+                                                                    geeks</span>
+                                                            </p>
+
+                                                            
+                                                            <p color="#000000" font-size="large" *ngIf="tempDetails?.designation"
+                                                                class="sc-dVhcbM fghLuF"
+                                                                style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                                              <span [style.color]="color4">{{tempDetails?.designation}}</span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td color="#f2547d" direction="horizontal" height="1"
+                                                            class="sc-jhAzac hmXDXQ"
+                                                            style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr style="vertical-align: middle;">
+                                                        <td>
+                                                            <table cellpadding="0" cellspacing="0"
+                                                                class="sc-gPEVay eQYmiW"
+                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                <tbody>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px; color: rgb(0, 0, 0);">
+                                                                            <a href="tel:889987328563" color="#000000"
+                                                                                class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>889987328563</span></a>
+                                                                            | <a href="tel:325874589923" color="#000000"
+                                                                                class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span [style.color]="color2">{{tempDetails?.phoneNo}}</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;" *ngIf="!tempDetails?.email">
+                                                                            <a
+                                                                                href="mailto:user@gmail.com"
+                                                                                color="#000000" class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>user@gmail.com</span></a>
+                                                                        </td>
+                                                                        <td style="padding: 0px;" *ngIf="tempDetails?.email">
+                                                                            <a
+                                                                                href="mailto:{{tempDetails?.email}}"
+                                                                                color="#000000" class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>{{tempDetails?.email}}</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;"><a
+                                                                                href="//{{tempDetails?.companyWebsite}}"
+                                                                                color="#000000" class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>{{tempDetails?.companyWebsite}}</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height="25" style="vertical-align: middle;">
+                                                                        <td width="30" style="vertical-align: middle;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                class="sc-gPEVay eQYmiW"
+                                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="vertical-align: bottom;">
+                                                                                            <span color="#f2547d"
+                                                                                                width="11"
+                                                                                                class="sc-jlyJG bbyJzT"
+                                                                                                style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                                                                    src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png"
+                                                                                                    color="#f2547d"
+                                                                                                    width="13"
+                                                                                                    class="sc-iRbamj blSEcj"
+                                                                                                    style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding: 0px;">
+                                                                            <span color="#000000"
+                                                                                class="sc-csuQGl CQhxV"
+                                                                                style="font-size: 12px; color: rgb(0, 0, 0);"><span>{{tempDetails?.address.city}}</span></span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <table cellpadding="0" cellspacing="0"
+                                                                class="sc-gPEVay eQYmiW"
+                                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                           
+
+                                                                                <ngx-qrcode style="width:150px;height:150px;"
+                                                                                [elementType]="elementType"
+                                                                                [errorCorrectionLevel]="correctionLevel"
+                                                                                [value]="value"
+                                                                                cssClass="bshadow pe-4"></ngx-qrcode>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr *ngIf="!tempDetails?.quotesId?.longQuotes">
+                                                        <td>"Money and success don’t change people; they merely amplify
+                                                            <br>
+                                                            what is already there."
+                                                            — Will Smith</td>
+                                                    </tr>
+                                                    <tr *ngIf="tempDetails?.quotesId?.longQuotes">
+                                                        <td>{{tempDetails?.quotesId?.longQuotes}}
+                                                            <br>
+                                                            
+                                                            {{tempDetails?.quotesId?.authorId?.firstName}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                                style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td color="#f2547d" direction="horizontal" height="1"
+                                                            class="sc-jhAzac hmXDXQ"
+                                                            style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="30"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td height="10"></td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog quotes-box">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                                    aria-hidden="true"></i></div>
+                            <div class="Neon Neon-theme-dragdropbox">
+                                <input
+                                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                                    name="files[]" id="filer_input2" multiple="multiple" type="file" (change)="onSelectImage($event)">
+                                <div class="Neon-input-dragDrop">
+                                    <div class="Neon-input-inner">
+                                        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                                        <div class="Neon-input-text">
+                                            <h3>Drag&amp;Drop files here</h3> <span
+                                                style="display:inline-block; margin: 15px 0">or</span>
+                                        </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+</div> -->
+
+
+<div class="container-fluid">
+    
+
+    <main class="padding-top">
+        <section>
+            <div class="container-fluid p-0 mt-5">
+                <div class="row m-0 p-0 mt-3">
+
+                    <div class="col-md-7 col-lg-10">
+                        <div class="row pe-5">
+                            <div class="col-md-6 col-lg-6">
+                                <ul class="nav nav-tabs rounded-pill p-3 ps-5 pe-5 justify-content-between" id="myTab"
+                                    role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 active" id="details-tab"
+                                            data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab"
+                                            aria-controls="details" aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/details.png">
+                                                <img class="wh-35 active-black" src="assets/images/details-black.png">
+                                                <p class="mb-0 fs-5 fs-12">Details</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 bg-white" id="social-tab"
+                                            data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab"
+                                            aria-controls="social" aria-selected="true" (click)="onClick()
+                                            ">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/social-yellow.png">
+                                                <img class="wh-35 active-black" src="assets/images/social.png">
+                                                <p class="mb-0 fs-5 fs-12">Social</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1  p-2 " id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#template" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
+                                                <img class="wh-35 active-black" src="assets/images/template.png">
+                                                <p class="mb-0 fs-5 fs-12">Template</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 " id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#design" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
+                                                    (click)="openTemp()">
+                                                <img class="wh-35 active-black" src="assets/images/design.png">
+                                                <p class="mb-0 fs-5 fs-12">Design</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </ul>
+
+                               
 
                                 <form [formGroup]="signatureDetailsForm"
                                     (ngSubmit)="onSubmit(signatureDetailsForm.value)">
@@ -335,12 +1178,13 @@
                                                                     class="form-label mt-1 ">Font
                                                                     Family :
                                                                 </label>
-                                                                <select class="form-select "
+                                                                <select class="form-select " [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}" 
                                                                     aria-label="Default select example">
-                                                                    <option selected>Arial</option>
-                                                                    <option value="1">One</option>
+                                                                    <!-- <option value="'Poppins', sans-serif" selected>    Poppins</option>
+                                                                    <option value="" >Arial</option>
                                                                     <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
+                                                                    <option value="3">Three</option> -->
+                                                                    <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
                                                                 </select>
 
                                                             </div>
@@ -348,7 +1192,7 @@
 
                                                                 <label for="customRange2" class="form-label">Size
                                                                     :</label>
-                                                                <input type="range" class="form-range" min="0" max="5"
+                                                                <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeSize($event)"
                                                                     id="customRange2">
 
                                                             </div>
@@ -356,7 +1200,7 @@
 
                                                                 <label for="customRange2" class="form-label">Line
                                                                     Height :</label>
-                                                                <input type="range" class="form-range" min="0" max="5"
+                                                                <input type="range" value="3" (change)="changeLine($event)"class="form-range" min="0" max="5"
                                                                     id="customRange2">
 
                                                             </div>
@@ -376,7 +1220,7 @@
 
 
                                                         </div>
-                                            <div class="col-md-1 col-lg-3">
+                                                        <div class="col-md-1 col-lg-3">
 
                                                         </div>
 
@@ -389,22 +1233,22 @@
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">First Name:</p>
                                                                 <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
-                                                                <input [(colorPicker)]="color18"
-                                                                    [style.background]="color18" style="width: 15px;
+                                                                <input [(colorPicker)]="firstNameColor"
+                                                                    [style.background]="firstNameColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Designation :</p>
                                                                 <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
-                                                                <input [(colorPicker)]="color4"
-                                                                    [style.background]="color4" style="width: 15px;
+                                                                <input [(colorPicker)]="designationColor"
+                                                                    [style.background]="designationColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Contact Details :</p>
                                                                 <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
-                                                                <input [(colorPicker)]="color2"
-                                                                    [style.background]="color2" style="width: 15px;
+                                                                <input [(colorPicker)]="contactDetailColor"
+                                                                    [style.background]="contactDetailColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div>
                                                         </div>
@@ -412,9 +1256,9 @@
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Last Name:</p>
                                                                 <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
-                                                                <input [(colorPicker)]="color3"
-                                                                    [style.background]="color3" style="width: 15px;
-                                                                height: 14px;" />
+                                                                <input [(colorPicker)]="lastNameColor"
+                                                                    [style.background]="lastNameColor" style="width: 15px;
+                                                                height: 14px;"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -496,30 +1340,30 @@
                                             <img class="wh-150" src="assets/images/profile-image.png">
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                                            <h4 class=""><span class="text-darkblue" *ngIf="!username">John &nbsp;
-                                                    Doe</span> </h4>
+                                            <h4 class=""><span  class="text-darkblue"  *ngIf="!username" [style.color]="firstNameColor" [style.font-size.px]="templateFontSize">John &nbsp;
+                                                    </span> <span class="text-darkblue"  *ngIf="!username" [style.color]="lastNameColor" [style.font-size.px]="templateFontSize">Doe</span></h4>
                                             <h4 class="">
                                                 <span class="text-darkblue" *ngIf="username"
-                                                    [style.color]="color18">{{username}}</span>
+                                                    [style.color]="firstNameColor" [style.font-size.px]="templateFontSize">{{username}}</span>
                                             </h4>
-                                            <h6 class="mb-3" *ngIf="!desig" [style.color]="color4">Marketing Expert</h6>
-                                            <h6 class="mb-3" *ngIf="desig" [style.color]="color4">{{desig}}</h6>
+                                            <h6 class="mb-3" *ngIf="!desig" [style.color]="designationColor">Marketing Expert</h6>
+                                            <h6 class="mb-3" *ngIf="desig" [style.color]="designationColor">{{desig}}</h6>
 
                                             <div class="d-flex pe-5 ps-3">
 
                                                 <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!number">+1129457850 | +1129457850 </p>
-                                                <p class=" fs-12" *ngIf="number">{{number}} </p>
+                                                <p class=" fs-12" *ngIf="!number"  [style.color]="contactDetailColor">+1129457850 | +1129457850 </p>
+                                                <p class=" fs-12" *ngIf="number"  [style.color]="contactDetailColor">{{number}} </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!Email">shreybhardwaj@gmail.com </p>
-                                                <p class=" fs-12" *ngIf="Email">{{Email}} </p>
+                                                <p class=" fs-12" *ngIf="!Email"  [style.color]="contactDetailColor">shreybhardwaj@gmail.com </p>
+                                                <p class=" fs-12" *ngIf="Email"  [style.color]="contactDetailColor">{{Email}} </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!compWebsite">www.perfectiongeek.com</p>
-                                                <p class=" fs-12" *ngIf="compWebsite">{{compWebsite}}</p>
+                                                <p class=" fs-12" *ngIf="!compWebsite"  [style.color]="contactDetailColor">www.perfectiongeek.com</p>
+                                                <p class=" fs-12" *ngIf="compWebsite"  [style.color]="contactDetailColor">{{compWebsite}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
@@ -534,7 +1378,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-8 offset-lg-2 text-center">
-                                            <p>“Business opportunities are like buses, there’s always another one
+                                            <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">“Business opportunities are like buses, there’s always another one
                                                 coming.”
                                             </p>
                                             <p>{{details?.quotesId?.quotesName}}</p>
@@ -884,3 +1728,14 @@
     <!-- <input [(colorPicker)]="color18" [style.background]="color18"/> -->
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
