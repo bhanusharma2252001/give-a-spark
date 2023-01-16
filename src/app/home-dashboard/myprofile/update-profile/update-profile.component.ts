@@ -127,8 +127,9 @@ onSubmit(data:any){
     designation:data?.designation,
     DOB:data?.DOB,
     phone:data?.phone,
-    address:[data?.companyAddress ],
-    country:[data?.companyAddress ]
+    yourBio:data?.yourBio,
+    address:[data?.address ],
+    country:[data?.country ]
     
 }
  

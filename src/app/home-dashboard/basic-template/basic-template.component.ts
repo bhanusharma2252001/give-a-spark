@@ -89,6 +89,7 @@ LongQuote:any;
 elementType = NgxQrcodeElementTypes.URL;
 correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 value = ""
+  tempDetails: any;
 
 getScanText() {
   let token:any = sessionStorage.getItem('ClientSpark')
@@ -119,14 +120,14 @@ getScanText() {
     // this.getBasicProfile()
     // this.getMyStories();
     // this.getmyQuote();
-   
-  if(sessionStorage.getItem('quoteId')){
-    this.QuoteId = sessionStorage.getItem('quoteId')
+    this.getTemplateDetails();
+  if(localStorage.getItem('quoteId')){
+    this.QuoteId = localStorage.getItem('quoteId')
 
    }
    
-   if(sessionStorage.getItem('LongQuotes')){
-    this.LongQuote= sessionStorage.getItem('LongQuotes')
+   if(localStorage.getItem('LongQuotes')){
+    this.LongQuote= localStorage.getItem('LongQuotes')
   
    }
    console.log(this.LongQuote, this.QuoteId)
@@ -170,22 +171,15 @@ getScanText() {
 
 
   }
-//  getTemplateDetails(){
-//   this.api.getsignatureDetails().subscribe((res:any)=>{
+ getTemplateDetails(){
+  this.api.getsignatureDetails().subscribe((res:any)=>{
 
-//     this.details = res.result;
-
-//     this.username = res.result[0]?.yourName
-//     this.Email = res.result[0]?.email
-//     this.compName = res.result[0]?.companyName
-//     this.compWebsite = res.result[0]?.companyWebsite
-//     this.number = res.result[0]?.phoneNo
-
-//     this.desig= res.result[0]?.designation,
-//     this.addr=res.result[0]?.address
+    this.tempDetails = res.result[res.result.length -1];
+console.log(this.tempDetails, "kkkkkkkk")
  
-//   })
-//  }
+ 
+  })
+ }
 
 
   onSubmit(data:any) {
@@ -212,7 +206,7 @@ getScanText() {
       instagramProfile:data.instagramProfile,
       linkedInProfile:data.linkedInProfile,
       youtubeChannel:data.youtubeChannel,   
-      quotesId:data.quotesId,
+      quotesId:this.QuoteId,
       quotes:data.quotes,
       profileImage:this.imageData2
 

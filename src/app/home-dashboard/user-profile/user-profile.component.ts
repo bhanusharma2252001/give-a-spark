@@ -123,4 +123,25 @@ console.log(this.details)
     })
 
   }
+
+
+  public downloadQRCode() {
+//    const fileNameToDownload = 'image_qrcode';
+//    const base64Img = document.getElementsByClassName('bshadow')[0].children[0]['src'];
+//    fetch(base64Img)
+//       .then(res => res.blob())
+//       .then((blob) => {
+//          // IE
+//          if (window.navigator && window.navigator.msSaveOrOpenBlob){
+//             window.navigator.msSaveOrOpenBlob(blob,fileNameToDownload);
+//          } else { // Chrome
+//             const url = window.URL.createObjectURL(blob);
+//             const link = document.createElement('a');
+//             link.href = url;
+//             link.download = fileNameToDownload;
+//             link.click();
+//          }
+//       })
+// }
+}
 }

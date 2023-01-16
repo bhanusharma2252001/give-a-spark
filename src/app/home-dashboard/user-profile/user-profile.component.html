@@ -30,6 +30,7 @@
                             <div class="col-md-6 col-lg-6">
                                 <div class="form-box bg-white p-4 shadow border-10 ">
 
+
                                     <div class="">
                                         <h4 class="fw-semibold">Hi John Doe,</h4>
                                         <p class="fw-color">Start with basic details for your signature</p>
@@ -123,6 +124,7 @@
                                             [value]="value"
                                             cssClass="bshadow"></ngx-qrcode>
                                             <p class="text-center pt-3 fs-12">Scan/Click QR</p>
+                                            <button (click)="downloadQRCode()">Download QRCode</button>
                                         </div>
                                     </div>
 

@@ -66,9 +66,9 @@ getQuoteEvent(event:any, data:any){
   this.quoteId = this.quotedata._id;
   this.LongQuotes=data?.longQuotes
 this.router.navigate(['/home-dashboard/basic-template'])
-  sessionStorage.setItem('quoteId', this.quoteId )
+  localStorage.setItem('quoteId', this.quoteId )
 
-  sessionStorage.setItem('LongQuotes',this.LongQuotes )
+  localStorage.setItem('LongQuotes',this.LongQuotes )
   console.log(this.quotedata, "quote data");
   
 }
