@@ -29,6 +29,9 @@ export class UpdateProfileComponent implements OnInit {
   uploadImage: any;
   imageData1: any;
   imageData2: any;
+  designation: any;
+  addr: any;
+  Email: any;
 
   constructor(private api: SparkService, private router:Router, private fb:FormBuilder, private toast:ToastrService) { 
     this.profileUpdate=this.fb.group({
@@ -59,12 +62,12 @@ profile:['']
       this.details = res.result;
 
       this.userName = res.result[0]?.firstName
-      // this.Email=res.result?.email
+      this.Email=res.result[0].email
       this.compname = res.result[0]?.companyName
       this.compwebsite = res.result[0]?.companyWebsite
       this.number = res.result[0]?.phone
-
-
+this.addr=res.result[0]?.address
+this.designation=res.result[0]?.designation
 
       console.log(this.compwebsite, 'jojo')
 
@@ -141,7 +144,7 @@ onSubmit(data:any){
      
       // this.bannerData=null
       // this.fileData=null
-      // this.router.navigate(["home-dashboard/category/categorydashboard"])
+      this.router.navigate(["/home-dashboard/myprofile/profile-dashboard"])
     },
     (err: any) => {
     

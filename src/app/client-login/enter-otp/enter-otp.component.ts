@@ -45,4 +45,8 @@ otpSubmit(){
  })
 }
 
+resendOTP(){
+  
+}
+
 }

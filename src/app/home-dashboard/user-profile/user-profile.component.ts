@@ -30,6 +30,7 @@ details:any;
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = ""
+  qrCode: any;
 
 
 
@@ -62,7 +63,8 @@ details:any;
  console.log(this.userName, this.Email)
 
  
-this.getScanText()
+this.getScanText();
+this.qrCodeByApi();
   }
 
 
@@ -78,7 +80,8 @@ this.getScanText()
         companyName:data.companyName,
         companyWebsite:data.companyWebsite,
         phone:data.phone,
-         email:this.Email
+         email:this.Email,
+         
     } 
     this.api.basicDetailofUser(body).subscribe((res:any)=>{
       console.log(res, 'profile')
@@ -124,24 +127,11 @@ console.log(this.details)
 
   }
 
+qrCodeByApi(){
+  this.api.getQrCode().subscribe((res:any)=>{
+    this.qrCode=res;
+    console.log(this.qrCode)
 
-  public downloadQRCode() {
-//    const fileNameToDownload = 'image_qrcode';
-//    const base64Img = document.getElementsByClassName('bshadow')[0].children[0]['src'];
-//    fetch(base64Img)
-//       .then(res => res.blob())
-//       .then((blob) => {
-//          // IE
-//          if (window.navigator && window.navigator.msSaveOrOpenBlob){
-//             window.navigator.msSaveOrOpenBlob(blob,fileNameToDownload);
-//          } else { // Chrome
-//             const url = window.URL.createObjectURL(blob);
-//             const link = document.createElement('a');
-//             link.href = url;
-//             link.download = fileNameToDownload;
-//             link.click();
-//          }
-//       })
-// }
+  })
 }
 }

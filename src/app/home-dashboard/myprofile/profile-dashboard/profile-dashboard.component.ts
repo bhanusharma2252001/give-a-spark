@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SparkService } from 'src/app/service/spark.service';
 @Component({
   selector: 'app-profile-dashboard',
@@ -8,7 +8,7 @@ import { SparkService } from 'src/app/service/spark.service';
 })
 export class ProfileDashboardComponent implements OnInit {
   userDetails:any
-  constructor(private api: SparkService,private route: ActivatedRoute) { 
+  constructor(private api: SparkService,private route: ActivatedRoute, private router:Router) { 
     this.route.queryParams.subscribe((params:any) => {
       // console.log(params,'sssssss');
       if(params?.token) {
@@ -32,4 +32,23 @@ export class ProfileDashboardComponent implements OnInit {
       this.userDetails = res;
     })
   }
+
+navigate(){
+  this.router.navigate(['/home-dashboard/myprofile/update-profile'])
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

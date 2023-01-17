@@ -282,10 +282,13 @@ getUserProfile(token:any) {
 
 
 
+// GET QR CODE FROM BACKEND
 
 
-
-
+getQrCode() {
+  return this.http.get(environment.localApiURL +'/api/template/generateQrCode',{
+    headers: { Authorization: `bearer ${this.token}` },
+});}
 
 
 

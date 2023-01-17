@@ -73,7 +73,7 @@ export class PlanDashboardComponent implements OnInit {
 
     makePayment(amount:number, plan:string) {
       const paymentHandler = (<any>window).StripeCheckout.configure({
-        key: 'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
+        key:'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
         locale: 'auto',
         token: function (stripeToken: any) {
           if(plan == 'planB') {
