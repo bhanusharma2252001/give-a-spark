@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -22,6 +22,7 @@ export class BasicTemplateComponent implements OnInit {
   planShow = false;
   public toggle: boolean = false;
   showPro: boolean = false;
+  templateShow: any;
   QuoteId: any;
   LongQuote: any;
   ShowOneQuote: boolean = true;
@@ -39,32 +40,12 @@ export class BasicTemplateComponent implements OnInit {
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
-  // public arrayColors: any = {
-  //   color1: '#2883e9',
-  //   contactDetailColor: '#e920e9',
-  //   lastNameColor: 'rgb(255,245,0)',
-  //   designationColor: 'rgb(236,64,64)',
-  //   color5: 'rgba(45,208,45,1)'
-  // };
-
+  
   public selectedColor: string = 'firstNameColor';
 
   public color1: string = '#2889e9';
 
 
-  // public color5: string = 'rgba(45,208,45,1)';
-  // public color6: string = '#1973c0';
-  // public color7: string = '#f200bd';
-  // public color8: string = '#a8ff00';
-  // public color9: string = '#278ce2';
-  // public color10: string = '#0a6211';
-  // public color11: string = '#f2ff00';
-  // public color12: string = '#f200bd';
-  // public color13: string = 'rgba(0,255,0,0.5)';
-  // public color14: string = 'rgb(0,255,255)';
-  // public color15: string = 'rgb(255,0,0)';
-  // public color16: string = '#a51ad633';
-  // public color17: string = '#666666';
 
   public color19: string = '#070606';
   storyList: any;
@@ -93,6 +74,10 @@ export class BasicTemplateComponent implements OnInit {
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
+  itemFontSize: any = 14
+  fontSizeName: any = 18
+  nameAlign: any = '';
+  borderRadius: any = 0
   templateDesign: any = {
     firstNameColor: this.firstNameColor,
     lastNameColor: this.lastNameColor,
@@ -101,6 +86,10 @@ export class BasicTemplateComponent implements OnInit {
     fontFamily: this.fontFamilyNew,
     fontSize: this.templateFontSize,
     lineHeight: this.lineHeight,
+    fontSizeItem: this.itemFontSize,
+    nameFontSize: this.fontSizeName,
+    nameAlign: this.nameAlign,
+    borderRadius: this.borderRadius
 
   }
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
@@ -117,6 +106,7 @@ export class BasicTemplateComponent implements OnInit {
     'math',
     'fangsong']
   compPhone: any;
+  dessssssignnnnn: any;
   // chnage end
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
@@ -124,7 +114,14 @@ export class BasicTemplateComponent implements OnInit {
     // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
   }
 
-  constructor(private api: SparkService,
+
+
+  data = document.getElementById('scam');
+
+ 
+
+
+  constructor(private api: SparkService, myElement: ElementRef,
     private fb: FormBuilder, private toast: ToastrService, private router: Router) {
     this.signatureDetailsForm = this.fb.group({
       yourName: [''],
@@ -143,12 +140,15 @@ export class BasicTemplateComponent implements OnInit {
       companyPhone: [''],
       twitterProfile: ['']
     })
+
   }
 
+
+
   ngOnInit(): void {
+    console.log(this.data, 'dessssssssiggggnsnnnnl;')
     // this.getBasicProfile()
-    // this.getMyStories();
-    // this.getmyQuote();
+this.getDesign();
     this.getTemplateDetails();
     if (localStorage.getItem('quoteId')) {
       this.QuoteId = localStorage.getItem('quoteId')
@@ -172,14 +172,24 @@ export class BasicTemplateComponent implements OnInit {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
       this.templateFontSize = 34
+      this.itemFontSize = 20
+      this.fontSizeName = 20
     } else if (currnetSize == 5) {
       this.templateFontSize = 44
+      this.fontSizeName = 22
+      this.itemFontSize = 25
     } else if (currnetSize == 3) {
       this.templateFontSize = 24
+      this.itemFontSize = 12
+      this.fontSizeName = 18
     } else if (currnetSize == 2) {
       this.templateFontSize = 20
+      this.itemFontSize = 8
+      this.fontSizeName = 15
     } else {
       this.templateFontSize = 10
+      this.itemFontSize = 6
+      this.fontSizeName = 12
     }
 
   }
@@ -196,6 +206,10 @@ export class BasicTemplateComponent implements OnInit {
     } else {
       this.lineHeight = 0.5
     }
+  }
+
+  getAlign(val: any) {
+    this.nameAlign = val;
   }
   //new change end
 
@@ -296,23 +310,12 @@ export class BasicTemplateComponent implements OnInit {
     this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'])
   }
 
-
-  // getMyStories(){
-  //   this.api.getMyStory().subscribe((res:any)=>{
-  //   this.storyList = res?.result
-  //   })
-  // }
-  // getmyQuote(){
-  //   this.api.getQuoteById().subscribe((res:any)=>{
-  // this.quotesList=res?.result
-  //   })
-  // }
-
-
-  openTemp() {
-    if (this.showPro = !this.showPro) {
-      this.templatData = false;
-    }
+  openTemp(val: any) {
+    // if (this.showPro = !this.showPro) {
+    //   this.templatData = false;
+    // }
+    this.templatData = false
+    this.templateShow = val
 
   }
 
@@ -322,7 +325,30 @@ export class BasicTemplateComponent implements OnInit {
 
   }
 
+  saveChanges() {
+    let log = {
+      templateDesign: {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius
+    
+      }
+  
 
+    }
+    this.api.templateCustomize(log).subscribe((res: any) => {
+      console.log(res, "gfk;lkf;d");
+
+    })
+  }
 
 
 
@@ -380,7 +406,27 @@ export class BasicTemplateComponent implements OnInit {
 
   }
 
-
+  getDesign(){
+    this.api.getdesign().subscribe((res:any)=>{
+      let data = res?.result
+          let result = data[data?.length - 1]
+          let templateResult = result?.templateDesign;
+          console.log(templateResult,'ada');
+            this.firstNameColor = templateResult?.firstNameColor,
+            this.lastNameColor = templateResult?.lastNameColor,
+            this.designationColor = templateResult?.designationColor,
+            this.contactDetailColor = templateResult?.contactDetailColor,
+            this.fontFamilyNew = templateResult?.fontFamily,
+            this.templateFontSize = templateResult?.fontSize,
+            this.lineHeight = templateResult?.lineHeight,
+            this.itemFontSize = templateResult?.fontSizeItem,
+            this.fontSizeName = templateResult?.nameFontSize,
+            this.nameAlign = templateResult?.nameAlign,
+            this.borderRadius = templateResult?.borderRadius
+            
+        
+    })
+  }
 
 
 }

@@ -52,7 +52,7 @@
                                             aria-selected="true">
                                             <div class="box">
                                                 <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
-                                                    (click)="openTemp()">
+                                                    (click)="openTemp('free')">
                                                 <img class="wh-35 active-black" src="assets/images/design.png">
                                                 <p class="mb-0 fs-5 fs-12">Design</p>
                                             </div>
@@ -186,12 +186,12 @@
 
                                                             <div
                                                             *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                            <img class="wh-150 rounded-circle"
+                                                            <img [style.border-radius.px]="borderRadius" class="wh-150 rounded-circle"
                                                               src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
                                                           </div>
                                                           <div
                                                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                            <img class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                                                            <img [style.border-radius.px]="borderRadius" class="w-40 p-2" src="{{tempDetails?.profileImage }}">
                                                           </div>
 
 
@@ -291,17 +291,17 @@
                                                 <div class="">
                                                     <p class="mb-1 fw-semibold">Free</p>
                                                     <img class="img-fluid" src="assets/images/free-template.png" (click)="
-                                                    openTemp()">
+                                                    openTemp('free')">
                                                 </div>
                                                 <hr class="">
 
                                                 <div class="mt-2">
                                                     <p class="mb-1 fw-semibold">Pro</p>
-                                                    <img class="img-fluid" src="assets/images/pro-img.png">
+                                                    <img class="img-fluid" src="assets/images/pro-img.png" (click)="openTemp('pro')">
                                                 </div>
                                                 <div class="mt-2">
                                                     <p class="mb-1 fw-semibold">Pro</p>
-                                                    <img class="img-fluid" src="assets/images/pro-pro-img.png">
+                                                    <img class="img-fluid" src="assets/images/pro-pro-img.png" (click)="openTemp('propro')">
                                                 </div>
                                             </div>
                                         </div>
@@ -325,10 +325,7 @@
                                                                 </label>
                                                                 <select class="form-select " [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}" 
                                                                     aria-label="Default select example">
-                                                                    <!-- <option value="'Poppins', sans-serif" selected>    Poppins</option>
-                                                                    <option value="" >Arial</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option> -->
+                                                                   
                                                                     <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
                                                                 </select>
 
@@ -353,13 +350,13 @@
                                                                 <div>Align :</div>
                                                                 <div class="d-flex">
                                                                     <i class="m-1 fa fa-align-left"
-                                                                        aria-hidden="true"></i>
+                                                                        aria-hidden="true" (click)="getAlign('left')"></i>
                                                                     <i class="m-1 fa fa-align-center"
-                                                                        aria-hidden="true"></i>
+                                                                        aria-hidden="true" (click)="getAlign('center')"></i>
                                                                     <i class="m-1 fa fa-align-right"
-                                                                        aria-hidden="true"></i>
+                                                                        aria-hidden="true" (click)="getAlign('right')"></i>
                                                                     <i class="m-1 fa fa-align-justify"
-                                                                        aria-hidden="true"></i>
+                                                                        aria-hidden="true" (click)="getAlign('center')"></i>
                                                                 </div>
                                                             </div>
 
@@ -377,21 +374,21 @@
                                                         <div class="">
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">First Name:</p>
-                                                                <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
+                                                           
                                                                 <input [(colorPicker)]="firstNameColor"
                                                                     [style.background]="firstNameColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Designation :</p>
-                                                                <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
+                                                            
                                                                 <input [(colorPicker)]="designationColor"
                                                                     [style.background]="designationColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Contact Details :</p>
-                                                                <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
+                                                              
                                                                 <input [(colorPicker)]="contactDetailColor"
                                                                     [style.background]="contactDetailColor" style="width: 15px;
                                                                 height: 14px;" />
@@ -400,7 +397,7 @@
                                                         <div class="">
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Last Name:</p>
-                                                                <!-- <i class="fa fa-square fs-14 p-1" data-bs-toggle="modal" data-bs-target="#colorModal" aria-hidden="true"></i> -->
+                                                            
                                                                 <input [(colorPicker)]="lastNameColor"
                                                                     [style.background]="lastNameColor" style="width: 15px;
                                                                 height: 14px;"/>
@@ -416,10 +413,10 @@
                                                 <div class="bg-darkgray w-25">
 
                                                     <div class="row p-1">
-                                                        <div class="col-md-4 rounded-3">
+                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
                                                             <i class="p-2  fa fa-square" aria-hidden="true"></i>
                                                         </div>
-                                                        <div class="col-md-4 rounded-3">
+                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
                                                             <i class="p-2  fa fa-circle" aria-hidden="true"></i>
                                                         </div>
                                                         <div class="col-md-4 rounded-3">
@@ -462,7 +459,7 @@
                                     </div>
 
                                 </form>
-
+<button class="btn btn-outline-warning" (click)="saveChanges()"> save</button>
 
 
                                 <!-- form End -->
@@ -486,30 +483,30 @@
                                             <img class="wh-150" src="assets/images/profile-image.png">
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                                            <h4 class=""><span  class="text-darkblue"  *ngIf="!username" [style.color]="firstNameColor" [style.font-size.px]="templateFontSize">John &nbsp;
+                                            <h4 class="" [style.text-align]="nameAlign"><span  class="text-darkblue"  *ngIf="!username" [style.color]="firstNameColor" [style.font-size.px]="templateFontSize" [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew" [style.text-align]="nameAlign">John &nbsp;
                                                     </span> <span class="text-darkblue"  *ngIf="!username" [style.color]="lastNameColor" [style.font-size.px]="templateFontSize">Doe</span></h4>
-                                            <h4 class="">
+                                            <h4 class="" [style.text-align]="nameAlign">
                                                 <span class="text-darkblue" *ngIf="username"
-                                                    [style.color]="firstNameColor" [style.font-size.px]="templateFontSize">{{username}}</span>
+                                                    [style.color]="firstNameColor" [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize" >{{username}}</span>
                                             </h4>
-                                            <h6 class="mb-3" *ngIf="!desig" [style.color]="designationColor">Marketing Expert</h6>
-                                            <h6 class="mb-3" *ngIf="desig" [style.color]="designationColor">{{desig}}</h6>
+                                            <h6 class="mb-3" *ngIf="!desig" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight" [style.color]="designationColor">Marketing Expert</h6>
+                                            <h6 class="mb-3" *ngIf="desig" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight" [style.color]="designationColor" [style.font-size.px]="itemFontSize">{{desig}}</h6>
 
                                             <div class="d-flex pe-5 ps-3">
 
                                                 <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!number"  [style.color]="contactDetailColor">+1129457850 | +1129457850 </p>
-                                                <p class=" fs-12" *ngIf="number"  [style.color]="contactDetailColor">{{number}} </p>
+                                                <p class=" fs-122" *ngIf="!number" [style.font-family]="fontFamilyNew"  [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">+1129457850 | +1129457850 </p>
+                                                <p class=" fs-122" *ngIf="number" [style.font-family]="fontFamilyNew" [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">{{number}} </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!Email"  [style.color]="contactDetailColor">shreybhardwaj@gmail.com </p>
-                                                <p class=" fs-12" *ngIf="Email"  [style.color]="contactDetailColor">{{Email}} </p>
+                                                <p class=" fs-122" *ngIf="!Email" [style.font-family]="fontFamilyNew"  [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">shreybhardwaj@gmail.com </p>
+                                                <p class=" fs-122" *ngIf="Email" [style.font-family]="fontFamilyNew" [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">{{Email}} </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!compWebsite"  [style.color]="contactDetailColor">www.perfectiongeek.com</p>
-                                                <p class=" fs-12" *ngIf="compWebsite"  [style.color]="contactDetailColor">{{compWebsite}}</p>
+                                                <p class=" fs-122" *ngIf="!compWebsite" [style.font-family]="fontFamilyNew" [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">www.perfectiongeek.com</p>
+                                                <p class=" fs-122" *ngIf="compWebsite" [style.font-family]="fontFamilyNew" [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">{{compWebsite}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
@@ -524,20 +521,20 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-8 offset-lg-2 text-center">
-                                            <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">“Business opportunities are like buses, there’s always another one
+                                            <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight" [style.font-size.px]="itemFontSize">“Business opportunities are like buses, there’s always another one
                                                 coming.”
                                             </p>
-                                            <p>{{details?.quotesId?.quotesName}}</p>
-                                            <h6> – Richard Branson</h6>
+                                            <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">{{details?.quotesId?.quotesName}}</p>
+                                            <h6 [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight"> – Richard Branson</h6>
                                         </div>
 
                                     </div>
-                                    <!-- <div class="mt-4 text-end">
-                                        <button type="submit" class="btn green-btn ">Create Signature</button>
-                                    </div> -->
+                                    
                                 </div>
-                                
-                            <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" *ngIf="showPro"
+                               <div id="scam">
+
+
+                            <table #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" #myId *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
                                 style="
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
                                 <tbody>
@@ -549,21 +546,29 @@
                                                 <tbody>
                                                     <tr>
                                                          
-                                        <td>
-                                           
+                                        <td *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
+                                          
                                                 <div
                             *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="wh-150 rounded-circle"
+                            <img class="wh-150 rounded-circle" [style.border-radius.px]="borderRadius"
                               src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
                           </div>
                           <div
                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                            <img class="w-40 p-2" [style.border-radius.px]="borderRadius" src="{{tempDetails?.profileImage }}">
                           </div>
                                             
                                             </td>
+                       <td *ngIf=" templateShow == 'free'">
+                        <img src="assets/images/logo.png" alt="" [style.border-radius.px]="borderRadius">
+                       </td>
+
+
+
+
+
                                                     </tr>
-                                                    <tr>
+                                                    <tr *ngIf="templateShow == 'propro'">
                                                         <td>
 
                                                             <ul style="display:flex;justify-content: space-around; list-style:none; padding-left:3px;">
@@ -571,7 +576,7 @@
                                                                     <a href="{{tempDetails?.fbProfile }}" target="_blank">
                                                                         <img alt="" style="width:15px;  height:15px;" src="assets/images/fb-black.png" ></a>
 
-                                                                    <!-- <img alt="" style="width:15px;  height:15px;" src="assets/images/fb-black.png" href="{{tempDetails?.fbProfile }}"> -->
+                                                                  
                                                                 </li>
 
                                                                 <li>
@@ -597,19 +602,8 @@
 
 
                                         
-                                        <!-- <td style="text-align: center;"  *ngIf="tempDetails?.profileImage">
-                                           
-                                                <div
-                            *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="wh-150 rounded-circle"
-                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                          </div>
-                          <div
-                            *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="w-40 p-2" src="{{tempDetails?.profileImage }}">
-                          </div>
-                                            
-                                            </td> -->
+                                    
+
                                         <td>
                                             <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                                                 style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
@@ -621,9 +615,9 @@
                                                                 <span style="margin: 0px; padding-top:15px; font-size: 34px;">Ali</span><span>&nbsp;</span><span>smith</span>
                                                             </h2>
 
-                                                            <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                            <h2 color="#000000" [style.text-align]="nameAlign" class="sc-fBuWsC eeihxG"
                                                             style="margin: 0px; font-size: 24px;font-weight:bold; color: rgb(0, 0, 0);" *ngIf="tempDetails?.yourName">
-                                                            <span style="margin: 0px; font-size: 34px;"  [style.color]="firstNameColor" [style.font-size.px]="templateFontSize">{{tempDetails?.yourName}}</span>
+                                                            <span style="margin: 0px; font-size: 34px;" [style.font-family]="fontFamilyNew"  [style.color]="firstNameColor" [style.font-size.px]="templateFontSize" [style.line-height]="lineHeight">{{tempDetails?.yourName}}</span>
                                                         </h2>
 
                                                             <p color="#000000" font-size="large" *ngIf="!tempDetails?.designation"
@@ -638,7 +632,7 @@
                                                             <p color="#000000" font-size="large" *ngIf="tempDetails?.designation"
                                                                 class="sc-dVhcbM fghLuF"
                                                                 style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
-                                                              <span [style.color]="designationColor">{{tempDetails?.designation}}</span>
+                                                              <span [style.color]="designationColor" [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">{{tempDetails?.designation}}</span>
                                                             </p>
                                                         </td>
                                                     </tr>
@@ -692,10 +686,10 @@
                                                                         <td style="padding: 0px; color: rgb(0, 0, 0);">
                                                                             <a href="tel:889987328563" color="#000000"
                                                                                 class="sc-gipzik iyhjGb"
-                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>{{tempDetails?.companyPhone}}</span></a>
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span>{{tempDetails?.companyPhone}}</span></a>
                                                                             | <a href="tel:325874589923" color="#000000"
                                                                                 class="sc-gipzik iyhjGb"
-                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
                                                                         </td>
                                                                     </tr>
                                                                     <tr height="25" style="vertical-align: middle;">
@@ -725,13 +719,13 @@
                                                                             <a
                                                                                 href="mailto:user@gmail.com"
                                                                                 color="#000000" class="sc-gipzik iyhjGb"
-                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>user@gmail.com</span></a>
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0); " [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight"><span>user@gmail.com</span></a>
                                                                         </td>
                                                                         <td style="padding: 0px;" *ngIf="tempDetails?.email">
                                                                             <a
                                                                                 href="mailto:{{tempDetails?.email}}"
                                                                                 color="#000000" class="sc-gipzik iyhjGb"
-                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span [style.color]="contactDetailColor">{{tempDetails?.email}}</span></a>
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize"><span [style.color]="contactDetailColor" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">{{tempDetails?.email}}</span></a>
                                                                         </td>
                                                                     </tr>
                                                                     <tr height="25" style="vertical-align: middle;">
@@ -760,7 +754,7 @@
                                                                         <td style="padding: 0px;"><a
                                                                                 href="//{{tempDetails?.companyWebsite}}"
                                                                                 color="#000000" class="sc-gipzik iyhjGb"
-                                                                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span [style.color]="contactDetailColor">{{tempDetails?.companyWebsite}}</span></a>
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span [style.color]="contactDetailColor" [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
                                                                         </td>
                                                                     </tr>
                                                                     <tr height="25" style="vertical-align: middle;">
@@ -789,7 +783,7 @@
                                                                         <td style="padding: 0px;">
                                                                             <span color="#000000"
                                                                                 class="sc-csuQGl CQhxV"
-                                                                                style="font-size: 12px; color: rgb(0, 0, 0);"><span [style.color]="contactDetailColor">{{tempDetails?.address[0].city}}</span></span>
+                                                                                style="color: rgb(0, 0, 0);"><span [style.color]="contactDetailColor" [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">{{tempDetails?.address[0].city}}</span></span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -819,13 +813,13 @@
                                                         </td>
                                                     </tr>
                                                     <tr *ngIf="!tempDetails?.quotesId?.longQuotes">
-                                                        <td>"Money and success don’t change people; they merely amplify
+                                                        <td [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">"Money and success don’t change people; they merely amplify
                                                             <br>
                                                             what is already there."
                                                             — Will Smith</td>
                                                     </tr>
                                                     <tr *ngIf="tempDetails?.quotesId?.longQuotes">
-                                                        <td>{{tempDetails?.quotesId?.longQuotes}}
+                                                        <td [style.font-size.px]="fontSizeName" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">{{tempDetails?.quotesId?.longQuotes}}
                                                             <br>
                                                             
                                                             {{tempDetails?.quotesId?.authorId?.firstName}}</td>
@@ -861,10 +855,18 @@
 
                                 </tbody>
                             </table>
+
+
+                            
+                        </div> 
+
+
                             </div>
 
 
-
+      <div>
+      
+      </div>
 
 
 
@@ -901,8 +903,7 @@
                             <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
                                     aria-hidden="true"></i></div>
                             <div class="Neon Neon-theme-dragdropbox">
-                                <input
-                                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                                <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
                                     name="files[]" id="filer_input2" multiple="multiple" type="file" (change)="onSelectImage($event)">
                                 <div class="Neon-input-dragDrop">
                                     <div class="Neon-input-inner">

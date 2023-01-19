@@ -30,6 +30,7 @@ export class ProfileDashboardComponent implements OnInit {
   profileData(token:any) {
     this.api.getUserProfile(token).subscribe((res:any)=>{
       this.userDetails = res;
+      console.log(this.userDetails?.address[0]?.addressline1, "addddd")
     })
   }
 

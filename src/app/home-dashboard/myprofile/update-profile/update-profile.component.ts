@@ -32,6 +32,7 @@ export class UpdateProfileComponent implements OnInit {
   designation: any;
   addr: any;
   Email: any;
+  yBio: any;
 
   constructor(private api: SparkService, private router:Router, private fb:FormBuilder, private toast:ToastrService) { 
     this.profileUpdate=this.fb.group({
@@ -59,19 +60,21 @@ profile:['']
   }
   getbasicDetails() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
-      this.details = res.result;
+      this.details = res.result[0];
 
       this.userName = res.result[0]?.firstName
       this.Email=res.result[0].email
       this.compname = res.result[0]?.companyName
       this.compwebsite = res.result[0]?.companyWebsite
       this.number = res.result[0]?.phone
-this.addr=res.result[0]?.address
+this.addr=res.result[0]?.address[0]?.addressline1
 this.designation=res.result[0]?.designation
-
+this.yBio=res.result[0]?.yourBio
       console.log(this.compwebsite, 'jojo')
 
-      console.log(this.details)
+      console.log(this.details),
+      console.log(this.details?.address[0]?.addressline1, "ipoeritperi");
+      
     })}
 
 
@@ -131,8 +134,23 @@ onSubmit(data:any){
     DOB:data?.DOB,
     phone:data?.phone,
     yourBio:data?.yourBio,
-    address:[data?.address ],
-    country:[data?.country ]
+    address: [
+
+      {
+        addressline1: data.address,
+        country: data.country,
+        
+      }
+
+    ],
+    // address: [
+
+    //   {
+    //     country: data.country,
+        
+    //   }
+
+    // ]
     
 }
  

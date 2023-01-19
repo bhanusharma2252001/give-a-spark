@@ -3,10 +3,25 @@
     <div class="row m-0 p-0 align-items-center">
         <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
-                <div class="position-absolute top-50 start-50 translate-middle">
+                <div class="position-absolute top-50 start-50 translate-middle" *ngIf="!userDetails">
                     <img class="wh-225 p-2" src="assets/images/profile-image.png">
 
                 </div>
+
+                <div class="position-absolute top-50 start-50 translate-middle" *ngIf="userDetails">
+                <div
+                *ngIf="userDetails?.profile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                <img class="wh-225 p-2"
+                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" />
+              </div>
+              <div
+                *ngIf=" userDetails?.profile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                <img class="wh-225 p-2" src="{{userDetails?.profile }}">
+              </div>
+
+            </div>
+
+
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
                     <div class="rounded-circle bg-black position-relative">
                         <i class="fa fa-camera text-white p-1 fs-14" aria-hidden="true"></i>
@@ -49,14 +64,14 @@
                     </div>
                     <div class="d-flex">
                         <p class="fw-400 fs-16 text-black fw-bold">Country : </p>
-                        <p class="fw-400 fs-16 ps-3"> {{userDetails?.nationallity}} </p>
+                        <p class="fw-400 fs-16 ps-3"> {{userDetails?.address[0]?.country}} </p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
 
                     <div class=" d-flex">
                         <p class="fw-400 fs-16 text-black fw-bold">Address : </p>
-                        <p class="fw-400 fs-16 ps-3"> Gurugram phase-4,sector-18,121015 </p>
+                        <p class="fw-400 fs-16 ps-3"> {{userDetails?.address[0]?.addressline1}} </p>
                     </div>
                     <div class="d-flex">
                         <p class="fw-400 fs-16 text-black fw-bold">D.O.B : </p>

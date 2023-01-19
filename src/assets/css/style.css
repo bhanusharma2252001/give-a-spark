@@ -205,7 +205,10 @@ a {
   font-weight: 500;
 
 }
-
+img.w-500{
+  width:550px;
+  height:300px;
+}
 .create-profile-position {
   position: absolute;
   top: 145px;

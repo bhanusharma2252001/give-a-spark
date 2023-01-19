@@ -294,5 +294,21 @@ getQrCode() {
 
 
 
+// TEMPLATES
+
+templateCustomize(data:any){
+  return this.http.post(environment.localApiURL+ '/api/TemplateCustomization/createTemplateCustomization', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` },
+  }
+);
+}
+
+getdesign() {
+  return this.http.get(environment.localApiURL +'/api/TemplateCustomization/TemplateCustomizationList',{
+    headers: { Authorization: `bearer ${this.token}` },
+});;}
+
+
 
 }
