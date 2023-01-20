@@ -6,6 +6,8 @@ import { FlyerComponent } from './flyer.component';
 import { EditFlyerComponent } from './edit-flyer/edit-flyer.component';
 import { SavedFlyerComponent } from './saved-flyer/saved-flyer.component';
 import { TemplateDashboardComponent } from './template-dashboard/template-dashboard.component';
+import { EditModeDirective } from './edittext/edit-mode.directive';
+import { EditEnterDirective } from './edittext/edit-enter.directive';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { TemplateDashboardComponent } from './template-dashboard/template-dashbo
     FlyerComponent,
     EditFlyerComponent,
     SavedFlyerComponent,
-    TemplateDashboardComponent
+    TemplateDashboardComponent,
+    EditModeDirective,
+    EditEnterDirective
   ],
   imports: [
     CommonModule,

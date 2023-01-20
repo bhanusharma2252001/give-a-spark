@@ -9,7 +9,7 @@ const routes: Routes = [
     path:'', component:HomeDashboardComponent,
     children: [
       // { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-      { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
+     
       { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
       { path: 'user-profile', loadChildren: () => import('./user-profile/user-profile.module').then((m) => m.UserProfileModule)},
 

@@ -172,7 +172,9 @@ a {
   width: 180px !important;
   height: 180px !important;
 }
-
+img.w-250 {
+  width: 285px !important;
+}
 .w-450 {
   width: 380px !important;
 }

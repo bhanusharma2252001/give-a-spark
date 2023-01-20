@@ -1,38 +1,4 @@
-<!-- <div class="box-2 mt-2">
-   
-    <table class="table">
-        <thead class="position-sticky">
-          <tr>
 
-            <th scope="col">Images</th>
-            <th scope="col">Name</th>
-            <th scope="col">Quotes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-dark text-light" *ngFor="let quote of quotesList">
-          
-            <td scope="row">         
-
-              <div
-                *ngIf="quote?.writerProfile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                <img class="img-fluid w-40 rounded-circle"
-                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
-              </div>
-              <div
-                *ngIf="quote?.writerProfile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                <img class="w-40 p-2" src="{{quote?.writerProfile }}">
-              </div>
-            </td>
-            <td>{{quote?.writerName}}</td>
-            <td>{{quote?.enterQuotes}}</td>
-
-          </tr>
-
-
-        </tbody>
-      </table>
-</div> -->
 <div class="col-md-11 col-lg-11">
 
   <div class="row m-0 p-0 mt-5 align-items-center">
@@ -40,7 +6,7 @@
           <div class="border-bottom">
               <h3>My Quotes</h3>
               
-              <button (click)="navigate()" class="btn btn-green">Add qupte</button>
+              <button (click)="navigate()" class="btn btn-green">Add quote</button>
           </div>
           <div class="row mt-4" *ngFor="let quote of quotesList">
               <div class="col-md-6 col-lg-6">

@@ -40,7 +40,7 @@ export class BasicTemplateComponent implements OnInit {
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
-  
+
   public selectedColor: string = 'firstNameColor';
 
   public color1: string = '#2889e9';
@@ -60,7 +60,7 @@ export class BasicTemplateComponent implements OnInit {
 
   showMainContent: Boolean = true;
   templatData: boolean = true;
-  // fontSizeChange:any=3
+
   // QR Code
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
@@ -108,6 +108,9 @@ export class BasicTemplateComponent implements OnInit {
   compPhone: any;
   dessssssignnnnn: any;
   // chnage end
+
+
+
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -118,7 +121,7 @@ export class BasicTemplateComponent implements OnInit {
 
   data = document.getElementById('scam');
 
- 
+
 
 
   constructor(private api: SparkService, myElement: ElementRef,
@@ -146,9 +149,9 @@ export class BasicTemplateComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.data, 'dessssssssiggggnsnnnnl;')
+
     // this.getBasicProfile()
-this.getDesign();
+    this.getDesign();
     this.getTemplateDetails();
     if (localStorage.getItem('quoteId')) {
       this.QuoteId = localStorage.getItem('quoteId')
@@ -166,6 +169,14 @@ this.getDesign();
 
 
   }
+
+
+
+
+
+
+
+
 
   // new change start
   changeSize(evt: any) {
@@ -294,7 +305,7 @@ this.getDesign();
       console.log(res);
       this.toast.success('Template  Created Successfully');
 
-
+      this.getTemplateDetails();
     },
       (error) => {
         this.toast.error('please try again');
@@ -339,15 +350,18 @@ this.getDesign();
         nameFontSize: this.fontSizeName,
         nameAlign: this.nameAlign,
         borderRadius: this.borderRadius
-    
-      }
-  
 
+      }
     }
     this.api.templateCustomize(log).subscribe((res: any) => {
-      console.log(res, "gfk;lkf;d");
+      console.log(res);
+      this.toast.success('Template  Created Successfully');
 
-    })
+      this.getDesign();
+    },
+      (error) => {
+        this.toast.error('please try again');
+      })
   }
 
 
@@ -395,36 +409,36 @@ this.getDesign();
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
         console.log(this.imageData1[0].key, "image key ")
-
+        this.toast.success('Image upload Successfully');
       },
       (err: any) => {
 
         console.log(err);
-
+        this.toast.error('File size is too big ');
       }
     )
 
   }
 
-  getDesign(){
-    this.api.getdesign().subscribe((res:any)=>{
+  getDesign() {
+    this.api.getdesign().subscribe((res: any) => {
       let data = res?.result
-          let result = data[data?.length - 1]
-          let templateResult = result?.templateDesign;
-          console.log(templateResult,'ada');
-            this.firstNameColor = templateResult?.firstNameColor,
-            this.lastNameColor = templateResult?.lastNameColor,
-            this.designationColor = templateResult?.designationColor,
-            this.contactDetailColor = templateResult?.contactDetailColor,
-            this.fontFamilyNew = templateResult?.fontFamily,
-            this.templateFontSize = templateResult?.fontSize,
-            this.lineHeight = templateResult?.lineHeight,
-            this.itemFontSize = templateResult?.fontSizeItem,
-            this.fontSizeName = templateResult?.nameFontSize,
-            this.nameAlign = templateResult?.nameAlign,
-            this.borderRadius = templateResult?.borderRadius
-            
-        
+      let result = data[data?.length - 1]
+      let templateResult = result?.templateDesign;
+      console.log(templateResult, 'ada');
+      this.firstNameColor = templateResult?.firstNameColor,
+        this.lastNameColor = templateResult?.lastNameColor,
+        this.designationColor = templateResult?.designationColor,
+        this.contactDetailColor = templateResult?.contactDetailColor,
+        this.fontFamilyNew = templateResult?.fontFamily,
+        this.templateFontSize = templateResult?.fontSize,
+        this.lineHeight = templateResult?.lineHeight,
+        this.itemFontSize = templateResult?.fontSizeItem,
+        this.fontSizeName = templateResult?.nameFontSize,
+        this.nameAlign = templateResult?.nameAlign,
+        this.borderRadius = templateResult?.borderRadius
+
+
     })
   }
 

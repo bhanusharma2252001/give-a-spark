@@ -218,21 +218,7 @@ makePayment(stripeToken:any ):Observable<any>{
   }
 );
 }
-//api.giveaspark.com/api/stripe/api/stripe/paymentIntent
-// sendPayment(token: string, id: string): Promise<any> {
-//   return this.http.patch(`${environment.api}/orders/${id}`,
-//     {
-//       token
-//     }).toPromise()
-// }
 
-// generateOrder(data: { name: string, amount: number }): Observable<any> {
-//   return this.http.post(`${environment.api}/orders`, data)
-// }
-
-// confirmOrder(id:string): Promise<any> {
-//   return this.http.patch(`${environment.api}/orders/confirm/${id}`, {}).toPromise()
-// }
 
 
 
