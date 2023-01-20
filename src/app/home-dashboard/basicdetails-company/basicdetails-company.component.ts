@@ -153,8 +153,11 @@ onSubmit() {
     companyLogo: this.imageData2,
     
     companyPhone: data?.companyPhone,
- 
-    companyAddress:[data?.companyAddress ],
+    companyAddress: [
+
+      {
+        addressline: data.companyAddress}],
+   
     fbProfile:data?.fbProfile,
     instagramProfile:data?.instagramProfile,
     linkedInProfile:data?.linkedInProfile,

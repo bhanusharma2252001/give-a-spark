@@ -135,7 +135,7 @@ addCompanyDetails(data:any){
   );
   }
 getsignatureDetails(){
-  return this.http.get(environment.localApiURL + '/api/template/getTemplateList' ,{
+  return this.http.get(environment.localApiURL + '/api/template/getTemplateByUser' ,{
     headers: { Authorization: `bearer ${this.token}` },
   });
 }

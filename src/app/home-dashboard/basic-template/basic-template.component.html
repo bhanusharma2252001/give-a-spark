@@ -519,6 +519,7 @@
                                             <p class=" fs-12">Scan/Click QR</p>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-lg-8 offset-lg-2 text-center">
                                             <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight" [style.font-size.px]="itemFontSize" *ngIf="!tempDetails?.quotesId?.longQuotes">“Business opportunities are like buses, there’s always another one
@@ -548,15 +549,24 @@
                                                          
                                         <td *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
                                           
-                                                <div
+                                            <div *ngIf="!tempDetails?.profileImage">
+                                                <img class="width"  [style.border-radius.px]="borderRadius"
+                                                src="assets/images/logo.png "/>
+                                            </div>
+                                            <div *ngIf="tempDetails?.profileImage"
+                                            >
+                                            <img class="width"  [style.border-radius.px]="borderRadius"
+                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                            </div>
+                                                <!-- <div
                             *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="wh-150 rounded-circle" [style.border-radius.px]="borderRadius"
+                            <img class="width"  [style.border-radius.px]="borderRadius"
                               src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                          </div>
-                          <div
+                          </div> -->
+                          <!-- <div
                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="w-40 p-2" [style.border-radius.px]="borderRadius" src="{{tempDetails?.profileImage }}">
-                          </div>
+                            <img  [style.border-radius.px]="borderRadius" src="{{tempDetails?.profileImage }}">
+                          </div> -->
                                             
                                             </td>
                        <td *ngIf=" templateShow == 'free'">
@@ -683,11 +693,18 @@
                                                                                 </tbody>
                                                                             </table>
                                                                         </td>
+                                                                        
                                                                         <td style="padding: 0px; color: rgb(0, 0, 0);">
-                                                                            <a href="tel:889987328563" color="#000000"
+                                                                            <a href="tel:889987328563"  *ngIf="!tempDetails?.companyPhone" color="#000000"
+                                                                            class="sc-gipzik iyhjGb"
+                                                                            style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span  [style.color]="contactDetailColor">5678909</span></a>
+                                                                            <a href="tel:889987328563" *ngIf="tempDetails?.companyPhone" color="#000000"
                                                                                 class="sc-gipzik iyhjGb"
                                                                                 style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span  [style.color]="contactDetailColor">{{tempDetails?.companyPhone}}</span></a>
-                                                                            | <a href="tel:325874589923" color="#000000"
+                                                                                | <a href="tel:325874589923" *ngIf="!tempDetails?.phoneNo" color="#000000"
+                                                                                class="sc-gipzik iyhjGb"
+                                                                                style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span [style.color]="contactDetailColor">465869</span></a>
+                                                                            | <a href="tel:325874589923" color="#000000" *ngIf="tempDetails?.phoneNo" 
                                                                                 class="sc-gipzik iyhjGb"
                                                                                 style="text-decoration: none; color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
                                                                         </td>
