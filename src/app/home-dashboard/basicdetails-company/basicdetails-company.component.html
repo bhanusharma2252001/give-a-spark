@@ -169,6 +169,16 @@
                                             <input type="text" class="form-control border-none bottom-border"
                                                 id="exampleInputtext" [(ngModel)]="compWebsite"
                                                 aria-describedby="emailHelp" formControlName="companyWebsite">
+                                                <div *ngIf="m['companyWebsite'].touched && m['companyWebsite'].invalid"  >
+
+                                                
+                                                <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('required')" class="text-danger text-sm">
+                                                    *url  is required
+                                                                      </div>
+                                                                      <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('pattern')" class="text-danger text-sm">
+                                                                       *Please enter valid url
+                                                                      </div>
+                                                                    </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -191,9 +201,16 @@
                                             <label for="exampleInputtext" class="form-label">Company Phone :</label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <input type="number" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control border-none bottom-border"
+                                                id="exampleInputtext" aria-describedby="emailHelp" maxlength="13" minlength="10"
                                                 formControlName="companyPhone">
+                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm">
+                              *Phone no. is required
+                                                </div>
+                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('pattern')" class="text-danger text-sm">
+                                                 *Please enter valid no. (+*******)
+                                                </div>
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +244,7 @@
                                             <button type="submit" class="btn pink-btn">Cancel</button>
                                         </div>
                                         <div class="col-md-6">
-                                            <button type="submit" class="btn green-btn">Apply Changes</button>
+                                            <button type="submit" class="btn green-btn   ">Apply Changes</button>
                                         </div>
                                     </div>
                                 </div> -->
@@ -328,7 +345,7 @@
                                             aria-label="Close">Cancel</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="submit" class="green-btn pe-3 ps-3 p-2" data-bs-dismiss="modal"
+                                        <button type="submit" class="green-btn   pe-3 ps-3 p-2" data-bs-dismiss="modal" [disabled]="!companyDetailForm.valid"
                                             aria-label="Close">Apply Changes</button>
                                     </div>
                                 </div>

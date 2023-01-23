@@ -13,7 +13,7 @@
                 </div>
                 <div class="mb-3 position-relative">
                     <label for="exampleInputinput-field" class="form-label fw-semibold">User Name</label>
-                    <input type="email" class="form-control" id="exampleInputinput-field" aria-describedby="emailHelp" formControlName="email"    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                    <input type="email" class="form-control" id="exampleInputinput-field" aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
                     <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                       <div *ngIf="f['email'].errors['required']">Email is required</div>

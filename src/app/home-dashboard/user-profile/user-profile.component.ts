@@ -36,10 +36,12 @@ details:any;
 
   constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone) {
     this.profileForm=this.fb.group({
-      firstName:['',Validators.required],
-      companyName:['',Validators.required],
-      companyWebsite:['',Validators.required],
-      phone:['',[Validators.required, Validators.minLength(10),Validators.maxLength(10) ]],
+      firstName:[''],
+      companyName:[''],
+      companyWebsite:[''],
+      phone:['', Validators.compose([Validators.required,Validators.pattern(
+        '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
+          )])]
       
 
     
@@ -48,6 +50,9 @@ details:any;
    
 
    }
+   get f(){  
+    return this.profileForm.controls;  
+  }  
 
 
   ngOnInit(): void {
@@ -60,7 +65,7 @@ details:any;
   this.Email= sessionStorage.getItem('email')
 
  }
- console.log(this.userName, this.Email)
+ console.log(this.userName, this.Email, "kkk;k;k;k")
 
  
 this.getScanText();

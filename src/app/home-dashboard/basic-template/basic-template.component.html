@@ -515,12 +515,17 @@
                                                     [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="templateFontSize">{{username}}</span>
                                             </h4>
-                                            <h6 class="mb-3" *ngIf="!desig" [style.font-family]="fontFamilyNew"
+                                            <h6 class="mb-3" *ngIf="!'desig && tempDetails?.designation'" [style.font-family]="fontFamilyNew"
                                                 [style.line-height]="lineHeight" [style.color]="designationColor">
                                                 Marketing Expert</h6>
-                                            <h6 class="mb-3" *ngIf="desig" [style.font-family]="fontFamilyNew"
+                                            <h6 class="mb-3" *ngIf="!tempDetails?.designation" [style.font-family]="fontFamilyNew"
                                                 [style.line-height]="lineHeight" [style.color]="designationColor"
                                                 [style.font-size.px]="itemFontSize">{{desig}}</h6>
+
+                                                <h6 class="mb-3" *ngIf="tempDetails?.designation" [style.font-family]="fontFamilyNew"
+                                                [style.line-height]="lineHeight" [style.color]="designationColor"
+                                                [style.font-size.px]="itemFontSize">{{tempDetails?.designation}}</h6>
+                                           
 
                                             <div class="d-flex pe-5 ps-3">
 
@@ -572,15 +577,20 @@
                                         <div class="col-lg-8 offset-lg-2 text-center">
                                             <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
                                                 [style.font-size.px]="itemFontSize"
-                                                *ngIf="!tempDetails?.quotesId?.longQuotes">“Business opportunities are
+                                                *ngIf="!'tempDetails?.quotesId?.longQuotes && tempDetails?.quotes'">“Business opportunities are
                                                 like buses, there’s always another one
                                                 coming.”
                                             </p>
-                                            <p *ngIf="tempDetails?.quotesId?.longQuotes"
+                                            <div  *ngIf="tempDetails?.quotesId?.longQuotes">
+                                            <p
                                                 [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
                                                 {{tempDetails?.quotesId?.longQuotes}}</p>
                                             <h6 [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
                                                 {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
+                                            </div>
+                                                <p  *ngIf="tempDetails?.quotes"
+                                                [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
+                                                {{tempDetails?.quotes}}</p>
                                         </div>
 
                                     </div>
@@ -1010,7 +1020,7 @@
                                                                     </table>
                                                                 </td>
                                                             </tr>
-                                                            <tr *ngIf="!tempDetails?.quotesId?.longQuotes">
+                                                            <tr *ngIf="!'tempDetails?.quotesId?.longQuotes && tempDetails?.quotes'">
                                                                 <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">"Money and success
@@ -1020,7 +1030,7 @@
                                                                     — Will Smith
                                                                 </td>
                                                             </tr>
-                                                            <tr *ngIf="tempDetails?.quotesId?.longQuotes">
+                                                            <tr *ngIf="tempDetails?.quotesId?.longQuotes ">
                                                                 <td [style.font-size.px]="fontSizeName"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">
@@ -1030,6 +1040,19 @@
                                                                     {{tempDetails?.quotesId?.authorId?.firstName}}
                                                                 </td>
                                                             </tr>
+
+
+                                                            <tr *ngIf="tempDetails?.quotes ">
+                                                                <td [style.font-size.px]="fontSizeName"
+                                                                    [style.font-family]="fontFamilyNew"
+                                                                    [style.line-height]="lineHeight">
+                                                                    {{tempDetails?.quotes}}
+                                                                    <br>
+
+                                                                  
+                                                                </td>
+                                                            </tr>
+
                                                         </tbody>
                                                     </table>
                                                     <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
@@ -1063,7 +1086,7 @@
                                     </table>
 
                                     <div class="col-md-12 col-lg-12 mt-3 text-end">
-                                        <button class="green-btn pe-4 ps-4 p-2 " data-bs-toggle="modal"
+                                        <button class="green-btn   pe-4 ps-4 p-2 " data-bs-toggle="modal"
                                             data-bs-target="#m-done">OK I'm Done</button>
 
                                     </div>
@@ -1160,3 +1183,8 @@
         </div>
     </div>
 </div>
+
+
+
+
+<a href="mailto:nobody@somedomain.com?body=this is a test email template">Email Us</a>  

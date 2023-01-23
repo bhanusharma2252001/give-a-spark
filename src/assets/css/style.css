@@ -278,7 +278,7 @@ img.w-500{
 .form-box {
 
   width: 530px;
-  height: 440px;
+  height: 460px;
 }
 
 img.img-edit {
@@ -327,7 +327,7 @@ span.carousel-control-next-icon {
   background-color: #006683;
 }
 
-.green-btn {
+.green-btn   {
   background-color: #00BF7F;
   color: white;
   border: 1px solid #00BF7F;

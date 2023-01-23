@@ -37,21 +37,24 @@
                                         <p class="fw-color">Start with basic details for your signature</p>
                                     </div>
 
-                                    <form class="row position-relative"  [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+                                    <form class="row position-relative" [formGroup]="profileForm"
+                                        (ngSubmit)="onSubmit(profileForm.value)">
                                         <div class="col-md-11 col-lg-9">
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Your Name</label>
-                                                <input type="text" [(ngModel)]="userName"  pattern="[A-Za-z]+"
+                                                <input type="text" [(ngModel)]="userName" pattern="[A-Za-z]+"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
-                                                    id="exampleInputfiled" aria-describedby="textHelp" formControlName="firstName">
+                                                    id="exampleInputfiled" aria-describedby="textHelp"
+                                                    formControlName="firstName">
 
                                             </div>
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
                                                     Name</label>
-                                                <input type="text" 
+                                                <input type="text"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
-                                                    id="exampleInputfiled" aria-describedby="textHelp" formControlName="companyName" [(ngModel)]="compname">
+                                                    id="exampleInputfiled" aria-describedby="textHelp"
+                                                    formControlName="companyName" [(ngModel)]="compname">
 
                                             </div>
                                             <div class="mb-2">
@@ -59,23 +62,34 @@
                                                     Website</label>
                                                 <input type="text"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
-                                                    id="exampleInputfiled" aria-describedby="textHelp" formControlName="companyWebsite" [(ngModel)]="compwebsite">
+                                                    id="exampleInputfiled" aria-describedby="textHelp"
+                                                    formControlName="companyWebsite" [(ngModel)]="compwebsite">
 
                                             </div>
                                             <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label">Your Phone</label>
-                                                <input type="number" 
+                                                <input type="text" maxlength="13" minlength="10"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
-                                                    id="exampleInputfiled" aria-describedby="textHelp" formControlName="phone" [(ngModel)]="number">
+                                                    id="exampleInputfiled" aria-describedby="textHelp"
+                                                    formControlName="phone" [(ngModel)]="number">
+                                                   
+                                                              <div *ngIf="profileForm.get('phone')?.hasError('required') " class="text-danger text-sm">
+                                                        *Phone no. is required
+                                                                          </div>
+                                                                          <div *ngIf="profileForm.get('phone')?.hasError('pattern')" class="text-danger text-sm">
+                                                                           *Please enter valid no.
+                                                                          </div>
+
+                                                   
 
                                             </div>
-                                            <button type="submit" class="green-btn pe-3 ps-3 p-2" >Create</button>
+                                            <button type="submit" class="green-btn   pe-3 ps-3 p-2" [disabled]="!profileForm.valid" >Create</button>
                                         </div>
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">
                                                 <img class="wh-150" src="assets/images/square-image.png">
 
-                                            
+
                                             </div>
                                         </div>
 
@@ -90,28 +104,30 @@
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0 position-relative">
                                             <div class="position-absolute start-0">
-                                                <img class="h-90" src="assets/images/vertical-line.png">
+                                                <img class="h-90 pe-3" src="assets/images/vertical-line.png">
                                             </div>
                                             <div class="ms-4">
                                                 <h4 class=""><span class="text-darkblue">{{userName}}</span> </h4>
                                                 <h6 class="mb-3">Marketing Expert</h6>
-
-                                                <div class="">
-                                                    <p class=" fs-12"  *ngIf="!number">984395709  </p>
-                                                    <p class=" fs-12" >{{number}}  </p>
+<hr class="text-yellow">
+                                                <div class="d-flex">
+                                                    <i class="fa fa-phone fs-12 pe-3" aria-hidden="true"></i>
+                                                    <p class=" fs-12" *ngIf="!number">984395709 </p>
+                                                    <p class=" fs-12">{{number}} </p>
                                                 </div>
-                                                <div class="">
-
+                                                <div class="d-flex">
+                                                    <i class="fa fa-map-marker fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class=" fs-12">309-310, Udyog Vihar-4, Phase-IV,
                                                         Gurugram, Haryana 122015 </p>
                                                 </div>
-                                                <div class="">
-
-                                                    <p class=" fs-12">{{Email}}</p>
+                                                <div class="d-flex">
+                                                    <i class="fa fa-envelope fs-12 pe-3" aria-hidden="true"></i>
+                                                    <p class="fs-12">{{Email}}</p>
                                                 </div>
-                                                <div class="">
-                                                    <p class=" fs-12" *ngIf="!compwebsite">www.perfectiongeeks.com</p> 
-                                                    <p class=" fs-12">{{compwebsite}}</p> 
+                                                <div class="d-flex">
+                                                    <i class="fa fa-globe fs-12 pe-3" aria-hidden="true"></i>
+                                                    <p class=" fs-12" *ngIf="!compwebsite">www.perfectiongeeks.com</p>
+                                                    <p class=" fs-12">{{compwebsite}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,28 +135,26 @@
 
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
                                             <!-- <img class="img-fluid" src="assets/images/scan.png"> -->
-                                            <ngx-qrcode style="width:150px;height:150px;"
-                                            [elementType]="elementType"
-                                            [errorCorrectionLevel]="correctionLevel"
-                                            [value]="value"
-                                            cssClass="bshadow"></ngx-qrcode>
+                                            <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
+                                                [errorCorrectionLevel]="correctionLevel" [value]="value"
+                                                cssClass="bshadow"></ngx-qrcode>
                                             <p class="text-center pt-3 fs-12">Scan/Click QR</p>
-                                           
+
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-`
+                        `
                     </div>
                 </div>
             </div>
 
-       
-         
- 
-         
+
+
+
+
         </section>
     </main>
 </div>

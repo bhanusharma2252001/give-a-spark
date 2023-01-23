@@ -39,6 +39,7 @@ token:any;
 
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
+  Email:any;
   constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { console.log(this.isLoggedin);
 
  
@@ -53,7 +54,8 @@ token:any;
   }
 
   ngOnInit(): void {
-
+ if (sessionStorage.getItem('email'))
+ this.Email=sessionStorage.getItem('email')
     // this.spinner.show();
 
     // setTimeout(() => {
@@ -128,6 +130,7 @@ token:any;
     this.sparkService.onLogin(this.model).subscribe(
       (res: any) => {
         console.log(res);
+        sessionStorage.setItem('email',this.LoginForm.value.email)
         this.toast.success('Logged in Successfully');
 
         this.success(res);
@@ -144,6 +147,7 @@ token:any;
     // debugger
     this.tokenValue = data.token;
     if (data) {
+
       sessionStorage.setItem('ClientSpark', this.tokenValue);
       this.sparkService.isLoggedInAdmin();
       console.log(this.sparkService.isLoggedIn);

@@ -35,19 +35,22 @@ export class BasicdetailsCompanyComponent implements OnInit {
   number: any;
   constructor(private api:SparkService, private fb:FormBuilder, private router:Router, private toast : ToastrService,private meta:Meta,private title: Title ) { 
     this.companyDetailForm=this.fb.group({
-      companyName:['', Validators.required],
-      companyWebsite:['', Validators.required],
-      companyAddress:['', Validators.required],  
-      companyPhone:['', Validators.required],
-      companyFax:['', Validators.required],
-      companyLogo:['', Validators.required],
-      fbProfile:['', Validators.required],
-      instagramProfile:['', Validators.required],
-      linkedInProfile:['', Validators.required],  
-      youtubeChannel:['', Validators.required],
-      twitterProfile:['', Validators.required],
+      companyName:['', ],
+      companyWebsite: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
+      companyAddress:[''],  
+
+      companyPhone:['', Validators.compose([Validators.required,Validators.pattern(
+      '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
+        )])],
+      companyFax:[''],
+      companyLogo:[''],
+      fbProfile:[''],
+      instagramProfile:[''],
+      linkedInProfile:[''],  
+      youtubeChannel:[''],
+      twitterProfile:['',],
     })
-    this.meta.updateTag({ name:'author',content:'angulartpoint.com'});    
+   
 
 
   
@@ -55,7 +58,9 @@ export class BasicdetailsCompanyComponent implements OnInit {
 
 
   }
-
+  get m(){
+    return this.companyDetailForm.controls;
+  }
   ngOnInit(): void {
     this.getBasicProfile();
     this.title.setTitle('Templates');

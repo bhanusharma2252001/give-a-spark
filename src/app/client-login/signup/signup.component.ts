@@ -104,7 +104,7 @@ export class SignupComponent implements OnInit {
 
      sessionStorage.setItem('username', this.signupForm.value.firstName)
      sessionStorage.setItem('email', this.signupForm.value.email)
-        this._Router.navigate(['home-dashboard']);
+        this._Router.navigate(['/']);
       },
       (error) => {
         this.toast.error('please try again');

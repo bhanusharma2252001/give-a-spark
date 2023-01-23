@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="!(href =='/home-dashboard/user-profile') ">
 
     <div class="row align-items-center position-relative">
         <!-- <div class="mouse_move">
@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-1 col-lg-1 p-0">
             <form class="d-flex">
-                <img src="assets/images/profile.png">
+                <img src="assets/images/profile.png" routerLink="/home-dashboard/myprofile/profile-dashboard">
             </form>
         </div>
     </div>
