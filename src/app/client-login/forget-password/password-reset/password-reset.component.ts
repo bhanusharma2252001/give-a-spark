@@ -12,8 +12,8 @@ import { SparkService } from 'src/app/service/spark.service';
 export class PasswordResetComponent implements OnInit {
   resetPasswordForm:FormGroup
   emailId: any | null;
-  // hide:boolean = true;
-  // hide1!:boolean;
+  hide:boolean = true;
+  hide1!:boolean;
   fieldTextType!:boolean;
   repeatFieldTextType!:boolean;
   constructor(private fb:FormBuilder,private toast:ToastrService,private sparkservice:SparkService,private router:Router ) { 

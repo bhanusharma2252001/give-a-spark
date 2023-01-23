@@ -167,7 +167,9 @@ a {
   width: 550px !important;
   height: 400px !important;
 }
-
+.h-110{
+  height: 110px;
+}
 .wh-225 {
   width: 180px !important;
   height: 180px !important;
@@ -422,11 +424,9 @@ padding: 35px;
 }
 
 .img-fl {
-  position: absolute;
-  top: -34px;
-  left: 116px;
+ padding: 10px 10px;
   width: 124px;
-  height: 76px;
+  height: 100px;
 
 }
 img.top-right {

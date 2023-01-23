@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './basic-template.component.html',
   styleUrls: ['./basic-template.component.scss']
 })
+// s
 export class BasicTemplateComponent implements OnInit {
   details: any;
   username: any;
@@ -167,7 +168,6 @@ export class BasicTemplateComponent implements OnInit {
     this.getScanText();
 
 
-
   }
 
 
@@ -306,6 +306,16 @@ export class BasicTemplateComponent implements OnInit {
       this.toast.success('Template  Created Successfully');
 
       this.getTemplateDetails();
+      if(localStorage.getItem('quoteId')){
+        localStorage.removeItem('quoteId')
+      
+      }
+      
+      if(localStorage.getItem('LongQuotes')){
+        localStorage.removeItem('LongQuotes')
+      
+      }
+      this.saveChanges() ;
     },
       (error) => {
         this.toast.error('please try again');

@@ -203,6 +203,13 @@ motivaionalQuotebyFilter(data:any){
   }
 );
 }
+motivaionalStorybyFilter(data:any){
+  return this.http.post(environment.localApiURL+ '/api/Stories/motivationalFiterStoriesByCat', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` },
+  }
+);
+}
 
 
 

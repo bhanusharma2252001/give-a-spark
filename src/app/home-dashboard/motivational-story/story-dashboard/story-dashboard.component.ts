@@ -72,7 +72,7 @@ export class StoryDashboardComponent implements OnInit {
     console.log(body, 'body')
 
 
-    this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
       this.quoteList=res?.result;
       console.log(res);
       // this.toast.success('Added  Successfully');

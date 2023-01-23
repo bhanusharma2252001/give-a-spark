@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../client-login/login/login.component';
+import { HeaderComponent } from './header/header.component';
 import { HomeDashboardComponent } from './home-dashboard.component';
 import { MyorderComponent } from './myorder/myorder.component';
 
@@ -27,7 +28,10 @@ const routes: Routes = [
       { path: 'flyer', loadChildren: () => import('./flyer/flyer.module').then((m) => m.FlyerModule)},
      {
       path:'myorder', component:MyorderComponent
-     }
+     },
+    //  {
+    //   path:'header', component:HeaderComponent
+    //  }
     ]}
 
 ];
