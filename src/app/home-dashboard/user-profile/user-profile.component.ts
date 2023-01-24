@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { max, merge } from 'rxjs';
 import { SparkService } from 'src/app/service/spark.service';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -34,11 +35,11 @@ details:any;
 
 
 
-  constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone) {
+  constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone,private spinner: NgxSpinnerService) {
     this.profileForm=this.fb.group({
-      firstName:[''],
-      companyName:[''],
-      companyWebsite:[''],
+      firstName:['',[Validators.required]],
+      companyName:['',[Validators.required]],
+      companyWebsite:['',[Validators.required]],
       phone:['', Validators.compose([Validators.required,Validators.pattern(
         '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
           )])]
@@ -48,6 +49,10 @@ details:any;
 
     })
    
+    // this.router.navigateByUrl('/user-profile', { skipLocationChange: true }).then(() => {
+    //   console.log('jkkkkkkkkkkkkkkkkkkkkkkkk');
+      
+    // })
 
    }
    get f(){  
@@ -88,13 +93,17 @@ this.qrCodeByApi();
          email:this.Email,
          
     } 
+    this.spinner.show()
     this.api.basicDetailofUser(body).subscribe((res:any)=>{
-      console.log(res, 'profile')
+      // console.log(res, 'profile')
+      this.spinner.hide()
       this.toast.success(' Details added successfully');
       this.router.navigate(['home-dashboard/basicdetails-company'])
       // sessionStorage.setItem('website', data.companyWebsite)
       // sessionStorage.setItem('phone', data.phone)
       // sessionStorage.setItem('compname', data.companyName)
+    },err=>{
+      this.spinner.hide()
     })
     
   }
@@ -112,9 +121,9 @@ this.userName=res.result[0]?.firstName
 
 
 
-console.log(this.compwebsite, 'jojo')
+// console.log(this.compwebsite, 'jojo')
 
-console.log(this.details)
+// console.log(this.details)
     })
 
 

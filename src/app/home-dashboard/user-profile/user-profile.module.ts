@@ -5,6 +5,7 @@ import { UserProfileRoutingModule } from './user-profile-routing.module';
 import { UserProfileComponent } from './user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     UserProfileRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    NgxSpinnerModule
   ]
 })
 export class UserProfileModule { }

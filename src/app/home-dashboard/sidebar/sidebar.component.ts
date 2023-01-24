@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.href=this.router.url;
-    console.log(this.router.url)
+    console.log(this.router.url,'jjjjjjjjjjjjjjjj')
   }
 
   public logout() {

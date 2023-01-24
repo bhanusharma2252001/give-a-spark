@@ -21,6 +21,7 @@ import { PasswordResetComponent } from './client-login/forget-password/password-
 import { ForgetEmailComponent } from './client-login/forget-password/forget-email/forget-email.component';
 import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/forget-otp.component';
 // import { NgxColorsModule } from 'ngx-colors';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const googleLoginOptions = {
   scope: 'profile email',
@@ -41,6 +42,7 @@ const googleLoginOptions = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',

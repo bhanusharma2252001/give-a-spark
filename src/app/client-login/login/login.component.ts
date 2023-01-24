@@ -6,6 +6,7 @@ import { SparkService } from 'src/app/service/spark.service';
 import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { NgxSpinnerService } from "ngx-spinner";
 import {
   SocialAuthService,
   FacebookLoginProvider,
@@ -40,7 +41,7 @@ token:any;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
   Email:any;
-  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService ) { console.log(this.isLoggedin);
+  constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService,private spinner: NgxSpinnerService ) { console.log(this.isLoggedin);
 
  
     this.LoginForm = this.fb.group({
@@ -126,10 +127,12 @@ token:any;
       email: this.LoginForm.value.email,
       password: this.LoginForm.value.password,
     };
-    console.log(this.model);
+    // console.log(this.model);
+    this.spinner.show()
     this.sparkService.onLogin(this.model).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
+        this.spinner.hide()
         sessionStorage.setItem('email',this.LoginForm.value.email)
         this.toast.success('Logged in Successfully');
 
@@ -139,6 +142,7 @@ token:any;
       },
       (error) => {
         this.toast.error('please try again');
+        this.spinner.hide()
       }
     );
   }
@@ -180,11 +184,11 @@ callLogin() {
   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
     (googleAuthUser: any) => {
       let profile = googleAuthUser.getBasicProfile();
-      console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+      // console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
+      // console.log('ID: ' + profile.getId());
+      // console.log('Name: ' + profile.getName());
+      // console.log('Image URL: ' + profile.getImageUrl());
+      // console.log('Email: ' + profile.getEmail());
 
       let data = {
         email: profile.getEmail(),
@@ -197,14 +201,14 @@ callLogin() {
         (
          (successData) => this.success(successData),
          (reject) => {
-          console.log(reject);
+          // console.log(reject);
           
           //  this.toastr.errorToastr("Please Try Again");
           alert(reject.error.error)
          }
        );
     }, (error: any) => {
-      console.log(error);
+      // console.log(error);
       alert(JSON.stringify(error, undefined, 2));
     });
 

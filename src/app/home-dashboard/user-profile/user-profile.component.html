@@ -46,7 +46,9 @@
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="firstName">
-
+                                                    <div *ngIf="profileForm.get('firstName')?.hasError('required') " class="text-danger text-sm">
+                                                        <small>Name is required </small> </div>
+                                                    
                                             </div>
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
@@ -55,7 +57,8 @@
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="companyName" [(ngModel)]="compname">
-
+                                                    <div *ngIf="profileForm.get('companyName')?.hasError('required') " class="text-danger text-sm">
+                                                        Company Name is required </div>
                                             </div>
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
@@ -64,7 +67,8 @@
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="companyWebsite" [(ngModel)]="compwebsite">
-
+                                                    <div *ngIf="profileForm.get('companyWebsite')?.hasError('required') " class="text-danger text-sm">
+                                                        Company website is required </div>
                                             </div>
                                             <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label">Your Phone</label>
@@ -74,7 +78,7 @@
                                                     formControlName="phone" [(ngModel)]="number">
                                                    
                                                               <div *ngIf="profileForm.get('phone')?.hasError('required') " class="text-danger text-sm">
-                                                        *Phone no. is required
+                                                       <small>*Phone no. is required</small> 
                                                                           </div>
                                                                           <div *ngIf="profileForm.get('phone')?.hasError('pattern')" class="text-danger text-sm">
                                                                            *Please enter valid no.
@@ -158,3 +162,12 @@
         </section>
     </main>
 </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

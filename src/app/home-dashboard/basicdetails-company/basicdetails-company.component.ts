@@ -35,7 +35,7 @@ export class BasicdetailsCompanyComponent implements OnInit {
   number: any;
   constructor(private api:SparkService, private fb:FormBuilder, private router:Router, private toast : ToastrService,private meta:Meta,private title: Title ) { 
     this.companyDetailForm=this.fb.group({
-      companyName:['', ],
+      companyName:['', [Validators.required]],
       companyWebsite: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
       companyAddress:[''],  
 

@@ -151,7 +151,8 @@
                                             <input type="text" class="form-control border-none bottom-border"
                                                 id="exampleInputtext" aria-describedby="emailHelp"
                                                 formControlName="companyName" [(ngModel)]="compName">
-
+                                                <div *ngIf="companyDetailForm.get('companyName')?.hasError('required') " class="text-danger text-sm">
+                                                    Company Name is required </div>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
                                             <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img
@@ -204,11 +205,16 @@
                                             <input type="text" class="form-control border-none bottom-border"
                                                 id="exampleInputtext" aria-describedby="emailHelp" maxlength="13" minlength="10"
                                                 formControlName="companyPhone">
-                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm">
-                              *Phone no. is required
+                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm" style="    bottom: 25px;
+                                                position: relative;
+                                                left: 233px;">
+                              *
                                                 </div>
+                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm">
+                                                    <small>phone no. is required</small>
+                                                   </div>
                                                 <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('pattern')" class="text-danger text-sm">
-                                                 *Please enter valid no. (+*******)
+                                                 <small>*Please enter valid no. (+*******)</small>
                                                 </div>
                                                 
                                         </div>

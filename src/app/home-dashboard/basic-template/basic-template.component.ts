@@ -18,7 +18,7 @@ export class BasicTemplateComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
-
+  @ViewChild('tableData',{static:false})tableData!:ElementRef
   signatureDetailsForm: FormGroup
   planShow = false;
   public toggle: boolean = false;
@@ -37,7 +37,7 @@ export class BasicTemplateComponent implements OnInit {
   uploadImage: any;
   imageData1: any;
   imageData2: any;
-
+  templateRef:any
 
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
@@ -452,5 +452,9 @@ export class BasicTemplateComponent implements OnInit {
     })
   }
 
+  setSignature() {
+    console.log(this.tableData.nativeElement);
+    this.templateRef = this.tableData.nativeElement
+  }
 
 }
