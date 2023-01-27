@@ -15,6 +15,12 @@ export class StoryDashboardComponent implements OnInit {
   showStoriesForm:FormGroup;
 
   quoteList:any;
+  catStory: any;
+  subStory: any;
+  storyData: any;
+  substoryData: any;
+  SubSubstoryData: any;
+  SubSubStoryList: any;
   constructor( private api:SparkService, private fb:FormBuilder) {
     this.showStoriesForm=this.fb.group({
       categoriesId:[''],
@@ -73,7 +79,69 @@ export class StoryDashboardComponent implements OnInit {
 
 
     this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
-      this.quoteList=res?.result;
+      this.SubSubStoryList=res?.result;
+      this.catStory = '';
+      this.subStory = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.SubSubStoryList, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+
+
+    // category quote
+  showStoryCat(data:any) {
+
+    let body:any = {
+    filters:
+      {
+      categoriesId:data.categoriesId,
+      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+      this.catStory=res?.result;
+      this.subStory= '';
+      this.SubSubStoryList = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.catStory, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+// Sub cat Quote
+  showStorySubCat(data:any) {
+
+    let body:any = {
+    filters:
+      {
+        categoriesId:data.categoriesId,
+        subCategoriesId:data.subCategoriesId,      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+      this.subStory=res?.result;
+      this.catStory = '';
+      this.SubSubStoryList = '';
       console.log(res);
       // this.toast.success('Added  Successfully');
 console.log(body)
@@ -86,4 +154,33 @@ console.log(this.quoteList, "qqqq")
       })
   }
 
+
+
+
+
+
+// LONG STORY FOR CATEGORY
+  viewStory(data:any) {
+    this.storyData = data;
+  }
+  close() {
+    let audio:any=document.getElementById('audio')
+    if(audio){
+      audio.pause()
+  
+    }
+  }
+
+
+  // LONG STORY FOR SUBCATEGORY
+  viewSubStory(data:any) {
+    this.substoryData= data;
+    console.log(this.substoryData, 'ssjfgjldfkg;dkg;kf;gdflkg')
+  }
+
+   // LONG STORY FOR SUBSUBCATEGORY
+   viewSubSubStory(data:any) {
+    this.SubSubstoryData = data;
+    console.log(this.SubSubstoryData, 'ssjfgjldfkg;dkg;kf;gdflkg')
+  }
 }

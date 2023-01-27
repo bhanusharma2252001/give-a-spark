@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
 
-    <main class="padding-top">
+    <main class="">
         <section>
             <div class="container-fluid p-0 mt-5">
                 <div class="row m-0 p-0 mt-3">
@@ -150,14 +150,15 @@
                                                             <input type="text" formControlName="quotes"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp"
-                                                                placeholder="write quote">
+                                                                placeholder="write quote" [(ngModel)]="quotevar">
 
                                                         </div>
                                                         <div class="mb-4" *ngIf="LongQuote">
                                                             <label for="exampleInputfiled"
                                                                 class="form-label fw-semibold ">Quotes</label>
 
-                                                            <p>{{LongQuote}}</p>
+                                                            <p style="position: relative;
+                                                            top: 40px">{{LongQuote}}</p>
                                                             <input type="text" formControlName="quotesId"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
@@ -184,11 +185,16 @@
                                                     </div>
                                                     <div class="col-md-1 col-lg-3 ps-0">
                                                         <div class="position-absolute top-0">
-                                                            <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
-                                                            <div *ngIf="!tempDetails?.profileImage">
-                                                                <img class="width" src="assets/images/logo.png " />
+                                                            <div>
+                                                                <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
+                                                                <img class="width" src="assets/images/logo.png " *ngIf="!tempDetails?.profileImage && img" />
                                                             </div>
-                                                            <div *ngIf="tempDetails?.profileImage">
+                                                            
+                                                            <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
+                                                            <!-- <div *ngIf="!tempDetails?.profileImage">
+                                                                <img class="width" src="assets/images/logo.png " />
+                                                            </div> -->
+                                                            <div *ngIf="tempDetails?.profileImage ">
 
 
                                                                 <div
@@ -203,11 +209,11 @@
                                                           </div> -->
 
 
-                                                            <p class="text-blue fs-14 mb-0 text-nowrap pe-2"
+                                                            <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
                                                                 data-bs-toggle="modal" data-bs-target="#change-image">
                                                                 Change
                                                                 Photo</p>
-                                                            <p class="text-blue fs-14 mb-0">Remove</p>
+                                                            <p class="text-blue fs-12 mb-0">Remove</p>
                                                         </div>
                                                     </div>
 
@@ -473,7 +479,7 @@
                                     </div>
 
                                     <div class="mt-4 text-end">
-                                        <button type="submit" class="green-btn p-2 pe-3 ps-3">Create Signature</button>
+                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create Signature</button>
                                     </div>
 
                                 </form>
@@ -495,7 +501,7 @@
 
                             <div class="col-md-6 col-lg-6 pe-3 align-self-center ">
 
-                                <div #tableData class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
+                                <div  class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                                     <div class="row m-0">
                                         <div class="col-md-3 col-lg-3 self-align-center"  *ngIf="!tempDetails?.profileImage">
                                             <img class="wh-150" src="assets/images/profile-image.png">
@@ -591,22 +597,23 @@
                                                 like buses, there’s always another one
                                                 coming.”
                                             </p>
-                                            <div *ngIf="tempDetails?.quotesId?.longQuotes">
+                                            <div *ngIf="tempDetails?.quotesId?.quotesName">
                                                 <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
-                                                    {{tempDetails?.quotesId?.longQuotes}}</p>
-                                                <h6 [style.font-size.px]="fontSizeName"
+                                                    {{tempDetails?.quotesId?.quotesName}}</p>
+                                                <h6 [style.font-size.px]="itemFontSize"
                                                     [style.line-height]="lineHeight">
                                                     {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
                                             </div>
-                                            <p *ngIf="tempDetails?.quotes" [style.font-size.px]="fontSizeName"
+                                            <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize"
                                                 [style.line-height]="lineHeight">
-                                                {{tempDetails?.quotes}}</p>
+                                                {{quotevar}}</p>
                                         </div>
 
                                     </div>
                                 </div>
 
 
+                                <!-- <a href="mailto:nobody@somedomain.com?body=[templateRef]">Email Us</a>   -->
 
 
 
@@ -752,8 +759,11 @@
                                                                     <h2 color="#000000" class="sc-fBuWsC eeihxG"
                                                                         style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);"
                                                                         *ngIf="!tempDetails?.yourName">
-                                                                        <span
-                                                                            style="margin: 0px; padding-top:15px; font-size: 34px;">{{username}}</span>
+                                                                        <span  [style.font-family]="fontFamilyNew"
+                                                                        [style.color]="firstNameColor"
+                                                                        [style.font-size.px]="templateFontSize"
+                                                                        [style.line-height]="lineHeight"
+                                                                            style="margin: 0px; padding-top:15px; font-size: 34px;" [style.color]="firstNameColor">{{username}}</span>
                                                                     </h2>
 
                                                                     <h2 color="#000000" [style.text-align]="nameAlign"
@@ -855,7 +865,7 @@
                                                                                         *ngIf="tempDetails?.companyPhone"
                                                                                         color="#000000"
                                                                                         class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                                                       style="text-decoration: none; color: rgb(0, 0, 0);"
                                                                                         [style.font-size.px]="itemFontSize"
                                                                                         [style.font-family]="fontFamilyNew"
                                                                                         [style.line-height]="lineHeight"><span
@@ -914,7 +924,9 @@
                                                                                         class="sc-gipzik iyhjGb"
                                                                                         style="text-decoration: none; color: rgb(0, 0, 0); "
                                                                                         [style.font-size.px]="itemFontSize"
-                                                                                        [style.line-height]="lineHeight"><span>{{Email}}</span></a>
+                                                                                        [style.font-family]="fontFamilyNew"
+                                                                                        [style.line-height]="lineHeight"
+                                                                                        [style.color]="contactDetailColor"><span>{{Email}}</span></a>
                                                                                 </td>
                                                                                 <td style="padding: 0px;"
                                                                                     *ngIf="tempDetails?.email">
@@ -1045,7 +1057,7 @@
                                                                 </td>
                                                             </tr>
                                                             <tr
-                                                                *ngIf="!'tempDetails?.quotesId?.longQuotes && tempDetails?.quotes'">
+                                                            *ngIf="!'tempDetails?.quotesId?.quotesName && tempDetails?.quotes'">
                                                                 <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">"Money and success
@@ -1055,11 +1067,11 @@
                                                                     — Will Smith
                                                                 </td>
                                                             </tr>
-                                                            <tr *ngIf="tempDetails?.quotesId?.longQuotes ">
-                                                                <td [style.font-size.px]="fontSizeName"
+                                                            <tr *ngIf="tempDetails?.quotesId?.quotesName " >
+                                                                <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">
-                                                                    {{tempDetails?.quotesId?.longQuotes}}
+                                                                    {{tempDetails?.quotesId?.quotesName}}
                                                                     <br>
 
                                                                     {{tempDetails?.quotesId?.authorId?.firstName}}
@@ -1067,8 +1079,8 @@
                                                             </tr>
 
 
-                                                            <tr *ngIf="tempDetails?.quotes ">
-                                                                <td [style.font-size.px]="fontSizeName"
+                                                            <tr *ngIf="tempDetails?.quotes" >
+                                                                <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">
                                                                     {{tempDetails?.quotes}}
@@ -1111,7 +1123,7 @@
                                     </table>
 
                                     <div class="col-md-12 col-lg-12 mt-3 text-end">
-                                        <button class="green-btn   pe-4 ps-4 p-2 " (click)="setSignature()"
+                                        <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()"
                                             data-bs-toggle="modal" data-bs-target="#m-done">OK I'm Done</button>
 
                                     </div>
@@ -1163,7 +1175,7 @@
                             <div class="Neon Neon-theme-dragdropbox">
                                 <input
                                     style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                                    name="files[]" id="filer_input2" multiple="multiple" type="file"
+                                    name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
                                     (change)="onSelectImage($event)">
                                 <div class="Neon-input-dragDrop">
                                     <div class="Neon-input-inner">
@@ -1209,17 +1221,3 @@
     </div>
 </div>
 
-<!-- 
-<a href="
-
-    mailto:johndoe@gmail.com
-
-    ?subject=My+great+email+to+you
-
-    &body=This+is+an+awesome+email
-
-    &cc=janedoe@gmail.com
-
-    &bcc=billybob@yahoo.com
-
-">Click here to send email!</a> -->

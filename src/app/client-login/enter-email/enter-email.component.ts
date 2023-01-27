@@ -29,7 +29,7 @@ export class EnterEmailComponent implements OnInit {
         email:this.enterEmail.value.email
       }
     this.sparkService.enterEmailForVerify(body).subscribe((res=>{
-      localStorage.setItem('email',this.enterEmail.value.email)
+      sessionStorage.setItem('email',this.enterEmail.value.email)
         this.toast.success('A verfication code has been sent to your email')
       this.router.navigate(["client-login/enter-otp"])
     }),  (error) => {

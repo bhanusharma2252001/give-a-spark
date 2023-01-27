@@ -55,7 +55,12 @@ export class BasicdetailsCompanyComponent implements OnInit {
 
   
 
-
+    if(router.url == '/home-dashboard/basicdetails-company') {
+      this.api.getLatestValue(router.url); 
+      this.api.content.subscribe((res:any)=>{
+        router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }); 
+  }
 
   }
   get m(){

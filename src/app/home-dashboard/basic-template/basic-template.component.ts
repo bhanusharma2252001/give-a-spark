@@ -18,6 +18,8 @@ export class BasicTemplateComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
+  demodataa = "color :red";
+img:boolean=true;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   signatureDetailsForm: FormGroup
   planShow = false;
@@ -27,6 +29,7 @@ export class BasicTemplateComponent implements OnInit {
   QuoteId: any;
   LongQuote: any;
   ShowOneQuote: boolean = true;
+  
 
 
   url: string | ArrayBuffer | null | undefined;
@@ -98,6 +101,10 @@ export class BasicTemplateComponent implements OnInit {
     'monospace',
     'cursive',
     'fantasy',
+    ' Trebuchet MS',
+    'Lucida Sans',
+    'Palatino',
+    'Georgia',
     'system-ui',
     'ui-serif',
     'ui-sans-serif',
@@ -108,6 +115,7 @@ export class BasicTemplateComponent implements OnInit {
     'fangsong']
   compPhone: any;
   dessssssignnnnn: any;
+  quotevar: any;
   // chnage end
 
 
@@ -120,7 +128,6 @@ export class BasicTemplateComponent implements OnInit {
 
 
 
-  data = document.getElementById('scam');
 
 
 
@@ -258,6 +265,7 @@ export class BasicTemplateComponent implements OnInit {
     this.api.getsignatureDetails().subscribe((res: any) => {
 
       this.tempDetails = res.result[res.result.length - 1];
+      this.quotevar=this.tempDetails?.quotes
       console.log(this.tempDetails, "kkkkkkkk")
 
 
@@ -388,6 +396,7 @@ export class BasicTemplateComponent implements OnInit {
 
   onSelectImage(event: any) {
     this.Submitted = true;
+    this.img=false;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
     if (files) {
@@ -455,6 +464,8 @@ export class BasicTemplateComponent implements OnInit {
   setSignature() {
     console.log(this.tableData.nativeElement);
     this.templateRef = this.tableData.nativeElement
+    console.log(this.templateRef, "templatesssssssss")
   }
 
+ 
 }

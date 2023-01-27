@@ -9,27 +9,48 @@ import { SparkService } from 'src/app/service/spark.service';
   styleUrls: ['./quote-dashboard.component.scss']
 })
 export class QuoteDashboardComponent implements OnInit {
-  category:any;
-  subCategory:any;
-  subSubCategory:any
-  showQuotesForm:FormGroup;
+  category: any;
+  subCategory: any;
+  subSubCategory: any
+  showQuotesForm: FormGroup;
 
-  quoteList:any;
+  quoteList: any;
   quotedata: any;
   quoteId: any;
   LongQuotes: any;
-  constructor( private api:SparkService, private fb:FormBuilder, private router:Router) {
-    this.showQuotesForm=this.fb.group({
-      categoriesId:[''],
-      subCategoriesId:[''],
-      subSubCategoriesId:[''],
+  catQuotes: any;
+  subCatQuotes: any;
+  SubSubQuotesData: any;
+  subQuotesData: any;
+  catQuoteData: any;
+  constructor(private api: SparkService, private fb: FormBuilder, private router: Router) {
+    this.showQuotesForm = this.fb.group({
+      categoriesId: [''],
+      subCategoriesId: [''],
+      subSubCategoriesId: [''],
     })
-   }
+  }
+  getQuoteEvent(event: any, data: any) {
+    this.quotedata = data;
+    this.quoteId = this.quotedata._id;
+    this.LongQuotes = data?.quotesName
+    this.router.navigate(['/home-dashboard/basic-template'])
+    localStorage.setItem('quoteId', this.quoteId)
+
+    localStorage.setItem('LongQuotes', this.LongQuotes)
+    console.log(this.quotedata, "quote data");
+
+  }
+
+
+ 
+
+
+
 
   ngOnInit(): void {
     this.getCategory();
   }
-
 
 
   getCategory() {
@@ -58,25 +79,13 @@ export class QuoteDashboardComponent implements OnInit {
       console.log(this.subSubCategory)
     }))
   }
-//  selectQuoot4e
 
 
-getQuoteEvent(event:any, data:any){
-  this.quotedata = data;
-  this.quoteId = this.quotedata._id;
-  this.LongQuotes=data?.longQuotes
-this.router.navigate(['/home-dashboard/basic-template'])
-  localStorage.setItem('quoteId', this.quoteId )
-
-  localStorage.setItem('LongQuotes',this.LongQuotes )
-  console.log(this.quotedata, "quote data");
-  
-}
 
 
-  showQuote(data:any) {
+  showQuotes(data:any) {
 
-    let body:any = {
+    let body:any= {
     filters:
       {
       categoriesId:data.categoriesId,
@@ -89,6 +98,8 @@ this.router.navigate(['/home-dashboard/basic-template'])
 
     this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
       this.quoteList=res?.result;
+      this.catQuotes = '';
+      this.subCatQuotes = '';
       console.log(res);
       // this.toast.success('Added  Successfully');
 console.log(body)
@@ -99,5 +110,95 @@ console.log(this.quoteList, "qqqq")
       (error) => {
         // this.toast.error('please try again');
       })
+  }
+
+
+
+    // category quote
+  showCatQuote(data:any) {
+
+    let body:any = {
+    filters:
+      {
+      categoriesId:data.categoriesId,
+      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
+      this.catQuotes=res?.result;
+      this.subCatQuotes= '';
+      this.quoteList = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.catQuotes, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+// Sub cat Quote
+  showSubCatQuote(data:any) {
+
+    let body:any = {
+    filters:
+      {
+        categoriesId:data.categoriesId,
+        subCategoriesId:data.subCategoriesId,      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
+      this.subCatQuotes=res?.result;
+      this.catQuotes = '';
+      this.quoteList = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.quoteList, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+
+
+
+
+
+// LONG STORY FOR CATEGORY
+  viewStory(data:any) {
+    this.catQuoteData = data;
+  }
+  close() {
+    let audio:any=document.getElementById('audio')
+    if(audio){
+      audio.pause()
+  
+    }
+  }
+
+
+  // LONG STORY FOR SUBCATEGORY
+  viewSubStory(data:any) {
+    this.subQuotesData= data;
+    console.log(this.subQuotesData, 'ssjfgjldfkg;dkg;kf;gdflkg')
+  }
+
+   // LONG STORY FOR SUBSUBCATEGORY
+   viewSubSubStory(data:any) {
+    this.SubSubQuotesData= data;
+    console.log(this.SubSubQuotesData, 'ssjfgjldfkg;dkg;kf;gdflkg')
   }
 }

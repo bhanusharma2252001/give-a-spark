@@ -55,8 +55,10 @@ token:any;
   }
 
   ngOnInit(): void {
+    setTimeout(() => { this.ngOnInit() }, 1000 * 10)
  if (sessionStorage.getItem('email'))
  this.Email=sessionStorage.getItem('email')
+ sessionStorage.removeItem('email')
     // this.spinner.show();
 
     // setTimeout(() => {

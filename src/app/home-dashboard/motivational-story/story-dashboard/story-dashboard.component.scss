@@ -1,0 +1,15 @@
+.limit {
+    width:45ch;
+    overflow: hidden;
+    text-overflow:clip;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+            line-clamp: 1; 
+    -webkit-box-orient: vertical;
+}
+// .limit{
+//     width:50ch ;
+//     white-space:wrap;
+//         overflow:hidden;
+//         text-overflow: "----";
+// }

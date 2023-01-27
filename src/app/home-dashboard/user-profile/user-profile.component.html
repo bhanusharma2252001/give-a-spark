@@ -87,12 +87,16 @@
                                                    
 
                                             </div>
-                                            <button type="submit" class="green-btn   pe-3 ps-3 p-2" [disabled]="!profileForm.valid" >Create</button>
+                                            <button type="submit" class="green-btn shadow  pe-3 ps-3 p-2" [disabled]="!profileForm.valid" >Create</button>
                                         </div>
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">
                                                 <img class="wh-150" src="assets/images/square-image.png">
-
+                                                <p class="text-blue fs-12 mb-0 mt-2 text-nowrap pe-2"
+                                                data-bs-toggle="modal" data-bs-target="#change-image">
+                                                Change
+                                                Photo</p>
+                                            <p class="text-blue fs-12 mb-0">Remove</p>
 
                                             </div>
                                         </div>
@@ -108,28 +112,28 @@
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0 position-relative">
                                             <div class="position-absolute start-0">
-                                                <img class="h-90 pe-3" src="assets/images/vertical-line.png">
+                                                <!-- <img class="h-90 pe-3" src="assets/images/vertical-line.png"> -->
                                             </div>
                                             <div class="ms-4">
                                                 <h4 class=""><span class="text-darkblue">{{userName}}</span> </h4>
                                                 <h6 class="mb-3">Marketing Expert</h6>
-<hr class="text-yellow">
+<hr class="text-black">
                                                 <div class="d-flex">
-                                                    <i class="fa fa-phone fs-12 pe-3" aria-hidden="true"></i>
+                                                    <i class="fa fa-phone text-blue fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class=" fs-12" *ngIf="!number">984395709 </p>
                                                     <p class=" fs-12">{{number}} </p>
                                                 </div>
                                                 <div class="d-flex">
-                                                    <i class="fa fa-map-marker fs-12 pe-3" aria-hidden="true"></i>
+                                                    <i class="fa fa-map-marker text-blue fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class=" fs-12">309-310, Udyog Vihar-4, Phase-IV,
                                                         Gurugram, Haryana 122015 </p>
                                                 </div>
                                                 <div class="d-flex">
-                                                    <i class="fa fa-envelope fs-12 pe-3" aria-hidden="true"></i>
+                                                    <i class="fa fa-envelope text-blue fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class="fs-12">{{Email}}</p>
                                                 </div>
                                                 <div class="d-flex">
-                                                    <i class="fa fa-globe fs-12 pe-3" aria-hidden="true"></i>
+                                                    <i class="fa fa-globe text-blue fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class=" fs-12" *ngIf="!compwebsite">www.perfectiongeeks.com</p>
                                                     <p class=" fs-12">{{compwebsite}}</p>
                                                 </div>
@@ -163,6 +167,37 @@
     </main>
 </div>
 
+
+
+
+
+
+<div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog quotes-box">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                    aria-hidden="true"></i></div>
+            <div class="Neon Neon-theme-dragdropbox">
+                <input
+                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                    name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
+                    (change)="onSelectImage($event)">
+                <div class="Neon-input-dragDrop">
+                    <div class="Neon-input-inner">
+                        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                        <div class="Neon-input-text">
+                            <h3>Drag&amp;Drop files here</h3> <span
+                                style="display:inline-block; margin: 15px 0">or</span>
+                        </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"
   size="medium"

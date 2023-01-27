@@ -60,6 +60,13 @@ a {
 .bg-pink{
   background-color: var(--pink);
 }
+.w-200px{
+  width:500px;
+}
+.end-radius{
+  border-radius: 0 200px 200px 0;
+  padding-left:100px ;
+}
 .text-pink{
   color: var(--pink);
 }
@@ -106,6 +113,8 @@ a {
 }
 .active .active-icon{
   display: block !important;
+  margin:auto;
+
 }
 .active .active-black{
   display: none !important;
@@ -175,7 +184,7 @@ a {
   height: 180px !important;
 }
 img.w-250 {
-  width: 285px !important;
+  width: 90%!important;
 }
 .w-450 {
   width: 380px !important;
@@ -265,13 +274,15 @@ img.w-500{
   color: white !important;
   background-color: #050505 !important;
   border-radius: 16px;
+  width:80px;
   border-color: var(--bs-nav-tabs-link-active-border-color);
 }
 
 .box-link {
+  width: 80px;
   color: black;
   background-color: white !important;
-  border-radius: 16px;
+  border-radius: 16px  !important;
   border-color: var(--bs-nav-tabs-link-active-border-color);
 }
 
@@ -794,3 +805,11 @@ img.top-left {
   top: -123px;
   width: 83px;
 }
+.image-circle-design{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -15px;
+  left: -18px;
+  border: 5px solid #ff4058;
+} 

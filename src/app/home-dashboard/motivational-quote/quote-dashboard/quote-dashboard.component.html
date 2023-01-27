@@ -1,58 +1,3 @@
-<!-- <form [formGroup]="showQuotesForm" >
-    <div class="row m-0 p-0 justify-content-center mt-3">
-        <div class="col-md-4 col-lg-4">
-            <select class="form-select fs-12 text-light bg-dark  border-1 p-3 w-100" aria-label="Default select example"
-                formControlName="categoriesId" (change)="getSubCategory()">
-                <option value="" disabled selected>Select Category</option>
-                <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
-
-            </select>
-       
-        </div>
-
-        <div class="col-md-4 col-lg-4">
-            <select class="form-select fs-12 text-light bg-dark   border-1 p-3 w-100"
-                aria-label="Default select example" formControlName="subCategoriesId" (change)="
-            getSubsubCategory()">
-                <option value="" disabled selected>Select Sub Category</option>
-                <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}</option>
-
-            </select>
-         
-        </div>
-
-        <div class="col-md-4 col-lg-4">
-            <select class="form-select fs-12 text-light bg-dark   border-1 p-3 w-100"
-                aria-label="Default select example" formControlName="subSubCategoriesId" (change)="showQuote(showQuotesForm.value)">
-                <option value="" disabled selected>Select Sub Sub Category</option>
-                <option *ngFor="let subsubcat of subSubCategory?.subSubCategories" [value]="subsubcat?._id">
-                    {{subsubcat?.name}}
-                </option>
-            </select>
-    
-        </div>
-
-    </div>
-</form>
-
-
-
-
-<div class="col-6 m-3">
-
-
-    <div class="border border-dark p-3 m-2" *ngFor="let quote of quoteList">
-
-        <h3> Quotes Name </h3>
-        <p>{{quote?.longQuotes}}</p>
-
-        <h3>Author Name :-</h3>
-        <div>{{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</div>
-
-    </div>
- -->
-
-
 <div class="row m-0 p-0 mt-5 align-items-center">
     <div class="col-md-12 col-lg-12">
         <div class="border-bottom">
@@ -60,69 +5,492 @@
         </div>
         <div class="row m-0 p-0 mt-4">
             <div class="col-md-12 col-lg-12">
-                <form [formGroup]="showQuotesForm" >
-                <div class="row">
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="categoriesId" (change)="getSubCategory()">
-                            <option value="" disabled selected>Open this select menu</option>
-                            <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="subCategoriesId" (change)="getSubsubCategory()">
-                            
-                            <option value="" disabled selected>Select Sub Category</option>
-                            <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}</option>
-                        </select>
+                <form [formGroup]="showQuotesForm">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="categoriesId"
+                                (change)="getSubCategory(); showCatQuote(showQuotesForm.value)">
+                                <option value="" disabled selected>Open this select menu</option>
+                                <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="subCategoriesId"
+                                (change)="getSubsubCategory(); showSubCatQuote(showQuotesForm.value)">
+
+                                <option value="" disabled selected>Select Sub Category</option>
+                                <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="subSubCategoriesId" (change)="showQuotes(showQuotesForm.value)">
+                                <option value="" disabled selected>Select Sub Sub Category</option>
+                                <option *ngFor="let subsubcat of subSubCategory?.subSubCategories"
+                                    [value]="subsubcat?._id">
+                                    {{subsubcat?.name}}
+                                </option>
+                            </select>
+                        </div>
+
 
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="subSubCategoriesId" (change)="showQuote(showQuotesForm.value)">
-                            <option value="" disabled selected>Select Sub Sub Category</option>
-                            <option *ngFor="let subsubcat of subSubCategory?.subSubCategories" [value]="subsubcat?._id">
-                                {{subsubcat?.name}}
-                            </option>
-                        </select>
-                    </div>
-                    
-
-                </div>
-            </form>
-
+                </form>
+                <!-- CATEGORY STORY -->
 
                 <div class="row mt-4">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="border-10 box-border p-2" *ngFor="let quote of quoteList">
-                            <figure class="text-center">
-                                <blockquote class="blockquote">
-                                  <p class="fs-14" (click)="getQuoteEvent($event, quote)"> {{quote?.longQuotes}} </p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                   
-                                  <cite class="fs-24" title="Source Title">{{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</cite>
-                                </figcaption>
-                              </figure>
+                    <div class="col-md-6 col-lg-6" *ngIf="catQuotes">
+
+                        <div class="border-10 box-border m-2 p-2" *ngFor="let ss of catQuotes">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <figure class="text-center">
+                                        <blockquote class="blockquote">
+
+                                            <p class="fs-14 limit"> {{ss?.quotesName}} </p>
+                                            <span data-bs-toggle="modal" data-bs-target="#morelong"
+                                                (click)="viewStory(ss)" class="text-blue">Read
+                                                more...</span>
+                                        </blockquote>
+                                        <figcaption class="blockquote-footer">
+                                            <cite class="fs-24"
+                                                title="Source Title">{{ss?.authorId?.firstName}}{{ss?.authorId?.lastName}}</cite>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getQuoteEvent($event, ss)">
+                                       
+                                      </div>
+                                </div>
+                            </div>
+                           
                         </div>
+
                     </div>
-                    <!-- <div class="col-md-6 col-lg-6">
-                        <div class="border-10 box-border p-2">
+
+
+                    <!-- SUBCATEGORY  Quotes-->
+                    <div class="col-md-6 col-lg-6" *ngIf="subCatQuotes">
+                        <div class="border-10 box-border p-2" *ngFor="let subQ of subCatQuotes">
                             <figure class="text-center">
                                 <blockquote class="blockquote">
-                                  <p class="fs-14"> “Don't settle for average. Bring your best to the moment. Then, whether it fails or succeeds, at least you know you gave all you had.” 
+                                    <p class="fs-14 limit"> {{subQ?.quotesName}}
+                                        <span data-bs-toggle="modal" data-bs-target="#moresublong"
+                                            (click)="viewSubStory(subQ)" class="text-blue">Read
+                                            more...</span>
                                     </p>
                                 </blockquote>
                                 <figcaption class="blockquote-footer">
-                                   
-                                  <cite class="fs-24" title="Source Title"> Angela Bassett</cite>
+
+                                    <cite class="fs-24" title="Source Title">
+                                        {{subQ?.authorId?.firstName}} {{subQ?.authorId?.lastName}}</cite>
                                 </figcaption>
-                              </figure>
+                            </figure>
+                            <div class="col-md-1">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"  (click)="getQuoteEvent($event, subQ)" style="position: relative; bottom:95px ; left: 482px;">
+                                   
+                                  </div>
+                            </div>
                         </div>
-                    </div> -->
+                       
+                    </div>
+
+                    <!-- SUBSUBCATEGORY STORY -->
+                    <div class="col-md-6 col-lg-6" *ngIf="quoteList">
+                        <div class="border-10 box-border p-2" *ngFor="let quote of quoteList">
+                            <figure class="text-center">
+                                <blockquote class="blockquote">
+                                    <p class="fs-14 limit"> {{quote?.quotesName}}
+                                        <span data-bs-toggle="modal" data-bs-target="#moresubsublong"
+                                            (click)="viewSubSubStory(quote)" class="text-blue">Read
+                                            more...</span>
+                                    </p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+
+                                    <cite class="fs-24" title="Source Title">
+                                        {{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</cite>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- long story on base of category -->
+<!-- CAT STORY MODAL 1 -->
+
+<div class="modal fade" id="morelong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+
+        <div class="modal-content ">
+            <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                   </h5>
+                <button type="button" class="btn-close text-white blue-btn" ></button>
+
+            </div> -->
+            <div class="modal-body p-0" *ngIf="catQuotes">
+                <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="catQuotes">
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                            <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                            <div class="container">
+                                <div class="text-end">
+                                    <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                        aria-label="Close" (click)="close()"></i>
+                                </div>
+
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="d-flex align-items-center position-relative">
+                                            <div
+                                                *ngIf="catQuoteData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                <img class="rounded-circle image-circle-design" style="
+                                        height:100px;
+                                        width: 100px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{catQuoteData?.uploadImage}}" />
+                                            </div>
+                                            <div class="w-200px py-2 end-radius bg-pink">
+                                                <h3 class="text-white mb-0">Author</h3>
+                                                <p class="mb-0 text-white">{{catQuoteData?.authorId?.firstName}}
+                                                    &nbsp;{{catQuoteData?.authorId?.lastName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+
+                                    </div>
+                                </div>
+
+                                <!-- <div
+                                    *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                    <img class="" style=" margin-left:311px;
+                                height: 215px;
+                                width: 418px;"
+                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                </div> -->
+
+
+
+
+                                <!-- <div class=""
+                                
+                                    *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                    
+                                    <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                height: 215px;
+                                width: 418px;">
+                                </div> -->
+
+                            </div>
+                            <div class="row pt-5">
+                                <div class="col-md-10">
+                                    <h4 class="text-black"> {{catQuoteData?.quotesName }}</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="d-flex justify-content-around">
+                                        <img src="/assets/images/books.png">
+                                        <img src="/assets/images/lock.png">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                {{catQuoteData?.longQuotes}}
+                            </p>
+                            <div class="row">
+                                <div class="col-md-8" *ngIf="catQuoteData?.audioFileForTheStory">
+
+
+                                    <div class="col-md-4">
+                                        <p class="mb-0 text-blue">Audio </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0 text-white">
+                                            <audio id="audio" controls *ngIf="catQuoteData?.audioFileForTheStory">
+                                                <source
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{catQuoteData?.audioFileForTheStory}}"
+                                                    type="audio/mp3">
+
+
+                                            </audio>
+                                        </p>
+                                    </div>
+
+                                    <!-- <img src="images/recording.png"> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{catQuoteData?.merchandise}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- SUB STORY MODAL 2 -->
+
+
+
+
+<div class="modal fade" id="moresublong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+
+        <div class="modal-content ">
+            <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                                             <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                                             <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                                                </h5>
+                                             <button type="button" class="btn-close text-white blue-btn" ></button>
+                             
+                                         </div> -->
+            <div class="modal-body p-0" *ngIf="subCatQuotes">
+                <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="subCatQuotes">
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                            <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                            <div class="container">
+                                <div class="text-end">
+                                    <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                        aria-label="Close" (click)="close()"></i>
+                                </div>
+
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="d-flex align-items-center position-relative">
+                                            <div
+                                                *ngIf="subQuotesData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                <img class="rounded-circle" style="
+                                                                     height:100px;
+                                                                     width: 100px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{subQuotesData?.uploadImage}}" />
+                                            </div>
+                                            <div class="w-200px end-radius bg-pink">
+                                                <h3 class="text-white">Author</h3>
+                                                <p class="mb-0 text-white">{{subQuotesData?.authorId?.firstName}}
+                                                    &nbsp;{{subQuotesData?.authorId?.lastName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6"></div>
+                                </div>
+
+                                <!-- <div
+                                                                 *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 <img class="" style=" margin-left:311px;
+                                                             height: 215px;
+                                                             width: 418px;"
+                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                                             </div> -->
+
+
+
+
+                                <!-- <div class=""
+                                                             
+                                                                 *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 
+                                                                 <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                                             height: 215px;
+                                                             width: 418px;">
+                                                             </div> -->
+
+                            </div>
+                            <div class="row pt-5">
+                                <div class="col-md-8">
+                                    <h4 class="text-black"> {{subQuotesData?.quotesName }}</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <img src="">
+                                        <img src="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                {{subQuotesData?.longQuotes}}
+                            </p>
+                            <div class="row">
+                                <div class="col-md-8" *ngIf="subQuotesData?.audioFileForTheStory">
+
+
+                                    <div class="col-md-4">
+                                        <p class="mb-0 text-blue">Audio </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0 text-white">
+                                            <audio id="audio" controls *ngIf="subQuotesData?.audioFileForTheStory">
+                                                <source
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{subQuotesData?.audioFileForTheStory}}"
+                                                    type="audio/mp3">
+
+
+                                            </audio>
+                                        </p>
+                                    </div>
+
+                                    <!-- <img src="images/recording.png"> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{subQuotesData?.merchandise}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- SUBSUB STORY MODAL 3 -->
+
+
+<div class="modal fade" id="moresubsublong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+
+        <div class="modal-content ">
+            <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                                             <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                                             <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                                                </h5>
+                                             <button type="button" class="btn-close text-white blue-btn" ></button>
+                             
+                                         </div> -->
+            <div class="modal-body p-0" *ngIf="quoteList">
+                <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="quoteList">
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                            <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                            <div class="container">
+                                <div class="text-end">
+                                    <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                        aria-label="Close" (click)="close()"></i>
+                                </div>
+
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="d-flex align-items-center position-relative">
+                                            <div
+                                                *ngIf="SubSubQuotesData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                <img class="rounded-circle image-circle-design" style="
+                                                                     height:100px;
+                                                                     width: 100px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubQuotesData?.uploadImage}}" />
+                                            </div>
+                                            <div class="w-200px py-2 end-radius bg-pink">
+                                                <h3 class="text-white mb-0">Author</h3>
+                                                <p class="mb-0 text-white">{{SubSubQuotesData?.authorId?.firstName}}
+                                                    &nbsp;{{SubSubQuotesData?.authorId?.lastName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+
+                                    </div>
+                                </div>
+
+                                <!-- <div
+                                                                 *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 <img class="" style=" margin-left:311px;
+                                                             height: 215px;
+                                                             width: 418px;"
+                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                                             </div> -->
+
+
+
+
+                                <!-- <div class=""
+                                                             
+                                                                 *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 
+                                                                 <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                                             height: 215px;
+                                                             width: 418px;">
+                                                             </div> -->
+
+                            </div>
+                            <div class="row pt-5">
+                                <div class="col-md-8">
+                                    <h4 class="text-black"> {{SubSubQuotesData?.quotesName }}</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <img src="/assets/images/books.png">
+                                        <img src="/assets/images/lock.png">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                {{SubSubQuotesData?.longQuotes}}
+                            </p>
+                            <div class="row">
+                                <div class="col-md-8" *ngIf="SubSubQuotesData?.audioFileForTheStory">
+
+
+                                    <div class="col-md-4">
+                                        <p class="mb-0 text-blue">Audio </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0 text-white">
+                                            <audio id="audio" controls *ngIf="SubSubQuotesData?.audioFileForTheStory">
+                                                <source
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubQuotesData?.audioFileForTheStory}}"
+                                                    type="audio/mp3">
+
+
+                                            </audio>
+                                        </p>
+                                    </div>
+
+                                    <!-- <img src="images/recording.png"> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{SubSubQuotesData?.merchandise}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

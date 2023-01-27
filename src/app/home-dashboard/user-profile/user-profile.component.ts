@@ -49,11 +49,13 @@ details:any;
 
     })
    
-    // this.router.navigateByUrl('/user-profile', { skipLocationChange: true }).then(() => {
-    //   console.log('jkkkkkkkkkkkkkkkkkkkkkkkk');
-      
-    // })
-
+    if(router.url == '/home-dashboard/user-profile') {
+      this.api.getLatestValue(router.url); 
+      this.api.content.subscribe((res:any)=>{console.log(res,'result');        
+       router.routeReuseStrategy.shouldReuseRoute = () => false;
+    
+  }); 
+  }
    }
    get f(){  
     return this.profileForm.controls;  
@@ -129,7 +131,9 @@ this.userName=res.result[0]?.firstName
 
 
   }
+  onSelectImage(event:any){
 
+  }
 
   logout() {
     // this.socialAuthService.signOut();

@@ -1,5 +1,3 @@
-
-
 <div class="row m-0 p-0 mt-5 align-items-center">
     <div class="col-md-12 col-lg-12">
         <div class="border-bottom">
@@ -7,69 +5,469 @@
         </div>
         <div class="row m-0 p-0 mt-4">
             <div class="col-md-12 col-lg-12">
-                <form [formGroup]="showStoriesForm" >
-                <div class="row">
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="categoriesId" (change)="getSubCategory()">
-                            <option value="" disabled selected>Open this select menu</option>
-                            <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="subCategoriesId" (change)="getSubsubCategory()">
-                            
-                            <option value="" disabled selected>Select Sub Category</option>
-                            <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}</option>
-                        </select>
+                <form [formGroup]="showStoriesForm">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="categoriesId"
+                                (change)="getSubCategory(); showStoryCat(showStoriesForm.value)">
+                                <option value="" disabled selected>Open this select menu</option>
+                                <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="subCategoriesId"
+                                (change)="getSubsubCategory(); showStorySubCat(showStoriesForm.value)">
+
+                                <option value="" disabled selected>Select Sub Category</option>
+                                <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-select light-bg  p-3" aria-label="Default select example"
+                                formControlName="subSubCategoriesId" (change)="showStory(showStoriesForm.value)">
+                                <option value="" disabled selected>Select Sub Sub Category</option>
+                                <option *ngFor="let subsubcat of subSubCategory?.subSubCategories"
+                                    [value]="subsubcat?._id">
+                                    {{subsubcat?.name}}
+                                </option>
+                            </select>
+                        </div>
+
 
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <select class="form-select light-bg  p-3"
-                            aria-label="Default select example" formControlName="subSubCategoriesId" (change)="showStory(showStoriesForm.value)">
-                            <option value="" disabled selected>Select Sub Sub Category</option>
-                            <option *ngFor="let subsubcat of subSubCategory?.subSubCategories" [value]="subsubcat?._id">
-                                {{subsubcat?.name}}
-                            </option>
-                        </select>
-                    </div>
-                    
-
-                </div>
-            </form>
-
+                </form>
+                <!-- CATEGORY STORY -->
 
                 <div class="row mt-4">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="border-10 box-border m-2 p-2" *ngFor="let quote of quoteList">
+                    <div class="col-md-6 col-lg-6" *ngIf="catStory">
+                        <div class="border-10 box-border m-2 p-2" *ngFor="let ss of catStory">
                             <figure class="text-center">
                                 <blockquote class="blockquote">
-                                  <p class="fs-14"> {{quote?.longQuotes}} </p>
+
+                                    <p class="fs-14 limit"> {{ss?.storiesName}} </p>
+                                    <span data-bs-toggle="modal"
+                                        data-bs-target="#morelong" (click)="viewStory(ss)" class="text-blue">Read
+                                        more...</span>
                                 </blockquote>
                                 <figcaption class="blockquote-footer">
-                                   
-                                  <cite class="fs-24" title="Source Title">{{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</cite>
+                                    <cite class="fs-24"
+                                        title="Source Title">{{ss?.authorId?.firstName}}{{ss?.authorId?.lastName}}</cite>
                                 </figcaption>
-                              </figure>
+                            </figure>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6 col-lg-6">
-                        <div class="border-10 box-border p-2">
+
+
+                    <!-- SUBCATEGORY STORY -->
+                    <div class="col-md-6 col-lg-6" *ngIf="subStory">
+                        <div class="border-10 box-border p-2" *ngFor="let substory of subStory">
                             <figure class="text-center">
                                 <blockquote class="blockquote">
-                                  <p class="fs-14"> “Don't settle for average. Bring your best to the moment. Then, whether it fails or succeeds, at least you know you gave all you had.” 
+                                    <p class="fs-14 limit"> {{substory?.storiesName}}
+                                        <span data-bs-toggle="modal"
+                                        data-bs-target="#moresublong" (click)="viewSubStory(substory)" class="text-blue">Read
+                                        more...</span>
                                     </p>
                                 </blockquote>
                                 <figcaption class="blockquote-footer">
-                                   
-                                  <cite class="fs-24" title="Source Title"> Angela Bassett</cite>
+
+                                    <cite class="fs-24" title="Source Title">
+                                        {{substory?.authorId?.firstName}}{{substory?.authorId?.lastName}}</cite>
                                 </figcaption>
-                              </figure>
+                            </figure>
                         </div>
-                    </div> -->
+                    </div>
+
+                    <!-- SUBSUBCATEGORY STORY -->
+                    <div class="col-md-6 col-lg-6" *ngIf="SubSubStoryList">
+                        <div class="border-10 box-border p-2" *ngFor="let stories of SubSubStoryList">
+                            <figure class="text-center">
+                                <blockquote class="blockquote">
+                                    <p class="fs-14 limit"> {{stories?.storiesName}} 
+                                        <span data-bs-toggle="modal"
+                                        data-bs-target="#moresubsublong" (click)="viewSubSubStory(stories)" class="text-blue">Read
+                                        more...</span>
+                                    </p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+
+                                    <cite class="fs-24" title="Source Title">
+                                        {{stories?.authorId?.firstName}}{{stories?.authorId?.lastName}}</cite>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- long story on base of category -->
+<!-- CAT STORY MODAL 1 -->
+
+<div class="modal fade" id="morelong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+
+        <div class="modal-content ">
+            <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                   </h5>
+                <button type="button" class="btn-close text-white blue-btn" ></button>
+
+            </div> -->
+            <div class="modal-body p-0" *ngIf="catStory">
+                <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="catStory">
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                            <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                            <div class="container">
+                                <div class="text-end">
+                                    <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                    aria-label="Close" (click)="close()"></i>   
+                                </div>
+                                
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="d-flex align-items-center position-relative">
+                                            <div
+                                                *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                <img class="rounded-circle image-circle-design" style="
+                                        height:100px;
+                                        width: 100px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                            </div>
+                                            <div class="w-200px py-2 end-radius bg-pink">
+                                                <h3 class="text-white mb-0">Author</h3>
+                                                <p class="mb-0 text-white">{{storyData?.authorId?.firstName}} &nbsp;{{storyData?.authorId?.lastName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                   
+                                    </div>
+                                </div>
+
+                                <!-- <div
+                                    *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                    <img class="" style=" margin-left:311px;
+                                height: 215px;
+                                width: 418px;"
+                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                </div> -->
+
+
+
+
+                                <!-- <div class=""
+                                
+                                    *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                    
+                                    <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                height: 215px;
+                                width: 418px;">
+                                </div> -->
+
+                            </div>
+                            <div class="row pt-5">
+                                <div class="col-md-8">
+                                    <h4 class="text-black"> {{storyData?.storiesName }}</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <img src="/assets/images/books.png">
+                                        <img src="/assets/images/lock.png">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                {{storyData?.longStory}}
+                            </p>
+                            <div class="row">
+                                <div class="col-md-8" *ngIf="storyData?.audioFileForTheStory">
+                                  
+
+                                        <div class="col-md-4">
+                                            <p class="mb-0 text-blue">Audio </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p class="mb-0 text-white">
+                                                <audio id="audio" controls *ngIf="storyData?.audioFileForTheStory">
+                                                    <source
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.audioFileForTheStory}}"
+                                                        type="audio/mp3">
+
+
+                                                </audio>
+                                            </p>
+                                        </div>
+
+                                    <!-- <img src="images/recording.png"> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{storyData?.merchandise}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+                                 <!-- SUB STORY MODAL 2 -->
+
+
+
+
+                                 <div class="modal fade" id="moresublong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+                                 aria-hidden="true">
+                                 <div class="modal-dialog  modal-xl">
+                             
+                                     <div class="modal-content ">
+                                         <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                                             <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                                             <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                                                </h5>
+                                             <button type="button" class="btn-close text-white blue-btn" ></button>
+                             
+                                         </div> -->
+                                         <div class="modal-body p-0" *ngIf="subStory">
+                                             <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="subStory">
+                                                 <div class="col-md-12 col-lg-12 p-0">
+                                                     <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                                                         <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                                                         <div class="container">
+                                                             <div class="text-end">
+                                                                 <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                                                 aria-label="Close" (click)="close()"></i>   
+                                                             </div>
+                                                             
+                                                             <div class="row m-0 p-0">
+                                                                 <div class="col-md-6 col-lg-6">
+                                                                     <div class="d-flex align-items-center position-relative">
+                                                                         <div
+                                                                             *ngIf="substoryData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                             <img class="rounded-circle" style="
+                                                                     height:100px;
+                                                                     width: 100px;"
+                                                                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{substoryData?.uploadImage}}" />
+                                                                         </div>
+                                                                         <div class="w-200px end-radius bg-pink">
+                                                                             <h3 class="text-white">Author</h3>
+                                                                             <p class="mb-0 text-white">{{substoryData?.authorId?.firstName}} &nbsp;{{substoryData?.authorId?.lastName}}</p>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-6 col-lg-6"></div>
+                                                             </div>
+                             
+                                                             <!-- <div
+                                                                 *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 <img class="" style=" margin-left:311px;
+                                                             height: 215px;
+                                                             width: 418px;"
+                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                                             </div> -->
+                             
+                             
+                             
+                             
+                                                             <!-- <div class=""
+                                                             
+                                                                 *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 
+                                                                 <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                                             height: 215px;
+                                                             width: 418px;">
+                                                             </div> -->
+                             
+                                                         </div>
+                                                         <div class="row pt-5">
+                                                             <div class="col-md-8">
+                                                                 <h4 class="text-black"> {{substoryData?.storiesName }}</h4>
+                                                             </div>
+                                                             <div class="col-md-4">
+                                                                 <div class="d-flex">
+                                                                     <img src="">
+                                                                     <img src="">
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                             
+                                                         <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                                             {{substoryData?.longStory}}
+                                                         </p>
+                                                         <div class="row">
+                                                             <div class="col-md-8" *ngIf="substoryData?.audioFileForTheStory">
+                                                               
+                             
+                                                                     <div class="col-md-4">
+                                                                         <p class="mb-0 text-blue">Audio </p>
+                                                                     </div>
+                                                                     <div class="col-md-8">
+                                                                         <p class="mb-0 text-white">
+                                                                             <audio id="audio" controls *ngIf="substoryData?.audioFileForTheStory">
+                                                                                 <source
+                                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{substoryData?.audioFileForTheStory}}"
+                                                                                     type="audio/mp3">
+                             
+                             
+                                                                             </audio>
+                                                                         </p>
+                                                                     </div>
+                             
+                                                                 <!-- <img src="images/recording.png"> -->
+                                                             </div>
+                                                             <div class="col-md-4">
+                                                                <p>{{substoryData?.merchandise}}</p>
+                                                             </div>
+                                                         </div>
+                             
+                                                     </div>
+                                                 </div>
+                             
+                                             </div>
+                                         </div>
+                             
+                                     </div>
+                                 </div>
+                             </div>
+
+
+
+                                 <!-- SUBSUB STORY MODAL 3 -->
+
+                                 
+                                 <div class="modal fade" id="moresubsublong" data-bs-backdrop="static" tabindex="-1" aria-labelledby="morelongLabel"
+                                 aria-hidden="true">
+                                 <div class="modal-dialog  modal-xl">
+                             
+                                     <div class="modal-content ">
+                                         <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
+                                             <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
+                                             <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
+                                                </h5>
+                                             <button type="button" class="btn-close text-white blue-btn" ></button>
+                             
+                                         </div> -->
+                                         <div class="modal-body p-0" *ngIf="SubSubStoryList">
+                                             <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="SubSubStoryList">
+                                                 <div class="col-md-12 col-lg-12 p-0">
+                                                     <div class="h-100 scroll-box p-3" style="background-color:#f7f3f4 ;">
+                                                         <!-- <h4 class="text-white fw-500 pt-4">Enquiry Overview</h4> -->
+                                                         <div class="container">
+                                                             <div class="text-end">
+                                                                 <i class="fa fa-times text-end" aria-hidden="true" data-bs-dismiss="modal"
+                                                                 aria-label="Close" (click)="close()"></i>   
+                                                             </div>
+                                                             
+                                                             <div class="row m-0 p-0">
+                                                                 <div class="col-md-6 col-lg-6">
+                                                                     <div class="d-flex align-items-center position-relative">
+                                                                         <div
+                                                                             *ngIf="SubSubstoryData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                             <img class="rounded-circle image-circle-design" style="
+                                                                     height:100px;
+                                                                     width: 100px;"
+                                                                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubstoryData?.uploadImage}}" />
+                                                                         </div>
+                                                                         <div class="w-200px py-2 end-radius bg-pink">
+                                                                             <h3 class="text-white mb-0">Author</h3>
+                                                                             <p class="mb-0 text-white">{{SubSubstoryData?.authorId?.firstName}} &nbsp;{{SubSubstoryData?.authorId?.lastName}}</p>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-6 col-lg-6">
+                                                                
+                                                                 </div>
+                                                             </div>
+                             
+                                                             <!-- <div
+                                                                 *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 <img class="" style=" margin-left:311px;
+                                                             height: 215px;
+                                                             width: 418px;"
+                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                                             </div> -->
+                             
+                             
+                             
+                             
+                                                             <!-- <div class=""
+                                                             
+                                                                 *ngIf="storyData?.uploadImage== 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                 
+                                                                 <img class=" p-1 " src="{{storyData?.uploadImage}}" style=" margin-right: 265px;
+                                                             height: 215px;
+                                                             width: 418px;">
+                                                             </div> -->
+                             
+                                                         </div>
+                                                         <div class="row pt-5">
+                                                             <div class="col-md-8">
+                                                                 <h4 class="text-black"> {{SubSubstoryData?.storiesName }}</h4>
+                                                             </div>
+                                                             <div class="col-md-4">
+                                                                 <div class="d-flex">
+                                                                     <img src="/assets/images/books.png">
+                                                                     <img src="/assets/images/lock.png">
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                             
+                                                         <p class="text-dark" style="text-align:justify; margin-top:30px;">
+                                                             {{SubSubstoryData?.longStory}}
+                                                         </p>
+                                                         <div class="row">
+                                                             <div class="col-md-8" *ngIf="SubSubstoryData?.audioFileForTheStory">
+                                                               
+                             
+                                                                     <div class="col-md-4">
+                                                                         <p class="mb-0 text-blue">Audio </p>
+                                                                     </div>
+                                                                     <div class="col-md-8">
+                                                                         <p class="mb-0 text-white">
+                                                                             <audio id="audio" controls *ngIf="SubSubstoryData?.audioFileForTheStory">
+                                                                                 <source
+                                                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubstoryData?.audioFileForTheStory}}"
+                                                                                     type="audio/mp3">
+                             
+                             
+                                                                             </audio>
+                                                                     </p>
+                                                                     </div>
+                             
+                                                                 <!-- <img src="images/recording.png"> -->
+                                                             </div>
+                                                             <div class="col-md-4">
+                                                              <p>{{SubSubstoryData?.merchandise}}</p>
+                                                             </div>
+                                                         </div>
+                             
+                                                     </div>
+                                                 </div>
+                             
+                                             </div>
+                                         </div>
+                             
+                                     </div>
+                                 </div>
+                             </div>

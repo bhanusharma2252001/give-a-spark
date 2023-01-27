@@ -44,9 +44,9 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('email')) {
-      this.emailId =localStorage.getItem('email') 
-    }
+    // if(localStorage.getItem('email')) {
+    //   this.emailId =localStorage.getItem('email') 
+    // }
   }
 
 

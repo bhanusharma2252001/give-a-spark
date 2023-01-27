@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class SparkService {
   [x: string]: any;
+  public content = new BehaviorSubject<any>(null);
+
+
 
   token: any;
   isLoggedIn = false;
@@ -16,7 +20,9 @@ export class SparkService {
     
     this.token = sessionStorage.getItem('ClientSpark');
   }
-
+  getLatestValue(data:any) {    
+    this.content.next(data);    
+  }
   isLoggedInAdmin() {
     this.token = sessionStorage.getItem('ClientSpark');
     if (this.token) {
