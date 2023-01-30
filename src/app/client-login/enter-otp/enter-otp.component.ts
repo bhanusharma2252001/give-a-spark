@@ -26,10 +26,10 @@ export class EnterOtpComponent implements OnInit {
 
   ngOnInit(): void {
    
-    if(localStorage.getItem('email')) {
-      this.emailId =localStorage.getItem('email') 
+    if(sessionStorage.getItem('email')) {
+      this.emailId =sessionStorage.getItem('email') 
     }
-   
+    console.log(this.emailId)
   }
 
 otpSubmit(){
@@ -37,6 +37,7 @@ otpSubmit(){
     otp: this.enterOtpForm.value.otp,
     email:this.emailId
  }
+
  this.sparkService.enterOtp(body).subscribe((res:any)=>{
   this.toast.success('otp submit')
   this.router.navigate(['client-login/signup'])

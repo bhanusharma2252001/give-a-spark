@@ -32,7 +32,9 @@
                     <div class="row mb-3">
                         <div class="col-md-2"><button class="blue-btn text-white pe-2 p-2 ps-2">Create
                                 New</button></div>
-                        <div class="col-md-2">
+                                <div class="col-md-2"><button
+                                    class="bg-yellow rounded-pill border-0 p-2 pe-3 ps-3 text-white">Import</button></div>
+                        <!-- <div class="col-md-2">
                             <div class="row">
                                 <div class="col-md-3">
                                     <p><u>A</u></p>
@@ -83,10 +85,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2"><button
-                                class="bg-yellow rounded-pill border-0 p-2 pe-3 ps-3 text-white">Import</button></div>
+                        </div> -->
+
+                        <div [formGroup]="form">
+                            <quill-editor  style="border:none ;"
+                              placeholder="Enter Text"
+                              formControlName="text"
+                              [modules]="quillConfig"
+                              (onBlur)="blur()"
+                              [(ngModel)]="html"
+                              (onSelectionChanged)="onSelectionChanged()">
+                            </quill-editor>
+                          </div>
+                       
                     </div>
+                    
                     <form>
 
 
@@ -113,7 +126,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <h6 style="color:#003F62;">Stay home and healthy</h6>
+                                                        <h6 >{{html}}</h6>
                                                     </td>
 
                                                 </tr>
@@ -171,4 +184,5 @@
 
 
     </div>
-</div>>
+</div>
+

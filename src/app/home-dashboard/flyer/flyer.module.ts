@@ -9,6 +9,7 @@ import { TemplateDashboardComponent } from './template-dashboard/template-dashbo
 import { EditModeDirective } from './edittext/edit-mode.directive';
 import { EditEnterDirective } from './edittext/edit-enter.directive';
 import { QuillModule } from 'ngx-quill';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import { QuillModule } from 'ngx-quill';
   imports: [
     CommonModule,
     FlyerRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     QuillModule.forRoot() ,
   ]
 })
