@@ -32,6 +32,7 @@ details:any;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = ""
   qrCode: any;
+  gemail: any;
 
 
 
@@ -69,11 +70,17 @@ details:any;
 
  }
  if(sessionStorage.getItem('email')){
-  this.Email= sessionStorage.getItem('email')
+  // this.Email= sessionStorage.getItem('email')
 
  }
- console.log(this.userName, this.Email, "kkk;k;k;k")
+ if (sessionStorage.getItem('email')){
+  this.gemail=sessionStorage.getItem('gg')
+ }
 
+//  sessionStorage.removeItem('gg')
+//  console.log(this.userName, this.Email, "kkk;k;k;k")
+
+ console.log(this.gemail, 'k;kdfg;kl');
  
 this.getScanText();
 this.qrCodeByApi();
@@ -116,7 +123,7 @@ this.qrCodeByApi();
 this.details=res.result;
 
 this.userName=res.result[0]?.firstName
-// this.Email=res.result?.email
+this.Email=res.result[0]?.email
  this.compname=res.result[0]?.companyName
  this.compwebsite=res.result[0]?.companyWebsite
  this.number=res.result[0]?.phone

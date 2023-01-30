@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 auth2: any;
   @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
   LoginForm: FormGroup;
+googleEmail:any;
 
   submitted = false;
 
@@ -59,6 +60,8 @@ token:any;
  if (sessionStorage.getItem('email'))
  this.Email=sessionStorage.getItem('email')
  sessionStorage.removeItem('email')
+
+ 
     // this.spinner.show();
 
     // setTimeout(() => {
@@ -155,8 +158,11 @@ token:any;
     if (data) {
 
       sessionStorage.setItem('ClientSpark', this.tokenValue);
+     
       this.sparkService.isLoggedInAdmin();
       console.log(this.sparkService.isLoggedIn);
+      console.log(this.googleEmail)
+      sessionStorage.setItem('gg',this.googleEmail)
       if(data?.result?.roleId == 0) {
         sessionStorage.setItem('roleId', data?.result?.roleId);
         this._ngZone.run(() => {
@@ -199,12 +205,19 @@ callLogin() {
         isGoogle: true,
         isFacebook: false
       }
+    
+ 
+this.googleEmail=profile.getEmail()
+
         this.sparkService.registerSocialUser(data).subscribe
-        (
+        (   
          (successData) => this.success(successData),
-         (reject) => {
+         
+        
+         
+         (reject:any) => {
           // console.log(reject);
-          
+        
           //  this.toastr.errorToastr("Please Try Again");
           alert(reject.error.error)
          }

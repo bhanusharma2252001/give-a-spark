@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Quill from 'quill';
 
 @Component({
   selector: 'app-edit-flyer',
@@ -11,5 +12,6 @@ export class EditFlyerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }

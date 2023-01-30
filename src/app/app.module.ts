@@ -22,6 +22,10 @@ import { ForgetEmailComponent } from './client-login/forget-password/forget-emai
 import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/forget-otp.component';
 // import { NgxColorsModule } from 'ngx-colors';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { QuillModule } from 'ngx-quill';
+
+
+
 
 const googleLoginOptions = {
   scope: 'profile email',
@@ -42,7 +46,10 @@ const googleLoginOptions = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule, 
+    QuillModule.forRoot() ,
+   
+ 
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',

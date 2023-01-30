@@ -8,6 +8,7 @@ import { SavedFlyerComponent } from './saved-flyer/saved-flyer.component';
 import { TemplateDashboardComponent } from './template-dashboard/template-dashboard.component';
 import { EditModeDirective } from './edittext/edit-mode.directive';
 import { EditEnterDirective } from './edittext/edit-enter.directive';
+import { QuillModule } from 'ngx-quill';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EditEnterDirective } from './edittext/edit-enter.directive';
   ],
   imports: [
     CommonModule,
-    FlyerRoutingModule
+    FlyerRoutingModule,
+    QuillModule.forRoot() ,
   ]
 })
 export class FlyerModule { }
