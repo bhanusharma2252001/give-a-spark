@@ -6,11 +6,11 @@ import { FlyerComponent } from './flyer.component';
 import { EditFlyerComponent } from './edit-flyer/edit-flyer.component';
 import { SavedFlyerComponent } from './saved-flyer/saved-flyer.component';
 import { TemplateDashboardComponent } from './template-dashboard/template-dashboard.component';
-import { EditModeDirective } from './edittext/edit-mode.directive';
-import { EditEnterDirective } from './edittext/edit-enter.directive';
+
 import { QuillModule } from 'ngx-quill';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ColorPickerModule } from 'ngx-color-picker';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -18,14 +18,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditFlyerComponent,
     SavedFlyerComponent,
     TemplateDashboardComponent,
-    EditModeDirective,
-    EditEnterDirective
+
   ],
   imports: [
     CommonModule,
     FlyerRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxQRCodeModule,
+    ColorPickerModule,
     QuillModule.forRoot() ,
   ]
 })

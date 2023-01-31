@@ -501,7 +501,7 @@
 
                             <div class="col-md-6 col-lg-6 pe-3 align-self-center ">
 
-                                <div  class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
+                                <div #myText class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                                     <div class="row m-0">
                                         <div class="col-md-3 col-lg-3 self-align-center"  *ngIf="!tempDetails?.profileImage">
                                             <img class="wh-150" src="assets/images/profile-image.png">
@@ -610,6 +610,7 @@
                                         </div>
 
                                     </div>
+                                    <button (click)="TemplateCopy(myText)" >copy</button>
                                 </div>
 
 
@@ -650,12 +651,12 @@
 
 
 
-                                    <table #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                    <table #tableData  cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                                         txtConfigFile
                                         *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
                                         style="
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
-                                        <tbody>
+                                        <tbody >
                                             <tr>
 
                                                 <td>
@@ -1120,12 +1121,21 @@
 
 
                                         </tbody>
+                                        <button  class="btn btn-info"  (click)="copyMessage(templateRef)" >
+                                            Copy 
+                                          </button>
+
+                                        
                                     </table>
+
+
+                                  
 
                                     <div class="col-md-12 col-lg-12 mt-3 text-end">
                                         <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()"
                                             data-bs-toggle="modal" data-bs-target="#m-done">OK I'm Done</button>
-
+                                            
+                                            
                                     </div>
 
                                 </div>

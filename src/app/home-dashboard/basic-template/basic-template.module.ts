@@ -6,6 +6,7 @@ import { BasicTemplateComponent } from './basic-template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     ReactiveFormsModule,
     FormsModule,
     ColorPickerModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    ClipboardModule
     
   ]
 })

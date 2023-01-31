@@ -309,5 +309,26 @@ getdesign() {
 });;}
 
 
+// Templates Edit For Free
+
+getFreeTemp() {
+  return this.http.get(environment.localApiURL +'/api/freeTemplate/getFreeTemplateList',{
+    headers: { Authorization: `bearer ${this.token}` },
+});}
+
+FreeTempById(id:any){
+
+    return this.http.get(environment.localApiURL +'/api/freeTemplate/getTemplateById/'+ id ,{
+      headers: { Authorization: `bearer ${this.token}` },
+    })}
+    
+
+
+    
+updateFreeTemp(id:any,body:any){
+  return this.http.put( environment.localApiURL +'/api/freeTemplate/UpdateFreeTemplateById/'+id,body,{
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+}
 
 }

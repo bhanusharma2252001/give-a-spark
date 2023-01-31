@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-basic-template',
@@ -133,7 +134,7 @@ img:boolean=true;
 
 
   constructor(private api: SparkService, myElement: ElementRef,
-    private fb: FormBuilder, private toast: ToastrService, private router: Router) {
+    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard) {
     this.signatureDetailsForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -179,8 +180,35 @@ img:boolean=true;
 
 
 
+  
+  copyMessage(val: any) {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    alert(this.templateRef.innerHTML);
+  }
 
 
+
+public TemplateCopy(value: any): void {
+  const text: string = value.textContent || '';
+  console.log(text);
+  const successful = this.clipboard.copy(text);
+
+  if (successful) {
+    // do something
+  } else {
+    // do something else
+  }
+}
 
 
 

@@ -19,10 +19,14 @@
                 </li>
 
             </ul>
+
+
+
+                                  <!--............... FREEE TEMPLATE  .................-->
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-Free" role="tabpanel" aria-labelledby="pills-Free-tab">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-6 col-lg-6" >
                             <div class="">
                                 <div class="bg-free-1  border-10 p-1 pe-2 ps-2">
                                     <div class="row m-0">
@@ -37,32 +41,31 @@
 
                                         </div>
                                         <div class="col-md-6 col-lg-6 ps-2 pe-0">
-                                            <h4 class="mb-0"><span class="text-darkblue">John</span>
-                                                Doe</h4>
-                                            <h6 class="mb-1">Marketing Expert</h6>
+                                            <h4 class="mb-0"><span class="text-darkblue">
+                                                {{details?.yourName}}
+                                            </span>
+                                               </h4>
+                                            <h6 class="mb-1">{{details?.designation}}</h6>
 
                                             <div class="d-flex pe-5 ps-3 p-1">
                                                 <i class="fa fa-phone pe-3" aria-hidden="true"></i>
-                                                <p class=" fs-12 mb-0">+1129457850 | +1129457850
+                                                <p class=" fs-12 mb-0">{{details?.phoneNo}}| {{details?.companyPhone}}
                                                 </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3 p-1">
                                                 <i class="fas fa-globe pe-3"></i>
 
-                                                <p class=" fs-12 mailto:mb-0">shreybhardwaj@gmail.com
+                                                <p class=" fs-12 mailto:mb-0">{{details?.email}}
                                                 </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3 p-1">
                                                 <i class="fas fa-map-marker pe-3"></i>
 
-                                                <p class=" fs-12 mb-0">https://www.perfectiongeeks.com
+                                                <p class=" fs-12 mb-0">{{details?.companyWebsite}}
                                                 </p>
                                             </div>
                                             <div>
-                                                <p class="fs-12 p-2 mb-1">“Business opportunities are
-                                                    like buses, there’s
-                                                    always another one
-                                                    coming.” – Richard Branson
+                                                <p class="fs-12 p-2 mb-1">{{details?.quotes}}
                                                 </p>
 
                                             </div>
@@ -92,14 +95,16 @@
                                 </p>
                             </div>
                             <div class="mt-4 text-center">
-                                <button type="submit" class="btn green-btn " (click)="navigate()">Edit
+                                <button type="submit" class="green-btn px-3 py-2" data-bs-toggle="modal" data-bs-target="#free-1" (click)="sendId(details?._id); openTemp('first')" >Edit
                                     Signature</button>
                             </div>
                         </div>
+
+                        <!-- SECOND FREE TEMPLATE -->
                         <div class="col-md-6 col-lg-6">
                             <div class="">
                                 <div class="bg-free-2   border-10 p-1 pe-2 ps-2">
-                                    <div class="row m-0">
+                                    <div class="row m-0" >
 
                                         <div class="col-md-6 col-lg-6">
                                             <img alt="template-logo" src="assets/images/template logo.png">
@@ -111,32 +116,29 @@
 
                                         </div>
                                         <div class="col-md-6 col-lg-7 ps-2 pe-0">
-                                            <h4 class="mb-0"><span class="text-darkblue">John</span>
-                                                Doe</h4>
-                                            <h6 class="mb-1">Marketing Expert</h6>
+                                            <h4 class="mb-0"><span class="text-darkblue">{{secondTemp?.yourName}}</span>
+                                                </h4>
+                                            <h6 class="mb-1">{{secondTemp?.designation}}</h6>
 
                                             <div class="d-flex align-items-center pe-5 ps-3">
                                                 <i class="fa fa-phone bg-black text-white rounded-circle p-2 fs-12 me-3 m-1" aria-hidden="true"></i>
-                                                <p class="m-1 mb-0 fs-12">+1129457850 |
-                                                    +1129457850 </p>
+                                                <p class="m-1 mb-0 fs-12">{{secondTemp?.phoneNo}}|
+                                                    {{secondTemp?.companyPhone}} </p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fas fa-globe bg-black text-white rounded-circle p-2 fs-12 me-3 m-1"></i>
 
                                                 <p class="m-1 mb-0 fs-12">
-                                                    mailto:shreybhardwaj@gmail.com </p>
+                                                    {{secondTemp?.email}}</p>
                                             </div>
                                             <div class="d-flex pe-5 ps-3">
                                                 <i class="fas fa-map-marker bg-black text-white rounded-circle p-2 fs-12 me-3 m-1"></i>
 
                                                 <p class="m-1 mb-0 fs-12">
-                                                    https://www.perfectiongeeks.com</p>
+                                                    {{secondTemp?.companyWebsite}}</p>
                                             </div>
                                             <div class="">
-                                                <p class="fs-12 p-2 mb-0">“Business opportunities are
-                                                    like buses, there’s
-                                                    always another one
-                                                    coming.”– Richard Branson
+                                                <p class="fs-12 p-2 mb-0">{{secondTemp?.quotes}}
                                                 </p>
 
                                             </div>
@@ -166,173 +168,11 @@
                                 </p>
                             </div>
                             <div class="mt-4 text-center">
-                                <button type="submit" class="btn green-btn " (click)="navigate()">Edit
+                                <button type="submit" class="green-btn px-3 py-2" data-bs-toggle="modal" data-bs-target="#free-1" (click)="sendId(secondTemp?._id ); openTemp('second')" >Edit
                                     Signature</button>
                             </div>
                         </div>
-                    </div>
-                    <!-- <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="">
-
-
-                                <table style="width: 370px; font-size: 10pt; FONT-FAMILY: Arial, sans-serif; "
-                                    cellspacing="0" cellpadding="0" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 102px; font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid #929292; vertical-align: top;"
-                                                valign="top">
-                                                <img src="photo.png" alt="photograph"
-                                                    style="border:0; height:auto; width:80px" width="80" border="0">
-
-                                                <p style="margin-top: 35px; margin-bottom: 6px; padding: 0px;">
-                                                    <a href="https://www.codetwo.com/email-signatures/"
-                                                        target="_blank"><img alt="Logo"
-                                                            style="width:90px; height:auto; border:0;" src="logo.png"
-                                                            width="90" border="0"></a>
-
-                                                    <br>
-                                                </p>
-
-                                            </td>
-                                            <td style="width: 25px;"></td>
-                                            <td style="width: 243px; font-size: 10pt; color:#444444; font-family: Arial, sans-serif; vertical-align: top;"
-                                                valign="top">
-                                                <table cellspacing="0" cellpadding="0" border="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="padding-bottom: 18px;">
-                                                                <strong>
-                                                                    <span
-                                                                        style="font-size: 10pt; font-family: Arial, sans-serif; color:#00aeef;">firstName
-                                                                        lastName<br></span>
-                                                                    <span
-                                                                        style="font-family: Arial, sans-serif; font-size:10pt; color:#00aeef;">title<br></span>
-                                                                    <span
-                                                                        style="font-family: Arial, sans-serif; font-size:10pt; color:#00aeef;">company<br></span>
-                                                                </strong>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="FONT-FAMILY: Arial, sans-serif;">
-                                                                <span>
-                                                                    <span
-                                                                        style="font-size: 9pt; color: #00aeef;"><strong>T:</strong></span>
-                                                                    <span style="font-size: 9pt; color:#929292;">
-                                                                        phone</span>
-                                                                    <span style="color:#929292;"> | </span>
-                                                                </span>
-
-                                                                <span>
-                                                                    <span
-                                                                        style="font-size: 9pt; color: #00aeef;"><strong>M:</strong></span>
-                                                                    <span style="font-size: 9pt; color:#929292;">
-                                                                        mobile</span>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <span
-                                                                    style="font-size: 9pt; color: #00aeef;"><strong>E:</strong></span>
-                                                                <a href="mailto:email"
-                                                                    style="font-size: 9pt; color:#929292; text-decoration: none;"><span
-                                                                        style="text-decoration: none; font-size: 9pt; color:#929292; FONT-FAMILY: Arial, sans-serif;">email</span></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <span
-                                                                    style="font-size: 9pt; color:#929292; FONT-FAMILY: Arial, sans-serif;">
-                                                                    <a href="website" style="color:#929292;"><span
-                                                                            style="text-decoration: none; font-size: 9pt; color:#929292; FONT-FAMILY: Arial, sans-serif;">website</span></a></span>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td style="padding-top: 14px; padding-bottom: 14px;">
-                                                                <span><a href="https://www.facebook.com/MyCompanyFacebook"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/fb.png"
-                                                                            alt="facebook icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span><span><a
-                                                                        href="https://twitter.com/MyCompanyTwitter"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/tt.png"
-                                                                            alt="twitter icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span><span><a
-                                                                        href="https://www.youtube.com/user/MyCompanyChannel"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/yt.png"
-                                                                            alt="youtube icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span><span><a
-                                                                        href="https://www.linkedin.com/company/mycompanylinkedin"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/ln.png"
-                                                                            alt="linkedin icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span><span><a
-                                                                        href="https://www.instagram.com/mycompanyinstagram/"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/it.png"
-                                                                            alt="instagram icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span><span><a
-                                                                        href="https://pinterest.com/mycompanypinterest/"
-                                                                        target="_blank" rel="noopener"><img src="assets/images/pt.png"
-                                                                            alt="pinterest icon"
-                                                                            style="border:0; height:20px; width:20px"
-                                                                            width="20" border="0"></a></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <span
-                                                                    style="font-size: 10pt; font-family: Arial, sans-serif; color: #929292;">address1<span>,</span></span>
-                                                                <span
-                                                                    style="font-size: 10pt; font-family: Arial, sans-serif; color: #929292;">address2</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                            </td>
-                                        </tr>
-                                        <tr style="width: 370px;">
-                                            <td colspan="3" style="padding-top:14px">
-                                                <a href="https://www.codetwo.com/email-signatures/" target="_blank"
-                                                    rel="noopener"><img src="assets/images/banner.png" alt="Banner"
-                                                        style="max-width:370px; height:auto; border:0;" border="0"></a>
-
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td colspan="3"
-                                                style="padding-top: 14px; text-align: justify; FONT-SIZE: 7pt; color: #929292; line-height: 10px;  max-width: 370px;">
-                                                disclaimer
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="mt-4 text-center">
-                                <button type="submit" class="btn green-btn   " (click)="navigate()">Edit
-                                    Signature</button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="">
-                                <img class="w-500" alt="" src="assets/images/free-2.png">
-
-                            </div>
-
-                            <div class="mt-4 text-center">
-                                <button type="submit" class="btn green-btn   " (click)="navigate()">Edit
-                                    Signature</button>
-                            </div>
-                        </div>
-                    </div> -->
+ 
                 </div>
                 <div class="tab-pane fade" id="pills-Pro" role="tabpanel" aria-labelledby="pills-Pro-tab">
                     <div class="row">
@@ -393,3 +233,744 @@
         </div>
     </div>
 <!-- </div> -->
+
+
+
+
+
+<!-- FREE TEMPLATE   MODAL -->
+<div class="modal fade" id="free-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid p-0 mt-5">
+                <div class="row m-0 p-0 mt-3">
+
+                    <div class="col-md-12 col-lg-12">
+                        <div class="row pe-5">
+                            <div class="col-md-6 col-lg-6">
+                                <ul class="nav nav-tabs rounded-pill p-3 ps-5 pe-5 justify-content-between" id="myTab"
+                                    role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 active" id="details-tab"
+                                            data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab"
+                                            aria-controls="details" aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/details.png">
+                                                <img class="wh-35 active-black" src="assets/images/details-black.png">
+                                                <p class="mb-0 fs-5 fs-12">Details</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 bg-white" id="social-tab"
+                                            data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab"
+                                            aria-controls="social" aria-selected="true" 
+                                            >
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/social-yellow.png">
+                                                <img class="wh-35 active-black" src="assets/images/social.png">
+                                                <p class="mb-0 fs-5 fs-12">Social</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link box-link m-1 p-2 " id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#design" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
+                                            <div class="box">
+                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
+                                                  >
+                                                <img class="wh-35 active-black" src="assets/images/design.png">
+                                                <p class="mb-0 fs-5 fs-12">Design</p>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </ul>
+
+
+
+                                <form [formGroup]="EditFreeTempForm"
+                                    (ngSubmit)="updateFree(EditFreeTempForm.value)">
+
+
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="details" role="tabpanel"
+                                            aria-labelledby="details-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Signature Details</h4>
+                                                </div>
+
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Your
+                                                                Name</label>
+                                                            <input type="text" formControlName="yourName"
+                                                                [(ngModel)]="username "
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                >
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Designation</label>
+                                                            <input type="text" formControlName="designation"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="desig">
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Phone</label>
+                                                            <input type="text" formControlName="phoneNo"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="number" >
+
+                                                        </div>
+
+
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold "> Company Phone</label>
+                                                            <input type="text" formControlName="companyPhone"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="compPhone">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Address</label>
+                                                            <input type="text" formControlName="address"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" [(ngModel)]="addr"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div>
+
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Email</label>
+                                                            <input type="text" formControlName="email"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Email" >
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Website</label>
+                                                            <input type="text" formControlName="companyWebsite"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="compWebsite">
+
+                                                        </div>
+                                                        <div class="mb-4" >
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Quotes</label>
+                                                            <input type="text" formControlName="quotes"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                placeholder="write quote" [(ngModel)]="quotevar">
+
+                                                        </div>
+                                                        <!-- <div class="mb-4" *ngIf="LongQuote">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Quotes</label>
+
+                                                            <p style="position: relative;
+                                                            top: 40px">{{LongQuote}}</p>
+                                                            <input type="text" formControlName="quotesId"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                        </div> -->
+
+
+
+
+
+                                                        <!-- <div class="mb-4 d-flex" (click)="addQuote()">
+
+                                                            <p class=" ">
+                                                                <i class="fa fa-plus-circle text-blue"></i>
+
+
+                                                            </p>
+                                                            <p class="mb-0 ps-2 text-blue">
+                                                                Add Quotes</p>
+                                                        </div> -->
+
+
+
+                                                    </div>
+                                                    <div class="col-md-1 col-lg-3 ps-0">
+                                                        <div class="position-absolute top-0">
+                                                            <div>
+                                                                <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
+                                                                <img class="width" src="assets/images/logo.png " *ngIf="!tempDetails?.profileImage && img" />
+                                                            </div>
+                                                            
+                                                            <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
+                                                            <!-- <div *ngIf="!tempDetails?.profileImage">
+                                                                <img class="width" src="assets/images/logo.png " />
+                                                            </div> -->
+                                                            <div *ngIf="tempDetails?.profileImage ">
+
+
+                                                                <div
+                                                                    *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                    <img class="wh-150 rounded-circle"
+                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                                                </div>
+                                                            </div>
+                                                            <!-- <div
+                                                            *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                            <img [style.border-radius.px]="borderRadius" class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                                                          </div> -->
+
+
+                                                            <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
+                                                                data-bs-toggle="modal" data-bs-target="#change-image">
+                                                                Change
+                                                                Photo</p>
+                                                            <p class="text-blue fs-12 mb-0">Remove</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="social" role="tabpanel"
+                                            aria-labelledby="social-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Add Social Links</h4>
+                                                </div>
+
+                                                <div class="row position-relative">
+                                                    <div class="col-md-11 col-lg-9">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Facebook
+                                                            </label>
+                                                            <input type="text" formControlName="fbProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="faceB">
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Instagram</label>
+                                                            <input type="text" formControlName="instagramProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="insta">
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">LinkedIn</label>
+                                                            <input type="text" formControlName="linkedInProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Linkedin">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Youtube</label>
+                                                            <input type="text" formControlName="youtubeChannel"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="uTube">
+
+                                                        </div>
+                                                        <div class="mb-4">
+                                                            <label for="exampleInputfiled"
+                                                                class="form-label fw-semibold ">Twitter</label>
+                                                            <input type="text" formControlName="twitterProfile"
+                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                                id="exampleInputfiled" aria-describedby="textHelp"
+                                                                [(ngModel)]="Twitter">
+
+                                                        </div>
+
+                                                
+
+                                                    </div>
+                                                    <div class="col-md-1 col-lg-3">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                             
+                                        <div class="tab-pane fade" id="design" role="tabpanel"
+                                            aria-labelledby="design-tab">
+                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Font Styles & Colors</h4>
+                                                </div>
+                                                <div class="">
+                                                    <h6 class="mb-4 fw-semibold">Font Styles</h6>
+
+                                                    <form class="row position-relative">
+                                                        <div class="col-md-11 col-lg-9">
+                                                            <div class="mb-2 grid-2">
+                                                                <label for="exampleInputfiled"
+                                                                    class="form-label fw-semibold mt-1 ">Font
+                                                                    Family :
+                                                                </label>
+                                                                <select class="form-select " [(ngModel)]="fontFamilyNew"
+                                                                    [ngModelOptions]="{standalone: true}"
+                                                                    aria-label="Default select example">
+
+                                                                    <option *ngFor="let item of fontFamilyList"
+                                                                        [value]="item">{{item}}</option>
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+
+                                                                <label for="customRange2"
+                                                                    class="form-label fw-semibold ">Size
+                                                                    :</label>
+                                                                <input type="range" class="form-range" min="0" max="5"
+                                                                    value="3" (change)="changeSize($event)"
+                                                                    id="customRange2">
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+
+                                                                <label for="customRange2"
+                                                                    class="form-label fw-semibold ">Line
+                                                                    Height :</label>
+                                                                <input type="range" value="3"
+                                                                    (change)="changeLine($event)" class="form-range"
+                                                                    min="0" max="5" id="customRange2">
+
+                                                            </div>
+                                                            <div class="mb-2 grid-2">
+                                                                <div>Align :</div>
+                                                                <div class="d-flex">
+                                                                    <i class="m-1 fa fa-align-left" aria-hidden="true"
+                                                                        (click)="getAlign('left')"></i>
+                                                                    <i class="m-1 fa fa-align-center" aria-hidden="true"
+                                                                        (click)="getAlign('center')"></i>
+                                                                    <i class="m-1 fa fa-align-right" aria-hidden="true"
+                                                                        (click)="getAlign('right')"></i>
+                                                                    <i class="m-1 fa fa-align-justify"
+                                                                        aria-hidden="true"
+                                                                        (click)="getAlign('center')"></i>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="col-md-1 col-lg-3">
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <h6 class="mb-4 fw-semibold">Color</h6>
+                                                    <div class="mb-2 grid-2">
+                                                        <div class="">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">First Name:</p>
+
+                                                                <input [(colorPicker)]="firstNameColor"
+                                                                    [style.background]="firstNameColor" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Designation :</p>
+
+                                                                <input [(colorPicker)]="designationColor"
+                                                                    [style.background]="designationColor" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Contact Details :</p>
+
+                                                                <input [(colorPicker)]="contactDetailColor"
+                                                                    [style.background]="contactDetailColor" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 p-1">Last Name:</p>
+
+                                                                <input [(colorPicker)]="lastNameColor"
+                                                                    [style.background]="lastNameColor" style="width: 15px;
+                                                                height: 14px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+
+                                                    <h4 class="mb-4">Shapes</h4>
+                                                </div>
+                                                <div class="bg-darkgray w-25">
+
+                                                    <div class="row p-1">
+                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
+                                                            <i class="p-2  fa fa-square" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
+                                                            <i class="p-2  fa fa-circle" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-4 rounded-3">
+                                                            <i class="p-2  fa fa-line" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row p-1 mt-4">
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Width:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Height:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="bg-darkgray rounded-3">
+                                                            <div class="grid-2">
+                                                                <p class="mb-0 p-2">Color:</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 text-end">
+                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" data-bs-dismiss="modal" aria-label="Close">Create Signature</button>
+                                    </div>
+
+                                </form>
+                                <!-- <button class="btn btn-outline-warning" (click)="saveChanges()"> save</button> -->
+
+
+                                <!-- form End -->
+
+
+                            </div>
+
+
+
+
+
+
+                            <!-- T E M P L A T E S -->
+
+
+                            <div class="col-md-6 col-lg-6 pe-3 align-self-center ">
+
+
+  <!-- ////////////////             FIRST FREE TEMPLATE            ////////////// -->
+
+                                <div class="col-md-6 col-lg-6" *ngIf="templateSelect == 'first'">
+                                    <div class="">
+                                        <table ellpadding="0" width="500" style="background-color:#B6B6B6;border-collapse:collapse;font-size:15.5px;">
+                                            <tbody style=" background-image: url('assets/images/free-email-template-1.png');
+                                            background-repeat: no-repeat;
+                                            background-size: cover;">
+                                            <tr>
+                                                <th><img alt="template-logo" src="assets/images/template logo.png"></th>
+                                                <th></th>
+                                                <th><img alt="template-logo" src="assets/images/unsave-icon.png"></th>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <h4 class="mb-0"><span style="color: #006683;">{{username}}</span>
+                                                        </h4>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <h6 class="mb-1">{{desig}}</h6>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <div style="display:flex;">
+                                                        <i class="fa fa-phone pe-3" aria-hidden="true"></i>
+                                                        <p class=" fs-12 mb-0">{{number}}| {{compPhone}}
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <img alt="qr" class="wh-35" src="assets/images/scan.png">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <div style="display:flex;">
+                                                        <i class="fas fa-globe pe-3"></i>
+
+                                                        <p class=" fs-12 mailto:mb-0">{{Email}}
+                                                        </p>
+                                                    </div>
+                                                   
+                                                </td>
+                                                <td><img alt="logo" class="wh-35 pt-2" src="assets/images/logo.png"></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><div style="display:flex;">
+                                                    <i class="fas fa-map-marker pe-3"></i>
+
+                                                    <p class=" fs-12 mb-0">{{compWebsite}}
+                                                    </p>
+                                                </div></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td style="
+                                                width: 100px;
+                                            "> <div>
+                                                    <p class="fs-12 p-2 mb-1">{{quotevar}}
+                                                    </p>
+
+                                                </div></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                   
+                                    </div>
+                                   
+                                    <!-- <div class="mt-4 text-center">
+                                        <button type="submit" class="green-btn px-3 py-2" >Save
+                                            Signature</button>
+                                    </div> -->
+                                </div>
+    
+
+
+
+
+                    
+  <!-- ////////////////            SECOND FREE TEMPLATE            ////////////// -->
+
+
+
+
+
+  <div class="col-md-6 col-lg-6" *ngIf="templateSelect == 'second'">
+    <div class="">
+        <table ellpadding="0" width="500" style="background-color:#B6B6B6;border-collapse:collapse;font-size:15.5px;">
+            <tbody style=" background-image: url('assets/images/free-email-template-2.png');
+            background-repeat: no-repeat;
+            background-size: cover;">
+            <tr>
+                <th><img alt="template-logo" src="assets/images/template logo.png"></th>
+                <th></th>
+                <th><img alt="template-logo" src="assets/images/unsave-icon.png"></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <h4 class="mb-0"><span style="color: #006683;">{{username}}</span>
+                        </h4>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <h6 class="mb-1">{{desig}}</h6>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div style="display:flex;">
+                        <i class="fa fa-phone pe-3" aria-hidden="true"></i>
+                        <p class=" fs-12 mb-0">{{number}}| {{compPhone}}
+                        </p>
+                    </div>
+                </td>
+                <td>
+                    <img alt="qr" class="wh-35" src="assets/images/scan.png">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div style="display:flex;">
+                        <i class="fas fa-globe pe-3"></i>
+
+                        <p class=" fs-12 mailto:mb-0">{{Email}}
+                        </p>
+                    </div>
+                   
+                </td>
+                <td><img alt="logo" class="wh-35 pt-2" src="assets/images/logo.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div style="display:flex;">
+                    <i class="fas fa-map-marker pe-3"></i>
+
+                    <p class=" fs-12 mb-0">{{compWebsite}}
+                    </p>
+                </div></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="
+                width: 100px;
+            "> <div>
+                    <p class="fs-12 p-2 mb-1">{{quotevar}}
+                    </p>
+
+                </div></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div>
+   
+    <!-- <div class="mt-4 text-center">
+        <button type="submit" class="green-btn px-3 py-2" >Save
+            Signature</button>
+    </div> -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog quotes-box">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                                    aria-hidden="true"></i></div>
+                            <div class="Neon Neon-theme-dragdropbox">
+                                <input
+                                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                                    name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
+                                    (change)="onSelectImage($event)">
+                                <div class="Neon-input-dragDrop">
+                                    <div class="Neon-input-inner">
+                                        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                                        <div class="Neon-input-text">
+                                            <h3>Drag&amp;Drop files here</h3> <span
+                                                style="display:inline-block; margin: 15px 0">or</span>
+                                        </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+       
+      </div>
+    </div>
+  </div>
