@@ -151,14 +151,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
 
+                                        <div class="col-md-2 col-lg-3 pe-0 ps-0" *ngIf="details?.QrCode">
+                                            <img class="img-fluid" src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" >
+                                            
 
-                                        <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                                            <!-- <img class="img-fluid" src="assets/images/scan.png"> -->
-                                            <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
+                                            <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
                                                 [errorCorrectionLevel]="correctionLevel" [value]="value"
-                                                cssClass="bshadow"></ngx-qrcode>
-                                            <p class="text-center pt-3 fs-12">Scan/Click QR</p>
+                                                cssClass="bshadow"></ngx-qrcode> -->
+                                            <!-- <p class="text-center pt-3 fs-12"></p> -->
+                                            
 
                                         </div>
                                     </div>

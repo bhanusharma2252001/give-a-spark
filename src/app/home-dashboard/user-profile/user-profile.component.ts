@@ -83,13 +83,13 @@ details:any;
  console.log(this.gemail, 'k;kdfg;kl');
  
 this.getScanText();
-this.qrCodeByApi();
+
   }
 
 
   getScanText() {
     let token:any = sessionStorage.getItem('ClientSpark')
-    this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token='+btoa(token)
+    this.value = 'https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard?token='+btoa(token)
     // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
   }
 
@@ -120,7 +120,7 @@ this.qrCodeByApi();
 
   getbasicDetails(){
     this.api.getbasicDetaiofUseer().subscribe((res:any)=>{
-this.details=res.result;
+this.details=res.result[0];
 
 this.userName=res.result[0]?.firstName
 this.Email=res.result[0]?.email
@@ -132,7 +132,7 @@ this.Email=res.result[0]?.email
 
 // console.log(this.compwebsite, 'jojo')
 
-// console.log(this.details)
+console.log(this.details)
     })
 
 
@@ -152,11 +152,5 @@ this.Email=res.result[0]?.email
 
   }
 
-qrCodeByApi(){
-  this.api.getQrCode().subscribe((res:any)=>{
-    this.qrCode=res;
-    console.log(this.qrCode)
 
-  })
-}
 }

@@ -117,6 +117,7 @@ img:boolean=true;
   compPhone: any;
   dessssssignnnnn: any;
   quotevar: any;
+  useraddress: any;
   // chnage end
 
 
@@ -181,36 +182,58 @@ img:boolean=true;
 
 
   
-  copyMessage(val: any) {
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    document.body.removeChild(selBox);
-    alert(this.templateRef.innerHTML);
-  }
+  // copyMessage(val: any) {
+  //   const selBox = document.createElement('textarea');
+  //   selBox.style.position = 'fixed';
+  //   selBox.style.left = '0';
+  //   selBox.style.top = '0';
+  //   selBox.style.opacity = '0';
+  //   selBox.value = val;
+  //   document.body.appendChild(selBox);
+  //   selBox.focus();
+  //   selBox.select();
+  //   document.execCommand('copy');
+  //   document.body.removeChild(selBox);
+  //   alert(this.templateRef.innerHTML);
+  // }
 
 
 
-public TemplateCopy(value: any): void {
-  const text: string = value.textContent || '';
-  console.log(text);
-  const successful = this.clipboard.copy(text);
+// public TemplateCopy(value: any): void {
+//   const text: string = value.textContent || '';
+//   console.log(text);
+//   const successful = this.clipboard.copy(text);
 
-  if (successful) {
-    // do something
-  } else {
-    // do something else
-  }
+// }
+
+CopyToClipboard(element:any) {
+
+  var doc:any = document
+  , text = doc.getElementById(element)
+  , range, selection:any;
+
+if (doc.body.createTextRange)
+{
+  range = doc.body.createTextRange();
+  range.moveToElementText(text);
+  range.select();
+} 
+
+else if (window.getSelection)
+{
+  selection = window.getSelection();        
+  range = doc.createRange();
+  range.selectNodeContents(text);
+  selection.removeAllRanges();
+  selection.addRange(range);
 }
-
-
+document.execCommand('copy');
+let a :any = window.getSelection();  
+a.removeAllRanges();
+let b :any= document.getElementById("btn")
+b.value= "Copied"
+// document.getElementById("btn").value="Copied";
+}
 
 
   // new change start
@@ -293,7 +316,9 @@ public TemplateCopy(value: any): void {
     this.api.getsignatureDetails().subscribe((res: any) => {
 
       this.tempDetails = res.result[res.result.length - 1];
+      this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
+
       console.log(this.tempDetails, "kkkkkkkk")
 
 

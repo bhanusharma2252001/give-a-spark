@@ -121,6 +121,7 @@
                                                             <label for="exampleInputfiled"
                                                                 class="form-label fw-semibold ">Address</label>
                                                             <input type="text" formControlName="address"
+                                                                [(ngModel)]="useraddress"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp">
 
@@ -186,10 +187,12 @@
                                                     <div class="col-md-1 col-lg-3 ps-0">
                                                         <div class="position-absolute top-0">
                                                             <div>
-                                                                <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
-                                                                <img class="width" src="assets/images/logo.png " *ngIf="!tempDetails?.profileImage && img" />
+                                                                <img class="width" [src]="url" height="200"
+                                                                    *ngIf="!tempDetails?.profileImage &&  !img">
+                                                                <img class="width" src="assets/images/logo.png "
+                                                                    *ngIf="!tempDetails?.profileImage && img" />
                                                             </div>
-                                                            
+
                                                             <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
                                                             <!-- <div *ngIf="!tempDetails?.profileImage">
                                                                 <img class="width" src="assets/images/logo.png " />
@@ -479,7 +482,8 @@
                                     </div>
 
                                     <div class="mt-4 text-end">
-                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create Signature</button>
+                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create
+                                            Signature</button>
                                     </div>
 
                                 </form>
@@ -499,19 +503,19 @@
                             <!-- T E M P L A T E S -->
 
 
-                            <div class="col-md-6 col-lg-6 pe-3 align-self-center ">
+                            <div class="col-md-6 col-lg-6 pe-3 align-self-center " #myText>
 
-                                <div #myText class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
+                                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                                     <div class="row m-0">
-                                        <div class="col-md-3 col-lg-3 self-align-center"  *ngIf="!tempDetails?.profileImage">
+                                        <div class="col-md-3 col-lg-3 self-align-center"
+                                            *ngIf="!tempDetails?.profileImage">
                                             <img class="wh-150" src="assets/images/profile-image.png">
                                         </div>
-                                        <div class="col-md-3 col-lg-3 self-align-center" 
-                                        *ngIf="tempDetails?.profileImage">
-                                        <img class="wh-150"
-                                            [style.border-radius.px]="borderRadius"
-                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                    </div>
+                                        <div class="col-md-3 col-lg-3 self-align-center"
+                                            *ngIf="tempDetails?.profileImage">
+                                            <img class="wh-150" [style.border-radius.px]="borderRadius"
+                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                        </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0">
                                             <h4 class="" [style.text-align]="nameAlign"><span class="text-darkblue"
                                                     *ngIf="!username" [style.color]="firstNameColor"
@@ -580,10 +584,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0">
+                                            <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
+                                            role="presentation" width="130"
+                                            class="sc-cHGsZl bHiaRe"
+                                            style="max-width: 130px; display: inline-block;">
 
-                                            <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
+                                            <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
                                                 [errorCorrectionLevel]="correctionLevel" [value]="value"
-                                                cssClass="bshadow"></ngx-qrcode>
+                                                cssClass="bshadow"></ngx-qrcode> -->
                                             <!-- <p class=" fs-12">Scan/Click QR</p> -->
                                         </div>
                                     </div>
@@ -592,7 +600,7 @@
                                         <div class="col-lg-8 offset-lg-2 text-center">
                                             <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
                                                 [style.font-size.px]="itemFontSize"
-                                                *ngIf="!'tempDetails?.quotesId?.longQuotes && tempDetails?.quotes'">
+                                                *ngIf="'!tempDetails?.quotesId?.longQuotes && !tempDetails?.quotes'">
                                                 “Business opportunities are
                                                 like buses, there’s always another one
                                                 coming.”
@@ -610,8 +618,9 @@
                                         </div>
 
                                     </div>
-                                    <button (click)="TemplateCopy(myText)" >copy</button>
+
                                 </div>
+
 
 
                                 <!-- <a href="mailto:nobody@somedomain.com?body=[templateRef]">Email Us</a>   -->
@@ -651,12 +660,12 @@
 
 
 
-                                    <table #tableData  cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                    <table id="first-clip" cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                                         txtConfigFile
                                         *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
                                         style="
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
-                                        <tbody >
+                                        <tbody>
                                             <tr>
 
                                                 <td>
@@ -679,15 +688,7 @@
                                                                             [style.border-radius.px]="borderRadius"
                                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
                                                                     </div>
-                                                                    <!-- <div
-                            *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img class="width"  [style.border-radius.px]="borderRadius"
-                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                          </div> -->
-                                                                    <!-- <div
-                            *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                            <img  [style.border-radius.px]="borderRadius" src="{{tempDetails?.profileImage }}">
-                          </div> -->
+
 
                                                                 </td>
                                                                 <td style="padding:15px;"
@@ -760,11 +761,12 @@
                                                                     <h2 color="#000000" class="sc-fBuWsC eeihxG"
                                                                         style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);"
                                                                         *ngIf="!tempDetails?.yourName">
-                                                                        <span  [style.font-family]="fontFamilyNew"
-                                                                        [style.color]="firstNameColor"
-                                                                        [style.font-size.px]="templateFontSize"
-                                                                        [style.line-height]="lineHeight"
-                                                                            style="margin: 0px; padding-top:15px; font-size: 34px;" [style.color]="firstNameColor">{{username}}</span>
+                                                                        <span [style.font-family]="fontFamilyNew"
+                                                                            [style.color]="firstNameColor"
+                                                                            [style.font-size.px]="templateFontSize"
+                                                                            [style.line-height]="lineHeight"
+                                                                            style="margin: 0px; padding-top:15px; font-size: 34px;"
+                                                                            [style.color]="firstNameColor">{{username}}</span>
                                                                     </h2>
 
                                                                     <h2 color="#000000" [style.text-align]="nameAlign"
@@ -866,7 +868,7 @@
                                                                                         *ngIf="tempDetails?.companyPhone"
                                                                                         color="#000000"
                                                                                         class="sc-gipzik iyhjGb"
-                                                                                       style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
                                                                                         [style.font-size.px]="itemFontSize"
                                                                                         [style.font-family]="fontFamilyNew"
                                                                                         [style.line-height]="lineHeight"><span
@@ -968,8 +970,9 @@
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </td>
-                                                                                <td style="padding: 0px;" *ngIf="tempDetails?.companyWebsite"><a
-                                                                                        href="//{{tempDetails?.companyWebsite}}"
+                                                                                <td style="padding: 0px;"
+                                                                                    *ngIf="tempDetails?.companyWebsite">
+                                                                                    <a href="//{{tempDetails?.companyWebsite}}"
                                                                                         color="#000000"
                                                                                         class="sc-gipzik iyhjGb"
                                                                                         style="text-decoration: none; color: rgb(0, 0, 0);"
@@ -979,18 +982,19 @@
                                                                                             [style.color]="contactDetailColor"
                                                                                             [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
                                                                                 </td>
-                                                                                <td style="padding: 0px;" *ngIf="!tempDetails?.companyWebsite"><a
-                                                                                    href="//{{tempDetails?.companyWebsite}}"
-                                                                                    color="#000000"
-                                                                                    class="sc-gipzik iyhjGb"
-                                                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                    [style.font-size.px]="itemFontSize"
-                                                                                    [style.font-family]="fontFamilyNew"
-                                                                                    [style.line-height]="lineHeight"><span
-                                                                                        [style.color]="contactDetailColor"
-                                                                                        [style.line-height]="lineHeight">{{compWebsite}}</span></a>
-                                                                            </td>
-                                                                                
+                                                                                <td style="padding: 0px;"
+                                                                                    *ngIf="!tempDetails?.companyWebsite">
+                                                                                    <a href="//{{tempDetails?.companyWebsite}}"
+                                                                                        color="#000000"
+                                                                                        class="sc-gipzik iyhjGb"
+                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                                                        [style.font-size.px]="itemFontSize"
+                                                                                        [style.font-family]="fontFamilyNew"
+                                                                                        [style.line-height]="lineHeight"><span
+                                                                                            [style.color]="contactDetailColor"
+                                                                                            [style.line-height]="lineHeight">{{compWebsite}}</span></a>
+                                                                                </td>
+
                                                                             </tr>
                                                                             <tr height="25"
                                                                                 style="vertical-align: middle;">
@@ -1026,7 +1030,7 @@
                                                                                             [style.color]="contactDetailColor"
                                                                                             [style.font-family]="fontFamilyNew"
                                                                                             [style.font-size.px]="itemFontSize"
-                                                                                            [style.line-height]="lineHeight">{{tempDetails?.address[0].city}}</span></span>
+                                                                                            [style.line-height]="lineHeight">{{useraddress}}</span></span>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -1039,18 +1043,12 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <!-- <img src="https://drive.google.com/uc?id=1pi6PgHFhBQy1UdzB_BpKB8C9aTh-qNa7"
-                                                                                role="presentation" width="130"
-                                                                                class="sc-cHGsZl bHiaRe"
-                                                                                style="max-width: 130px; display: inline-block;"> -->
+                                                                                    <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
+                                                                                        role="presentation" width="130"
+                                                                                        class="sc-cHGsZl bHiaRe"
+                                                                                        style="max-width: 130px; display: inline-block;">
 
-                                                                                    <ngx-qrcode
-                                                                                        style="width:150px;height:150px;"
-                                                                                        [elementType]="elementType"
-                                                                                        [errorCorrectionLevel]="correctionLevel"
-                                                                                        [value]="value"
-                                                                                        cssClass="bshadow pe-4">
-                                                                                    </ngx-qrcode>
+
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -1058,7 +1056,7 @@
                                                                 </td>
                                                             </tr>
                                                             <tr
-                                                            *ngIf="!'tempDetails?.quotesId?.quotesName && tempDetails?.quotes'">
+                                                                *ngIf="!'tempDetails?.quotesId?.quotesName && tempDetails?.quotes'">
                                                                 <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">"Money and success
@@ -1068,7 +1066,7 @@
                                                                     — Will Smith
                                                                 </td>
                                                             </tr>
-                                                            <tr *ngIf="tempDetails?.quotesId?.quotesName " >
+                                                            <tr *ngIf="tempDetails?.quotesId?.quotesName ">
                                                                 <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">
@@ -1080,7 +1078,7 @@
                                                             </tr>
 
 
-                                                            <tr *ngIf="tempDetails?.quotes" >
+                                                            <tr *ngIf="tempDetails?.quotes">
                                                                 <td [style.font-size.px]="itemFontSize"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.line-height]="lineHeight">
@@ -1121,21 +1119,20 @@
 
 
                                         </tbody>
-                                        <button  class="btn btn-info"  (click)="copyMessage(templateRef)" >
-                                            Copy 
-                                          </button>
 
-                                        
+
+
                                     </table>
 
+                                    <!-- <input id="btn" (click)="CopyToClipboard('first-clip')" type="button"
+                                        value="Copy" /> -->
 
-                                  
 
                                     <div class="col-md-12 col-lg-12 mt-3 text-end">
                                         <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()"
                                             data-bs-toggle="modal" data-bs-target="#m-done">OK I'm Done</button>
-                                            
-                                            
+
+
                                     </div>
 
                                 </div>
@@ -1203,25 +1200,207 @@
             </div>
         </section>
     </main>
-    <!-- Button trigger modal -->
 
-
-    <!-- <input [(colorPicker)]="color18" [style.background]="color18"/> -->
 
 </div>
 
-
+<!-- ////////////              DONE MODAL             //////// -->
 
 
 <div class="modal fade" id="m-done" tabindex="-1" aria-labelledby="m-doneLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="m-doneLabel">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+
+
+
+
+
+                <table id="first-clip" cellpadding="0" width="500"
+                    style="background-color:#B6B6B6;border-collapse:collapse;font-size:15.5px;">
+                    <tr>
+                        <td style="margin:0.1px;padding:0">
+                            <table cellpadding="0" style="border-collapse:collapse">
+                                <tr>
+                                    <td valign="top" style="margin:0.1px;padding:15px;">
+                                        <div *ngIf="!tempDetails?.profileImage" style="width:50px;height:50px;background-color: #EAEDEE;border-radius: 50%;background-color: w;"
+                                            alt="created with MySignature.io" style="display:block;">   <img class="width"
+                                            [style.border-radius.px]="borderRadius"
+                                            src="assets/images/logo.png " />
+                                            <div style="padding:15px;"
+                                                                        *ngIf="tempDetails?.profileImage">
+                                                                        <img style="width: 100px;height: 100px;border-radius: 50%;"
+                                                                            [style.border-radius.px]="borderRadius"
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                                                    </div>
+                                        </div>
+                                    </td>
+                                    <td valign="top" style="padding:15px;margin:20px 0px;">
+                                        <table cellpadding="0"
+                                            style="border-collapse:collapse;border-bottom:3px solid #00cfd6;">
+                                            <tr>
+                                                <td
+                                                    style=" margin:0.1px;padding:0;font:18.6px/23.7px Verdana, Geneva, sans-serif;color:#000001;">
+                                                    <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                                    style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);"
+                                                    *ngIf="!tempDetails?.yourName">
+                                                    <span [style.font-family]="fontFamilyNew"
+                                                        [style.color]="firstNameColor"
+                                                        [style.font-size.px]="templateFontSize"
+                                                        [style.line-height]="lineHeight"
+                                                        style="margin: 0px; padding-top:15px; font-size: 34px;"
+                                                        [style.color]="firstNameColor">{{username}}</span>
+                                                </h2>
+
+                                                <h2 color="#000000" [style.text-align]="nameAlign"
+                                                    class="sc-fBuWsC eeihxG"
+                                                    style="margin: 0px; font-size: 24px;font-weight:bold; color: rgb(0, 0, 0);"
+                                                    *ngIf="tempDetails?.yourName">
+                                                    <span style="margin: 0px; font-size: 34px;"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.color]="firstNameColor"
+                                                        [style.font-size.px]="templateFontSize"
+                                                        [style.line-height]="lineHeight">{{tempDetails?.yourName}}</span>
+                                                </h2> </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="border-bottom:3px solid #00cfd6;margin:0.1px;padding:4px 0;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
+                                                    <span> <p color="#000000" font-size="large"
+                                                        *ngIf="!tempDetails?.designation"
+                                                        class="sc-dVhcbM fghLuF"
+                                                        style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                                        <span>digital
+                                                            marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
+                                                            geeks</span>
+                                                    </p>
+
+
+                                                    <p color="#000000" font-size="large"
+                                                        *ngIf="tempDetails?.designation"
+                                                        class="sc-dVhcbM fghLuF"
+                                                        style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                                        <span [style.color]="designationColor"
+                                                            [style.font-family]="fontFamilyNew"
+                                                            [style.font-size.px]="itemFontSize"
+                                                            [style.line-height]="lineHeight">{{tempDetails?.designation}}</span>
+                                                    </p> </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="margin:0.1px;padding:0;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
+                                                    <a href="tel:889987328563"
+                                                    *ngIf="!tempDetails?.companyPhone"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor">5678909</span></a>
+                                                <a href="tel:889987328563"
+                                                    *ngIf="tempDetails?.companyPhone"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor">{{tempDetails?.companyPhone}}</span></a>
+                                                | <a href="tel:325874589923"
+                                                    *ngIf="!tempDetails?.phoneNo"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor">465869</span></a>
+                                                | <a href="tel:325874589923"
+                                                    color="#000000"
+                                                    *ngIf="tempDetails?.phoneNo"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 0px;"
+                                                *ngIf="!tempDetails?.email">
+                                                <a href="mailto:user@gmail.com"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0); "
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.color]="contactDetailColor"><span>{{Email}}</span></a>
+                                            </td>
+                                            <td style="padding: 0px;"
+                                                *ngIf="tempDetails?.email">
+                                                <a href="mailto:{{tempDetails?.email}}"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"><span
+                                                        [style.color]="contactDetailColor"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.line-height]="lineHeight">{{tempDetails?.email}}</span></a>
+                                        </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 0px;"
+                                                *ngIf="tempDetails?.companyWebsite">
+                                                <a href="//{{tempDetails?.companyWebsite}}"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
+                                            </td>
+                                            <td style="padding: 0px;"
+                                                *ngIf="!tempDetails?.companyWebsite">
+                                                <a href="//{{tempDetails?.companyWebsite}}"
+                                                    color="#000000"
+                                                    class="sc-gipzik iyhjGb"
+                                                    style="text-decoration: none; color: rgb(0, 0, 0);"
+                                                    [style.font-size.px]="itemFontSize"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.line-height]="lineHeight"><span
+                                                        [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight">{{compWebsite}}</span></a>
+                                            </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="middle"
+                                        style="margin:0.1px;padding:6px;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
+                                        <div style="width:45px;height:50px;background-color: #EAEDEE;border-radius: 5%;background-color: w;"
+                                            alt="created with MySignature.io" style="display:block;">
+                                            <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
+                                            role="presentation" 
+                                            class="sc-cHGsZl bHiaRe"
+                                            style="width:30px; height:30px ;display: inline-block;"> </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <input id="btn" (click)="CopyToClipboard('first-clip')" type="button"
+                value="Copy" />
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1230,4 +1409,3 @@
         </div>
     </div>
 </div>
-

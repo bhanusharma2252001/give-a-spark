@@ -131,10 +131,10 @@ addCompanyDetails(data:any){
   }
 );
 }
-  // signatureDetails--basicTemplates
+  // signatureDetails--basicTemplates api/template/createLimitTemplate
 
   addsignatureDetails(data:any){
-    return this.http.post(environment.localApiURL+ '/api/template/signatureDetails', data,
+    return this.http.post(environment.localApiURL+ '/api/template/createLimitTemplate', data,
     {
       headers: { Authorization: `bearer ${this.token}` },
     }
