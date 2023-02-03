@@ -48,7 +48,7 @@
                                                     formControlName="firstName">
                                                 <div *ngIf="profileForm.get('firstName')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    <small>Name is required </small>
+                                                    <small class="fs-12">Name is required </small>
                                                 </div>
 
                                             </div>
@@ -61,7 +61,7 @@
                                                     formControlName="companyName" [(ngModel)]="compname">
                                                 <div *ngIf="profileForm.get('companyName')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    Company Name is required </div>
+                                                    <small class="fs-12"> Company Name is required</small> </div>
                                             </div>
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
@@ -72,7 +72,7 @@
                                                     formControlName="companyWebsite" [(ngModel)]="compwebsite">
                                                 <div *ngIf="profileForm.get('companyWebsite')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    Company website is required </div>
+                                                    <small class="fs-12">Company website is required </small> </div>
                                             </div>
                                             <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label">Your Phone</label>
@@ -83,11 +83,11 @@
 
                                                 <div *ngIf="profileForm.get('phone')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    <small>*Phone no. is required</small>
+                                                    <small class="fs-12">*Phone no. is required</small>
                                                 </div>
                                                 <div *ngIf="profileForm.get('phone')?.hasError('pattern')"
                                                     class="text-danger text-sm">
-                                                    *Please enter valid no.
+                                                    <small class="fs-12">*Please enter valid no.</small>
                                                 </div>
 
 

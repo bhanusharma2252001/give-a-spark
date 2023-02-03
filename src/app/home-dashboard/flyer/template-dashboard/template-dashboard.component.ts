@@ -96,6 +96,36 @@ img:boolean=true;
     borderRadius: this.borderRadius
 
   }
+
+  
+CopyToClipboard(element:any) {
+
+  var doc:any = document
+  , text = doc.getElementById(element)
+  , range, selection:any;
+
+if (doc.body.createTextRange)
+{
+  range = doc.body.createTextRange();
+  range.moveToElementText(text);
+  range.select();
+} 
+
+else if (window.getSelection)
+{
+  selection = window.getSelection();        
+  range = doc.createRange();
+  range.selectNodeContents(text);
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+document.execCommand('copy');
+let a :any = window.getSelection();  
+a.removeAllRanges();
+let b :any= document.getElementById("btn")
+b.value= "Copied"
+// document.getElementById("btn").value="Copied";
+}
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
     'sans-serif',
     'monospace',

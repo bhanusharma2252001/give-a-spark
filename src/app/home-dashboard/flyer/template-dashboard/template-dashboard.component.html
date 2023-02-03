@@ -707,7 +707,7 @@
 
                                 <div class="col-md-6 col-lg-6" *ngIf="templateSelect == 'first'">
                                     <div class="">
-                                        <table ellpadding="0" width="500" style="background-color:#B6B6B6;border-collapse:collapse;font-size:15.5px;">
+                                        <table id="first-clip" ellpadding="0" width="500" style="background-color:#B6B6B6;border-collapse:collapse;font-size:15.5px;">
                                             <tbody style=" background-image: url('assets/images/free-email-template-1.png');
                                             background-repeat: no-repeat;
                                             background-size: cover;">
@@ -780,7 +780,7 @@
                                             </tr>
                                         </tbody>
                                         </table>
-                                   
+                                        <input id="btn" (click)="CopyToClipboard('first-clip')" type="button" value="Copy" />
                                     </div>
                                    
                                     <!-- <div class="mt-4 text-center">
