@@ -1212,7 +1212,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="background-color:#f6f9fa;">
-                <table id="first-clip" cellpadding="0" width="480"
+                <!-- <table id="first-clip" cellpadding="0" width="480"
                     *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
                     style="background-color:#ffff;border-collapse:collapse;">
                     <tr>
@@ -1345,7 +1345,202 @@
                
                     
 
+                </table> -->
+              
+              
+
+                  <!-- D                 EM                O -->
+              
+              
+    <div class="signature-preview-window browser-mockup"><span class="browser-title">Your Signature</span>
+
+        <div class="signature-template-preview prevent-selection" id="first-clip">
+            <div class="signature-template template-template6">
+                <table width="100%" height="auto" cellpadding="0" cellspacing="0" border="0" direction="ltr">
+                    <tbody>
+                        <tr>
+                            <td id="wrapper" valign="top" align="left"
+                                style="padding: 0px 0px 0px 0px;text-align: left">
+
+                                <table id="table-signature-id" cellpadding="0" cellspacing="0" border="0"
+                                    direction="ltr"
+                                    style="direction:ltr;background: none; border: 0px; padding: 0px; margin: 0px; width: auto; display: inline-block; height: auto; min-width: auto; top: unset; left: unset; right: unset; bottom: unset; position: relative;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="padding-right:15px;vertical-align:top;" valign="top">
+                                                <a href="http://youremailsignature.com" target="_blank"><img
+                                                        src="https://uploads.hatima.co.il/uploads/1534330314027.png"
+                                                        height="80" alt="logo" style="border-radius: 0px"></a></td>
+                                            <td style="border-left:1px solid #5137F1;padding-left:15px;">
+                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" style="padding-bottom: 7.5px">
+                                                                <img *ngIf="!tempDetails?.profileImage"
+                                                                    src="https://uploads.hatima.co.il/uploads/1534955534870.png"
+                                                                    height="50" alt="profile image"
+                                                                    >
+                                                                    <img tyle="border-radius:5px" *ngIf="tempDetails?.profileImage"
+                                                                    [style.border-radius.px]="borderRadius"
+                                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                                                </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"
+                                                                 [style.font-family]="fontFamilyNew" [style.color]="firstNameColor"
+                                                                [style.font-size.px]="templateFontSize"
+                                                                [style.line-height]="lineHeight">{{tempDetails?.yourName}}
+                                                               </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"
+                                                                style="color:#000000;text-decoration:none;font-size:14.3px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;line-height:18px;mso-line-height-rule:exactly;padding-bottom:7.5px;">
+                                                                {{tempDetails?.designation}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
+                                                                                Email:</td>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
+                                                                                <a href="mailto:hatimacoil@gmail.com"
+                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">hatimacoil@gmail.com</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
+                                                                                Address:</td>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
+                                                                                <span
+                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">Dizengoff
+                                                                                    Street, Tel Aviv-Yafo</span></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
+                                                                                Tel:</td>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
+                                                                                <a href="tel:052-000-0000"
+                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">052-000-0000</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
+                                                                                Office Phone:</td>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
+                                                                                <a href="tel:03-000-0000"
+                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">03-000-0000</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td valign="top"
+                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
+                                                                                <a href="http://youremailsignature.com"
+                                                                                    target="_blank"
+                                                                                    style="color:#000000;text-decoration:underline;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">youremailsignature.com</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="padding-top:7.5px;"><span><a
+                                                                        href="https://www.facebook.com/hatimacoil/"
+                                                                        target="_blank"
+                                                                        style="border: 0;display: inline-block"><img
+                                                                            width="28" height="28"
+                                                                            src="https://uploads.hatima.co.il/images/facebook.png"
+                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
+                                                                        href="#" target="_blank"
+                                                                        style="border: 0;display: inline-block"><img
+                                                                            width="28" height="28"
+                                                                            src="https://uploads.hatima.co.il/images/twitter.png"
+                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
+                                                                        href="#" target="_blank"
+                                                                        style="border: 0;display: inline-block"><img
+                                                                            width="28" height="28"
+                                                                            src="https://uploads.hatima.co.il/images/linkedin.png"
+                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
+                                                                        href="#" target="_blank"
+                                                                        style="border: 0;display: inline-block"><img
+                                                                            width="28" height="28"
+                                                                            src="https://uploads.hatima.co.il/images/instagram.png"
+                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
+                                                                        href="https://www.youtube.com/channel/UCiwg-pmuqJgFQeXHA4TI8AQ"
+                                                                        target="_blank"
+                                                                        style="border: 0;display: inline-block"><img
+                                                                            width="28" height="28"
+                                                                            src="https://uploads.hatima.co.il/images/youtube.png"
+                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
                 <input id="btn" (click)="CopyToClipboard('first-clip')" type="button" value="Copy" />
 
             </div>

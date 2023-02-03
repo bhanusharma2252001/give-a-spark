@@ -56,6 +56,11 @@ details:any;
        router.routeReuseStrategy.shouldReuseRoute = () => false;
     
   }); 
+  router.canceledNavigationResolution = 'computed';
+  history.pushState(null, '', location.href);
+window.onpopstate = function () {
+   history.go(1);
+};
   }
    }
    get f(){  
