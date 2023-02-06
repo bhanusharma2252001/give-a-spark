@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditFlyerComponent } from './edit-flyer/edit-flyer.component';
 import { FlyerComponent } from './flyer.component';
 import { SavedFlyerComponent } from './saved-flyer/saved-flyer.component';
-import { TemplateDashboardComponent } from './template-dashboard/template-dashboard.component';
+
 
 const routes: Routes = [
   
@@ -18,11 +18,8 @@ const routes: Routes = [
         {
           path:'saved-flyer', component:SavedFlyerComponent
         },
-        {
-          path:'template-dashboard', component:TemplateDashboardComponent
-        },
-        // { path: 'update-story', loadChildren: () => import('./update-story/update-story.module').then((m) => m.UpdateStoryModule)}
-        
+     
+       
       ]
     }
   

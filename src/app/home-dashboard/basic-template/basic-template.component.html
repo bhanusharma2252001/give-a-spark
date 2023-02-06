@@ -9,55 +9,50 @@
                     <div class="col-md-12 col-lg-12">
                         <div class="row pe-5">
                             <div class="col-md-6 col-lg-6">
-                                <ul class="nav nav-tabs rounded-pill p-3 ps-5 pe-5 justify-content-between" id="myTab"
-                                    role="tablist">
+                                <ul class="nav nav-tabs rounded-pill px-3 py-2 align-items-center justify-content-around" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1 p-2 active" id="details-tab"
-                                            data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab"
-                                            aria-controls="details" aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/details.png">
-                                                <img class="wh-35 active-black" src="assets/images/details-black.png">
-                                                <p class="mb-0 fs-5 fs-12">Details</p>
-                                            </div>
-                                        </button>
+                                      <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
+                                        data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="true">
+                                        <div class="box">
+                                          <img class="wh-35 active-icon" src="assets/images/details.png">
+                                          <img class="wh-35 active-black" src="assets/images/details-black.png">
+                                          <p class="mb-0 fs-5 fs-12">Details</p>
+                                        </div>
+                                      </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1 p-2 bg-white" id="social-tab"
-                                            data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab"
-                                            aria-controls="social" aria-selected="true" (click)="onClick()
-                                            ">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/social-yellow.png">
-                                                <img class="wh-35 active-black" src="assets/images/social.png">
-                                                <p class="mb-0 fs-5 fs-12">Social</p>
-                                            </div>
-                                        </button>
+                                      <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
+                                        data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
+                                        (click)="onClick()
+                                                              ">
+                                        <div class="box">
+                                          <img class="wh-35 active-icon" src="assets/images/social-yellow.png">
+                                          <img class="wh-35 active-black" src="assets/images/social.png">
+                                          <p class="mb-0 fs-5 fs-12">Social</p>
+                                        </div>
+                                      </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1  p-2 " id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#template" type="button" role="tab" aria-controls="home"
-                                            aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
-                                                <img class="wh-35 active-black" src="assets/images/template.png">
-                                                <p class="mb-0 fs-5 fs-12">Template</p>
-                                            </div>
-                                        </button>
+                                      <button class="nav-link box-link m-1  p-1" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#template" type="button" role="tab" aria-controls="home" aria-selected="true">
+                                        <div class="box">
+                                          <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
+                                          <img class="wh-35 active-black" src="assets/images/template.png">
+                                          <p class="mb-0 fs-5 fs-12">Template</p>
+                                        </div>
+                                      </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1 p-2 " id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#design" type="button" role="tab" aria-controls="home"
-                                            aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
-                                                    (click)="openTemp('free')">
-                                                <img class="wh-35 active-black" src="assets/images/design.png">
-                                                <p class="mb-0 fs-5 fs-12">Design</p>
-                                            </div>
-                                        </button>
+                                      <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#design" type="button" role="tab" aria-controls="home" aria-selected="true">
+                                        <div class="box">
+                                          <img class="wh-35 active-icon" src="assets/images/design-yellow.png" (click)="openTemp('free')">
+                                          <img class="wh-35 active-black" src="assets/images/design.png">
+                                          <p class="mb-0 fs-5 fs-12">Design</p>
+                                        </div>
+                                      </button>
                                     </li>
-                                </ul>
+                                  </ul>
 
 
 
@@ -85,7 +80,7 @@
                                                                 [(ngModel)]="username "
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp"
-                                                                readonly>
+                                                                >
 
                                                         </div>
                                                         <div class="mb-3">
@@ -103,7 +98,7 @@
                                                             <input type="text" formControlName="phoneNo"
                                                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                                 id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="number" readonly>
+                                                                [(ngModel)]="number" >
 
                                                         </div>
 
@@ -400,7 +395,7 @@
                                                     <div class="mb-2 grid-2">
                                                         <div class="">
                                                             <div class="d-flex align-items-center">
-                                                                <p class="mb-0 p-1">First Name:</p>
+                                                                <p class="mb-0 p-1"> Name:</p>
 
                                                                 <input [(colorPicker)]="firstNameColor"
                                                                     [style.background]="firstNameColor" style="width: 15px;
@@ -422,13 +417,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="">
-                                                            <div class="d-flex align-items-center">
+                                                            <!-- <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Last Name:</p>
 
                                                                 <input [(colorPicker)]="lastNameColor"
                                                                     [style.background]="lastNameColor" style="width: 15px;
                                                                 height: 14px;" />
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1212,318 +1207,109 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="background-color:#f6f9fa;">
-                <!-- <table id="first-clip" cellpadding="0" width="480"
-                    *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
-                    style="background-color:#ffff;border-collapse:collapse;">
-                    <tr>
-                        <td style="margin:0.1px; text-align: center;">
-                            <div *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
-                                <div *ngIf="!tempDetails?.profileImage">
-                                    <img style="width: 80px;height: 80px;border-radius: 50%;"
-                                        src="assets/images/profile.png " />
-                                </div>
-                                <div style="padding:15px;" *ngIf="tempDetails?.profileImage">
-                                    <img style="width: 80px;height: 80px;border-radius: 50%;"
-                                        [style.border-radius.px]="borderRadius"
-                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                </div>
-                            </div>
-                            <div *ngIf=" templateShow == 'free'"> <img [style.border-radius.px]="borderRadius"
-                                    style="width: 80px;height: 80px;border-radius: 50%;"
-                                    src="assets/images/logo.png " /> </div>
-                           
-                                <ul *ngIf="templateShow == 'propro'"
-                                    style="display:flex;justify-content: space-around;width:80px; margin-left:60px;list-style:none; padding-left:3px;">
-                                    <li> <a href="{{tempDetails?.fbProfile }}" target="_blank"><img alt=""
-                                                style="width:15px;height:15px;"
-                                                src="assets/images/fb-black.png"></a></li>
-                                    <li> <a href="{{tempDetails?.twitterProfile }}" target="_blank"><img alt=""
-                                                style="width:15px;height:15px;" src="assets/images/tw-black.png"></a>
-                                    </li>
-                                    <li> <a href="{{tempDetails?.linkedInProfile }}" target="_blank"> <img alt=""
-                                                style="width:15px;height:15px;"
-                                                src="https://www.perfectiongeeks.com/images/facebook.jpg"></a></li>
-                                    <li>
-                                        <a href="{{tempDetails?.instagramProfile }}" target="_blank"> <img alt=""
-                                                style="width:15px;height:15px;"
-                                                src="https://www.perfectiongeeks.com/images/facebook.jpg"></a>
-                                    </li>
-                                </ul>
-                                <div >
-                                    <p *ngIf="tempDetails?.quotesId?.quotesName " [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
-                                        [style.line-height]="lineHeight">
-                                        {{tempDetails?.quotesId?.quotesName}}
-                                        <br>
-            
-                                        {{tempDetails?.quotesId?.authorId?.firstName}}
-                                </p>
-                                    <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
-                                    [style.line-height]="lineHeight">
-                                    {{tempDetails?.quotes}}
-                                    <br>
-                            </p>
-                                </div>
-                            
-                        </td>
-                        <td valign="top" style="margin:20px 0px;">
-                            <table cellpadding="0" style="border-collapse:collapse;padding:1px;">
-                                <tr>
-                                    <td
-                                        style="padding-left:2px ; margin:0.1px;padding:0;font:18.6px/23.7px Verdana, Geneva, sans-serif;color:#000001;">
-                                        <h2 color="#000000" [style.text-align]="nameAlign" class="sc-fBuWsC eeihxG"
-                                            style="margin: 0px; font-size:24px;font-weight:bold; color: rgb(0, 0, 0);"
-                                            *ngIf="tempDetails?.yourName"><span style="margin: 0px; font-size: 34px;"
-                                                [style.font-family]="fontFamilyNew" [style.color]="firstNameColor"
-                                                [style.font-size.px]="templateFontSize"
-                                                [style.line-height]="lineHeight">{{tempDetails?.yourName}}</span></h2>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="border-bottom:2px solid #00cfd6;margin:0.1px;padding:4px 0;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
-                                        <span>
-                                            <p color="#000000" font-size="large" *ngIf="tempDetails?.designation"
-                                                class="sc-dVhcbM fghLuF"
-                                                style="margin: 0px;color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
-                                                <span [style.color]="designationColor"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">{{tempDetails?.designation}}</span>
-                                            </p>
-                                        </span>
-                                    </td>
-                                <tr>
-                                    <td
-                                        style="margin:0.1px;padding:0;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
-                                        <a *ngIf="tempDetails?.companyPhone" color="#000000" class="sc-gipzik iyhjGb"
-                                            style="color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize"
-                                            [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span
-                                                [style.color]="contactDetailColor">{{tempDetails?.companyPhone}}</span></a>
-                                        <a color="#000000" *ngIf="tempDetails?.phoneNo" class="sc-gipzik iyhjGb"
-                                            style="color: rgb(0, 0, 0);" [style.font-size.px]="itemFontSize"
-                                            [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"><span
-                                                [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0px;">
-                                        <a href="mailto:{{tempDetails?.email}}" *ngIf="tempDetails?.email"
-                                            color="#000000" class="sc-gipzik iyhjGb"
-                                            style="text-decoration: none; color: rgb(0, 0, 0);"
-                                            [style.font-size.px]="itemFontSize"><span [style.color]="contactDetailColor"
-                                                [style.font-family]="fontFamilyNew"
-                                                [style.line-height]="lineHeight">{{tempDetails?.email}}</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0px;">
-                                        <a color="#000000" *ngIf="tempDetails?.companyWebsite" class="sc-gipzik iyhjGb"
-                                            style="text-decoration: none; color: rgb(0, 0, 0);"
-                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
-                                            [style.line-height]="lineHeight"><span [style.color]="contactDetailColor"
-                                                [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0px;"> <span color="#000000" class="sc-csuQGl CQhxV"
-                                            style="color: rgb(0, 0, 0);"><span [style.color]="contactDetailColor"
-                                                [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize"
-                                                [style.line-height]="lineHeight">{{useraddress}}</span></span> </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="middle"
-                            style="margin:0.1px;padding:6px;font:15.5px/19.7px Verdana, Geneva, sans-serif;color:#000001;">
-                            <div style="width:45px;height:50px;background-color: #EAEDEE;border-radius:5%;"
-                                alt="created with MySignature.io" style="display:block;width: 30px;">
-                                <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" role="presentation"
-                                    class="sc-cHGsZl bHiaRe" style="width:45px; height:45px ;display: inline-block;">
-                            </div>
-                        </td>
-                    </tr>
-               
-                    
+             <table id="first-clip" cellpadding="0" width="480" height="300"
+          style="background-color:#ffff;border-collapse:collapse;padding:5px">
+          <tbody>
+            <tr>
 
-                </table> -->
-              
+              <td>
+                <div *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
+                  <div style="text-align:center;" *ngIf="!tempDetails?.profileImage">
+                    <img style="width: 80px;height: 80px;border-radius: 50%;" src="assets/images/profile.png " />
+                  </div>
+                  <div style="padding:15px;" *ngIf="tempDetails?.profileImage">
+                    <img style="width: 80px;height: 80px;border-radius: 50%;" [style.border-radius.px]="borderRadius"
+                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                  </div>
+                  
+
+                </div>
+                <div  *ngIf=" templateShow == 'free'">
+                    <img style="width:100px;height:100px;"
+                        src="assets/images/logo.png" alt=""
+                        [style.border-radius.px]="borderRadius">
+                  </div>
+                <div style="">
+                  <h2 style="margin-bottom:0;margin-top:-10px;" color="#000000" [style.text-align]="nameAlign">
+                    <span style="margin: 0px; font-size: 34px;" [style.font-family]="fontFamilyNew"
+                      [style.color]="firstNameColor"
+                      [style.font-size.px]="templateFontSize">{{tempDetails?.yourName}}</span></h2>
+
+                  <p style="margin:-6px 0px 0px  0px; font-size: 14px;text-align: center;" color="#000000"><span
+                      [style.color]="designationColor" [style.font-family]="fontFamilyNew"
+                      [style.font-size.px]="itemFontSize">{{tempDetails?.designation}}</span></p>
+                </div>
+
+
+
+                <ul *ngIf="templateShow == 'propro'"
+                  style="display:flex;justify-content: space-around;width:110px; list-style:none; padding-left:3px;">
+                  <li> <a style="padding:1px" href="{{tempDetails?.fbProfile }}" target="_blank"><img alt=""
+                     style="width:15px;height:15px;"
+                        src="assets/images/yellow-fb.png"></a></li>
+                  <li> <a style="padding:1px" href="{{tempDetails?.twitterProfile }}" target="_blank"><img alt=""
+                        style="width:15px;height:15px;" src="assets/images/yellow-tw.png"></a>
+                  </li>
+                  <li> <a style="padding:1px" href="{{tempDetails?.linkedInProfile }}" target="_blank"> <img alt=""
+                        style="width:15px;height:15px;" src="assets/images/yellow-li.png"></a>
+                  </li>
+                  <li>
+                    <a style="padding:1px" href="{{tempDetails?.instagramProfile }}" target="_blank"> <img alt=""
+                        style="width:15px;height:15px;" src="assets/images/yellow-in.png"></a>
+                  </li>
+                </ul>
+              </td>
+
+
+              <td>
+                <div class="">
+                  <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+                    [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
+                    [style.color]="contactDetailColor">
+                    <span style="padding-right:10px">Phone:</span>{{tempDetails?.phoneNo}}</p>
+                  <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+                    [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
+                    [style.color]="contactDetailColor">
+                    <span style="padding-right:10px">Mail:</span>{{tempDetails?.email}}</p>
+                  <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+                    [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
+                    [style.color]="contactDetailColor">
+                    <span style="padding-right:10px">Website:</span>{{tempDetails?.companyWebsite}}</p>
+                  <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+                    [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
+                    [style.color]="contactDetailColor">
+                    <span style="padding-right:10px">Location:</span>{{useraddress}}
+                  </p>
+                </div>
+                <div class="">
+                  <p *ngIf="tempDetails?.quotesId?.quotesName " [style.font-size.px]="itemFontSize"
+                    [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight">
+                    {{tempDetails?.quotesId?.quotesName}}
+                    <br>
+
+                    {{tempDetails?.quotesId?.authorId?.firstName}}
+                  </p>
+                  <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                    [style.line-height]="lineHeight">
+                    {{tempDetails?.quotes}}
+                    <br>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" role="presentation"
+                  class="sc-cHGsZl bHiaRe" style="width:45px; height:45px ;display: inline-block;">
+              </td>
+            </tr>
+          </tbody>
+ 
+              </table>
               
 
                   <!-- D                 EM                O -->
               
-              
-    <div class="signature-preview-window browser-mockup"><span class="browser-title">Your Signature</span>
-
-        <div class="signature-template-preview prevent-selection" id="first-clip">
-            <div class="signature-template template-template6">
-                <table width="100%" height="auto" cellpadding="0" cellspacing="0" border="0" direction="ltr">
-                    <tbody>
-                        <tr>
-                            <td id="wrapper" valign="top" align="left"
-                                style="padding: 0px 0px 0px 0px;text-align: left">
-
-                                <table id="table-signature-id" cellpadding="0" cellspacing="0" border="0"
-                                    direction="ltr"
-                                    style="direction:ltr;background: none; border: 0px; padding: 0px; margin: 0px; width: auto; display: inline-block; height: auto; min-width: auto; top: unset; left: unset; right: unset; bottom: unset; position: relative;">
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="2" style="padding-right:15px;vertical-align:top;" valign="top">
-                                                <a href="http://youremailsignature.com" target="_blank"><img
-                                                        src="https://uploads.hatima.co.il/uploads/1534330314027.png"
-                                                        height="80" alt="logo" style="border-radius: 0px"></a></td>
-                                            <td style="border-left:1px solid #5137F1;padding-left:15px;">
-                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td colspan="2" style="padding-bottom: 7.5px">
-                                                                <img *ngIf="!tempDetails?.profileImage"
-                                                                    src="https://uploads.hatima.co.il/uploads/1534955534870.png"
-                                                                    height="50" alt="profile image"
-                                                                    >
-                                                                    <img tyle="border-radius:5px" *ngIf="tempDetails?.profileImage"
-                                                                    [style.border-radius.px]="borderRadius"
-                                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                                                </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2"
-                                                                 [style.font-family]="fontFamilyNew" [style.color]="firstNameColor"
-                                                                [style.font-size.px]="templateFontSize"
-                                                                [style.line-height]="lineHeight">{{tempDetails?.yourName}}
-                                                               </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2"
-                                                                style="color:#000000;text-decoration:none;font-size:14.3px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;line-height:18px;mso-line-height-rule:exactly;padding-bottom:7.5px;">
-                                                                {{tempDetails?.designation}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
-                                                                                Email:</td>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
-                                                                                <a href="mailto:hatimacoil@gmail.com"
-                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">hatimacoil@gmail.com</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
-                                                                                Address:</td>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
-                                                                                <span
-                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">Dizengoff
-                                                                                    Street, Tel Aviv-Yafo</span></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
-                                                                                Tel:</td>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
-                                                                                <a href="tel:052-000-0000"
-                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">052-000-0000</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-right:4px;padding-bottom:5px;">
-                                                                                Office Phone:</td>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
-                                                                                <a href="tel:03-000-0000"
-                                                                                    style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">03-000-0000</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table cellpadding="0" cellspacing="0" border="0"
-                                                                    style="background:none;border: 0;margin: 0;padding: 0;direction: ltr">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td valign="top"
-                                                                                style="color:#000000;text-decoration:none;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">
-                                                                                <a href="http://youremailsignature.com"
-                                                                                    target="_blank"
-                                                                                    style="color:#000000;text-decoration:underline;font-size:13px;font-family:Arial, Helvetica, sans-serif;font-weight:normal;line-height:18px;mso-line-height-rule:exactly;padding-bottom:5px;">youremailsignature.com</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2" style="padding-top:7.5px;"><span><a
-                                                                        href="https://www.facebook.com/hatimacoil/"
-                                                                        target="_blank"
-                                                                        style="border: 0;display: inline-block"><img
-                                                                            width="28" height="28"
-                                                                            src="https://uploads.hatima.co.il/images/facebook.png"
-                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
-                                                                        href="#" target="_blank"
-                                                                        style="border: 0;display: inline-block"><img
-                                                                            width="28" height="28"
-                                                                            src="https://uploads.hatima.co.il/images/twitter.png"
-                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
-                                                                        href="#" target="_blank"
-                                                                        style="border: 0;display: inline-block"><img
-                                                                            width="28" height="28"
-                                                                            src="https://uploads.hatima.co.il/images/linkedin.png"
-                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
-                                                                        href="#" target="_blank"
-                                                                        style="border: 0;display: inline-block"><img
-                                                                            width="28" height="28"
-                                                                            src="https://uploads.hatima.co.il/images/instagram.png"
-                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span><span><a
-                                                                        href="https://www.youtube.com/channel/UCiwg-pmuqJgFQeXHA4TI8AQ"
-                                                                        target="_blank"
-                                                                        style="border: 0;display: inline-block"><img
-                                                                            width="28" height="28"
-                                                                            src="https://uploads.hatima.co.il/images/youtube.png"
-                                                                            style="border-radius: 4px;display: block;border: none;width: 28px;max-width: 28px !important; height: 28px; max-height: 28px !important"></a>&nbsp;&nbsp;</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-              
-              
-              
-              
+         
               
               
               

@@ -295,8 +295,8 @@ getQrCode() {
 
 // TEMPLATES
 
-templateCustomize(data:any){
-  return this.http.post(environment.localApiURL+ '/api/TemplateCustomization/createTemplateCustomization', data,
+templateCustomize(id:any, data:any){
+  return this.http.post(environment.localApiURL+ '/api/TemplateCustomization/createTemplateCustomization?templateId='+id, data,
   {
     headers: { Authorization: `bearer ${this.token}` },
   }

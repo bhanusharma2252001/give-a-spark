@@ -1,8 +1,142 @@
+<div *ngIf="!(href =='/home-dashboard/user-profile') "
+    class="d-flex flex-column ms-4 mt-5 flex-shrink-0 bg-blue rounded-2" style="width: 4.5rem;">
 
-<!-- 
-        <div class="col-md-1 col-lg-1 p-0 side-nav-sec dekstop-menu">
-            <div class="position-relative h-100"> -->
-                <div *ngIf="!(href =='/home-dashboard/user-profile') " class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+
+            <a href="https://www.giveaspark.com/" class="nav-link  rounded-0" aria-current="page" title="Free"
+                data-bs-toggle="tooltip" data-bs-placement="right">
+
+                <p class=" mb-0"> <img src="assets/images/dashboard.png" class="img-menu" width="24" height="24>"><span
+                        class="menu-text py-2 rounded-2 p-1">Home</span></p>
+
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./templates/template-dashboard" class="nav-link active   border-0" title="Dashboard"
+                data-bs-toggle="tooltip" data-bs-placement="right">
+
+
+                <p class="mb-0">
+                    <img src="assets/images/signature-template.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 text-nowrap">Signature Template</span>
+                </p>
+
+            </a>
+        </li>
+        <li class="nav-item">
+
+            <a routerLink="./templates/saved-templates" class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/saved-signature.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">Saved Signature</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./motivational-quote" class="nav-link    border-0" title="quotes" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/quotes.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">Motivational Quotes</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./motivational-story" class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/my-stories.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">Motivational Stories
+                    </span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./flyer/edit-flyer" class="nav-link    border-0" title="quotes" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/social-media-flyers.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">Social Media Flyers</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./flyer/saved-flyer" class="nav-link    border-0" title="quotes" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="images/saved-signature.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">Saved Flyers
+                    </span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./myquote" class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/quotes.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">My Quotes</span>
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a routerLink="./mystory" class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/my-stories.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">My Stories</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="./myprofile/profile-dashboard" class="nav-link active   border-0" title="Dashboard"
+                data-bs-toggle="tooltip" data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/my-profile.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">My Profile</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+
+            <a routerLink="./plan/myplan" class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/my-plans.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">My Plans</span>
+                </p>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link active   border-0" title="Dashboard" data-bs-toggle="tooltip"
+                data-bs-placement="right">
+                <p class="mb-0">
+                    <img src="assets/images/settings.png" class="img-menu" width="24" height="24">
+                    <span class="menu-text py-2 rounded-2 mb-0">My Settings</span>
+                </p>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+
+            <a class="nav-link    border-0" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+                <div class="">
+                    <img src="assets/images/logout.png" class="img-menu" width="24" (click)="logout()" height="24">
+                    <p class="menu-text py-2 rounded-2 mb-0">Logout</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+    <!-- <div *ngIf="!(href =='/home-dashboard/user-profile') " class="d-flex flex-column flex-shrink-0 bg-gray" style="width: 4.5rem;">
 
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                         <li class="nav-item mb-2">
@@ -124,16 +258,7 @@
                             </a>
                         </li>
 
-                        <!-- <li class="nav-item mb-2">
-                            <a href="#" class="nav-link   py-3 border-0" title="Dashboard"
-                                data-bs-toggle="tooltip" data-bs-placement="right">
-                                <div class="d-flex justify-content-start  align-items-center bg-gray">
-                                    <img src="images/my-stories.png" class="img-menu" width="24"
-                                        height="24">
-                                    <p class="menu-text mb-0">My Stories</p>
-                                </div>
-                            </a>
-                        </li> -->
+                      
                         <li class="nav-item mb-2">
                             <a href="#" class="nav-link active  py-3 border-0" title="Dashboard"
                                 data-bs-toggle="tooltip" data-bs-placement="right">
@@ -145,16 +270,7 @@
                             </a>
                         </li>
 
-                        <!-- <li class="nav-item mb-2">
-                            <a routerLink="./myorder" class="nav-link   py-3 border-0" title="Dashboard"
-                                data-bs-toggle="tooltip" data-bs-placement="right">
-                                <div class="d-flex justify-content-start  align-items-center bg-gray">
-                                    <img src="assets/images/my-orders.png" class="img-menu" width="24"
-                                        height="24">
-                                    <p class="menu-text mb-0">My Orders</p>
-                                </div>
-                            </a>
-                        </li> -->
+
                         <li class="nav-item mb-2">
 
                             <a  class="nav-link   py-3 border-0" title="Dashboard"
@@ -184,6 +300,4 @@
                             <li><a class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div>
-                </div>
-            <!-- </div>
-        </div> -->
+                </div> -->

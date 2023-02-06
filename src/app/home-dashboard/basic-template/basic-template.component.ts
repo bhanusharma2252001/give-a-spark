@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './basic-template.component.html',
   styleUrls: ['./basic-template.component.scss']
 })
-// s
+
 export class BasicTemplateComponent implements OnInit {
   details: any;
   username: any;
@@ -19,7 +19,7 @@ export class BasicTemplateComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
-  demodataa = "color :red";
+ 
 img:boolean=true;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   signatureDetailsForm: FormGroup
@@ -31,7 +31,7 @@ img:boolean=true;
   LongQuote: any;
   ShowOneQuote: boolean = true;
   
-
+TemplateId:any
 
   url: string | ArrayBuffer | null | undefined;
   Submitted = false
@@ -95,6 +95,7 @@ img:boolean=true;
     nameFontSize: this.fontSizeName,
     nameAlign: this.nameAlign,
     borderRadius: this.borderRadius
+
 
   }
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
@@ -187,29 +188,7 @@ img:boolean=true;
 
 
   
-  // copyMessage(val: any) {
-  //   const selBox = document.createElement('textarea');
-  //   selBox.style.position = 'fixed';
-  //   selBox.style.left = '0';
-  //   selBox.style.top = '0';
-  //   selBox.style.opacity = '0';
-  //   selBox.value = val;
-  //   document.body.appendChild(selBox);
-  //   selBox.focus();
-  //   selBox.select();
-  //   document.execCommand('copy');
-  //   document.body.removeChild(selBox);
-  //   alert(this.templateRef.innerHTML);
-  // }
 
-
-
-// public TemplateCopy(value: any): void {
-//   const text: string = value.textContent || '';
-//   console.log(text);
-//   const successful = this.clipboard.copy(text);
-
-// }
 
 CopyToClipboard(element:any) {
 
@@ -369,6 +348,10 @@ b.value= "Copied"
 
     this.api.addsignatureDetails(body).subscribe((res: any) => {
       console.log(res);
+      this.TemplateId=res?.data?._id
+      console.log(this.TemplateId, 'iddddd');
+      
+
       this.toast.success('Template  Created Successfully');
 
       this.getTemplateDetails();
@@ -413,6 +396,8 @@ b.value= "Copied"
   }
 
   saveChanges() {
+    console.log(this.TemplateId, "template id");
+    
     let log = {
       templateDesign: {
         firstNameColor: this.firstNameColor,
@@ -429,7 +414,7 @@ b.value= "Copied"
 
       }
     }
-    this.api.templateCustomize(log).subscribe((res: any) => {
+    this.api.templateCustomize(this.TemplateId, log).subscribe((res: any) => {
       console.log(res);
       this.toast.success('Template  Created Successfully');
 

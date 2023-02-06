@@ -26,6 +26,7 @@ const routes: Routes = [
       { path: 'plan', loadChildren: () => import('./plan/plan.module').then((m) => m.PlanModule)},
       { path: 'myprofile', loadChildren: () => import('./myprofile/myprofile.module').then((m) => m.MyprofileModule)},
       { path: 'flyer', loadChildren: () => import('./flyer/flyer.module').then((m) => m.FlyerModule)},
+      { path: 'templates', loadChildren: () => import('./templates/templates.module').then((m) => m.TemplatesModule)},
      {
       path:'myorder', component:MyorderComponent
      },

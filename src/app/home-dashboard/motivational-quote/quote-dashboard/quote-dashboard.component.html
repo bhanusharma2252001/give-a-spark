@@ -119,7 +119,14 @@
                                         {{quote?.authorId?.firstName}}{{quote?.authorId?.lastName}}</cite>
                                 </figcaption>
                             </figure>
+                            <div class="col-md-1">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getQuoteEvent($event, quote)">
+                                   
+                                  </div>
+                            </div>
                         </div>
+                       
                     </div>
 
                 </div>

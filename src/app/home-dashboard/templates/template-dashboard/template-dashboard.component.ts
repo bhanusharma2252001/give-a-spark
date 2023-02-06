@@ -410,6 +410,8 @@ onSubmit(data: any) {
 
   this.api.addsignatureDetails(body).subscribe((res: any) => {
     console.log(res);
+    this.templateId=res?.result?._id
+    console.log(this.templateId, 'kkkkkkkkk')
     this.toast.success('Template  Created Successfully');
 
     
@@ -422,7 +424,7 @@ onSubmit(data: any) {
       localStorage.removeItem('LongQuotes')
     
     }
-    this.saveChanges() ;
+    // this.saveChanges() ;
   },
     (error) => {
       this.toast.error('please try again');
@@ -442,7 +444,8 @@ addQuote() {
 
 
 
-saveChanges() {
+saveChanges(Id:any) {
+  
   let log = {
     templateDesign: {
       firstNameColor: this.firstNameColor,
@@ -459,7 +462,7 @@ saveChanges() {
 
     }
   }
-  this.api.templateCustomize(log).subscribe((res: any) => {
+  this.api.templateCustomize(log,this.templateId).subscribe((res: any) => {
     console.log(res);
     this.toast.success('Template  Created Successfully');
 
