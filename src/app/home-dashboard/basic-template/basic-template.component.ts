@@ -164,6 +164,9 @@ TemplateId:any
 
 
 
+
+  
+
   ngOnInit(): void {
 
     // this.getBasicProfile()
@@ -195,7 +198,7 @@ CopyToClipboard(element:any) {
   var doc:any = document
   , text = doc.getElementById(element)
   , range, selection:any;
-
+console.log(element,'kaya')
 if (doc.body.createTextRange)
 {
   range = doc.body.createTextRange();
@@ -210,12 +213,19 @@ else if (window.getSelection)
   range.selectNodeContents(text);
   selection.removeAllRanges();
   selection.addRange(range);
+  console.log(text,'t');
+  alert(text)
+  
 }
 document.execCommand('copy');
 let a :any = window.getSelection();  
 a.removeAllRanges();
+console.log(a, 'a');
+
 let b :any= document.getElementById("btn")
 b.value= "Copied"
+console.log(b,'b');
+
 // document.getElementById("btn").value="Copied";
 }
 
@@ -509,6 +519,7 @@ b.value= "Copied"
     this.templateRef = this.tableData.nativeElement
     console.log(this.templateRef, "templatesssssssss")
   }
+
 
  
 }

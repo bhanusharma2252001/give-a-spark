@@ -126,7 +126,8 @@ export class SavedTemplatesComponent implements OnInit {
   getTemplates() {
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.templateList=res?.result
-      this.design=res?.result[12]?.foundDesigns
+      this.design=this.templateList.foundDesigns[0]?.templateDesign?.firstNameColor
+
       console.log(this.design, 'designh');
       
 console.log(this.templateList?.createdBy?.SelectPlan);

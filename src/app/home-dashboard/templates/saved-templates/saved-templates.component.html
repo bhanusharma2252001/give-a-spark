@@ -1,33 +1,43 @@
-<div
->
-<table  cellpadding="0" width="480" height="300" *ngFor="let tempDetails of templateList " 
- style="background-color:#ffff;border-collapse:collapse;padding:5px">
+
+
+
+
+<table id="first-clip" cellpadding="0" width="480" height="300" *ngFor="let tempDetails of templateList " 
+style="background-color:#ffff;border-collapse:collapse;padding:5px">
 <tbody>
   <tr>
 
     <td>
-      <div>
-        <!-- <div style="text-align:center;" *ngIf="!tempDetails?.profileImage">
+      <div >
+        <div style="text-align:center;" *ngIf="!tempDetails?.profileImage">
           <img style="width: 80px;height: 80px;border-radius: 50%;" src="assets/images/profile.png " />
         </div>
         <div style="padding:15px;" *ngIf="tempDetails?.profileImage">
-          <img style="width: 80px;height: 80px;border-radius: 50%;" 
+          <img style="width: 80px;height: 80px;border-radius: 50%;" [style.border-radius.px]="tempDetails?.foundDesigns[0]?.templateDesign?.borderRadius"
+          
             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-        </div> -->
-        <div > <img 
-            style="width: 80px;height: 80px;border-radius: 50%;" src="assets/images/logo.png " /> </div>
+        </div>
+        
 
       </div>
+      <!-- <div  *ngIf=" templateShow == 'free'">
+          <img style="width:100px;height:100px;"
+              src="assets/images/logo.png" alt=""
+              [style.border-radius.px]="borderRadius">
+        </div> -->
       <div style="">
-        <h2 style="margin-bottom:0;margin-top:-10px;" color="#000000" >
-          <span style="margin: 0px; font-size: 34px;" [style.color]="design?.templateDesign?.firstNameColor" >{{tempDetails?.yourName}}</span></h2>
+        <h2 style="margin-bottom:0;margin-top:-10px;" color="#000000" [style.text-align]="tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign">
+          <span style="margin: 0px; font-size: 34px;" [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew"
+          [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.firstNameColor" 
+            [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.templateFontSize">{{tempDetails?.yourName}}</span></h2>
 
         <p style="margin:-6px 0px 0px  0px; font-size: 14px;text-align: center;" color="#000000"><span
-         >{{tempDetails?.designation}}</span></p>
+            [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.designationColor" [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew"
+            [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.itemFontSize">{{tempDetails?.designation}}</span></p>
       </div>
 
 
-<!-- 
+
       <ul 
         style="display:flex;justify-content: space-around;width:110px; list-style:none; padding-left:3px;">
         <li> <a style="padding:1px" href="{{tempDetails?.fbProfile }}" target="_blank"><img alt=""
@@ -43,45 +53,54 @@
           <a style="padding:1px" href="{{tempDetails?.instagramProfile }}" target="_blank"> <img alt=""
               style="width:15px;height:15px;" src="assets/images/yellow-in.png"></a>
         </li>
-      </ul> -->
+      </ul>
     </td>
 
 
     <td>
       <div class="">
-        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" >
+        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.itemFontSize"
+          [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew" [style.line-height]="lineHeight"
+          [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor">
           <span style="padding-right:10px">Phone:</span>{{tempDetails?.phoneNo}}</p>
-        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" >
+        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.itemFontSize"
+          [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew" [style.line-height]="tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight"
+          [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor">
           <span style="padding-right:10px">Mail:</span>{{tempDetails?.email}}</p>
-        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;">
+        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+          [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew" [style.line-height]="tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight"
+          [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor">
           <span style="padding-right:10px">Website:</span>{{tempDetails?.companyWebsite}}</p>
-        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" >
-          <span style="padding-right:10px">Location:</span>{{tempDetails?.address[0]?.addressline1}}
+        <p style="margin-bottom:0px;font-size: 12px; line-height:1.5;" [style.font-size.px]="itemFontSize"
+          [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew" [style.line-height]="tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight"
+          [style.color]="tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor">
+          <span style="padding-right:10px">Location:</span>{{tempDetails?.address[0].city}}
         </p>
       </div>
       <div class="">
-        <p *ngIf="tempDetails?.quotesId?.quotesName " >
+        <p *ngIf="tempDetails?.quotesId?.quotesName " [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.itemFontSize"
+          [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew" [style.line-height]="tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight">
           {{tempDetails?.quotesId?.quotesName}}
           <br>
 
           {{tempDetails?.quotesId?.authorId?.firstName}}
         </p>
-        <p *ngIf="tempDetails?.quotes" >
+        <p *ngIf="tempDetails?.quotes" [style.font-size.px]="tempDetails?.foundDesigns[0]?.templateDesign?.itemFontSize" [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew"
+          [style.line-height]="tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight">
           {{tempDetails?.quotes}}
           <br>
         </p>
       </div>
     </td>
     <td>
-      <img src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}" role="presentation"
-        class="sc-cHGsZl bHiaRe" style="width:45px; height:45px ;display: inline-block;">
+      <!-- <img src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}" role="presentation"
+        class="sc-cHGsZl bHiaRe" style="width:45px; height:45px ;display: inline-block;"> -->
     </td>
   </tr>
 </tbody>
 
     </table>
 
-</div>
 
 
 
@@ -93,77 +112,3 @@
 
 
 
-
-
-
-
-<!-- <div class="col-md-6 col-lg-6 pe-3 align-self-center "  *ngFor="let tempDetails of templateList ">
-
-    <div class="card-box  border-10 p-4 pe-2 ps-2" >
-        <div class="row m-0">
-            <div class="col-md-3 col-lg-3 self-align-center"
-                *ngIf="!tempDetails?.profileImage">
-                <img class="wh-150" src="assets/images/profile-image.png">
-            </div>
-            <div class="col-md-3 col-lg-3 self-align-center"
-                *ngIf="tempDetails?.profileImage">
-                <img class="wh-150"
-                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-            </div>
-            <div class="col-md-7 col-lg-6 ps-2 pe-0">
-             
-                <h4 class="" >
-                    <span class="text-darkblue" 
-                       >{{tempDetails?.yourName}}</span>
-                </h4>
-        
-                <h6 class="mb-3" 
-                  >
-                    {{tempDetails?.designation}}</h6>
-
-             
-
-
-                <div class="d-flex pe-3">
-
-                    <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                   
-                    <p class=" fs-122" >{{tempDetails?.phoneNo}} </p>
-                </div>
-                <div class="d-flex pe-3">
-                    <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                
-                    <p class=" fs-122" >{{tempDetails?.email}}</p>
-                </div>
-                <div class="d-flex pe-3">
-                    <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                 
-                    <p class=" fs-122" >{{tempDetails?.companyWebsite}}</p>
-                </div>
-
-            </div>
-            <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
-                    role="presentation" width="130" class="sc-cHGsZl bHiaRe"
-                    style="max-width: 130px; display: inline-block;">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 text-center">
-            
-                <div  *ngIf="tempDetails?.quotesId">
-                    <p >
-                        {{tempDetails?.quotesId?.quotesName}}</p>
-                    <h6 >
-                        {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
-                </div>
-                <p *ngIf="tempDetails?.quotes"
-                   >
-                    {{tempDetails?.quotes}}</p>
-            </div>
-
-        </div>
-
-    </div>
-</div> -->

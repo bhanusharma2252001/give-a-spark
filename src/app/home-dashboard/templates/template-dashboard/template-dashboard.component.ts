@@ -11,7 +11,7 @@ import { SparkService } from 'src/app/service/spark.service';
   styleUrls: ['./template-dashboard.component.scss']
 })
 export class TemplateDashboardComponent implements OnInit {
-
+logo="assets/images/logo-1.png"
   details: any;
   username: any;
   Email: any;
@@ -96,6 +96,8 @@ img:boolean=true;
     borderRadius: this.borderRadius
 
   }
+  tempList: any;
+  useraddress: any;
 
   
 CopyToClipboard(element:any) {
@@ -188,6 +190,7 @@ b.value= "Copied"
 
 
   ngOnInit(): void {
+    this.getTemplateByUser();
     // this.getFreeTempById();
     // this.getBasicProfile()
     this.getDesign();
@@ -410,6 +413,7 @@ onSubmit(data: any) {
 
   this.api.addsignatureDetails(body).subscribe((res: any) => {
     console.log(res);
+ 
     this.templateId=res?.result?._id
     console.log(this.templateId, 'kkkkkkkkk')
     this.toast.success('Template  Created Successfully');
@@ -555,6 +559,18 @@ setSignature() {
 
 
 
+getTemplateByUser(){
+  this.api.getsignatureDetails().subscribe((res: any) => {
+
+    this.tempDetails = res.result[res.result.length - 1];
+    this.useraddress= this.tempDetails?.address[0].city
+    this.quotevar=this.tempDetails?.quotes
+
+    console.log(this.tempDetails, "kkkkkkkk")
+
+
+  })
+}
 
 
 
