@@ -1,9 +1,9 @@
 .limit {
-    width:45ch;
+    width:70ch;
     overflow: hidden;
     text-overflow:clip;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-line-clamp: 2; /* number of lines to show */
             line-clamp: 1; 
     -webkit-box-orient: vertical;
 }
@@ -12,4 +12,14 @@
 //     white-space:wrap;
 //         overflow:hidden;
 //         text-overflow: "----";
-// }
+// }]
+.limit {
+    width:90% !important;
+    margin:0px;
+}
+img.author_image{
+    height: 160px;
+    width: 160px;
+    border: 7px solid black;
+    z-index: -1;
+    }

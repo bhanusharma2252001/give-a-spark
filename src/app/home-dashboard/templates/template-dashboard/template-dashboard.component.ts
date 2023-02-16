@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
@@ -8,7 +8,8 @@ import { SparkService } from 'src/app/service/spark.service';
 @Component({
   selector: 'app-template-dashboard',
   templateUrl: './template-dashboard.component.html',
-  styleUrls: ['./template-dashboard.component.scss']
+  styleUrls: ['./template-dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TemplateDashboardComponent implements OnInit {
 logo="assets/images/logo-1.png"
@@ -98,6 +99,7 @@ img:boolean=true;
   }
   tempList: any;
   useraddress: any;
+  proList: any;
 
   
 CopyToClipboard(element:any) {
@@ -105,6 +107,7 @@ CopyToClipboard(element:any) {
   var doc:any = document
   , text = doc.getElementById(element)
   , range, selection:any;
+console.log(text,'ok');
 
 if (doc.body.createTextRange)
 {
@@ -191,8 +194,7 @@ b.value= "Copied"
 
   ngOnInit(): void {
     this.getTemplateByUser();
-    // this.getFreeTempById();
-    // this.getBasicProfile()
+this.getProList();
     this.getDesign();
     // this.getTemplateDetails();
     if (localStorage.getItem('quoteId')) {
@@ -261,7 +263,7 @@ b.value= "Copied"
 
   FreeTempList() {
     this.api.getFreeTemp().subscribe((res: any) => {
-      this.details = res?.result[0];
+      this.details = res?.result;
       console.log(this.details, 'arrrayyyy');
       
       this.secondTemp=res?.result[1];
@@ -277,20 +279,21 @@ b.value= "Copied"
   }
   
 
-
+getProList(){
+  this.api.getProTemp().subscribe((res=>{
+    this.proList=res;
+  //  let prodesign=this.proList?.result[0]?.templateDesign
+  //  console.log(prodesign);
+   
+    console.log(this.proList?.result[0], 'prolIst');
+    
+  }))
+}
  
 
-  // setSignature() {
-  //   console.log(this.tableData.nativeElement);
-  //   this.templateRef = this.tableData.nativeElement
-  //   console.log(this.templateRef, "templatesssssssss")
-  // }
 
 
 
-navigate(){
-  this.router.navigate(['./basic-template'])
-}
 sendId(Id:any){
 this.templateId=Id
 console.log(this.templateId, "idddddddd");
@@ -572,7 +575,10 @@ getTemplateByUser(){
   })
 }
 
-
+editTemplate(val:any) {
+  let id :number = val;
+  this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: id } })
+}
 
 
 

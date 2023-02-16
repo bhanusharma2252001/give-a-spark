@@ -34,6 +34,10 @@ details:any;
   qrCode: any;
   gemail: any;
 
+  phoneCode:any
+  country:any;
+  countryList:any
+  // countryList:any = [{"id":1,"name":"USA","stdCode":"1","isoCode2":"US","isoCode3":"USA"},{"id":2,"name":"Afghanistan","stdCode":"93","isoCode2":"AF","isoCode3":"AFG"},{"id":3,"name":"Albania","stdCode":"355","isoCode2":"AL","isoCode3":"ALB"},{"id":4,"name":"Algeria","stdCode":"213","isoCode2":"DZ","isoCode3":"DZA"},{"id":5,"name":"American Samoa","stdCode":"1-684","isoCode2":"AS","isoCode3":"ASM"},{"id":224,"name":"Tuvalu","stdCode":"688","isoCode2":"TV","isoCode3":"TUV"},{"id":225,"name":"U.S. Virgin Islands","stdCode":"1-340","isoCode2":"VI","isoCode3":"VIR"},{"id":226,"name":"Uganda","stdCode":"256","isoCode2":"UG","isoCode3":"UGA"},{"id":227,"name":"Ukraine","stdCode":"380","isoCode2":"UA","isoCode3":"UKR"},{"id":228,"name":"United Arab Emirates","stdCode":"971","isoCode2":"AE","isoCode3":"ARE"},{"id":229,"name":"United Kingdom","stdCode":"44","isoCode2":"GB","isoCode3":"GBR"},{"id":230,"name":"Uruguay","stdCode":"598","isoCode2":"UY","isoCode3":"URY"},{"id":231,"name":"Uzbekistan","stdCode":"998","isoCode2":"UZ","isoCode3":"UZB"},{"id":232,"name":"Vanuatu","stdCode":"678","isoCode2":"VU","isoCode3":"VUT"},{"id":233,"name":"Vatican","stdCode":"379","isoCode2":"VA","isoCode3":"VAT"},{"id":234,"name":"Venezuela","stdCode":"58","isoCode2":"VE","isoCode3":"VEN"},{"id":235,"name":"Vietnam","stdCode":"84","isoCode2":"VN","isoCode3":"VNM"},{"id":236,"name":"Wallis and Futuna","stdCode":"681","isoCode2":"WF","isoCode3":"WLF"},{"id":237,"name":"Western Sahara","stdCode":"212","isoCode2":"EH","isoCode3":"ESH"},{"id":238,"name":"Yemen","stdCode":"967","isoCode2":"YE","isoCode3":"YEM"},{"id":239,"name":"Zambia","stdCode":"260","isoCode2":"ZM","isoCode3":"ZMB"},{"id":240,"name":"Zimbabwe","stdCode":"263","isoCode2":"ZW","isoCode3":"ZWE"}]
 
 
   constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone,private spinner: NgxSpinnerService) {
@@ -41,9 +45,8 @@ details:any;
       firstName:['',[Validators.required]],
       companyName:['',[Validators.required]],
       companyWebsite:['',[Validators.required]],
-      phone:['', Validators.compose([Validators.required,Validators.pattern(
-        '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
-          )])]
+      phone:['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      stdCode:['']
       
 
     
@@ -70,6 +73,7 @@ window.onpopstate = function () {
 
   ngOnInit(): void {
    this.getbasicDetails()
+   this. getPhoneCode()
  if(sessionStorage.getItem('username')){
   this.userName= sessionStorage.getItem('username')
 
@@ -95,7 +99,7 @@ this.getScanText();
   getScanText() {
     let token:any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard?token='+btoa(token)
-    // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
+
   }
 
   onSubmit(data:any){  this.Submitted = true;
@@ -105,6 +109,7 @@ this.getScanText();
         companyWebsite:data.companyWebsite,
         phone:data.phone,
          email:this.Email,
+         stdCode:data.stdCode
          
     } 
     this.spinner.show()
@@ -113,9 +118,7 @@ this.getScanText();
       this.spinner.hide()
       this.toast.success(' Details added successfully');
       this.router.navigate(['home-dashboard/basicdetails-company'])
-      // sessionStorage.setItem('website', data.companyWebsite)
-      // sessionStorage.setItem('phone', data.phone)
-      // sessionStorage.setItem('compname', data.companyName)
+    
     },err=>{
       this.spinner.hide()
     })
@@ -143,6 +146,14 @@ console.log(this.details)
 
 
   }
+
+  getPhoneCode(){
+    this.api.phoneValidation().subscribe((res:any)=>{
+      this.countryList=res;
+      console.log(this.countryList, 'country');
+      
+    })
+  }
   onSelectImage(event:any){
 
   }
@@ -155,6 +166,20 @@ console.log(this.details)
       this.router.navigate(['']);
     })
 
+  }
+
+
+  // yha chnage h
+
+  changeCountry(evt:any) {
+    console.log(evt.value);
+    this.countryList.filter((item:any)=>{
+      if(item.name == evt.value) {
+        this.phoneCode = item.stdCode
+      }
+    })
+    console.log(this.phoneCode);
+    
   }
 
 

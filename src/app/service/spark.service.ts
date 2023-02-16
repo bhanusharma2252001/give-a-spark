@@ -331,4 +331,23 @@ updateFreeTemp(id:any,body:any){
   })
 }
 
+
+
+
+
+
+getProTemp(){  return this.http.get(environment.localApiURL +'/api/freeTemplate/getProTemplateList',{
+    headers: { Authorization: `bearer ${this.token}` },
+});
+  
+}
+phoneValidation(){
+  return this.http.get(environment.localApiURL +'/api/user/getMobileValidation',{
+    headers: { Authorization: `bearer ${this.token}` },})
+}
+
+updateTemplate(id:any,body:any) {
+  return this.http.put(environment.localApiURL + '/api/template/updateTemplate/'+id,body,{
+    headers: { Authorization: `bearer ${this.token}` },})
+}
 }

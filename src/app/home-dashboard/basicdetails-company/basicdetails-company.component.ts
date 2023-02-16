@@ -33,22 +33,22 @@ export class BasicdetailsCompanyComponent implements OnInit {
   details: any;
   Email: any;
   number: any;
+  stdCode: any;
   constructor(private api:SparkService, private fb:FormBuilder, private router:Router, private toast : ToastrService,private meta:Meta,private title: Title ) { 
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.companyDetailForm=this.fb.group({
       companyName:['', [Validators.required]],
       companyWebsite: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
       companyAddress:[''],  
 
-      companyPhone:['', Validators.compose([Validators.required,Validators.pattern(
-      '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
-        )])],
+      companyPhone:['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
       companyFax:[''],
       companyLogo:[''],
-      fbProfile:[''],
-      instagramProfile:[''],
-      linkedInProfile:[''],  
-      youtubeChannel:[''],
-      twitterProfile:['',],
+      fbProfile: ['', [ Validators.pattern(reg)]],
+      instagramProfile:['', [ Validators.pattern(reg)]],
+      linkedInProfile:['',[Validators.required, Validators.pattern(reg)]],  
+      youtubeChannel:['',[Validators.required, Validators.pattern(reg)]],
+      twitterProfile:['',[Validators.required, Validators.pattern(reg)]],
     })
    
 
@@ -97,7 +97,7 @@ this.Email=res.result[0]?.email
 this.compName=res.result[0]?.companyName
 this.compWebsite=res.result[0]?.companyWebsite
 this.number=res.result[0]?.phone
-
+this.stdCode=res.result[0]?.stdCode
 
 
 console.log(this.compWebsite, 'jojo')

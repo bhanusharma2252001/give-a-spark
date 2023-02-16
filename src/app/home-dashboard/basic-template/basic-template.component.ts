@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-basic-template',
   templateUrl: './basic-template.component.html',
-  styleUrls: ['./basic-template.component.scss']
+  styleUrls: ['./basic-template.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class BasicTemplateComponent implements OnInit {
@@ -170,7 +171,7 @@ TemplateId:any
   ngOnInit(): void {
 
     // this.getBasicProfile()
-    this.getDesign();
+    // this.getDesign();
     this.getTemplateDetails();
     if (localStorage.getItem('quoteId')) {
       this.QuoteId = localStorage.getItem('quoteId')
@@ -428,7 +429,7 @@ console.log(b,'b');
       console.log(res);
       this.toast.success('Template  Created Successfully');
 
-      this.getDesign();
+      // this.getDesign();
     },
       (error) => {
         this.toast.error('please try again');

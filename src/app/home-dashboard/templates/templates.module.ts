@@ -7,13 +7,15 @@ import { TemplateDashboardComponent } from './template-dashboard/template-dashbo
 import { SavedTemplatesComponent } from './saved-templates/saved-templates.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { EditTemplateComponent } from './edit-template/edit-template.component';
 
 
 @NgModule({
   declarations: [
     TemplatesComponent,
     TemplateDashboardComponent,
-    SavedTemplatesComponent
+    SavedTemplatesComponent,
+    EditTemplateComponent
   ],
   imports: [
     CommonModule,

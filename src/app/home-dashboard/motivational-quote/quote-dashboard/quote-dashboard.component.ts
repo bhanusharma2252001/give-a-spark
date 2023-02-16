@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -23,23 +23,28 @@ export class QuoteDashboardComponent implements OnInit {
   SubSubQuotesData: any;
   subQuotesData: any;
   catQuoteData: any;
-  constructor(private api: SparkService, private fb: FormBuilder, private router: Router) {
+  templateId:any
+  constructor(private api: SparkService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
       subCategoriesId: [''],
       subSubCategoriesId: [''],
     })
+    this.getTemplateId()
   }
   getQuoteEvent(event: any, data: any) {
     this.quotedata = data;
     this.quoteId = this.quotedata._id;
     this.LongQuotes = data?.quotesName
-    this.router.navigate(['/home-dashboard/basic-template'])
-    localStorage.setItem('quoteId', this.quoteId)
-
-    localStorage.setItem('LongQuotes', this.LongQuotes)
-    console.log(this.quotedata, "quote data");
-
+    if(this.templateId == 0) {
+      this.router.navigate(['/home-dashboard/basic-template'])
+      localStorage.setItem('quoteId', this.quoteId)  
+      localStorage.setItem('LongQuotes', this.LongQuotes)
+    } else {
+      localStorage.setItem('templatequoteId', this.quoteId)
+      localStorage.setItem('templateLongQuotes', this.LongQuotes)      
+      this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
+    }
   }
 
 
@@ -51,6 +56,16 @@ export class QuoteDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getCategory();
   }
+
+  getTemplateId() {
+    this.route.queryParamMap.subscribe((params: any) => {
+     let templateId = params.params['templateId'] || 0;
+     this.templateId = Number(templateId)
+     if (this.templateId == 0) {
+       this.router.navigate(['home-dashboard/basic-template'])
+     }
+   });
+ }
 
 
   getCategory() {

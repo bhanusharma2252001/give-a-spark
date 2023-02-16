@@ -28,7 +28,7 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-md-6 col-lg-6">
-                                <div class="form-box bg-white p-4 shadow border-10 ">
+                                <div class=" bg-white p-4 shadow border-10 ">
 
 
                                     <div class="">
@@ -74,12 +74,32 @@
                                                     class="text-danger text-sm">
                                                     <small class="fs-12">Company website is required </small> </div>
                                             </div>
+
+                                            
+
                                             <div class="mb-4">
+                                                
+
+    
+
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="exampleInputfiled" class="form-label"> Country</label><br>
+                                                <select class="p-2 m-2 border-0 border-bottom w-100 " id="exampleInputfiled" [(ngModel)]="country" [ngModelOptions]="{standalone: true}" (change)="changeCountry($event.target)">
+                                                    <option *ngFor="let item of countryList" value="{{item?.name}}">{{item?.name}}</option>
+                                                </select>
+                                                </div>
+                                                <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label">Your Phone</label>
-                                                <input type="text" maxlength="13" minlength="10"
+                                                <input type="text" [(ngModel)]="phoneCode" readonly formControlName="stdCode" style="width: 33px;
+                                                position: relative;
+                                                top: 32px;left:-80px;
+                                                 border: none;  border-left: none; border-bottom: 1px solid black;">
+
+                                              <input type="text" maxlength="10" minlength="10" 
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
-                                                    formControlName="phone" [(ngModel)]="number">
+                                                    formControlName="phone" [(ngModel)]="number" style="width:312px; margin-left:60px;">
 
                                                 <div *ngIf="profileForm.get('phone')?.hasError('required') "
                                                     class="text-danger text-sm">
@@ -99,11 +119,11 @@
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">
                                                 <img class="wh-150" src="assets/images/square-image.png">
-                                                <p class="text-blue fs-12 mb-0 mt-2 text-nowrap pe-2"
+                                                <!-- <p class="text-blue fs-12 mb-0 mt-2 text-nowrap pe-2"
                                                     data-bs-toggle="modal" data-bs-target="#change-image">
                                                     Change
                                                     Photo</p>
-                                                <p class="text-blue fs-12 mb-0">Remove</p>
+                                                <p class="text-blue fs-12 mb-0">Remove</p> -->
 
                                             </div>
                                         </div>
@@ -128,7 +148,7 @@
                                                 <div class="d-flex">
                                                     <i class="fa fa-phone text-blue fs-12 pe-3" aria-hidden="true"></i>
                                                     <p class=" fs-12" *ngIf="!number">984395709 </p>
-                                                    <p class=" fs-12">{{number}} </p>
+                                                    <p class=" fs-12">{{phoneCode}}{{number}} </p>
                                                 </div>
                                                 <div class="d-flex">
                                                     <i class="fa fa-map-marker text-blue fs-12 pe-3"

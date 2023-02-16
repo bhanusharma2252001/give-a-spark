@@ -101,27 +101,27 @@ export class SavedTemplatesComponent implements OnInit {
   getAlign(val: any) {
     this.nameAlign = val;
   }
-  getDesign() {
-    this.api.getdesign().subscribe((res: any) => {
-      let data = res?.result
-      let result = data[data?.length - 1]
-      let templateResult = result?.templateDesign;
-      console.log(templateResult, 'ada');
-      this.firstNameColor = templateResult?.firstNameColor,
-        this.lastNameColor = templateResult?.lastNameColor,
-        this.designationColor = templateResult?.designationColor,
-        this.contactDetailColor = templateResult?.contactDetailColor,
-        this.fontFamilyNew = templateResult?.fontFamily,
-        this.templateFontSize = templateResult?.fontSize,
-        this.lineHeight = templateResult?.lineHeight,
-        this.itemFontSize = templateResult?.fontSizeItem,
-        this.fontSizeName = templateResult?.nameFontSize,
-        this.nameAlign = templateResult?.nameAlign,
-        this.borderRadius = templateResult?.borderRadius
+  // getDesign() {
+  //   this.api.getdesign().subscribe((res: any) => {
+  //     let data = res?.result
+  //     let result = data[data?.length - 1]
+  //     let templateResult = result?.templateDesign;
+  //     console.log(templateResult, 'ada');
+  //     this.firstNameColor = templateResult?.firstNameColor,
+  //       this.lastNameColor = templateResult?.lastNameColor,
+  //       this.designationColor = templateResult?.designationColor,
+  //       this.contactDetailColor = templateResult?.contactDetailColor,
+  //       this.fontFamilyNew = templateResult?.fontFamily,
+  //       this.templateFontSize = templateResult?.fontSize,
+  //       this.lineHeight = templateResult?.lineHeight,
+  //       this.itemFontSize = templateResult?.fontSizeItem,
+  //       this.fontSizeName = templateResult?.nameFontSize,
+  //       this.nameAlign = templateResult?.nameAlign,
+  //       this.borderRadius = templateResult?.borderRadius
 
 
-    })
-  }
+  //   })
+  // }
 
   getTemplates() {
     this.api.getsignatureDetails().subscribe((res: any) => {
