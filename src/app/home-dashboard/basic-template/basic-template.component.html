@@ -1,629 +1,615 @@
 <div class="container-fluid">
+  <main class="">
+    <section>
+      <div class="container-fluid">
+        <div class="row m-0 p-0 mt-3">
+          <div class="col-md-12 col-lg-12">
+            <div class="row pe-5">
+              <div class="col-md-6 col-lg-6">
+                <ul class="nav nav-tabs rounded-pill px-4 py-4 align-items-center justify-content-around" id="myTab"
+                  role="tablist">
+                  <li class="nav-item_details" role="presentation">
+                    <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
+                      data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="true">
+                      <div class="box">
+                        <img class="wh-35 active-icon" src="assets/images/Details.svg">
+                        <img class="wh-35 active-black" src="assets/images/details-black.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1">
+                          Details</p>
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item_details">
+                    <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
+                      data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
+                      (click)="onClick()">
+                      <div class="box">
+                        <img class="wh-35 active-icon" src="assets/images/social-media.svg">
+                        <img class="wh-35 active-black" src="assets/images/social.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1">
+                          Social</p>
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item_details">
+                    <button class="nav-link box-link p-1" id="home-tab" data-bs-toggle="tab" data-bs-target="#template"
+                      type="button" role="tab" aria-controls="home" aria-selected="true">
+                      <div class="box">
+                        <img class="wh-35 active-icon" src="assets/images/layouts.svg">
+                        <img class="wh-35 active-black" src="assets/images/template.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1">
+                          Template</p>
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item_details">
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design"
+                      type="button" role="tab" aria-controls="home" aria-selected="true">
+                      <div class="box">
+                        <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')">
+                        <img class="wh-35 active-black" src="assets/images/design.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1">
+                          Design</p>
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item_details">
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps"
+                      type="button" role="tab" aria-controls="home" aria-selected="true">
+                      <div class="box">
+                        <img class="wh-35 active-icon" src="assets/images/apps.svg">
+                        <img class="wh-35 active-black" src="assets/images/design.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1 " id="tab_menu">Apps</p>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
+                <form [formGroup]="signatureDetailsForm" (ngSubmit)="onSubmit(signatureDetailsForm.value)">
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                        <div class="">
+
+                          <h5 class="mb-4">Signature Details</h5>
+                        </div>
+
+                        <div class="row position-relative main_form">
+                          <div class="col-md-11 col-lg-9">
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Your
+                                Name</label>
+                              <input type="text" formControlName="yourName" [(ngModel)]="username "
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp">
+
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Designation</label>
+                              <input type="text" formControlName="designation"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="desig">
+
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Phone</label>
+                              <input type="text" formControlName="phoneNo"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="number">
+
+                            </div>
 
 
-    <main class="">
-        <section>
-            <div class="container-fluid p-0 mt-5">
-                <div class="row m-0 p-0 mt-3">
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold "> Company Phone</label>
+                              <input type="text" formControlName="companyPhone"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="compPhone">
 
-                    <div class="col-md-12 col-lg-12">
-                        <div class="row pe-5">
-                            <div class="col-md-6 col-lg-6">
-                                <ul class="nav nav-tabs rounded-pill px-3 py-2 align-items-center justify-content-around"
-                                    id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link p-1 active" id="details-tab"
-                                            data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab"
-                                            aria-controls="details" aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/details.png">
-                                                <img class="wh-35 active-black" src="assets/images/details-black.png">
-                                                <p class="mb-0 fs-5 fs-12">Details</p>
-                                            </div>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link p-1 bg-white" id="social-tab"
-                                            data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab"
-                                            aria-controls="social" aria-selected="true" (click)="onClick()
-                                                              ">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/social-yellow.png">
-                                                <img class="wh-35 active-black" src="assets/images/social.png">
-                                                <p class="mb-0 fs-5 fs-12">Social</p>
-                                            </div>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link m-1  p-1" id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#template" type="button" role="tab" aria-controls="home"
-                                            aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
-                                                <img class="wh-35 active-black" src="assets/images/template.png">
-                                                <p class="mb-0 fs-5 fs-12">Template</p>
-                                            </div>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#designs" type="button" role="tab" aria-controls="home"
-                                            aria-selected="true">
-                                            <div class="box">
-                                                <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
-                                                    (click)="openTemp('free')">
-                                                <img class="wh-35 active-black" src="assets/images/design.png">
-                                                <p class="mb-0 fs-5 fs-12">Design</p>
-                                            </div>
-                                        </button>
-                                    </li>
-                                </ul>
+                            </div>
+                            <div class="mb-4">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>
+                              <input type="text" formControlName="address" [(ngModel)]="useraddress"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp">
 
+                            </div>
 
+                            <div class="mb-4">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Email</label>
+                              <input type="text" formControlName="email"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="Email" readonly>
 
-                                <form [formGroup]="signatureDetailsForm"
-                                    (ngSubmit)="onSubmit(signatureDetailsForm.value)">
+                            </div>
+                            <div class="mb-4">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Website</label>
+                              <input type="text" formControlName="companyWebsite"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="compWebsite">
 
+                            </div>
+                            <div class="mb-4" *ngIf="!LongQuote">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
+                              <input type="text" formControlName="quotes"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar">
 
-                                    <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="details" role="tabpanel"
-                                            aria-labelledby="details-tab">
-                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                            </div>
+                            <div class="mb-4" *ngIf="LongQuote">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
 
-                                                <div class="">
-
-                                                    <h4 class="mb-4">Signature Details</h4>
-                                                </div>
-
-                                                <div class="row position-relative">
-                                                    <div class="col-md-11 col-lg-9">
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Your
-                                                                Name</label>
-                                                            <input type="text" formControlName="yourName"
-                                                                [(ngModel)]="username "
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Designation</label>
-                                                            <input type="text" formControlName="designation"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="desig">
-
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Phone</label>
-                                                            <input type="text" formControlName="phoneNo"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="number">
-
-                                                        </div>
-
-
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold "> Company Phone</label>
-                                                            <input type="text" formControlName="companyPhone"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="compPhone">
-
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Address</label>
-                                                            <input type="text" formControlName="address"
-                                                                [(ngModel)]="useraddress"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                        </div>
-
-                                                        <div class="mb-4">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Email</label>
-                                                            <input type="text" formControlName="email"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="Email" readonly>
-
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Website</label>
-                                                            <input type="text" formControlName="companyWebsite"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="compWebsite">
-
-                                                        </div>
-                                                        <div class="mb-4" *ngIf="!LongQuote">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Quotes</label>
-                                                            <input type="text" formControlName="quotes"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                placeholder="write quote" [(ngModel)]="quotevar">
-
-                                                        </div>
-                                                        <div class="mb-4" *ngIf="LongQuote">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Quotes</label>
-
-                                                            <p style="position: relative;
+                              <p style="position: relative;
                                                             top: 40px">{{LongQuote}}</p>
-                                                            <input type="text" formControlName="quotesId"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp">
+                              <input type="text" formControlName="quotesId"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp">
 
-                                                        </div>
-
-
+                            </div>
 
 
 
-                                                        <div class="mb-4 d-flex" (click)="addQuote()">
-
-                                                            <p class=" ">
-                                                                <i class="fa fa-plus-circle text-blue"></i>
 
 
-                                                            </p>
-                                                            <p class="mb-0 ps-2 text-blue">
-                                                                Add Quotes</p>
-                                                        </div>
+                            <div class="mb-4 d-flex" (click)="addQuote()">
+
+                              <p class=" ">
+                                <i class="fa fa-plus-circle text-blue"></i>
+
+
+                              </p>
+                              <p class="mb-0 ps-2 text-blue">
+                                Add Quotes</p>
+                            </div>
 
 
 
-                                                    </div>
-                                                    <div class="col-md-1 col-lg-3 ps-0">
-                                                        <div class="position-absolute top-0">
-                                                            <div>
-                                                                <img class="width" [src]="url" height="200"
-                                                                    *ngIf="!tempDetails?.profileImage &&  !img">
-                                                                <img class="width" src="assets/images/logo.png "
-                                                                    *ngIf="!tempDetails?.profileImage && img" />
-                                                            </div>
+                          </div>
+                          <div class="col-md-1 col-lg-3 ps-0">
+                            <div class="position-absolute top-0">
+                              <div>
+                                <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
+                                <img class="width" src="assets/images/give-a-spark-circle.png "
+                                  *ngIf="!tempDetails?.profileImage && img" />
+                              </div>
 
-                                                            <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
-                                                            <!-- <div *ngIf="!tempDetails?.profileImage">
+                              <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
+                              <!-- <div *ngIf="!tempDetails?.profileImage">
                                                                 <img class="width" src="assets/images/logo.png " />
                                                             </div> -->
-                                                            <div *ngIf="tempDetails?.profileImage ">
+                              <div *ngIf="tempDetails?.profileImage ">
 
 
-                                                                <div
-                                                                    *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="wh-150 rounded-circle"
-                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div
+                                <div
+                                  *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                  <img class="wh-150 rounded-circle"
+                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                </div>
+                              </div>
+                              <!-- <div
                                                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
                                                             <img [style.border-radius.px]="borderRadius" class="w-40 p-2" src="{{tempDetails?.profileImage }}">
                                                           </div> -->
 
 
-                                                            <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
-                                                                data-bs-toggle="modal" data-bs-target="#change-image">
-                                                                Change
-                                                                Photo</p>
-                                                            <p class="text-blue fs-12 mb-0">Remove</p>
-                                                        </div>
-                                                    </div>
+                              <p class="text-blue fs-12 mb-0 text-nowrap pe-2" data-bs-toggle="modal"
+                                data-bs-target="#change-image">
+                                Change
+                                Photo</p>
+                              <p class="text-blue fs-12 mb-0">Remove</p>
+                            </div>
+                          </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="social" role="tabpanel"
-                                            aria-labelledby="social-tab">
-                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
+                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                                <div class="">
+                        <div class="">
 
-                                                    <h4 class="mb-4">Add Social Links</h4>
-                                                </div>
+                          <h5 class="mb-4">Add Social Links</h5>
+                        </div>
 
-                                                <div class="row position-relative">
-                                                    <div class="col-md-11 col-lg-9">
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Facebook
-                                                            </label>
-                                                            <input type="text" formControlName="fbProfile"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="faceB">
+                        <div class="row position-relative">
+                          <div class="col-md-11 col-lg-9">
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Facebook
+                              </label>
+                              <input type="text" formControlName="fbProfile"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="faceB">
 
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Instagram</label>
-                                                            <input type="text" formControlName="instagramProfile"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="insta">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
+                              <input type="text" formControlName="instagramProfile"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="insta">
 
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">LinkedIn</label>
-                                                            <input type="text" formControlName="linkedInProfile"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="Linkedin">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
+                              <input type="text" formControlName="linkedInProfile"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="Linkedin">
 
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Youtube</label>
-                                                            <input type="text" formControlName="youtubeChannel"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="uTube">
+                            </div>
+                            <div class="mb-4">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
+                              <input type="text" formControlName="youtubeChannel"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="uTube">
 
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold ">Twitter</label>
-                                                            <input type="text" formControlName="twitterProfile"
-                                                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                                id="exampleInputfiled" aria-describedby="textHelp"
-                                                                [(ngModel)]="Twitter">
+                            </div>
+                            <div class="mb-4">
+                              <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
+                              <input type="text" formControlName="twitterProfile"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="Twitter">
 
-                                                        </div>
+                            </div>
 
-                                                        <div class="mb-4 d-flex">
+                            <div class="mb-4 d-flex">
 
-                                                            <p class=" ">
-                                                                <i class="fa fa-plus-circle text-blue"></i>
-                                                            </p>
-                                                            <p class="mb-0 ps-2 text-blue">
-                                                                Add New Field</p>
-                                                        </div>
+                              <p class=" ">
+                                <i class="fa fa-plus-circle text-blue"></i>
+                              </p>
+                              <p class="mb-0 ps-2 text-blue">
+                                Add New Field</p>
+                            </div>
 
-                                                    </div>
-                                                    <div class="col-md-1 col-lg-3">
+                          </div>
+                          <div class="col-md-1 col-lg-3">
 
-                                                    </div>
+                          </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="template" role="tabpanel"
-                                            aria-labelledby="template-tab">
-                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="template" role="tabpanel" aria-labelledby="template-tab">
+                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                                <div class="">
+                        <div class="">
 
-                                                    <h4 class="mb-4">Templates</h4>
-                                                </div>
-                                                <div class="">
-                                                    <p class="mb-1 fw-semibold">Free</p>
-                                                    <img class="h-110" src="assets/images/free-template.png" (click)="
+                          <h5 class="mb-4">Templates</h5>
+                        </div>
+                        <div class="">
+                          <p class="mb-1 fw-semibold">Free</p>
+                          <img class="h-110" src="assets/images/free-template.png" (click)="
                                                     openTemp('free')">
-                                                </div>
-                                                <hr class="">
+                        </div>
+                        <hr class="">
 
-                                                <div class="mt-2">
-                                                    <p class="mb-1 fw-semibold">Pro</p>
-                                                    <img class="h-110" src="assets/images/pro-img.png"
-                                                        (click)="openTemp('pro')">
-                                                </div>
-                                                <div class="mt-2">
-                                                    <p class="mb-1 fw-semibold">Pro</p>
-                                                    <img class="h-110" src="assets/images/pro-pro-img.png"
-                                                        (click)="openTemp('propro')">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="design" role="tabpanel"
-                                            aria-labelledby="design-tab">
-                                            <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                        <div class="mt-2">
+                          <p class="mb-1 fw-semibold">Pro</p>
+                          <img class="h-110" src="assets/images/pro-img.png" (click)="openTemp('pro')">
+                        </div>
+                        <div class="mt-2">
+                          <p class="mb-1 fw-semibold">Pro</p>
+                          <img class="h-110" src="assets/images/pro-pro-img.png" (click)="openTemp('propro')">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                                <div class="">
+                        <div class="">
 
-                                                    <h4 class="mb-4">Font Styles & Colors</h4>
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-4 fw-semibold">Font Styles</h6>
+                          <h5 class="mb-4">Font Styles & Colors</h5>
+                        </div>
+                        <div class="">
+                          <h6 class="mb-4 fw-semibold">Font Styles</h6>
 
-                                                    <form class="row position-relative">
-                                                        <div class="col-md-11 col-lg-9">
-                                                            <div class="mb-2 grid-2">
-                                                                <label for="exampleInputfiled"
-                                                                    class="form-label fw-semibold mt-1 ">Font
-                                                                    Family :
-                                                                </label>
-                                                                <select class="form-select " [(ngModel)]="fontFamilyNew"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    aria-label="Default select example">
+                          <form class="row position-relative">
+                            <div class="col-md-11 col-lg-9">
+                              <div class="mb-2 grid-2">
+                                <label for="exampleInputfiled" class="form-label fw-semibold mt-1 ">Font
+                                  Family :
+                                </label>
+                                <select class="form-select " [(ngModel)]="fontFamilyNew"
+                                  [ngModelOptions]="{standalone: true}" aria-label="Default select example">
 
-                                                                    <option *ngFor="let item of fontFamilyList"
-                                                                        [value]="item">{{item}}</option>
-                                                                </select>
+                                  <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
+                                </select>
 
-                                                            </div>
-                                                            <div class="mb-2 grid-2">
+                              </div>
+                              <div class="mb-2 grid-2">
 
-                                                                <label for="customRange2"
-                                                                    class="form-label fw-semibold ">Size
-                                                                    :</label>
-                                                                <input type="range" class="form-range" min="0" max="5"
-                                                                    value="3" (change)="changeSize($event)"
-                                                                    id="customRange2">
+                                <label for="customRange2" class="form-label fw-semibold ">Size
+                                  :</label>
+                                <input type="range" class="form-range" min="0" max="5" value="3"
+                                  (change)="changeSize($event)" id="customRange2">
 
-                                                            </div>
-                                                            <div class="mb-2 grid-2">
+                              </div>
+                              <div class="mb-2 grid-2">
 
-                                                                <label for="customRange2"
-                                                                    class="form-label fw-semibold ">Line
-                                                                    Height :</label>
-                                                                <input type="range" value="3"
-                                                                    (change)="changeLine($event)" class="form-range"
-                                                                    min="0" max="5" id="customRange2">
+                                <label for="customRange2" class="form-label fw-semibold ">Line
+                                  Height :</label>
+                                <input type="range" value="3" (change)="changeLine($event)" class="form-range" min="0"
+                                  max="5" id="customRange2">
 
-                                                            </div>
-                                                            <div class="mb-2 grid-2">
-                                                                <div>Align :</div>
-                                                                <div class="d-flex">
-                                                                    <i class="m-1 fa fa-align-left" aria-hidden="true"
-                                                                        (click)="getAlign('left')"></i>
-                                                                    <i class="m-1 fa fa-align-center" aria-hidden="true"
-                                                                        (click)="getAlign('center')"></i>
-                                                                    <i class="m-1 fa fa-align-right" aria-hidden="true"
-                                                                        (click)="getAlign('right')"></i>
-                                                                    <i class="m-1 fa fa-align-justify"
-                                                                        aria-hidden="true"
-                                                                        (click)="getAlign('center')"></i>
-                                                                </div>
-                                                            </div>
+                              </div>
+                              <div class="mb-2 grid-2">
+                                <div>Align :</div>
+                                <div class="d-flex">
+                                  <i class="m-1 fa fa-align-left" aria-hidden="true" (click)="getAlign('left')"></i>
+                                  <i class="m-1 fa fa-align-center" aria-hidden="true" (click)="getAlign('center')"></i>
+                                  <i class="m-1 fa fa-align-right" aria-hidden="true" (click)="getAlign('right')"></i>
+                                  <i class="m-1 fa fa-align-justify" aria-hidden="true"
+                                    (click)="getAlign('center')"></i>
+                                </div>
+                              </div>
 
 
-                                                        </div>
-                                                        <div class="col-md-1 col-lg-3">
+                            </div>
+                            <div class="col-md-1 col-lg-3">
 
-                                                        </div>
+                            </div>
 
-                                                    </form>
-                                                </div>
-                                                <div class="mt-3">
-                                                    <h6 class="mb-4 fw-semibold">Color</h6>
-                                                    <div class="mb-2 grid-2">
-                                                        <div class="">
-                                                            <div class="d-flex align-items-center">
-                                                                <p class="mb-0 p-1"> Name:</p>
+                          </form>
+                        </div>
+                        <div class="mt-3">
+                          <h6 class="mb-4 fw-semibold">Color</h6>
+                          <div class="mb-2 grid-2">
+                            <div class="">
+                              <div class="d-flex align-items-center">
+                                <p class="mb-0 p-1"> Name:</p>
 
-                                                                <input [(colorPicker)]="firstNameColor"
-                                                                    [style.background]="firstNameColor" style="width: 15px;
+                                <input [(colorPicker)]="firstNameColor" [style.background]="firstNameColor" style="width: 15px;
                                                                 height: 14px;" />
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <p class="mb-0 p-1">Designation :</p>
+                              </div>
+                              <div class="d-flex align-items-center">
+                                <p class="mb-0 p-1">Designation :</p>
 
-                                                                <input [(colorPicker)]="designationColor"
-                                                                    [style.background]="designationColor" style="width: 15px;
+                                <input [(colorPicker)]="designationColor" [style.background]="designationColor" style="width: 15px;
                                                                 height: 14px;" />
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <p class="mb-0 p-1">Contact Details :</p>
+                              </div>
+                              <div class="d-flex align-items-center">
+                                <p class="mb-0 p-1">Contact Details :</p>
 
-                                                                <input [(colorPicker)]="contactDetailColor"
-                                                                    [style.background]="contactDetailColor" style="width: 15px;
+                                <input [(colorPicker)]="contactDetailColor" [style.background]="contactDetailColor"
+                                  style="width: 15px;
                                                                 height: 14px;" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <!-- <div class="d-flex align-items-center">
+                              </div>
+                            </div>
+                            <div class="">
+                              <!-- <div class="d-flex align-items-center">
                                                                 <p class="mb-0 p-1">Last Name:</p>
 
                                                                 <input [(colorPicker)]="lastNameColor"
                                                                     [style.background]="lastNameColor" style="width: 15px;
                                                                 height: 14px;" />
                                                             </div> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="">
-
-                                                    <h4 class="mb-4">Shapes</h4>
-                                                </div>
-                                                <div class="bg-darkgray w-25">
-
-                                                    <div class="row p-1">
-                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
-                                                            <i class="p-2  fa fa-square" aria-hidden="true"></i>
-                                                        </div>
-                                                        <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
-                                                            <i class="p-2  fa fa-circle" aria-hidden="true"></i>
-                                                        </div>
-                                                        <div class="col-md-4 rounded-3">
-                                                            <i class="p-2  fa fa-line" aria-hidden="true"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row p-1 mt-4">
-                                                    <div class="col-md-4">
-                                                        <div class="bg-darkgray rounded-3">
-                                                            <div class="grid-2">
-                                                                <p class="mb-0 p-2">Width:</p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="bg-darkgray rounded-3">
-                                                            <div class="grid-2">
-                                                                <p class="mb-0 p-2">Height:</p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="bg-darkgray rounded-3">
-                                                            <div class="grid-2">
-                                                                <p class="mb-0 p-2">Color:</p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mt-4 text-end">
-                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create
-                                            Signature</button>
-                                    </div>
-
-                                </form>
-                                <!-- <button class="btn btn-outline-warning" (click)="saveChanges()"> save</button> -->
-
-
-                                <!-- form End -->
-
-
                             </div>
+                          </div>
+                        </div>
+
+                        <div class="">
+
+                          <h6 class="mb-4">Shapes</h6>
+                        </div>
+                        <div class="bg-darkgray w-25">
+
+                          <div class="row p-1">
+                            <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
+                              <i class="p-2  fa fa-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
+                              <i class="p-2  fa fa-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-4 rounded-3">
+                              <i class="p-2  fa fa-line" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row p-1 mt-4">
+                          <div class="col-md-4">
+                            <div class="bg-darkgray rounded-3">
+                              <div class="grid-2">
+                                <p class="mb-0 p-2">Width:</p>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="bg-darkgray rounded-3">
+                              <div class="grid-2">
+                                <p class="mb-0 p-2">Height:</p>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="bg-darkgray rounded-3">
+                              <div class="grid-2">
+                                <p class="mb-0 p-2">Color:</p>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
+                      <div class="row app_background">
+                        <div>
+                          <h5 class="para-app mb-4">Enhance Your Signature</h5>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row align-items-center justify-content-center">
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/online-scheduler.png"
+                                  alt="Online Scheduler Image" /><span>Online Scheduler</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/disclaimer.png"
+                                  alt="Disclaimer Image" /><span>Disclaimer</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/green-footer.png"
+                                  alt="Green Footer Image" /><span>Green Footer</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/image-gallary.png"
+                                  alt="Image Gallary Image" /><span>Image Gallery</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/youtube-icon.png"
+                                  alt="Youtube Channel" /><span>Youtube Channel</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/custom-button.png"
+                                  alt="Custom BUtton" /><span>Custom Button</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/upload-banner.png"
+                                  alt="Upload Banner Image /"><span>Upload Banner</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/sales-event.png"
+                                  alt="Sales Event Image" /><span>Sales Event</span></div>
+                            </button>
+                            <button class="apps_button">
+                              <div class="app_div"><img src="assets/images/downlod-app.png"
+                                  alt="Download Image" /><span>Download App</span></div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-end">
+                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create
+                      Signature</button>
+                  </div>
+                </form>
+                <!-- <button class="btn btn-outline-warning" (click)="saveChanges()"> save</button> -->
+                <!-- form End -->
+              </div>
+
+              <!-- T E M P L A T E S -->
+              <div class="col-md-6 col-lg-6 pe-3" #myText>
+                <div class="row position-relative progress_padd">
+                  <div class="profile_complt-detail">
+                    <p class="profile_status">Profile 100% Completed</p>
+                  </div>
+                  <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
+                      alt="Signature image" /></div>
+                  <div class=" col-md-7 progress bar">
+                    <div class=" pro_red"></div>
+                    <div class=" pro_blue"></div>
+                    <div class=" pro_green"></div>
+                    <div class=" pro_yellow"></div>
+                  </div>
+                  <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
+                      class="sign_one" alt="Signature image" /></div>
+                </div>
 
 
+                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
+                  <div class="row m-0">
+                    <div class="col-md-3 col-lg-3 self-align-center" *ngIf="!tempDetails?.profileImage">
+                      <img class="wh-150" src="assets/images/profile-image.png">
+                    </div>
+                    <div class="col-md-3 col-lg-3 self-align-center" *ngIf="tempDetails?.profileImage">
+                      <img class="wh-150" [style.border-radius.px]="borderRadius"
+                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                    </div>
+                    <div class="col-md-7 col-lg-6 ps-2 pe-0">
+                      <h4 class="" [style.text-align]="nameAlign"><span class="text-darkblue" *ngIf="!username"
+                          [style.color]="firstNameColor" [style.font-size.px]="templateFontSize"
+                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                          [style.text-align]="nameAlign">John &nbsp;
+                        </span> <span class="text-darkblue" *ngIf="!username" [style.color]="lastNameColor"
+                          [style.font-size.px]="templateFontSize">Doe</span></h4>
+                      <h4 class="" [style.text-align]="nameAlign">
+                        <span class="text-darkblue" *ngIf="username" [style.color]="firstNameColor"
+                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                          [style.font-size.px]="templateFontSize">{{username}}</span>
+                      </h4>
+                      <h6 class="mb-3" *ngIf="!'desig && tempDetails?.designation'" [style.font-family]="fontFamilyNew"
+                        [style.line-height]="lineHeight" [style.color]="designationColor">
+                        Marketing Expert</h6>
+                      <h6 class="mb-3" *ngIf="!tempDetails?.designation" [style.font-family]="fontFamilyNew"
+                        [style.line-height]="lineHeight" [style.color]="designationColor"
+                        [style.font-size.px]="itemFontSize">
+                        {{desig}}</h6>
+
+                      <h6 class="mb-3" *ngIf="tempDetails?.designation" [style.font-family]="fontFamilyNew"
+                        [style.line-height]="lineHeight" [style.color]="designationColor"
+                        [style.font-size.px]="itemFontSize">
+                        {{tempDetails?.designation}}</h6>
 
 
+                      <div class="d-flex pe-3">
 
+                        <i class="fa fa-phone pe-2" aria-hidden="true"></i>
+                        <p class=" fs-122" *ngIf="!number" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">+1129457850 | +1129457850 </p>
+                        <p class=" fs-122" *ngIf="number" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">{{number}} </p>
+                      </div>
+                      <div class="d-flex pe-3">
+                        <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
+                        <p class=" fs-122" *ngIf="!Email" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">shreybhardwaj@gmail.com </p>
+                        <p class=" fs-122" *ngIf="Email" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">{{Email}} </p>
+                      </div>
+                      <div class="d-flex pe-3">
+                        <i class="fa fa-globe pe-2" aria-hidden="true"></i>
+                        <p class=" fs-122" *ngIf="!compWebsite" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">www.perfectiongeek.com</p>
+                        <p class=" fs-122" *ngIf="compWebsite" [style.font-family]="fontFamilyNew"
+                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
+                          [style.line-height]="lineHeight">{{compWebsite}}</p>
+                      </div>
 
-                            <!-- T E M P L A T E S -->
+                    </div>
+                    <div class="col-md-2 col-lg-3 pe-0 ps-0">
+                      <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" role="presentation" width="130"
+                        class="sc-cHGsZl bHiaRe" style="max-width: 130px; display: inline-block;">
 
-
-                            <div class="col-md-6 col-lg-6 pe-3 align-self-center " #myText>
-
-                                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
-                                    <div class="row m-0">
-                                        <div class="col-md-3 col-lg-3 self-align-center"
-                                            *ngIf="!tempDetails?.profileImage">
-                                            <img class="wh-150" src="assets/images/profile-image.png">
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 self-align-center"
-                                            *ngIf="tempDetails?.profileImage">
-                                            <img class="wh-150" [style.border-radius.px]="borderRadius"
-                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                        </div>
-                                        <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                                            <h4 class="" [style.text-align]="nameAlign"><span class="text-darkblue"
-                                                    *ngIf="!username" [style.color]="firstNameColor"
-                                                    [style.font-size.px]="templateFontSize"
-                                                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                                    [style.text-align]="nameAlign">John &nbsp;
-                                                </span> <span class="text-darkblue" *ngIf="!username"
-                                                    [style.color]="lastNameColor"
-                                                    [style.font-size.px]="templateFontSize">Doe</span></h4>
-                                            <h4 class="" [style.text-align]="nameAlign">
-                                                <span class="text-darkblue" *ngIf="username"
-                                                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize">{{username}}</span>
-                                            </h4>
-                                            <h6 class="mb-3" *ngIf="!'desig && tempDetails?.designation'"
-                                                [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
-                                                [style.color]="designationColor">
-                                                Marketing Expert</h6>
-                                            <h6 class="mb-3" *ngIf="!tempDetails?.designation"
-                                                [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
-                                                [style.color]="designationColor" [style.font-size.px]="itemFontSize">
-                                                {{desig}}</h6>
-
-                                            <h6 class="mb-3" *ngIf="tempDetails?.designation"
-                                                [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
-                                                [style.color]="designationColor" [style.font-size.px]="itemFontSize">
-                                                {{tempDetails?.designation}}</h6>
-
-
-                                            <div class="d-flex pe-3">
-
-                                                <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-122" *ngIf="!number" [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">+1129457850 | +1129457850 </p>
-                                                <p class=" fs-122" *ngIf="number" [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">{{number}} </p>
-                                            </div>
-                                            <div class="d-flex pe-3">
-                                                <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-122" *ngIf="!Email" [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">shreybhardwaj@gmail.com </p>
-                                                <p class=" fs-122" *ngIf="Email" [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">{{Email}} </p>
-                                            </div>
-                                            <div class="d-flex pe-3">
-                                                <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-122" *ngIf="!compWebsite"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">www.perfectiongeek.com</p>
-                                                <p class=" fs-122" *ngIf="compWebsite"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.color]="contactDetailColor"
-                                                    [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">{{compWebsite}}</p>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                                            <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
-                                                role="presentation" width="130" class="sc-cHGsZl bHiaRe"
-                                                style="max-width: 130px; display: inline-block;">
-
-                                            <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
+                      <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
                                                 [errorCorrectionLevel]="correctionLevel" [value]="value"
                                                 cssClass="bshadow"></ngx-qrcode> -->
-                                            <!-- <p class=" fs-12">Scan/Click QR</p> -->
-                                        </div>
-                                    </div>
+                      <!-- <p class=" fs-12">Scan/Click QR</p> -->
+                    </div>
+                  </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-8 offset-lg-2 text-center">
-                                            <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
-                                                [style.font-size.px]="itemFontSize"
-                                                *ngIf="'!tempDetails?.quotesId?.longQuotes && !tempDetails?.quotes'">
-                                                “Business opportunities are
-                                                like buses, there’s always another one
-                                                coming.”
-                                            </p>
-                                            <div *ngIf="tempDetails?.quotesId?.quotesName">
-                                                <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
-                                                    {{tempDetails?.quotesId?.quotesName}}</p>
-                                                <h6 [style.font-size.px]="itemFontSize"
-                                                    [style.line-height]="lineHeight">
-                                                    {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
-                                            </div>
-                                            <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize"
-                                                [style.line-height]="lineHeight">
-                                                {{quotevar}}</p>
-                                        </div>
+                  <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                      <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
+                        [style.font-size.px]="itemFontSize"
+                        *ngIf="'!tempDetails?.quotesId?.longQuotes && !tempDetails?.quotes'">
+                        “Business opportunities are
+                        like buses, there’s always another one
+                        coming.”
+                      </p>
+                      <div *ngIf="tempDetails?.quotesId?.quotesName">
+                        <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
+                          {{tempDetails?.quotesId?.quotesName}}</p>
+                        <h6 [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">
+                          {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
+                      </div>
+                      <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize"
+                        [style.line-height]="lineHeight">
+                        {{quotevar}}</p>
+                    </div>
 
-                                    </div>
+                  </div>
 
-                                </div>
-
+                </div>
 
 
-                                <!-- <a href="mailto:nobody@somedomain.com?body=[templateRef]">Email Us</a>   -->
 
+                <!-- <a href="mailto:nobody@somedomain.com?body=[templateRef]">Email Us</a>   -->
 
 
 
@@ -655,582 +641,439 @@
 
 
 
-                                <div id="scam">
+
+                <div id="scam">
 
 
 
-                                    <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" txtConfigFile
-                                        *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
-                                        style="
+                  <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                    txtConfigFile *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
+                    style="
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
-                                        <tbody>
-                                            <tr>
+                    <tbody>
+                      <tr>
 
-                                                <td>
-                                                    <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
-                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width:100%;">
-                                                        <tbody>
-                                                            <tr>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width:100%;">
+                            <tbody>
+                              <tr>
 
-                                                                <td
-                                                                    *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
+                                <td *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
 
-                                                                    <div *ngIf="!tempDetails?.profileImage">
-                                                                        <img class="width"
-                                                                            [style.border-radius.px]="borderRadius"
-                                                                            src="assets/images/logo.png "/>
-                                                                    </div>
-                                                                    <div style="" *ngIf="tempDetails?.profileImage">
-                                                                        <img style="width: 100px;height: 100px;border-radius: 50%;"
-                                                                            [style.border-radius.px]="borderRadius"
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                                                    </div>
+                                  <div *ngIf="!tempDetails?.profileImage">
+                                    <img class="width" [style.border-radius.px]="borderRadius"
+                                      src="assets/images/logo.png " />
+                                  </div>
+                                  <div style="" *ngIf="tempDetails?.profileImage">
+                                    <img style="width: 100px;height: 100px;border-radius: 50%;"
+                                      [style.border-radius.px]="borderRadius"
+                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
+                                  </div>
 
 
-                                                                </td>
-                                                                <td style="" *ngIf=" templateShow == 'free'">
-                                                                    <img style="width:100px;height:100px;"
-                                                                        src="assets/images/logo.png" alt=""
-                                                                        [style.border-radius.px]="borderRadius">
-                                                                </td>
+                                </td>
+                                <td style="" *ngIf=" templateShow == 'free'">
+                                  <img style="width:100px;height:100px;" src="assets/images/logo.png" alt=""
+                                    [style.border-radius.px]="borderRadius">
+                                </td>
 
 
 
 
 
-                                                            </tr>
-                                                            <tr *ngIf="templateShow == 'propro'">
-                                                                <td>
+                              </tr>
+                              <tr *ngIf="templateShow == 'propro'">
+                                <td>
 
-                                                                    <ul
-                                                                        style="display:flex;justify-content: space-around; list-style:none; padding-left:3px;">
-                                                                        <li>
-                                                                            <a href="{{tempDetails?.fbProfile }}"
-                                                                                target="_blank">
-                                                                                <img alt=""
-                                                                                    style="width:15px; height:15px; padding:1px;"
-                                                                                    src="assets/images/fb-black.png"></a>
+                                  <ul
+                                    style="display:flex;justify-content: space-around; list-style:none; padding-left:3px;">
+                                    <li>
+                                      <a href="{{tempDetails?.fbProfile }}" target="_blank">
+                                        <img alt="" style="width:15px; height:15px; padding:1px;"
+                                          src="assets/images/fb-black.png"></a>
 
 
-                                                                        </li>
+                                    </li>
 
-                                                                        <li>
-                                                                            <a href="{{tempDetails?.twitterProfile }}"
-                                                                                target="_blank">
-                                                                                <img alt=""
-                                                                                    style="width:15px;  height:15px;padding:1px;"
-                                                                                    src="assets/images/tw-black.png"></a>
+                                    <li>
+                                      <a href="{{tempDetails?.twitterProfile }}" target="_blank">
+                                        <img alt="" style="width:15px;  height:15px;padding:1px;"
+                                          src="assets/images/tw-black.png"></a>
 
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="{{tempDetails?.linkedInProfile }}"
-                                                                                target="_blank"> <img alt=""
-                                                                                    style="width:15px;  height:15px;padding:1px;"
-                                                                                    src="assets/images/li-black.png"></a>
-                                                                        </li>
-                                                                        <li>
+                                    </li>
+                                    <li>
+                                      <a href="{{tempDetails?.linkedInProfile }}" target="_blank"> <img alt=""
+                                          style="width:15px;  height:15px;padding:1px;"
+                                          src="assets/images/li-black.png"></a>
+                                    </li>
+                                    <li>
 
 
-                                                                            <a href="{{tempDetails?.instagramProfile }}"
-                                                                                target="_blank"> <img alt=""
-                                                                                    style="width:15px;  height:15px;padding:1px;"
-                                                                                    src="assets/images/in-black.png"></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                      <a href="{{tempDetails?.instagramProfile }}" target="_blank"> <img alt=""
+                                          style="width:15px;  height:15px;padding:1px;"
+                                          src="assets/images/in-black.png"></a>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+
+
+
+
+
+
+                        <td>
+                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                            style="vertical-align: -webkit-baseline-middle; padding:10px;font-size: large; font-family:Times New Roman; width: 100%;">
+                            <tbody>
+                              <tr style="text-align: center;">
+                                <td style=" padding-top:15px;">
+                                  <h2 color="#000000" class="sc-fBuWsC eeihxG"
+                                    style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);"
+                                    *ngIf="!tempDetails?.yourName">
+                                    <span [style.font-family]="fontFamilyNew" [style.color]="firstNameColor"
+                                      [style.font-size.px]="templateFontSize" [style.line-height]="lineHeight"
+                                      style="margin: 0px; padding-top:15px; font-size: 34px;"
+                                      [style.color]="firstNameColor">{{username}}</span>
+                                  </h2>
+
+                                  <h2 color="#000000" [style.text-align]="nameAlign" class="sc-fBuWsC eeihxG"
+                                    style="margin: 0px; font-size: 24px;font-weight:bold; color: rgb(0, 0, 0);"
+                                    *ngIf="tempDetails?.yourName">
+                                    <span style="margin: 0px; font-size: 34px;" [style.font-family]="fontFamilyNew"
+                                      [style.color]="firstNameColor" [style.font-size.px]="templateFontSize"
+                                      [style.line-height]="lineHeight">{{tempDetails?.yourName}}</span>
+                                  </h2>
+
+                                  <p color="#000000" font-size="large" *ngIf="!tempDetails?.designation"
+                                    class="sc-dVhcbM fghLuF"
+                                    style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                    <span>digital
+                                      marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
+                                      geeks</span>
+                                  </p>
+
+
+                                  <p color="#000000" font-size="large" *ngIf="tempDetails?.designation"
+                                    class="sc-dVhcbM fghLuF"
+                                    style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
+                                    <span [style.color]="designationColor" [style.font-family]="fontFamilyNew"
+                                      [style.font-size.px]="itemFontSize"
+                                      [style.line-height]="lineHeight">{{tempDetails?.designation}}</span>
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                              <tr>
+                                <td color="#f2547d" direction="horizontal" height="1" class="sc-jhAzac hmXDXQ"
+                                  style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                            <tbody>
+                              <tr style="vertical-align: middle;">
+                                <td>
+                                  <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                    style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                    <tbody>
+                                      <tr height="25" style="vertical-align: middle;">
+                                        <td width="30" style="vertical-align: middle;">
+                                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                            <tbody>
+                                              <tr>
+                                                <td style="vertical-align: bottom;">
+                                                  <span color="#f2547d" width="11" class="sc-jlyJG bbyJzT"
+                                                    style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                      src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png"
+                                                      color="#f2547d" width="13" class="sc-iRbamj blSEcj"
+                                                      style="display: block; background-color: rgb(242, 84, 125);"></span>
                                                 </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
 
-
-
-
-
-
-                                                <td>
-                                                    <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
-                                                        style="vertical-align: -webkit-baseline-middle; padding:10px;font-size: large; font-family:Times New Roman; width: 100%;">
-                                                        <tbody>
-                                                            <tr style="text-align: center;">
-                                                                <td style=" padding-top:15px;">
-                                                                    <h2 color="#000000" class="sc-fBuWsC eeihxG"
-                                                                        style="margin: 0px; padding-top:15px; font-size: 34px; color: rgb(0, 0, 0);"
-                                                                        *ngIf="!tempDetails?.yourName">
-                                                                        <span [style.font-family]="fontFamilyNew"
-                                                                            [style.color]="firstNameColor"
-                                                                            [style.font-size.px]="templateFontSize"
-                                                                            [style.line-height]="lineHeight"
-                                                                            style="margin: 0px; padding-top:15px; font-size: 34px;"
-                                                                            [style.color]="firstNameColor">{{username}}</span>
-                                                                    </h2>
-
-                                                                    <h2 color="#000000" [style.text-align]="nameAlign"
-                                                                        class="sc-fBuWsC eeihxG"
-                                                                        style="margin: 0px; font-size: 24px;font-weight:bold; color: rgb(0, 0, 0);"
-                                                                        *ngIf="tempDetails?.yourName">
-                                                                        <span style="margin: 0px; font-size: 34px;"
-                                                                            [style.font-family]="fontFamilyNew"
-                                                                            [style.color]="firstNameColor"
-                                                                            [style.font-size.px]="templateFontSize"
-                                                                            [style.line-height]="lineHeight">{{tempDetails?.yourName}}</span>
-                                                                    </h2>
-
-                                                                    <p color="#000000" font-size="large"
-                                                                        *ngIf="!tempDetails?.designation"
-                                                                        class="sc-dVhcbM fghLuF"
-                                                                        style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
-                                                                        <span>digital
-                                                                            marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
-                                                                            geeks</span>
-                                                                    </p>
-
-
-                                                                    <p color="#000000" font-size="large"
-                                                                        *ngIf="tempDetails?.designation"
-                                                                        class="sc-dVhcbM fghLuF"
-                                                                        style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
-                                                                        <span [style.color]="designationColor"
-                                                                            [style.font-family]="fontFamilyNew"
-                                                                            [style.font-size.px]="itemFontSize"
-                                                                            [style.line-height]="lineHeight">{{tempDetails?.designation}}</span>
-                                                                    </p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="30"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td color="#f2547d" direction="horizontal" height="1"
-                                                                    class="sc-jhAzac hmXDXQ"
-                                                                    style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="30"></td>
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-                                                    <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
-                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
-                                                        <tbody>
-                                                            <tr style="vertical-align: middle;">
-                                                                <td>
-                                                                    <table cellpadding="0" cellspacing="0"
-                                                                        class="sc-gPEVay eQYmiW"
-                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
-                                                                        <tbody>
-                                                                            <tr height="25"
-                                                                                style="vertical-align: middle;">
-                                                                                <td width="30"
-                                                                                    style="vertical-align: middle;">
-                                                                                    <table cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        class="sc-gPEVay eQYmiW"
-                                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td
-                                                                                                    style="vertical-align: bottom;">
-                                                                                                    <span
-                                                                                                        color="#f2547d"
-                                                                                                        width="11"
-                                                                                                        class="sc-jlyJG bbyJzT"
-                                                                                                        style="display: block; background-color: rgb(242, 84, 125);"><img
-                                                                                                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png"
-                                                                                                            color="#f2547d"
-                                                                                                            width="13"
-                                                                                                            class="sc-iRbamj blSEcj"
-                                                                                                            style="display: block; background-color: rgb(242, 84, 125);"></span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-
-                                                                                <td
-                                                                                    style="padding: 0px; color: rgb(0, 0, 0);">
-                                                                                    <a href="tel:889987328563"
-                                                                                        *ngIf="!tempDetails?.companyPhone"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor">5678909</span></a>
-                                                                                    <a href="tel:889987328563"
-                                                                                        *ngIf="tempDetails?.companyPhone"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor">{{tempDetails?.companyPhone}}</span></a>
-                                                                                    | <a href="tel:325874589923"
-                                                                                        *ngIf="!tempDetails?.phoneNo"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor">465869</span></a>
-                                                                                    | <a href="tel:325874589923"
-                                                                                        color="#000000"
-                                                                                        *ngIf="tempDetails?.phoneNo"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr height="25"
-                                                                                style="vertical-align: middle;">
-                                                                                <td width="30"
-                                                                                    style="vertical-align: middle;">
-                                                                                    <table cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        class="sc-gPEVay eQYmiW"
-                                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td
-                                                                                                    style="vertical-align: bottom;">
-                                                                                                    <span
-                                                                                                        color="#f2547d"
-                                                                                                        width="11"
-                                                                                                        class="sc-jlyJG bbyJzT"
-                                                                                                        style="display: block; background-color: rgb(242, 84, 125);"><img
-                                                                                                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png"
-                                                                                                            color="#f2547d"
-                                                                                                            width="13"
-                                                                                                            class="sc-iRbamj blSEcj"
-                                                                                                            style="display: block; background-color: rgb(242, 84, 125);"></span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                                <td style="padding: 0px;"
-                                                                                    *ngIf="!tempDetails?.email">
-                                                                                    <a href="mailto:user@gmail.com"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0); "
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"
-                                                                                        [style.color]="contactDetailColor"><span>{{Email}}</span></a>
-                                                                                </td>
-                                                                                <td style="padding: 0px;"
-                                                                                    *ngIf="tempDetails?.email">
-                                                                                    <a href="mailto:{{tempDetails?.email}}"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"><span
-                                                                                            [style.color]="contactDetailColor"
-                                                                                            [style.font-family]="fontFamilyNew"
-                                                                                            [style.line-height]="lineHeight">{{tempDetails?.email}}</span></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr height="25"
-                                                                                style="vertical-align: middle;">
-                                                                                <td width="30"
-                                                                                    style="vertical-align: middle;">
-                                                                                    <table cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        class="sc-gPEVay eQYmiW"
-                                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td
-                                                                                                    style="vertical-align: bottom;">
-                                                                                                    <span
-                                                                                                        color="#f2547d"
-                                                                                                        width="11"
-                                                                                                        class="sc-jlyJG bbyJzT"
-                                                                                                        style="display: block; background-color: rgb(242, 84, 125);"><img
-                                                                                                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"
-                                                                                                            color="#f2547d"
-                                                                                                            width="13"
-                                                                                                            class="sc-iRbamj blSEcj"
-                                                                                                            style="display: block; background-color: rgb(242, 84, 125);"></span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                                <td style="padding: 0px;"
-                                                                                    *ngIf="tempDetails?.companyWebsite">
-                                                                                    <a href="//{{tempDetails?.companyWebsite}}"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor"
-                                                                                            [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
-                                                                                </td>
-                                                                                <td style="padding: 0px;"
-                                                                                    *ngIf="!tempDetails?.companyWebsite">
-                                                                                    <a href="//{{tempDetails?.companyWebsite}}"
-                                                                                        color="#000000"
-                                                                                        class="sc-gipzik iyhjGb"
-                                                                                        style="text-decoration: none; color: rgb(0, 0, 0);"
-                                                                                        [style.font-size.px]="itemFontSize"
-                                                                                        [style.font-family]="fontFamilyNew"
-                                                                                        [style.line-height]="lineHeight"><span
-                                                                                            [style.color]="contactDetailColor"
-                                                                                            [style.line-height]="lineHeight">{{compWebsite}}</span></a>
-                                                                                </td>
-
-                                                                            </tr>
-                                                                            <tr height="25"
-                                                                                style="vertical-align: middle;">
-                                                                                <td width="30"
-                                                                                    style="vertical-align: middle;">
-                                                                                    <table cellpadding="0"
-                                                                                        cellspacing="0"
-                                                                                        class="sc-gPEVay eQYmiW"
-                                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td
-                                                                                                    style="vertical-align: bottom;">
-                                                                                                    <span
-                                                                                                        color="#f2547d"
-                                                                                                        width="11"
-                                                                                                        class="sc-jlyJG bbyJzT"
-                                                                                                        style="display: block; background-color: rgb(242, 84, 125);"><img
-                                                                                                            src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png"
-                                                                                                            color="#f2547d"
-                                                                                                            width="13"
-                                                                                                            class="sc-iRbamj blSEcj"
-                                                                                                            style="display: block; background-color: #f2547d;"></span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                                <td style="padding: 0px;">
-                                                                                    <span color="#000000"
-                                                                                        class="sc-csuQGl CQhxV"
-                                                                                        style="color: rgb(0, 0, 0);"><span
-                                                                                            [style.color]="contactDetailColor"
-                                                                                            [style.font-family]="fontFamilyNew"
-                                                                                            [style.font-size.px]="itemFontSize"
-                                                                                            [style.line-height]="lineHeight">{{useraddress}}</span></span>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                                <td style="text-align: right;">
-                                                                    <table cellpadding="0" cellspacing="0"
-                                                                        class="sc-gPEVay eQYmiW"
-                                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
-                                                                                        role="presentation" width="130"
-                                                                                        class="sc-cHGsZl bHiaRe"
-                                                                                        style="max-width: 130px; display: inline-block;">
-
-
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                            <tr
-                                                                *ngIf="!'tempDetails?.quotesId?.quotesName && tempDetails?.quotes'">
-                                                                <td [style.font-size.px]="itemFontSize"
-                                                                    [style.font-family]="fontFamilyNew"
-                                                                    [style.line-height]="lineHeight">"Money and success
-                                                                    don’t change people; they merely amplify
-                                                                    <br>
-                                                                    what is already there."
-                                                                    — Will Smith
-                                                                </td>
-                                                            </tr>
-                                                            <tr *ngIf="tempDetails?.quotesId?.quotesName ">
-                                                                <td [style.font-size.px]="itemFontSize"
-                                                                    [style.font-family]="fontFamilyNew"
-                                                                    [style.line-height]="lineHeight">
-                                                                    {{tempDetails?.quotesId?.quotesName}}
-                                                                    <br>
-
-                                                                    {{tempDetails?.quotesId?.authorId?.firstName}}
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <tr *ngIf="tempDetails?.quotes">
-                                                                <td [style.font-size.px]="itemFontSize"
-                                                                    [style.font-family]="fontFamilyNew"
-                                                                    [style.line-height]="lineHeight">
-                                                                    {{tempDetails?.quotes}}
-                                                                    <br>
-
-
-                                                                </td>
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-                                                    <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
-                                                        style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td height="30"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td color="#f2547d" direction="horizontal" height="1"
-                                                                    class="sc-jhAzac hmXDXQ"
-                                                                    style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="30"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                        <td style="padding: 0px; color: rgb(0, 0, 0);">
+                                          <a href="tel:889987328563" *ngIf="!tempDetails?.companyPhone" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span
+                                              [style.color]="contactDetailColor">5678909</span></a>
+                                          <a href="tel:889987328563" *ngIf="tempDetails?.companyPhone" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span
+                                              [style.color]="contactDetailColor">{{tempDetails?.companyPhone}}</span></a>
+                                          | <a href="tel:325874589923" *ngIf="!tempDetails?.phoneNo" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span
+                                              [style.color]="contactDetailColor">465869</span></a>
+                                          | <a href="tel:325874589923" color="#000000" *ngIf="tempDetails?.phoneNo"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span
+                                              [style.color]="contactDetailColor">{{tempDetails?.phoneNo}}</span></a>
+                                        </td>
+                                      </tr>
+                                      <tr height="25" style="vertical-align: middle;">
+                                        <td width="30" style="vertical-align: middle;">
+                                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                            <tbody>
+                                              <tr>
+                                                <td style="vertical-align: bottom;">
+                                                  <span color="#f2547d" width="11" class="sc-jlyJG bbyJzT"
+                                                    style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                      src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png"
+                                                      color="#f2547d" width="13" class="sc-iRbamj blSEcj"
+                                                      style="display: block; background-color: rgb(242, 84, 125);"></span>
                                                 </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td style="padding: 0px;" *ngIf="!tempDetails?.email">
+                                          <a href="mailto:user@gmail.com" color="#000000" class="sc-gipzik iyhjGb"
+                                            style="text-decoration: none; color: rgb(0, 0, 0); "
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"
+                                            [style.color]="contactDetailColor"><span>{{Email}}</span></a>
+                                        </td>
+                                        <td style="padding: 0px;" *ngIf="tempDetails?.email">
+                                          <a href="mailto:{{tempDetails?.email}}" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize"><span [style.color]="contactDetailColor"
+                                              [style.font-family]="fontFamilyNew"
+                                              [style.line-height]="lineHeight">{{tempDetails?.email}}</span></a>
+                                        </td>
+                                      </tr>
+                                      <tr height="25" style="vertical-align: middle;">
+                                        <td width="30" style="vertical-align: middle;">
+                                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                            <tbody>
+                                              <tr>
+                                                <td style="vertical-align: bottom;">
+                                                  <span color="#f2547d" width="11" class="sc-jlyJG bbyJzT"
+                                                    style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                      src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"
+                                                      color="#f2547d" width="13" class="sc-iRbamj blSEcj"
+                                                      style="display: block; background-color: rgb(242, 84, 125);"></span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td style="padding: 0px;" *ngIf="tempDetails?.companyWebsite">
+                                          <a href="//{{tempDetails?.companyWebsite}}" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span [style.color]="contactDetailColor"
+                                              [style.line-height]="lineHeight">{{tempDetails?.companyWebsite}}</span></a>
+                                        </td>
+                                        <td style="padding: 0px;" *ngIf="!tempDetails?.companyWebsite">
+                                          <a href="//{{tempDetails?.companyWebsite}}" color="#000000"
+                                            class="sc-gipzik iyhjGb" style="text-decoration: none; color: rgb(0, 0, 0);"
+                                            [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                            [style.line-height]="lineHeight"><span [style.color]="contactDetailColor"
+                                              [style.line-height]="lineHeight">{{compWebsite}}</span></a>
+                                        </td>
+
+                                      </tr>
+                                      <tr height="25" style="vertical-align: middle;">
+                                        <td width="30" style="vertical-align: middle;">
+                                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman;">
+                                            <tbody>
+                                              <tr>
+                                                <td style="vertical-align: bottom;">
+                                                  <span color="#f2547d" width="11" class="sc-jlyJG bbyJzT"
+                                                    style="display: block; background-color: rgb(242, 84, 125);"><img
+                                                      src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png"
+                                                      color="#f2547d" width="13" class="sc-iRbamj blSEcj"
+                                                      style="display: block; background-color: #f2547d;"></span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td style="padding: 0px;">
+                                          <span color="#000000" class="sc-csuQGl CQhxV"
+                                            style="color: rgb(0, 0, 0);"><span [style.color]="contactDetailColor"
+                                              [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize"
+                                              [style.line-height]="lineHeight">{{useraddress}}</span></span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <td style="text-align: right;">
+                                  <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                                    style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
+                                            role="presentation" width="130" class="sc-cHGsZl bHiaRe"
+                                            style="max-width: 130px; display: inline-block;">
 
 
-                                            </tr>
-                                            <tr>
-                                                <td height="10"></td>
-                                            </tr>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr *ngIf="!'tempDetails?.quotesId?.quotesName && tempDetails?.quotes'">
+                                <td [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                  [style.line-height]="lineHeight">"Money and success
+                                  don’t change people; they merely amplify
+                                  <br>
+                                  what is already there."
+                                  — Will Smith
+                                </td>
+                              </tr>
+                              <tr *ngIf="tempDetails?.quotesId?.quotesName ">
+                                <td [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                  [style.line-height]="lineHeight">
+                                  {{tempDetails?.quotesId?.quotesName}}
+                                  <br>
+
+                                  {{tempDetails?.quotesId?.authorId?.firstName}}
+                                </td>
+                              </tr>
+
+
+                              <tr *ngIf="tempDetails?.quotes">
+                                <td [style.font-size.px]="itemFontSize" [style.font-family]="fontFamilyNew"
+                                  [style.line-height]="lineHeight">
+                                  {{tempDetails?.quotes}}
+                                  <br>
+
+
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                          <table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                            style="vertical-align: -webkit-baseline-middle; font-size: large; font-family:Times New Roman; width: 100%;">
+                            <tbody>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                              <tr>
+                                <td color="#f2547d" direction="horizontal" height="1" class="sc-jhAzac hmXDXQ"
+                                  style="width: 100%; border-bottom: 1px solid rgb(242, 84, 125); border-left: none; display: block;">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+
+
+                      </tr>
+                      <tr>
+                        <td height="10"></td>
+                      </tr>
 
 
 
-                                        </tbody>
+                    </tbody>
 
 
 
-                                    </table>
-
-
-
-                                    
-<input id="btn" (click)="CopyToClipboard('first-clip')" type="button"
-                                        value="Copy" /> 
-
-
-            
-                                      
-                                    <div class="col-md-12 col-lg-12 mt-3 text-end">
-                                        <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()"
-                                            data-bs-toggle="modal" data-bs-target="#m-done">OK I'm Done</button>
-
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-
-                            <div>
-
-                            </div>
+                  </table>
 
 
 
 
+                  <!-- <input id="btn" (click)="CopyToClipboard('first-clip')" type="button" value="Copy" /> -->
 
 
 
 
+                  <div class="col-md-12 col-lg-12 mt-3 text-end">
+                    <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()" data-bs-toggle="modal"
+                      data-bs-target="#m-done">OK I'm Done</button>
 
 
+                  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                        </div>
-
-                    </div>
                 </div>
+
+
+              </div>
+              <div>
+              </div>
             </div>
-            <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog quotes-box">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
-                                    aria-hidden="true"></i></div>
-                            <div class="Neon Neon-theme-dragdropbox">
-                                <input
-                                    style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                                    name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
-                                    (change)="onSelectImage($event)">
-                                <div class="Neon-input-dragDrop">
-                                    <div class="Neon-input-inner">
-                                        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
-                                        <div class="Neon-input-text">
-                                            <h3>Drag&amp;Drop files here</h3> <span
-                                                style="display:inline-block; margin: 15px 0">or</span>
-                                        </div><a class="Neon-input-choose-btn blue">Browse Files</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog quotes-box">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                  aria-hidden="true"></i></div>
+              <div class="Neon Neon-theme-dragdropbox">
+                <input
+                  style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
+                  (change)="onSelectImage($event)">
+                <div class="Neon-input-dragDrop">
+                  <div class="Neon-input-inner">
+                    <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                    <div class="Neon-input-text">
+                      <h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span>
+                    </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
-    </main>
-
-
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
 
 <!-- ////////////              DONE MODAL             //////// -->
 
-
 <div class="modal fade" id="m-done" tabindex="-1" aria-labelledby="m-doneLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="m-doneLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" style="background-color:#f6f9fa;">
-            
-            
-            
-
-            <h1>key</h1>
-             <input id="btn" (click)="CopyToClipboard('first-clip')" type="button"
-                                        value="Copy" />
-            
-            
-            
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="m-doneLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color:#f6f9fa;">
+        <h1>key</h1>
+        <input id="btn" (click)="CopyToClipboard('first-clip')" type="button" value="Copy" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
 </div>

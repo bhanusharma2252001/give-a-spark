@@ -1,398 +1,392 @@
 <div class="container-fluid">
     <!-- header -->
-
-    <main class="padding-top">
-        <section>
-            <div class="container-fluid p-0 mt-5">
-                <div class="row m-0 p-0 mt-3">
-
-                    <div class="col-md-7 col-lg-10">
-                        <div class="row pe-5">
-                            <div class="col-md-6 col-lg-6">
-                                <!-- Section: Timeline -->
-                                <section class="py-5">
-                                    <ul class="timeline">
-                                        <li class="timeline-item mb-5 position-relative">
-                                            
-                                            <h5 class="fw-bold">
-                                                <span><img
-                                                    style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
-                                                    src="assets/images/1.png"> </span>Company Details</h5>
-
-                                            <p class="text-muted">
-                                                First let’s complete your company details,
-                                                These details will be used in all of your signatures.
-                                            </p>
-                                            <button class="pink-btn p-2" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop">Edit Company Details</button>
-                                        </li>
-
-                                        <li class="timeline-item mb-5 position-relative">
-                                            <h5 class="fw-bold">
-                                                <img
-                                                style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
-                                                src="assets/images/2.png"> Design Your Company Templates</h5>
-
-                                            <p class="text-muted">
-
-                                            </p>
-                                            <button class="pink-btn p-2" (click)="route()">Design your Template</button>
-                                        </li>
-
-                                        <li class="timeline-item mb-5 position-relative">
-                                            <h5 class="fw-bold">
-                                                <img
-                                                style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
-                                                src="assets/images/3.png"> Add Employees</h5>
-
-                                            <p class="text-muted">
-
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </section>
-                                <!-- Section: Timeline -->
-                            </div>
-                            <div class="col-md-6 col-lg-6 pe-3">
-                                <div class="card-box  border-10 p-4 pe-2 ps-2">
-                                    <div class="row m-0">
-                                        <div class="col-md-3 col-lg-3 self-align-center">
-                                            <img class="wh-150" src="assets/images/profile-image.png">
-                                        </div>
-                                        <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                                            <h4 class="" *ngIf="!username"><span class="text-darkblue">John</span> Doe
-                                            </h4>
-                                            <h4 class="" *ngIf="username"><span
-                                                    class="text-darkblue">{{username}}</span> </h4>
-                                            <h6 class="mb-3">Marketing Expert</h6>
-
-                                            <div class="d-flex  pe-5 ps-3">
-                                                <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="! 'number && stdCode' ">+1129457850 | +1129457850 </p>
-
-                                                <p class="fs-12" *ngIf="number">{{stdCode}}{{number}}</p>
-
-                                            </div>
-                                            <div class="d-flex  pe-5 ps-3">
-                                                <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!Email">shreybhardwaj@gmail.com </p>
-                                                <p class=" fs-12" *ngIf="Email">{{Email}}</p>
-                                            </div>
-                                            <div class="d-flex  pe-5 ps-3">
-                                                <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                                                <p class=" fs-12" *ngIf="!compWebsite ">
-                                                    www.perfectiongeeks.com</p>
-
-                                                <p class=" fs-12" *ngIf="compWebsite ">{{compWebsite}}</p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                                            <!-- <img class="img-fluid" src="assets/images/scan.png"> -->
-                                            
-                                            <ngx-qrcode style="width:150px;height:150px;"
-                                            [elementType]="elementType"
-                                            [errorCorrectionLevel]="correctionLevel"
-                                            [value]="value"
-                                            cssClass="bshadow"></ngx-qrcode>
-                                            <p class=" fs-12 text-center mt-1">Scan/Click QR</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-8 offset-lg-2 text-center">
-                                            <p>“Business opportunities are like buses, there’s always another one
-                                                coming.”
-                                            </p>
-                                            <h6> – Richard Branson</h6>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+  
+    <main class="">
+      <section>
+        <div class="container-fluid p-0 mt-4">
+          <div class="row m-0 p-0 mt-3">
+  
+            <div class="col-md-7 col-lg-10">
+              <div class="row pe-5">
+                <div class="col-md-6 col-lg-6">
+                  <!-- Section: Timeline -->
+                  <section class="">
+                    <ul class="timeline">
+                      <li class="timeline-item mb-5 position-relative">
+  
+                        <h5 class="fw-bold">
+                          <span><img style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
+                              src="assets/images/1.png"> </span>Company Details
+                        </h5>
+  
+                        <p class="text-muted">
+                          First let’s complete your company details,
+                          These details will be used in all of your signatures.
+                        </p>
+                        <button class="pink-btn p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit Company
+                          Details</button>
+                      </li>
+  
+                      <li class="timeline-item mb-5 position-relative">
+                        <h5 class="fw-bold">
+                          <img style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
+                            src="assets/images/2.png"> Design Your Company Templates
+                        </h5>
+  
+                        <p class="text-muted">
+  
+                        </p>
+                        <button class="pink-btn p-2" (click)="route()">Design your Template</button>
+                      </li>
+  
+                      <li class="timeline-item mb-5 position-relative">
+                        <h5 class="fw-bold">
+                          <img style="position: absolute;left: -51px; top: -7px;width: 37px; z-index: 2;"
+                            src="assets/images/3.png"> Add Employees
+                        </h5>
+  
+                        <p class="text-muted">
+  
+                        </p>
+                      </li>
+                    </ul>
+                  </section>
+                  <!-- Section: Timeline -->
                 </div>
+                <div class="col-md-6 col-lg-6 pe-3">
+                  <div class="card-box  border-10 p-4 pe-2 ps-2">
+                    <div class="row m-0">
+                      <div class="col-md-3 col-lg-3 self-align-center">
+                        <img class="wh-150" src="assets/images/profile-image.png">
+                      </div>
+                      <div class="col-md-7 col-lg-6 ps-2 pe-0">
+                        <h4 class="" *ngIf="!username"><span class="text-darkblue">John</span> Doe
+                        </h4>
+                        <h4 class="" *ngIf="username"><span class="text-darkblue">{{username}}</span> </h4>
+                        <h6 class="mb-3">Marketing Expert</h6>
+  
+                        <div class="d-flex  pe-5 ps-3">
+                          <i class="fa fa-phone pe-2" aria-hidden="true"></i>
+                          <p class=" fs-12" *ngIf="! 'number && stdCode' ">+1129457850 | +1129457850 </p>
+  
+                          <p class="fs-12" *ngIf="number">{{stdCode}}{{number}}</p>
+  
+                        </div>
+                        <div class="d-flex  pe-5 ps-3">
+                          <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
+                          <p class=" fs-12" *mailto:ngif="!email">shreybhardwaj@gmail.com </p>
+                          <p class=" fs-12" *ngIf="Email">{{Email}}</p>
+                        </div>
+                        <div class="d-flex  pe-5 ps-3">
+                          <i class="fa fa-globe pe-2" aria-hidden="true"></i>
+                          <p class=" fs-12" *ngIf="!compWebsite ">
+                            https://www.perfectiongeeks.com</p>
+  
+                          <p class=" fs-12" *ngIf="compWebsite ">{{compWebsite}}</p>
+  
+  
+  
+  
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-lg-3 pe-0 ps-0">
+                        <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}"
+                        role="presentation" width="130" class="sc-cHGsZl bHiaRe"
+                        style="max-width: 130px; display: inline-block;">
+  
+                  
+                        <p class=" fs-12 text-center mt-1">Scan & Click QR</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-8 offset-lg-2 text-center">
+                        <p>“Business opportunities are like buses, there’s always another one
+                          coming.”
+                        </p>
+                        <h6> – Richard Branson</h6>
+                      </div>
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
             </div>
-
-        </section>
+          </div>
+        </div>
+  
+      </section>
     </main>
     <!-- Button trigger modal -->
-
-
+  
+  
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-gray">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Company Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body m-4">
-                    <ul class="nav nav-tabs" id="" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                type="button" role="tab" aria-controls="home" aria-selected="true">Company Info</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                type="button" role="tab" aria-controls="profile" aria-selected="false">My
-                                Social Links</button>
-                        </li>
-
-                    </ul>
-                    <form [formGroup]="companyDetailForm" (ngSubmit)="onSubmit()">
-                        <div class="tab-content  mt-4" id="myTabContent">
-
-
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Name :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyName" [(ngModel)]="compName">
-                                                <div *ngIf="companyDetailForm.get('companyName')?.hasError('required') " class="text-danger text-sm">
-                                                    Company Name is required </div>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img
-                                                    class="w-10 h-25" src="assets/images/cross.png"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Website
-                                                :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" [(ngModel)]="compWebsite"
-                                                aria-describedby="emailHelp" formControlName="companyWebsite">
-                                                <div *ngIf="m['companyWebsite'].touched && m['companyWebsite'].invalid"  >
-
-                                                
-                                                <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('required')" class="text-danger text-sm">
-                                                    *url  is required
-                                                                      </div>
-                                                                      <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('pattern')" class="text-danger text-sm">
-                                                                       *Please enter valid url
-                                                                      </div>
-                                                                    </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Address
-                                                :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyAddress">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Phone :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp" maxlength="10" 
-                                                formControlName="companyPhone">
-                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm" style="    bottom: 25px;
-                                                position: relative;
-                                                left: 233px;">
-                              *
-                                                </div>
-                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')" class="text-danger text-sm">
-                                                    <small>phone no. is required</small>
-                                                   </div>
-                                                <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('pattern')" class="text-danger text-sm">
-                                                 <small>*Please enter valid no. </small>
-                                                </div>
-                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Fax :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="companyFax">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext" class="form-label">Company Logo :</label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="file" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" (change)="onSelectImage($event)"
-                                                aria-describedby="emailHelp" formControlName="companyLogo">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="mb-3 mt-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn pink-btn">Cancel</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn green-btn   ">Apply Changes</button>
-                                        </div>
-                                    </div>
-                                </div> -->
-
-
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/facebook.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-
-                                            <input type="text" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="fbProfile">
-                                                <div  *ngIf="companyDetailForm.get('fbProfile')?.value && companyDetailForm.get('fbProfile')?.invalid">
-                                                  <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
-                                                  </div>
-                                          
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/instagram.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="url" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="instagramProfile">
-                                                <div *ngIf="companyDetailForm.get('instagramProfile')?.hasError('required')" class="text-danger text-sm">
-                                                    <small>please enter your profile</small>
-                                                   </div>
-                                                <div  *ngIf="companyDetailForm.get('instagramProfile')?.value && companyDetailForm.get('instagramProfile')?.invalid">
-                                                    <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/linkedin.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="url" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="linkedInProfile">
-                                                <div  *ngIf="companyDetailForm.get('linkedInProfile')?.value && companyDetailForm.get('linkedInProfile')?.invalid">
-                                                    <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/youtube.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="url" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="youtubeChannel">
-                                                <div *ngIf="Submitted==true &&  companyDetailForm.get('youtubeChannel')?.invalid"></div>
-                                                <div  *ngIf="companyDetailForm.get('youtubeChannel')?.value && companyDetailForm.get('youtubeChannel')?.invalid">
-                                                    <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
-                                                    
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                            <label for="exampleInputtext"
-                                                class="form-label bg-white rounded-circle"><img
-                                                    src="assets/images/twitter.png"></label>
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <input type="url" class="form-control border-none bottom-border"
-                                                id="exampleInputtext" aria-describedby="emailHelp"
-                                                formControlName="twitterProfile">
-                                                <div  *ngIf="companyDetailForm.get('twitterProfile')?.value && companyDetailForm.get('twitterProfile')?.invalid">
-                                                    <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="mb-3">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-md-4 col-lg-4">
-                                        </div>
-                                        <div class="col-md-4 col-lg-4">
-                                            <p class="text-blue"><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                Add New Field</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-
-
-                            </div>
-
-                            <div class="mb-3 mt-3 mt-edit">
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-md-6">
-                                        <button type="button" class="pink-btn pe-3 ps-3 p-2" data-bs-dismiss="modal"
-                                            aria-label="Close">Cancel</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button type="submit" class="green-btn   pe-3 ps-3 p-2" data-bs-dismiss="modal" [disabled]="!companyDetailForm.valid"
-                                            aria-label="Close">Apply Changes</button>
-                                    </div>
-                                </div>
-
-                            </div>
-
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-gray">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Company Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body m-4">
+            <ul class="nav nav-tabs" id="" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                  role="tab" aria-controls="home" aria-selected="true">Company Info</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                  role="tab" aria-controls="profile" aria-selected="false">My
+                  Social Links</button>
+              </li>
+  
+            </ul>
+            <form [formGroup]="companyDetailForm" (ngSubmit)="onSubmit()">
+              <div class="tab-content  mt-4" id="myTabContent">
+  
+  
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Name :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+  
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="companyName" [(ngModel)]="compName">
+                        <div *ngIf="companyDetailForm.get('companyName')?.hasError('required') "
+                          class="text-danger text-sm">
+                          Company Name is required </div>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img class="w-10 h-25"
+                            src="assets/images/cross.png"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Website
+                          :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          [(ngModel)]="compWebsite" aria-describedby="emailHelp" formControlName="companyWebsite">
+                        <div *ngIf="m['companyWebsite'].touched && m['companyWebsite'].invalid">
+  
+  
+                          <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('required')"
+                            class="text-danger text-sm">
+                            *url is required
+                          </div>
+                          <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('pattern')"
+                            class="text-danger text-sm">
+                            *Please enter valid url
+                          </div>
                         </div>
-                    </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Address
+                          :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="companyAddress">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Phone :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" maxlength="10" formControlName="companyPhone">
+                        <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')"
+                          class="text-danger text-sm" style="    bottom: 25px;
+                                                  position: relative;
+                                                  left: 233px;">
+  
+                        </div>
+                        <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')"
+                          class="text-danger text-sm">
+                          <small>phone no. is required</small>
+                        </div>
+                        <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('pattern')"
+                          class="text-danger text-sm">
+                          <small>*Please enter valid no. </small>
+                        </div>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Fax :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="companyFax">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label">Company Logo :</label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="file" class="form-control border-none bottom-border" id="exampleInputtext"
+                          (change)="onSelectImage($event)" aria-describedby="emailHelp" formControlName="companyLogo">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="mb-3 mt-3">
+                                      <div class="row g-3 align-items-center">
+                                          <div class="col-md-6">
+                                              <button type="submit" class="btn pink-btn">Cancel</button>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <button type="submit" class="btn green-btn   ">Apply Changes</button>
+                                          </div>
+                                      </div>
+                                  </div> -->
+  
+  
                 </div>
-
-            </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label bg-white rounded-circle"><img
+                            src="assets/images/facebook.png"></label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+  
+                        <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="fbProfile">
+                        <div
+                          *ngIf="companyDetailForm.get('fbProfile')?.value && companyDetailForm.get('fbProfile')?.invalid">
+                          <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
+                        </div>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label bg-white rounded-circle"><img
+                            src="assets/images/instagram.png"></label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="url" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="instagramProfile">
+                        <div *ngIf="companyDetailForm.get('instagramProfile')?.hasError('required')"
+                          class="text-danger text-sm">
+                          <small>please enter your profile</small>
+                        </div>
+                        <div
+                          *ngIf="companyDetailForm.get('instagramProfile')?.value && companyDetailForm.get('instagramProfile')?.invalid">
+                          <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label bg-white rounded-circle"><img
+                            src="assets/images/linkedin.png"></label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="url" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="linkedInProfile">
+                        <div
+                          *ngIf="companyDetailForm.get('linkedInProfile')?.value && companyDetailForm.get('linkedInProfile')?.invalid">
+                          <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label bg-white rounded-circle"><img
+                            src="assets/images/youtube.png"></label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="url" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="youtubeChannel">
+                        <div *ngIf="Submitted==true &&  companyDetailForm.get('youtubeChannel')?.invalid"></div>
+                        <div
+                          *ngIf="companyDetailForm.get('youtubeChannel')?.value && companyDetailForm.get('youtubeChannel')?.invalid">
+                          <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-4 col-lg-4">
+                        <label for="exampleInputtext" class="form-label bg-white rounded-circle"><img
+                            src="assets/images/twitter.png"></label>
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <input type="url" class="form-control border-none bottom-border" id="exampleInputtext"
+                          aria-describedby="emailHelp" formControlName="twitterProfile">
+                        <div
+                          *ngIf="companyDetailForm.get('twitterProfile')?.value && companyDetailForm.get('twitterProfile')?.invalid">
+                          <small style="color:rgba(206, 10, 10, 0.733)">please enter valid url</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="mb-3">
+                                      <div class="row g-3 align-items-center">
+                                          <div class="col-md-4 col-lg-4">
+                                          </div>
+                                          <div class="col-md-4 col-lg-4">
+                                              <p class="text-blue"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                  Add New Field</p>
+                                          </div>
+                                      </div>
+                                  </div> -->
+  
+  
+                </div>
+  
+                <div class="mb-3 mt-3 mt-edit">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-md-6">
+                      <button type="button" class="pink-btn pe-3 ps-3 p-2" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                    </div>
+                    <div class="col-md-6">
+                      <button type="submit" class="green-btn   pe-3 ps-3 p-2" data-bs-dismiss="modal"
+                        [disabled]="!companyDetailForm.valid" aria-label="Close">Apply Changes</button>
+                    </div>
+                  </div>
+  
+                </div>
+  
+              </div>
+            </form>
+          </div>
+  
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  

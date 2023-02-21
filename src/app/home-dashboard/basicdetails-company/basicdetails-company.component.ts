@@ -90,7 +90,7 @@ window.onpopstate = function () {
 
  getBasicProfile(){
    this.api.getbasicDetaiofUseer().subscribe((res:any)=>{
-this.details=res.result;
+this.details=res.result[0];
 
 this.username=res.result[0]?.firstName
 this.Email=res.result[0]?.email

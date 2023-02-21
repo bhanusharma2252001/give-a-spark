@@ -2,7 +2,7 @@
 
 
 
-<table id="first-clip" cellpadding="0" width="480" height="300" *ngFor="let tempDetails of templateList " 
+<!-- <table id="first-clip" cellpadding="0" width="480" height="300" *ngFor="let tempDetails of templateList " 
 style="background-color:#ffff;border-collapse:collapse;padding:5px">
 <tbody>
   <tr>
@@ -20,11 +20,7 @@ style="background-color:#ffff;border-collapse:collapse;padding:5px">
         
 
       </div>
-      <!-- <div  *ngIf=" templateShow == 'free'">
-          <img style="width:100px;height:100px;"
-              src="assets/images/logo.png" alt=""
-              [style.border-radius.px]="borderRadius">
-        </div> -->
+    
       <div>
         <h2 style="margin-bottom:0;margin-top:-10px;" color="#000000" [style.text-align]="tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign">
           <span style="margin: 0px; font-size: 34px;" [style.font-family]="tempDetails?.foundDesigns[0]?.templateDesign?.fontFamilyNew"
@@ -93,14 +89,29 @@ style="background-color:#ffff;border-collapse:collapse;padding:5px">
       </div>
     </td>
     <td>
-      <!-- <img src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}" role="presentation"
-        class="sc-cHGsZl bHiaRe" style="width:45px; height:45px ;display: inline-block;"> -->
+     
     </td>
   </tr>
 </tbody>
 
-    </table>
+    </table> -->
 
+    
+    <form [formGroup]="form">
+  <label>Name</label>
+  <input type="text" formControlName="name">
+  
+  <label>Email</label>
+  <input type="email" formControlName="email">
+  
+  <label>Age</label>
+  <input type="number" formControlName="age">
+  
+  <label>Address</label>
+  <textarea formControlName="address"></textarea>
+</form>
+
+ 
 
 
 

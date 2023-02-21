@@ -47,8 +47,7 @@
                                         data-bs-target="#design" type="button" role="tab" aria-controls="home"
                                         aria-selected="true">
                                         <div class="box">
-                                            <img class="wh-35 active-icon" src="assets/images/design-yellow.png"
-                                               >
+                                            <img class="wh-35 active-icon" src="assets/images/design-yellow.png">
                                             <img class="wh-35 active-black" src="assets/images/design.png">
                                             <p class="mb-0 fs-5 fs-12">Design</p>
                                         </div>
@@ -128,7 +127,7 @@
                                                         <input type="text" formControlName="email"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Email" readonly>
+                                                            [(ngModel)]="Email">
 
                                                     </div>
                                                     <div class="mb-4">
@@ -494,13 +493,13 @@
                         <!-- T E M P L A T E S -->
 
 
-                        <div class="col-md-6 col-lg-6 pe-3 align-self-center">
+                        <div class="col-md-6 col-lg-6 pe-3 align-self-center  shadow bg-white">
                             <!-- ......................Free Templates.................... -->
 
 
                             <!-- -------------                  TEMPLATE -1         ------------ -->
-                            <div class="mt-4 m-2 p-2 shadow" *ngIf="templateId == 7">
-                                <table cellpadding="0" cellspacing="0" id="free-1"
+                            <!-- <div *ngIf="templateId == 7">
+                                <table cellpadding="0" cellspacing="0" 
                                     style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;">
                                     <tbody style="padding:5px;">
                                         <tr style="padding:5px;">
@@ -522,8 +521,8 @@
                                                                 <p color="#000000" font-size="medium"
                                                                     class="sc-dVhcbM fghLuF"
                                                                     style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 14px; line-height: 22px; ">
-                                                                    <span
-                                                                        *ngIf="tempDetails" style="text-transform: capitalize">{{tempDetails[0]?.designation}}</span><span>&nbsp;|&nbsp;</span><span>{{tempDetails?.email}}</span>
+                                                                    <span *ngIf="tempDetails"
+                                                                        style="text-transform: capitalize">{{tempDetails[0]?.designation}}</span><span>&nbsp;|&nbsp;</span><span>{{tempDetails?.email}}</span>
                                                                 </p>
                                                                 <table cellpadding="0" cellspacing="0"
                                                                     style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;">
@@ -591,7 +590,8 @@
                                                                                     href="mailto:perfectiongeeks@gmail.com"
                                                                                     color="#000000"
                                                                                     class="sc-gipzik iyhjGb"
-                                                                                    style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"><span>{{tempDetails[0]?.companyWebsite}}</span></a>
+                                                                                    style="text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;"
+                                                                                    *ngIf="tempDetails"><span>{{tempDetails[0]?.companyWebsite}}</span></a>
                                                                             </td>
                                                                         </tr>
                                                                         <tr height="25" style="vertical-align: middle;">
@@ -618,7 +618,8 @@
                                                                             </td>
                                                                             <td style="padding: 0px;"><span
                                                                                     color="#000000"
-                                                                                    style="font-size: 12px; color: rgb(0, 0, 0); text-transform: capitalize;"><span>{{tempDetails[0]?.address[0]?.city}}</span></span>
+                                                                                    style="font-size: 12px; color: rgb(0, 0, 0); text-transform: capitalize;"
+                                                                                    *ngIf="tempDetails"><span>{{tempDetails[0]?.address[0]?.city}}</span></span>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -672,8 +673,8 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;"><a
-                                                    *ngIf="tempDetails[0]?.quotesId?.quotesName " href="#" target="_blank"
-                                                    rel="noopener noreferrer" class="sc-gisBJw kDlVKO"
+                                                    *ngIf="tempDetails[0]?.quotesId?.quotesName " href="#"
+                                                    target="_blank" rel="noopener noreferrer" class="sc-gisBJw kDlVKO"
                                                     style=" font-size: 12px; display: block; color: rgb(255 255 255); background: #f2547d;"><q>{{tempDetails[0]?.quotesId?.quotesName}}</q></a>
                                                 <a *ngIf="tempDetails[0]?.quotes" href="#" target="_blank"
                                                     rel="noopener noreferrer" class="sc-gisBJw kDlVKO"
@@ -682,10 +683,11 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                    
+                            </div> -->
                             <!-- -----------------------  TEMPLATE -2   ----------------------- -->
 
-                            <div class="mt-4 p-3 shadow" *ngIf="templateId == 8">
+                            <div *ngIf="templateId == 8">
 
 
                                 <table style="width:444px;font-size:9pt;font-family:Arial,sans-serif;line-height:normal"
@@ -699,14 +701,14 @@
                                                     
                                                         style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700">|</span></span> -->
 
-                                                        <span
-                                                        style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize;">{{username}}<span
-                                                        
-                                                            style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700">|</span></span>
+                                                <span
+                                                    style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize;">{{username}}<span
+                                                        style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700">|</span></span>
 
 
-                                                        <span
-                                                    style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize">{{tempDetails[1]?.designation}}</span>
+                                                <span
+                                                    style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize"
+                                                    *ngIf="tempDetails">{{tempDetails[1]?.designation}}</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -718,7 +720,8 @@
                                                                     style="width:70px;font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Phone:</span>
                                                             </td>
                                                             <td style="width:229px"><span
-                                                                    style="width:229px;font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700">{{tempDetails[1]?.phoneNo}}</span>
+                                                                    style="width:229px;font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                    *ngIf="tempDetails">{{tempDetails[1]?.phoneNo}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -726,7 +729,8 @@
                                                                     style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Mobile:</span>
                                                             </td>
                                                             <td><span
-                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700">{{tempDetails[1]?.companyPhone}}</span>
+                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                    *ngIf="tempDetails">{{tempDetails[1]?.companyPhone}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -735,7 +739,8 @@
                                                             </td>
                                                             <td><span><a href="mailto:{email}"
                                                                         style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700;text-decoration:none"><span
-                                                                            style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700;text-decoration:none">{{tempDetails[1]?.email}}</span></a></span>
+                                                                            style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700;text-decoration:none"
+                                                                            *ngIf="tempDetails">{{tempDetails[1]?.email}}</span></a></span>
                                                             </td>
                                                         </tr>
 
@@ -744,7 +749,8 @@
                                                                     style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Web:</span>
                                                             </td>
                                                             <td><span
-                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700">{{tempDetails[1]?.companyWebsite}}</span>
+                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                    *ngIf="tempDetails">{{tempDetails[1]?.companyWebsite}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -752,7 +758,8 @@
                                                                     style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Address:</span>
                                                             </td>
                                                             <td><span
-                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700; text-transform: capitalize;">{{tempDetails[1]?.address[0]?.city}}</span>
+                                                                    style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700; text-transform: capitalize;"
+                                                                    *ngIf="tempDetails">{{tempDetails[1]?.address[0]?.city}}</span>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -762,7 +769,7 @@
                                                 <a href="https://www.codetwo.com/email-signatures/" target="_blank"><img
                                                         alt="Logo"
                                                         style="max-width:100%;width:auto;height:56px;border:0"
-                                                        src="assets/images/logo.png" height="56" border="0"></a>
+                                                        src="assets/images/logo(round).png" height="56" border="0"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -785,11 +792,18 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-2')">OK I'm Done</button>
+
+
+                                </div>
                             </div>
 
 
                             <!-- ---------------------------TEMPLATE-3 ----------------------------- -->
-                            <div class="mt-4 p-3 m-2 shadow" *ngIf="templateId == 9">
+                            <div *ngIf="templateId == 9">
                                 <table style="width: 514px; font-size: 11pt; font-family: Arial, sans-serif;"
                                     id="free-3" cellspacing="0" cellpadding="0" border="0">
                                     <tbody>
@@ -823,29 +837,35 @@
                                                             <td
                                                                 style="width: 195px; border-right: 1px solid #b26b42;font-size: 10pt; line-height: 15px; ">
                                                                 <span
-                                                                    style="font-size: 10pt; line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif; padding: 0px; margin: 0px; ">m:
+                                                                    style="font-size: 10pt; line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif; padding: 0px; margin: 0px; "
+                                                                    *ngIf="tempDetails">m:
                                                                     {{tempDetails[2]?.companyPhone}}</span>
                                                                 <span
                                                                     style="font-size: 10pt;line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif;padding: 0px; margin: 0px;"><span
-                                                                        style="font-size: 10pt;line-height: 15px;"><br></span>t:
+                                                                        style="font-size: 10pt;line-height: 15px;"
+                                                                        *ngIf="tempDetails"><br></span>t:
                                                                     {{tempDetails[2]?.phoneNo}}</span>
                                                                 <span
                                                                     style="font-size: 10pt;line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif;padding: 0px; margin: 0px;"><span
                                                                         style="font-size: 10pt;line-height: 15px;"><br></span>m:
                                                                     <a href="mailto:{email}"
                                                                         style="font-size: 10pt;line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif;padding: 0px; margin: 0px; text-decoration: none"><span
-                                                                            style="font-size: 10pt;line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif; text-decoration: none">{{tempDetails[2]?.email}}</span></a></span>
+                                                                            style="font-size: 10pt;line-height: 15px; color:#8a8a8a; font-family: Arial, sans-serif; text-decoration: none"
+                                                                            *ngIf="tempDetails">{{tempDetails[2]?.email}}</span></a></span>
                                                             </td>
                                                             <td style="width: 2px;height: 45px; "></td>
                                                             <td style="width:215; font-size: 10pt; line-height: 15px;">
                                                                 <span
-                                                                    style="font-family: Arial, sans-serif; color:#784c3f;font-size: 10pt; line-height: 15px; padding: 0px; margin: 0px; font-weight: bold;">{{tempDetails[2]?.companyWebsite}}</span>
+                                                                    style="font-family: Arial, sans-serif; color:#784c3f;font-size: 10pt; line-height: 15px; padding: 0px; margin: 0px; font-weight: bold;"
+                                                                    *ngIf="tempDetails">{{tempDetails[2]?.companyWebsite}}</span>
                                                                 <span
-                                                                    style="font-size: 10pt; line-height: 15px; font-family: Arial, sans-serif; color: #8a8a8a;padding: 0px; margin: 0px; text-transform: capitalize; "><span><br></span>{{tempDetails[2]?.address[0]?.city}}<span
+                                                                    style="font-size: 10pt; line-height: 15px; font-family: Arial, sans-serif; color: #8a8a8a;padding: 0px; margin: 0px; text-transform: capitalize; "
+                                                                    *ngIf="tempDetails"><span><br></span>{{tempDetails[2]?.address[0]?.city}}<span
                                                                         style="font-size: 10pt; line-height: 15px; font-family: Arial, sans-serif; color: #8a8a8a;"></span></span>
-                                                                <span style="display: block;"><img src="https://giveaspark.s3.amazonaws.com/{{code}}"
-                                                                    alt="Photo" style="max-width:65px; height:auto; border:0;"
-                                                                    ></span>
+                                                                <span style="display: block;"><img
+                                                                        src="https://giveaspark.s3.amazonaws.com/{{code}}"
+                                                                        alt="Photo"
+                                                                        style="max-width:65px; height:auto; border:0;"></span>
 
                                                             </td>
                                                         </tr>
@@ -869,10 +889,8 @@
                                                                 *ngIf="tempDetails[2]?.quotesId?.quotesName">
                                                                 <q>{{tempDetails[2]?.quotesId?.quotesName}} </q>
                                                             </td>
-                                                            <td colspan="3"
-                                                                style="font-size: 9pt; line-height: 11px; color: #8a8a8a; font-family: Arial, sans-serif; text-transform: capitalize;
-                                                                "
-                                                                *ngIf="tempDetails[2]?.quotes">
+                                                            <td colspan="3" style="font-size: 9pt; line-height: 11px; color: #8a8a8a; font-family: Arial, sans-serif; text-transform: capitalize;
+                                                                " *ngIf="tempDetails[2]?.quotes">
                                                                 <q> {{tempDetails[2]?.quotes}} </q>
                                                             </td>
                                                         </tr>
@@ -883,13 +901,20 @@
 
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-3')">OK I'm Done</button>
+
+
+                                </div>
+
                             </div>
 
 
                             <!-- ------------------------TEMPLATE - 4----------------------------- -->
 
 
-                            <div class="m-2 mt-5 p-3 shadow" *ngIf="templateId == 10">
+                            <div *ngIf="templateId == 10">
 
 
                                 <table id="free-4"
@@ -917,24 +942,27 @@
                                                         style="FONT-SIZE: 10pt; COLOR: #3a4345; text-transform: capitalize;"><br><strong>{{tempDetails[3]?.designation}}</strong></span>
                                                 </p>
 
-                                                <span
-                                                    style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt;"><strong>M:</strong>
+                                                <span style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt;"
+                                                    *ngIf="tempDetails"><strong>M:</strong>
                                                     {{tempDetails[3]?.phoneNo}}<br></span>
-                                                <span
-                                                    style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt;"><strong>P:</strong>
+                                                <span style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt;"
+                                                    *ngIf="tempDetails"><strong>P:</strong>
                                                     {{tempDetails[3]?.companyPhone}}<br></span>
                                                 <span
                                                     style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt;"><strong>E:</strong>
                                                     <a href="mailto:{email}"
                                                         style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"><span
-                                                            style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;">
+                                                            style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"
+                                                            *ngIf="tempDetails">
                                                             {{tempDetails[3]?.email}}</span></a></span>
 
                                                 <p style="margin-top:10px; padding-bottom: 0px; margin-bottom: 0px;">
-                                                    <span
-                                                        style="FONT-SIZE: 9pt;COLOR: #3a4345;  line-height: 13pt;"><strong>W:</strong>
+                                                    <span style="FONT-SIZE: 9pt;COLOR: #3a4345;  line-height: 13pt;"
+                                                        *ngIf="tempDetails"><strong>W:</strong>
                                                         {{tempDetails[3]?.companyWebsite}}<br></span>
-                                                    <span style="FONT-SIZE: 9pt;  line-height: 13pt; text-transform: capitalize;">
+                                                    <span
+                                                        style="FONT-SIZE: 9pt;  line-height: 13pt; text-transform: capitalize;"
+                                                        *ngIf="tempDetails">
                                                         <span><strong>A:</strong>
                                                             {{tempDetails[3]?.address[0]?.city}}<span> </span></span>
                                                         <!-- <span>{address2}</span> -->
@@ -963,9 +991,9 @@
                                             </td>
                                             <td style="padding-top: 22px;" width="120">
                                                 <p style="padding: 0px; margin: 0px;">
-                                                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}"
-                                                        alt="Photo" style="max-width:65px; height:auto; border:0;"
-                                                        width="90" border="0">
+                                                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
+                                                        style="max-width:65px; height:auto; border:0;" width="90"
+                                                        border="0">
                                                 </p>
                                             </td>
                                         </tr>
@@ -976,12 +1004,18 @@
 
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-4')">OK I'm Done</button>
+
+
+                                </div>
                             </div>
 
 
 
                             <!-- -----------------------------TEMPLATE-5------------------------ -->
-                            <div class="m-2 mt-5 p-3 shadow" *ngIf="templateId == 11">
+                            <div *ngIf="templateId == 11">
                                 <table id="free-5"
                                     style="FONT-FAMILY: Arial, sans-serif; COLOR: #2e9aa4;max-width:500px;"
                                     cellspacing="0" cellpadding="0" border="0">
@@ -999,7 +1033,7 @@
                                                 <span>
                                                     <a href="{website}" target="_blank" rel="noopener"
                                                         style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;"><span
-                                                            style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;">{{tempDetails?.companyWebsite}}</span></a>
+                                                            style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;">{{tempDetails[4]?.companyWebsite}}</span></a>
                                                 </span>
                                             </td>
                                         </tr>
@@ -1048,9 +1082,9 @@
                                             </td>
                                             <td style="padding-top: 22px;" width="120">
                                                 <p style="padding: 0px; margin: 0px;">
-                                                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}"
-                                                        alt="Photo" style="max-width:90px; height:auto; border:0;"
-                                                        width="90" border="0">
+                                                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
+                                                        style="max-width:90px; height:auto; border:0;" width="90"
+                                                        border="0">
                                                 </p>
                                             </td>
                                         </tr>
@@ -1074,6 +1108,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-5')">OK I'm Done</button>
+
+
+                                </div>
                             </div>
 
 
@@ -1081,14 +1121,16 @@
 
 
                             <!-- ----------------------------TEMPLATE-6---------------- -->
-                            <div class="m-2 mt-5 p-3 shadow" *ngIf="templateId == 12">
+                            <div *ngIf="templateId == 12">
                                 <table id="free-6" cellspacing="0" cellpadding="0" border="0"
                                     style="color: #808080; font-family: Arial, sans-serif; width: 440px;">
                                     <tbody>
                                         <tr>
                                             <td><span
-                                                    style="font-size: 18pt; color: #000000; line-height: 18pt; text-transform: capitalize;"><strong>{{tempDetails[5]?.yourName}}</strong></span><span
-                                                    style="font-size: 12pt; line-height: 20px; color: #808080; text-transform: capitalize;"><br>{{tempDetails[5]?.designation}}</span>
+                                                    style="font-size: 18pt; color: #000000; line-height: 18pt; text-transform: capitalize;"
+                                                    *ngIf="tempDetails"><strong>{{tempDetails[5]?.yourName}}</strong></span><span
+                                                    style="font-size: 12pt; line-height: 20px; color: #808080; text-transform: capitalize;"
+                                                    *ngIf="tempDetails"><br>{{tempDetails[5]?.designation}}</span>
                                             </td>
                                             <td style="width: 160px; vertical-align: top; text-align: right;"><img
                                                     border="0" src="assets/images/logo-heart.png" alt="Logo"
@@ -1097,10 +1139,10 @@
                                         <tr>
                                             <td colspan="2"
                                                 style="padding-top: 10px; font-size: 9pt; line-height: 14px;">
-                                                <span style="font-size: 9pt; color: #808080;"><span
+                                                <span style="font-size: 9pt; color: #808080;" *ngIf="tempDetails"><span
                                                         style="color: #000000;"><strong>Mobile:</strong></span>{{tempDetails[5]?.phoneNo}}<span>
-                                                        | </span></span><span
-                                                    style="font-size: 9pt; color: #808080;"><span
+                                                        | </span></span><span style="font-size: 9pt; color: #808080;"
+                                                    *ngIf="tempDetails"><span
                                                         style="color: #000000;"><strong>Phone:</strong></span>
                                                     {{tempDetails[5]?.companyPhone}}</span><span
                                                     style="font-size: 9pt;"><br><span
@@ -1121,7 +1163,7 @@
 
                                         </tr>
                                         <tr>
-                                             
+
                                             <td colspan="2" style="padding-top: 15px; max-width: 440px;"><span><a
                                                         href="{bannerURL}" target="_blank" rel="noopener"><img
                                                             border="0" src="assets/images/banner-heart.png" alt="Banner"
@@ -1140,15 +1182,26 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-6')">OK I'm Done</button>
+
+
+                                </div>
                             </div>
+                            <!-- <div class="col-md-12 col-lg-12 mt-3 text-end"> -->
+
+
+
+                            <!-- </div> -->
 
 
 
 
 
                             <!-- -----------------------------TEMPLATE-7------------------------ -->
-                            <div class="m-2 mt-5 p-3 shadow" *ngIf="templateId == 0">
-                                <table id="zs-output-sig" border="0" cellpadding="0" cellspacing="0"
+                            <div *ngIf="templateId == 7">
+                                <table id="zs-output-sig" border="0" cellpadding="0" cellspacing="0" id="free-1"
                                     style="font-family:Arial,Helvetica,sans-serif;line-height:0px;font-size:1px;padding:0px!important;border-spacing:0px;margin:0px;border-collapse:collapse; width:625px;">
                                     <tbody>
 
@@ -1165,9 +1218,9 @@
                                                                         <tr>
                                                                             <td
                                                                                 style="border-collapse: collapse; line-height: 0px; padding-right: 1px;">
-                                                                                <img height="153" width="153"
+                                                                                <img height="100" width="100"
                                                                                     alt="image" border="0"
-                                                                                    src="https://img2.gimm.io/450d2d68-ce64-4bdc-9e80-ca903e6236a4/img.png">
+                                                                                    src="assets/images/logo(round).png">
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -1181,10 +1234,10 @@
                                                                             <td
                                                                                 style="border-collapse: collapse; font-family: Gadget, Arial Black, sans-serif; font-size: 27px; font-style: normal; line-height: 29px; font-weight: 700; padding-bottom: 4px;">
                                                                                 <span
-                                                                                    style="font-family:Gadget, Arial Black, sans-serif;font-size:27.0px;font-style:normal;line-height:29px;font-weight:700;color:#218aa6;display:inline;">Nino
-                                                                                    Barino&nbsp;</span> <span
-                                                                                    style="font-family:Gadget, Arial Black, sans-serif;font-size:16.0px;font-style:italic;line-height:18px;font-weight:700;color:#333333;display:inline;">Web
-                                                                                    Design Specialist&nbsp;</span>
+                                                                                    style="font-family:Gadget, Arial Black, sans-serif;font-size:27.0px;font-style:normal;line-height:29px;font-weight:700;color:#218aa6;display:inline;">{{tempDetails[0]?.yourName}}
+                                                                                    &nbsp;</span> <span
+                                                                                    style="font-family:Gadget, Arial Black, sans-serif;font-size:16.0px;font-style:italic;line-height:18px;font-weight:700;color:#333333;display:inline;">
+                                                                                    {{tempDetails[0]?.designation}}&nbsp;</span>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -1208,12 +1261,16 @@
                                                                                 <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">P</span>
                                                                                 <span
-                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">+1
-                                                                                    (555) 7182 1921&nbsp;</span> <span
+                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">
+                                                                                    {{tempDetails[0]?.companyPhone}}&nbsp;</span> <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">
                                                                                     M</span> <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">+1
-                                                                                    (555) 7182 3113&nbsp;</span>
+                                                                                    {{tempDetails[0]?.phoneNo}}&nbsp;</span>
+                                                                                <span><img
+                                                                                        src="https://giveaspark.s3.amazonaws.com/{{code}}"
+                                                                                        alt="" width="65px"
+                                                                                        height="65px"></span>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -1227,11 +1284,11 @@
                                                                                 <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">W</span>
                                                                                 <span
-                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">www.gimm.io&nbsp;</span>
+                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">{{tempDetails[0]?.companyWebsite}}&nbsp;</span>
                                                                                 <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">
                                                                                     E</span> <span
-                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">n.barino@gimm.io&nbsp;</span>
+                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">{{tempDetails[0]?.email}}&nbsp;</span>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -1245,8 +1302,8 @@
                                                                                 <span
                                                                                     style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">A</span>
                                                                                 <span
-                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">15
-                                                                                    River Dr, San Diego CA 22434</span>
+                                                                                    style="font-family:Calibri, Helvetica, sans-serif;font-size:16.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">{{tempDetails[0]?.address[0]?.city}}
+                                                                                    </span>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -1255,11 +1312,11 @@
                                                                     style="font-family:Arial,Helvetica,sans-serif;line-height:0px;font-size:1px;padding:0px!important;border-spacing:0px;margin:0px;border-collapse:collapse;">
                                                                     <tbody>
                                                                         <a style="font-size: 9pt; line-height: 11px;  color: #2e9aa4;; font-family: Arial, sans-serif; text-align: center;"
-                                                                            *ngIf="tempDetails?.quotesId?.quotesName">
-                                                                            "{{tempDetails?.quotesId?.quotesName}}"</a>
+                                                                            *ngIf="tempDetails[0]?.quotesId?.quotesName">
+                                                                            "{{tempDetails[0]?.quotesId?.quotesName}}"</a>
                                                                         <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;; font-family: Arial, sans-serif; text-align:justify;"
-                                                                            *ngIf="tempDetails?.quotes">
-                                                                            "{{tempDetails?.quotes}}"</a>
+                                                                            *ngIf="tempDetails[0]?.quotes">
+                                                                            "{{tempDetails[0]?.quotes}}"</a>
                                                                     </tbody>
                                                                 </table>
                                                             </td>
@@ -1274,7 +1331,26 @@
 
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 col-lg-12 mt-3 text-end">
+                                    <button class="green-btn shadow  pe-4 ps-4 p-2 "
+                                        (click)="CopyToClipboard('free-1')">OK I'm Done</button>
+
+
+                                </div>
                             </div>
+
+
+                            <!-- ................................STARTING FOR PRO TEMPLATES........................ -->
+
+
+
+                            <!-- .......................  T  E  M P L A T E -1 PRO ................ -->
+                            <div>
+
+                            </div>
+
+
+
                         </div>
 
 

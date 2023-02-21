@@ -27,32 +27,41 @@
                 <div class="tab-pane fade show  bg-white active" id="pills-Free" role="tabpanel"
                     aria-labelledby="pills-Free-tab">
                     <div class="row bg-white">
-                        <div class="col-md-6 col-lg-6 p-0" (click)="editTemplate(details[0]?._id)">
-                            <img class="free-wh" src="assets/images/free-1.PNG" alt="">
+                        <div class="col-md-6 col-lg-6 p-0" >
+                            <img  *ngIf="!details[0]?.templateId" class="free-wh" src="assets/images/template-free.PNG" alt="" (click)="editTemplate(details[0]?._id)">
+                            <img *ngIf="details[0]?.templateId" class="free-wh" src="assets/images/template-free.PNG" alt="" (click)="editTemplate(details[0]?.templateId)">
+
 
                         </div>
-                        <div class="col-md-6 col-lg-6 p-0" (click)="editTemplate(details[1]?._id)">
-                            <img class="free-wh" src="assets/images/fee-2.PNG" alt="">
+                        <div class="col-md-6 col-lg-6 p-0" >
+                            <img  class="free-wh" src="assets/images/fee-2.PNG" alt=""(click)="editTemplate(details[1]?._id)">
+                            <!-- <img *ngIf="!details[1]?.templateId" class="free-wh" src="assets/images/fee-2.PNG" alt=""(click)="editTemplate(details[1]?._id)"> -->
+                            <!-- <img *ngIf="details[1]?.templateId" class="free-wh" src="assets/images/fee-2.PNG" alt=""(click)="editTemplate(details[1]?.templateId)"> -->
 
-                        </div>
-                        <div class="col-md-6 col-lg-6 p-0" (click)="editTemplate(details[2]?._id)">
-                            <img class="free-wh" src="assets/images/free-3.PNG" alt="">
-
-                        </div>
-                        <div class="col-md-6 col-lg-6 p-0" (click)="editTemplate(details[3]?._id)">
-                            <img class="free-wh" src="assets/images/free-4.PNG" alt="">
-
-                        </div>
-                        <div class="col-md-6 col-lg-6 p-0" (click)="editTemplate(details[4]?._id)">
-                            <img class="free-wh" src="assets/images/free-5.PNG" alt="">
 
                         </div>
                         <div class="col-md-6 col-lg-6 p-0">
-                            <img class="free-wh" src="assets/images/free-6.PNG" alt=""
-                                (click)="editTemplate(details[5]?._id)">
+                            <img *ngIf="!details[2]?.templateId" class="free-wh" src="assets/images/free-3.PNG" alt=""  (click)="editTemplate(details[2]?._id)">
+                            <img *ngIf="details[2]?.templateId" class="free-wh" src="assets/images/free-3.PNG" alt=""  (click)="editTemplate(details[2]?.templateId)">
 
-                        </div> 
-<!-- <div class="col-md-6">1</div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 p-0" >
+                            <img *ngIf="!details[3]?.templateId" class="free-wh" src="assets/images/free-4.PNG" alt="" (click)="editTemplate(details[3]?._id)">
+                            <img *ngIf="details[3]?.templateId" class="free-wh" src="assets/images/free-4.PNG" alt="" (click)="editTemplate(details[3]?.templateId)">
+                        </div>
+                        <div class="col-md-6 col-lg-6 p-0" >
+                            <img *ngIf="!details[4]?.templateId" class="free-wh" src="assets/images/free-5.PNG" alt="" (click)="editTemplate(details[4]?._id)">
+                            <img *ngIf="details[4]?.templateId" class="free-wh" src="assets/images/free-5.PNG" alt="" (click)="editTemplate(details[4]?.templateId)">
+
+                        </div>
+                        <div class="col-md-6 col-lg-6 p-0">
+                            <img *ngIf="!details[5]?.templateId" class="free-wh" src="assets/images/free-6.PNG" alt=""  (click)="editTemplate(details[5]?._id)"
+                               >
+                               <img *ngIf="details[5]?.templateId" class="free-wh" src="assets/images/free-6.PNG" alt=""  (click)="editTemplate(details[5]?.templateId)"
+                               >
+
+                        </div>
+                        <!-- <div class="col-md-6">1</div>
 <div class="col-md-6">2</div> -->
                     </div>
                 </div>
@@ -87,7 +96,7 @@
 
                 <div class="tab-pane fade" id="pills-Pro" role="tabpanel" aria-labelledby="pills-Pro-tab">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-8 col-lg-8">
 
 
                             <table cellpadding="0" cellspacing="0" id="eleven"
@@ -96,10 +105,10 @@
                                     <tr style="height: 238px;">
                                         <td style="color:white;width:20%;border-radius: 8px 282px 325px 16px;"> <img
                                                 *ngIf="!tempDetails?.profileImage"
-                                                style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px; position: relative; top: -2px; left: -70px; height: 241px; width: 225px;"
+                                                style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px;   height: 241px; width: 225px;"
                                                 src="assets/images/model-img.png"> <img
                                                 *ngIf="tempDetails?.profileImage"
-                                                style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px; position: relative; top: -2px; left: -70px; height: 241px; width: 225px;"
+                                                style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px;   height: 241px; width: 225px;"
                                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}">
                                         </td>
                                         <td style="color:white;width:35%">
@@ -168,11 +177,9 @@
                                                 </tbody>
                                             </table>
                                         </td>
-                                        <td style="color:white;width:5%;vertical-align:top;">
+                                        <td style="color:white;width:5%;vertical-align:center;">
                                             <div>
-                                                <p style="text-align:right;"><img
-                                                        style="width:20px;height:20px;margin:5px;"
-                                                        src="images/save-icon.png"> </p> <img
+                                                <p style="text-align:right;"> </p> <img
                                                     style="width:60px;height:60px;"
                                                     src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
                                                 <!-- <div style="background-color:#fe890d;webkit-clip-path: polygon(11% 81%, 35% 85%, 61% 93%, 76% 91%, 89% 78%, 95% 60%, 94% 44%, 88% 18%, 100% 0, 100% 100%, 0 100%, 0% 85%); clip-path: polygon(11% 81%, 35% 85%, 61% 93%, 76% 91%, 89% 78%, 95% 60%, 94% 44%, 88% 18%, 100% 0, 100% 100%, 0 100%, 0% 85%); "></div> -->
@@ -206,20 +213,6 @@
                                     Signature</button>
                             </div>
                         </div>
-                        <!-- <div class="col-md-5 col-lg-5">
-                            <div class="">
-                                <div class="bg-free-2   border-10 p-1 pe-2 ps-2">
-
-                                    <img class="w-500" alt="" src="assets/images/email-signature-pro-1.png">
-                                </div>
-
-                            </div>
-
-                            <div class="mt-4 text-center">
-                                <button type="submit" class="btn green-btn">Edit
-                                    Signature</button>
-                            </div>
-                        </div> -->
 
 
                         <div class="col-md-8 col-lg-8">
@@ -274,8 +267,198 @@
 
 
                         </div>
-                        <div class="col-md-8 col-lg-6">
+                        <!-- TEMPLATE 3 -->
+                        <div class="col-md-8 col-lg-8">
+                            <table cellpadding="0" cellspacing="0"
+                                style="  background-color: #078B7B;font-size: medium;width:700px;height:280px;font-family: Arial;">
+                                <tbody>
 
+                                    <tr>
+                                        <td colspan="2">
+
+                                            <div
+                                                style="background-color: #fff;height: 140px;margin:10px;width:150px ;text-align:center;border-radius:0 0 225px 225px; ">
+
+                                                <img style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
+                                                    src="assets/images/model-img.png ">
+                                            </div>
+
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="padding:10px;height:100px;color:white;">
+                                            <h2 style="margin-bottom:0px;color:#EDD502;">JOHN SMITH</h2>
+                                            <h6 style="margin-bottom:0px;color:#EDD502;">Designatin</h6>
+                                        <td
+                                            style="margin-top:5px;width:400px; background-color:#fff;border-radius: 111px 0 0 110px;">
+
+                                            <div style="padding:0 13px;width:70%">
+                                                <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <span style="padding:0 5px;color:black"><img style="    background: #078b7b;
+                                                        border-radius: 26px;
+                                                        width: 15px;
+                                                        padding: 2px;" src="assets/images/phone-white.png">
+                                                        *678564 </span>
+
+                                                </p>
+                                                <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <span style="padding:0 5px;color:black"><img style="   background: #078b7b;
+                                                        border-radius: 26px;
+                                                        width: 15px;
+                                                        padding: 2px;" src="assets/images/loaction.png">
+                                                        *678564 </span>
+
+                                                </p>
+
+                                                <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <span style="padding:0 5px;color:black"><img style="    background: #078b7b;
+                                                        border-radius: 26px;
+                                                        width: 15px;
+                                                        padding: 2px;" src="assets/images/web.png">
+                                                        Website</span>
+
+                                                </p>
+
+
+                                            </div>
+                                            <div style="width:30%"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="" colspan="2">
+                                            "Money and success don’t change people; they merely amplify what is already
+                                            there." — Will Smith
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- TEMPLATE-4 -->
+                        <div class="col-md-8 col-lg-8">
+                            <table cellpadding="0" cellspacing="0"
+                                style="  background-color: #073137;font-size: medium;width:700px;height:280px; font-family: Arial;">
+                                <tbody>
+                                    <tr>
+                                        <td>123</td>
+                                    </tr>
+                                    <tr>
+                                        <td>123</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            style="width:194px;padding:30px;background-color: #fff; vertical-align: center;text-align:end;border-radius:0 225px 225px 0; ">
+
+                                            <img style="width:130px;height:130px;box-shadow: 24px 0 0px -8px #fff;margin-left:-75px; border-radius:50%"
+                                                src="assets/images/square-image.png ">
+
+
+                                        </td>
+
+
+                                        <td style="">
+                                            <h2 style="margin-bottom:0px;color:#EDD502;">JOHN SMITH</h2>
+                                            <h6 style="margin-bottom:0px;color:#EDD502;">Designatin</h6>
+                                            <div style="margin-top:5px;">
+                                                <p style="color:#fff;font-size: 12px;">
+                                                    <span style="padding:0 5px;color:#fff"><img
+                                                            src="assets/images/p-b-2.png">
+                                                        *678564 </span>
+
+                                                </p>
+
+
+
+                                                <p style="color:#fff;font-size: 12px;">
+                                                    <span style="padding:0 5px;color:#fff"><img
+                                                            src="assets/images/a-b-2.png">
+                                                        Website</span>
+
+                                                </p>
+                                                <div style="padding:10px">
+                                                    <span><img
+                                                            style="width:20px;height:20px;margin:5px;  background-color: #45668e;"
+                                                            src="assets/images/f.png"></span><span><img
+                                                            style="width:20px;height:20px;margin:5px; background-color: #45668e;"
+                                                            src="assets/images/twit.png"></span><span><img
+                                                            style="width:20px;height:20px;margin:5px; background-color: #45668e;"
+                                                            src="assets/images/lin.png"></span><span><img
+                                                            style="width:20px;height:20px;margin:5px; background-color: #45668e;"
+                                                            src="assets/images/inn.png"></span>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                        <td rowspan="2" style="padding:20px; width:65px ;">
+                                            <img
+                                                src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" style="padding:10px;height:100px;color:white;">
+                                            "Money and success don’t change people; they merely amplify what is already
+                                            there." — Will Smith</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!-- -----------------------------TEMPLATE-5------------------------ -->
+                        <div class="col-md-8 col-lg-6">
+                            <table cellpadding="0" cellspacing="0"
+                                style="  background-color: #171B24;font-size: medium;width:700px;height:280px; font-family: Arial;">
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align: center;">
+                                            <div
+                                                style="box-shadow: 24px 0 0px -8px ;padding:10px;background-color: #00757e;width:150px;height:300px;margin:10px ; border-radius: 76px; ">
+
+                                                <img style="width:150px;height:280px;border-radius:10px;padding:25px;"
+                                                    src="assets/images/square-image.png "></div>
+
+                                        </td>
+
+                                        <td>
+                                            <div
+                                                style="background-color:#fff;vertical-align: center;width:350px;height:150px;border-radius:0 80px;padding:10px;text-align:center;">
+
+                                                <h2 style="margin-bottom:0px;color:black;">JOHN SMITH</h2>
+                                                <h6>Designation</h6>
+                                               
+
+                                                </div>
+                                        </td>
+                                        <!-- </td> -->
+
+                                        <td style="vertical-align: center;">
+
+                                            <div
+                                                style="padding:30px;background-color: #181818;    border-radius: 76px 0 0 0px ">
+                                                <img style="width:60px ;height:60px" src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="color:#fff">
+                                            <p>
+                                                "Money and success don’t change people; they merely amplify what is
+                                                already there." — Will Smith
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -346,6 +529,7 @@
                                                 </td>
                                                 <!-- proList?.result[0]?.templateDesign -->
                                                 <td align="right" width="113">
+
                                                     <table cellpadding="0" cellspacing="0">
                                                         <!-- <tr>
                                                     <td><img src="assets/images/rightBar.png" alt=""> </td>na
@@ -803,8 +987,11 @@ padding: 21px;">
                 ">
 
                                             <div
-                                                style="background-color:#11ac63;margin:0;padding: 20px 0;border-radius:0 0 133px 244px">
-                                                <img style="width:60px;height:60px;" src="images/qr.png">
+                                                style="    height: 86px;
+                                                background-color: #11ac63;
+                                                margin: 0;
+                                                padding: 20px 0;">
+                                                <img style="width:65px;height:65px;" src="images/qr.png">
                                             </div>
                                         </td>
 
@@ -855,7 +1042,8 @@ padding: 21px;">
                                             <q>Lorem ipsum is
                                                 placeholder text commonly used in the graphic, print, and publishing
                                                 industries for
-                                                previewing layouts and visual mockups.</q></td>
+                                                previewing layouts and visual mockups.</q>
+                                        </td>
 
                                     </tr>
                                 </tbody>

@@ -31,7 +31,7 @@ img:boolean=true;
   LongQuote: any;
   ShowOneQuote: boolean = true;
   
-
+freeId:any;
 
   url: string | ArrayBuffer | null | undefined;
   Submitted = false
@@ -263,10 +263,10 @@ this.getProList();
 
   FreeTempList() {
     this.api.getFreeTemp().subscribe((res: any) => {
-      this.details = res?.result;
+      this.details = res;
       console.log(this.details, 'arrrayyyy');
       
-      this.secondTemp=res?.result[1];
+      // this.secondTemp=res?.result[1];
       console.log(this.secondTemp,"secondTemo");
       
       console.log(res, 'xasds');
@@ -576,6 +576,7 @@ getTemplateByUser(){
 }
 
 editTemplate(val:any) {
+  
   let id :number = val;
   this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: id } })
 }

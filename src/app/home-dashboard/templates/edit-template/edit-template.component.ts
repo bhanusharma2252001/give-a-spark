@@ -30,7 +30,7 @@ img:boolean=true;
   QuoteId: any;
   LongQuote: any;
   ShowOneQuote: boolean = true;
-  
+  freeTempId:any;
 TemplateId:any
 
   url: string | ArrayBuffer | null | undefined;
@@ -129,6 +129,7 @@ TemplateId:any
   // change 
   templateId:any
   code: any;
+  proList: any;
 
 
 
@@ -164,20 +165,10 @@ TemplateId:any
 
   ngOnInit(): void {
   this.gettemplatebyUser();
+  // this. getProTemplate();
   }
 
-  getTemplateId() {
-     this.route.queryParamMap.subscribe((params: any) => {
-      let templateId = params.params['templateId'] || 0;
-      this.templateId = Number(templateId)
-      if (this.templateId == 0) {
-        this.router.navigate(['home-dashboard/templates/template-dashboard'])
-      } else {
-        this. getFreeTemplate();
-
-      }
-    });
-  }
+ 
 
   
 
@@ -265,12 +256,24 @@ console.log(b,'b');
   }
   //new change end
 
+  getTemplateId() {
+    this.route.queryParamMap.subscribe((params: any) => {
+     let templateId = params.params['templateId'] || 0;
+     this.templateId = Number(templateId)
+     if (this.templateId == 0) {
+       this.router.navigate(['home-dashboard/templates/template-dashboard'])
+     } else {
+       this. getFreeTemplate();
 
+     }
+   });
+ }
 
 
   onSubmit(data: any) {
   
     let body = {
+      templateId:this.templateId,
       yourName: data.yourName,
       designation: data.designation,
       email: data.email,
@@ -424,10 +427,13 @@ console.log(b,'b');
   
  getFreeTemplate(){
   this.api.getFreeTemp().subscribe((res:any)=>{
-    this.tempDetails=res.result;
+    this.tempDetails=res;
     console.log( this.tempDetails, 'free Templates');
     this.tempDetails.filter((item:any)=>{
       if(item?._id == this.templateId) {
+        this.getBindData(item)
+      }
+      if(item?.templateId == this.templateId) {
         this.getBindData(item)
       }
     })
@@ -487,5 +493,14 @@ console.log(this.code);
   if(localStorage.getItem('templateLongQuotes')) {
     localStorage.removeItem('templateLongQuotes')
   }
+ }
+
+  // Pro Templates
+ getProTemplate(){
+  this.api.getProTemplates().subscribe((res:any)=>{
+    this.proList=res.result;
+    console.log(this.proList, 'pro');
+    
+  })
  }
 }

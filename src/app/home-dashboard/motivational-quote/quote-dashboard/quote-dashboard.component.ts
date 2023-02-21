@@ -62,7 +62,7 @@ export class QuoteDashboardComponent implements OnInit {
      let templateId = params.params['templateId'] || 0;
      this.templateId = Number(templateId)
      if (this.templateId == 0) {
-       this.router.navigate(['home-dashboard/basic-template'])
+      //  this.router.navigate(['home-dashboard/basic-template'])
      }
    });
  }

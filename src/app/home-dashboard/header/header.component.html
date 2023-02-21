@@ -1,35 +1,34 @@
+<header class="header-shadow" *ngIf="!(href =='/home-dashboard/user-pro-md-2file') ">
 
-<header class="shadow shadow_one" *ngIf="!(href =='/home-dashboard/user-pro-md-2file') ">
-
-    <div class="row align-items-center ">
-        <!-- <div class="mouse_move">
-            <img id="img1" src="assets/images/logo-an.png" class="mouse" value="5" />
-
-            <img id="img2" src="assets/images/btn-an.png" class="mouse" value="-5" />
-        </div> -->
-        <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg ">
-            <a class="navbar-brand " href="assets/index.html">
-                <img src="assets/images/logo.png" class="img-fl ms-4">
-            </a>
-        </div>
-        <div class="col-md-9 col-lg-9 ">
-
-
-            <nav class="container">
-                <div class="d-flex align-items-center justify-content-center ">
-                    <p class="bg-yellow text-white rounded-2 p-2 mb-0">Your free trial ends in 10 days.Upgrade now and get 15% early
-                        bird
-                        discount.
-                    </p>
-                    <button class="pink-btn py-2 rounded-pill px-3 ms-3 shadow" type="submit" routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
-                </div>
-            </nav>
-        </div>
-        <div class="col-md-1 col-lg-1 p-0">
-            <form class="d-flex">
-                <img alt="profile" class="wh-50" src="assets/images/profile.png" routerLink="/home-dashboard/myprofile/profile-dashboard">
-            </form>
-        </div>
+    <div class="row align-items-center back_clr">
+      <!-- <div class="mouse_move">
+              <img id="img1" src="assets/images/logo-an.png" class="mouse" value="5" />
+  
+              <img id="img2" src="assets/images/btn-an.png" class="mouse" value="-5" />
+          </div> -->
+      <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg">
+        <a class="navbar-brand d-flex justify-content-center" href="assets/index.html">
+          <img src="assets/images/logo(round).png" class="img-fl ms-4">
+        </a>
+      </div>
+      <div class="col-md-8 col-lg-8">
+        <nav class="container">
+          <div class="d-flex align-items-center justify-content-evenly">
+            <p class="bg-yellow text-white header-center">Your free trial ends in 10 days.Upgrade now and get 15% early
+              bird
+              discount.
+            </p>
+            <button class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
+              routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-2 col-lg-2  user_back">
+        <form class="d-flex justify-content-center ">
+          <img alt="profile" class="wh-50 cur" src="assets/images/user_icon_second.png"
+            routerLink="/home-dashboard/myprofile/profile-dashboard">
+        </form>
+      </div>
     </div>
-
-</header>
+  
+  </header>

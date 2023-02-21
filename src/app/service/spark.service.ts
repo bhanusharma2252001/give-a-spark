@@ -328,15 +328,18 @@ FreeTempById(id:any){
 updateFreeTemp(id:any,body:any){
   return this.http.put( environment.localApiURL +'/api/freeTemplate/UpdateFreeTemplateById/'+id,body,{
     headers: { Authorization: `bearer ${this.token}` },
-  })
+   
+    
+  });
+
 }
 
 
 
 
 
-
-getProTemp(){  return this.http.get(environment.localApiURL +'/api/freeTemplate/getProTemplateList',{
+// Pro Plus
+getProTemp(){ return this.http.get(environment.localApiURL +'/api/freeTemplate/getProTemplateList',{
     headers: { Authorization: `bearer ${this.token}` },
 });
   
@@ -348,6 +351,14 @@ phoneValidation(){
 
 updateTemplate(id:any,body:any) {
   return this.http.put(environment.localApiURL + '/api/template/updateTemplate/'+id,body,{
-    headers: { Authorization: `bearer ${this.token}` },})
+    headers: { Authorization: `bearer ${this.token}` },});
+    console.log(this.token ,'ks');
+}
+
+
+getProTemplates(){
+  return this.http.get(environment.localApiURL +'/api/freeTemplate/getTemplatePro1List',{
+    headers: { Authorization: `bearer ${this.token}` },
+});  
 }
 }

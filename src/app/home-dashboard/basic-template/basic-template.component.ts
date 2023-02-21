@@ -155,11 +155,11 @@ TemplateId:any
       companyPhone: [''],
       twitterProfile: ['']
     })
-    router.canceledNavigationResolution = 'computed';
-    history.pushState(null, '', location.href);
-  window.onpopstate = function () {
-     history.go(1);
-  };
+  //   router.canceledNavigationResolution = 'computed';
+  //   history.pushState(null, '', location.href);
+  // window.onpopstate = function () {
+  //    history.go(1);
+  // };
 
   }
 

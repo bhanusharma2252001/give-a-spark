@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { SparkService } from 'src/app/service/spark.service';
 
@@ -53,11 +54,24 @@ export class SavedTemplatesComponent implements OnInit {
     'fangsong']
   templateList: any;
   design: any;
-  constructor( private api:SparkService) { }
+  form: FormGroup;
+  public progressTracker: number = 0;
+
+  progress: number = 0;
+  constructor(private fb: FormBuilder, private api:SparkService) {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      age: ['', Validators.required],
+      address: ['', Validators.required]
+    });
+  }
+  // constructor( private api:SparkService) { }
 
   ngOnInit(): void {
     this. getTemplates();
   }
+  
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
