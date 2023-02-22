@@ -61,7 +61,8 @@
                                                     formControlName="companyName" [(ngModel)]="compname">
                                                 <div *ngIf="profileForm.get('companyName')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    <small class="fs-12"> Company Name is required</small> </div>
+                                                    <small class="fs-12"> Company Name is required</small>
+                                                </div>
                                             </div>
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Company
@@ -72,34 +73,41 @@
                                                     formControlName="companyWebsite" [(ngModel)]="compwebsite">
                                                 <div *ngIf="profileForm.get('companyWebsite')?.hasError('required') "
                                                     class="text-danger text-sm">
-                                                    <small class="fs-12">Company website is required </small> </div>
+                                                    <small class="fs-12">Company website is required </small>
+                                                </div>
                                             </div>
 
-                                            
+
 
                                             <div class="mb-4">
-                                                
 
-    
+
+
 
                                             </div>
                                             <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label"> Country</label><br>
-                                                <select class="p-2 m-2 border-0 border-bottom w-100 " id="exampleInputfiled" [(ngModel)]="country" [ngModelOptions]="{standalone: true}" (change)="changeCountry($event.target)">
-                                                    <option *ngFor="let item of countryList" value="{{item?.name}}">{{item?.name}}</option>
+                                                <select class="p-2 m-2 border-0 border-bottom w-100 "
+                                                    id="exampleInputfiled" [(ngModel)]="country"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    (change)="changeCountry($event.target)">
+                                                    <option *ngFor="let item of countryList" value="{{item?.name}}">
+                                                        {{item?.name}}</option>
                                                 </select>
-                                                </div>
-                                                <div class="mb-4">
+                                            </div>
+                                            <div class="mb-4">
                                                 <label for="exampleInputfiled" class="form-label">Your Phone</label>
-                                                <input type="text" [(ngModel)]="phoneCode" readonly formControlName="stdCode" style="width: 33px;
+                                                <input type="text" [(ngModel)]="phoneCode" readonly
+                                                    formControlName="stdCode" style="width: 33px;
                                                 position: relative;
                                                 top: 32px;left:-80px;
                                                  border: none;  border-left: none; border-bottom: 1px solid black;">
 
-                                              <input type="text" maxlength="10" minlength="10" 
+                                                <input type="text" maxlength="10" minlength="10"
                                                     class="form-control rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
-                                                    formControlName="phone" [(ngModel)]="number" style="width:312px; margin-left:60px;">
+                                                    formControlName="phone" [(ngModel)]="number"
+                                                    style="width:312px; margin-left:60px;">
 
                                                 <div *ngIf="profileForm.get('phone')?.hasError('required') "
                                                     class="text-danger text-sm">
@@ -113,8 +121,8 @@
 
 
                                             </div>
-                                            <button type="submit" class="green-btn shadow  pe-3 ps-3 p-2"
-                                                >Create</button>
+                                            <button type="submit"
+                                                class="green-btn shadow  pe-3 ps-3 p-2">Create</button>
                                         </div>
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">
@@ -171,17 +179,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                         <div class="col-md-2 col-lg-3 pe-0 ps-0" *ngIf="details?.QrCode">
-                                            <img class="img-fluid" src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" >
-                                            
+                                            <img class="img-fluid"
+                                                src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}">
+
 
                                             <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
                                                 [errorCorrectionLevel]="correctionLevel" [value]="value"
                                                 cssClass="bshadow"></ngx-qrcode> -->
                                             <!-- <p class="text-center pt-3 fs-12"></p> -->
-                                            
+
 
                                         </div>
                                     </div>

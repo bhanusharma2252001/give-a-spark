@@ -22,7 +22,7 @@
                   <li class="nav-item_details">
                     <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
                       data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
-                      (click)="onClick()">
+                      >
                       <div class="box">
                         <img class="wh-35 active-icon" src="assets/images/social-media.svg">
                         <img class="wh-35 active-black" src="assets/images/social.png">
@@ -79,14 +79,14 @@
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Your
                                 Name</label>
-                              <input type="text" formControlName="yourName" [(ngModel)]="username "
+                              <input type="text" formControlName="yourName" [(ngModel)]="username " (keyup)="changeDesignation()"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp">
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Designation</label>
-                              <input type="text" formControlName="designation"
+                              <input type="text" (keyup)="changeDesignation()" formControlName="designation"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" [(ngModel)]="desig">
 
@@ -94,7 +94,7 @@
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Phone</label>
                               <input type="text" formControlName="phoneNo"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (keyup)="changeDesignation()" id="exampleInputfiled"
                                 aria-describedby="textHelp" [(ngModel)]="number">
 
                             </div>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>
-                              <input type="text" formControlName="address" [(ngModel)]="useraddress"
+                              <input type="text" formControlName="address" [(ngModel)]="useraddress" (keyup)="changeDesignation()"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp">
 
@@ -118,13 +118,13 @@
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Email</label>
                               <input type="text" formControlName="email"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="Email" readonly>
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (keyup)="changeDesignation()" id="exampleInputfiled"
+                                aria-describedby="textHelp" [(ngModel)]="Email" >
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Website</label>
-                              <input type="text" formControlName="companyWebsite"
+                              <input type="text" formControlName="companyWebsite" (keyup)="changeDesignation()"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" [(ngModel)]="compWebsite">
 
@@ -133,7 +133,7 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
                               <input type="text" formControlName="quotes"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar">
+                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar" >
 
                             </div>
                             <div class="mb-4" *ngIf="LongQuote">
@@ -169,7 +169,7 @@
                             <div class="position-absolute top-0">
                               <div>
                                 <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
-                                <img class="width" src="assets/images/give-a-spark-circle.png "
+                                <img class="width" src="assets/images/logo(round).png "
                                   *ngIf="!tempDetails?.profileImage && img" />
                               </div>
 
@@ -246,7 +246,7 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
                               <input type="text" formControlName="twitterProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="Twitter">
+                                aria-describedby="textHelp" [(ngModel)]="Twitter" >
 
                             </div>
 
@@ -464,7 +464,7 @@
                             </button>
                             <button class="apps_button">
                               <div class="app_div"><img src="assets/images/upload-banner.png"
-                                  alt="Upload Banner Image /"><span>Upload Banner</span></div>
+                                  alt="Upload Banner Image"/><span>Upload Banner</span></div>
                             </button>
                             <button class="apps_button">
                               <div class="app_div"><img src="assets/images/sales-event.png"
@@ -490,6 +490,10 @@
 
               <!-- T E M P L A T E S -->
               <div class="col-md-6 col-lg-6 pe-3" #myText>
+                <span class="progress-number">{{progress}}</span>
+                <progress-bar-angular barColor={{barColor}} [progress]='progress' backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate'  value="0"></progress-bar-angular>
+
+
                 <div class="row position-relative progress_padd">
                   <div class="profile_complt-detail">
                     <p class="profile_status">Profile 100% Completed</p>
@@ -497,7 +501,7 @@
                   <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                       alt="Signature image" /></div>
                   <div class=" col-md-7 progress bar">
-                    <div class=" pro_red"></div>
+                    <div class=" pro_red" *ngIf=""  ></div>
                     <div class=" pro_blue"></div>
                     <div class=" pro_green"></div>
                     <div class=" pro_yellow"></div>
@@ -1012,7 +1016,7 @@
 
 
                   <div class="col-md-12 col-lg-12 mt-3 text-end">
-                    <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setSignature()" data-bs-toggle="modal"
+                    <button class="green-btn shadow  pe-4 ps-4 p-2 "  data-bs-toggle="modal"
                       data-bs-target="#m-done">OK I'm Done</button>
 
 
@@ -1038,8 +1042,8 @@
               <div class="Neon Neon-theme-dragdropbox">
                 <input
                   style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
-                  (change)="onSelectImage($event)">
+                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"  [(ngModel)]="imageData1" (keyup)="changeDesignation()"
+                  (change)="onSelectImage($event)" >
                 <div class="Neon-input-dragDrop">
                   <div class="Neon-input-inner">
                     <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>

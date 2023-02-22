@@ -867,6 +867,28 @@ border-radius: 50px;
   font-size: 20px;
   padding-left: 5px;
 }
+.gif_style{
+  width: 237px;
+  height: auto;
+}
+
+.first_temp{
+  position: relative;
+}
+.done_btn{
+  position: absolute;
+  top: 112px;
+  right: -14px;
+  width: 170px;
+}
+.main-temp{
+  padding-bottom: 30px;
+  margin-top: 13px;
+}
+.temp-style{
+  padding: 15px;
+  border-radius: 8px;
+}
 
 
 

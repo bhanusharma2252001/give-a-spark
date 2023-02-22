@@ -29,6 +29,7 @@
     "ngx-stripe": "^7.4.4",
     "ngx-toastr": "^16.0.1",
     "platform-js": "^0.8.2",
+    "progress-bar-angular": "^0.0.8",
     "quill": "^1.3.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

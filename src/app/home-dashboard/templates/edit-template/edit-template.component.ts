@@ -194,7 +194,7 @@ else if (window.getSelection)
   selection.removeAllRanges();
   selection.addRange(range);
   console.log(text,'t');
-  alert(text)
+  alert('Check your Email')
   
 }
 document.execCommand('copy');
@@ -293,7 +293,8 @@ console.log(b,'b');
       ],
       quotesId: this.QuoteId,
       quotes: this.quotevar,  
-      companyPhone: data.companyPhone
+      companyPhone: data.companyPhone,
+      profileImage: this.imageData2,
   
     }
 
@@ -320,9 +321,7 @@ console.log(b,'b');
   }
 
 
-  showOnPlan() {
-    this.planShow == true
-  }
+ 
   addQuote() {
     this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'],{ queryParams: { templateId: this.templateId } })
   }
@@ -357,7 +356,7 @@ console.log(b,'b');
     this.api.templateCustomize(this.templateId, log).subscribe((res: any) => {
       console.log(res);
       this.toast.success('Template  Created Successfully');
-
+      this.getFreeTemplate();
       // this.getDesign();
     },
       (error) => {
@@ -427,18 +426,44 @@ console.log(b,'b');
   
  getFreeTemplate(){
   this.api.getFreeTemp().subscribe((res:any)=>{
-    this.tempDetails=res;
+    this.tempDetails=res?.freeTemplates;
+
+  this.proList=res?.templateForPro;
+  console.log(this.proList,'ppppppppppppppppppppppppp');
+  
     console.log( this.tempDetails, 'free Templates');
     this.tempDetails.filter((item:any)=>{
       if(item?._id == this.templateId) {
         this.getBindData(item)
       }
-      if(item?.templateId == this.templateId) {
+      // if(item?.templateId == this.templateId) {
+      //   this.getBindData(item)
+      // }
+    })
+    this.proList.filter((item:any)=>{
+      if(item?._id == this.templateId) {
         this.getBindData(item)
       }
+      // if(item?.templateId == this.templateId) {
+      //   this.getBindData(item)
+      // }
     })
-    
   })
+ }
+
+ getTemplateDesign(data:any) {
+this.firstNameColor = data?.firstNameColor,
+this.lastNameColor = data?.lastNameColor,
+this.designationColor = data?.designationColor,
+this.contactDetailColor = data?.contactDetailColor,
+this.fontFamilyNew = data?.fontFamily,
+this.templateFontSize = data?.fontSize,
+this.lineHeight = data?.lineHeight,
+this.itemFontSize = data?.fontSizeItem,
+this.fontSizeName = data?.nameFontSize,
+this.nameAlign = data?.nameAlign,
+this.borderRadius = data?.borderRadius
+
  }
 
  getBindData(data:any) {
@@ -496,11 +521,5 @@ console.log(this.code);
  }
 
   // Pro Templates
- getProTemplate(){
-  this.api.getProTemplates().subscribe((res:any)=>{
-    this.proList=res.result;
-    console.log(this.proList, 'pro');
-    
-  })
- }
+
 }

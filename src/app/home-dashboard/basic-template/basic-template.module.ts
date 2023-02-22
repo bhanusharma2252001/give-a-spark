@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-
+import {ProgressBarAngularModule} from "progress-bar-angular"
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     FormsModule,
     ColorPickerModule,
     NgxQRCodeModule,
-    ClipboardModule
+    ClipboardModule,
+    ProgressBarAngularModule
     
   ]
 })

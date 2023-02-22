@@ -194,7 +194,7 @@ b.value= "Copied"
 
   ngOnInit(): void {
     this.getTemplateByUser();
-this.getProList();
+
     this.getDesign();
     // this.getTemplateDetails();
     if (localStorage.getItem('quoteId')) {
@@ -263,7 +263,8 @@ this.getProList();
 
   FreeTempList() {
     this.api.getFreeTemp().subscribe((res: any) => {
-      this.details = res;
+      this.details = res?.freeTemplates;
+      this.proList= res?.templateForPro
       console.log(this.details, 'arrrayyyy');
       
       // this.secondTemp=res?.result[1];
@@ -279,17 +280,7 @@ this.getProList();
   }
   
 
-getProList(){
-  this.api.getProTemp().subscribe((res=>{
-    this.proList=res;
-  //  let prodesign=this.proList?.result[0]?.templateDesign
-  //  console.log(prodesign);
-   
-    console.log(this.proList?.result[0], 'prolIst');
-    
-  }))
-}
- 
+
 
 
 

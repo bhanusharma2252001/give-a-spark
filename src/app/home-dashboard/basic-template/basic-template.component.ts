@@ -33,7 +33,7 @@ img:boolean=true;
   ShowOneQuote: boolean = true;
   
 TemplateId:any
-
+profileImages:any;
   url: string | ArrayBuffer | null | undefined;
   Submitted = false
   fileData = [] as any;
@@ -51,7 +51,7 @@ TemplateId:any
 
   public color1: string = '#2889e9';
 
-
+  progress:any=0
 
   public color19: string = '#070606';
   storyList: any;
@@ -73,6 +73,7 @@ TemplateId:any
   value = ""
   // change new
   templateFontSize: any = 24;
+  // public barColor:string='fff500'
   public contactDetailColor: string = '#e920e9';
   public lastNameColor: string = '#fff500';
   public designationColor: string = 'rgb(236,64,64)';
@@ -120,6 +121,8 @@ TemplateId:any
   dessssssignnnnn: any;
   quotevar: any;
   useraddress: any;
+  barColor: any;
+  tempimg: any;
   // chnage end
 
 
@@ -297,7 +300,7 @@ console.log(b,'b');
       this.Linkedin = res.result[0]?.linkedInProfile
       this.Twitter = res.result[0]?.twitterProfile
       this.faceB = res.result[0]?.fbProfile
-
+      
 
       console.log(this.compWebsite, 'jojo')
 
@@ -313,7 +316,7 @@ console.log(b,'b');
       this.tempDetails = res.result[res.result.length - 1];
       this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
-
+this.tempimg=this.tempDetails?.profileImage
       console.log(this.tempDetails, "kkkkkkkk")
 
 
@@ -481,6 +484,12 @@ console.log(b,'b');
         console.log(res);
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
+        console.log(this.imageData2, 'xxxxxx');
+        if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+          this.progress=50;
+         
+          
+        }
         console.log(this.imageData1[0].key, "image key ")
         this.toast.success('Image upload Successfully');
       },
@@ -515,12 +524,31 @@ console.log(b,'b');
     })
   }
 
-  setSignature() {
+  setimageSignature() {
     console.log(this.tableData.nativeElement);
     this.templateRef = this.tableData.nativeElement
     console.log(this.templateRef, "templatesssssssss")
   }
 
+  changeDesignation() {
+    console.log(this.imageData2,'');
+  
 
+    if (this.imageData1) {
+      this.progress=50
+
+
+      
+     }
+    if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+      this.progress=25
+     
+      
+    }
+    else {
+      this.progress=25
+      
+     }
+  }
  
 }
