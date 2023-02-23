@@ -130,6 +130,7 @@ TemplateId:any
   templateId:any
   code: any;
   proList: any;
+  proplus: any;
 
 
 
@@ -214,25 +215,25 @@ console.log(b,'b');
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
-      this.templateFontSize = 34
-      this.itemFontSize = 20
-      this.fontSizeName = 20
+      this.templateFontSize = 33
+      this.itemFontSize = 14
+      this.fontSizeName = 14
     } else if (currnetSize == 5) {
-      this.templateFontSize = 44
-      this.fontSizeName = 22
-      this.itemFontSize = 25
-    } else if (currnetSize == 3) {
-      this.templateFontSize = 24
-      this.itemFontSize = 12
-      this.fontSizeName = 18
-    } else if (currnetSize == 2) {
-      this.templateFontSize = 20
-      this.itemFontSize = 8
+      this.templateFontSize = 36
       this.fontSizeName = 15
-    } else {
-      this.templateFontSize = 10
-      this.itemFontSize = 6
+      this.itemFontSize = 15
+    } else if (currnetSize == 3) {
+      this.templateFontSize = 32
+      this.itemFontSize = 13
+      this.fontSizeName = 13
+    } else if (currnetSize == 2) {
+      this.templateFontSize = 31
+      this.itemFontSize = 12
       this.fontSizeName = 12
+    } else {
+      this.templateFontSize = 30
+      this.itemFontSize = 11
+      this.fontSizeName = 11
     }
 
   }
@@ -273,7 +274,9 @@ console.log(b,'b');
   onSubmit(data: any) {
   
     let body = {
+      proTemplateId:this.templateId,
       templateId:this.templateId,
+      proPlusTemplateId:this.templateId,
       yourName: data.yourName,
       designation: data.designation,
       email: data.email,
@@ -291,12 +294,32 @@ console.log(b,'b');
           country: data.address,
         }
       ],
+      templateDesign: {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius
+
+      },
       quotesId: this.QuoteId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
       profileImage: this.imageData2,
+      fbProfile: data.fbProfile,
+      twitterProfile: data?.twitterProfile,
+      instagramProfile: data.instagramProfile,
+      linkedInProfile: data.linkedInProfile,
+      youtubeChannel: data.youtubeChannel,
   
     }
+    
 
     console.log(body,'dssfcsfvcs');
     
@@ -429,6 +452,8 @@ console.log(b,'b');
     this.tempDetails=res?.freeTemplates;
 
   this.proList=res?.templateForPro;
+
+  this.proplus=res?.templateForProPlus;
   console.log(this.proList,'ppppppppppppppppppppppppp');
   
     console.log( this.tempDetails, 'free Templates');
@@ -443,10 +468,18 @@ console.log(b,'b');
     this.proList.filter((item:any)=>{
       if(item?._id == this.templateId) {
         this.getBindData(item)
+        this.getTemplateDesign(item?.templateDesign)
       }
-      // if(item?.templateId == this.templateId) {
-      //   this.getBindData(item)
-      // }
+      
+      
+    })
+    this.proplus.filter((item:any)=>{
+      if(item?._id == this.templateId) {
+        this.getBindData(item)
+        this.getTemplateDesign(item?.templateDesign)
+      }
+      
+      
     })
   })
  }

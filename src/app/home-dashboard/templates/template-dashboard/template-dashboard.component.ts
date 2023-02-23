@@ -100,6 +100,7 @@ freeId:any;
   tempList: any;
   useraddress: any;
   proList: any;
+  proplus: any;
 
   
 CopyToClipboard(element:any) {
@@ -264,7 +265,8 @@ b.value= "Copied"
   FreeTempList() {
     this.api.getFreeTemp().subscribe((res: any) => {
       this.details = res?.freeTemplates;
-      this.proList= res?.templateForPro
+      this.proList= res?.templateForPro;
+      this.proplus=res?.templateForProPlus;
       console.log(this.details, 'arrrayyyy');
       
       // this.secondTemp=res?.result[1];

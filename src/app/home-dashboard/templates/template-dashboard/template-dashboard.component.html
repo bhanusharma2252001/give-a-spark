@@ -175,192 +175,20 @@
 
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
+      <img src="assets/images/pro+1.png" alt=""(click)="editTemplate(proplus[0]?._id)">
 
 
-
-                            <table width="1000" align="center" id="one">
-                                <tr>
-                                    <td style="padding: 45px;background-color: #ededed;">
-                                        <table width="100%"
-                                            style="background-color: #FFFFFF;box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; font-family: Arial, Helvetica, sans-serif;">
-                                            <tr>
-                                                <td width="344" style="position: relative;">
-                                                    <img src="assets/images/right-images.png" alt="">
-                                                    <img src="assets/images/square-image.png"
-                                                        style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
-                                                        alt="">
-                                                    <br>
-                                                    <img style="width:60px;height:60px;margin:10px;"
-                                                        src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
-
-                                                </td>
-                                                <td valign="top" align="left" style="padding: 55px 24px;">
-                                                    <h1 style="text-transform: uppercase; padding: 0; margin: 0;"
-                                                        [style.color]="  proList?.result[0]?.templateDesign?.firstNameColor"
-                                                        [style.font-size]="proList?.result[0]?.templateDesign?.fontSize">
-                                                        {{proList?.result[0].yourName}}</h1>
-                                                    <h2 style=" text-transform: capitalize; padding: 0; margin: 0;"
-                                                        [style.color]="  proList?.result[0]?.templateDesign?.designationColor"
-                                                        [style.font-size]="proList?.result[0]?.templateDesign?.fontSize">
-                                                        {{proList?.result[0].designation}}</h2>
-                                                    <p style=" padding: 0; margin: 0;"
-                                                        [style.color]="  proList?.result[0]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[0]?.templateDesign?.fontSizeItem">
-                                                        <strong>E: </strong><a>{{proList?.result[0].email}}</a>
-                                                    </p>
-                                                    <p style="  padding: 0; margin: 0;"
-                                                        [style.color]="  proList?.result[0]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[0]?.templateDesign?.fontSizeItem">
-                                                        <strong>W:
-                                                        </strong><a>{{proList?.result[0].companyWebsite}}</a>
-                                                    </p>
-                                                    <p style=" padding: 0; margin: 0;"
-                                                        [style.color]="  proList?.result[0]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[0]?.templateDesign?.fontSizeItem">
-                                                        <strong>P: </strong>{{proList?.result[0]?.phoneNo}} |
-                                                        {{proList?.result[0]?.companyPhone}}
-                                                    </p>
-
-                                                    <p style="color: #e97977;"
-                                                        *ngIf="proList?.result[0]?.quotesId?.quotesName">
-                                                        <q>{{proList?.result[0]?.quotesId?.quotesName}}</q>
-                                                        —{{proList?.result[0]?.quotesId?.authorId?.firstName}}
-                                                    </p>
-                                                    <p style="color: #e97977;"><q
-                                                            *ngIf="proList?.result[0]?.quotes">{{proList?.result[0]?.quotes}}</q>
-                                                    </p>
-                                                </td>
-                                                <!-- proList?.result[0]?.templateDesign -->
-                                                <td align="right" width="113">
-
-                                                    <table cellpadding="0" cellspacing="0">
-                                                        <!-- <tr>
-                                                    <td><img src="assets/images/rightBar.png" alt=""> </td>na
-                                                  </tr> -->
-                                                        <tr>
-                                                            <td align="right" valign="top"
-                                                                style=" height: 165px; background-color: #f4b0af;border-radius: 80px 80px 0 0;">
-                                                                <table width="83" cellpadding="0" cellspacing="0">
-                                                                    <tr>
-                                                                        <td align="center"
-                                                                            style="padding-bottom: 11px;">
-                                                                            <a
-                                                                                href="{{proList?.result[0]?.twitterProfile }}"><img
-                                                                                    src="assets/images/icon_twitter.png"
-                                                                                    alt=""></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td align="center"
-                                                                            style="padding-bottom: 11px;">
-                                                                            <a
-                                                                                href="{{proList?.result[0]?.instagramProfile }}">
-                                                                                <img src="assets/images/icon_insta.png"
-                                                                                    alt=""></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td align="center"
-                                                                            style="padding-bottom: 11px;">
-                                                                            <a
-                                                                                href="{{proList?.result[0]?.fbProfile }}"><img
-                                                                                    src="assets/images/icon_facebook.png"
-                                                                                    alt=""></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td align="center"
-                                                                            style="padding-bottom: 11px;">
-                                                                            <a href="{{proList?.result[0]?.linkedInProfile }}"
-                                                                                target="_blank"> <img
-                                                                                    src="assets/images/icon_linkedin.png"
-                                                                                    alt=""></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+                           
                         </div>
 
                         <!-- S E C O N D P R O P L U S -->
 
-                        <div class="col-md-6 col-lg-8">
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+2.png" alt=""(click)="editTemplate(proplus[1]?._id)">
 
 
 
-
-                            <table cellpadding="0" cellspacing="0" id="test"
-                                style="background-color:#6f266e;width:700px;height:280px; font-family: Arial;">
-                                <tbody>
-                                    <tr style="text-align: center;">
-                                        <td rowspan="2"
-                                            style="background-color:white;width:275px;border-radius: 50% 0;">
-                                            <h5 [style.color]="  proList?.result[1]?.templateDesign?.firstNameColor"
-                                                [style.font-size]="proList?.result[1]?.templateDesign?.fontSize">
-                                                {{proList?.result[1]?.yourName}}</h5>
-                                            <small
-                                                [style.color]="  proList?.result[1]?.templateDesign?.designationColor"
-                                                style="font-size: 24px;">{{proList?.result[1]?.designation}}</small>
-                                            <p [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem">
-                                                <a>{{proList?.result[1]?.email}}</a>
-                                            </p>
-                                            <p [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem">
-                                                <a>{{proList?.result[1]?.companyWebsite}}</a>
-                                            </p>
-
-                                        </td>
-                                        <td
-                                            style="background-color:white;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; border-radius: 0 0 186px 186px;">
-
-                                            <img style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                src="assets/images/model-img.png">
-
-
-
-
-                                        </td>
-
-                                        <td rowspan="2"
-                                            style="background-color:white;width:275px;border-radius: 0 50% 0 50%;">
-                                            <span>
-                                                <a href="{{proList?.result[1]?.fbProfile}}"><img
-                                                        style="width:20px;height:20px;margin:5px; background-color: #1793ce;"
-                                                        src="assets/images/fb-1.png"></a></span>
-                                            <span><a href="{{proList?.result[1]?.twitterProfile}}"><img
-                                                        style="width:20px;height:20px;margin:5px;"
-                                                        src="assets/images/tt-1.png"></a></span>
-                                            <span><a href="{{proList?.result[1]?.linkedInProfile}}"><img
-                                                        style="width:20px;height:20px;margin:5px;"
-                                                        src="assets/images/ln-1.png"></a></span>
-                                            <span><a href="{{proList?.result[1]?.instagramProfile}}"><img
-                                                        style="width:20px;height:20px;margin:5px;"
-                                                        src="assets/images/it-1.png"></a></span>
-                                            <br>
-                                            <img style="width:60px;height:60px;margin:10px;"
-                                                src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="color:white; height:110px;"><q
-                                                *ngIf="proList?.result[0]?.quotesId?.quotesName">{{proList?.result[0]?.quotesId?.quotesName}}</q><q
-                                                *ngIf="proList?.result[0]?.quotes">{{proList?.result[0]?.quotes}}</q>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-
+                        
 
 
 
@@ -386,283 +214,24 @@
 
                         <!-- THIRD PRO PRO  -->
 
-                        <div class="col-md-8 col-lg-8">
-                            <table cellpadding="0" cellspacing="0" id="my-pro"
-                                style="background-image:  linear-gradient(110deg, #02213d 35%, #fff 20% 70%);font-size: medium;width:700px;height:280px; font-family: Arial;">
-                                <tbody>
-                                    <tr>
-                                        <td rowspan="2" style=" vertical-align: top;width:275px;-webkit-clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);">
-                                            <img style="width:60px;height:60px;margin:10px;"
-                                                src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
-                                            <p style="color:#fff;   color: #fff;
-width: 170px;
-padding: 21px;">
-                                                <q
-                                                    *ngIf="proList?.result[2]?.quotesId?.quotesName">{{proList?.result[2]?.quotesId?.quotesName}}</q>
-                                                <q *ngIf="proList?.result[2]?.quotes">{{proList?.result[2]?.quotes}}</q>
-                                            </p>
-                                        </td>
-                                        <td
-                                            style="position:relative;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
-
-                                            <img style="position: absolute;
-                top: 50%;
-                left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                src="assets/images/model-img.png">
-
-
-
-
-                                        </td>
-
-                                        <td rowspan="2"
-                                            style="background-color:white;width:365px;border-radius: 0 50% 0 50%;">
-                                            <h2 style="margin-bottom:0px;"
-                                                [style.color]="  proList?.result[2]?.templateDesign?.firstNameColor"
-                                                [style.font-size]="proList?.result[2]?.templateDesign?.fontSize">
-                                                {{proList?.result[2]?.yourName}}</h2>
-                                            <h6 [style.color]="  proList?.result[1]?.templateDesign?.designationColor"
-                                                [style.font-size]="proList?.result[1]?.templateDesign?.fontSize">
-                                                Designatin</h6>
-                                            <div style="margin-top:5px;">
-                                                <p>
-                                                    <span style="padding:0 5px;"
-                                                        [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem"><img
-                                                            src="assets/images/p-b-2.png">
-                                                        {{proList?.result[2]?.phoneNo}} </span>
-                                                    <a style="padding:0 5px;;"
-                                                        [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        {{proList?.result[2]?.email}} </a>
-                                                </p>
-
-
-
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;"
-                                                        [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem"><img
-                                                            src="assets/images/a-b-2.png">
-                                                        {{proList?.result[2]?.address[0]?.city}} </span>
-                                                    <span style="padding:0 5px;"
-                                                        [style.color]="  proList?.result[1]?.templateDesign?. contactDetailColor"
-                                                        [style.font-size]="proList?.result[1]?.templateDesign?.fontSizeItem"><a><img
-                                                                src="assets/images/m-b-2.png">
-                                                            {{proList?.result[2]?.companyWebsite}} </a> </span>
-                                                </p>
-                                                <div style="padding:10px">
-                                                    <span>
-                                                        <a href="{{proList?.result[2]?.fbProfile}}"><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                                                src="assets/images/f.png"></a></span>
-                                                    <span> <a href="{{proList?.result[2]?.twitterProfile}}"> <img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                                                src="assets/images/twit.png"></a></span><span> <a
-                                                            href="{{proList?.result[2]?.linkedInProfile}}"><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                                                src="assets/images/lin.png"></a></span><span> <a
-                                                            href="{{proList?.result[2]?.instagramProfile}}"><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                                                src="assets/images/inn.png"></a></span>
-                                                </div>
-
-                                            </div>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="height:100px;color:white;"></td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+3.png" alt=""(click)="editTemplate(proplus[2]?._id)">
+                        
                         </div>
 
 
                         <!-- =----------4 TEMPLATE========= -->
 
-                        <div class="col-md-8 col-lg-8">
-
-
-                            <table cellpadding="0" cellspacing="0" id="four"
-                                style="  background-color: #fff;font-size: medium;width:700px;height:280px; font-family: Arial;">
-                                <tbody>
-                                    <tr>
-                                        <td rowspan="2"
-                                            style="width:194px;box-shadow: 24px 0 0px -8px #e11b21;padding:30px;background-color: #030c26; vertical-align: center;text-align:center;border-radius:0 225px 225px 0; ">
-
-                                            <div class="">
-                                                <span style="background-color: white;width:1px; height:1px"></span>
-                                                <span style="background-color: white;width:1px; height:1px"></span>
-                                                <span style="background-color: white;width:1px; height:1px"></span>
-                                            </div>
-
-                                        </td>
-                                        <td rowspan="2" style="vertical-align: center;text-align:start;">
-
-                                            <img style="width:150px;height:150px;box-shadow: 24px 0 0px -8px #fff;margin-left:-75px; border-radius:50%"
-                                                src="assets/images/model-img.png ">
-
-                                        </td>
-
-                                        <td rowspan="2" style="">
-                                            <h2 style="margin-bottom:0px;color:#02213d;">
-                                                {{proList?.result[3]?.yourName}}</h2>
-                                            <h6>{{proList?.result[3]?.designation}}</h6>
-                                            <div style="margin-top:5px;">
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/p-b-2.png">
-                                                        *{{proList?.result[3]?.phoneNo}} </span>
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        {{proList?.result[3]?.email}} </span>
-                                                </p>
-
-
-
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/a-b-2.png">
-                                                        {{proList?.result[3]?.companyWebsite}}</span>
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        {{proList?.result[3]?.address[0]?.city}}</span>
-                                                </p>
-
-                                                <p style="color: #e11b21;;font-size: 12px;">
-                                                    <q
-                                                        *ngIf="proList?.result[2]?.quotesId?.quotesName">{{proList?.result[3]?.quotesId?.quotesName}}</q>
-                                                    <q
-                                                        *ngIf="proList?.result[2]?.quotes">{{proList?.result[3]?.quotes}}</q>
-                                                </p>
-                                                <div style="padding:10px">
-                                                    <span>
-                                                        <a href="{{proList?.result[3]?.fbProfile}}"><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #e11b21;"
-                                                                src="assets/images/f.png"></a></span><span><a
-                                                            href=""><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #e11b21;"
-                                                                src="assets/images/twit.png"></a></span><span><a
-                                                            href=""><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #e11b21;"
-                                                                src="assets/images/lin.png"></a></span><span><a
-                                                            href=""><img
-                                                                style="width:20px;height:20px;margin:5px; background-color: #e11b21;"
-                                                                src="assets/images/inn.png"></a></span>
-                                                </div>
-
-                                            </div>
-                                        </td>
-                                        <td rowspan="2">
-                                            <div
-                                                style="vertical-align: center; box-shadow: -24px 0 0px -8px #e11b21;padding:30px;background-color: #030c26;  border-radius:116px 0 0 115px">
-                                                <img src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}"
-                                                    style="width: 67px;">
-                                            </div>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+4.png" alt=""(click)="editTemplate(proplus[3]?._id)">
+                          
 
                         </div>
 
                         <!-- ----------------------------- -----------------------------TEMPLATE-5------------------------ -->
-                        <div class="col-md-8 col-lg-8">
-                            <table cellpadding="0" cellspacing="0" id="five"
-                                style="  background-color: #fff;font-size: medium;width:700px;height:280px; font-family: Arial;">
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            style="box-shadow: 24px 0 0px -8px #d2ad1c;padding:10px;background-color: #181818;width: 150px;height:100px;  border-radius: 0 0 76px; ">
-
-                                            <img style="width:100px;height:100px;border-radius:10px;"
-                                                src="assets/images/model-img.png ">
-                                            <p style="color:white;height:100px;font-size: 10px;width:100%;"> <q
-                                                    *ngIf="proList?.result[2]?.quotesId?.quotesName">{{proList?.result[4]?.quotesId?.quotesName}}</q>
-                                                <q *ngIf="proList?.result[2]?.quotes">{{proList?.result[4]?.quotes}}</q>
-                                            </p>
-                                        </td>
-
-                                        <td style="vertical-align: center;text-align:center;">
-
-                                            <h2 style="margin-bottom:0px;color:black;">{{proList?.result[4]?.yourName}}
-                                            </h2>
-                                            <h6>{{proList?.result[4]?.designation}}</h6>
-                                            <div style="margin-top:5px;">
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/p-b-2.png">
-                                                        *{{proList?.result[4]?.phoneNo}} </span>
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        {{proList?.result[4]?.email}} </span>
-                                                </p>
-
-
-
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/a-b-2.png">
-                                                        {{proList?.result[4]?.companyWebsite}}</span>
-                                                    <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        {{proList?.result[4]?.address[0]?.city}}</span>
-                                                </p>
-
-
-                                            </div>
-                                        </td>
-
-
-                                        <td style="vertical-align: bottom;">
-                                            <div align="right" valign="top"
-                                                style="background-repeat: repeat-y; height: 157px; background-image: url(images/rightBar_bg.png);">
-                                                <table width="83" cellpadding="0" cellspacing="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="center" style="padding-bottom: 11px;">
-                                                                <a href=""><img src="assets/images/f.png"
-                                                                        style="background-color: #d2ad1c;" alt=""></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center" style="padding-bottom: 11px;">
-                                                                <a href=""><img src="assets/images/lin.png" alt=""
-                                                                        style="background-color: #d2ad1c;"></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center" style="padding-bottom: 11px;">
-                                                                <a href=""><img src="assets/images/inn.png" alt=""
-                                                                        style="background-color: #d2ad1c;"></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center" style="padding-bottom: 11px;">
-                                                                <a href=""><img src="assets/images/twit.png" alt=""
-                                                                        style="background-color: #d2ad1c;"></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div
-                                                style="box-shadow: -24px 0 0px -8px #d2ad1c; padding:30px;background-color: #181818;  border-radius: 76px 0 0 0px ">
-                                                <img style="width:60px ;height:60px"
-                                                    src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
-                                            </div>
-                                        </td>
-
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+5.png" alt="" (click)="editTemplate(proplus[4]?._id)">
+                          
 
 
 
@@ -670,138 +239,33 @@ padding: 21px;">
 
 
                         <!-- ----------------------------TEMPLATE-6---------------- -->
-                        <div class="col-md-8 col-lg-8">
-                            <table cellpadding="0" cellspacing="0"
-                                style="font-size: medium;width:700px;height:280px; font-family: Arial;">
-                                <tbody>
-                                    <tr style="">
-                                        <td
-                                            style="width:100px;position:relative; text-align:center;vertical-align:center;">
-                                            <div
-                                                style="background-color: #11ac63;width:150px;margin:20px;rotate: 40deg;">
-                                                <img style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                    src="assets/images/model-img.png">
-                                            </div>
-                                            <!-- </div> -->
-
-
-                                        </td>
-                                        <td rowspan="2" style="width:100px; vertical-align:top;text-align:center; background-color: #353636;
-                ">
-
-                                            <div style="    height: 86px;
-                                                background-color: #11ac63;
-                                                margin: 0;
-                                                padding: 20px 0;">
-                                                <img style="width:65px;height:65px;" src="images/qr.png">
-                                            </div>
-                                        </td>
-
-
-                                        <td rowspan="2"
-                                            style="width:300px;vertical-align:top; background-color: #353636;">
-                                            <div style="background-color:#11ac63;padding: 10px 0;">
-                                                <h2 style="margin-bottom:0px;color:white;">JOHN SMITH</h2>
-                                                <h6>Designation</h6>
-                                            </div>
-                                            <div style="margin-top:5px;">
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:white;"><img
-                                                            src="assets/images/p-b-2.png">
-                                                        *678564 </span>
-                                                    <span style="padding:0 5px;color:white;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        abc@gmail.com </span>
-                                                </p>
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+6.PNG" alt="" (click)="editTemplate(proplus[5]?._id)">
+                          
 
 
 
-                                                <p style="color:#fff;font-size: 12px;">
-                                                    <span style="padding:0 5px;color:white;"><img
-                                                            src="assets/images/a-b-2.png">
-                                                        Website</span>
-                                                    <span style="padding:0 5px;color:white;"><img
-                                                            src="assets/images/m-b-2.png">
-                                                        Aggress</span>
-                                                </p>
-                                                <div style="padding:10px">
-                                                    <span><img style="width:20px;height:20px;margin:5px;"
-                                                            src="assets/images/f.png"></span><span><img
-                                                            style="width:20px;height:20px;margin:5px;"
-                                                            src="assets/images/twit.png"></span><span><img
-                                                            style="width:20px;height:20px;margin:5px;"
-                                                            src="assets/images/lin.png"></span><span><img
-                                                            style="width:20px;height:20px;margin:5px;"
-                                                            src="assets/images/inn.png"></span>
-                                                </div>
-
-                                            </div>
-                                    </tr>
-
-                                    <tr>
-                                        <td
-                                            style="height:100px;color:black; padding:20px 10px 10px 10px;font-size: 10px;">
-                                            <q>Lorem ipsum is
-                                                placeholder text commonly used in the graphic, print, and publishing
-                                                industries for
-                                                previewing layouts and visual mockups.</q>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
+ <!-- ----------------------------TEMPLATE-7---------------- -->
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+7.PNG" alt=""(click)="editTemplate(proplus[6]?._id)">
+                          
 
 
 
-                        <input id="btn" (click)="CopyToClipboard('four')" type="button" value="Copy" />
+                        </div>
+ <!-- ----------------------------TEMPLATE-8---------------- -->
+                        <div class="col-md-6 col-lg-6">
+                            <img src="assets/images/pro+8.PNG" alt=""(click)="editTemplate(proplus[7]?._id)">
+                          
 
+
+
+                        </div>
                     </div>
 
 
-                    <table cellpadding="0" cellspacing="0" id="my"
-                        style="background-color: #fff; font-size: medium;width:580px;height:280px; font-family: Arial;">
-                        <tbody>
-                            <tr>
-                                <td> <img src="images/save-icon.png"> </td>
-                                <td> <img src="assets/images/logo.png"> </td>
-                            </tr>
-                            <tr>
-                                <td style="width:40%;">
-                                    <h2 style="margin-bottom:0px;color:#000;font-size:22px"> <span
-                                            style="color: #FAD300;border-bottom:3px solid #707384;">{{tempDetails?.yourName}}</span>
-                                    </h2>
-                                    <p style="font-size: 16px;">{{tempDetails?.designation}}</p>
-                                    <p style="font-size: 11px;"> <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                style="width:12px;height:12px;" src="assets/images/p-b-2.png">
-                                            {{tempDetails?.phoneNo}} </span> </p>
-                                    <p style="font-size: 11px;"> <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                style="width:12px;height:12px;" src="assets/images/m-b-2.png">
-                                            {{tempDetails?.email}} </span></p>
-                                    <p style="font-size: 11px;"> <span style="padding:0 5px;color:#B9B9B9;"><img
-                                                style="width:12px;height:12px;" src="assets/images/a-b-2.png">
-                                        </span><span style="color:#B9B9B9;"> {{useraddress}}</span></p>
-                                </td>
-                                <td style="width:60%;">
-                                    <div
-                                        style="border-radius: 95px 222px 0px;position:relative;width:375px;height:125px; background-image: linear-gradient(90deg, #3A2BB0, #19B9E9);">
-                                        <img style="position: absolute;top:0;box-shadow: 0 0 0px 10px #FBD807;border-radius: 50%;width:100px"
-                                            src="assets/images/model-img.png">
-                                        <div style="text-align: center;padding: 10px; "> <img
-                                                style="width:35px;height:35px;"
-                                                src="https://giveaspark.s3.amazonaws.com/{{tempDetails?.createdBy?.QrCode}}">
-                                            <p style="font-size: 12px;color:#fff;">Scan & Click</p>
-                                            <p style="padding:0 0 0 100px;font-size: 12px;color:#fff;"> <q
-                                                    *ngIf="tempDetails?.quotesId?.quotesName">“{{tempDetails?.quotesId?.quotesName}}.”
-                                                    —{{tempDetails?.quotesId?.authorId?.firstName}}</q> <q
-                                                    *ngIf="tempDetails?.quotes">“{{tempDetails?.quotes}}.”</q>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+               
 
                 </div>
 
@@ -809,6 +273,34 @@ padding: 21px;">
             </div>
         </div>
         <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

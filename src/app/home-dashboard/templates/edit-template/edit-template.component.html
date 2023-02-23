@@ -769,7 +769,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td></td>
-                                              </tr>
+                                                        </tr>
                                                         <tr>
                                                             <td colspan="3" style="height: 23px;"></td>
                                                         </tr>
@@ -791,12 +791,12 @@
 
                                     </tbody>
                                 </table>
-                                <!-- <div class="col-md-12 col-lg-12 mt-3 text-end first_temp">
+                                <div class="col-md-12 col-lg-12 mt-3 text-end first_temp">
                                     <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
                                         (click)="CopyToClipboard('free-3')">OK I'm Done</button>
 
 
-                                </div> -->
+                                </div>
 
                             </div>
 
@@ -931,8 +931,8 @@
                                             <td style="padding-top: 22px;" width="120">
                                                 <p style="padding: 0px; margin: 0px;">
                                                     <img src="assets/images/logo(round).png" alt="Photo"
-                                                        style="max-width:90px; height:auto;padding-left:10px; border:0;" width="90"
-                                                        border="0">
+                                                        style="max-width:90px; height:auto;padding-left:10px; border:0;"
+                                                        width="90" border="0">
                                                 </p>
                                             </td>
                                             <td style="padding-top: 25px;">
@@ -1011,7 +1011,7 @@
 
 
                             <!-- ----------------------------TEMPLATE-6---------------- -->
-                            <div *ngIf="templateId == 12" style="background-color: #FFFFFF;padding:10px;" >
+                            <div *ngIf="templateId == 12" style="background-color: #FFFFFF;padding:10px;">
                                 <table id="free-6" cellspacing="0" cellpadding="0" border="0"
                                     style="color: #808080; font-family: Arial, sans-serif; width: 440px;">
                                     <tbody>
@@ -1231,7 +1231,7 @@
                                         <tr>
                                             <td colspan="5">
                                                 <div
-                                                    style="background-color:#fff;vertical-align: center;border-radius:0 80px;padding:10px;text-align:center;">
+                                                    style="background-color:#fff;vertical-align: center;border-radius:0 80px;padding:10px;text-align:center; text-transform: capitalize">
 
                                                     <h2 [style.text-align]="nameAlign"
                                                         style="margin-bottom:0px;color:black;"
@@ -1243,11 +1243,11 @@
                                                             [style.color]="designationColor"
                                                             [style.line-height]="lineHeight"
                                                             [style.font-family]="fontFamilyNew"
-                                                            [style.font-size.px]="templateFontSize">{{desig}}
+                                                            [style.font-size.px]="itemFontSize">{{desig}}
                                                         </span><span [style.color]="contactDetailColor"
                                                             [style.line-height]="lineHeight"
                                                             [style.font-family]="fontFamilyNew"
-                                                            [style.font-size.px]="templateFontSize">{{Email}} </span>
+                                                            [style.font-size.px]="itemFontSize">{{Email}} </span>
                                                     </h5>
                                                 </div>
                                             </td>
@@ -1265,24 +1265,27 @@
                                             <td rowspan="2" style="vertical-align: center;padding:20px;">
 
 
-                                                <img style="box-shadow: 0 2px 0 10px #DCDCDC;width:150px;height:150px;border-radius:50%;"
-                                                    src="assets/images/testi-2.png ">
+                                                <img [style.border-radius.px]="borderRadius"
+                                                    *ngIf="proList[0]?.profileImage"
+                                                    style="box-shadow: 0 2px 0 10px #DCDCDC;width:150px;height:150px;border-radius:50%;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[0]?.profileImage}}">
 
                                             </td>
 
                                             <td style="vertical-align: end;padding:10px;">
                                                 <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize"><span
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Mob. :</span> {{number}}</p>
                                                 <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize"><span
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Web. :</span> {{compWebsite}}</p>
                                                 <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize"><span
-                                                        style="font-weight: bold;">Address. :</span> {{useraddress}}</p>
+                                                    [style.font-size.px]="itemFontSize"><span
+                                                        style="font-weight: bold; text-transform: capitalize">Address.
+                                                        :</span> {{useraddress}}</p>
                                             </td>
                                             <td style="vertical-align: center;">
 
@@ -1304,13 +1307,13 @@
                                         </tr>
 
                                         <tr>
-                                            <td colspan="2" style="color:black; margin: 3px;">
+                                            <td colspan="2"
+                                                style="color:black; margin: 3px; text-transform: capitalize">
                                                 <p style="padding: 10px;
                                             " *ngIf="proList[0]?.quotesId?.quotesName">
                                                     "{{proList[0]?.quotesId?.quotesName}}"
                                                 </p>
-                                                <p [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize" style="padding: 10px;
+                                                <p style="padding: 10px;
                                             " *ngIf="quotevar"> "{{quotevar}}"
 
                                                 </p>
@@ -1332,23 +1335,26 @@
                                     </tbody>
                                 </table>
 
-
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-1')">
+                                    >OK I'm Done</button>
 
                             </div>
 
                             <!-- .......................  T  E  M P L A T E -2 PRO ................ -->
 
                             <div *ngIf="templateId == 22">
-                                <table cellpadding="0" cellspacing="0" id="eleven"
+                                <table cellpadding="0" cellspacing="0" id="pro-2"
                                     style="background-color: #0D1A2A; font-size: medium;width:600px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr style="height: 238px;">
-                                            <td style="color:white;width:20%;border-radius: 8px 282px 325px 16px;"> <img
-                                                    *ngIf="!proList[1]?.profileImage"
-                                                    style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px;   height: 241px; width: 225px;"
-                                                    src="assets/images/model-img.png"> <img
-                                                    *ngIf="proList[1]?.profileImage"
-                                                    style=" box-shadow: 15px 1px 0px -4px #fe890d; border-radius: 159px;   height: 241px; width: 225px;"
+                                            <td [style.border-radius.px]="borderRadius"
+                                                style="color:white;width:20%;border-radius: 8px 282px 325px 16px;"> <img
+                                                    *ngIf="proList[1]?.profileImage" style=" box-shadow: 3px 0px 0px 1px #fe890d;
+                                                    border-radius: 159px;
+                                                    height: 135px;
+                                                    width: 135px;
+                                                    padding: 6px;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[1]?.profileImage}}">
                                             </td>
                                             <td style="color:white;width:35%">
@@ -1358,15 +1364,23 @@
                                                             <th style="text-align: right;float: right;"></th>
                                                         </tr>
                                                         <tr>
-                                                        <tr style="border-bottom:3px solid #707384;">
+                                                        <tr
+                                                            style="border-bottom:3px solid #707384; text-transform: capitalize;">
                                                             <td>
                                                                 <h2 style="margin-bottom:0px;color:#fff;"> <span
-                                                                        style="color:#fe890d;">{{proList[1]?.yourName}}</span>
+                                                                        [style.color]="firstNameColor"
+                                                                        [style.line-height]="lineHeight"
+                                                                        [style.font-family]="fontFamilyNew"
+                                                                        [style.font-size.px]="templateFontSize"
+                                                                        [style.text-align]="nameAlign">{{username}}</span>
                                                                 </h2>
                                                             </td>
                                                             <td>
-                                                                <p>
-                                                                    {{proList[1]?.designation}}</p>
+                                                                <p [style.color]="designationColor"
+                                                                    [style.line-height]="lineHeight"
+                                                                    [style.font-family]="fontFamilyNew"
+                                                                    [style.font-size.px]="itemFontSize">
+                                                                    {{desig}}</p>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1374,17 +1388,23 @@
                                                         </tr>
                                                         <tr>
                                                             <td style="margin-top:5px;">
-                                                                <p style="color:#fff;font-size: 12px;"> <span
+                                                                <p [style.color]="contactDetailColor"
+                                                                    [style.line-height]="lineHeight"
+                                                                    [style.font-family]="fontFamilyNew"
+                                                                    [style.font-size.px]="itemFontSize"> <span
                                                                         style="padding:0 5px;color:#fff;"><img
                                                                             src="assets/images/phone-white.png">
-                                                                        {{proList[1]?.phoneNo}} </span> <span
+                                                                        {{number}} </span> <span
                                                                         style="padding:0 5px;color:#B9B9B9;"><img
-                                                                            src="assets/images/mail-pro.png">{{proList[1]?.email}}</span>
+                                                                            src="assets/images/mail-pro.png">{{Email}}</span>
                                                                 </p>
-                                                                <p style="color:#fff;font-size: 12px;"> <span
-                                                                        style="padding:0 5px;color:#B9B9B9;"><img
+                                                                <p [style.color]="contactDetailColor"
+                                                                    [style.line-height]="lineHeight"
+                                                                    [style.font-family]="fontFamilyNew"
+                                                                    [style.font-size.px]="itemFontSize"> <span
+                                                                        style="padding:0 5px;color:#B9B9B9; text-transform: capitalize"><img
                                                                             src="assets/images/loaction-pro.png">
-                                                                        {{proList[1]?.address[0]?.city}} </span> </p>
+                                                                        {{useraddress}} </span> </p>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1393,8 +1413,7 @@
                                                                     style=" border-bottom: none; border-left: 3px solid #fe890d;">
                                                                 </span> <span style="padding-left:10px;color:#f8f1f1;">
                                                                     <q *ngIf="proList[1]?.quotesId?.quotesName">“{{proList[1]?.quotesId?.quotesName}}
-                                                                    </q> <q
-                                                                        *ngIf="proList[1]?.quotes">{{proList[1]?.quotes}}</q>
+                                                                    </q> <q *ngIf="proList[1]?.quotes">{{quotevar}}</q>
                                                                 </span> </td>
                                                         </tr>
                                                     </tbody>
@@ -1414,6 +1433,9 @@
                                     </tbody>
                                 </table>
 
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-2')">
+                                    >OK I'm Done</button>
                             </div>
 
                             <!-- .......................  T  E  M P L A T E -3 PRO ................ -->
@@ -1430,8 +1452,10 @@
                                                 <div
                                                     style="background-color: #fff;height: 140px;margin:10px;width:150px ;text-align:center;border-radius:0 0 225px 225px; ">
 
-                                                    <img style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
-                                                        src="assets/images/model-img.png ">
+                                                    <img [style.border-radius.px]="borderRadius"
+                                                        *ngIf="proList[2]?.profileImage"
+                                                        style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[2]?.profileImage}}">
                                                 </div>
 
                                             </td>
@@ -1444,37 +1468,54 @@
                                         <tr>
 
                                             <td style="padding:10px;height:100px;color:white;">
-                                                <h2 style="margin-bottom:0px;color:#EDD502;">{{proList[2]?.yourName}}
+                                                <h2 style="margin-bottom:0px; " [style.text-align]="nameAlign"
+                                                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="templateFontSize">{{username}}
                                                 </h2>
-                                                <h6 style="margin-bottom:0px;color:#EDD502;">{{proList[2]?.designation}}
+                                                <h6 style="margin-bottom:0px;" [style.color]="designationColor"
+                                                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize">{{desig}}
                                                 </h6>
                                             <td
                                                 style="margin-top:5px;width:400px; background-color:#fff;border-radius: 111px 0 0 110px;">
 
                                                 <div style="padding:0 13px;width:70%">
-                                                    <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <p style="color:black;font-size: 12px;margin-bottom:0;"
+                                                        [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
                                                         <span style="padding:0 5px;color:black"><img style="    background: #078b7b;
                             border-radius: 26px;
                             width: 15px;
                             padding: 2px;" src="assets/images/phone-white.png">
-                                                            {{proList[2]?.phoneNo}} </span>
+                                                            {{number}} </span>
 
                                                     </p>
-                                                    <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <p style="color:black;font-size: 12px;margin-bottom:0;"
+                                                        [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
                                                         <span style="padding:0 5px;color:black">
                                                             <img style="   background: #078b7b;
                             border-radius: 26px;
                             width: 15px;
                             padding: 2px;" src="assets/images/loaction.png">
-                                                            {{proList[2]?.companyPhone}} </span>
+                                                            {{compPhone}} </span>
 
                                                     </p>
-                                                    <p style="color:black;font-size: 12px;margin-bottom:0;">
+                                                    <p style="color:black;font-size: 12px;margin-bottom:0;"
+                                                        [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
                                                         <span style="padding:0 5px;color:black"><img style="    background: #078b7b;
                             border-radius: 26px;
                             width: 15px;
                             padding: 2px;" src="assets/images/mail-pro.png">
-                                                            {{proList[2]?.email}}</span>
+                                                            {{Email}}</span>
 
                                                     </p>
 
@@ -1483,7 +1524,7 @@
                             border-radius: 26px;
                             width: 15px;
                             padding: 2px;" src="assets/images/web.png">
-                                                            {{proList[2]?.companyWebsite}}</span>
+                                                            {{compWebsite}}</span>
 
                                                     </p>
 
@@ -1497,12 +1538,14 @@
                                                 {{proList[2]?.quotesId?.quotesName}}
                                             </td>
                                             <td style="" colspan="2" *ngIf="proList[2]?.quotes">
-                                                {{proList[2]?.quotes}}
+                                                {{quotevar}}
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-3')">
+                                    >OK I'm Done</button>
                             </div>
 
                             <!-- .......................  T  E  M P L A T E -4 PRO ................ -->
@@ -1521,34 +1564,50 @@
                                             <td
                                                 style="width:194px;padding:30px;background-color: #fff; vertical-align: center;text-align:end;border-radius:0 225px 225px 0; ">
 
-                                                <img style="width:130px;height:130px;box-shadow: 24px 0 0px -8px #fff;margin-left:-75px; border-radius:50%"
-                                                    src="assets/images/square-image.png ">
+                                                <img [style.border-radius.px]="borderRadius"
+                                                    *ngIf="proList[3]?.profileImage"
+                                                    style="width:130px;height:130px;box-shadow: 24px 0 0px -8px #fff;margin-left:-75px; border-radius:50%"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[3]?.profileImage}}">
 
 
                                             </td>
 
 
                                             <td style="">
-                                                <h2 style="margin-bottom:0px;color:#006683;">{{proList[3]?.yourName}}
+                                                <h2 style="margin-bottom:0px;" [style.text-align]="nameAlign"
+                                                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="templateFontSize">{{username}}
                                                 </h2>
-                                                <h6 style="margin-bottom:0px;color:#006683;">{{proList[3]?.designation}}
+                                                <h6 style="margin-bottom:0px;" [style.color]="designationColor"
+                                                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize">{{desig}}
                                                 </h6>
                                                 <div style="margin-top:5px;">
-                                                    <p style="color:#006683;;font-size: 12px; "> M:-
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"> M:-
                                                         <span style="padding:0 5px;color:#fff">
-                                                            {{proList[3]?.phoneNo}} </span>
+                                                            {{number}} </span>
 
                                                     </p>
 
-                                                    <p style="color:#006683;font-size: 12px;">W:-
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">W:-
                                                         <span style="padding:0 5px;color:#fff">
-                                                            {{proList[3]?.email}}</span>
+                                                            {{Email}}</span>
 
                                                     </p>
 
-                                                    <p style="color:#006683;font-size: 12px;">W:-
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">W:-
                                                         <span style="padding:0 5px;color:#fff">
-                                                            {{proList[3]?.companyWebsite}}</span>
+                                                            {{compWebsite}}</span>
 
                                                     </p>
 
@@ -1565,19 +1624,22 @@
                                             <td colspan="2" style="padding:10px;height:100px;color:white;">
                                                 <q
                                                     *ngIf="proList[3]?.quotesId?.quotesName">{{proList[3]?.quotesId?.quotesName}}</q>
-                                                <q *ngIf="proList[3]?.quotes">{{proList[3]?.quotes}}</q>
+                                                <q *ngIf="proList[3]?.quotes">{{quotevar}}</q>
                                             </td>
 
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-4')">
+                                    >OK I'm Done</button>
                             </div>
 
 
                             <!-- .......................  T  E  M P L A T E -5 PRO ................ -->
                             <div *ngIf="templateId == 25">
 
-                                <table cellpadding="0" cellspacing="0"
+                                <table cellpadding="0" cellspacing="0" id="pro-5"
                                     style="  background-color: #171B24;font-size: medium;width:600px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
@@ -1585,8 +1647,10 @@
                                                 <div
                                                     style="box-shadow: 24px 0 0px -8px ;padding:10px;background-color: #00757e;width:150px;height:300px;margin:10px ; border-radius: 76px; ">
 
-                                                    <img style="width:150px;height:280px;border-radius:10px;padding:25px;"
-                                                        src="assets/images/square-image.png ">
+                                                    <img [style.border-radius.px]="borderRadius"
+                                                        *ngIf="proList[4]?.profileImage"
+                                                        style="width:150px;height:280px;border-radius:10px;padding:25px;"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[4]?.profileImage}}">
                                                 </div>
 
                                             </td>
@@ -1595,18 +1659,33 @@
                                                 <div
                                                     style="background-color:#fff;vertical-align: center;width:350px;height:150px;border-radius:0 80px;padding:10px;text-align:center;">
 
-                                                    <h2 style="margin-bottom:0px;color:black;"> {{proList[4]?.yourName}}
+                                                    <h2 style="margin-bottom:0px;" [style.text-align]="nameAlign"
+                                                        [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="templateFontSize"> {{username}}
                                                     </h2>
-                                                    <h6>{{proList[4]?.designation}}</h6>
-                                                    <p style="color:#006683;font-size: 12px;">M:-
-                                                        <span style="padding:0 5px;color:black">
-                                                            {{proList[4]?.phoneNo}} </span>
-                                                    <p style="color:#006683;font-size: 12px;">W:-
-                                                        <span style="padding:0 5px;color:black">
-                                                            {{proList[4]?.companyWebsite}}</span>
-                                                    <p style="color:#006683;font-size: 12px;">E:-
-                                                        <span style="padding:0 5px;color:black">
-                                                            {{proList[4]?.email}}</span>
+                                                    <h6 [style.color]="designationColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">{{desig}}</h6>
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">M:-
+                                                        <span style="padding:0 5px;">
+                                                            {{number}} </span>
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">W:-
+                                                        <span style="padding:0 5px;">
+                                                            {{compWebsite}}</span>
+                                                    <p [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">E:-
+                                                        <span style="padding:0 5px;">
+                                                            {{Email}}</span>
 
                                                 </div>
                                             </td>
@@ -1627,18 +1706,21 @@
                                                 <p>
                                                     <q
                                                         *ngIf="proList[4]?.quotesId?.quotesName">{{proList[4]?.quotesId?.quotesName}}</q>
-                                                    <q *ngIf="proList[4]?.quotes">{{proList[4]?.quotes}}</q>
+                                                    <q *ngIf="proList[4]?.quotes">{{quotevar}}</q>
                                                 </p>
                                             </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-5')">
+                                    >OK I'm Done</button>
                             </div>
                             <!-- .......................  T  E  M P L A T E -6 PRO ................ -->
 
                             <div *ngIf="templateId == 26">
-                                <table cellpadding="0" cellspacing="0"
+                                <table cellpadding="0" cellspacing="0" id="pro-6"
                                     style="background-color: #fff ;font-size: medium;width:600px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
@@ -1650,8 +1732,10 @@
                     padding: 20px;
                     margin-left: 40px;
                     background-color: #77653c;"></div>
-                                                    <img style="box-shadow: 0 2px 0 10px #77653c;width:120px;height:120px;border-radius:50%;"
-                                                        src="assets/images/model-img.png ">
+                                                    <img [style.border-radius.px]="borderRadius"
+                                                        *ngIf="proList[5]?.profileImage"
+                                                        style="box-shadow: 0 2px 0 10px #77653c;width:120px;height:120px;border-radius:50%;"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[5]?.profileImage}}">
 
 
 
@@ -1659,11 +1743,18 @@
                                             </td>
                                             <td>
                                                 <div style="">
-                                                    <h4 style="margin-bottom:0px;color:#77653c;font-weight: bold;">
-                                                        {{proList[5]?.yourName}}</h4>
-                                                    <h6
-                                                        style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                                                        {{proList[5]?.designation}}</h6>
+                                                    <h4 style="margin-bottom:0px;;font-weight: bold;"
+                                                        [style.text-align]="nameAlign" [style.color]="firstNameColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="templateFontSize">
+                                                        {{username}}</h4>
+                                                    <h6 style="margin-bottom:0px;;font-weight: bold;font-size: 18x;"
+                                                        [style.color]="designationColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
+                                                        {{desig}}</h6>
                                                 </div>
 
                                             </td>
@@ -1676,23 +1767,29 @@
                                             <td style="width:300px; padding:25px;font-size:12px;color:#FFFFFF;">
                                                 <q
                                                     *ngIf="proList[5]?.quotesId?.quotesName">{{proList[5]?.quotesId?.quotesName}}</q>
-                                                <q *ngIf="proList[5]?.quotes">{{proList[5]?.quotes}}</q>
+                                                <q *ngIf="proList[5]?.quotes">{{quotevar}}</q>
                                             </td>
                                             <td colspan="2">
 
 
 
 
-                                                <p style="font-size:12px;color:#FFFFFF;"><span
-                                                        style="font-weight: bold;">Mob. :</span>{{proList[5]?.phoneNo}}
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
+                                                        style="font-weight: bold;">Mob. :</span>{{number}}
                                                 </p>
-                                                <p style="font-size:12px;color:#FFFFFF;"><span
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Web. :</span>
-                                                    {{proList[5]?.companyWebsite}}
+                                                    {{compWebsite}}
                                                 </p>
-                                                <p style="font-size:12px;color:#FFFFFF;"><span
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Address. :</span>
-                                                    {{proList[5]?.address[0]?.city}}.</p>
+                                                    {{useraddress}}</p>
 
 
                                             </td>
@@ -1701,6 +1798,9 @@
 
                                     </tbody>
                                 </table>
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-6')">
+                                    >OK I'm Done</button>
                             </div>
                             <!-- .......................  T  E  M P L A T E -7 PRO ................ -->
 
@@ -1716,7 +1816,9 @@
                                             </td>
                                             <td rowspan="2" style="vertical-align: center;text-align: center;">
 
-                                                <img style="width:150px;height:150px;" src="assets/images/testi-2.png ">
+                                                <img [style.border-radius.px]="borderRadius"
+                                                    style="width:150px;height:150px;" *ngIf="proList[6]?.profileImage"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[6]?.profileImage}}">
 
 
 
@@ -1729,24 +1831,41 @@
                                             <!-- </td> -->
                                             <td>
                                                 <div style="">
-                                                    <h4 style="margin-bottom:0px;color:#77653c;font-weight: bold;">
-                                                        {{proList[6]?.yourName}}</h4>
-                                                    <h6
-                                                        style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;margin-bottom: 15px;">
-                                                        {{proList[6]?.designation}},
-                                                        {{proList[6]?.email}} </h6>
+                                                    <h4 style="margin-bottom:0px;font-weight: bold;"
+                                                        [style.text-align]="nameAlign" [style.color]="firstNameColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="templateFontSize">
+                                                        {{username}}</h4>
+                                                    <h6 style="margin-bottom:0px;font-weight: bold;font-size: 18x;margin-bottom: 15px;"
+                                                        [style.color]="designationColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
+                                                        {{desig}}
+                                                    </h6>
                                                 </div>
-
-                                                <p style="font-size:12px;color:#000;"><span
-                                                        style="font-weight: bold;">Mob. :</span> {{proList[6]?.phoneNo}}
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
+                                                        style="font-weight: bold;">E :</span> {{Email}}
                                                 </p>
-                                                <p style="font-size:12px;color:#000;"><span
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
+                                                        style="font-weight: bold;">Mob. :</span> {{number}}
+                                                </p>
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Web. :</span>
-                                                    {{proList[6]?.companyWebsite}}
+                                                    {{compWebsite}}
                                                 </p>
-                                                <p style="font-size:12px;color:#000;"><span
+                                                <p [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Address. :</span>
-                                                    {{proList[6]?.address[0]?.city}}</p>
+                                                    {{useraddress}}</p>
 
 
                                             </td>
@@ -1759,7 +1878,7 @@
                                             <td style="width:300px; font-size:12px;color:#000;">
                                                 <q
                                                     *ngIf="proList[6]?.quotesId?.quotesName">{{proList[6]?.quotesId?.quotesName}}</q>
-                                                <q *ngIf="proList[6]?.quotes">{{proList[6]?.quotes}}</q>
+                                                <q *ngIf="proList[6]?.quotes">{{quotevar}}</q>
                                             </td>
                                         </tr>
 
@@ -1767,8 +1886,821 @@
 
                                     </tbody>
                                 </table>
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 done_btn"
+                                    (click)="CopyToClipboard('pro-7')">
+                                    >OK I'm Done</button>
                             </div>
                             <!-- .......................  T  E  M P L A T E -8 PRO ................ -->
+
+
+
+
+ <!-- ................................STARTING FOR PRO plus TEMPLATES........................ -->
+
+
+
+<!-- ............................Template-1........................ -->
+
+
+
+<div *ngIf="templateId == 1">
+    <table cellpadding="0" cellspacing="0" id="one"
+    style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
+    <tbody>
+        <tr>
+            <td colspan="3" style="background-color: #fff;padding:10px;">
+
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:30px;" colspan="2">
+
+                <h2 style="margin-bottom:0px;" [style.text-align]="nameAlign"
+                [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="templateFontSize">{{username}}</h2>
+                <h5 style="margin-bottom:0px;margin: 0 2px;" [style.color]="designationColor"
+                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="itemFontSize"> {{desig}}
+                </h5>
+
+                <p style="padding:10px;border-radius:  10px 10px 0 0;">
+                    <span><img style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/face+.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/link+.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/twtr+.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/insta+.png"></span>
+                </p>
+            </td>
+            <td style="width:100px;position:relative; text-align:center;vertical-align:center;">
+                <div style="background-color: #341c30;width:150px;margin:20px;rotate: 40deg;">
+                    <img *ngIf="proplus[0]?.profileImage" [style.border-radius.px]="borderRadius"style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[0]?.profileImage}}">
+                </div>
+
+
+
+            </td>
+
+        </tr>
+
+
+        <tr style="background-color:#341c30;color:white;">
+
+            <td style="vertical-align: center;padding:10px;background-color:#341c30">
+                <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                height="65">
+            </td>
+
+
+            <td style="vertical-align: end;padding:10px;">
+                <p style="font-size:12px;margin-bottom: 0;"  [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Mob. :</span> {{number}}</p>
+                <p style="font-size:12px;margin-bottom: 0;"  [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Web. :</span>{{compWebsite}}</p>
+                <p style="font-size:12px;margin-bottom: 0;"  [style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Address. :</span> {{useraddress}}</p>
+            </td>
+
+
+            <td style="color:black; margin: 3px;">
+                <p style="padding: 10px; padding: 0px;font-size: 12px; width: 250px;
+                ">
+                 <q  *ngIf="proplus[0]?.quotesId?.quotesName">
+                    {{proplus[0]?.quotesId?.quotesName}}
+                 </q>
+                <q  *ngIf="proplus[0]?.quotes">
+                    {{quotevar}}
+                </q>
+                </p>
+            </td>
+        </tr>
+
+
+
+
+
+
+
+    </tbody>
+</table>
+</div>
+
+<!-- ..............................Template-2................... -->
+<div *ngIf="templateId == 2">
+    <table cellpadding="0" cellspacing="0" id="two"
+    style="background-color: #fff  ;font-size: medium;width:700px;height:280px; font-family: Arial;">
+    <tbody>
+        <tr>
+            <td colspan="3" style="background-color: #f2c030;padding:8px;">
+
+            </td>
+        </tr>
+
+
+
+        <tr>
+
+            <td style="vertical-align: center;padding:20px;">
+
+
+                <img [style.border-radius.px]="borderRadius"
+                *ngIf="proplus[1]?.profileImage"style="width:150px;height:150px;border-radius:50%;"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[1]?.profileImage}}">
+
+            </td>
+
+            <td style="vertical-align: end;padding:10px;">
+                <h2 style="margin-bottom:10px;"[style.text-align]="nameAlign"
+                [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="templateFontSize">{{username}}</h2>
+                <h5 style="margin-bottom:20px;width:180px;background-color: #f2c030;    padding: 4px;
+                border-radius: 6px;"[style.color]="designationColor"
+                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="itemFontSize">{{desig}}</h5>
+
+                <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Mob. :</span>
+                                                        {{number}}</p>
+                <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Web. :</span>
+                                                        {{compWebsite}}</p>
+                <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize"><span style="font-weight: bold;">Address. :</span>
+                                                        {{useraddress}}</p>
+            </td>
+            <td style="text-align: end;">
+
+
+                <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                height="65">
+
+            </td>
+
+
+
+
+        </tr>
+        <tr style="background-color: #fff;">
+            <td colspan="2" style="background-color: #fff;padding: 5px;margin: 3px;">
+
+            </td>
+            <td style="background-color: #007ab6;border-radius: 116px 0 0 0px;    width: 230px;height: 60px;
+            padding:0 45px;">
+                <span><img style="width:20px;height:20px;margin:5px;" src="assets/images/face-y.png"></span><span><img
+                        style="width:20px;height:20px;margin:5px;" src="assets/images/twtr-y.png"></span><span><img
+                        style="width:20px;height:20px;margin:5px;" src="assets/images/link-y.png"></span><span><img
+                        style="width:20px;height:20px;margin:5px;" src="assets/images/insta-y.png"></span>
+
+            </td>
+        </tr>
+
+        <tr style="background-color: #007ab6;">
+            <td colspan="2" style=" margin: 3px;">
+                <p style="padding: 10px;font-size:12px;color: #fff;
+                ">
+                    <q  *ngIf="proplus[1]?.quotesId?.quotesName">
+                        {{proplus[1]?.quotesId?.quotesName}}
+                     </q>
+                    <q  *ngIf="proplus[1]?.quotes">
+                        {{quotevar}}
+                    </q>
+                </p>
+            </td>
+            <td></td>
+        </tr>
+
+
+
+
+
+
+        
+
+    </tbody>
+</table>
+</div>
+
+
+<!-- ..............................Template-3................... -->
+<div *ngIf="templateId == 3">
+    <table cellpadding="0" cellspacing="0" id="three"
+    style="background-color: #fff  ;font-size: medium;width:700px;height:280px; font-family: Arial;">
+    <tbody>
+        <tr>
+            <td colspan="5" style="background-color: #B4199A;padding:6px;">
+
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">
+
+                <div
+                    style="padding:3px;width: 5px;margin-top: 50px;background-color: #B4199A;height:100px;border-radius:15px 80px 80px 15px">
+                </div>
+
+            </td>
+            <td rowspan="3" style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;">
+                <img [style.border-radius.px]="borderRadius"
+                *ngIf="proplus[2]?.profileImage" style="box-shadow: 0 2px 0 10px #B4199A;width:150px;height:150px;border-radius:50%;"
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[2]?.profileImage}}">
+            </td>
+            <td>
+                <div
+                    style="background-color:#fff;vertical-align: center;border-radius:0 80px;padding-top:20px;text-align:center;">
+
+                    <h2 style="margin-bottom:0px;" [style.text-align]="nameAlign"
+                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                    [style.font-family]="fontFamilyNew"
+                    [style.font-size.px]="templateFontSize">{{username}}</h2>
+                    <h5 style="margin-bottom:0px;"[style.color]="designationColor"
+                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                    [style.font-size.px]="itemFontSize"> <span style="padding:5px;">{{desig}}</span> </h5></div>
+            </td>
+            <td>
+                <p style="padding:10px;border-radius:  10px 10px 0 0;">
+                    <span><img style="width:20px;height:20px;margin:5px;" src="assets/images/face.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/link.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/twtr.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/insta.png"></span>
+                </p>
+            </td>          
+
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: #B4199A;padding:1px;">
+
+            </td>
+
+        </tr>
+       
+        <tr>
+    
+                <td colspan="2" style="vertical-align: end;padding:10px;padding-left: 42px;">
+                    <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Mob. :</span> {{number}}</span>
+                    <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Web. :</span> {{compWebsite}}</span>
+                    <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Address. :</span>  {{useraddress}}</span>
+                </td>
+
+        </tr>
+       
+        <tr>
+            <td></td>
+            <td colspan="3" style="color:black; margin: 3px;">
+                <p style="padding: 20px;
+                ">
+                    <q  *ngIf="proplus[2]?.quotesId?.quotesName">
+                        {{proplus [2]?.quotesId?.quotesName}}
+                     </q>
+                    <q  *ngIf="proplus[2]?.quotes">
+                        {{quotevar}}
+                    </q>
+                </p>
+            </td>
+            <td style="vertical-align: center;">
+                <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                height="65">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color: #B4199A;padding:6px;">
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- ..............................Template-4................... -->
+<div *ngIf="templateId == 4">
+    <table cellpadding="0" cellspacing="0"
+    style="background-color: #fff  ;font-size: medium;width:700px;height:280px; font-family: Arial;">
+    <tbody>
+        <tr>
+            <td colspan="5" style="background-color: #fff;padding:10px;border-radius: 0 0 10px 10px;">
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <div
+                    style="background-color:#fff;vertical-align: center;border-radius:0 80px;padding:10px;text-align:center;">
+
+                    <h2 style="margin-bottom:0px;">{{username}}</h2>
+                    <h5 style="margin-bottom:0px;background-color: #47555b;;margin: 0 250px;"> {{desig}}</h5></div>
+                     
+            </td>
+        </tr>
+
+
+        <tr>
+            <td rowspan="2" style="width: 1px;">
+
+
+            </td>
+            <td rowspan="2" style="vertical-align:top;padding:0 20px;">
+
+
+                <img [style.border-radius.px]="borderRadius"
+                *ngIf="proplus[3]?.profileImage" style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;"
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[3]?.profileImage}}">
+
+            </td>
+
+            <td style="vertical-align: end;padding:10px;">
+                <p ><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Mob. :</span> {{number}}</p>
+                <p><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Web. :</span>  {{compWebsite}}</p>
+                <p ><span style="font-weight: bold;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">Address. :</span>  {{useraddress}}</p>
+            </td>
+            <td style="vertical-align: center;">
+
+
+                <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                height="65">
+
+            </td>
+
+            <td rowspan="2">
+
+                <div
+                    style="padding:5px;width: 13px;height:100px;height:100px;border-radius: 80px  0  0 80px;">
+                </div>
+
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td colspan="2" style="color:black; margin: 3px;">
+                <p style="padding: 10px;
+                ">
+                      <q  *ngIf="proplus[3]?.quotesId?.quotesName">
+                        {{proplus[3]?.quotesId?.quotesName}}
+                     </q>
+                    <q  *ngIf="proplus[3]?.quotes">
+                        {{quotevar}}
+                    </q>
+                </p>
+            </td>
+        </tr>
+
+
+
+
+
+
+     
+        <tr style="text-align:center;">
+            <td colspan="5" style="background-color: #b08aeb;padding:10px;border-radius:  10px 10px 0 0;">
+                <span><img style="width:20px;height:20px;margin:5px;background-color: #47555b;border-radius:50%" src="images/fb.png"></span><span><img style="width:20px;height:20px;margin:5px;background-color: #47555b;border-radius:50%" src="images/tw.png"></span><span><img style="width:20px;height:20px;margin:5px;background-color: #47555b;border-radius:50%" src="images/linn.png"></span><span><img style="width:20px;height:20px;margin:5px;background-color: #47555b;border-radius:50%" src="images/li.png"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+<!-- ..............................Template-5................... -->
+<div *ngIf="templateId == 5">
+     <table cellpadding="0" cellspacing="0"
+        style="  background-color: #f5edee;font-size: medium;width:700px;height:280px; font-family: Arial;font-style: italic;">
+        <tbody>
+            <tr>
+                <td colspan="2" style="padding:20px;"></td>
+
+                <td rowspan="2" style="padding:20px;vertical-align: top;text-align: center;">
+                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                    height="65">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="background-color: #ea8a8a;text-align: center;padding: 20px;">
+
+                    <img [style.border-radius.px]="borderRadius"
+                    *ngIf="proplus[1]?.profileImage" style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[4]?.profileImage}}">
+
+
+                </td>
+
+
+                <td rowspan="2" style="background-color: #ea8a8a;padding:15px;border-radius:0 225px 225px 0">
+                    <h2 style="margin-bottom:0px;"[style.text-align]="nameAlign"
+                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                    [style.font-family]="fontFamilyNew"
+                    [style.font-size.px]="templateFontSize">{{username}}</h2>
+                    <h6 style="margin-bottom:0px;"[style.color]="designationColor"
+                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                    [style.font-size.px]="itemFontSize">{{desig}}</h6>
+                    <div style="margin-top:5px;">
+                        <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
+                            <span style="padding:0 5px;color:#fff"><img style="width:12px;height:12px;"
+                                    src="assets/images/phone-white.png">
+                            </span>{{number}}
+
+                        </p>
+
+                        <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                                                        [style.line-height]="lineHeight"
+                                                        [style.font-family]="fontFamilyNew"
+                                                        [style.font-size.px]="itemFontSize">
+                            <span style="padding:0 5px;color:#fff"><img style="width:10px;height:12px;"
+                                    src="assets/images/loaction.png">
+                            </span>  {{useraddress}}
+
+                        </p>
+
+                        <p style="margin-bottom:0px;"[style.color]="contactDetailColor"
+                        [style.line-height]="lineHeight"
+                        [style.font-family]="fontFamilyNew"
+                        [style.font-size.px]="itemFontSize">
+                            <span style="padding:0 5px;color:#fff"><img style="width:12px;height:12px;"
+                                    src="assets/images/mail.png"></span>
+                                    {{compWebsite}}
+                        </p>
+
+
+                    </div>
+                </td>
+
+
+            </tr>
+            <tr>
+                <td style="background: #ea8a8a;
+    vertical-align: middle;text-align: center;
+    border-radius: 79px 0 0 70px;">
+
+                    <span><img style="width:20px;height:20px;margin:5px;" src="assets/images/fb1.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/tw.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/li.png"></span><span><img
+                            style="width:20px;height:20px;margin:5px;" src="assets/images/insta-white.png"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="font-size:12px;padding:10px;height:100px;color:#000c;">
+                    <q  *ngIf="proplus[4]?.quotesId?.quotesName">
+                        {{proplus[4]?.quotesId?.quotesName}}
+                     </q>
+                    <q  *ngIf="proplus[4]?.quotes">
+                        {{quotevar}}
+                    </q>
+                </td>
+
+            </tr>
+        </tbody>
+    </table> 
+</div>
+<!-- ..............................Template-6................... -->
+<div *ngIf="templateId == 6">
+    <table width="1000" align="center" id="six">
+        <tr>
+            <td style="padding: 45px;background-color: #ededed;">
+                <table width="100%"
+                    style="background-color: #FFFFFF;box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; font-family: Arial, Helvetica, sans-serif;">
+                    <tr>
+                        <td width="344" style="position: relative;">
+                            <img src="assets/images/right-images.png" alt="">
+                            <img src="assets/images/square-image.png"
+                                style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
+                                alt="">
+                            <br>
+                            <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                            height="65">
+
+                        </td>
+                        <td valign="top" align="left" style="padding: 55px 24px;">
+                            <h1 style="text-transform: uppercase; padding: 0; margin: 0;"
+                            [style.text-align]="nameAlign"
+                            [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                            [style.font-family]="fontFamilyNew"
+                            [style.font-size.px]="templateFontSize">
+                                {{username}}</h1>
+                            <h2 style=" text-transform: capitalize; padding: 0; margin: 0;"
+                            [style.color]="designationColor"
+                            [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                            [style.font-size.px]="itemFontSize">
+                                {{desig}}</h2>
+                            <p style=" padding: 0; margin: 0;"[style.color]="contactDetailColor"
+                            [style.line-height]="lineHeight"
+                            [style.font-family]="fontFamilyNew"
+                            [style.font-size.px]="itemFontSize"
+                              >
+                                <strong>E: </strong><a>{{Email}}</a>
+                            </p>
+                            <p style="  padding: 0; margin: 0;"[style.color]="contactDetailColor"
+                            [style.line-height]="lineHeight"
+                            [style.font-family]="fontFamilyNew"
+                            [style.font-size.px]="itemFontSize"
+                          >
+                                <strong>W:
+                                </strong><a> {{compWebsite}}</a>
+                            </p>
+                            <p style=" padding: 0; margin: 0;"[style.color]="contactDetailColor"
+                            [style.line-height]="lineHeight"
+                            [style.font-family]="fontFamilyNew"
+                            [style.font-size.px]="itemFontSize"
+                            >
+                                <strong>P: </strong> {{number}} |
+                                {{compPhone}}
+                            </p>
+
+                            <p style="color: #e97977;"
+                                >
+                                <q  *ngIf="proplus[5]?.quotesId?.quotesName">
+                                    {{proplus[5]?.quotesId?.quotesName}} —{{proplus[5]?.quotesId?.quotesId?.authorId?.firstName}}
+                                 </q>
+                                <q  *ngIf="proplus[5]?.quotes">
+                                    {{quotevar}}
+                                </q>
+                               
+                            </p>
+                           
+                        </td>
+                        <!-- proList?.result[0]?.templateDesign -->
+                        <td align="right" width="113">
+
+                            <table cellpadding="0" cellspacing="0">
+                                <!-- <tr>
+                            <td><img src="assets/images/rightBar.png" alt=""> </td>na
+                          </tr> -->
+                                <tr>
+                                    <td align="right" valign="top"
+                                        style=" height: 165px; background-color: #f4b0af;border-radius: 80px 80px 0 0;">
+                                        <table width="83" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center"
+                                                    style="padding-bottom: 11px;">
+                                                    <a
+                                                        href="{{Twitter}}"><img
+                                                            src="assets/images/icon_twitter.png"
+                                                            alt=""></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"
+                                                    style="padding-bottom: 11px;">
+                                                    <a
+                                                        href="{{insta }}">
+                                                        <img src="assets/images/icon_insta.png"
+                                                            alt=""></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"
+                                                    style="padding-bottom: 11px;">
+                                                    <a
+                                                        href="{{faceB}}"><img
+                                                            src="assets/images/icon_facebook.png"
+                                                            alt=""></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"
+                                                    style="padding-bottom: 11px;">
+                                                    <a href="{{Linkedin }}"
+                                                        target="_blank"> <img
+                                                            src="assets/images/icon_linkedin.png"
+                                                            alt=""></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>   
+</div>
+<!-- ..............................Template-7................... -->
+<div *ngIf="templateId == 7">
+    <table cellpadding="0" cellspacing="0" id="seven"
+    style="background-color:#6f266e;width:700px;height:280px; font-family: Arial;">
+    <tbody>
+        <tr style="text-align: center;">
+            <td rowspan="2"
+                style="background-color:white;width:275px;border-radius: 50% 0;">
+                <h5 [style.text-align]="nameAlign"
+                [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="templateFontSize">
+                    {{username}}</h5>
+                <small
+                [style.color]="designationColor"
+                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="itemFontSize">{{desig}}</small>
+                <p [style.color]="contactDetailColor"
+                [style.line-height]="lineHeight"
+                [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="itemFontSize">
+                    <a>{{Email}}</a>
+                </p>
+                <p [style.color]="contactDetailColor"
+                [style.line-height]="lineHeight"
+                [style.font-family]="fontFamilyNew"
+                [style.font-size.px]="itemFontSize">
+                    <a>{{compWebsite}}</a>
+                </p>
+
+            </td>
+            <td
+                style="background-color:white;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; border-radius: 0 0 186px 186px;">
+
+                <img [style.border-radius.px]="borderRadius"
+                *ngIf="proplus[6]?.profileImage" style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[1]?.profileImage}}">
+
+
+
+
+            </td>
+
+            <td rowspan="2"
+                style="background-color:white;width:275px;border-radius: 0 50% 0 50%;">
+                <span>
+                    <a href="{{faceB}}"><img
+                            style="width:20px;height:20px;margin:5px; background-color: #1793ce;"
+                            src="assets/images/fb-1.png"></a></span>
+                <span><a href="{{Twitter}}"><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/tt-1.png"></a></span>
+                <span><a href="{{Linkedin}}"><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/ln-1.png"></a></span>
+                <span><a href="{{insta}}"><img
+                            style="width:20px;height:20px;margin:5px;"
+                            src="assets/images/it-1.png"></a></span>
+                <br>
+                <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                height="65">
+
+            </td>
+        </tr>
+
+        <tr>
+            <td style="color:white; height:110px;">
+                <q  *ngIf="proplus[6]?.quotesId?.quotesName">
+                    {{proplus[6]?.quotesId?.quotesName}}
+                 </q>
+                <q  *ngIf="proplus[6]?.quotes">
+                    {{quotevar}}
+                </q>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- ..............................Template-8................... -->
+<div *ngIf="templateId == 8">
+    <table cellpadding="0" cellspacing="0" id="my-pro"
+                                style="background-image:  linear-gradient(110deg, #02213d 35%, #fff 20% 70%);font-size: medium;width:700px;height:280px; font-family: Arial;">
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2" style=" vertical-align: top;width:275px;-webkit-clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);">
+                                            <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
+                                            height="65">
+                                            <p style="color:#fff;   color: #fff;
+width: 170px;
+padding: 21px;">
+                                             
+                    <q  *ngIf="proplus[7]?.quotesId?.quotesName">
+                        {{proplus[7]?.quotesId?.quotesName}}
+                     </q>
+                    <q  *ngIf="proplus[7]?.quotes">
+                        {{quotevar}}
+                    </q>
+                                            </p>
+                                        </td>
+                                        <td
+                                            style="position:relative;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
+
+                                            <img [style.border-radius.px]="borderRadius"
+                                            *ngIf="proplus[7]?.profileImage"style="position: absolute;
+                top: 50%;
+                left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                                               src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[1]?.profileImage}}">
+
+
+
+
+                                        </td>
+
+                                        <td rowspan="2"
+                                            style="background-color:white;width:365px;border-radius: 0 50% 0 50%;">
+                                            <h2 style="margin-bottom:0px;"
+                                            [style.text-align]="nameAlign"
+                                            [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                            [style.font-family]="fontFamilyNew"
+                                            [style.font-size.px]="templateFontSize">
+                                                {{username}}</h2>
+                                            <h6 [style.color]="designationColor"
+                                            [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                            [style.font-size.px]="itemFontSize">
+                                                {{desig}}</h6>
+                                            <div style="margin-top:5px;">
+                                                <p>
+                                                    <span style="padding:0 5px;"
+                                                    [style.color]="contactDetailColor"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><img
+                                                            src="assets/images/p-b-2.png">
+                                                            {{number}} </span>
+                                                    <a style="padding:0 5px;;"
+                                                    [style.color]="contactDetailColor"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><img
+                                                            src="assets/images/m-b-2.png">
+                                                        {{Email}} </a>
+                                                </p>
+
+
+
+                                                <p style="color:#fff;font-size: 12px;">
+                                                    <span style="padding:0 5px;"
+                                                    [style.color]="contactDetailColor"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize"><img
+                                                            src="assets/images/a-b-2.png">
+                                                        {{useraddress}} </span>
+                                                    <span style="padding:0 5px;"
+                                                    [style.color]="contactDetailColor"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize">
+                                                            {{compWebsite}}  </span>
+                                                </p>
+                                                <div style="padding:10px">
+                                                    <span>
+                                                        <a href="{{faceB}}"><img
+                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                                                src="assets/images/f.png"></a></span>
+                                                    <span> <a href="{{Twitter}}"> <img
+                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                                                src="assets/images/twit.png"></a></span><span> <a
+                                                            href="{{Linkedin}}"><img
+                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                                                src="assets/images/lin.png"></a></span><span> <a
+                                                            href="{{insta}}"><img
+                                                                style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                                                src="assets/images/inn.png"></a></span>
+                                                </div>
+
+                                            </div>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="height:100px;color:white;"></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>  
+</div>
+<!-- ..............................Template-9................... -->
 
                         </div>
 
