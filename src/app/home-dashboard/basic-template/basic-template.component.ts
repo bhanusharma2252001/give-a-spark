@@ -125,6 +125,7 @@ profileImages:any;
   tempimg: any;
   // chnage end
   @ViewChild('closeModal') private closeModal!: ElementRef;
+  sign: any;
 
 
 
@@ -281,6 +282,13 @@ console.log(b,'b');
     this.nameAlign = val;
   }
   //new change end
+getSignature(){
+  this.sign = this.signatureDetailsForm.value.signatureName;
+  console.log(this.sign, "signature name");
+  
+}
+
+
 
   getBasicProfile() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
@@ -331,6 +339,7 @@ this.tempimg=this.tempDetails?.profileImage
     let body = {
 
       yourName: data.yourName,
+      signatureName: this.sign,
       designation: data.designation,
       email: data.email,
       phoneNo: data.phoneNo,
@@ -357,7 +366,6 @@ this.tempimg=this.tempDetails?.profileImage
       quotes: data.quotes,
       profileImage: this.imageData2,
       companyPhone: data.companyPhone,
-      signatureName:data.signatureName
     }
 
 

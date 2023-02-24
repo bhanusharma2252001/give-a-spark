@@ -64,7 +64,7 @@
                     </button>
                   </li>
                 </ul>
-                <form [formGroup]="signatureDetailsForm" (ngSubmit)="onSubmit(signatureDetailsForm.value)">
+                <form [formGroup]="signatureDetailsForm" >
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                       <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
@@ -92,7 +92,7 @@
                                   <input type="text" class="my-signature p-2"  formControlName="signatureName">
                                 </div>
                                 <div class="modal-footer">
-                                <button class="add_button rounded-pill" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add</button>
+                                <button class="add_button rounded-pill"  (click)="getSignature()"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add</button>
                               </div>
                               </div>
                             </div>
@@ -504,7 +504,7 @@
                     </div>
                   </div>
                   <div class="mt-4 text-end">
-                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Create
+                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(signatureDetailsForm.value)">Create
                       Signature</button>
                   </div>
                 </form>
@@ -537,6 +537,7 @@
 
                 <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                   <div class="row m-0">
+                    <div class="col-md-12"><p class="">{{tempDetails?.signatureName}}</p></div>
                     <div class="col-md-3 col-lg-3 self-align-center" *ngIf="!tempDetails?.profileImage">
                       <img class="wh-150" src="assets/images/profile-image.png">
                     </div>

@@ -1,11 +1,15 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 // import { ElementOptions, Elements } from 'ngx-stripe';
 import { ToastrService } from 'ngx-toastr';
 import { PaymentService } from 'src/app/service/payment.service';
 import { SparkService } from 'src/app/service/spark.service';
+
+import { StripeCardElement, StripeElements, StripeElementsOptions } from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js/pure';
 import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-plan-dashboard',
@@ -13,136 +17,68 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./plan-dashboard.component.scss']
 })
 export class PlanDashboardComponent implements OnInit {
-   amount:any;
-  paymentHandler: any = null
+  private stripe: any;
+  private elements: StripeElements | undefined;
+  private cardElement: StripeCardElement | undefined;
+  private paymentIntentId: string | undefined;
+  private amount: number = 0;
+  private cardErrors: string | undefined;
 
+  constructor(private elementRef:ElementRef,private api: SparkService, private fb: FormBuilder, private paymentService: PaymentService) { }
 
-  stripeForm!:FormGroup;
-
-// elements!:Elements;
-// card:StripeElement;
-// paymentStatus:any;
-// stripeData:any;
-// submitted:any;
-// loading:any;
-// elementsOptions:ElementOptions={
-//   locale:'en'
-
-  constructor(private api: SparkService, private fb:FormBuilder,private stripeService:SparkService) { }
-
-  ngOnInit(): void {
-    this.invokeStripe();
-
-    // this.loading=false;
-    this.createForm();
-
-
-
-
-    // this.stripeService['elements'](this.elementsOptions).subscribe(elements:any=>{
-    //   this.elements=elements;
-    
-    //   if(!this.card){this.card=this.elements.create('card',{
-    //     iconStyle:'solid',
-    //     style:{
-    //       base:{
-    //         iconColor:'#666EEB',
-    //         color:'#31125F',
-    //         lineHeight:'40px',
-    //         '::placeholder':{
-    //           color:'#CFD7EB'
-    //         }
-    //       }
-    //     },
-    //   });
-    //   this.card.mount('#card-element');}
-    // })
-    
+   ngOnInit() {
 
   }
 
-  createForm(){
-    this.stripeForm=this.fb.group({
-      name:['',Validators.required],
-      amount:['', Validators.required]
+
+  paymentSelectC() {
+    let data = {
+     "SelectPlan": "Plan C"
+
+    }
+    this.api.makePayment(data).subscribe(async (res: any) => {
+
+      let stripe = await loadStripe('pk_live_51Mds83SEEnMfzbAjs4DBJPc0LR3eaVUxn3zz6dJVeIQZVHEfXhgw648VGZI5OSetcVJFUkImaNHDAnPGDmnDsJ22001CDI558x');
+      stripe?.redirectToCheckout({
+        sessionId: res.id,
+      });
+      console.log(res, 'paymentdata');
+
+
     })
   }
-  // var stripe = Stripe('<<YOUR-PUBLISHABLE-API-KEY>>');
-  // var elements = stripe.elements();
 
 
-    makePayment(amount:number, plan:string) {
-      const paymentHandler = (<any>window).StripeCheckout.configure({
-        key:'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
-        locale: 'auto',
-        token: function (stripeToken: any) {
-          if(plan == 'planB') {
-            stripeToken.SelectPlan = "Plan B"
-          } else if(plan == 'planC') {
-            stripeToken.SelectPlan = "Plan C"
-          }
-          console.log(stripeToken);
-  console.log(amount);
-
-          paymentStripe(stripeToken)
-
-        }
-      })
-
-
-      const paymentStripe = (stripeToken: any) => {
-        this.api.makePayment(stripeToken).subscribe((data:any)=>{
-          console.log(data);
-          alert('Payment Successfully')
-        })
-
-      }
-
-
-
-
-
-      paymentHandler.open({
-        name: "Email Signature",
-        description: "Let's try your unique signature",
-        amount: amount * 100
-      })
+  paymentSelectB() {
+    let data = {
+      "SelectPlan": "Plan B"
     }
+    this.api.makePayment(data).subscribe((res: any) => {
+      var paymentdata = res.paymentIntent;
+      console.log(res, paymentdata);
+      alert('Payment Successfully');
+
+    })
+  }
 
 
-
-    invokeStripe() {
-      if (!window.document.getElementById('stripe-script')) {
-        const script = window.document.createElement('script');
-        script.id = 'stripe-script';
-        script.type = 'text/javascript';
-        script.src = 'https://checkout.stripe.com/checkout.js';
-        script.onload = () => {
-          this.paymentHandler = (<any>window).StripeCheckout.configure({
-            key: 'pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum',
-            locale: 'auto',
-            token: function (stripeToken: any) {
-              console.log(stripeToken);
-            },
-          });
-        };
-        window.document.body.appendChild(script);
-      }
-    }
-
-    
-payment(){
-//   this.submitted=true;
-//   this.loading=true;
-//   this.stripeData=this.stripeForm.value
-// this.stripeService.createToken(this.card,{name}).subscribe(result=>{
-//   if(result.token)
-// })
-}
 
 
 }
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

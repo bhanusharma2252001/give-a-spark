@@ -310,7 +310,7 @@ console.log(b,'b');
       quotesId: this.QuoteId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
-      profileImage: this.imageData2,
+      profileImage:this.imageData2,
       fbProfile: data.fbProfile,
       twitterProfile: data?.twitterProfile,
       instagramProfile: data.instagramProfile,

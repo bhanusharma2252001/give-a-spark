@@ -1,299 +1,451 @@
 <!-- <div class="col-md-7 col-lg-10"> -->
-<div class="row m-0 p-0">
-    <div class="col-md-4 col-lg-4 mt-2">
-        <div class="border-10 bg-darkgray position-relative">
-            <img class="img-fluid" src="assets/images/plans-image.png">
-            <div class="position-relative">
-                <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
-                    <h2 class="fw-bold fs-1">Plan (A)</h2>
-                    <h3 class="text-yellow fs-2">FREE</h3>
-                </div>
-            </div>
-            <div class="text-center p-3 mt-2 border-white">
-                <p class="text-darkblue fw-semibold fs-14">For Personal Use
-                </p>
-                <p class="text-lgblack fs-14">Create a simple email signature
-                    for yourself.</p>
-
-                <button class="white-btn fw-semibold p-2 pe-4 ps-4">
-                    Get This Plan
-                </button>
-
-            </div>
-
-            <div class="text-center p-3 mt-2">
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Create Free Signature
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Only For Single User
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Create Single Signature
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Limited Quotes & Stories
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">No Customizations In Design
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Give A Spark Ad On Signature
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-4 mt-2">
-        <div class="border-10 bg-darkgray position-relative">
-            <img class="img-fluid" src="assets/images/plans-image.png">
-            <div class="position-relative">
-                <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
-                    <h2 class="fw-bold fs-1">Plan (B)</h2>
-                    <h3 class="text-yellow fs-2">$ 5.5</h3>
-                    <p class="fs-14">Per Month</p>
-                </div>
-            </div>
-            <div class="text-center p-3 mt-2 border-white">
-                <p class="text-darkblue fw-semibold fs-14">For 2 Users
-                </p>
-                <p class="text-lgblack fs-14">Create a simple email signature
-                    for yourself.</p>
-
-             
-                    <button (click)="makePayment(5.5,'planB')"
-                    class="white-btn fw-semibold p-2 pe-4 ps-4">
-                    Get This Plan
-                  </button>
-
-            </div>
-
-            <div class="text-center p-3 mt-2">
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Create 2 Professional Email Signature
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Upload Profile Image
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">3 Email Templates Fully
-                        Customizable
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Additional Quotes & Stories
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">No Give A Spark Logo On Signature
-                    </p>
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col-md-4 col-lg-4 mt-2">
-        <div class="border-10 bg-darkgray position-relative">
-            <img class="img-fluid" src="assets/images/plans-image.png">
-            <div class="position-relative">
-                <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
-                    <h2 class="fw-bold fs-1">Plan (C)</h2>
-                    <h3 class="text-yellow fs-2">$ 10</h3>
-                    <p class="fs-14">Per Month</p>
-                </div>
-            </div>
-            <div class="text-center p-3 mt-2 border-white">
-                <p class="text-darkblue fw-semibold fs-14">For Personal Use
-                </p>
-                <p class="text-lgblack fs-14">Create a simple email signature
-                    for yourself.</p>
-
-                    <button  type="button" 
-                    class="white-btn fw-semibold p-2 pe-4 ps-4"  (click)="makePayment(10,'planC')">
-                    Get This Plan
-                  </button>
-                  <!-- data-bs-toggle="modal" data-bs-target="#exampleModal1" -->
-            </div>
-
-            <div class="text-center p-3 mt-2">
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Create 3 Professional User Signature.
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Unlimited Customization
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Unlimited Quotes & Stories
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Custom Quotes & Stories
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Unlimited Email Templates
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Social Media Links
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Social Media Sharing With Custom
-                        Logo
-                    </p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="text-green pe-2"><i class='fa fa-check'></i></p>
-                    <p class="fs-14">Social Media Story With Audio
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- </div>assets/ -->
-
-
-<!-- modal B-->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Plan B</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-        </div>
-        <div class="modal-body">
-            <form id="payment-form">
-                <div id="link-authentication-element">
-                 
-                </div>
-                <div id="payment-element">
-                
-                </div>
-                <button id="submit">
-                  <div class="spinner hidden" id="spinner"></div>
-                  <span id="button-text">Pay now</span>
-                </button>
-                <div id="payment-message" class="hidden"></div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Button trigger modal -->
-
+    <script src="https://js.stripe.com/v3/"></script>
+    <div class="row m-0 p-0">
+      <div class="col-md-4 col-lg-4 mt-2">
+          <div class="border-10 bg-darkgray position-relative">
+              <img class="img-fluid" src="assets/images/plans-image.png">
+              <div class="position-relative">
+                  <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
+                      <h2 class="fw-bold fs-1">Plan (A)</h2>
+                      <h3 class="text-yellow fs-2">FREE</h3>
+                  </div>
+              </div>
+              <div class="text-center p-3 mt-2 border-white">
+                  <p class="text-darkblue fw-semibold fs-14">For Personal Use
+                  </p>
+                  <p class="text-lgblack fs-14">Create a simple email signature
+                      for yourself.</p>
   
-  <!-- Modal c -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Plan C</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form action="/charge" method="post" id="payment-form">
-                <div class="form-row">
-                    <label for="card-element">
-                        Credit or debit card
-                    </label>
-                    <div id="card-element">
-                        <!-- a Stripe Element will be inserted here. -->
-                    </div>
-            
-                    <!-- Used to display form errors -->
-                    <div id="card-errors" role="alert"></div>
-                </div>
-            
-                <input type="submit" class="submit" value="Submit Payment">
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+                  <button class="white-btn fw-semibold p-2 pe-4 ps-4">
+                      Get This Plan
+                  </button>
+  
+              </div>
+  
+  
+  
+              <div class="text-center p-3 mt-2">
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Create Free Signature
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Only For Single User
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Create Single Signature
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Limited Quotes & Stories
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">No Customizations In Design
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Give A Spark Ad On Signature
+                      </p>
+                  </div>
+  
+              </div>
+  
+          </div>
+      </div>
+      <div class="col-md-4 col-lg-4 mt-2">
+          <div class="border-10 bg-darkgray position-relative">
+              <img class="img-fluid" src="assets/images/plans-image.png">
+              <div class="position-relative">
+                  <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
+                      <h2 class="fw-bold fs-1">Plan (B)</h2>
+                      <h3 class="text-yellow fs-2">$ 5.5</h3>
+                      <p class="fs-14">Per Month</p>
+                  </div>
+              </div>
+              <div class="text-center p-3 mt-2 border-white">
+                  <p class="text-darkblue fw-semibold fs-14">For 2 Users
+                  </p>
+                  <p class="text-lgblack fs-14">Create a simple email signature
+                      for yourself.</p>
+  
+  
+                      <button (click)="paymentSelectB(); "
+                      class="white-btn fw-semibold p-2 pe-4 ps-4">
+                      Get This Plan
+                    </button>
+  
+              </div>
+  
+              <div class="text-center p-3 mt-2">
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Create 2 Professional Email Signature
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Upload Profile Image
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">3 Email Templates Fully
+                          Customizable
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Additional Quotes & Stories
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">No Give A Spark Logo On Signature
+                      </p>
+                  </div>
+  
+  
+              </div>
+  
+          </div>
+      </div>
+  
+  
+  
+  
+  
+  
+  
+      <div class="col-md-4 col-lg-4 mt-2">
+          <div class="border-10 bg-darkgray position-relative">
+              <img class="img-fluid" src="assets/images/plans-image.png">
+              <div class="position-relative">
+                  <div class="text-center mb-0 plan-heading position-absolute  start-50 translate-middle">
+                      <h2 class="fw-bold fs-1">Plan (C)</h2>
+                      <h3 class="text-yellow fs-2">$ 10</h3>
+                      <p class="fs-14">Per Month</p>
+                  </div>
+              </div>
+              <div class="text-center p-3 mt-2 border-white">
+                  <p class="text-darkblue fw-semibold fs-14">For Personal Use
+                  </p>
+                  <p class="text-lgblack fs-14">Create a simple email signature
+                      for yourself.</p>
+  
+                      <button  type="button"
+                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan"   (click)="paymentSelectC();  ">
+                      Get This Plan
+                    </button>
+                    <!-- data-bs-toggle="modal" data-bs-target="#exampleModal1" -->
+              </div>
+  
+              <div class="text-center p-3 mt-2">
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Create 3 Professional User Signature.
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Unlimited Customization
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Unlimited Quotes & Stories
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Custom Quotes & Stories
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Unlimited Email Templates
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Social Media Links
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Social Media Sharing With Custom
+                          Logo
+                      </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <p class="text-green pe-2"><i class='fa fa-check'></i></p>
+                      <p class="fs-14">Social Media Story With Audio
+                      </p>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+  </div>
+  
+  <form id="payment-form">
+    <div id="link-authentication-element">
+      <!--Stripe.js injects the Link Authentication Element-->
+    </div></form>
+  
+  
+  <!-- modal B-->
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Plan B</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+          </div>
+           <div class="modal-body">
+              <form id="payment-form">
+                  <div id="link-authentication-element">
+  
+                  </div>
+                  <div id="payment-element">
+  
+                  </div>
+                  <button id="submit">
+                    <div class="spinner hidden" id="spinner"></div>
+                    <span id="button-text">Pay now</span>
+                  </button>
+                  <div id="payment-message" class="hidden"></div>
+                </form>
+          </div>
+  
+  
+  
+  
+          <script>
+            console.log("my string")
+            // This is your test publishable API key.
+          const stripe = Stripe("pk_live_51JpbUZSAdRYr9RTGZc0rNy4ldV88uG5czIA8Ym2bhCLJ8cOKLSJUWBCx8w5GgSrfHJoSyApfCBKwtTF1Re6cDxtL00zmWuLBum");
+  
+          // The items the customer wants to buy
+          const items = [{ id: "xl-tshirt" }];
+  
+          let elements;
+  
+          initialize();
+          checkStatus();
+  
+          document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
+  
+          let emailAddress = '';
+          // Fetches a payment intent and captures the client secret
+          async function initialize() {
+            const response = await fetch("https://api.giveaspark.com/api/stripe/paymentIntent", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ items }),
+            });
+  
+            console.log(response);
+            const { paymentIntent } = await response.json();
+  
+            const appearance = {
+              theme: 'stripe',
+            };
+            elements = stripe.elements({ appearance, clientSecret });
+  
+            const linkAuthenticationElement = elements.create("linkAuthentication");
+            linkAuthenticationElement.mount("#link-authentication-element");
+  
+            linkAuthenticationElement.on('change', (event) => {
+              emailAddress = event.value.email;
+            });
+  
+            const paymentElementOptions = {
+              layout: "tabs",
+            };
+  
+            const paymentElement = elements.create("payment", paymentElementOptions);
+            paymentElement.mount("#payment-element");
+          }
+  
+          async function handleSubmit(e) {
+            e.preventDefault();
+            setLoading(true);
+  
+            const { error } = await stripe.confirmPayment({
+              elements,
+              confirmParams: {
+                // Make sure to change this to your payment completion page
+                return_url: "http://localhost:4242/checkout.html",
+                receipt_email: emailAddress,
+              },
+            });
+  
+            // This point will only be reached if there is an immediate error when
+            // confirming the payment. Otherwise, your customer will be redirected to
+            // your `return_url`. For some payment methods like iDEAL, your customer will
+            // be redirected to an intermediate site first to authorize the payment, then
+            // redirected to the `return_url`.
+            if (error.type === "card_error" || error.type === "validation_error") {
+              showMessage(error.message);
+            } else {
+              showMessage("An unexpected error occurred.");
+            }
+  
+            setLoading(false);
+          }
+  
+          // Fetches the payment intent status after payment submission
+          async function checkStatus() {
+            const clientSecret = new URLSearchParams(window.location.search).get(
+              "payment_intent_client_secret"
+            );
+  
+            if (!clientSecret) {
+              return;
+            }
+  
+            const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+  
+            switch (paymentIntent.status) {
+              case "succeeded":
+                showMessage("Payment succeeded!");
+                break;
+              case "processing":
+                showMessage("Your payment is processing.");
+                break;
+              case "requires_payment_method":
+                showMessage("Your payment was not successful, please try again.");
+                break;
+              default:
+                showMessage("Something went wrong.");
+                break;
+            }
+          }
+  
+          // ------- UI helpers -------
+  
+          function showMessage(messageText) {
+            const messageContainer = document.querySelector("#payment-message");
+  
+            messageContainer.classList.remove("hidden");
+            messageContainer.textContent = messageText;
+  
+            setTimeout(function () {
+              messageContainer.classList.add("hidden");
+              messageText.textContent = "";
+            }, 4000);
+          }
+  
+          // Show a spinner on payment submission
+          function setLoading(isLoading) {
+            if (isLoading) {
+              // Disable the button and show a spinner
+              document.querySelector("#submit").disabled = true;
+              document.querySelector("#spinner").classList.remove("hidden");
+              document.querySelector("#button-text").classList.add("hidden");
+            } else {
+              document.querySelector("#submit").disabled = false;
+              document.querySelector("#spinner").classList.add("hidden");
+              document.querySelector("#button-text").classList.remove("hidden");
+            }
+          }
+          </script>
+  
+  
+  
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Button trigger modal -->
+  
+  
+    <!-- Modal c -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Plan C</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form action="/charge" method="post" id="payment-form">
+                  <div class="form-row">
+                      <label for="card-element">
+                          Credit or debit card
+                      </label>
+                      <div id="card-element">
+                          <!-- a Stripe Element will be inserted here. -->
+                      </div>
+  
+                      <!-- Used to display form errors -->
+                      <div id="card-errors" role="alert"></div>
+                  </div>
+  
+                  <input type="submit" class="submit" value="Submit Payment">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  <!--
+  <h3 class="pb-5">Please Payment</h3>
+   <form [formGroup]="stripeForm"  class="mb-5" (ngSubmit)="payment()">
+  
+  <input type="text" formControlName="name" placeholder="full name" >
+  <br>
+  <input type="number" formControlName="amount" placeholder="Amount">
+  
+  <button class="btn btn-info border-shadow" type="submit" data-toggle="modal" data-target="exampleModal" ></button>
+  
+  
+  
+   </form> -->
+  
+  
+   <div class="modal fade" id="exampleModal" tabindex="-1"
+   aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title
+               </h5>
+               <button type="button" class="btn-close"
+                   data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+  
+  
+              </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary"
+                   data-bs-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save
+                   changes</button>
+           </div>
+       </div>
+   </div>
   </div>
-
-
-
-
-<!-- 
-<h3 class="pb-5">Please Payment</h3>
- <form [formGroup]="stripeForm"  class="mb-5" (ngSubmit)="payment()">
-
-<input type="text" formControlName="name" placeholder="full name" >
-<br>
-<input type="number" formControlName="amount" placeholder="Amount">
-
-<button class="btn btn-info border-shadow" type="submit" data-toggle="modal" data-target="exampleModal" ></button>
-
-
-
- </form> -->
-
-
- <div class="modal fade" id="exampleModal" tabindex="-1"
- aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog">
-     <div class="modal-content">
-         <div class="modal-header">
-             <h5 class="modal-title" id="exampleModalLabel">Modal title
-             </h5>
-             <button type="button" class="btn-close"
-                 data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-    
-           
-            </div>
-         <div class="modal-footer">
-             <button type="button" class="btn btn-secondary"
-                 data-bs-dismiss="modal">Close</button>
-             <button type="button" class="btn btn-primary">Save
-                 changes</button>
-         </div>
-     </div>
- </div>
-</div>
+  
+  
