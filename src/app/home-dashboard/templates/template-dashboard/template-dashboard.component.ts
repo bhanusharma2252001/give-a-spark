@@ -571,6 +571,9 @@ getTemplateByUser(){
 editTemplate(val:any) {
   
   let id :number = val;
+  console.log(id,'kaya')
+
+
   this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: id } })
 }
 

@@ -3,16 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { MyquoteRoutingModule } from './myquote-routing.module';
 import {  MyquoteComponent  } from './myquote.component';
+import { AddStoryComponent } from './add-story/add-story.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    MyquoteComponent
+    MyquoteComponent,
+    AddStoryComponent
    
   ],
   imports: [
     CommonModule,
-    MyquoteRoutingModule
+    MyquoteRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class MyquoteModule { }

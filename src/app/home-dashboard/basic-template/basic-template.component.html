@@ -12,7 +12,7 @@
                     <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
                       data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="true">
                       <div class="box">
-                        <img class="wh-35 active-icon" src="assets/images/Details.svg">
+                        <!-- <img class="wh-35 active-icon" src="assets/images/Details.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/details-black.png">
                         <p class="mb-0 fs-5 fs-12 mt-1">
                           Details</p>
@@ -24,7 +24,7 @@
                       data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
                       >
                       <div class="box">
-                        <img class="wh-35 active-icon" src="assets/images/social-media.svg">
+                        <!-- <img class="wh-35 active-icon" src="assets/images/social-media.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/social.png">
                         <p class="mb-0 fs-5 fs-12 mt-1">
                           Social</p>
@@ -35,7 +35,7 @@
                     <button class="nav-link box-link p-1" id="home-tab" data-bs-toggle="tab" data-bs-target="#template"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
                       <div class="box">
-                        <img class="wh-35 active-icon" src="assets/images/layouts.svg">
+                        <!-- <img class="wh-35 active-icon" src="assets/images/layouts.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/template.png">
                         <p class="mb-0 fs-5 fs-12 mt-1">
                           Template</p>
@@ -46,8 +46,8 @@
                     <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
                       <div class="box">
-                        <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')">
-                        <img class="wh-35 active-black" src="assets/images/design.png">
+                        <!-- <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')"> -->
+                        <img class="wh-35 active-black" src="assets/images/design.png" (click)="openTemp('free')">
                         <p class="mb-0 fs-5 fs-12 mt-1">
                           Design</p>
                       </div>
@@ -57,7 +57,7 @@
                     <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
                       <div class="box">
-                        <img class="wh-35 active-icon" src="assets/images/apps.svg">
+                        <!-- <img class="wh-35 active-icon" src="assets/images/apps.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/design.png">
                         <p class="mb-0 fs-5 fs-12 mt-1 " id="tab_menu">Apps</p>
                       </div>
@@ -68,12 +68,36 @@
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                       <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                        <div class="">
-
-                          <h5 class="mb-4">Signature Details</h5>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h5 class="mb-4">Signature Details</h5>
+                          </div>
+                          <div class="d-flex ">
+                            <p class="plus_icon">
+                              <i class="fa fa-plus-circle text-blue"></i>
+                            </p>
+                            <a class="my_sign" data-bs-toggle="modal" href="#exampleModalToggle" role="button">My
+                              Signature</a>
+                          </div>
+                          <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalToggleLabel"> My Signature</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <input type="text" class="my-signature p-2"  formControlName="signatureName">
+                                </div>
+                                <div class="modal-footer">
+                                <button class="add_button rounded-pill" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add</button>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-
                         <div class="row position-relative main_form">
                           <div class="col-md-11 col-lg-9">
                             <div class="mb-3">
@@ -218,35 +242,35 @@
                               </label>
                               <input type="text" formControlName="fbProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="faceB">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="faceB">
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
                               <input type="text" formControlName="instagramProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="insta">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="insta">
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
                               <input type="text" formControlName="linkedInProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="Linkedin">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="Linkedin">
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
                               <input type="text" formControlName="youtubeChannel"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="uTube">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="uTube">
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
                               <input type="text" formControlName="twitterProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="Twitter" >
+                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="Twitter" >
 
                             </div>
 
@@ -589,13 +613,7 @@
 
                   <div class="row">
                     <div class="col-lg-8 offset-lg-2 text-center">
-                      <p [style.font-family]="fontFamilyNew" [style.line-height]="lineHeight"
-                        [style.font-size.px]="itemFontSize"
-                        *ngIf="'!tempDetails?.quotesId?.longQuotes && !tempDetails?.quotes'">
-                        “Business opportunities are
-                        like buses, there’s always another one
-                        coming.”
-                      </p>
+                    
                       <div *ngIf="tempDetails?.quotesId?.quotesName">
                         <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
                           {{tempDetails?.quotesId?.quotesName}}</p>
@@ -1032,8 +1050,8 @@
           </div>
         </div>
       </div>
-      <div class="modal fade" id="change-image" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" #closeModal id="change-image" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close" (click)="hideModel();">
         <div class="modal-dialog quotes-box">
           <div class="modal-content">
             <div class="modal-body">
@@ -1042,7 +1060,8 @@
               <div class="Neon Neon-theme-dragdropbox">
                 <input
                   style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"  [(ngModel)]="imageData1" (keyup)="changeDesignation()"
+                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"  
+                   (keyup)="changeDesignation()"
                   (change)="onSelectImage($event)" >
                 <div class="Neon-input-dragDrop">
                   <div class="Neon-input-inner">

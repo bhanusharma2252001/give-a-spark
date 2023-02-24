@@ -1,34 +1,40 @@
 <header class="header-shadow" *ngIf="!(href =='/home-dashboard/user-pro-md-2file') ">
 
-    <div class="row align-items-center back_clr">
-      <!-- <div class="mouse_move">
+  <div class="row align-items-center back_clr">
+    <!-- <div class="mouse_move">
               <img id="img1" src="assets/images/logo-an.png" class="mouse" value="5" />
-  
+
               <img id="img2" src="assets/images/btn-an.png" class="mouse" value="-5" />
           </div> -->
-      <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg">
+    <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg position-relative">
+      <div class="gif_img">
+        <img src="assets/images/gif_left.gif" alt="" class="gif_style">
         <a class="navbar-brand d-flex justify-content-center" href="assets/index.html">
-          <img src="assets/images/logo(round).png" class="img-fl ms-4">
+          <img src="assets/images/logo(round).png" class="img-fl ms-4 position-absolute">
         </a>
       </div>
-      <div class="col-md-8 col-lg-8">
-        <nav class="container">
-          <div class="d-flex align-items-center justify-content-evenly">
-            <p class="bg-yellow text-white header-center">Your free trial ends in 10 days.Upgrade now and get 15% early
-              bird
-              discount.
-            </p>
-            <button class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
-              routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
-          </div>
-        </nav>
-      </div>
-      <div class="col-md-2 col-lg-2  user_back">
+    </div>
+    <div class="col-md-8 col-lg-8">
+      <nav class="container">
+        <div class="d-flex align-items-center justify-content-evenly">
+          <p class="bg-yellow text-white header-center">Your free trial ends in 10 days.Upgrade now and get 15% early
+            bird
+            discount.
+          </p>
+          <button class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
+            routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-2 col-lg-2 user_back">
+      <div class="gif_img">
+        <img src="assets/images/gif-right.gif" class="right_new_gif" alt="">
         <form class="d-flex justify-content-center ">
           <img alt="profile" class="wh-50 cur" src="assets/images/user_icon_second.png"
             routerLink="/home-dashboard/myprofile/profile-dashboard">
         </form>
       </div>
     </div>
-  
-  </header>
+  </div>
+
+</header>

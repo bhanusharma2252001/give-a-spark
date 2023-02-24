@@ -24,6 +24,15 @@ export class QuoteDashboardComponent implements OnInit {
   subQuotesData: any;
   catQuoteData: any;
   templateId:any
+  showStoriesForm:FormGroup;
+
+  storyList:any;
+  catStory: any;
+  subStory: any;
+  storyData: any;
+  substoryData: any;
+  SubSubstoryData: any;
+  SubSubStoryList: any;
   constructor(private api: SparkService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
@@ -31,6 +40,11 @@ export class QuoteDashboardComponent implements OnInit {
       subSubCategoriesId: [''],
     })
     this.getTemplateId()
+    this.showStoriesForm=this.fb.group({
+      categoriesId:[''],
+      subCategoriesId:[''],
+      subSubCategoriesId:[''],
+    })
   }
   getQuoteEvent(event: any, data: any) {
     this.quotedata = data;
@@ -192,8 +206,8 @@ console.log(this.quoteList, "qqqq")
 
 
 
-// LONG STORY FOR CATEGORY
-  viewStory(data:any) {
+// LONG quote FOR CATEGORY
+viewQuotes(data:any) {
     this.catQuoteData = data;
   }
   close() {
@@ -205,15 +219,128 @@ console.log(this.quoteList, "qqqq")
   }
 
 
-  // LONG STORY FOR SUBCATEGORY
-  viewSubStory(data:any) {
+  // LONG quote FOR SUBCATEGORY
+  viewSubquotes(data:any) {
     this.subQuotesData= data;
     console.log(this.subQuotesData, 'ssjfgjldfkg;dkg;kf;gdflkg')
   }
 
-   // LONG STORY FOR SUBSUBCATEGORY
-   viewSubSubStory(data:any) {
+   // LONG quote FOR SUBSUBCATEGORY
+   viewSubSubQuotes(data:any) {
     this.SubSubQuotesData= data;
     console.log(this.SubSubQuotesData, 'ssjfgjldfkg;dkg;kf;gdflkg')
+  }
+  
+  showStory(data:any) {
+
+    let body:any = {
+    filters:
+      {
+      categoriesId:data.categoriesId,
+      subCategoriesId:data.subCategoriesId,
+      subSubCategoriesId:data.subSubCategoriesId
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+      this.SubSubStoryList=res?.result;
+      this.catStory = '';
+      this.subStory = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.SubSubStoryList, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+
+
+    // category quote
+  showStoryCat(data:any) {
+
+    let body:any = {
+    filters:
+      {
+      categoriesId:data.categoriesId,
+      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+      this.catStory=res?.result;
+      this.subStory= '';
+      this.SubSubStoryList = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.catStory, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+// Sub cat Quote
+  showStorySubCat(data:any) {
+
+    let body:any = {
+    filters:
+      {
+        categoriesId:data.categoriesId,
+        subCategoriesId:data.subCategoriesId,      
+ 
+    }}
+    console.log(body, 'body')
+
+
+    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+      this.subStory=res?.result;
+      this.catStory = '';
+      this.SubSubStoryList = '';
+      console.log(res);
+      // this.toast.success('Added  Successfully');
+console.log(body)
+console.log(this.storyList, "qqqq")
+
+
+    },
+      (error) => {
+        // this.toast.error('please try again');
+      })
+  }
+
+
+
+
+
+
+// LONG STORY FOR CATEGORY
+  viewStory(data:any) {
+    this.storyData = data;
+  }
+
+
+
+  // LONG STORY FOR SUBCATEGORY
+  viewSubStory(data:any) {
+    this.substoryData= data;
+    console.log(this.substoryData, 'ssjfgjldfkg;dkg;kf;gdflkg')
+  }
+
+   // LONG STORY FOR SUBSUBCATEGORY
+   viewSubSubStory(data:any) {
+    this.SubSubstoryData = data;
+    console.log(this.SubSubstoryData, 'ssjfgjldfkg;dkg;kf;gdflkg')
   }
 }

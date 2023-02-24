@@ -46,7 +46,7 @@
 
                     <div class="col-md-12 col-lg-12">
                         <div class="row" *ngIf="catStory">
-                            <div class="col-md-6" *ngFor="let ss of catStory">
+                            <div class="col-md-6" *ngFor="let ll of catStory">
                                 <div class=" border-10 box-border m-2 p-2 author_section">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -58,14 +58,14 @@
                                         <div class="col-md-9 p-0">
                                             <figure class="text-centers">
                                                 <blockquote class="blockquote">
-                                                    <p class="fs-14 limit"> {{ss?.longStory}} </p>
-                                                    <span data-bs-toggle="modal" data-bs-target="#morelong" (click)="viewStory(ss)" class="text-blue read_txt">Read more...</span>
+                                                    <p class="fs-14 limit"> {{ll?.longStory}} </p>
+                                                    <span data-bs-toggle="modal" data-bs-target="#x" (click)="viewStory(ll)" class="text-blue read_txt">Read more...</span>
     
                                                         
                                                 </blockquote>
                                                 <figcaption class="blockquote-footer">
                                                     <cite class="fs-24"
-                                                        title="Source Title">{{ss?.authorId?.firstName}}{{ss?.authorId?.lastName}}</cite>
+                                                        title="Source Title">{{ll?.authorId?.firstName}}{{ll?.authorId?.lastName}}</cite>
                                                 </figcaption>
                                             </figure>
                                         </div>
@@ -111,7 +111,7 @@
                                             <figure class="text-centers">
                                                 <blockquote class="blockquote">
                                                     <p class="fs-14 limit"> {{substory?.storiesName}}
-                                                        <span data-bs-toggle="modal" data-bs-target="#moresublong"
+                                                        <span data-bs-toggle="modal" data-bs-target="#y"
                                                             (click)="viewSubStory(substory)"
                                                             class="text-blue read_txt">Read
                                                             more...</span>
@@ -144,7 +144,7 @@
                                                     <blockquote class="blockquote">
                                                         <p class="fs-14 limit"> {{stories?.storiesName}}
                                                             <span data-bs-toggle="modal"
-                                                                data-bs-target="#moresubsublong"
+                                                                data-bs-target="#z"
                                                                 (click)="viewSubSubStory(stories)"
                                                                 class="text-blue read_txt">Read
                                                                 more...</span>
@@ -171,7 +171,7 @@
             <!-- long story on base of category -->
             <!-- CAT STORY MODAL 1 -->
 
-            <div class="modal fade" id="morelong" data-bs-backdrop="static" tabindex="-1"
+            <div class="modal fade" id="x" data-bs-backdrop="static" tabindex="-1"
                 aria-labelledby="morelongLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-xl">
 
@@ -298,7 +298,7 @@
 
 
 
-            <div class="modal fade" id="moresublong" data-bs-backdrop="static" tabindex="-1"
+            <div class="modal fade" id="y" data-bs-backdrop="static" tabindex="-1"
                 aria-labelledby="morelongLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-xl">
 
@@ -420,7 +420,7 @@
             <!-- SUBSUB STORY MODAL 3 -->
 
 
-            <div class="modal fade" id="moresubsublong" data-bs-backdrop="static" tabindex="-1"
+            <div class="modal fade" id="z" data-bs-backdrop="static" tabindex="-1"
                 aria-labelledby="morelongLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-xl">
 

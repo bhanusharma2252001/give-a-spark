@@ -131,7 +131,9 @@ TemplateId:any
   code: any;
   proList: any;
   proplus: any;
-
+  proTemplate:boolean = false;
+  freeTemplate:boolean = false;
+  proPlusTemplate:boolean = false;
 
 
 
@@ -271,12 +273,9 @@ console.log(b,'b');
  }
 
 
-  onSubmit(data: any) {
-  
-    let body = {
-      proTemplateId:this.templateId,
-      templateId:this.templateId,
-      proPlusTemplateId:this.templateId,
+  onSubmit(data: any) { 
+    let body:any={}
+   body = {
       yourName: data.yourName,
       designation: data.designation,
       email: data.email,
@@ -320,7 +319,15 @@ console.log(b,'b');
   
     }
     
-
+    if(this.proTemplate) {
+      body['proTemplateId']=this.templateId
+    }
+      else if(this.freeTemplate) {
+        body['templateId']=this.templateId
+        
+      } else if(this.proPlusTemplate) {
+        body['proPlusTemplateId']=this.templateId
+      }
     console.log(body,'dssfcsfvcs');
     
 
@@ -459,6 +466,7 @@ console.log(b,'b');
     console.log( this.tempDetails, 'free Templates');
     this.tempDetails.filter((item:any)=>{
       if(item?._id == this.templateId) {
+        this.freeTemplate = true
         this.getBindData(item)
       }
       // if(item?.templateId == this.templateId) {
@@ -467,6 +475,7 @@ console.log(b,'b');
     })
     this.proList.filter((item:any)=>{
       if(item?._id == this.templateId) {
+        this.proTemplate = true
         this.getBindData(item)
         this.getTemplateDesign(item?.templateDesign)
       }
@@ -475,6 +484,7 @@ console.log(b,'b');
     })
     this.proplus.filter((item:any)=>{
       if(item?._id == this.templateId) {
+        this.proPlusTemplate=true
         this.getBindData(item)
         this.getTemplateDesign(item?.templateDesign)
       }

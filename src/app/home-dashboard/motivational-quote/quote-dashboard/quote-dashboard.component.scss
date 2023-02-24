@@ -4,3 +4,28 @@ img.author_image{
     border: 7px solid black;
     z-index: -1;
     }
+    .limit {
+        width:65ch;
+        overflow: hidden;
+        text-overflow:clip;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+                line-clamp: 1; 
+        -webkit-box-orient: vertical;
+    }
+    // .limit{
+    //     width:50ch ;
+    //     white-space:wrap;
+    //         overflow:hidden;
+    //         text-overflow: "----";
+    // }]
+    .limit {
+        width:90% !important;
+        margin:0px;
+    }
+    img.author_image{
+        height: 160px;
+        width: 160px;
+        border: 7px solid black;
+        z-index: -1;
+        }

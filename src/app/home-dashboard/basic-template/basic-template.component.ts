@@ -124,6 +124,7 @@ profileImages:any;
   barColor: any;
   tempimg: any;
   // chnage end
+  @ViewChild('closeModal') private closeModal!: ElementRef;
 
 
 
@@ -156,7 +157,8 @@ profileImages:any;
       quotes: [''],
       profileImage: [''],
       companyPhone: [''],
-      twitterProfile: ['']
+      twitterProfile: [''],
+      signatureName:['']
     })
   //   router.canceledNavigationResolution = 'computed';
   //   history.pushState(null, '', location.href);
@@ -354,8 +356,8 @@ this.tempimg=this.tempDetails?.profileImage
       quotesId: this.QuoteId,
       quotes: data.quotes,
       profileImage: this.imageData2,
-      companyPhone: data.companyPhone
-
+      companyPhone: data.companyPhone,
+      signatureName:data.signatureName
     }
 
 
@@ -482,13 +484,14 @@ this.tempimg=this.tempDetails?.profileImage
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
         console.log(res);
+        this.hideModel()
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
         console.log(this.imageData2, 'xxxxxx');
-        if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+        if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite && this.imageData2){
           this.progress=50;
-         
-          
+        } else if (this.imageData2) {
+          this.progress = 25
         }
         console.log(this.imageData1[0].key, "image key ")
         this.toast.success('Image upload Successfully');
@@ -531,24 +534,53 @@ this.tempimg=this.tempDetails?.profileImage
   }
 
   changeDesignation() {
-    console.log(this.imageData2,'');
-  
-
-    if (this.imageData1) {
-      this.progress=50
-
-
-      
-     }
-    if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
-      this.progress=25
-     
-      
+    if(this.imageData2) {
+      if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+        this.progress=50
+      } 
+      else {
+        this.progress=25
+       }
+    } else {
+      if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+        this.progress=25
+      } 
+      else {
+        this.progress=0
+       }
     }
-    else {
-      this.progress=25
-      
-     }
+    
   }
+
+  changeSocialLink() {
+    console.log(this.imageData2 , this.useraddress , this.desig , this.username , this.Email , this.compName , this.compWebsite , this.faceB , this.insta , this.Linkedin , this.uTube , this.Twitter);
+    
+    if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ) {
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 75
+      } else {
+        this.progress = 50
+      }
+     } else if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite){
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 50
+      } else {
+        this.progress = 25
+      }
+     } else if(this.imageData2) {
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 50
+      } else {
+        this.progress = 25
+      }
+     }
+     
+
+    
+  }
+
+  hideModel() {
+    this.closeModal.nativeElement.click();      
+}
  
 }

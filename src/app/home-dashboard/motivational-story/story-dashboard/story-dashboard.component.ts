@@ -14,7 +14,7 @@ export class StoryDashboardComponent implements OnInit {
   subSubCategory:any
   showStoriesForm:FormGroup;
 
-  quoteList:any;
+  storyList:any;
   catStory: any;
   subStory: any;
   storyData: any;
@@ -145,7 +145,7 @@ console.log(this.catStory, "qqqq")
       console.log(res);
       // this.toast.success('Added  Successfully');
 console.log(body)
-console.log(this.quoteList, "qqqq")
+console.log(this.storyList, "qqqq")
 
 
     },

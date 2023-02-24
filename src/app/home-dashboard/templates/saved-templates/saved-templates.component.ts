@@ -58,6 +58,21 @@ export class SavedTemplatesComponent implements OnInit {
   public progressTracker: number = 0;
 
   progress: number = 0;
+  username: any;
+  Email: any;
+  compName: any;
+  compWebsite: any;
+  number: any;
+  compPhone: any;
+  insta: any;
+  Linkedin: any;
+  uTube: any;
+  Twitter: any;
+  faceB: any;
+  useraddress: any;
+  quotevar: any;
+  tempimg: any;
+  code: any;
   constructor(private fb: FormBuilder, private api:SparkService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -69,7 +84,7 @@ export class SavedTemplatesComponent implements OnInit {
   // constructor( private api:SparkService) { }
 
   ngOnInit(): void {
-    this. getTemplates();
+    this. getTemplateDetails();
   }
   
   changeSize(evt: any) {
@@ -137,26 +152,46 @@ export class SavedTemplatesComponent implements OnInit {
   //   })
   // }
 
-  getTemplates() {
+  getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
-      this.templateList=res?.result
-      this.design=this.templateList.foundDesigns[0]?.templateDesign?.firstNameColor
 
-      console.log(this.design, 'designh');
-      
-console.log(this.templateList?.createdBy?.SelectPlan);
+      this.tempDetails = res.result[res.result.length - 1];
+      this.username = this.tempDetails?.yourName
+      this.Email = this.tempDetails?.email
+      this.compName = this.tempDetails?.companyName
+      this.compWebsite = this.tempDetails?.companyWebsite
+      this.number = this.tempDetails?.phone
+      this.compPhone = this.tempDetails?.companyPhone
+      this.design = this.tempDetails?.designation
+   
 
+      this.insta = this.tempDetails?.instagramProfile
+      this.uTube = this.tempDetails?.youtubeChannel
 
+      this.Linkedin = this.tempDetails?.linkedInProfile
+      this.Twitter = this.tempDetails?.twitterProfile
+      this.faceB = this.tempDetails?.fbProfile
+      this.useraddress= this.tempDetails?.address[0].city
+      this.quotevar=this.tempDetails?.quotes
+      this.code= this.tempDetails?.createdBy.QrCode
+this.tempimg=this.tempDetails?.profileImage
+      console.log(this.tempDetails, "kkkkkkkk")
 
-      // this.tempDetails = res.result[res.result.length - 1];
-      // this.useraddress= this.tempDetails?.address[0].city
-      // this.quotevar=this.tempDetails?.quotes
-
-      console.log(this.templateList, "kkkkkkkk")
+      this.firstNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.firstNameColor,
+      this.lastNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.lastNameColor,
+      this.designationColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.designationColor,
+      this.contactDetailColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor,
+      this.fontFamilyNew = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontFamily,
+      this.templateFontSize =this.tempDetails ?.foundDesigns[0]?.templateDesign?.fontSize,
+      this.lineHeight = this.tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight,
+      this.itemFontSize = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontSizeItem,
+      this.fontSizeName = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameFontSize,
+      this.nameAlign = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign,
+      this.borderRadius = this.tempDetails?.foundDesigns[0]?.templateDesign?.borderRadius
 
 
     })
   }
+  }
 
 
-}

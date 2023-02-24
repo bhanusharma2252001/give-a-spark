@@ -72,8 +72,7 @@ window.onpopstate = function () {
 
 
   ngOnInit(): void {
-   this.getbasicDetails()
-   this. getPhoneCode()
+   this.getPhoneCode()
  if(sessionStorage.getItem('username')){
   this.userName= sessionStorage.getItem('username')
 
@@ -135,8 +134,14 @@ this.Email=res.result[0]?.email
  this.compname=res.result[0]?.companyName
  this.compwebsite=res.result[0]?.companyWebsite
  this.number=res.result[0]?.phone
-
-
+  this.phoneCode = res.result[0]?.stdCode
+  if(this.countryList) {
+    this.countryList.filter((item:any)=>{
+      if(item?.stdCode == this.phoneCode) {
+        this.country = item?.name
+      }
+    })
+  }
 
 // console.log(this.compwebsite, 'jojo')
 
@@ -150,6 +155,8 @@ console.log(this.details)
   getPhoneCode(){
     this.api.phoneValidation().subscribe((res:any)=>{
       this.countryList=res;
+      this.getbasicDetails()
+
       console.log(this.countryList, 'country');
       
     })

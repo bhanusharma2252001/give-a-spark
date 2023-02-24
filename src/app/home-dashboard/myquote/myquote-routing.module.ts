@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddStoryComponent } from './add-story/add-story.component';
 import { MyquoteComponent } from './myquote.component';
 
 const routes: Routes = [
@@ -25,7 +26,10 @@ const routes: Routes = [
       {
         path:'quote-dashboard', loadChildren:()=> import('./quote-dashboard/quote-dashboard.module').then((m)=>m.QuoteDashboardModule)
       },
-      { path: 'add-quote', loadChildren: () => import('./add-quote/add-quote.module').then((m) => m.AddQuoteModule)}
+      { path: 'add-quote', loadChildren: () => import('./add-quote/add-quote.module').then((m) => m.AddQuoteModule)},
+      {
+        path:'add-story', component:AddStoryComponent
+      }
     ]
   }
 ];
