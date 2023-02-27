@@ -389,6 +389,7 @@ this.tempimg=this.tempDetails?.profileImage
       
       }
       this.saveChanges() ;
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('please try again');
@@ -515,7 +516,7 @@ this.tempimg=this.tempDetails?.profileImage
 
   getDesign() {
     this.api.getdesign().subscribe((res: any) => {
-      let data = res?.result
+      let data = res?.result;
       let result = data[data?.length - 1]
       let templateResult = result?.templateDesign;
       console.log(templateResult, 'ada');
@@ -585,6 +586,40 @@ this.tempimg=this.tempDetails?.profileImage
      
 
     
+  }
+  changeQuote(){
+    if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite&&this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter ) {
+      if(this.quotevar) {
+
+        this.progress = 100
+      } else {
+        this.progress = 75
+      }
+      // else if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ){
+        
+      // }
+
+     }
+     else if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ) {
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 75
+      } else {
+        this.progress = 50
+      }
+     }
+      else if(this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite){
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 50
+      } else {
+        this.progress = 25
+      }
+     } else if(this.imageData2) {
+      if(this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
+        this.progress = 50
+      } else {
+        this.progress = 25
+      }
+     }
   }
 
   hideModel() {

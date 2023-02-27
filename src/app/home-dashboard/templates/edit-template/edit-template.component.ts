@@ -121,8 +121,8 @@ TemplateId:any
   useraddress: any;
   // chnage end
 
-
-  logo="assets/images/logo-1.png"
+copytext:any;
+  // logo="assets/images/logo-1.png"
   templateData: any;
  
 
@@ -187,6 +187,7 @@ if (doc.body.createTextRange)
   range = doc.body.createTextRange();
   range.moveToElementText(text);
   range.select();
+ 
 } 
 
 else if (window.getSelection)
@@ -197,6 +198,10 @@ else if (window.getSelection)
   selection.removeAllRanges();
   selection.addRange(range);
   console.log(text,'t');
+  this.copytext= text
+  console.log(this.copytext
+    ,'copy');
+  
   alert('Check your Email')
   
 }
@@ -209,9 +214,63 @@ let b :any= document.getElementById("btn")
 b.value= "Copied"
 console.log(b,'b');
 
+
 // document.getElementById("btn").value="Copied";
 }
 
+
+setonGmail(){
+
+
+//   var doc:any = document
+//   , text = doc.getElementById(element)
+//   , range, selection:any;
+// console.log(element,'kaya')
+// if (doc.body.createTextRange)
+// {
+//   range = doc.body.createTextRange();
+//   range.moveToElementText(text);
+//   range.select();
+ 
+// } 
+
+// else if (window.getSelection)
+// {
+//   selection = window.getSelection();        
+//   range = doc.createRange();
+//   range.selectNodeContents(text);
+//   selection.removeAllRanges();
+//   selection.addRange(range);
+//   console.log(text,'t');
+//   this.copytext= text
+//   console.log(this.copytext
+//     ,'copy');
+  
+//   alert('Check your Email')
+  
+// }
+// document.execCommand('copy');
+// let a :any = window.getSelection();  
+// a.removeAllRanges();
+ 
+
+// let b :any= document.getElementById("btn")
+// b.value= "Copied"
+
+
+
+  let body={
+    signatureHTML: this.copytext
+  }
+console.log(body);
+
+  
+this.api.gmail(body).subscribe((res:any)=>{
+  console.log(res, 'setgmail');
+  
+})
+
+}
 
   // new change start
   changeSize(evt: any) {

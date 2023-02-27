@@ -262,7 +262,7 @@ getQuoteById(){
 
 
 myProfile(){
-  return this. http.get(environment.localApiURL +'/api/Quotes/getQuotes',{
+  return this. http.get(environment.localApiURL +'/api/user/getProfile',{
     headers: { Authorization: `bearer ${this.token}` },
 });
 
@@ -304,7 +304,7 @@ templateCustomize(id:any, data:any){
 getdesign() {
   return this.http.get(environment.localApiURL +'/api/TemplateCustomization/TemplateCustomizationList',{
     headers: { Authorization: `bearer ${this.token}` },
-});;}
+});}
 
 
 // Templates Edit For Free
@@ -358,5 +358,19 @@ getProTemplates(){
   return this.http.get(environment.localApiURL +'/api/freeTemplate/getTemplatePro1List',{
     headers: { Authorization: `bearer ${this.token}` },
 });  
+}
+
+
+
+
+//  gAMIL /
+
+
+gmail( data:any){
+  return this.http.post(environment.localApiURL+ '/api/user/setSignature', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` }
+  }
+);
 }
 }

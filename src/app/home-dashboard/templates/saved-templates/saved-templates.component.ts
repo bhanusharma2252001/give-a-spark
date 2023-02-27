@@ -73,6 +73,7 @@ export class SavedTemplatesComponent implements OnInit {
   quotevar: any;
   tempimg: any;
   code: any;
+  copytext: any;
   constructor(private fb: FormBuilder, private api:SparkService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -192,6 +193,51 @@ this.tempimg=this.tempDetails?.profileImage
 
     })
   }
+
+
+  
+CopyToClipboard(element:any) {
+
+  var doc:any = document
+  , text = doc.getElementById(element)
+  , range, selection:any;
+console.log(element,'kaya')
+if (doc.body.createTextRange)
+{
+  range = doc.body.createTextRange();
+  range.moveToElementText(text);
+  range.select();
+ 
+} 
+
+else if (window.getSelection)
+{
+  selection = window.getSelection();        
+  range = doc.createRange();
+  range.selectNodeContents(text);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  console.log(text,'t');
+  this.copytext= text
+  console.log(this.copytext
+    ,'copy');
+  
+  alert('Check your Email')
+  
+}
+document.execCommand('copy');
+let a :any = window.getSelection();  
+a.removeAllRanges();
+console.log(a, 'a');
+
+let b :any= document.getElementById("btn")
+b.value= "Copied"
+console.log(b,'b');
+
+
+// document.getElementById("btn").value="Copied";
+}
+
   }
 
 

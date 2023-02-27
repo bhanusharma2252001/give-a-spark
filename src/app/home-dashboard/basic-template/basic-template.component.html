@@ -157,7 +157,7 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
                               <input type="text" formControlName="quotes"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar" >
+                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar" (keyup)="changeQuote()" >
 
                             </div>
                             <div class="mb-4" *ngIf="LongQuote">
@@ -220,7 +220,7 @@
                                 data-bs-target="#change-image">
                                 Change
                                 Photo</p>
-                              <p class="text-blue fs-12 mb-0">Remove</p>
+                              <!-- <p class="text-blue fs-12 mb-0">Remove</p> -->
                             </div>
                           </div>
 
@@ -515,7 +515,7 @@
               <!-- T E M P L A T E S -->
               <div class="col-md-6 col-lg-6 pe-3" #myText>
                 <span class="progress-number">{{progress}}</span>
-                <progress-bar-angular barColor={{barColor}} [progress]='progress' backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate'  value="0"></progress-bar-angular>
+                <progress-bar-angular barColor={{barColor}} [progress]='progress' backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate'  value="0 " style="display:none;"></progress-bar-angular>
 
 
                 <div class="row position-relative progress_padd">
@@ -525,10 +525,10 @@
                   <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                       alt="Signature image" /></div>
                   <div class=" col-md-7 progress bar">
-                    <div class=" pro_red" *ngIf=""  ></div>
-                    <div class=" pro_blue"></div>
-                    <div class=" pro_green"></div>
-                    <div class=" pro_yellow"></div>
+                    <div class=" pro_red" *ngIf="progress==25 ||progress==50||progress==75||progress==100"  ></div>
+                    <div class=" pro_blue" *ngIf="progress==50||progress==75||progress==100"></div>
+                    <div class=" pro_green" *ngIf="progress==75||progress==100"></div>
+                    <div class=" pro_yellow" *ngIf="progress==100"></div>
                   </div>
                   <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
                       class="sign_one" alt="Signature image" /></div>
@@ -1033,13 +1033,13 @@
 
 
 
-
+<!-- 
                   <div class="col-md-12 col-lg-12 mt-3 text-end">
                     <button class="green-btn shadow  pe-4 ps-4 p-2 "  data-bs-toggle="modal"
                       data-bs-target="#m-done">OK I'm Done</button>
 
 
-                  </div>
+                  </div> -->
 
                 </div>
 

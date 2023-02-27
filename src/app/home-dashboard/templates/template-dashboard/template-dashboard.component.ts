@@ -62,7 +62,7 @@ freeId:any;
   Linkedin: any;
   Twitter: any;
   faceB: any;
-
+b:any;
   showMainContent: Boolean = true;
   templatData: boolean = true;
 
@@ -128,9 +128,10 @@ else if (window.getSelection)
 document.execCommand('copy');
 let a :any = window.getSelection();  
 a.removeAllRanges();
-let b :any= document.getElementById("btn")
-b.value= "Copied"
+this.b= document.getElementById("btn")
+this.b.value= "Copied"
 // document.getElementById("btn").value="Copied";
+this.setGmail();
 }
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
     'sans-serif',
@@ -214,7 +215,15 @@ b.value= "Copied"
 
   }
 
-
+setGmail(){
+  let body={
+signature:this.b
+  }
+  this.api.gmail(body).subscribe((res:any)=>{
+    console.log(res, 'siiiiiet');
+    
+  })
+}
 
   // new change start
   changeSize(evt: any) {

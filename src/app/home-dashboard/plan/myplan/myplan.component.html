@@ -3,8 +3,8 @@
         <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
                 <div class="position-absolute top-50 start-50 translate-middle">
-                    <img class="wh-225 p-2" src="assets/images/profile-image.png">
-              
+                    <img class="wh-225 p-2" src="assets/images/profile-image.png" *ngIf="!userDetails?.profileImage">
+              <img *ngIf="!userDetails?.profileImage" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}"alt="">
                 </div>
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
                     <div class="rounded-circle bg-black position-relative">
@@ -19,10 +19,10 @@
                 <div class="row ps-5 p-3">
                     <div class="col-md-5 col-lg-5">
                         <h4 class="text-white">
-                            Defini Shippers
+                           {{userDetails?.firstName}}
                         </h4>
-                        <h6 class="text-yellow">Digital Marketing</h6>
-                        <p mailto:class="text-gray">perfectiongeeks@gmail.com</p>
+                        <h6 class="text-yellow" *ngIf="userDetails?.designation">{{userDetails?.designation}}</h6>
+                        <p mailto:class="text-gray" *ngIf="userDetails?.email">{{userDetails?.email}}</p>
                     </div>
                     <div class="col-md-7 col-lg-7">
 
