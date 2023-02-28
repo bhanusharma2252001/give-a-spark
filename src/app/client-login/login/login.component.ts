@@ -50,7 +50,8 @@ token:any;
       password: ['', [Validators.required, Validators.minLength(6)]],
 
     });
-   
+    
+    sessionStorage.removeItem('ClientSpark')
 
 
   }
@@ -166,7 +167,7 @@ token:any;
       if(data?.result?.roleId == 0) {
         sessionStorage.setItem('roleId', data?.result?.roleId);
         this._ngZone.run(() => {
-              this._Router.navigate(['home-dashboard/user-profile']);
+              this.getbasicDetails()
             }) 
         // this._Router.navigate(['home-dashboard']);
       } 
@@ -178,6 +179,21 @@ token:any;
       
     }
     
+  }
+
+  getbasicDetails(){
+    this.sparkService.getbasicDetaiofUseer().subscribe((res:any)=>{
+let userDetail=res.result[0];
+      if(userDetail?.firstName && userDetail?.email && userDetail?.companyName && userDetail?.companyWebsite && userDetail?.phone && userDetail?.stdCode) {
+        this._Router.navigate(['home-dashboard/home-page']);
+
+      } else {
+        this._Router.navigate(['home-dashboard/user-profile']);
+      }
+    })
+
+
+
   }
 
   logout() {

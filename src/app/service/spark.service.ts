@@ -28,7 +28,7 @@ export class SparkService {
     if (this.token) {
       return (this.isLoggedIn = true);
     } else {
-      return this.isLoggedIn;
+      return false;
     }
   }
 

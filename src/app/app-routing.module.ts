@@ -7,6 +7,7 @@ import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/fo
 import { PasswordResetComponent } from './client-login/forget-password/password-reset/password-reset.component';
 import { LoginComponent } from './client-login/login/login.component';
 import { SignupComponent } from './client-login/signup/signup.component';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'client-login/login', pathMatch: 'full'},
@@ -47,10 +48,10 @@ const routes: Routes = [
 
 
   {
-    path:'',loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 
+    path:'',canActivate:[AuthGuardGuard],loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 
   },
   {
-    path:'home-dashboard',loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 
+    path:'home-dashboard',canActivate:[AuthGuardGuard],loadChildren: () => import('./home-dashboard/home-dashboard.module').then((m) => m.HomeDashboardModule) 
   }
 ];
 

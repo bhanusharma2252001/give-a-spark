@@ -6,11 +6,13 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
 
 @Component({
   selector: 'app-edit-template',
   templateUrl: './edit-template.component.html',
-  styleUrls: ['./edit-template.component.scss']
+  styleUrls: ['./edit-template.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EditTemplateComponent implements OnInit {
   details: any;
@@ -221,46 +223,13 @@ console.log(b,'b');
 
 setonGmail(){
 
-
-//   var doc:any = document
-//   , text = doc.getElementById(element)
-//   , range, selection:any;
-// console.log(element,'kaya')
-// if (doc.body.createTextRange)
-// {
-//   range = doc.body.createTextRange();
-//   range.moveToElementText(text);
-//   range.select();
+  this.templateRef = this.tableData.nativeElement
+  console.log(this.templateRef, "templatesssssssss")
  
-// } 
-
-// else if (window.getSelection)
-// {
-//   selection = window.getSelection();        
-//   range = doc.createRange();
-//   range.selectNodeContents(text);
-//   selection.removeAllRanges();
-//   selection.addRange(range);
-//   console.log(text,'t');
-//   this.copytext= text
-//   console.log(this.copytext
-//     ,'copy');
-  
-//   alert('Check your Email')
-  
-// }
-// document.execCommand('copy');
-// let a :any = window.getSelection();  
-// a.removeAllRanges();
- 
-
-// let b :any= document.getElementById("btn")
-// b.value= "Copied"
-
 
 
   let body={
-    signatureHTML: this.copytext
+    signatureHTML: this.templateRef.outerHTML
   }
 console.log(body);
 

@@ -23,7 +23,7 @@ import { ForgetOtpComponent } from './client-login/forget-password/forget-otp/fo
 // import { NgxColorsModule } from 'ngx-colors';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { QuillModule } from 'ngx-quill';
-
+import { SafepipePipe } from './homedashboard/pipe/safepipe.pipe';
 
 
 
@@ -41,6 +41,7 @@ const googleLoginOptions = {
     PasswordResetComponent,
     ForgetEmailComponent,
     ForgetOtpComponent,
+    SafepipePipe
  
   ],
   imports: [

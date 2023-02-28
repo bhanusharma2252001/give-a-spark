@@ -1,3 +1,11 @@
+<html>
+
+<head>
+
+</head>
+<body>
+    
+
 <main class="">
     <section>
         <div class="container-fluid p-0 mt-5">
@@ -2571,7 +2579,7 @@
 
                             <!-- ..............................Template-2................... -->
                             <div *ngIf="templateId == 2">
-                                <table cellpadding="0" cellspacing="0" id="two"
+                                <table #tableData cellpadding="0" cellspacing="0" id="two"
                                     style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
@@ -3671,11 +3679,11 @@ padding: 21px;">
 
 
                         </div>
-                        <!-- <div *ngIf="templateId == 8">
+                        <div *ngIf="templateId == 8">
                             <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setonGmail()">Gmail</button>
 
 
-                        </div> -->
+                        </div>
 
                         <!-- ------template-2---- -->
                         <div *ngIf="templateId ==9">
@@ -3815,6 +3823,8 @@ padding: 21px;">
                         <div class="green-btn px-3 py-2" *ngIf="templateId ==2">
                             <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="CopyToClipboard('two')">inner
                                 HTMl</button>
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setonGmail()">Gmail
+                                    HTMl</button>
 
 
                         </div>
@@ -3861,8 +3871,8 @@ padding: 21px;">
                         <div class="green-btn px-3 py-2" *ngIf="templateId ==33">
                             <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="CopyToClipboard('nine')">inner
                                 HTMl</button> 
-                                <!-- <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setonGmail()">Gmail                                    
-                                    </button> -->
+                                <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="setonGmail()">Gmail                                    
+                                    </button>
        
    
 
@@ -3898,3 +3908,5 @@ padding: 21px;">
         </div>
     </div>
 </div>
+</body>
+</html>
