@@ -1,6 +1,200 @@
+<table cellpadding="0" cellspacing="0" id="one" *ngFor="let details of tempDetails"
+    style="background-color: #FBFEFF ;font-size: medium;width:700px;height:280px; font-family: Arial;">
+    <tbody style="padding:10px;
+        ">
+        <tr>
+            <td style="padding: 7px 15px;" colspan="3">
+                {{details?.signatureName}}
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: baseline;">
+                <div style="padding: 7px 15px;" *ngIf="details?.profileImage">
+                    <img style="width: 72px;
+                    vertical-align: middle; height: 65px;border-radius:50%;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profileImage}}">
+                  
+                    
+                </div>
+            </td>
+            <td colspan="2"
+                style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                line-height: 1.2; font-size: 16.0px;"><span>kaya</span></h5>
+                <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
+                    <span style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="designationColor"
+                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">designation
+                    </span>
+                </h6>
+                <p style="padding-top:10px;">
+                    <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                    color: #212121; white-space: nowrap;font-size: 13px;"><span
+                            style="font-weight:bold;">M:</span>8896686868
+                    </span>
+
+                    <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
+                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+                        <span style="font-weight:bold;">E:</span>
+                        Email
+                    </span>
+                    <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
+                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+                        <span style="font-weight:bold;">M:</span>
+                        www.perfectiongeeks.com
+                    </span>
+
+                    <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
+                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+
+                        <span style="font-weight:bold;">A:</span>
+                        delhi
+                    </span>
+                </p>
+
+                <div style="padding:10px;border-radius:  10px 10px 0 0;">
+                    <span>
+                        <a href="{{faceB}}"><img
+                                style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                src="assets/images/fb-1.png"></a>
+                    </span><span><a href="{{Twitter}}"><img
+                                style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                src="assets/images/tt-1.png"></a></span><span>
+                        <a href="{{Linkedin}}"><img
+                                style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                src="assets/images/ln-1.png"></a>
+                    </span><span>
+                        <a href="{{insta}}"><img
+                                style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                src="assets/images/it-1.png"></a>
+                    </span>
+                </div>
+
+
+            </td>
+            <td style="padding: 20px;vertical-align:baseline;">
+                <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">
+
+                <img style="width:60px ;height:60px" src="assets/images/flyer-l.png">
+
+            </td>
+
+            <td style="padding-left:10px" colspan="2">
+
+                <p style="font-size:12px;">
+                    <!-- <q  *ngIf="tempDetails?.quotesId?.quotesName">
+                            {{tempDetails?.quotesId?.quotesName}}
+                         </q>
+                        <q  *ngIf="tempDetails?.quotes">
+                            {{quotevar}}
+                        </q> -->
+
+
+                    life is boring
+                </p>
+            </td>
+
+        </tr>
+
+
+    </tbody>
+</table>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <table cellpadding="0" cellspacing="0" id="one"
         style="background-color: #FBFEFF ;font-size: medium;width:700px;height:280px; font-family: Arial;">
         <tbody>
@@ -14,7 +208,7 @@
                     </div>
 
 
-                    <!-- signatureName -->
+                
                 </td>
                 <td style="padding: 10px;">
                     <div style="padding:10px;margin: 14px 0;">
@@ -90,18 +284,14 @@ style="border-bottom:3px solid#FFBA00;">
             </tr>
 
         </tbody>
-    </table>
-    <button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="CopyToClipboard('one')">inner
-        HTMl</button>
- 
+    </table> -->
+<button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="CopyToClipboard('one')">inner
+    HTMl</button>
 
-
-
-
-
-
-
-
-
-
-
+<div class="signatures-list-create">
+    <div class="signatures-list-create-title with-badge">
+        <div class="signatures-list-create-title-icon sw-icon-plus-rounded"></div>
+        <div class="signatures-list-create-title-text" routerLink="/home-dashboard/basic-template">Create another
+            signature</div>
+    </div>
+</div>

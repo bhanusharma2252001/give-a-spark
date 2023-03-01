@@ -241,25 +241,25 @@ console.log(b,'b');
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
-      this.templateFontSize = 34
-      this.itemFontSize = 20
-      this.fontSizeName = 20
+      this.templateFontSize = 33
+      this.itemFontSize = 14
+      this.fontSizeName = 14
     } else if (currnetSize == 5) {
-      this.templateFontSize = 44
-      this.fontSizeName = 22
-      this.itemFontSize = 25
-    } else if (currnetSize == 3) {
-      this.templateFontSize = 24
-      this.itemFontSize = 12
-      this.fontSizeName = 18
-    } else if (currnetSize == 2) {
-      this.templateFontSize = 20
-      this.itemFontSize = 8
+      this.templateFontSize = 36
       this.fontSizeName = 15
-    } else {
-      this.templateFontSize = 10
-      this.itemFontSize = 6
+      this.itemFontSize = 15
+    } else if (currnetSize == 3) {
+      this.templateFontSize = 32
+      this.itemFontSize = 13
+      this.fontSizeName = 13
+    } else if (currnetSize == 2) {
+      this.templateFontSize = 31
+      this.itemFontSize = 12
       this.fontSizeName = 12
+    } else {
+      this.templateFontSize = 30
+      this.itemFontSize = 11
+      this.fontSizeName = 11
     }
 
   }
@@ -277,6 +277,7 @@ console.log(b,'b');
       this.lineHeight = 0.5
     }
   }
+
 
   getAlign(val: any) {
     this.nameAlign = val;
@@ -327,6 +328,21 @@ getSignature(){
       this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
 this.tempimg=this.tempDetails?.profileImage
+
+
+let templateResult = this.tempDetails?.templateDesign;
+console.log(templateResult, 'ada');
+this.firstNameColor = templateResult?.firstNameColor,
+  this.lastNameColor = templateResult?.lastNameColor,
+  this.designationColor = templateResult?.designationColor,
+  this.contactDetailColor = templateResult?.contactDetailColor,
+  this.fontFamilyNew = templateResult?.fontFamily,
+  this.templateFontSize = templateResult?.fontSize,
+  this.lineHeight = templateResult?.lineHeight,
+  this.itemFontSize = templateResult?.fontSizeItem,
+  this.fontSizeName = templateResult?.nameFontSize,
+  this.nameAlign = templateResult?.nameAlign,
+  this.borderRadius = templateResult?.borderRadius
       console.log(this.tempDetails, "kkkkkkkk")
 
 
@@ -366,6 +382,20 @@ this.tempimg=this.tempDetails?.profileImage
       quotes: data.quotes,
       profileImage: this.imageData2,
       companyPhone: data.companyPhone,
+      templateDesign: {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius
+
+      }
     }
 
 
@@ -388,7 +418,7 @@ this.tempimg=this.tempDetails?.profileImage
         localStorage.removeItem('LongQuotes')
       
       }
-      this.saveChanges() ;
+      // this.saveChanges() ;
       // this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
@@ -514,27 +544,27 @@ this.tempimg=this.tempDetails?.profileImage
 
   }
 
-  getDesign() {
-    this.api.getdesign().subscribe((res: any) => {
-      let data = res?.result;
-      let result = data[data?.length - 1]
-      let templateResult = result?.templateDesign;
-      console.log(templateResult, 'ada');
-      this.firstNameColor = templateResult?.firstNameColor,
-        this.lastNameColor = templateResult?.lastNameColor,
-        this.designationColor = templateResult?.designationColor,
-        this.contactDetailColor = templateResult?.contactDetailColor,
-        this.fontFamilyNew = templateResult?.fontFamily,
-        this.templateFontSize = templateResult?.fontSize,
-        this.lineHeight = templateResult?.lineHeight,
-        this.itemFontSize = templateResult?.fontSizeItem,
-        this.fontSizeName = templateResult?.nameFontSize,
-        this.nameAlign = templateResult?.nameAlign,
-        this.borderRadius = templateResult?.borderRadius
+  // getDesign() {
+  //   this.api.getdesign().subscribe((res: any) => {
+  //     let data = res?.result;
+  //     let result = data[data?.length - 1]
+  //     let templateResult = result?.templateDesign;
+  //     console.log(templateResult, 'ada');
+  //     this.firstNameColor = templateResult?.firstNameColor,
+  //       this.lastNameColor = templateResult?.lastNameColor,
+  //       this.designationColor = templateResult?.designationColor,
+  //       this.contactDetailColor = templateResult?.contactDetailColor,
+  //       this.fontFamilyNew = templateResult?.fontFamily,
+  //       this.templateFontSize = templateResult?.fontSize,
+  //       this.lineHeight = templateResult?.lineHeight,
+  //       this.itemFontSize = templateResult?.fontSizeItem,
+  //       this.fontSizeName = templateResult?.nameFontSize,
+  //       this.nameAlign = templateResult?.nameAlign,
+  //       this.borderRadius = templateResult?.borderRadius
 
 
-    })
-  }
+  //   })
+  // }
 
   setimageSignature() {
     console.log(this.tableData.nativeElement);

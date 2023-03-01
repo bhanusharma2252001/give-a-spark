@@ -131,32 +131,53 @@ export class SavedTemplatesComponent implements OnInit {
   getAlign(val: any) {
     this.nameAlign = val;
   }
-  // getDesign() {
-  //   this.api.getdesign().subscribe((res: any) => {
-  //     let data = res?.result
-  //     let result = data[data?.length - 1]
-  //     let templateResult = result?.templateDesign;
-  //     console.log(templateResult, 'ada');
-  //     this.firstNameColor = templateResult?.firstNameColor,
-  //       this.lastNameColor = templateResult?.lastNameColor,
-  //       this.designationColor = templateResult?.designationColor,
-  //       this.contactDetailColor = templateResult?.contactDetailColor,
-  //       this.fontFamilyNew = templateResult?.fontFamily,
-  //       this.templateFontSize = templateResult?.fontSize,
-  //       this.lineHeight = templateResult?.lineHeight,
-  //       this.itemFontSize = templateResult?.fontSizeItem,
-  //       this.fontSizeName = templateResult?.nameFontSize,
-  //       this.nameAlign = templateResult?.nameAlign,
-  //       this.borderRadius = templateResult?.borderRadius
 
 
-  //   })
-  // }
+//   getTemplateDetails() {
+//     this.api.getsignatureDetails().subscribe((res: any) => {
+
+//       this.tempDetails = res.result[res.result.length - 1];
+//       this.username = this.tempDetails?.yourName
+//       this.Email = this.tempDetails?.email
+//       this.compName = this.tempDetails?.companyName
+//       this.compWebsite = this.tempDetails?.companyWebsite
+//       this.number = this.tempDetails?.phone
+//       this.compPhone = this.tempDetails?.companyPhone
+//       this.design = this.tempDetails?.designation
+   
+
+//       this.insta = this.tempDetails?.instagramProfile
+//       this.uTube = this.tempDetails?.youtubeChannel
+
+//       this.Linkedin = this.tempDetails?.linkedInProfile
+//       this.Twitter = this.tempDetails?.twitterProfile
+//       this.faceB = this.tempDetails?.fbProfile
+//       this.useraddress= this.tempDetails?.address[0].city
+//       this.quotevar=this.tempDetails?.quotes
+//       this.code= this.tempDetails?.createdBy.QrCode
+// this.tempimg=this.tempDetails?.profileImage
+//       console.log(this.tempDetails, "kkkkkkkk")
+
+//       this.firstNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.firstNameColor,
+//       this.lastNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.lastNameColor,
+//       this.designationColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.designationColor,
+//       this.contactDetailColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor,
+//       this.fontFamilyNew = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontFamily,
+//       this.templateFontSize =this.tempDetails ?.foundDesigns[0]?.templateDesign?.fontSize,
+//       this.lineHeight = this.tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight,
+//       this.itemFontSize = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontSizeItem,
+//       this.fontSizeName = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameFontSize,
+//       this.nameAlign = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign,
+//       this.borderRadius = this.tempDetails?.foundDesigns[0]?.templateDesign?.borderRadius
+
+
+//     })
+//   }
+
 
   getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
-
-      this.tempDetails = res.result[res.result.length - 1];
+      this.tempDetails = res.result;
       this.username = this.tempDetails?.yourName
       this.Email = this.tempDetails?.email
       this.compName = this.tempDetails?.companyName
@@ -174,25 +195,35 @@ export class SavedTemplatesComponent implements OnInit {
       this.faceB = this.tempDetails?.fbProfile
       this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
-      this.code= this.tempDetails?.createdBy.QrCode
 this.tempimg=this.tempDetails?.profileImage
-      console.log(this.tempDetails, "kkkkkkkk")
 
-      this.firstNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.firstNameColor,
-      this.lastNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.lastNameColor,
-      this.designationColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.designationColor,
-      this.contactDetailColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor,
-      this.fontFamilyNew = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontFamily,
-      this.templateFontSize =this.tempDetails ?.foundDesigns[0]?.templateDesign?.fontSize,
-      this.lineHeight = this.tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight,
-      this.itemFontSize = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontSizeItem,
-      this.fontSizeName = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameFontSize,
-      this.nameAlign = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign,
-      this.borderRadius = this.tempDetails?.foundDesigns[0]?.templateDesign?.borderRadius
+
+let templateResult = this.tempDetails?.templateDesign;
+console.log(templateResult, 'ada');
+this.firstNameColor = templateResult?.firstNameColor,
+  this.lastNameColor = templateResult?.lastNameColor,
+  this.designationColor = templateResult?.designationColor,
+  this.contactDetailColor = templateResult?.contactDetailColor,
+  this.fontFamilyNew = templateResult?.fontFamily,
+  this.templateFontSize = templateResult?.fontSize,
+  this.lineHeight = templateResult?.lineHeight,
+  this.itemFontSize = templateResult?.fontSizeItem,
+  this.fontSizeName = templateResult?.nameFontSize,
+  this.nameAlign = templateResult?.nameAlign,
+  this.borderRadius = templateResult?.borderRadius
+      console.log(this.tempDetails, "kkkkkkkk")
 
 
     })
   }
+
+
+
+
+
+
+
+
 
 
   

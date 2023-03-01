@@ -26,7 +26,7 @@ import { NgxPhotoEditorService } from 'ngx-photo-editor';
 })
 export class EditFlyerComponent implements OnInit {
  
-
+  urls:any;
   imgChangeEvt: any = '';
   cropImgPreview: any = '';
   onFileChange(event: any): void {
@@ -45,6 +45,7 @@ export class EditFlyerComponent implements OnInit {
   imgFailed() {
       // error msg
   }
+  showImage=false;
 
   public color1: string = '#2889e9';
   config: AngularEditorConfig = {
@@ -113,8 +114,8 @@ export class EditFlyerComponent implements OnInit {
 
   fileData=[] as any;
   fileDatas=[] as any;
-  url= '/assets/images/yellow-template-logo.png';
-  urls = '';
+  url:any;
+  // urls = '';
 
   preview: any;
   fontFamilyNew: any = 'Poppins, sans-serif';
@@ -163,7 +164,10 @@ export class EditFlyerComponent implements OnInit {
 
 
 
-
+public delete(){
+  this.showImage = false;
+  this.urls = null;
+}
 
 
   ngOnInit() {
@@ -171,7 +175,7 @@ export class EditFlyerComponent implements OnInit {
     this.form = new FormGroup({
       'text': new FormControl('<p><strong>Hello</strong> World!</p>'),
       'fontFamilyNew': new FormControl(''),
-      'fontWeightNew': new FormControl(''),
+      // 'fontWeightNew': new FormControl(''),
       'fontStyleNew': new FormControl('')
 
     });
@@ -358,5 +362,22 @@ triggerResize() {
   image10(){
     this.imageSrc = './assets/images/flyer-10.jpg'
   }
+  image11(){
+    this.imageSrc = './assets/images/flyer-11.jpg'
+  }
+
+  image12(){
+    this.imageSrc = './assets/images/flyer-12.jpg'
+  }
+
+  image13(){
+    this.imageSrc = './assets/images/flyer-13.jpg'
+  }
+
+
+  image14(){
+    this.imageSrc = './assets/images/flyer-14.jpg'
+  }
+
 
 }

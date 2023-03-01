@@ -136,6 +136,7 @@ copytext:any;
   proTemplate:boolean = false;
   freeTemplate:boolean = false;
   proPlusTemplate:boolean = false;
+  emailData: any;
 
 
 
@@ -222,14 +223,18 @@ console.log(b,'b');
 
 
 setonGmail(){
-
+debugger
   this.templateRef = this.tableData.nativeElement
   console.log(this.templateRef, "templatesssssssss")
  
-
+  // var data = this.templateRef.outerHTML;
+  // console.log(data);
+  // var b=JSON.stringify(data);
+  // this.emailData = b.replace(/\\/g, '');
+  // console.log(this.emailData, 'emaildata' );
 
   let body={
-    signatureHTML: this.templateRef.outerHTML
+    signatureHTML:this.templateRef.outerHTML
   }
 console.log(body);
 
@@ -572,10 +577,10 @@ this.borderRadius = data?.borderRadius
 
 //  i'm  using this only for qrcode
  gettemplatebyUser(){
-  this.api.getsignatureDetails().subscribe((res: any) => {
+  this.api.getbasicDetaiofUseer().subscribe((res: any) => {
  
     
-this.code=res.result[0]?.createdBy?.QrCode;
+this.code=res.result[0]?.QrCode;
 console.log(this.code);
 
 
