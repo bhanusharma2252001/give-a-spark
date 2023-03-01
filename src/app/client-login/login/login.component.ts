@@ -164,11 +164,11 @@ token:any;
       console.log(this.sparkService.isLoggedIn);
       console.log(this.googleEmail)
       sessionStorage.setItem('gg',this.googleEmail)
-      if(data?.result?.roleId == 0) {
-        sessionStorage.setItem('roleId', data?.result?.roleId);
-        this._ngZone.run(() => {
+      if(data?.user?.roleId == 0) {
+        sessionStorage.setItem('roleId', data?.user?.roleId);
+        // this._ngZone.run(() => {
               this.getbasicDetails()
-            }) 
+            // }) 
         // this._Router.navigate(['home-dashboard']);
       } 
       // else {
