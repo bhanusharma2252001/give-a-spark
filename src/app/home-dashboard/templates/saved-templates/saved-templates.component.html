@@ -19,29 +19,29 @@
             <td colspan="2"
                 style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
                 <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
-                line-height: 1.2; font-size: 16.0px;"><span>kaya</span></h5>
+                line-height: 1.2; font-size: 16.0px;"><span>{{details?.yourName}}</span></h5>
                 <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
                     <span style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="designationColor"
-                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">designation
+                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{details?.designation}}
                     </span>
                 </h6>
                 <p style="padding-top:10px;">
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: nowrap;font-size: 13px;"><span
-                            style="font-weight:bold;">M:</span>8896686868
+                            style="font-weight:bold;">M:</span>{{details?.phoneNo}}
                     </span>
 
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
                         [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
                         <span style="font-weight:bold;">E:</span>
-                        Email
+                        {{details?.email}}
                     </span>
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
                         [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
                         <span style="font-weight:bold;">M:</span>
-                        www.perfectiongeeks.com
+                        {{details?.companyWebsite}}
                     </span>
 
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
@@ -49,7 +49,7 @@
                         [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
 
                         <span style="font-weight:bold;">A:</span>
-                        delhi
+                        {{details?.address[0]?.city}}
                     </span>
                 </p>
 
