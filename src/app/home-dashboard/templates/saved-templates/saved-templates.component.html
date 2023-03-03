@@ -1,5 +1,8 @@
-<table cellpadding="0" cellspacing="0" id="one" *ngFor="let details of tempDetails"
-    style="background-color: #FBFEFF ;font-size: medium;width:700px;height:280px; font-family: Arial;">
+<div class="row" >
+    <div class="col-md-7 m-4 " *ngFor="let details of tempDetails">
+ 
+<table cellpadding="0" cellspacing="0" id="one" #tableData
+    style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
     <tbody style="padding:10px;
         ">
         <tr>
@@ -19,57 +22,78 @@
             <td colspan="2"
                 style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
                 <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
-                line-height: 1.2; font-size: 16.0px;"><span>{{details?.yourName}}</span></h5>
+                line-height: 1.2; font-size: 16.0px;"[style.text-align]="nameAlign"
+                                                    [style.color]="details?.templateDesign?.firstNameColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                                    [style.font-size.px]="details?.templateDesign?.fontSize"><span>{{details?.yourName}}</span></h5>
                 <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                    <span style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="designationColor"
-                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{details?.designation}}
+                    <span style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="details?.templateDesign?.designationColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                    [style.font-family]="details?.templateDesign?.fontFamily"
+                    
+                         >{{details?.designation}}
                     </span>
                 </h6>
-                <p style="padding-top:10px;">
+                <p style="padding-top:10px;margin-bottom:0px;">
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: nowrap;font-size: 13px;"><span
+                    color: #212121; white-space: nowrap;font-size: 13px;"   [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                                    
+                                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"><span
                             style="font-weight:bold;">M:</span>{{details?.phoneNo}}
                     </span>
 
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
-                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+                    color: #212121; white-space: nowrap;font-size: 13px;"   [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                                    
+                                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"
+                         >
                         <span style="font-weight:bold;">E:</span>
                         {{details?.email}}
                     </span>
+             
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
-                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+                    color: #212121; white-space: nowrap;font-size: 13px;"    [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                                    
+                                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"
+                         >
                         <span style="font-weight:bold;">M:</span>
                         {{details?.companyWebsite}}
                     </span>
 
                     <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: nowrap;font-size: 13px;" [style.color]="contactDetailColor"
-                        [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
+                    color: #212121; white-space: nowrap;font-size: 13px;"    [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                                    
+                                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"
+                         >
 
-                        <span style="font-weight:bold;">A:</span>
+                        <span style="font-weight:bold;" [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight"
+                        [style.font-family]="details?.templateDesign?.fontFamily"
+                        
+                        [style.font-size.px]="details?.templateDesign?.fontSizeItem">A:</span>
                         {{details?.address[0]?.city}}
                     </span>
                 </p>
 
                 <div style="padding:10px;border-radius:  10px 10px 0 0;">
                     <span>
-                        <a href="{{faceB}}"><img
+                        <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                 src="assets/images/fb-1.png"></a>
-                    </span><span><a href="{{Twitter}}"><img
+                    </span><span><a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                 src="assets/images/tt-1.png"></a></span><span>
-                        <a href="{{Linkedin}}"><img
+                        <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                 src="assets/images/ln-1.png"></a>
                     </span><span>
-                        <a href="{{insta}}"><img
+                        <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                 src="assets/images/it-1.png"></a>
                     </span>
-                </div>
+                </div> 
 
 
             </td>
@@ -80,22 +104,22 @@
         <tr>
             <td style="text-align:center;">
 
-                <img style="width:60px ;height:60px" src="assets/images/flyer-l.png">
+                <img style="width:95px ;height:35px" src="assets/images/flyer-logo.png">
 
             </td>
 
-            <td style="padding-left:10px" colspan="2">
+            <td style="padding-left:13px" colspan="2">
 
                 <p style="font-size:12px;">
-                    <!-- <q  *ngIf="tempDetails?.quotesId?.quotesName">
-                            {{tempDetails?.quotesId?.quotesName}}
+                    <q  *ngIf="details?.quotesId?.quotesName">
+                            {{details?.quotesId?.quotesName}}
                          </q>
-                        <q  *ngIf="tempDetails?.quotes">
-                            {{quotevar}}
-                        </q> -->
+                        <q  *ngIf="details?.quotes">
+                            {{details?.quotes}}
+                        </q>
 
 
-                    life is boring
+                 
                 </p>
             </td>
 
@@ -104,189 +128,159 @@
 
     </tbody>
 </table>
+<div class="d-flex justify-content-end m-3">
+    <button class="signature-item-edit-btn" (click)="editTemplate(details?._id)"><span class="signature-item-edit-btn-icon sw-icon-pen"></span> <span class="signature-item-edit-btn-text">Edit</span></button>
+    <button class="signature-item-edit-btn" onclick="openNav()"><span class="signature-item-edit-btn-icon sw-icon-pen"></span> <span class="signature-item-edit-btn-text">Share Template</span></button>
 
+</div>
 
 
+</div>
 
 
 
 
+ <!-- ................. M  O    D    A   L.............. -->
 
 
+<div id="media-share" class="sidenav">
+    <div class="d-flex py-2 border-bottom justify-content-between align-items-center">
+        <h4 class="fs-16 mb-0 ps-2">Add To Your Email</h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
+    </div>
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<table cellpadding="0" cellspacing="0" id="one"
-        style="background-color: #FBFEFF ;font-size: medium;width:700px;height:280px; font-family: Arial;">
-        <tbody>
-            <tr>
-                <td style="">
-                    <div style="padding:25px 25px 50px 30px;" *ngIf="tempimg">
-
-                        <img style="width:150px;height:150px;border-radius:50%;"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempimg}}">
-
-
+        <div class="row align-items-start ">
+            <div class="col-md-2 col-lg-3 pt-2 bg-gray " style="
+            height: 100vh;">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                    aria-orientation="vertical">
+                    <div class="d-flex social-button py-4 active" id="v-pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-home" type="button" role="tab"
+                        aria-controls="v-pills-home" aria-selected="true">
+                        <div><img class="email__icon" src="assets/images/google-s.png" class="img-fluid"></div>
+                        <div class="email__name " (click)="setonGmail()">Gmail</div>
                     </div>
-
-
-                
-                </td>
-                <td style="padding: 10px;">
-                    <div style="padding:10px;margin: 14px 0;">
-                        <h5 style="margin-bottom:0px;"><span  [style.text-align]="nameAlign"
-                            [style.color]="firstNameColor" [style.line-height]="lineHeight"
-                            [style.font-family]="fontFamilyNew"
-                            [style.font-size.px]="templateFontSize">{{username}}</span></h5>
-                        <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                            <span
-                                style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="designationColor"
-                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize">{{design}}
-                            </span> </h6>
+                    <div class="d-flex social-button py-4" id="v-pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-profile" type="button" role="tab"
+                        aria-controls="v-pills-profile" aria-selected="false">
+                        <div><img class="email__icon" src="assets/images/yahoo-s.png" class="img-fluid"></div>
+                        <div class="email__name email--pro">MacMail</div>
                     </div>
-
-                    <p [style.color]="contactDetailColor"
-                    [style.line-height]="lineHeight"
-                    [style.font-family]="fontFamilyNew"
-                    [style.font-size.px]="itemFontSize"><img
-                                        style="width:20px;height:20px" src="assets/images/p-1.png">{{number}}
-                                </p>
-                              
-                            <p [style.color]="contactDetailColor"
-                            [style.line-height]="lineHeight"
-                            [style.font-family]="fontFamilyNew"
-                            [style.font-size.px]="itemFontSize">
-                                    <img
-                                        style="width:20px;height:20px" src="assets/images/p-3.png">
-                                        {{Email}}
-                                </p>
-                                <p [style.color]="contactDetailColor"
-                                [style.line-height]="lineHeight"
-                                [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize">
-                                    <img
-                                        style="width:20px;height:20px" src="assets/images/p-4.png">
-                             
-                                {{compWebsite}}</p>
-                                <p [style.color]="contactDetailColor"
-                                [style.line-height]="lineHeight"
-                                [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize">
-                                       
-                                        <img style="width:20px;height:20px" src="assets/images/p-2.png">
-                                        {{useraddress}}
-                            </p>
-
-
-<hr 
-style="border-bottom:3px solid#FFBA00;">
-                </td>
-                <td style="padding: 20px;">
-                    <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="padding:0 25px 50px 70px;" *ngIf="tempimg">
-                        <img style="width:60px ;height:60px" src="assets/images/logo(round).png">
+                    <div class="d-flex social-button py-4" id="v-pills-messages-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-messages" type="button" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">
+                        <div><img class="email__icon" src="assets/images/outlook-s.png" class="img-fluid">
+                        </div>
+                        <div class="email__name ">Outlook</div>
                     </div>
-                </td>
-                <td>
+                    <div class="d-flex social-button py-4" id="v-pills-settings-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-settings" type="button" role="tab"
+                        aria-controls="v-pills-settings" aria-selected="false">
+                        <div><img class="email__icon" src="assets/images/html.png" class="img-fluid">
+                        </div>
+                        <div class="email__name ">Outlook</div></div>
+                </div>
+            </div>
+            <div class="col-md-10 col-lg-9">
+                <div class="p-3 text-align-center">
+             
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class=""> How do I add my new email signature to Gmail?</div></div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">.gfffdsdf..</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab">.456..</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab">.455576..</div>
+                </div>
+            </div>       
+        </div>
+        </div>
 
-                    <p style="font-size:12px;">
-                        <q  *ngIf="tempDetails?.quotesId?.quotesName">
-                            {{tempDetails?.quotesId?.quotesName}}
-                         </q>
-                        <q  *ngIf="tempDetails?.quotes">
-                            {{quotevar}}
-                        </q>
-                    </p>
-                </td>
-            </tr>
+</div>
 
-        </tbody>
-    </table> -->
-<button class="green-btn shadow  pe-4 ps-4 p-2 " (click)="CopyToClipboard('one')">inner
-    HTMl</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="signatures-list-create">
     <div class="signatures-list-create-title with-badge">
@@ -294,4 +288,6 @@ style="border-bottom:3px solid#FFBA00;">
         <div class="signatures-list-create-title-text" routerLink="/home-dashboard/basic-template">Create another
             signature</div>
     </div>
+</div>
+
 </div>

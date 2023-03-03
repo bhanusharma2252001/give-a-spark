@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { SparkService } from 'src/app/service/spark.service';
   styleUrls: ['./saved-templates.component.scss']
 })
 export class SavedTemplatesComponent implements OnInit {
+  @ViewChild('tableData',{static:false})tableData!:ElementRef
   templateFontSize: any = 24;
-  public contactDetailColor: string = '#e920e9';
+  public contactDetailColor: string = '';
   public lastNameColor: string = '#fff500';
   public designationColor: string = 'rgb(236,64,64)';
   public firstNameColor: string = '#2d5964';
@@ -74,7 +76,8 @@ export class SavedTemplatesComponent implements OnInit {
   tempimg: any;
   code: any;
   copytext: any;
-  constructor(private fb: FormBuilder, private api:SparkService) {
+  templateRef: any;
+  constructor(private fb: FormBuilder, private api:SparkService, private router:Router) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -86,6 +89,7 @@ export class SavedTemplatesComponent implements OnInit {
 
   ngOnInit(): void {
     this. getTemplateDetails();
+    this.gettemplatebyUser();
   }
   
   changeSize(evt: any) {
@@ -133,46 +137,7 @@ export class SavedTemplatesComponent implements OnInit {
   }
 
 
-//   getTemplateDetails() {
-//     this.api.getsignatureDetails().subscribe((res: any) => {
 
-//       this.tempDetails = res.result[res.result.length - 1];
-//       this.username = this.tempDetails?.yourName
-//       this.Email = this.tempDetails?.email
-//       this.compName = this.tempDetails?.companyName
-//       this.compWebsite = this.tempDetails?.companyWebsite
-//       this.number = this.tempDetails?.phone
-//       this.compPhone = this.tempDetails?.companyPhone
-//       this.design = this.tempDetails?.designation
-   
-
-//       this.insta = this.tempDetails?.instagramProfile
-//       this.uTube = this.tempDetails?.youtubeChannel
-
-//       this.Linkedin = this.tempDetails?.linkedInProfile
-//       this.Twitter = this.tempDetails?.twitterProfile
-//       this.faceB = this.tempDetails?.fbProfile
-//       this.useraddress= this.tempDetails?.address[0].city
-//       this.quotevar=this.tempDetails?.quotes
-//       this.code= this.tempDetails?.createdBy.QrCode
-// this.tempimg=this.tempDetails?.profileImage
-//       console.log(this.tempDetails, "kkkkkkkk")
-
-//       this.firstNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.firstNameColor,
-//       this.lastNameColor =this.tempDetails?.foundDesigns[0]?.templateDesign?.lastNameColor,
-//       this.designationColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.designationColor,
-//       this.contactDetailColor = this.tempDetails?.foundDesigns[0]?.templateDesign?.contactDetailColor,
-//       this.fontFamilyNew = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontFamily,
-//       this.templateFontSize =this.tempDetails ?.foundDesigns[0]?.templateDesign?.fontSize,
-//       this.lineHeight = this.tempDetails?.foundDesigns[0]?.templateDesign?.lineHeight,
-//       this.itemFontSize = this.tempDetails?.foundDesigns[0]?.templateDesign?.fontSizeItem,
-//       this.fontSizeName = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameFontSize,
-//       this.nameAlign = this.tempDetails?.foundDesigns[0]?.templateDesign?.nameAlign,
-//       this.borderRadius = this.tempDetails?.foundDesigns[0]?.templateDesign?.borderRadius
-
-
-//     })
-//   }
 
 
   getTemplateDetails() {
@@ -268,7 +233,47 @@ console.log(b,'b');
 
 // document.getElementById("btn").value="Copied";
 }
+gettemplatebyUser(){
+  this.api.getbasicDetaiofUseer().subscribe((res: any) => {
+ 
+    
+this.code=res.result[0]?.QrCode;
+console.log(this.code);
 
+
+  })
+ }
+
+ editTemplate(val:any) {
+  
+  let id :number = val;
+  console.log(id,'kaya')
+
+
+  this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: id } })
+}
+setonGmail(){
+
+
+
+  
+
+
+  // document.getElementById("btn").value="Copied";
+  
+    this.templateRef = this.tableData.nativeElement
+    console.log(this.templateRef, "templatesssssssss")
+   
+  
+  
+    
+  this.api.gmail(this.templateRef.outerHTML
+    ).subscribe((res:any)=>{
+    console.log(res, 'setgmail');
+    
+  })
+  
+  }
   }
 
 

@@ -63,50 +63,30 @@
     -moz-transition: all 0.2s;
     transition: all 0.2s;
 }
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-.social-button .active{
-z-index: 1;
-background-color: hsla(47,92%,72%,.4);
-border-radius: 3px;
-border-left: 3px solid #f9dc74;
-}
-.sidenav .closebtn {
-   
-    font-size: 36px;
-    margin-left: 50px;
-}
 
-.social-button {
-    width: 95%;
-    height: 40px;
+
+
+.bshadow {
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px #222222);
+    opacity: .5;
+  
+  }
+  ::ng-deep .bshadow img{
+    max-height:20px ;
+    min-width:20px ;
+  }
+  .width{height: 90px;
+    width: 90px;
 }
-
-.email__icon {
-    justify-self: center;
-    max-width: 25px;
-    padding-left: 5px;
+.progress-number {
+    color: red;
+    position: relative;
+    top: 3.7%;
+    left: 50%;
+    z-index: 1;
 }
-
-.email__name {
-    font-weight: 700;
-    font-size: 14px;
-    margin-left: 10px;
-}
-
-.side-modal {
-    padding-top: 40px
-}
-
-@media screen and (max-height: 450px) {}

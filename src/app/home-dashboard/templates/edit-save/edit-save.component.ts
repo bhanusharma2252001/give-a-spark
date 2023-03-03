@@ -6,15 +6,14 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
 
 @Component({
-  selector: 'app-edit-template',
-  templateUrl: './edit-template.component.html',
-  styleUrls: ['./edit-template.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-edit-save',
+  templateUrl: './edit-save.component.html',
+  styleUrls: ['./edit-save.component.scss']
 })
-export class EditTemplateComponent implements OnInit {
+export class EditSaveComponent implements OnInit {
+
   details: any;
   username: any;
   Email: any;
@@ -74,14 +73,14 @@ TemplateId:any
   value = ""
   // change new
   templateFontSize: any = 24;
-  public contactDetailColor: string = '#e920e9';
-  public lastNameColor: string = '#fff500';
-  public designationColor: string = 'rgb(236,64,64)';
-  public firstNameColor: string = '#2d5964';
+  public contactDetailColor: string = '';
+  public lastNameColor: string = '';
+  public designationColor: string = '';
+  public firstNameColor: string = '';
   fontFamilyNew: any = 'Poppins, sans-serif'
-  lineHeight: any = 1.5
+  lineHeight: any = 0.5
   tempDetails: any;
-  itemFontSize: any = 14
+  itemFontSize: any = 13
   fontSizeName: any = 18
   nameAlign: any = '';
   borderRadius: any = 0
@@ -137,6 +136,8 @@ copytext:any;
   freeTemplate:boolean = false;
   proPlusTemplate:boolean = false;
   emailData: any;
+  sign: any;
+  title: any;
 
 
 
@@ -158,7 +159,8 @@ copytext:any;
       quotes: [''],
       profileImage: [''],
       companyPhone: [''],
-      twitterProfile: ['']
+      twitterProfile: [''],
+      signatureName:['']
     })
 
     this.getTemplateId()
@@ -296,18 +298,22 @@ this.api.gmail(this.templateRef.outerHTML
      let templateId = params.params['templateId'] || 0;
      this.templateId = Number(templateId)
      if (this.templateId == 0) {
-       this.router.navigate(['home-dashboard/templates/template-dashboard'])
+       this.router.navigate(['home-dashboard/templates/saved-templates'])
      } else {
-       this. getFreeTemplate();
+       this. getTemplate();
 
      }
    });
  }
 
-
+ getSignature(){
+  this.sign = this.editTemplateForm.value.signatureName;
+  console.log(this.sign, "signature name");
+  
+}
   onSubmit(data: any) { 
     let body:any={}
-   body = {
+   body = {signatureName:this.sign,
       yourName: data.yourName,
       designation: data.designation,
       email: data.email,
@@ -351,19 +357,19 @@ this.api.gmail(this.templateRef.outerHTML
   
     }
     
-    if(this.proTemplate) {
-      body['proTemplateId']=this.templateId
-    }
-      else if(this.freeTemplate) {
-        body['templateId']=this.templateId
+    // if(this.proTemplate) {
+    //   body['proTemplateId']=this.templateId
+    // }
+    //   else if(this.freeTemplate) {
+    //     body['templateId']=this.templateId
         
-      } else if(this.proPlusTemplate) {
-        body['proPlusTemplateId']=this.templateId
-      }
+    //   } else if(this.proPlusTemplate) {
+    //     body['proPlusTemplateId']=this.templateId
+    //   }
     console.log(body,'dssfcsfvcs');
     
 
-    this.api.updateTemplate(this.templateId,body).subscribe((res: any) => {
+    this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
       console.log(res);
       this.TemplateId=res?.data?._id      
       this.toast.success('Template  Updated Successfully');
@@ -375,7 +381,7 @@ this.api.gmail(this.templateRef.outerHTML
         this.quotevar=this.LongQuote
       }
       // this.saveChanges() ;
-      this.getFreeTemplate();
+      this.getTemplate();
     },
       (error) => {
         this.toast.error('please try again');
@@ -383,9 +389,8 @@ this.api.gmail(this.templateRef.outerHTML
   }
 
 
- 
   addQuote() {
-    this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'],{ queryParams: { templateId: this.templateId } })
+    this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'],{ queryParams: { templatesId: this.templateId } })
   }
 
 
@@ -396,36 +401,7 @@ this.api.gmail(this.templateRef.outerHTML
 
   }
 
-  saveChanges() {
-    console.log(this.templateId, "template id");
-    
-    let log = {
-      templateDesign: {
-        firstNameColor: this.firstNameColor,
-        lastNameColor: this.lastNameColor,
-        designationColor: this.designationColor,
-        contactDetailColor: this.contactDetailColor,
-        fontFamily: this.fontFamilyNew,
-        fontSize: this.templateFontSize,
-        lineHeight: this.lineHeight,
-        fontSizeItem: this.itemFontSize,
-        nameFontSize: this.fontSizeName,
-        nameAlign: this.nameAlign,
-        borderRadius: this.borderRadius
-
-      }
-    }
-    this.api.templateCustomize(this.templateId, log).subscribe((res: any) => {
-      console.log(res);
-      this.toast.success('Template  Created Successfully');
-      this.getFreeTemplate();
-      // this.getDesign();
-    },
-      (error) => {
-        this.toast.error('please try again');
-      })
-  }
-
+ 
 
 
 
@@ -486,43 +462,42 @@ this.api.gmail(this.templateRef.outerHTML
 
 
   
- getFreeTemplate(){
-  this.api.getFreeTemp().subscribe((res:any)=>{
-    this.tempDetails=res?.freeTemplates;
+ getTemplate(){
+  this.api.getsignatureDetails().subscribe((res:any)=>{
+    this.tempDetails=res?.result;
 
-  this.proList=res?.templateForPro;
 
-  this.proplus=res?.templateForProPlus;
-  console.log(this.proList,'ppppppppppppppppppppppppp');
+  
   
     console.log( this.tempDetails, 'free Templates');
     this.tempDetails.filter((item:any)=>{
       if(item?._id == this.templateId) {
-        this.freeTemplate = true
+     
         this.getBindData(item)
+        this.getTemplateDesign(item?.templateDesign)
       }
       // if(item?.templateId == this.templateId) {
       //   this.getBindData(item)
       // }
     })
-    this.proList.filter((item:any)=>{
-      if(item?._id == this.templateId) {
-        this.proTemplate = true
-        this.getBindData(item)
-        this.getTemplateDesign(item?.templateDesign)
-      }
+    // this.proList.filter((item:any)=>{
+    //   if(item?._id == this.templateId) {
+    //     this.proTemplate = true
+    //     this.getBindData(item)
+    //     this.getTemplateDesign(item?.templateDesign)
+    //   }
       
       
-    })
-    this.proplus.filter((item:any)=>{
-      if(item?._id == this.templateId) {
-        this.proPlusTemplate=true
-        this.getBindData(item)
-        this.getTemplateDesign(item?.templateDesign)
-      }
+    // })
+    // this.proplus.filter((item:any)=>{
+    //   if(item?._id == this.templateId) {
+    //     this.proPlusTemplate=true
+    //     this.getBindData(item)
+    //     this.getTemplateDesign(item?.templateDesign)
+    //   }
       
       
-    })
+    // })
   })
  }
 
@@ -545,6 +520,7 @@ this.borderRadius = data?.borderRadius
   console.log(data,'adadcw');
   
   this.username = data?.yourName
+  this.title=data?.signatureName
       this.Email = data?.email
       this.useraddress = data?.address[0]?.city
       this.compName = data?.companyName
@@ -556,7 +532,7 @@ this.borderRadius = data?.borderRadius
       this.quotevar=data?.quotes
       this.insta = data?.instagramProfile
       this.uTube = data?.youtubeChannel
-
+this.img=data?.profileImage
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
@@ -596,6 +572,7 @@ console.log(this.code);
  }
 
   // Pro Templates
-  
+
+
 
 }

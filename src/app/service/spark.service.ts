@@ -360,7 +360,10 @@ getProTemplates(){
 });  
 }
 
-
+updateCreateTemplate(id:any,body:any){
+  return this.http.put(environment.localApiURL + '/api/template/updateOnTemplate/'+id,body,{
+    headers: { Authorization: `bearer ${this.token}` },});
+}
 
 
 //  gAMIL /
@@ -373,4 +376,17 @@ gmail( data:any){
   }
 );
 }
+
+
+
+
+
+  //  O R D E R   HISTORY
+
+  getOrder(){
+    return this.http.get(environment.localApiURL +'/api/plan/myOrderhistory',{
+      headers: { Authorization: `bearer ${this.token}` },
+  });  
+  }
+
 }

@@ -28,9 +28,10 @@ const routes: Routes = [
       { path: 'myprofile', loadChildren: () => import('./myprofile/myprofile.module').then((m) => m.MyprofileModule)},
       { path: 'flyer', loadChildren: () => import('./flyer/flyer.module').then((m) => m.FlyerModule)},
       { path: 'templates', loadChildren: () => import('./templates/templates.module').then((m) => m.TemplatesModule)},
-     {
+    
+    {
       path:'myorder', component:MyorderComponent
-     },
+    }  ,
      {
       path:'home-page', component:HomePageComponent
      }

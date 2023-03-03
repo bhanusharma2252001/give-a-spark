@@ -8,6 +8,7 @@ import { SavedTemplatesComponent } from './saved-templates/saved-templates.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
+import { EditSaveComponent } from './edit-save/edit-save.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { EditTemplateComponent } from './edit-template/edit-template.component';
     TemplatesComponent,
     TemplateDashboardComponent,
     SavedTemplatesComponent,
-    EditTemplateComponent
+    EditTemplateComponent,
+    EditSaveComponent
   ],
   imports: [
     CommonModule,

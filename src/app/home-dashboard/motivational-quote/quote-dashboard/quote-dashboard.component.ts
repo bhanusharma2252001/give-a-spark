@@ -33,6 +33,7 @@ export class QuoteDashboardComponent implements OnInit {
   substoryData: any;
   SubSubstoryData: any;
   SubSubStoryList: any;
+  templatesId: number;
   constructor(private api: SparkService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
@@ -54,6 +55,10 @@ export class QuoteDashboardComponent implements OnInit {
       this.router.navigate(['/home-dashboard/basic-template'])
       localStorage.setItem('quoteId', this.quoteId)  
       localStorage.setItem('LongQuotes', this.LongQuotes)
+    } else if(this.templatesId != 0) {
+      localStorage.setItem('templatequoteId', this.quoteId)
+      localStorage.setItem('templateLongQuotes', this.LongQuotes)      
+      this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: this.templateId } })
     } else {
       localStorage.setItem('templatequoteId', this.quoteId)
       localStorage.setItem('templateLongQuotes', this.LongQuotes)      
@@ -73,8 +78,14 @@ export class QuoteDashboardComponent implements OnInit {
 
   getTemplateId() {
     this.route.queryParamMap.subscribe((params: any) => {
+      this.templatesId = params.params['templatesId'] || 0
      let templateId = params.params['templateId'] || 0;
-     this.templateId = Number(templateId)
+     if(this.templatesId != 0) {
+      this.templateId = Number(this.templatesId)
+     } 
+     if(templateId !=0) {
+      this.templateId = Number(templateId)
+     }
      if (this.templateId == 0) {
       //  this.router.navigate(['home-dashboard/basic-template'])
      }

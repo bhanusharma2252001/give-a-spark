@@ -164,8 +164,8 @@ token:any;
       console.log(this.sparkService.isLoggedIn);
       console.log(this.googleEmail)
       sessionStorage.setItem('gg',this.googleEmail)
-      if(data?.user?.roleId == 0) {
-        sessionStorage.setItem('roleId', data?.user?.roleId);
+      if(data?.result?.roleId == 0) {
+        sessionStorage.setItem('roleId', data?.result?.roleId);
         // this._ngZone.run(() => {
               this.getbasicDetails()
             // }) 
@@ -175,7 +175,11 @@ token:any;
       //   sessionStorage.setItem('roleId', data?.result?.roleId);
       //   this._Router.navigate(['home-dashboard/author/authordashboard'])
       // }
-      
+      this.spinner.show();
+
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
       
     }
     
@@ -185,10 +189,16 @@ token:any;
     this.sparkService.getbasicDetaiofUseer().subscribe((res:any)=>{
 let userDetail=res.result[0];
       if(userDetail?.firstName && userDetail?.email && userDetail?.companyName && userDetail?.companyWebsite && userDetail?.phone && userDetail?.stdCode) {
-        this._Router.navigate(['home-dashboard/home-page']);
+       
+        this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard/home-page']);
+        }) 
 
       } else {
-        this._Router.navigate(['home-dashboard/user-profile']);
+        this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard/user-profile']);
+        }) 
+     
       }
     })
 
