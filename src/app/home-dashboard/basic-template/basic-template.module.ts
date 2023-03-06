@@ -8,6 +8,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import {ProgressBarAngularModule} from "progress-bar-angular"
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ProgressBarAngularModule} from "progress-bar-angular"
     ColorPickerModule,
     NgxQRCodeModule,
     ClipboardModule,
-    ProgressBarAngularModule
+    ProgressBarAngularModule,
+    NgxSpinnerModule
     
   ]
 })

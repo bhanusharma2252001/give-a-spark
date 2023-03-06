@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -8,12 +9,17 @@ import { SparkService } from 'src/app/service/spark.service';
   styleUrls: ['./myorder.component.scss']
 })
 export class MyorderComponent implements OnInit {
-  orderDetails: any;
-
-  constructor(private router:Router, private api:SparkService) { }
+  currentDetails: any;
+previousDetails:any;
+  constructor(private router:Router, private api:SparkService, private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.myOrder();
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
   navigate(){
 this.router.navigate(['/plan/plan-dashboard'])
@@ -22,7 +28,8 @@ this.router.navigate(['/plan/plan-dashboard'])
 
   myOrder(){
     this.api. getOrder().subscribe((res:any)=>{
-      this.orderDetails=res;
+      this.currentDetails=res?.currentPlan[0][0];
+      this.previousDetails=res?.previousPlan[0];
     })
   }
 }

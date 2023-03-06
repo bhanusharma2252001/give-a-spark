@@ -5,6 +5,7 @@ import { BasicdetailsCompanyRoutingModule } from './basicdetails-company-routing
 import { BasicdetailsCompanyComponent } from './basicdetails-company.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     BasicdetailsCompanyRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    NgxSpinnerModule
   ]
 })
 export class BasicdetailsCompanyModule { }

@@ -9,6 +9,7 @@ import { SparkService } from 'src/app/service/spark.service';
 import { StripeCardElement, StripeElements, StripeElementsOptions } from '@stripe/stripe-js';
 import { loadStripe } from '@stripe/stripe-js/pure';
 import { environment } from 'src/environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -24,10 +25,14 @@ export class PlanDashboardComponent implements OnInit {
   private amount: number = 0;
   private cardErrors: string | undefined;
 
-  constructor(private elementRef:ElementRef,private api: SparkService, private fb: FormBuilder, private paymentService: PaymentService) { }
+  constructor(private elementRef:ElementRef,private api: SparkService, private spinner:NgxSpinnerService,private fb: FormBuilder, private paymentService: PaymentService) { }
 
    ngOnInit() {
+    this.spinner.show();
 
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
 

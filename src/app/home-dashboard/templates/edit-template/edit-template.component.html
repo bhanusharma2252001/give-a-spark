@@ -587,12 +587,12 @@
                                                         style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700">|</span></span> -->
 
                                                     <span
-                                                        style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize;">{{username}}<span
-                                                            style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700">|</span></span>
+                                                        style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; font-size: 20px; text-transform: capitalize;">{{username}}<span
+                                                            style="font-family:Arial,sans-serif;padding:5px;color:#1b7592;font-weight:700">|</span></span>
 
 
                                                     <span
-                                                        style="font-family:Arial,sans-serif;color:#1b7592;font-weight:700; text-transform: capitalize"
+                                                        style="font-family:Arial,sans-serif;color:#000;font-weight:600;font-size: 16px;text-transform: capitalize"
                                                         *ngIf="tempDetails">{{desig}}</span>
                                                 </td>
                                             </tr>
@@ -602,48 +602,48 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td style="width:70px"><span
-                                                                        style="width:70px;font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Phone:</span>
+                                                                        style="width:70px;font-size:8pt;line-height:13pt;font-weight:700;font-family:Arial,sans-serif;color:#100000">Phone:</span>
                                                                 </td>
                                                                 <td style="width:229px"><span
-                                                                        style="width:229px;font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                        style="width:229px;font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;"
                                                                         *ngIf="tempDetails">{{number}}</span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Mobile:</span>
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;font-weight:700;color:#100000">Mobile:</span>
                                                                 </td>
                                                                 <td><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;"
                                                                         *ngIf="tempDetails">{{compPhone}}</span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Email:</span>
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;font-weight:700;color:#100000">Email:</span>
                                                                 </td>
                                                                 <td><span><a href="mailto:{email}"
-                                                                            style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700;text-decoration:none"><span
-                                                                                style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700;text-decoration:none"
+                                                                            style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;text-decoration:none"><span
+                                                                                style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;text-decoration:none"
                                                                                 *ngIf="tempDetails">{{Email}}</span></a></span>
                                                                 </td>
                                                             </tr>
 
                                                             <tr>
                                                                 <td style="vertical-align:top;padding-top:1px"><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Web:</span>
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;font-weight:700;color:#100000">Web:</span>
                                                                 </td>
                                                                 <td><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700"
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;"
                                                                         *ngIf="tempDetails">{{compWebsite}}</span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="vertical-align:top;padding-top:1px"><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000">Address:</span>
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;font-weight:700; color:#100000">Address:</span>
                                                                 </td>
                                                                 <td><span
-                                                                        style="font-size:9pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;font-weight:700; text-transform: capitalize;"
+                                                                        style="font-size:8pt;line-height:13pt;font-family:Arial,sans-serif;color:#100000;text-transform: capitalize;"
                                                                         *ngIf="tempDetails">{{useraddress}}</span>
                                                                 </td>
                                                             </tr>
@@ -651,12 +651,21 @@
                                                     </table>
                                                 </td>
                                                 <td
-                                                    style="width:155px;padding-top:6px;padding-bottom:6px;text-align:right">
+                                                    style="width:155px;padding-top:6px;padding-bottom:6px;text-align:left">
+                                                  
+                                                       <img alt="Logo"
+                                                            style="max-width:100%;width:70px;height:69px;border:0"
+                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/model-img.png" height="56"
+                                                            border="0">
+                                                            <div class="">
                                                     <a target="_blank"><img alt="Logo"
-                                                            style="max-width:100%;width:auto;height:56px;border:0"
-                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png" height="56"
-                                                            border="0"></a>
+                                                            style="max-width:100%;width:95px;height:35px;border:0"
+                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png" height="56"
+                                                            border="0"></a></div>
+                                                            <p style="font-size:8px;text-align:left;">Remove Brand</p>
+
                                                 </td>
+                                                
                                             </tr>
                                             <tr>
                                                 <td style="border-top:1px solid #1b7592" colspan="2" width="444"></td>
@@ -669,14 +678,16 @@
                                                             target="_blank" rel="noopener noreferrer"
                                                             class="sc-gisBJw kDlVKO"
                                                             style=" font-size:10px; display: block; color: #1b7592;  font-family:Lucida Handwriting;"><q
-                                                                style="font-size:15px;">{{tempDetails[1]?.quotesId?.quotesName}}</q></a>
+                                                                style="font-size:13px;">{{tempDetails[1]?.quotesId?.quotesName}}</q></a>
                                                         <a *ngIf="tempDetails[1]?.quotes" href="#" target="_blank"
                                                             rel="noopener noreferrer" class="sc-gisBJw kDlVKO"
                                                             style="  display: block; color: #1b7592;  font-family:Palatino Linotype; "><q
-                                                                style="font-size:15px;">{{quotevar}}</q></a></span>
+                                                                style="font-size:13px;">{{quotevar}}</q></a></span>
                                                 </td>
-                                                <td><img style=" width: 65px;height: 65px;padding: 10px;
-                                            " src="https://giveaspark.s3.amazonaws.com/{{code}}"></td>
+                                                <td><img style="text-align:center; width: 65px;height: 65px;padding: 10px;
+                                            " src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                           <p style="font-size:8px;text-align:left;">Scan/Click QR</p>    
+                                        </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -694,8 +705,8 @@
                                                 <td style="width:104px; padding-top: 3px;" width="104">
                                                     <a href="https://www.codetwo.com/email-signatures/" target="_blank"
                                                         rel="noopener">
-                                                        <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png" alt="Banner"
-                                                            style="width:84px; height:auto; border:0;" width="84"
+                                                        <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/square-image.png" alt="Banner"
+                                                            style="width:84px; height:84px; border:0;" width="84"
                                                             border="0">
                                                     </a>
 
@@ -760,14 +771,16 @@
                                                                 <td colspan="3" style="height: 23px;"></td>
                                                             </tr>
                                                             <tr style="padding:10px;">
+                                                                <td></td>
                                                                 <td colspan="3"
                                                                     style="font-size: 9pt; line-height: 11px; color: #8a8a8a;padding-right: 60px; font-family: Arial, sans-serif; text-transform: capitalize;"
-                                                                    *ngIf="tempDetails[2]?.quotesId?.quotesName">
-                                                                    <q>{{tempDetails[2]?.quotesId?.quotesName}} </q>
+                                                                   >
+                                                                    <q  *ngIf="tempDetails[2]?.quotesId?.quotesName">{{tempDetails[2]?.quotesId?.quotesName}} </q>
+                                                                    <q *ngIf="tempDetails[2]?.quotes"> {{quotevar}} </q>
                                                                 </td>
                                                                 <td colspan="3" style="font-size: 9pt; line-height: 11px; color: #8a8a8a;padding-right: 60px; font-family: Arial, sans-serif; text-transform: capitalize;
-                                                                " *ngIf="tempDetails[2]?.quotes">
-                                                                    <q> {{quotevar}} </q>
+                                                                " >
+                                                                   
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -1060,7 +1073,7 @@
 
 
                                 <!-- -----------------------------TEMPLATE-7------------------------ -->
-                                <div *ngIf="templateId == 7" style="background-color: #FFFFFF;">
+                                <div *ngIf="templateId == 7" style="background-color: #FFFFFF;padding:10px;">
                                     <table id="zs-output-sig" border="0" cellpadding="0" cellspacing="0" id="free-1"
                                         #tableData
                                         style="font-family:Arial,Helvetica,sans-serif;line-height:0px;font-size:1px;padding:0px!important;border-spacing:0px;margin:0px;border-collapse:collapse; width:400px;">
@@ -1071,7 +1084,7 @@
                                                     <table id="inner-table" border="0" cellpadding="0" cellspacing="0"
                                                         style="font-family:Arial,Helvetica,sans-serif;line-height:0px;font-size:1px;padding:0px!important;border-spacing:0px;margin:0px;border-collapse:collapse;">
                                                         <tbody>
-                                                            <tr><td  colspan="3" style="padding:1px;font-size: 12px;"> kaya </td></tr>
+                                                            <tr><td  colspan="3" style="padding:3px;font-size: 12px;"> kaya </td></tr>
                                                             <tr>
                                                                 <td
                                                                     style="padding:10px ;
@@ -1080,7 +1093,7 @@
                                                                         <img style="padding:10px ;"
                                                                             style="width:60px;height:60px;" alt="image"
                                                                             border="0"
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png">
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/model-img.png">
                                                                  
 
                                                                    
@@ -1105,7 +1118,7 @@
 
 
                                                                     <p
-                                                                        style="border-collapse:collapse;font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;padding:0px!important;">
+                                                                        style="border-collapse:collapse;margin-bottom:0;font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;padding:0px!important;">
                                                                         <span
                                                                             style="font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">P</span>
                                                                         <span
@@ -1121,12 +1134,13 @@
 
 
                                                                     <p
-                                                                        style="border-collapse:collapse;font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;padding:0px!important;">
+                                                                        style="border-collapse:collapse;margin-bottom:0;font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;padding:0px!important;">
                                                                         <span
                                                                             style="font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">W
                                                                             :-</span>
                                                                         <a> <span
                                                                                 style="font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;color:#333333;display:inline;">{{compWebsite}}&nbsp;</span></a>
+                                                                                <br>
                                                                         <span
                                                                             style="font-family:Calibri, Helvetica, sans-serif;font-size:12.0px;font-style:normal;line-height:18px;font-weight:400;color:#218aa6;display:inline;">
                                                                             E :-</span> <a href=""><span
@@ -1149,6 +1163,8 @@
                                                                     <span><img style="padding:10px ;"
                                                                             src="https://giveaspark.s3.amazonaws.com/{{code}}"
                                                                             alt="" width="75px" height="75px"></span>
+                                                                            <p style="font-size:8px;text-align:center;">Scan/Click QR</p>
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1170,6 +1186,7 @@
                                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png">
 
                                                                     </div>
+                                                                    <p style="font-size:8px;text-align:center;">Remove Brand</p>
                                                                 </td>
                                                             </tr>
                                                           

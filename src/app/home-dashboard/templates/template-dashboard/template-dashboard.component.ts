@@ -2,6 +2,7 @@ import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsu
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 
@@ -171,7 +172,7 @@ this.setGmail();
 
   constructor(private api: SparkService, myElement: ElementRef,
 
-    private fb: FormBuilder, private toast: ToastrService, private router: Router) {
+    private fb: FormBuilder, private toast: ToastrService, private router: Router, private spinner:NgxSpinnerService) {
     this.EditFreeTempForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -212,7 +213,11 @@ this.setGmail();
     this.FreeTempList();
 
 
+    this.spinner.show();
 
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
 setGmail(){

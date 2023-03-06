@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 @Component({
@@ -22,7 +23,7 @@ export class AddStoryComponent implements OnInit {
 
   imageData1:any;
   imageData2:any;
-  constructor( private api:SparkService, private fb:FormBuilder, private router:Router, private toast:ToastrService) { 
+  constructor( private api:SparkService, private fb:FormBuilder, private router:Router, private toast:ToastrService, private spinner:NgxSpinnerService) { 
     this.addStoryForm=this.fb.group({
 
       writerName:['',Validators.required],
@@ -33,6 +34,11 @@ export class AddStoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
 

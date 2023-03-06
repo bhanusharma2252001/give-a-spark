@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -10,11 +11,16 @@ import { SparkService } from 'src/app/service/spark.service';
 export class MyplanComponent implements OnInit {
 plandetails:any;
   userDetails: any;
-  constructor(private api:SparkService, private router:Router) { }
+  constructor(private api:SparkService, private router:Router, private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.myPlans();
-    this.profile()
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
+  
   }
 
 

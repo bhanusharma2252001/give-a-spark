@@ -72,6 +72,12 @@ window.onpopstate = function () {
 
 
   ngOnInit(): void {
+
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
    this.getPhoneCode()
  if(sessionStorage.getItem('username')){
   this.userName= sessionStorage.getItem('username')

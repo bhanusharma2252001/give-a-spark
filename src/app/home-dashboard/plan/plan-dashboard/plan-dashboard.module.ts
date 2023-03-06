@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PlanDashboardComponent } from './plan-dashboard.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -15,7 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PlanDashboardModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxStripeModule.forRoot('')
+    NgxStripeModule.forRoot(''),
+    NgxSpinnerModule
+
   ]
 })
 export class PlanDashboardModule { }

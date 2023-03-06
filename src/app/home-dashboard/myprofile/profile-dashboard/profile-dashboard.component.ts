@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
 @Component({
   selector: 'app-profile-dashboard',
@@ -8,7 +9,7 @@ import { SparkService } from 'src/app/service/spark.service';
 })
 export class ProfileDashboardComponent implements OnInit {
   userDetails:any
-  constructor(private api: SparkService,private route: ActivatedRoute, private router:Router) { 
+  constructor(private api: SparkService,private route: ActivatedRoute, private router:Router, private spinner:NgxSpinnerService) { 
     this.route.queryParams.subscribe((params:any) => {
       // console.log(params,'sssssss');
       if(params?.token) {
@@ -24,7 +25,11 @@ export class ProfileDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
   profileData(token:any) {

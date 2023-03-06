@@ -7,6 +7,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-template',
@@ -142,7 +143,7 @@ copytext:any;
 
 
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,
-    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard) {
+    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
     this.editTemplateForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -169,7 +170,11 @@ copytext:any;
 
   
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   this.gettemplatebyUser();
   // this. getProTemplate();
   }

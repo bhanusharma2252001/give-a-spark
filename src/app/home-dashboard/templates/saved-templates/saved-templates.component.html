@@ -81,17 +81,17 @@
                     <span>
                         <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                src="assets/images/fb-1.png"></a>
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/fb-1.png"></a>
                     </span><span><a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                src="assets/images/tt-1.png"></a></span><span>
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/tt-1.png"></a></span><span>
                         <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                src="assets/images/ln-1.png"></a>
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/ln-1.png"></a>
                     </span><span>
                         <a href="{{details?.facebookProfile}}"><img
                                 style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                src="assets/images/it-1.png"></a>
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/it-1.png"></a>
                     </span>
                 </div> 
 
@@ -130,7 +130,7 @@
 </table>
 <div class="d-flex justify-content-end m-3">
     <button class="signature-item-edit-btn" (click)="editTemplate(details?._id)"><span class="signature-item-edit-btn-icon sw-icon-pen"></span> <span class="signature-item-edit-btn-text">Edit</span></button>
-    <button class="signature-item-edit-btn" onclick="openNav()"><span class="signature-item-edit-btn-icon sw-icon-pen"></span> <span class="signature-item-edit-btn-text">Share Template</span></button>
+    <button class="signature-item-edit-btn" (click)="openModal(details?._id)" onclick="openNav()"><span class="signature-item-edit-btn-icon sw-icon-pen"></span> <span class="signature-item-edit-btn-text">Share Template</span></button>
 
 </div>
 

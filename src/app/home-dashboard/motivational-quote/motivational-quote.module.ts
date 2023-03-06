@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MotivationalQuoteRoutingModule } from './motivational-quote-routing.module';
 import { MotivationalQuoteComponent } from './motivational-quote.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { MotivationalQuoteComponent } from './motivational-quote.component';
   ],
   imports: [
     CommonModule,
-    MotivationalQuoteRoutingModule
+    MotivationalQuoteRoutingModule,
+    NgxSpinnerModule
+
   ]
 })
 export class MotivationalQuoteModule { }

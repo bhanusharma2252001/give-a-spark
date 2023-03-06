@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 import { EditSaveComponent } from './edit-save/edit-save.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { EditSaveComponent } from './edit-save/edit-save.component';
     ReactiveFormsModule,
     FormsModule,
     ColorPickerModule,
+    NgxSpinnerModule
 
   ]
 })

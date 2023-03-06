@@ -3,8 +3,8 @@
         <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
                 <div class="position-absolute top-50 start-50 translate-middle">
-                    <img class="wh-225 p-2" src="assets/images/profile-image.png">
-
+                    <img class="wh-225 p-2" *ngIf="!currentDetails?.profile" src="assets/images/profile-image.png">
+                    <img  class="wh-225 p-2"  *ngIf="currentDetails?.profile" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{currentDetails?.profile}}"alt="">
                 </div>
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
                     <div class="rounded-circle bg-black position-relative">
@@ -19,10 +19,10 @@
                 <div class="row ps-5 p-3">
                     <div class="col-md-5 col-lg-5">
                         <h4 class="text-white">
-                            Defini Shippers
+                        {{currentDetails?.firstName}}
                         </h4>
-                        <h6 class="text-yellow">Digital Marketing</h6>
-                        <p class="text-gray">perfectiongeeks@gmail.com</p>
+                        <h6 class="text-yellow">{{currentDetails?.designation}}</h6>
+                        <p class="text-gray">{{currentDetails?.email}}</p>
                     </div>
                     <div class="col-md-7 col-lg-7">
 
@@ -43,8 +43,8 @@
                         <h5 class="border-bottom w-50">Current Plan</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
-                        <button class="green-btn   p-2 fs-12 pe-3 ps-3">Upgrade Plan</button>
+                        <p class="fw-400 fs-14">Plan Name : Pro ( {{currentDetails?.planId?.planName}})</p>
+                        <button class="green-btn   p-2 fs-12 pe-3 ps-3" (click)="navigate()">Upgrade Plan</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -52,14 +52,14 @@
                         <h5 class="border-bottom w-50">Billing Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
-                        <p class="fw-400 fs-14">Price : 5$</p>
-                        <p class="fw-400 fs-14">Time Duration : 1 Month</p>
+                        <p class="fw-400 fs-14">Plan Name : Pro ( {{currentDetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14">Price : {{currentDetails?.planId?.amount}}</p>
+                        <p class="fw-400 fs-14">Time Duration : {{currentDetails?.planId?.timeDuration}}</p>
                         <div class="d-flex justify-content-between">
-                            <p class="fw-400 fs-14">From : 21-12-2022</p>
-                            <p class="fw-400 fs-14">To : 21-01-2023</p>
+                            <p class="fw-400 fs-14">From : {{currentDetails?.fromDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14">To : {{currentDetails?.expireDate| date:'dd/MM/yyyy'}}</p>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -69,21 +69,21 @@
                         <h5 class="border-bottom w-50">Previous Plan</h5>
                     </div>
                     <div class="d-flex">
-                        <div class="">
+                        <div class="" *ngFor=" let details of previousDetails">
                             <div class="my-orders p-2 mt-4 m-1">
-                                <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
-                                <p class="fw-400 fs-14">Price : 5$</p>
-                                <p class="fw-400 fs-14">Time Duration : 1 Month</p>
+                                <p class="fw-400 fs-14">Plan Name : Pro (  {{details?.planName}})</p>
+                                <p class="fw-400 fs-14">Price :  {{details?.amount}}$</p>
+                                <p class="fw-400 fs-14">Time Duration : {{details?.orderId?.timeDuration}}</p>
 
-                                <p class="fw-400 fs-14 text-nowrap">From : 21-12-2022</p>
-                                <p class="fw-400 fs-14 text-nowrap">To : 21-01-2023</p>
+                                <p class="fw-400 fs-14 text-nowrap">From :  {{details?.senderId?.fromDate| date:'dd/MM/yyyy'}}</p>
+                                <p class="fw-400 fs-14 text-nowrap">To : {{details?.senderId?.expireDate| date:'dd/MM/yyyy'}}</p>
                                 </div>
-                                <button class="pink-btn p-2 fs-12 pe-3 ps-3 mt-3">Upgrade
+                                <button class="pink-btn p-2 fs-12 pe-3 ps-3 mt-3" (click)="navigate()">Upgrade
                                     Plan</button>
 
                             
                         </div>
-                        <div class="">
+                        <!-- <div class="">
                             <div class="my-orders p-2 mt-4 m-1">
                                 <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
                                 <p class="fw-400 fs-14">Price : 5$</p>
@@ -95,7 +95,7 @@
 
                             </div>
                             <button class="pink-btn p-2 fs-12 pe-3 ps-3 mt-3" (click)="navigate()">Upgrade Plan</button>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>

@@ -7,6 +7,7 @@ import { PlanDashboardComponent } from './plan-dashboard/plan-dashboard.componen
 import { MyplanComponent } from './myplan/myplan.component';
 
 import { PlanPurchaseComponent } from './plan-purchase/plan-purchase.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PlanPurchaseComponent } from './plan-purchase/plan-purchase.component';
   ],
   imports: [
     CommonModule,
-    PlanRoutingModule
+    PlanRoutingModule,
+    NgxSpinnerModule
   ]
 })
 export class PlanModule { }

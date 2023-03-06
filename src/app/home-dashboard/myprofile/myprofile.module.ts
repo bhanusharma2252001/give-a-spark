@@ -6,6 +6,7 @@ import { MyprofileComponent } from './myprofile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MyprofileRoutingModule,  ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ]
 })
 export class MyprofileModule { }

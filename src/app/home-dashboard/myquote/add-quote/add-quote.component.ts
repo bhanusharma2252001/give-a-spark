@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 
@@ -24,7 +25,7 @@ export class AddQuoteComponent implements OnInit {
 
   imageData1:any;
   imageData2:any;
-  constructor( private api:SparkService, private fb:FormBuilder, private router:Router, private toast:ToastrService) { 
+  constructor( private api:SparkService, private fb:FormBuilder,private spinner:NgxSpinnerService ,private router:Router, private toast:ToastrService) { 
     this.addQuoteForm=this.fb.group({
 
       writerName:[''],
@@ -35,6 +36,11 @@ export class AddQuoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
 

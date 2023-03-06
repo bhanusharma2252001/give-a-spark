@@ -3,8 +3,8 @@
         <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
                 <div class="position-absolute top-50 start-50 translate-middle">
-                    <img class="wh-225 p-2" src="assets/images/profile-image.png" *ngIf="!userDetails?.profileImage">
-              <img *ngIf="!userDetails?.profileImage" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}"alt="">
+                    <img  *ngIf="plandetails?.profileImage " class="wh-225 p-2" src="assets/images/profile-image.png" >
+              <img  class="wh-225 p-2"  *ngIf="!plandetails?.profileImage" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{plandetails?.profile}}"alt="">
                 </div>
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
                     <div class="rounded-circle bg-black position-relative">
@@ -19,10 +19,10 @@
                 <div class="row ps-5 p-3">
                     <div class="col-md-5 col-lg-5">
                         <h4 class="text-white">
-                           {{userDetails?.firstName}}
+                           {{plandetails?.firstName}}
                         </h4>
-                        <h6 class="text-yellow" *ngIf="userDetails?.designation">{{userDetails?.designation}}</h6>
-                        <p mailto:class="text-gray" *ngIf="userDetails?.email">{{userDetails?.email}}</p>
+                        <h6 class="text-yellow" *ngIf="plandetails?.designation">{{plandetails?.designation}}</h6>
+                        <p mailto:class="text-gray" *ngIf="plandetails?.email">{{plandetails?.email}}</p>
                     </div>
                     <div class="col-md-7 col-lg-7">
 
@@ -43,7 +43,7 @@
                         <h5 class="border-bottom w-50">Plan Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails.planName}})</p>
+                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
                         <button class="pink-btn p-2 fs-12 pe-3 ps-3" (click)="navigate()">Upgrade Plan</button>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
                         <h5 class="border-bottom w-50">Billing Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( Plan)</p>
-                        <p class="fw-400 fs-14">Price : {{plandetails.amount}}</p>
-                        <p class="fw-400 fs-14">Time Duration : {{plandetails.timeDuration}}</p>
+                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14">Price : {{plandetails?.planId?.amount}}</p>
+                        <p class="fw-400 fs-14">Time Duration : {{plandetails?.planId?.timeDuration}}</p>
                         <div class="d-flex justify-content-between">
-                            <p class="fw-400 fs-14">From : {{plandetails.creationDate| date:'dd/MM/yyyy'}}</p>
-                            <p class="fw-400 fs-14">To : {{plandetails.expiryDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14">From : {{plandetails.fromDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14">To : {{plandetails.expireDate| date:'dd/MM/yyyy'}}</p>
                         </div>
                       
                     </div>

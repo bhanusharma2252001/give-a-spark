@@ -6,6 +6,7 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-save',
@@ -138,12 +139,13 @@ copytext:any;
   emailData: any;
   sign: any;
   title: any;
+  planDetail: any;
 
 
 
 
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,
-    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard) {
+    private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
     this.editTemplateForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -173,13 +175,24 @@ copytext:any;
 
   ngOnInit(): void {
   this.gettemplatebyUser();
+  this.spinner.show();
+
+  setTimeout(() => {
+    this.spinner.hide();
+  }, 1000);
   // this. getProTemplate();
   }
 
  
 
   
+  selectFeature(val:any){
+    if((val == 'design' || val == 'social') && this.planDetail == 'Plan A') {
+      alert('it is pro fetaure')
+    }
 
+  }
+  
 
 CopyToClipboard(element:any) {
 
@@ -465,7 +478,7 @@ this.api.gmail(this.templateRef.outerHTML
  getTemplate(){
   this.api.getsignatureDetails().subscribe((res:any)=>{
     this.tempDetails=res?.result;
-
+    this.planDetail=res?.plan
 
   
   

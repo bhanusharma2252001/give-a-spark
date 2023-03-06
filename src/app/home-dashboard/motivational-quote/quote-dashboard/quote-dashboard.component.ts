@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -34,7 +35,7 @@ export class QuoteDashboardComponent implements OnInit {
   SubSubstoryData: any;
   SubSubStoryList: any;
   templatesId: number;
-  constructor(private api: SparkService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
+  constructor(private api: SparkService,private spinner:NgxSpinnerService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
       subCategoriesId: [''],
@@ -74,6 +75,11 @@ export class QuoteDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
   getTemplateId() {

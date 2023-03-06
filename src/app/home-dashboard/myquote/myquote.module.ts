@@ -5,6 +5,7 @@ import { MyquoteRoutingModule } from './myquote-routing.module';
 import {  MyquoteComponent  } from './myquote.component';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MyquoteRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ]
 })
 export class MyquoteModule { }

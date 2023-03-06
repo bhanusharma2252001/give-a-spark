@@ -6,6 +6,7 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-basic-template',
   templateUrl: './basic-template.component.html',
@@ -74,14 +75,14 @@ profileImages:any;
   // change new
   templateFontSize: any = 24;
   // public barColor:string='fff500'
-  public contactDetailColor: string = '#e920e9';
-  public lastNameColor: string = '#fff500';
-  public designationColor: string = 'rgb(236,64,64)';
-  public firstNameColor: string = '#2d5964';
+  public contactDetailColor: string = '#00000';
+  public lastNameColor: string = '#00000';
+  public designationColor: string = '#00000';
+  public firstNameColor: string = '#00000';
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
-  itemFontSize: any = 14
+  itemFontSize: any = 12
   fontSizeName: any = 18
   nameAlign: any = '';
   borderRadius: any = 0
@@ -126,7 +127,7 @@ profileImages:any;
   // chnage end
   @ViewChild('closeModal') private closeModal!: ElementRef;
   sign: any;
-
+  planDetail:any
 
 
   getScanText() {
@@ -142,7 +143,7 @@ profileImages:any;
 
 
   constructor(private api: SparkService, myElement: ElementRef,
-    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard) {
+    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
     this.signatureDetailsForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -175,6 +176,12 @@ profileImages:any;
   
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
+    
 
     // this.getBasicProfile()
     // this.getDesign();
@@ -323,7 +330,7 @@ getSignature(){
   }
   getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
-
+      this.planDetail = res?.plan
       this.tempDetails = res.result[res.result.length - 1];
       this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
@@ -351,11 +358,11 @@ this.firstNameColor = templateResult?.firstNameColor,
 
 
   onSubmit(data: any) {
-
-    let body = {
+   let body :any= {}
+     body = {
 
       yourName: data.yourName,
-      signatureName: this.sign,
+      signatureName: this.sign?this.sign:'',
       designation: data.designation,
       email: data.email,
       phoneNo: data.phoneNo,
@@ -373,16 +380,22 @@ this.firstNameColor = templateResult?.firstNameColor,
         }
 
       ],
-      fbProfile: data.fbProfile,
-      twitterProfile: data?.twitterProfile,
-      instagramProfile: data.instagramProfile,
-      linkedInProfile: data.linkedInProfile,
-      youtubeChannel: data.youtubeChannel,
-      quotesId: this.QuoteId,
-      quotes: data.quotes,
-      profileImage: this.imageData2,
-      companyPhone: data.companyPhone,
-      templateDesign: {
+      quotesId: this.QuoteId?this.QuoteId:'',
+      quotes: data.quotes?data.quotes:'',
+      profileImage: this.imageData2?this.imageData2:'',
+      companyPhone: data.companyPhone?data.companyPhone:'',
+  
+      
+    }
+
+    if(this.planDetail != 'Plan A') {
+      body['fbProfile']= data.fbProfile,
+      body['twitterProfile']= data?.twitterProfile,
+      body['instagramProfile']= data.instagramProfile,
+      body['linkedInProfile']= data.linkedInProfile,
+      body['youtubeChannel']=data.youtubeChannel,
+      
+      body['templateDesign']={
         firstNameColor: this.firstNameColor,
         lastNameColor: this.lastNameColor,
         designationColor: this.designationColor,
@@ -396,8 +409,32 @@ this.firstNameColor = templateResult?.firstNameColor,
         borderRadius: this.borderRadius
 
       }
-    }
+      
+    } 
+    else {
+      body['fbProfile']= '',
+      body['twitterProfile']= '',
+      body['instagramProfile']= '',
+      body['linkedInProfile']= '',
+      body['youtubeChannel']= '',
+      
+      body['templateDesign']= {
+        firstNameColor: '',
+        lastNameColor: '',
+        designationColor: '',
+        contactDetailColor: '',
+        fontFamily: '',
+        fontSize: '',
+        lineHeight: '',
+        fontSizeItem: '',
+        nameFontSize: '',
+        nameAlign: '',
+        borderRadius: ''
 
+      }
+      }
+    
+console.log(body,'sbxkabxak');
 
 
     this.api.addsignatureDetails(body).subscribe((res: any) => {
@@ -479,7 +516,6 @@ this.firstNameColor = templateResult?.firstNameColor,
         this.toast.error('please try again');
       })
   }
-
 
 
 

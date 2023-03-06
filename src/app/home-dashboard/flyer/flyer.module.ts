@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MatInputModule,
     TextFieldModule,
     ImageCropperModule,
+    NgxSpinnerModule,
     // MaterialModule,
     // MatSelectModule,
     QuillModule.forRoot() ,

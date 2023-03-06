@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { SparkService } from 'src/app/service/spark.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-saved-templates',
@@ -77,7 +78,7 @@ export class SavedTemplatesComponent implements OnInit {
   code: any;
   copytext: any;
   templateRef: any;
-  constructor(private fb: FormBuilder, private api:SparkService, private router:Router) {
+  constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -88,6 +89,11 @@ export class SavedTemplatesComponent implements OnInit {
   // constructor( private api:SparkService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this. getTemplateDetails();
     this.gettemplatebyUser();
   }
@@ -273,6 +279,11 @@ setonGmail(){
     
   })
   
+  }
+
+  openModal(evt:any) {
+    console.log(evt);
+    
   }
   }
 
