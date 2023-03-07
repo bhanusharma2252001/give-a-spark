@@ -43,7 +43,7 @@
                                 </li> -->
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" (click)="selectFeature('design')"
-                                        data-bs-target="#design" type="button" role="tab" aria-controls="home"
+                                 data-bs-target="#design" type="button" role="tab" aria-controls="home"
                                         aria-selected="true">
                                         <div class="box">
                                             <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link box-link p-1 " id="apps-tab" data-bs-toggle="tab"
-                                        data-bs-target="#apps" type="button" role="tab" aria-controls="home"
+                                        data-bs-target="#apps" type="button" role="tab" aria-controls="home" (click)="selectFeature('apps')" 
                                         aria-selected="true">
                                         <div class="box">
                                             <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
@@ -228,8 +228,8 @@
                                                             <img class="width" src="assets/images/logo.png "
                                                                 *ngIf="!tempDetails?.profileImage && img" />
                                                         </div> -->
-                                                        <img class="width" [src]="url" height="200" *ngIf="!img">
-                                                        <img class="wh-100" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{img}}">
+                                                        <img class="width"  [src]="url" height="200" *ngIf="!img && url">
+                                                        <img class="wh-100" *ngIf="img" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{img}}">
                                                         <!-- <div *ngIf="!tempDetails?.profileImage">
                                                             <img class="width" src="assets/images/logo.png " />
                                                         </div> -->
@@ -665,18 +665,18 @@
                                             </p>
 
                                             <div style="padding:10px;border-radius:  10px 10px 0 0;">
-                                                <span>
-                                                    <a href="{{faceB}}"><img
+                                                <span *ngIf="faceB">
+                                                    <a  href="{{faceB}}" ><img
                                                             style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                                             src="assets/images/fb-1.png"></a>
-                                                </span><span><a href="{{Twitter}}"><img
+                                                </span><span *ngIf="Twitter"><a  href="{{Twitter}}"><img
                                                             style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                                            src="assets/images/tt-1.png"></a></span><span>
+                                                            src="assets/images/tt-1.png"></a></span><span  *ngIf="Linkedin" > 
                                                     <a href="{{Linkedin}}"><img
                                                             style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                                             src="assets/images/ln-1.png"></a>
-                                                </span><span>
-                                                    <a href="{{insta}}"><img
+                                                </span><span  *ngIf="insta">
+                                                    <a  href="{{insta}}"><img
                                                             style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                                             src="assets/images/it-1.png"></a>
                                                 </span>
@@ -821,23 +821,24 @@
             </div>
         </div>
 
+        <ng-template #secondDialog style="width:200px;">
+            <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
+            <mat-dialog-content>
+            <p style="color:red; margin-left:13px;">
+                you are using pro features
+               
+            </p>
+            <p style="font-size:10px;"> Please upgrade your plan to  improve your signatures</p>
+            
+             
+            </mat-dialog-content>
+            <mat-dialog-actions align="end">
+             
+            </mat-dialog-actions>
+          </ng-template>
+          
 
 
-
-        <div #myModal class="modal fade">
-            <div class="modal-dialog">
-              <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title ">Title</h5>
-                  <button type="button" class="close" >
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>pro feature.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    
     </section>
 </main>

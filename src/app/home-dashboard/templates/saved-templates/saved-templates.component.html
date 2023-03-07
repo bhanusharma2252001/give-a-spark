@@ -1,7 +1,7 @@
 <div class="row" >
     <div class="col-md-7 m-4 " *ngFor="let details of tempDetails">
  
-<table cellpadding="0" cellspacing="0" id="one" #tableData
+<table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData
     style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
     <tbody style="padding:10px;
         ">
@@ -160,7 +160,8 @@
                         data-bs-target="#v-pills-home" type="button" role="tab"
                         aria-controls="v-pills-home" aria-selected="true">
                         <div><img class="email__icon" src="assets/images/google-s.png" class="img-fluid"></div>
-                        <div class="email__name " (click)="setonGmail()">Gmail</div>
+                        <div class="email__name " >Gmail</div>
+                        <button type="button"(click)="setonGmail()"> gmail</button>
                     </div>
                     <div class="d-flex social-button py-4" id="v-pills-profile-tab" data-bs-toggle="pill"
                         data-bs-target="#v-pills-profile" type="button" role="tab"
@@ -180,7 +181,7 @@
                         aria-controls="v-pills-settings" aria-selected="false">
                         <div><img class="email__icon" src="assets/images/html.png" class="img-fluid">
                         </div>
-                        <div class="email__name ">Outlook</div></div>
+                        <div class="email__name " (click)="CopyToClipboard(selectedTemplateId)">Html</div></div>
                 </div>
             </div>
             <div class="col-md-10 col-lg-9">

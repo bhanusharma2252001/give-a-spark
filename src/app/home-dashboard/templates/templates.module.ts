@@ -10,7 +10,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 import { EditSaveComponent } from './edit-save/edit-save.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import {MatDialogModule} from '@angular/material/dialog';
+// import {MatDialog} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     FormsModule,
     ColorPickerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatDialogModule,
+    // MatDialog
+    
+    
 
   ]
 })

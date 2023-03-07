@@ -21,7 +21,7 @@
                   </li>
                   <li class="nav-item_details">
                     <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
-                      data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
+                      data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"(click)="selectFeature('social')"
                       >
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/social-media.svg"> -->
@@ -43,7 +43,7 @@
                     </button>
                   </li>
                   <li class="nav-item_details">
-                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design"
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design" (click)="selectFeature('design')"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')"> -->
@@ -54,7 +54,7 @@
                     </button>
                   </li>
                   <li class="nav-item_details">
-                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps"
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps" (click)="selectFeature('apps')"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/apps.svg"> -->
@@ -1100,3 +1100,20 @@
     </div>
   </div>
 </div>
+<ng-template #secondDialog style="width:200px;">
+  <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
+  <mat-dialog-content>
+  <p style="color:red; margin-left:13px;">
+      you are using pro features
+     
+  </p>
+  <p style="font-size:10px;"> Please upgrade your plan to  improve your signatures</p>
+  <button type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+    Get it Now
+  </button>
+   
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+   
+  </mat-dialog-actions>
+</ng-template>

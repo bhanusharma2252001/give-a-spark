@@ -38,8 +38,11 @@ export class PlanDashboardComponent implements OnInit {
 
   paymentSelectC() {
     let data = {
-     "SelectPlan": "Plan C"
-
+     "SelectPlan": "Plan C",
+     
+ 
+      "quantity":"6"
+  
     }
     this.api.makePayment(data).subscribe(async (res: any) => {
 
@@ -56,7 +59,8 @@ export class PlanDashboardComponent implements OnInit {
 
   paymentSelectB() {
     let data = {
-      "SelectPlan": "Plan B"
+      "SelectPlan": "Plan B",
+      "quantity":"6"
     }
     this.api.makePayment(data).subscribe((res: any) => {
       var paymentdata = res.paymentIntent;

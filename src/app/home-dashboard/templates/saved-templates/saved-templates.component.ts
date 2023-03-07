@@ -1,7 +1,7 @@
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, ViewChildren, QueryList } from '@angular/core';
 import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -11,7 +11,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./saved-templates.component.scss']
 })
 export class SavedTemplatesComponent implements OnInit {
-  @ViewChild('tableData',{static:false})tableData!:ElementRef
+  // @ViewChild('tableData',{static:false})tableData!:ElementRef
+  @ViewChildren('tableData')tableData! : QueryList<ElementRef>
+
+
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
   public lastNameColor: string = '#fff500';
@@ -78,6 +81,7 @@ export class SavedTemplatesComponent implements OnInit {
   code: any;
   copytext: any;
   templateRef: any;
+  selectedTemplateId: number;
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -262,29 +266,37 @@ setonGmail(){
 
 
 
+  let tabledata:any = this.tableData;
+  let result:any = tabledata?._results;
+  console.log(result, 'any');
   
-
-
-  // document.getElementById("btn").value="Copied";
+  result.filter( (item:any)=>{
+  if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
+  this.templateRef = item?.nativeElement
+  this.api.gmail(this.templateRef.outerHTML
+  ).subscribe ((res: any)=>{
+  console.log(res, 'setgmail');})}})
   
-    this.templateRef = this.tableData.nativeElement
-    console.log(this.templateRef, "templatesssssssss")
    
   
   
     
-  this.api.gmail(this.templateRef.outerHTML
-    ).subscribe((res:any)=>{
-    console.log(res, 'setgmail');
+  // this.api.gmail(this.templateRef.outerHTML
+  //   ).subscribe((res:any)=>{
+  //   console.log(res, 'setgmail');
     
-  })
+  // })
   
   }
+  openModal (evt:any) {  console.log(evt);
+  this. selectedTemplateId = evt
 
-  openModal(evt:any) {
-    console.log(evt);
+}
+}
+
+
     
-  }
-  }
+
+
 
 

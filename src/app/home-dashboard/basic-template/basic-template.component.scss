@@ -90,3 +90,14 @@
     left: 50%;
     z-index: 1;
 }
+.action {
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 19px;
+    background-color:#ff4058;
+    color: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    transition: all 0.2s ease;}

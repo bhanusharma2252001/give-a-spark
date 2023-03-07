@@ -9,6 +9,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import {ProgressBarAngularModule} from "progress-bar-angular"
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxQRCodeModule,
     ClipboardModule,
     ProgressBarAngularModule,
-    NgxSpinnerModule
-    
+    NgxSpinnerModule,
+    MatDialogModule
   ]
 })
 export class BasicTemplateModule { }

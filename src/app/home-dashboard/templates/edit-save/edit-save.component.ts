@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -7,6 +7,8 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-edit-save',
@@ -23,6 +25,7 @@ export class EditSaveComponent implements OnInit {
   number: any;
  
 img:boolean=true;
+@ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   editTemplateForm: FormGroup
   planShow = false;
@@ -143,8 +146,8 @@ copytext:any;
 
 
 
-
-  constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,
+  @ViewChild('content') content: any;
+  constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
     this.editTemplateForm = this.fb.group({
       yourName: [''],
@@ -184,11 +187,13 @@ copytext:any;
   }
 
  
-
+ 
   
   selectFeature(val:any){
-    if((val == 'design' || val == 'social') && this.planDetail == 'Plan A') {
-      alert('it is pro fetaure')
+    if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
+  
+    // let a:any=document.getElementById("design").style.width = "800px";
+    this.dialog.open(this.secondDialog);
     }
 
   }

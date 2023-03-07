@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -7,6 +7,8 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {MatDialog} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-basic-template',
   templateUrl: './basic-template.component.html',
@@ -138,12 +140,12 @@ profileImages:any;
 
 
 
-
+  @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
 
 
 
   constructor(private api: SparkService, myElement: ElementRef,
-    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
+    private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private dialog: MatDialog,private spinner:NgxSpinnerService) {
     this.signatureDetailsForm = this.fb.group({
       yourName: [''],
       designation: [''],
@@ -355,7 +357,15 @@ this.firstNameColor = templateResult?.firstNameColor,
 
     })
   }
+  selectFeature(val:any){
+    if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
+  
+    // let a:any=document.getElementById("design").style.width = "800px";
+    this.dialog.open(this.secondDialog);
+    }
 
+  }
+  
 
   onSubmit(data: any) {
    let body :any= {}
