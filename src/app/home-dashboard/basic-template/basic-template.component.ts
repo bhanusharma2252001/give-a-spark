@@ -466,7 +466,7 @@ console.log(body,'sbxkabxak');
       
       }
       // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('please try again');

@@ -103,6 +103,8 @@ TemplateId:any
 
 
   }
+  logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
+
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
     'sans-serif',
     'monospace',
@@ -400,6 +402,7 @@ this.api.gmail(this.templateRef.outerHTML
       }
       // this.saveChanges() ;
       this.getTemplate();
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('please try again');

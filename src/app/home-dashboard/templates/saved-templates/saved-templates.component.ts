@@ -14,7 +14,7 @@ export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
 
-
+ logotext="sky"
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
   public lastNameColor: string = '#fff500';
@@ -82,6 +82,8 @@ export class SavedTemplatesComponent implements OnInit {
   copytext: any;
   templateRef: any;
   selectedTemplateId: number;
+  planDetail: any;
+  logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -90,7 +92,7 @@ export class SavedTemplatesComponent implements OnInit {
       address: ['', Validators.required]
     });
   }
-  // constructor( private api:SparkService) { }
+
 
   ngOnInit(): void {
     this.spinner.show();
@@ -152,6 +154,7 @@ export class SavedTemplatesComponent implements OnInit {
 
   getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
+      this.planDetail=res?.plan
       this.tempDetails = res.result;
       this.username = this.tempDetails?.yourName
       this.Email = this.tempDetails?.email
@@ -168,7 +171,7 @@ export class SavedTemplatesComponent implements OnInit {
       this.Linkedin = this.tempDetails?.linkedInProfile
       this.Twitter = this.tempDetails?.twitterProfile
       this.faceB = this.tempDetails?.fbProfile
-      this.useraddress= this.tempDetails?.address[0].city
+      // this.useraddress= this.tempDetails?.address[0]?.city
       this.quotevar=this.tempDetails?.quotes
 this.tempimg=this.tempDetails?.profileImage
 
@@ -192,9 +195,29 @@ this.firstNameColor = templateResult?.firstNameColor,
     })
   }
 
+  remove_img(){
+    // document.getElementById('img').remove();
+ }
 
+  remove(){
+    debugger
+    if( this.planDetail == 'Plan A'){
+      this.router.navigate(['home-dashboard/plan/plan-dashboard'])
 
+      if(this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
+        this.logo
+      }
+      else{
+this.logo
+      }
+    }
+    else if (this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
+      this.logo = ''
+    }
 
+    console.log('working');
+    
+  }
 
 
 
@@ -246,7 +269,7 @@ console.log(b,'b');
 gettemplatebyUser(){
   this.api.getbasicDetaiofUseer().subscribe((res: any) => {
  
-    
+   
 this.code=res.result[0]?.QrCode;
 console.log(this.code);
 

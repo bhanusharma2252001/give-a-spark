@@ -76,7 +76,7 @@
 
 
 
-                                <form [formGroup]="editTemplateForm" (ngSubmit)="onSubmit(editTemplateForm.value)">
+                                <form [formGroup]="editTemplateForm" >
 
 
                                     <div class="tab-content" id="myTabContent">
@@ -84,12 +84,38 @@
                                             aria-labelledby="details-tab">
                                             <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                                <div class="">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                      <h5 class="mb-4">Signature Details</h5>
+                                                    </div>
+                                                    <div class="d-flex ">
+                                                      <p class="plus_icon">
+                                                        <i class="fa fa-plus-circle text-blue"></i>
+                                                      </p>
+                                                      <a class="my_sign" data-bs-toggle="modal" href="#exampleModalToggle" role="button">My
+                                                        Signature</a>
+                                                    </div>
+                                                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                                                      aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                      <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalToggleLabel"> My Signature</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                              aria-label="Close"></button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                            <input type="text" class="my-signature p-2"  formControlName="signatureName" [(ngModel)]="title">
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                          <button class="add_button rounded-pill" (click)="getSignature()"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add</button>
+                                                        </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
 
-                                                    <h4 class="mb-4">Signature Details</h4>
-                                                </div>
-
-                                                <div class="row position-relative">
+                                                <div class="row position-relative scroll-bar">
                                                     <div class="col-md-11 col-lg-9">
                                                         <div class="mb-3">
                                                             <label for="exampleInputfiled"
@@ -186,7 +212,7 @@
 
                                                         <div class="mb-4 d-flex" (click)="addQuote()">
 
-                                                            <p class=" ">
+                                                            <p class=" mb-0 mt-1">
                                                                 <i class="fa fa-plus-circle text-blue"></i>
 
 
@@ -297,7 +323,7 @@
 
                                                         <div class="mb-4 d-flex">
 
-                                                            <p class=" ">
+                                                            <p class=" mb-0 mt-1">
                                                                 <i class="fa fa-plus-circle text-blue"></i>
                                                             </p>
                                                             <p class="mb-0 ps-2 text-blue">
@@ -538,7 +564,7 @@
                                     </div>
 
                                     <div class="mt-4 text-end">
-                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Update
+                                        <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(editTemplateForm.value)">Update
                                             Signature</button>
                                     </div>
 
@@ -590,7 +616,7 @@
                                         id="free-2" cellspacing="0" cellpadding="0">
                                         <tbody>
                                             <tr>
-                                                <td>                     <p style="font-size:8px;text-align:left;">My Signature</p>
+                                                <td>                     <p style="font-size:8px;text-align:left;">{{title}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -720,17 +746,21 @@
                                         id="free-3" cellspacing="0" cellpadding="0" border="0">
                                         <tbody>
                                             <tr>
-                                                <td>                     <p style="font-size:8px;text-align:center;">My Signature</p>
+                                                <td>                     <p style="font-size:8px;text-align:center;">{{title}}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:104px; padding-top: 3px;" width="104">
-                                                    <a href="https://www.codetwo.com/email-signatures/" target="_blank"
-                                                        rel="noopener">
-                                                        <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/square-image.png"
+                                                  
+                                                        <!-- <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/square-image.png"
                                                             alt="Banner" style="width:84px; height:84px; border:0;"
-                                                            width="84" border="0">
-                                                    </a>
+                                                            width="84" border="0"> -->
+                                                            <img  alt="Profile"
+                                                        style="width:84px; height:84px; border:0;"
+                                                      *ngIf="tempDetails[2]?.profileImage"
+                                                    
+                                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[2]?.profileImage}}">
+                                                   
 
                                                 </td>
 
@@ -846,7 +876,7 @@
                                       <tbody>
                                         <tr>
                                           <td colspan="4" style="font-size:10px;text-align:right">
-                                            My Signature
+                                            {{title}}
                                           </td>
                                         </tr>
                                         <tr>
@@ -854,8 +884,13 @@
                                             style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma, sans-serif; COLOR: #3a4345; line-height:12pt; padding-bottom:10px; width: 135px;"
                                             valign="top">
                                             <p style="text-align: center; padding-right: 2px;">
-                                              <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png"
-                                                alt="Photo" style="max-width:65px; height:65px; border:0;" width="100" border="0">
+                                                <img  alt="Profile"
+                                                style="max-width:65px; height:65px; border:0;" width="100"
+                                              *ngIf="tempDetails[3]?.profileImage"
+                                            
+                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[3]?.profileImage}}">
+                                              <!-- <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png"
+                                                alt="Photo"  border="0"> -->
                                               <br>
                   
                   
@@ -950,7 +985,7 @@
                                       <tbody>
                                         <tr>
                                           <td>
-                                            <p style="font-size:8px;text-align:center;">Signature name</p>
+                                            <p style="font-size:8px;text-align:center;">{{title}}</p>
                                           </td>
                                         </tr>
                                         <tr>
@@ -971,9 +1006,14 @@
                                         <tr>
                                           <td style="padding-top: 22px;" width="120">
                                             <p style="padding: 0px; margin: 0px;">
-                                              <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png"
-                                                alt="Photo" style="max-width:90px; height:auto;padding-left:10px; border:0;" width="90"
-                                                border="0">
+                                              <!-- <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png"
+                                                alt="Photo"  width="90"
+                                                border="0"> -->
+                                                <img  alt="Profile"
+                                                style="max-width:90px; height:auto;padding-left:10px; border:0;" width="90"
+                                              *ngIf="tempDetails[4]?.profileImage"
+                                            
+                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[4]?.profileImage}}">
                                             </p>
                                           </td>
                                           <td style="padding-top: 25px;">
@@ -1062,16 +1102,24 @@
                                       <tbody>
                                         <tr>
                                           <td>
-                                            <p style="font-size:8px;text-align:center;">Signature Name</p>
+                                            <p style="font-size:8px;text-align:center;">{{title}}</p>
                   
                                             <span style="font-size: 18pt; color: #000000; line-height: 18pt; text-transform: capitalize;"
                                               *ngIf="tempDetails"><strong>{{username}}</strong></span><span
                                               style="font-size: 12pt; line-height: 20px; color: #808080; text-transform: capitalize;"
                                               *ngIf="tempDetails"><br>{{desig}}</span>
                                           </td>
-                                          <td style="width: 80px; vertical-align: top; text-align: right;"><img border="0"
+                                          <td style="width: 80px; vertical-align: top; text-align: right;">
+                                            <!-- <img border="0"
                                               src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/model-img.png" alt="Logo"
-                                              style="max-width: 80px; height: 80px; border: 0;"></td>
+                                              style="max-width: 80px; height: 80px; border: 0;"> -->
+                                              <img  alt="Profile"
+                                              style="max-width: 80px; height: 80px; border: 0;"
+                                            *ngIf="tempDetails[5]?.profileImage"
+                                          
+                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[5]?.profileImage}}">
+                                            
+                                            </td>
                                         </tr>
                                         <tr>
                                           <td style="padding-top: 10px; font-size: 9pt; line-height: 14px;">
@@ -1152,7 +1200,7 @@
                                               style="font-family:Arial,Helvetica,sans-serif;line-height:0px;font-size:1px;padding:0px!important;border-spacing:0px;margin:0px;border-collapse:collapse;">
                                               <tbody>
                                                 <tr>
-                                                  <td colspan="3" style="padding:3px;font-size: 12px;"> kaya </td>
+                                                  <td colspan="3" style="padding:3px;font-size: 12px;"> {{title}} </td>
                                                 </tr>
                                                 <tr>
                                                   <td
@@ -1279,16 +1327,20 @@
                   
                                         <tr>
                                           <td style="padding:10px 0px 0 20px;">
-                                            <p style="font-size:8px;text-align:center;">My Signature</p>
+                                            <p style="font-size:8px;text-align:center;">{{title}}</p>
                                             <h2 style="margin-bottom:0px;color:#000;font-size:22px;">{{username}}</h2>
                                             <h6 style="margin-bottom:0px;color:#add27b;font-weight: 600;font-size: 14px;">
                                               {{desig}}</h6>
                                           </td>
                   
                                           <td style="padding:10px 20px 0 0px;vertical-align: top;text-align: center;">
-                                            <img style="width:80px;height:80px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
-                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png ">
-                  
+                                            <!-- <img style="width:80px;height:80px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png "> -->
+                                              <img  alt="Profile"
+                                              style="width:80px;height:80px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                                            *ngIf="tempDetails[6]?.profileImage"
+                                          
+                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[6]?.profileImage}}">
                                           </td>
                   
                                         </tr>
@@ -1388,7 +1440,7 @@
                                       style="background-color: #fff;font-size: medium;width:500px;height:280px; font-family: Arial;">
                                       <tbody>
                                         <tr>
-                                          <p style="font-size:8px;text-align:center;padding:6px 3px;">My Signature</p>
+                                          <p style="font-size:8px;text-align:center;padding:6px 3px;">{{title}}</p>
                                         <tr>
                                           <!-- <div style="padding: 1px; background-color: #2cc39af7;height: 15px;width: 130px;
                                           border-radius: 15px 80px 80px 15px;opacity: 0.2; border-radius: 59px 10px;"></div> -->
@@ -1413,8 +1465,12 @@
                                         </tr>
                                         <tr>
                                           <td style="padding-left:10px;">
-                                            <img style="text-align:center;width:80px;height:80px; border-radius:50%"
-                                              src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png ">
+                                        
+                                              <img  alt="Profile"
+                                              style="text-align:center;width:80px;height:80px; border-radius:50%"
+                                            *ngIf="tempDetails[7]?.profileImage"
+                                          
+                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[7]?.profileImage}}">
                                           </td>
                                           <td>
                                             <div style="margin-top:5px;">
@@ -1502,8 +1558,12 @@
 
                                                 <td colspan="2" style="text-align:center;vertical-align:middle; ">
 
-                                                    <img style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
-                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png ">
+
+                                                        <img  alt="Profile"
+                                                        style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                                                      *ngIf="tempDetails[8]?.profileImage"
+                                                    
+                                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[8]?.profileImage}}">
 
 
                                                 </td>
@@ -1577,7 +1637,102 @@
 
                                 </div>
 
-
+                                <div  *ngIf="templateId==16">
+ 
+                                    <table cellpadding="0" cellspacing="0" id="free-10" #tableData
+                                        style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
+                                        <tbody style="padding:10px;
+                                            ">
+                                            <tr>
+                                                <td style="padding: 7px 15px;" colspan="3">
+                                                    {{title}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: baseline;">
+                                                    <div style="padding: 7px 15px;" *ngIf="tempDetails[9]?.profileImage">
+                                                        <img style="width: 72px;
+                                                        vertical-align: middle; height: 65px;border-radius:50%;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[9]?.profileImage}}">
+                                                      
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td colspan="2"
+                                                    style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                                                    <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                                                    line-height: 1.2; font-size: 16.0px;"><span>{{username}}</span></h5>
+                                                    <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
+                                                        <span style="border-bottom:3px solid#FFBA00;padding:5px;"
+                                                        
+                                                             >{{desig}}
+                                                        </span>
+                                                    </h6>
+                                                    <p style="padding-top:10px;margin-bottom:0px;">
+                                                        <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                        color: #212121; white-space: nowrap;font-size: 13px;"  ><span
+                                                                style="font-weight:bold;">M:</span>{{number}}
+                                                        </span>
+                                    
+                                                        <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                        color: #212121; white-space: nowrap;font-size: 13px;"   
+                                                             >
+                                                            <span style="font-weight:bold;">E:</span>
+                                                            {{Email}}
+                                                        </span>
+                                                 
+                                                        <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                        color: #212121; white-space: nowrap;font-size: 13px;" 
+                                                             >
+                                                            <span style="font-weight:bold;">M:</span>
+                                                            {{compWebsite}}
+                                                        </span>
+                                    
+                                                        <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                        color: #212121; white-space: nowrap;font-size: 13px;"  
+                                                             >
+                                    
+                                                            <span style="font-weight:bold;">A:</span>
+                                                            {{useraddress}}
+                                                        </span>
+                                                    </p>
+                                    
+                                           
+                                                </td>
+                                                <td style="padding: 20px;vertical-align:baseline;">
+                                                    <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">
+                                    
+                                                    <img style="width:95px ;height:35px" src="assets/images/flyer-logo.png">
+                                    
+                                                </td>
+                                    
+                                                <td style="padding-left:13px" colspan="2">
+                                    
+                                                    <p style="font-size:12px;">
+                                                        <q  *ngIf="details?.quotesId?.quotesName">
+                                                                {{details?.quotesId?.quotesName}}
+                                                             </q>
+                                                            <q  *ngIf="quotevar">
+                                                                {{quotevar}}
+                                                            </q>
+                                    
+                                    
+                                                     
+                                                    </p>
+                                                </td>
+                                    
+                                            </tr>
+                                    
+                                    
+                                        </tbody>
+                                    </table>
+                                
+                                    
+                                    
+                                    </div>
 
                                 <!-- ................................STARTING FOR PRO TEMPLATES........................ -->
 
@@ -3758,7 +3913,7 @@ padding: 21px;">
                              
                                 <div class="text-end mt-3">
                                  
-                                    <button class="green-btn px-3 py-2" onclick="openNav()">Ok I'M Done</button>
+                                    <button class="green-btn px-3 py-2" onclick="openNav()"> Ok I'M Done</button>
                                   </div>
                             </div>
 
@@ -4157,8 +4312,9 @@ padding: 21px;">
           <div class="d-flex social-button py-4 px-3 active" id="v-pills-home-tab" data-bs-toggle="pill"
             data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
             <div><img class="email__icon" src="assets/images/google-s.png" class="edit-icons"></div>
-            <div class="email__name ">Gmail</div>
-          </div>
+            <div class="email__name " (click)="setonGmail()">Gmail</div>
+        
+        </div>
           <div class="d-flex social-button py-4 px-3" id="v-pills-profile-tab" data-bs-toggle="pill"
             data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
             aria-selected="false">
@@ -4177,7 +4333,63 @@ padding: 21px;">
             aria-selected="false">
             <div><img class="email__icon" src="assets/images/html.png" class="edit-icons">
             </div>
-            <div class="email__name ">Html</div>
+            <div class="email__name "*ngIf="templateId == 8" (click)="CopyToClipboard('free-2')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 9" (click)="CopyToClipboard('free-3')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 10" (click)="CopyToClipboard('free-4')">Html</div>
+            <div class="email__name "*ngIf="templateId == 11" (click)="CopyToClipboard('free-5')">Html</div>  
+            <div class="email__name "*ngIf="templateId == 12" (click)="CopyToClipboard('free-6')">Html</div>
+            <div class="email__name "*ngIf="templateId == 13" (click)="CopyToClipboard('free-7')">Html</div>
+            <div class="email__name "*ngIf="templateId == 14" (click)="CopyToClipboard('free-8')">Html</div>
+            <div class="email__name "*ngIf="templateId == 15" (click)="CopyToClipboard('free-9')">Html</div>
+            <div class="email__name "*ngIf="templateId == 16" (click)="CopyToClipboard('free-10')">Html</div>
+   <!-- ...................P R  O     TEMPLATES...... -->
+
+            <div class="email__name "*ngIf="templateId == 21" (click)="CopyToClipboard('pro-1')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 22" (click)="CopyToClipboard('pro-2')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 23" (click)="CopyToClipboard('pro-3')">Html</div>
+            <div class="email__name "*ngIf="templateId == 24" (click)="CopyToClipboard('pro-4')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 25" (click)="CopyToClipboard('pro-5')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 26" (click)="CopyToClipboard('pro-6')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 27" (click)="CopyToClipboard('pro-7')">Html</div>
+
+            <div class="email__name "*ngIf="templateId == 34" (click)="CopyToClipboard('pro-8')">Html</div>
+            <div class="email__name "*ngIf="templateId == 35" (click)="CopyToClipboard('pro-9')">Html</div>
+            <div class="email__name "*ngIf="templateId == 36" (click)="CopyToClipboard('pro-10')">Html</div>
+
+<!-- ...................P R  O  plus   TEMPLATES...... -->
+
+<div class="email__name "*ngIf="templateId == 1" (click)="CopyToClipboard('one')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 2" (click)="CopyToClipboard('two')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 3" (click)="CopyToClipboard('three')">Html</div>
+<div class="email__name "*ngIf="templateId == 4" (click)="CopyToClipboard('four')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 5" (click)="CopyToClipboard('five')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 6" (click)="CopyToClipboard('six')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 32" (click)="CopyToClipboard('seven')">Html</div>
+
+<div class="email__name "*ngIf="templateId == 31" (click)="CopyToClipboard('ten')">Html</div>
+<div class="email__name "*ngIf="templateId == 33" (click)="CopyToClipboard('nine')">Html</div>
+<div class="email__name "*ngIf="templateId == 30" (click)="CopyToClipboard('eight')">Html</div>
+
+
+
+
+
+
+
+
+
           </div>
 
         </div>

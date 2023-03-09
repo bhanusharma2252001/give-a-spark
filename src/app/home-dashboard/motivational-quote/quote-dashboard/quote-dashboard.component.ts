@@ -52,22 +52,24 @@ export class QuoteDashboardComponent implements OnInit {
     this.quotedata = data;
     this.quoteId = this.quotedata._id;
     this.LongQuotes = data?.quotesName
-    if(this.templateId == 0) {
-      this.router.navigate(['/home-dashboard/basic-template'])
-      localStorage.setItem('quoteId', this.quoteId)  
-      localStorage.setItem('LongQuotes', this.LongQuotes)
-    } else if(this.templatesId != 0) {
+    console.log(this.templateId,this.templatesId,'SAQ');
+    
+     if(this.templatesId != 0) {
       localStorage.setItem('templatequoteId', this.quoteId)
       localStorage.setItem('templateLongQuotes', this.LongQuotes)      
       this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: this.templateId } })
-    } else {
+    }
+
+    if(this.templateId == 0 ) {
+      this.router.navigate(['/home-dashboard/basic-template'])
+      localStorage.setItem('quoteId', this.quoteId)  
+      localStorage.setItem('LongQuotes', this.LongQuotes)
+    }  else if(this.templateId != 0 && this.templatesId == 0 ){
       localStorage.setItem('templatequoteId', this.quoteId)
       localStorage.setItem('templateLongQuotes', this.LongQuotes)      
       this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
     }
   }
-
-
  
 
 
@@ -85,12 +87,12 @@ export class QuoteDashboardComponent implements OnInit {
   getTemplateId() {
     this.route.queryParamMap.subscribe((params: any) => {
       this.templatesId = params.params['templatesId'] || 0
-     let templateId = params.params['templateId'] || 0;
+     this.templateId = params.params['templateId'] || 0;
      if(this.templatesId != 0) {
       this.templateId = Number(this.templatesId)
      } 
-     if(templateId !=0) {
-      this.templateId = Number(templateId)
+     if(this.templateId !=0) {
+      this.templateId = Number(this.templateId)
      }
      if (this.templateId == 0) {
       //  this.router.navigate(['home-dashboard/basic-template'])

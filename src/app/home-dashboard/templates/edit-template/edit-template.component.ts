@@ -138,6 +138,8 @@ copytext:any;
   freeTemplate:boolean = false;
   proPlusTemplate:boolean = false;
   emailData: any;
+  title: any;
+  sign: any;
 
 
 
@@ -159,7 +161,8 @@ copytext:any;
       quotes: [''],
       profileImage: [''],
       companyPhone: [''],
-      twitterProfile: ['']
+      twitterProfile: [''],
+      signatureName:['']
     })
 
     this.getTemplateId()
@@ -318,6 +321,7 @@ this.api.gmail(this.templateRef.outerHTML
       email: data.email,
       phoneNo: data.phoneNo,
       companyWebsite: data.companyWebsite,
+      signatureName:this.sign,
       address: [
   
         {
@@ -561,7 +565,7 @@ this.borderRadius = data?.borderRadius
       this.quotevar=data?.quotes
       this.insta = data?.instagramProfile
       this.uTube = data?.youtubeChannel
-
+this.title=data?.signatureName
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
@@ -577,7 +581,12 @@ this.borderRadius = data?.borderRadius
   
       }
  }
-   
+ getSignature(){
+  debugger
+  this.sign = this.editTemplateForm.value.signatureName;
+  console.log(this.sign, "signature name");
+  
+}  
 
 //  i'm  using this only for qrcode
  gettemplatebyUser(){

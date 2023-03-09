@@ -83,7 +83,7 @@ const googleLoginOptions = {
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('1172501020361882')
+            provider: new FacebookLoginProvider('233542982382904')
           }
         ],
         onError: (err) => {
@@ -96,3 +96,4 @@ const googleLoginOptions = {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// 1172501020361882
