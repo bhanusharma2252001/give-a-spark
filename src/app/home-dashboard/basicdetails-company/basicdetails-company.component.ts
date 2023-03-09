@@ -46,9 +46,9 @@ export class BasicdetailsCompanyComponent implements OnInit {
       companyLogo:[''],
       fbProfile: ['', [ Validators.pattern(reg)]],
       instagramProfile:['', [ Validators.pattern(reg)]],
-      linkedInProfile:['',[Validators.required, Validators.pattern(reg)]],  
-      youtubeChannel:['',[Validators.required, Validators.pattern(reg)]],
-      twitterProfile:['',[Validators.required, Validators.pattern(reg)]],
+      linkedInProfile:['',[ Validators.pattern(reg)]],  
+      youtubeChannel:['',[ Validators.pattern(reg)]],
+      twitterProfile:['',[ Validators.pattern(reg)]],
     })
    
 

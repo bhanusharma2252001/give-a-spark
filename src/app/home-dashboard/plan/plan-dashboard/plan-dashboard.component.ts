@@ -39,9 +39,9 @@ export class PlanDashboardComponent implements OnInit {
   paymentSelectC() {
     let data = {
      "SelectPlan": "Plan C",
-     
+     "quantity":"1"
  
-      "quantity":"6"
+      
   
     }
     this.api.makePayment(data).subscribe(async (res: any) => {

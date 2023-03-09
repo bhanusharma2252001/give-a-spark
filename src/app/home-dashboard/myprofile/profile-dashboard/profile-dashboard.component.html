@@ -3,23 +3,14 @@
     <div class="row m-0 p-0 align-items-center">
         <div class="col-md-2 col-lg-2 mt-2 m-0 p-0">
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
-                <div class="position-absolute top-50 start-50 translate-middle" *ngIf="!userDetails">
-                    <img class="wh-225 p-2" src="assets/images/profile-image.png">
+                <div class="position-absolute top-50 start-50 translate-middle" >
+                    <img class="wh-225 p-2" *ngIf="!userDetails?.profile" src="assets/images/profile-image.png">
+                    <img class="wh-225 p-2 rounded-circle" *ngIf=" userDetails?.profile"
+                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" />
 
                 </div>
 
-                <div class="position-absolute top-50 start-50 translate-middle" *ngIf="userDetails">
-                <div
-                *ngIf="userDetails?.profile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                <img class="wh-225 p-2 rounded-circle"
-                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" />
-              </div>
-              <!-- <div
-                *ngIf=" userDetails?.profile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                <img class="wh-225 p-2" src="{{userDetails?.profile }}">
-              </div> -->
-
-            </div>
+           
 
 
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
