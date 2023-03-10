@@ -365,7 +365,7 @@ this.api.gmail(this.templateRef.outerHTML
         borderRadius: this.borderRadius
 
       },
-      quotesId: this.QuoteId,
+      quotesId:data.quotesId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
       profileImage:this.imageData2,
@@ -565,7 +565,7 @@ this.img=data?.profileImage
   
       if (localStorage.getItem('templateLongQuotes')) {
         this.LongQuote = localStorage.getItem('templateLongQuotes')
-        this.quotevar=this.LongQuote
+        // this.quotevar=this.LongQuote
   
       }
  }

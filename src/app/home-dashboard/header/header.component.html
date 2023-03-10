@@ -30,7 +30,7 @@
       <div class="gif_img">
         <img src="assets/images/gif-right.gif" class="right_new_gif" alt="">
         <form class="d-flex justify-content-center ">
-          <img alt="profile" class="wh-50 cur" src="assets/images/user_icon_second.png"  *ngIf="!userDetails?.profile"
+          <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"  
             routerLink="/home-dashboard/myprofile/profile-dashboard">
             <img  *ngIf="userDetails?.profile" class="wh-50 cur" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt="">
         </form>

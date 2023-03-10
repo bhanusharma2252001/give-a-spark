@@ -389,4 +389,21 @@ gmail( data:any){
   });  
   }
 
+
+
+// Delete Logo
+
+
+// removeLogo(id:any,body:any){
+//   return this.http.delete(environment.localApiURL + '/api/template/deleteLogoById/'+id,body,{
+//     headers: { Authorization: `bearer ${this.token}` },});
+// }
+
+
+removeLogo(id:any) {
+  return this.http.delete(environment.localApiURL + `/api/template/deleteLogoById/${id}`,{
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+}
+
 }

@@ -83,7 +83,7 @@ const googleLoginOptions = {
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('233542982382904')
+            provider: new FacebookLoginProvider('896292734721717')
           }
         ],
         onError: (err) => {

@@ -3,7 +3,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 // import { ElementOptions, Elements } from 'ngx-stripe';
 import { ToastrService } from 'ngx-toastr';
-import { PaymentService } from 'src/app/service/payment.service';
+
 import { SparkService } from 'src/app/service/spark.service';
 
 import { StripeCardElement, StripeElements, StripeElementsOptions } from '@stripe/stripe-js';
@@ -25,7 +25,7 @@ export class PlanDashboardComponent implements OnInit {
   private amount: number = 0;
   private cardErrors: string | undefined;
 
-  constructor(private elementRef:ElementRef,private api: SparkService, private spinner:NgxSpinnerService,private fb: FormBuilder, private paymentService: PaymentService) { }
+  constructor(private elementRef:ElementRef,private api: SparkService, private spinner:NgxSpinnerService,private fb: FormBuilder) { }
 
    ngOnInit() {
     this.spinner.show();
