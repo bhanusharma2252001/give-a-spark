@@ -82,7 +82,7 @@ TemplateId:any
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
-  itemFontSize: any = 14
+  itemFontSize: any = 10
   fontSizeName: any = 18
   nameAlign: any = '';
   borderRadius: any = 0
@@ -258,23 +258,23 @@ this.api.gmail(this.templateRef.outerHTML
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
       this.templateFontSize = 33
-      this.itemFontSize = 14
+      this.itemFontSize = 13
       this.fontSizeName = 14
     } else if (currnetSize == 5) {
       this.templateFontSize = 36
       this.fontSizeName = 15
-      this.itemFontSize = 15
+      this.itemFontSize = 14
     } else if (currnetSize == 3) {
       this.templateFontSize = 32
-      this.itemFontSize = 13
+      this.itemFontSize = 10
       this.fontSizeName = 13
     } else if (currnetSize == 2) {
       this.templateFontSize = 31
-      this.itemFontSize = 12
+      this.itemFontSize = 8
       this.fontSizeName = 12
     } else {
       this.templateFontSize = 30
-      this.itemFontSize = 11
+      this.itemFontSize = 10
       this.fontSizeName = 11
     }
 

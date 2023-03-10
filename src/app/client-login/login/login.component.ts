@@ -100,6 +100,8 @@ token:any;
         isFacebook: true,
         
       }
+      console.log(data, 'ffffffffff');
+      
         this.sparkService.registerSocialUser(data).subscribe
         (
          (successData) => this.success(successData),

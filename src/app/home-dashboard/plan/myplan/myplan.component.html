@@ -4,7 +4,7 @@
             <div class="rounded-circle bg-darkgray wh-225 position-relative">
                 <div class="position-absolute top-50 start-50 translate-middle">
                     <img  *ngIf="plandetails?.profileImage " class="wh-225 p-2" src="assets/images/profile-image.png" >
-              <img  class="wh-225 p-2"  *ngIf="!plandetails?.profileImage" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{plandetails?.profile}}"alt="">
+              <img  class="wh-225 p-2"  *ngIf="!plandetails?.profileImage" src="{{plandetails?.profile}}"alt="">
                 </div>
                 <div class="position-absolute top-50 start-0 ps-5 translate-middle">
                     <div class="rounded-circle bg-black position-relative">
