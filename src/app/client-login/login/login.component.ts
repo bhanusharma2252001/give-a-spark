@@ -86,7 +86,7 @@ token:any;
 
  
 
-
+  // photoUrl
   loginWithFacebook(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((res:any)=>{
       console.log(res,'fb result');
@@ -95,8 +95,10 @@ token:any;
         email: profile.email,
         firstName: profile.name,
         socialId: profile.id,
+        profile:profile.photoUrl,
         isGoogle: false,
-        isFacebook: true
+        isFacebook: true,
+        
       }
         this.sparkService.registerSocialUser(data).subscribe
         (
@@ -228,6 +230,7 @@ callLogin() {
         email: profile.getEmail(),
         firstName: profile.getName(),
         socialId: profile.getId(),
+        profile:profile.profile.getImageUrl(),
         isGoogle: true,
         isFacebook: false
       }
@@ -248,6 +251,8 @@ this.googleEmail=profile.getEmail()
           alert(reject.error.error)
          }
        );
+      //  console.log(successData );
+       
     }, (error: any) => {
       // console.log(error);
       alert(JSON.stringify(error, undefined, 2));

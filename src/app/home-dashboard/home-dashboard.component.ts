@@ -14,11 +14,11 @@ public href:string="";
   ngOnInit(): void {
     this.href=this.router.url;
     console.log(this.router.url)
-    this.spinner.show();
+    // this.spinner.show();
 
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 1000);
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 1000);
     
   }
   }
