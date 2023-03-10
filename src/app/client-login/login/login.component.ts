@@ -57,7 +57,7 @@ token:any;
   }
 
   ngOnInit(): void {
-    setTimeout(() => { this.ngOnInit() }, 1000 * 10)
+    setTimeout(() => { this.ngOnInit() }, 1000 * 1000000)
  if (sessionStorage.getItem('email'))
  this.Email=sessionStorage.getItem('email')
  sessionStorage.removeItem('email')
@@ -90,12 +90,12 @@ token:any;
   loginWithFacebook(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((res:any)=>{
       console.log(res,'fb result');
-      let profile = res.response
+      let details = res.response
       let data = {
-        email: profile.email,
-        firstName: profile.name,
-        socialId: profile.id,
-        profile:profile.photoUrl,
+        email: details.email,
+        firstName: details.name,
+        socialId: details.id,
+        profile:details.photoUrl,
         isGoogle: false,
         isFacebook: true,
         
@@ -217,27 +217,29 @@ let userDetail=res.result[0];
 
 
 callLogin() {  
+ 
   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
     (googleAuthUser: any) => {
-      let profile = googleAuthUser.getBasicProfile();
+      let details = googleAuthUser.getBasicProfile();
       // console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
       // console.log('ID: ' + profile.getId());
       // console.log('Name: ' + profile.getName());
       // console.log('Image URL: ' + profile.getImageUrl());
       // console.log('Email: ' + profile.getEmail());
-
+console.log(details, 'goooooogle')
       let data = {
-        email: profile.getEmail(),
-        firstName: profile.getName(),
-        socialId: profile.getId(),
-        profile:profile.profile.getImageUrl(),
+        email: details.getEmail(),
+        firstName: details.getName(),
+        socialId: details.getId(),
+        profile:details.getImageUrl(),
+
         isGoogle: true,
         isFacebook: false
       }
     
  
-this.googleEmail=profile.getEmail()
-
+this.googleEmail=details.getEmail()
+debugger
         this.sparkService.registerSocialUser(data).subscribe
         (   
          (successData) => this.success(successData),
