@@ -21,8 +21,8 @@
                   </li>
                   <li class="nav-item_details">
                     <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
-                      data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"(click)="selectFeature('social')"
-                      >
+                      data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="true"
+                      (click)="selectFeature('social')">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/social-media.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/social.png">
@@ -43,8 +43,9 @@
                     </button>
                   </li>
                   <li class="nav-item_details">
-                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design" (click)="selectFeature('design')"
-                      type="button" role="tab" aria-controls="home" aria-selected="true">
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#design"
+                      (click)="selectFeature('design')" type="button" role="tab" aria-controls="home"
+                      aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')"> -->
                         <img class="wh-35 active-black" src="assets/images/design.png" (click)="openTemp('free')">
@@ -54,8 +55,9 @@
                     </button>
                   </li>
                   <li class="nav-item_details">
-                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps" (click)="selectFeature('apps')"
-                      type="button" role="tab" aria-controls="home" aria-selected="true">
+                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" data-bs-target="#apps"
+                      (click)="selectFeature('apps')" type="button" role="tab" aria-controls="home"
+                      aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/apps.svg"> -->
                         <img class="wh-35 active-black" src="assets/images/design.png">
@@ -64,7 +66,7 @@
                     </button>
                   </li>
                 </ul>
-                <form [formGroup]="signatureDetailsForm" >
+                <form [formGroup]="signatureDetailsForm">
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                       <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
@@ -89,11 +91,13 @@
                                     aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <input type="text" class="my-signature p-2"  formControlName="signatureName">
+                                  <input type="text" class="my-signature p-2" formControlName="signatureName">
                                 </div>
                                 <div class="modal-footer">
-                                <button class="add_button rounded-pill"  (click)="getSignature()"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add</button>
-                              </div>
+                                  <button class="add_button rounded-pill" (click)="getSignature()"
+                                    data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                                    data-bs-dismiss="modal">Add</button>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -103,7 +107,8 @@
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Your
                                 Name</label>
-                              <input type="text" formControlName="yourName" [(ngModel)]="username " (keyup)="changeDesignation()"
+                              <input type="text" formControlName="yourName" [(ngModel)]="username "
+                                (keyup)="changeDesignation()"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp">
 
@@ -118,8 +123,9 @@
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Phone</label>
                               <input type="text" formControlName="phoneNo"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (keyup)="changeDesignation()" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="number">
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
+                                [(ngModel)]="number">
 
                             </div>
 
@@ -133,7 +139,8 @@
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>
-                              <input type="text" formControlName="address" [(ngModel)]="useraddress" (keyup)="changeDesignation()"
+                              <input type="text" formControlName="address" [(ngModel)]="useraddress"
+                                (keyup)="changeDesignation()"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp">
 
@@ -142,8 +149,9 @@
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Email</label>
                               <input type="text" formControlName="email"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (keyup)="changeDesignation()" id="exampleInputfiled"
-                                aria-describedby="textHelp" [(ngModel)]="Email" >
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
+                                [(ngModel)]="Email">
 
                             </div>
                             <div class="mb-4">
@@ -157,7 +165,8 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
                               <input type="text" formControlName="quotes"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar" (keyup)="changeQuote()" >
+                                aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar"
+                                (keyup)="changeQuote()">
 
                             </div>
                             <div class="mb-4" *ngIf="LongQuote">
@@ -192,23 +201,19 @@
                           <div class="col-md-1 col-lg-3 ps-0">
                             <div class="position-absolute top-0">
                               <div>
-                                <img class="width" [src]="url" height="200" *ngIf="!tempDetails?.profileImage &&  !img">
+                                <img class="width" [src]="url" height="200" *ngIf="url">
                                 <img class="width" src="assets/images/logo(round).png "
-                                  *ngIf="!tempDetails?.profileImage && img" />
+                                  *ngIf="!tempDetails?.profileImage && !url" />
                               </div>
 
                               <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
                               <!-- <div *ngIf="!tempDetails?.profileImage">
                                                                 <img class="width" src="assets/images/logo.png " />
                                                             </div> -->
-                              <div *ngIf="tempDetails?.profileImage ">
+                              <div >
 
-
-                                <div
-                                  *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                  <img class="wh-150 rounded-circle"
-                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                </div>
+<img *ngIf="tempDetails?.profileImage && !url " src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" alt="" class="wh-150 rounded-circle">
+                               
                               </div>
                               <!-- <div
                                                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
@@ -270,7 +275,7 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
                               <input type="text" formControlName="twitterProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Twitter" >
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Twitter">
 
                             </div>
 
@@ -332,7 +337,8 @@
                                   Family :
                                 </label>
                                 <select class="form-select " [(ngModel)]="fontFamilyNew"
-                                  [ngModelOptions]="{standalone: true}" [disabled]="planDetail == 'Plan A'" aria-label="Default select example">
+                                  [ngModelOptions]="{standalone: true}" [disabled]="planDetail == 'Plan A'"
+                                  aria-label="Default select example">
 
                                   <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
                                 </select>
@@ -488,7 +494,7 @@
                             </button>
                             <button class="apps_button">
                               <div class="app_div"><img src="assets/images/upload-banner.png"
-                                  alt="Upload Banner Image"/><span>Upload Banner</span></div>
+                                  alt="Upload Banner Image" /><span>Upload Banner</span></div>
                             </button>
                             <button class="apps_button">
                               <div class="app_div"><img src="assets/images/sales-event.png"
@@ -504,7 +510,8 @@
                     </div>
                   </div>
                   <div class="mt-4 text-end">
-                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(signatureDetailsForm.value)">Create
+                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3"
+                      (click)="onSubmit(signatureDetailsForm.value)">Create
                       Signature</button>
                   </div>
                 </form>
@@ -515,7 +522,9 @@
               <!-- T E M P L A T E S -->
               <div class="col-md-6 col-lg-6 pe-3" #myText>
                 <span class="progress-number">{{progress}}</span>
-                <progress-bar-angular barColor={{barColor}} [progress]='progress' backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate'  value="0 " style="display:none;"></progress-bar-angular>
+                <progress-bar-angular barColor={{barColor}} [progress]='progress'
+                  backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate' value="0 "
+                  style="display:none;"></progress-bar-angular>
 
 
                 <div class="row position-relative progress_padd">
@@ -525,7 +534,7 @@
                   <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                       alt="Signature image" /></div>
                   <div class=" col-md-7 progress bar">
-                    <div class=" pro_red" *ngIf="progress==25 ||progress==50||progress==75||progress==100"  ></div>
+                    <div class=" pro_red" *ngIf="progress==25 ||progress==50||progress==75||progress==100"></div>
                     <div class=" pro_blue" *ngIf="progress==50||progress==75||progress==100"></div>
                     <div class=" pro_green" *ngIf="progress==75||progress==100"></div>
                     <div class=" pro_yellow" *ngIf="progress==100"></div>
@@ -537,7 +546,181 @@
 
                 <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData">
                   <div class="row m-0">
-                    <div class="col-md-12"><p class="">{{tempDetails?.signatureName}}</p></div>
+                    <!-- <div class="col-md-12">
+                      <p class="">{{tempDetails?.signatureName}}</p>
+                    </div> -->
+
+
+
+
+
+
+
+                    <table cellpadding="0" cellspacing="0" id="one"
+                      style="background-color: #FBFEFF ;font-size: medium;width:500px;height:280px; font-family: Arial;">
+                      <tbody style="padding:10px;
+                    ">
+                        <tr>
+                          <td style="padding: 7px 15px;" colspan="3">
+                            {{tempDetails?.signatureName}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="vertical-align: baseline;">
+                            <div style="padding: 7px 15px;">
+                              <img class="width" [src]="url" height="65" width="72" *ngIf="url">
+                              <img style="width: 72px;
+                                vertical-align: middle; height: 65px;border-radius:50%;"
+                                *ngIf="tempDetails?.profileImage && ! url"
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}">
+
+
+                            </div>
+                            <div style="text-align:center;" *ngIf="tempDetails?.logo">
+
+                              <img style="width:95px ;height:35px"
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.logo}}" id="del"><br>
+
+                              <p style="font-size:8px; display: inline;">Remove logo</p><span>X</span>
+
+                            </div>
+
+                          </td>
+                          <td colspan="2"
+                            style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                            <h5 *ngIf="username" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                            line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
+                              [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                              [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">
+                              <span>{{username}}</span></h5>
+                            <h5 *ngIf="!username" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                                    line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
+                              [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                              [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize"><span>Jhon
+                                Doe</span></h5>
+                            <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
+                              <span style="border-bottom:3px solid#FFBA00;padding:5px;" *ngIf="desig"
+                                [style.color]="designationColor" [style.line-height]="lineHeight"
+                                [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{desig}}
+                              </span>
+                              <span style="border-bottom:3px solid#FFBA00;padding:5px;" *ngIf="!desig"
+                                [style.color]="designationColor" [style.line-height]="lineHeight"
+                                [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">Designation
+                              </span>
+                            </h6>
+                            <p style="padding-top:10px;">
+                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                white-space: nowrap;" [style.color]="contactDetailColor"
+                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">M:</span>{{number}}
+                              </span>
+
+                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                white-space: nowrap;" [style.color]="contactDetailColor"
+                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                [style.font-size.px]="itemFontSize">
+                                <span style="font-weight:bold;">E:</span>
+                                {{Email}}
+                              </span>
+                              <br>
+                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                white-space: nowrap;" [style.color]="contactDetailColor"
+                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                [style.font-size.px]="itemFontSize">
+                                <span style="font-weight:bold;">M:</span>
+                                {{compWebsite}}
+                              </span>
+
+                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                white-space: nowrap;" [style.color]="contactDetailColor"
+                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                [style.font-size.px]="itemFontSize">
+
+                                <span style="font-weight:bold;">A:</span>
+                                {{useraddress}}
+                              </span>
+                            </p>
+
+                            <div style="padding:10px;border-radius:  10px 10px 0 0;">
+                              <span *ngIf="faceB">
+                                <a href="{{faceB}}"><img
+                                    style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                    src="assets/images/fb-1.png"></a>
+                              </span><span *ngIf="Twitter"><a href="{{Twitter}}"><img
+                                    style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                    src="assets/images/tt-1.png"></a></span><span *ngIf="Linkedin">
+                                <a href="{{Linkedin}}"><img
+                                    style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                    src="assets/images/ln-1.png"></a>
+                              </span><span *ngIf="insta">
+                                <a href="{{insta}}"><img
+                                    style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                    src="assets/images/it-1.png"></a>
+                              </span>
+                            </div>
+
+
+                          </td>
+                          <td style="padding: 20px;vertical-align:baseline;">
+                            <img style="width:60px; height:60px;"
+                              src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align:center;">
+
+
+                          </td>
+
+                          <td style="padding-left:10px" colspan="2">
+
+                            <p style="font-size:12px;">
+                              <q *ngIf="tempDetails?.quotesId?.quotesName">
+                                {{tempDetails?.quotesId?.quotesName}}
+                              </q>
+                              <q *ngIf="quotevar">
+                                {{quotevar}}
+                              </q>
+
+
+
+                            </p>
+                          </td>
+
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
                     <div class="col-md-3 col-lg-3 self-align-center" *ngIf="!tempDetails?.profileImage">
                       <img class="wh-150" src="assets/images/profile-image.png">
                     </div>
@@ -565,10 +748,6 @@
                         [style.font-size.px]="itemFontSize">
                         {{desig}}</h6>
 
-                      <!-- <h6 class="mb-3" *ngIf="tempDetails?.designation" [style.font-family]="fontFamilyNew"
-                        [style.line-height]="lineHeight" [style.color]="designationColor"
-                        [style.font-size.px]="itemFontSize">
-                        {{tempDetails?.designation}}</h6> -->
 
 
                       <div class="d-flex pe-3">
@@ -605,16 +784,13 @@
                       <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" role="presentation" width="130"
                         class="sc-cHGsZl bHiaRe" style="max-width: 130px; display: inline-block;">
 
-                      <!-- <ngx-qrcode style="width:150px;height:150px;" [elementType]="elementType"
-                                                [errorCorrectionLevel]="correctionLevel" [value]="value"
-                                                cssClass="bshadow"></ngx-qrcode> -->
-                      <!-- <p class=" fs-12">Scan/Click QR</p> -->
-                    </div>
+
+                    </div> -->
                   </div>
 
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-lg-8 offset-lg-2 text-center">
-                    
+
                       <div *ngIf="tempDetails?.quotesId?.quotesName">
                         <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
                           {{tempDetails?.quotesId?.quotesName}}</p>
@@ -626,7 +802,7 @@
                         {{quotevar}}</p>
                     </div>
 
-                  </div>
+                  </div> -->
 
                 </div>
 
@@ -682,24 +858,20 @@
                             <tbody>
                               <tr>
 
-                                <td *ngIf=" templateShow == 'pro' || templateShow == 'propro'">
+                                <td *ngIf=" templateShow == 'pro' || templateShow == 'propro' || templateShow == 'free'">
 
-                                  <div *ngIf="!tempDetails?.profileImage">
-                                    <img class="width" [style.border-radius.px]="borderRadius"
-                                      src="assets/images/logo.png " />
-                                  </div>
-                                  <div style="" *ngIf="tempDetails?.profileImage">
-                                    <img style="width: 100px;height: 100px;border-radius: 50%;"
-                                      [style.border-radius.px]="borderRadius"
-                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                  </div>
+                                  <img class="width" [src]="url" height="100" width="100" *ngIf="url">
+                                  <img style="width: 100px;
+                                    vertical-align: middle; height: 65px;border-radius:50%;"
+                                    *ngIf="tempDetails?.profileImage && ! url"
+                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}">
 
 
                                 </td>
-                                <td style="" *ngIf=" templateShow == 'free'">
+                                <!-- <td style="" *ngIf=" templateShow == 'free'">
                                   <img style="width:100px;height:100px;" src="assets/images/logo.png" alt=""
                                     [style.border-radius.px]="borderRadius">
-                                </td>
+                                </td> -->
 
 
 
@@ -1032,7 +1204,7 @@
 
 
 
-<!-- 
+                  <!-- 
                   <div class="col-md-12 col-lg-12 mt-3 text-end">
                     <button class="green-btn shadow  pe-4 ps-4 p-2 "  data-bs-toggle="modal"
                       data-bs-target="#m-done">OK I'm Done</button>
@@ -1051,7 +1223,8 @@
         </div>
       </div>
       <div class="modal fade" #closeModal id="change-image" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close" (click)="hideModel();">
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close"
+        (click)="hideModel();">
         <div class="modal-dialog quotes-box">
           <div class="modal-content">
             <div class="modal-body">
@@ -1060,9 +1233,8 @@
               <div class="Neon Neon-theme-dragdropbox">
                 <input
                   style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"  
-                   (keyup)="changeDesignation()"
-                  (change)="onSelectImage($event)" >
+                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
+                  (keyup)="changeDesignation()" (change)="onSelectImage($event)">
                 <div class="Neon-input-dragDrop">
                   <div class="Neon-input-inner">
                     <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
@@ -1103,17 +1275,17 @@
 <ng-template #secondDialog style="width:200px;">
   <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
   <mat-dialog-content>
-  <p style="color:red; margin-left:13px;">
+    <p style="color:red; margin-left:13px;">
       you are using pro features
-     
-  </p>
-  <p style="font-size:10px;"> Please upgrade your plan to  improve your signatures</p>
-  <button type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
-    Get it Now
-  </button>
-   
+
+    </p>
+    <p style="font-size:10px;"> Please upgrade your plan to improve your signatures</p>
+    <button type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+      Get it Now
+    </button>
+
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-   
+
   </mat-dialog-actions>
 </ng-template>

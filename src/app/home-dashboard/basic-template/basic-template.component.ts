@@ -305,19 +305,21 @@ getSignature(){
   getBasicProfile() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
       this.details = res.result[0];
+      console.log(this.details, 'dddddd')
       console.log(res, 'xasds');
-      this.useraddress= res.result[0]?.address[0].city
-      this.username = res.result[0]?.firstName
-      this.Email = res.result[0]?.email
-      this.compName = res.result[0]?.companyName
-      this.compWebsite = res.result[0]?.companyWebsite
-      this.number = res.result[0]?.phone
-      this.compPhone = res.result[0]?.companyPhone
-      this.desig = res.result[0]?.designation
-      this.addr = res.result[0]?.address
+      
+      this.useraddress=this.details?.address[0]?.city
+      this.username=this.details?.firstName
+      this.Email = this.details?.email
+      this.compName = this.details?.companyName
+      this.compWebsite = this.details?.companyWebsite
+      this.number = this.details?.phone
+      this.compPhone = this.details?.companyPhone
+      this.desig = this.details?.designation
+      this.addr =this.details?.address
 
-      this.insta = res.result[0]?.instagramProfile
-      this.uTube = res.result[0]?.youtubeChannel
+      this.insta =  this.details?.instagramProfile
+      this.uTube =  this.details?.youtubeChannel
 
       this.Linkedin = res.result[0]?.linkedInProfile
       this.Twitter = res.result[0]?.twitterProfile

@@ -67,7 +67,7 @@
 
 
 
-                            <form [formGroup]="editTemplateForm" (ngSubmit)="onSubmit(editTemplateForm.value)">
+                            <form [formGroup]="editTemplateForm">
 
 
                                 <div class="tab-content" id="myTabContent">
@@ -568,7 +568,7 @@
                                 </div>
 
                                 <div class="mt-4 text-end">
-                                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3">Update
+                                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(editTemplateForm.value)">Update
                                         Signature</button>
                                 </div>
 

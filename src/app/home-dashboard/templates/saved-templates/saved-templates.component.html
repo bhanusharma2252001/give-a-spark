@@ -20,8 +20,11 @@
 
                         </div>
                         <div style="text-align:center;" *ngIf="details?.logo">
- 
-                            <img style="width:95px ;height:35px" *ngIf="planDetail == 'Plan A'"  routerLink="home-dashboard/plan/plan-dashboard" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del">
+      
+                            <a href="home-dashboard/plan/plan-dashboard" *ngIf="planDetail == 'Plan A'" >
+                                <img style="width:95px ;height:35px"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del">
+                            </a>
+                         
 
                             <img style="width:95px ;height:35px" *ngIf="!(planDetail == 'Plan A')"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
                  

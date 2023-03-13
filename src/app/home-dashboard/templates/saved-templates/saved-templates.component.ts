@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, ViewChildren, QueryList } from '@angular/core';
 import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-saved-templates',
@@ -85,7 +86,7 @@ export class SavedTemplatesComponent implements OnInit {
   planDetail: any;
   logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
   tempId: any;
-  constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService) {
+  constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -312,7 +313,7 @@ setonGmail(){
   
    
   
-  
+  this.toast.success('Please Check your Email');
     
   // this.api.gmail(this.templateRef.outerHTML
   //   ).subscribe((res:any)=>{

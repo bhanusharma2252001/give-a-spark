@@ -241,7 +241,7 @@ console.log(details, 'goooooogle')
     
  
 this.googleEmail=details.getEmail()
-debugger
+
         this.sparkService.registerSocialUser(data).subscribe
         (   
          (successData) => this.success(successData),
