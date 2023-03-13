@@ -199,7 +199,7 @@ this.firstNameColor = templateResult?.firstNameColor,
 
 
   remove(logoId:any){this.tempId=logoId
-    debugger
+    
     if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
       this.api.removeLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);

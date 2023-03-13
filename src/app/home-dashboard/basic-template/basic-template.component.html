@@ -202,7 +202,7 @@
                             <div class="position-absolute top-0">
                               <div>
                                 <img class="width" [src]="url" height="200" *ngIf="url">
-                                <img class="width" src="assets/images/logo(round).png "
+                                <img class="width" src="assets/images/user_icon_second.png "
                                   *ngIf="!tempDetails?.profileImage && !url" />
                               </div>
 
@@ -561,8 +561,11 @@
                       <tbody style="padding:10px;
                     ">
                         <tr>
-                          <td style="padding: 7px 15px;" colspan="3">
+                          <td style="padding: 7px 15px;" colspan="3"  *ngIf="tempDetails?.signatureName && ! sign">
                             {{tempDetails?.signatureName}}
+                          </td>
+                          <td style="padding: 7px 15px;" colspan="3" *ngIf="sign && ! tempDetails?.signatureName">
+                            {{sign}}
                           </td>
                         </tr>
                         <tr>
@@ -947,9 +950,7 @@
                                   <p color="#000000" font-size="large" *ngIf="!tempDetails?.designation"
                                     class="sc-dVhcbM fghLuF"
                                     style="margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 16px; line-height: 24px;">
-                                    <span>digital
-                                      marketing</span><span>&nbsp;|&nbsp;</span><span>perfection
-                                      geeks</span>
+                                    <span>{{desig}}</span>
                                   </p>
 
 
