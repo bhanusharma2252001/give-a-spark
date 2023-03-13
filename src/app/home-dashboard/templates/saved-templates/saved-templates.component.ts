@@ -84,6 +84,7 @@ export class SavedTemplatesComponent implements OnInit {
   selectedTemplateId: number;
   planDetail: any;
   logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
+  tempId: any;
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -195,29 +196,38 @@ this.firstNameColor = templateResult?.firstNameColor,
     })
   }
 
-  remove_img(){
-    // document.getElementById('img').remove();
- }
 
-  remove(){
+  remove(logoId:any){this.tempId=logoId
     debugger
+    if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
+      this.api.removeLogo(this.tempId).subscribe((res:any)=>{
+        console.log(this.tempId);
+        this.getTemplateDetails();
+        
+      })
+    }
     if( this.planDetail == 'Plan A'){
       this.router.navigate(['home-dashboard/plan/plan-dashboard'])
 
       if(this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
-        this.logo
+        this.api.removeLogo(this.tempId).subscribe((res:any)=>{
+          console.log(this.tempId);
+          this.getTemplateDetails();
+          
+        })
       }
-      else{
-this.logo
-      }
-    }
-    else if (this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
-      this.logo = ''
+//       else{
+// this.logo
+//       }
     }
 
+
+console.log(this.tempId,'iiiiidddddd');
+
     console.log('working');
-    
-  }
+    // debugger
+ 
+     }
 
 
 

@@ -77,10 +77,10 @@ TemplateId:any
   value = ""
   // change new
   templateFontSize: any = 24;
-  public contactDetailColor: string = '';
-  public lastNameColor: string = '';
-  public designationColor: string = '';
-  public firstNameColor: string = '';
+  public contactDetailColor: string = '#000000';
+  public lastNameColor: string = '#000000';
+  public designationColor: string = '#000000';
+  public firstNameColor: string = '#000000';
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 0.5
   tempDetails: any;
@@ -103,7 +103,7 @@ TemplateId:any
 
 
   }
-  logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
+  // logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
 
   fontFamilyList: any = ['Poppins, sans-serif', 'serif',
     'sans-serif',
@@ -149,6 +149,8 @@ copytext:any;
 
 
   @ViewChild('content') content: any;
+  userProfile: any;
+  logo: any;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
     this.editTemplateForm = this.fb.group({
@@ -309,8 +311,11 @@ this.api.gmail(this.templateRef.outerHTML
   }
 
   getAlign(val: any) {
-    this.nameAlign = val;
-  }
+    if(this.planDetail != 'Plan A') {
+      this.nameAlign = val;
+      } else {
+        alert('You shoud buy pro plan')
+      }  }
   //new change end
 
   getTemplateId() {
@@ -523,23 +528,22 @@ this.api.gmail(this.templateRef.outerHTML
  }
 
  getTemplateDesign(data:any) {
-this.firstNameColor = data?.firstNameColor,
-this.lastNameColor = data?.lastNameColor,
-this.designationColor = data?.designationColor,
-this.contactDetailColor = data?.contactDetailColor,
-this.fontFamilyNew = data?.fontFamily,
-this.templateFontSize = data?.fontSize,
-this.lineHeight = data?.lineHeight,
-this.itemFontSize = data?.fontSizeItem,
-this.fontSizeName = data?.nameFontSize,
-this.nameAlign = data?.nameAlign,
-this.borderRadius = data?.borderRadius
-
- }
+  this.firstNameColor = data?.firstNameColor?data?.firstNameColor:this.firstNameColor
+  this.lastNameColor = data?.lastNameColor?data?.lastNameColor:this.lastNameColor
+  this.designationColor = data?.designationColor?data?.designationColor:this.designationColor
+  this.contactDetailColor = data?.contactDetailColor?data?.contactDetailColor:this.contactDetailColor
+  this.fontFamilyNew = data?.fontFamily?data?.fontFamily:this.fontFamilyNew
+  this.templateFontSize = data?.fontSize?data?.fontSize:this.templateFontSize
+  this.lineHeight = data?.lineHeight?data?.lineHeight:this.lineHeight
+  this.itemFontSize = data?.fontSizeItem?data?.fontSizeItem:this.itemFontSize
+  this.fontSizeName = data?.nameFontSize?data?.nameFontSize:this.fontSizeName
+  this.nameAlign = data?.nameAlign?data?.nameAlign:this.nameAlign
+  this.borderRadius = data?.borderRadius?data?.borderRadius:this.borderRadius
+   }
 
  getBindData(data:any) {
   console.log(data,'adadcw');
-  
+  this.logo=data?.logo
   this.username = data?.yourName
   this.title=data?.signatureName
       this.Email = data?.email
@@ -553,7 +557,7 @@ this.borderRadius = data?.borderRadius
       this.quotevar=data?.quotes
       this.insta = data?.instagramProfile
       this.uTube = data?.youtubeChannel
-this.img=data?.profileImage
+this.userProfile=data?.profileImage
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
@@ -594,6 +598,18 @@ console.log(this.code);
 
   // Pro Templates
 
+  changeSocialLink(evt:any) {
+    if(this.planDetail != 'Plan A') {
 
+    } else {
+      this.faceB=null
+      this.insta=null
+      this.Linkedin=null
+      this.uTube=null
+      this.Twitter = null
+      evt.preventDefault()
+      alert('Pro Plan')
+    }
+  }
 
 }

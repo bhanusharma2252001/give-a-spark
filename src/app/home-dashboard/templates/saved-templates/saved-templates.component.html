@@ -19,11 +19,13 @@
 
 
                         </div>
-                        <div style="text-align:center;">
+                        <div style="text-align:center;" *ngIf="details?.logo">
  
-                            <img style="width:95px ;height:35px"  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
+                            <img style="width:95px ;height:35px" *ngIf="planDetail == 'Plan A'"  routerLink="home-dashboard/plan/plan-dashboard" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del">
+
+                            <img style="width:95px ;height:35px" *ngIf="!(planDetail == 'Plan A')"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
                  
-                            <p style="font-size:8px; display: inline;" >Remove logo</p><span (click)="remove_img()">X</span>    
+                            <p style="font-size:8px; display: inline;" >Remove logo</p><span (click)="remove(details?._id)">X</span>    
               
                         </div>
                     </td>
@@ -90,8 +92,8 @@
                         </div>
 
                         <div style="padding:10px;border-radius:  10px 10px 0 0;">
-                            <span *ngIf="details?.facebookProfile">
-                                <a href="{{details?.facebookProfile}}"><img
+                            <span *ngIf="details?.fbProfile">
+                                <a href="{{details?.fbProfile}}"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/fb-1.png"></a>
                             </span>

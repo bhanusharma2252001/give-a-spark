@@ -21,6 +21,8 @@ public href:string=""
   profileData() {
     this.api.myProfile().subscribe((res:any)=>{
       this.userDetails = res;
+      console.log(this.userDetails,'profile')
+
       console.log(this.userDetails?.address[0]?.addressline1, "addddd")
     })
   }

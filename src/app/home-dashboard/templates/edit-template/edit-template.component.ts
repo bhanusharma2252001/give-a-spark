@@ -140,6 +140,7 @@ copytext:any;
   emailData: any;
   title: any;
   sign: any;
+  userProfile: any;
 
 
 
@@ -569,6 +570,7 @@ this.title=data?.signatureName
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
+this.userProfile=data?.profileImage
       this.QuoteId = data?.quotesId
       if (localStorage.getItem('templatequoteId')) {
         this.QuoteId = localStorage.getItem('templatequoteId')

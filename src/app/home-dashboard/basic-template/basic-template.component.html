@@ -242,35 +242,35 @@
                               </label>
                               <input type="text" formControlName="fbProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="faceB">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="faceB">
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
                               <input type="text" formControlName="instagramProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="insta">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="insta">
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
                               <input type="text" formControlName="linkedInProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="Linkedin">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Linkedin">
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
                               <input type="text" formControlName="youtubeChannel"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="uTube">
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="uTube">
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
                               <input type="text" formControlName="twitterProfile"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink()" [(ngModel)]="Twitter" >
+                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Twitter" >
 
                             </div>
 
@@ -332,7 +332,7 @@
                                   Family :
                                 </label>
                                 <select class="form-select " [(ngModel)]="fontFamilyNew"
-                                  [ngModelOptions]="{standalone: true}" aria-label="Default select example">
+                                  [ngModelOptions]="{standalone: true}" [disabled]="planDetail == 'Plan A'" aria-label="Default select example">
 
                                   <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
                                 </select>
@@ -343,7 +343,7 @@
                                 <label for="customRange2" class="form-label fw-semibold ">Size
                                   :</label>
                                 <input type="range" class="form-range" min="0" max="5" value="3"
-                                  (change)="changeSize($event)" id="customRange2">
+                                  (change)="changeSize($event)" id="customRange2" [disabled]="planDetail == 'Plan A'">
 
                               </div>
                               <div class="mb-2 grid-2">
@@ -351,7 +351,7 @@
                                 <label for="customRange2" class="form-label fw-semibold ">Line
                                   Height :</label>
                                 <input type="range" value="3" (change)="changeLine($event)" class="form-range" min="0"
-                                  max="5" id="customRange2">
+                                  max="5" id="customRange2" [disabled]="planDetail == 'Plan A'">
 
                               </div>
                               <div class="mb-2 grid-2">
@@ -381,20 +381,20 @@
                                 <p class="mb-0 p-1"> Name:</p>
 
                                 <input [(colorPicker)]="firstNameColor" [style.background]="firstNameColor" style="width: 15px;
-                                                                height: 14px;" />
+                                                                height: 14px;" [disabled]="planDetail == 'Plan A'" />
                               </div>
                               <div class="d-flex align-items-center">
                                 <p class="mb-0 p-1">Designation :</p>
 
                                 <input [(colorPicker)]="designationColor" [style.background]="designationColor" style="width: 15px;
-                                                                height: 14px;" />
+                                                                height: 14px;" [disabled]="planDetail == 'Plan A'" />
                               </div>
                               <div class="d-flex align-items-center">
                                 <p class="mb-0 p-1">Contact Details :</p>
 
                                 <input [(colorPicker)]="contactDetailColor" [style.background]="contactDetailColor"
                                   style="width: 15px;
-                                                                height: 14px;" />
+                                                                height: 14px;" [disabled]="planDetail == 'Plan A'" />
                               </div>
                             </div>
                             <div class="">

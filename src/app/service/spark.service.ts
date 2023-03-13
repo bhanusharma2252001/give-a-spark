@@ -399,9 +399,8 @@ gmail( data:any){
 //     headers: { Authorization: `bearer ${this.token}` },});
 // }
 
-
 removeLogo(id:any) {
-  return this.http.delete(environment.localApiURL + `/api/template/deleteLogoById/${id}`,{
+  return this.http.get(environment.localApiURL + '/api/template/deleteLogoById/'+id,{
     headers: { Authorization: `bearer ${this.token}` },
   })
 }

@@ -77,10 +77,10 @@ profileImages:any;
   // change new
   templateFontSize: any = 24;
   // public barColor:string='fff500'
-  public contactDetailColor: string = '#00000';
-  public lastNameColor: string = '#00000';
-  public designationColor: string = '#00000';
-  public firstNameColor: string = '#00000';
+  public contactDetailColor: string = '#000000';
+  public lastNameColor: string = '#000000';
+  public designationColor: string = '#000000';
+  public firstNameColor: string = '#000000';
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
@@ -107,7 +107,6 @@ profileImages:any;
     'sans-serif',
     'monospace',
     'cursive',
-    'fantasy',
     ' Trebuchet MS',
     'Lucida Sans',
     'Palatino',
@@ -289,8 +288,11 @@ console.log(b,'b');
 
 
   getAlign(val: any) {
-    this.nameAlign = val;
-  }
+    if(this.planDetail != 'Plan A') {
+      this.nameAlign = val;
+      } else {
+        alert('You shoud buy pro plan')
+      }  }
   //new change end
 getSignature(){
   this.sign = this.signatureDetailsForm.value.signatureName;
@@ -304,7 +306,7 @@ getSignature(){
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
       this.details = res.result[0];
       console.log(res, 'xasds');
-
+      this.useraddress= res.result[0]?.address[0].city
       this.username = res.result[0]?.firstName
       this.Email = res.result[0]?.email
       this.compName = res.result[0]?.companyName
@@ -334,27 +336,7 @@ getSignature(){
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.planDetail = res?.plan
       this.tempDetails = res.result[res.result.length - 1];
-      this.useraddress= this.tempDetails?.address[0].city
       this.quotevar=this.tempDetails?.quotes
-this.tempimg=this.tempDetails?.profileImage
-
-
-let templateResult = this.tempDetails?.templateDesign;
-console.log(templateResult, 'ada');
-this.firstNameColor = templateResult?.firstNameColor,
-  this.lastNameColor = templateResult?.lastNameColor,
-  this.designationColor = templateResult?.designationColor,
-  this.contactDetailColor = templateResult?.contactDetailColor,
-  this.fontFamilyNew = templateResult?.fontFamily,
-  this.templateFontSize = templateResult?.fontSize,
-  this.lineHeight = templateResult?.lineHeight,
-  this.itemFontSize = templateResult?.fontSizeItem,
-  this.fontSizeName = templateResult?.nameFontSize,
-  this.nameAlign = templateResult?.nameAlign,
-  this.borderRadius = templateResult?.borderRadius
-      console.log(this.tempDetails, "kkkkkkkk")
-
-
     })
   }
   selectFeature(val:any){
@@ -637,7 +619,8 @@ console.log(body,'sbxkabxak');
     
   }
 
-  changeSocialLink() {
+  changeSocialLink(evt:any) {
+    if(this.planDetail != 'Plan A') {
     console.log(this.imageData2 , this.useraddress , this.desig , this.username , this.Email , this.compName , this.compWebsite , this.faceB , this.insta , this.Linkedin , this.uTube , this.Twitter);
     
     if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ) {
@@ -660,6 +643,15 @@ console.log(body,'sbxkabxak');
       }
      }
      
+    } else {
+      this.faceB=null
+      this.insta=null
+      this.Linkedin=null
+      this.uTube=null
+      this.Twitter = null
+      evt.preventDefault()
+      // alert('hihi pro')
+    }
 
     
   }

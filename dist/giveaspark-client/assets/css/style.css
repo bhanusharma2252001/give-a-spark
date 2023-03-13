@@ -789,7 +789,7 @@ img.top-left {
 .header-shadow {
   width: 100%;
   height: auto;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1;
   box-shadow: 4px 0px 25px rgba(0, 0, 0, .1);
 }
