@@ -129,6 +129,11 @@ profileImages:any;
   @ViewChild('closeModal') private closeModal!: ElementRef;
   sign: any;
   planDetail:any
+  defaultDetails: any;
+  userProfile: any;
+  code: any;
+  std:   any;
+  add: any;
 
 
   getScanText() {
@@ -197,14 +202,15 @@ profileImages:any;
 
     }
     console.log(this.LongQuote, this.QuoteId)
-    this.getBasicProfile();
+    // this.getBasicProfile();
     this.getScanText();
 
 
   }
 
-
-
+navigate(){
+this.router.navigate(['home-dashboard/templates/template-dashboard'])
+}
   
 
 
@@ -302,45 +308,104 @@ getSignature(){
 
 
 
-  getBasicProfile() {
-    this.api.getbasicDetaiofUseer().subscribe((res: any) => {
-      this.details = res.result[0];
-      console.log(this.details, 'dddddd')
-      console.log(res, 'xasds');
+  // getBasicProfile() {
+  //   this.api.getbasicDetaiofUseer().subscribe((res: any) => {
+  //     this.details = res.result[0];
+  //     console.log(this.details, 'dddddd')
+  //     console.log(res, 'xasds');
       
-      this.useraddress=this.details?.address[0]?.city
-      this.username=this.details?.firstName
-      this.Email = this.details?.email
-      this.compName = this.details?.companyName
-      this.compWebsite = this.details?.companyWebsite
-      this.number = this.details?.phone
-      this.compPhone = this.details?.companyPhone
-      this.desig = this.details?.designation
-      this.addr =this.details?.address
+  //     this.useraddress=this.details?.address[0]?.city
+  //     this.username=this.details?.firstName
+  //     this.Email = this.details?.email
+  //     this.compName = this.details?.companyName
+  //     this.compWebsite = this.details?.companyWebsite
+  //     this.number = this.details?.phone
+  //     this.compPhone = this.details?.companyPhone
+  //     this.desig = this.details?.designation
+  //     this.addr =this.details?.address
 
-      this.insta =  this.details?.instagramProfile
-      this.uTube =  this.details?.youtubeChannel
+  //     this.insta =  this.details?.instagramProfile
+  //     this.uTube =  this.details?.youtubeChannel
 
-      this.Linkedin = res.result[0]?.linkedInProfile
-      this.Twitter = res.result[0]?.twitterProfile
-      this.faceB = res.result[0]?.fbProfile
+  //     this.Linkedin = res.result[0]?.linkedInProfile
+  //     this.Twitter = res.result[0]?.twitterProfile
+  //     this.faceB = res.result[0]?.fbProfile
       
 
-      console.log(this.compWebsite, 'jojo')
+  //     console.log(this.compWebsite, 'jojo')
 
-      console.log(this.details)
-    })
+  //     console.log(this.details)
+  //   })
 
 
 
-  }
+  // }
   getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.planDetail = res?.plan
-      this.tempDetails = res.result[res.result.length - 1];
-      this.quotevar=this.tempDetails?.quotes
+      
+      this.defaultDetails=res?.userData[0]
+      this.std=this.defaultDetails?.stdCode
+      this.code= this.defaultDetails?.QrCode
+      if(res?.result.length> 0){
+        this.tempDetails = res.result[res.result.length - 1];
+        this.useraddress=this.tempDetails?.address[0]?.city
+        this.username=this.tempDetails?.yourName
+        this.Email = this.tempDetails?.email
+        this.compName = this.tempDetails?.companyName
+        this.compWebsite = this.tempDetails?.companyWebsite
+        this.number = this.tempDetails?.phoneNo
+        this.compPhone = this.tempDetails?.companyPhone
+        this.desig = this.tempDetails?.designation
+
+  
+        this.insta =  this.tempDetails?.instagramProfile
+        this.uTube =  this.tempDetails?.youtubeChannel
+  this.userProfile=this.tempDetails?.profileImage
+        this.Linkedin = this.tempDetails?.linkedInProfile
+        this.Twitter = this.tempDetails?.twitterProfile
+        this.faceB = this.tempDetails?.fbProfile
+        this.quotevar=this.tempDetails?.quotes
+      }
+
+else{
+  this.useraddress=this.defaultDetails?.address[0]?.city
+  this.username=this.defaultDetails?.firstName
+  this.Email = this.defaultDetails?.email
+  this.compName = this.defaultDetails?.companyName
+  this.compWebsite = this.defaultDetails?.companyWebsite
+  this.number = this.defaultDetails?.phone
+  this.compPhone = this.defaultDetails?.companyPhone
+  this.desig = this.defaultDetails?.designation
+
+this.userProfile=this.defaultDetails?.profile
+  this.insta =  this.defaultDetails?.instagramProfile
+  this.uTube =  this.defaultDetails?.youtubeChannel
+
+  this.Linkedin = this.defaultDetails?.linkedInProfile
+  this.Twitter = this.defaultDetails?.twitterProfile
+  this.faceB = this.defaultDetails?.fbProfile
+  
+ 
+}
+
     })
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
   selectFeature(val:any){
     if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
   

@@ -34,14 +34,14 @@
                     </td>
                     <td colspan="2"
                         style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
-                        <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                        <h5   *ngIf="details?.yourName" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
                 line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
                             [style.color]="details?.templateDesign?.firstNameColor"
                             [style.line-height]="details?.templateDesign?.lineHeight"
                             [style.font-family]="details?.templateDesign?.fontFamily"
                             [style.font-size.px]="details?.templateDesign?.fontSize"><span>{{details?.yourName}}</span>
                         </h5>
-                        <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
+                        <h6 *ngIf="details?.designation" style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
                             <span style="border-bottom:3px solid#FFBA00;padding:5px;"
                                 [style.color]="details?.templateDesign?.designationColor"
                                 [style.line-height]="details?.templateDesign?.lineHeight"
@@ -49,16 +49,24 @@
                             </span>
                         </h6>
                         <div style="padding-top:10px;margin-bottom:0px;">
-                            <p style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
+                            <p *ngIf="details?.phoneNo" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
                                 [style.color]="details?.templateDesign?.contactDetailColor"
                                 [style.line-height]="details?.templateDesign?.lineHeight"
                                 [style.font-family]="details?.templateDesign?.fontFamily"
                                 [style.font-size.px]="details?.templateDesign?.fontSizeItem"><span
-                                    style="font-weight:bold;">M:</span>{{details?.phoneNo}}
+                                    style="font-weight:bold;">M:</span>{{std}}{{details?.phoneNo}}
                         </p>
+                        <p *ngIf="details?.companyPhone" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
+                        color: #212121; white-space: wrap;font-size: 13px;"
+                                    [style.color]="details?.templateDesign?.contactDetailColor"
+                                    [style.line-height]="details?.templateDesign?.lineHeight"
+                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"><span
+                                        style="font-weight:bold;">P:</span>{{details?.companyPhone}}
+                            </p>
 
-                            <p style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
+                            <p *ngIf="details?.email" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
                                 [style.color]="details?.templateDesign?.contactDetailColor"
                                 [style.line-height]="details?.templateDesign?.lineHeight"
@@ -68,7 +76,7 @@
                                 {{details?.email}}
                         </p>
 
-                            <p style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
+                            <p *ngIf="details?.companyWebsite" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
                                 [style.color]="details?.templateDesign?.contactDetailColor"
                                 [style.line-height]="details?.templateDesign?.lineHeight"
@@ -79,11 +87,8 @@
                             </p>
 
                             <p style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: wrap;font-size: 13px;"
-                                [style.color]="details?.templateDesign?.contactDetailColor"
-                                [style.line-height]="details?.templateDesign?.lineHeight"
-                                [style.font-family]="details?.templateDesign?.fontFamily"
-                                [style.font-size.px]="details?.templateDesign?.fontSizeItem">
+                    color: #212121; white-space: wrap;font-size: 13px;" *ngIf="details?.address[0]?.city"
+                             >
 
                                 <span style="font-weight:bold;"
                                     [style.color]="details?.templateDesign?.contactDetailColor"
@@ -204,18 +209,17 @@
             </div>
             <div class="col-md-10 col-lg-9">
                 <div class="p-3 text-align-center">
-
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                             aria-labelledby="v-pills-home-tab">
                             <div class=""> How do I add my new email signature to Gmail?</div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                            aria-labelledby="v-pills-profile-tab">.gfffdsdf..</div>
+                            aria-labelledby="v-pills-profile-tab">.Coming Soon.......</div>
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                            aria-labelledby="v-pills-messages-tab">.456..</div>
+                            aria-labelledby="v-pills-messages-tab">Coming Soon.......</div>
                         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                            aria-labelledby="v-pills-settings-tab">.455576..</div>
+                            aria-labelledby="v-pills-settings-tab"></div>
                     </div>
                 </div>
             </div>

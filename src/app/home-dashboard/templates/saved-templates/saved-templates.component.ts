@@ -86,6 +86,8 @@ export class SavedTemplatesComponent implements OnInit {
   planDetail: any;
   logo = 'https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/flyer-logo.png'
   tempId: any;
+  defaultDetails: any;
+  std: any;
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -157,6 +159,8 @@ export class SavedTemplatesComponent implements OnInit {
   getTemplateDetails() {
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.planDetail=res?.plan
+      this.std=res?.userData[0]?.stdCode
+
       this.tempDetails = res.result;
       this.username = this.tempDetails?.yourName
       this.Email = this.tempDetails?.email
@@ -204,7 +208,7 @@ this.firstNameColor = templateResult?.firstNameColor,
       this.api.removeLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
         this.getTemplateDetails();
-        
+        this.toast.show('Logo has been removed')
       })
     }
     if( this.planDetail == 'Plan A'){
@@ -214,7 +218,7 @@ this.firstNameColor = templateResult?.firstNameColor,
         this.api.removeLogo(this.tempId).subscribe((res:any)=>{
           console.log(this.tempId);
           this.getTemplateDetails();
-          
+          this.toast.show('Logo has been removed')
         })
       }
 //       else{
@@ -262,7 +266,7 @@ else if (window.getSelection)
   console.log(this.copytext
     ,'copy');
   
-  alert('Check your Email')
+  this.toast.success('Email Signature has been copied')
   
 }
 document.execCommand('copy');

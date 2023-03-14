@@ -141,6 +141,9 @@ copytext:any;
   title: any;
   sign: any;
   userProfile: any;
+  planDetail: any;
+  tempId: any;
+  logo: any;
 
 
 
@@ -180,7 +183,7 @@ copytext:any;
       this.spinner.hide();
     }, 1000);
   this.gettemplatebyUser();
-  // this. getProTemplate();
+  this.getPlanbyUser();
   }
 
  
@@ -214,7 +217,7 @@ else if (window.getSelection)
   console.log(this.copytext
     ,'copy');
   
-  alert('Check your Email')
+  this.toast.show('Signature has been copied')
   
 }
 document.execCommand('copy');
@@ -249,6 +252,7 @@ setonGmail(){
 this.api.gmail(this.templateRef.outerHTML
   ).subscribe((res:any)=>{
   console.log(res, 'setgmail');
+  this.toast.success('Email Signature has been updated on your email');
   
 })
 
@@ -394,6 +398,56 @@ this.api.gmail(this.templateRef.outerHTML
 
 
  
+
+
+  getPlanbyUser(){
+    this.api.getsignatureDetails().subscribe((res: any)=>{
+this.planDetail=res.plan;
+    })
+  }
+
+  remove(logoId:any){this.tempId=logoId
+    
+    if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
+      this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
+        console.log(this.tempId);
+        this.getFreeTemplate();
+        this.toast.success('Logo Has ')
+        this.toast.show('Logo has been removed')
+        
+      })
+    }
+    if( this.planDetail == 'Plan A'){
+      this.router.navigate(['home-dashboard/plan/plan-dashboard'])
+
+      if(this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
+        this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
+          console.log(this.tempId);
+          this.getFreeTemplate();
+          this.toast.show('Logo has been removed')
+        })
+      }
+//       else{
+// this.logo
+//       }
+    }
+
+
+console.log(this.tempId,'iiiiidddddd');
+
+    console.log('working');
+    // debugger
+ 
+     }
+
+
+
+
+
+
+
+
+
   addQuote() {
     this.router.navigate(['/home-dashboard/motivational-quote/quote-dashboard'],{ queryParams: { templateId: this.templateId } })
   }
@@ -555,6 +609,7 @@ this.borderRadius = data?.borderRadius
   console.log(data,'adadcw');
   
   this.username = data?.yourName
+  this.logo=data?.logo
       this.Email = data?.email
       this.useraddress = data?.address[0]?.city
       this.compName = data?.companyName

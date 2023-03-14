@@ -3,3 +3,33 @@
 @import "~ngx-photo-editor/photo-editor.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+.pro-lock::after {
+    content: " - Remember this";
+      background-color: red;
+      border-radius: 3px;
+      color: #fff;
+      content: "PRO +";
+      font-size: 10px;
+      padding: 0 5px;
+      height: 18px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+  }
+  .pro-for::after {
+    content: " - Remember this";
+      background-color: red;
+      border-radius: 3px;
+      color: #fff;
+      content:"PRO";
+      font-size: 10px;
+      padding: 0 5px;
+      height: 18px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+  }

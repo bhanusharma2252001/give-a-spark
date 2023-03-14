@@ -203,16 +203,16 @@
                               <div>
                                 <img class="width" [src]="url" height="200" *ngIf="url">
                                 <img class="width" src="assets/images/user_icon_second.png "
-                                  *ngIf="!tempDetails?.profileImage && !url" />
+                                  *ngIf="!userProfile && !url" />
                               </div>
 
                               <!-- <img class="wh-100" src="assets/images/square-image.png"> -->
-                              <!-- <div *ngIf="!tempDetails?.profileImage">
+                              <!-- <div *ngIf="!userProfile">
                                                                 <img class="width" src="assets/images/logo.png " />
                                                             </div> -->
                               <div >
 
-<img *ngIf="tempDetails?.profileImage && !url " src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" alt="" class="wh-150 rounded-circle">
+<img *ngIf="userProfile && !url " src="{{userProfile}}" alt="" class="wh-150 rounded-circle">
                                
                               </div>
                               <!-- <div
@@ -237,7 +237,7 @@
 
                         <div class="">
 
-                          <h5 class="mb-4">Add Social Links</h5>
+                          <h5 class="mb-4 pro-for">Add Social Links</h5>
                         </div>
 
                         <div class="row position-relative">
@@ -279,14 +279,14 @@
 
                             </div>
 
-                            <div class="mb-4 d-flex">
+                            <!-- <div class="mb-4 d-flex">
 
                               <p class="mb-0 mt-1">
                                 <i class="fa fa-plus-circle text-blue"></i>
                               </p>
                               <p class="mb-0 ps-2 text-blue">
                                 Add New Field</p>
-                            </div>
+                            </div> -->
 
                           </div>
                           <div class="col-md-1 col-lg-3">
@@ -325,7 +325,7 @@
 
                         <div class="">
 
-                          <h5 class="mb-4">Font Styles & Colors</h5>
+                          <h5 class="mb-4 pro-for">Font Styles & Colors</h5>
                         </div>
                         <div class="">
                           <h6 class="mb-4 fw-semibold">Font Styles</h6>
@@ -461,7 +461,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
+                    <div class="tab-pane fade pro-lock" id="apps" role="tabpanel" aria-labelledby="apps">
                       <div class="row app_background">
                         <div>
                           <h5 class="para-app mb-4">Enhance Your Signature</h5>
@@ -561,9 +561,9 @@
                       <tbody style="padding:10px;
                     ">
                         <tr>
-                          <td style="padding: 7px 15px;" colspan="3"  *ngIf="tempDetails?.signatureName && ! sign">
+                          <!-- <td style="padding: 7px 15px;" colspan="3"  *ngIf="tempDetails?.signatureName && ! sign">
                             {{tempDetails?.signatureName}}
-                          </td>
+                          </td> -->
                           <td style="padding: 7px 15px;" colspan="3" *ngIf="sign && ! tempDetails?.signatureName">
                             {{sign}}
                           </td>
@@ -574,10 +574,10 @@
                               <img class="width" [src]="url" height="65" width="72" *ngIf="url">
                               <img style="width: 72px;
                                 vertical-align: middle; height: 65px;border-radius:50%;"
-                                *ngIf="tempDetails?.profileImage && ! url"
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}">
+                                *ngIf="userProfile && ! url"
+                                src="{{userProfile}}">
 
-
+                                <!-- https://giveaspark.s3.us-west-1.amazonaws.com/ -->
                             </div>
                             <div style="text-align:center;" *ngIf="tempDetails?.logo">
 
@@ -612,17 +612,22 @@
                               </span>
                             </h6>
                             <p style="padding-top:10px;">
-                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                              <span *ngIf="number" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only; 
                                 white-space: nowrap;" [style.color]="contactDetailColor"
                                 [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">M:</span>{{number}}
+                                [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">M:</span>{{std}}{{number}}
                               </span>
+                              <span *ngIf="compPhone" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only; 
+                              white-space: nowrap;" [style.color]="contactDetailColor"
+                              [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                              [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">P:</span>{{compPhone}}
+                            </span>
 
                               <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
                                 white-space: nowrap;" [style.color]="contactDetailColor"
                                 [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                 [style.font-size.px]="itemFontSize">
-                                <span style="font-weight:bold;">E:</span>
+                                <span style="font-weight:bold;" *ngIf="Email">E:</span>
                                 {{Email}}
                               </span>
                               <br>
@@ -630,7 +635,7 @@
                                 white-space: nowrap;" [style.color]="contactDetailColor"
                                 [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                 [style.font-size.px]="itemFontSize">
-                                <span style="font-weight:bold;">M:</span>
+                                <span style="font-weight:bold;" *ngIf="compWebsite">W:</span>
                                 {{compWebsite}}
                               </span>
 
@@ -639,7 +644,7 @@
                                 [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                 [style.font-size.px]="itemFontSize">
 
-                                <span style="font-weight:bold;">A:</span>
+                                <span style="font-weight:bold;" *ngIf="useraddress">A:</span>
                                 {{useraddress}}
                               </span>
                             </p>
@@ -666,7 +671,7 @@
                           </td>
                           <td style="padding: 20px;vertical-align:baseline;">
                             <img style="width:60px; height:60px;"
-                              src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}">
+                              src="https://giveaspark.s3.amazonaws.com/{{code}}">
                           </td>
                         </tr>
                         <tr>
@@ -846,9 +851,23 @@
 
                 <div id="scam">
 
+                  <div class="col-md-4 col-lg-4 p-0" >
+                    <div class="box-free shadow m-2" *ngIf="templateShow == 'free'">
+                        <img class="free-wh m-1" src="assets/images/free-7.png" alt="" (click)="navigate()"
+                          >
 
+                    </div>
+                    <div class="box-free shadow m-2" *ngIf="templateShow == 'pro'">
+                      <img src="assets/images/pro-8.png" alt="" class="free-wh m-1" (click)="navigate()"
+                         >
+                  </div>
+                  <div class="box-free shadow m-2" *ngIf="templateShow == 'propro'">
+                    <img src="assets/images/pro+2.png" alt="" class="free-wh m-1" (click)="navigate()"
+                       >
+                </div>
+                </div>
 
-                  <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
+                  <!-- <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                     txtConfigFile *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
                     style="
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);vertical-align: -webkit-baseline-middle; font-size: large;padding:10px;  min-width:550px;">
@@ -866,15 +885,12 @@
                                   <img class="width" [src]="url" height="100" width="100" *ngIf="url">
                                   <img style="width: 100px;
                                     vertical-align: middle; height: 65px;border-radius:50%;"
-                                    *ngIf="tempDetails?.profileImage && ! url"
-                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}">
+                                    *ngIf="userProfile && ! url"
+                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
                                 </td>
-                                <!-- <td style="" *ngIf=" templateShow == 'free'">
-                                  <img style="width:100px;height:100px;" src="assets/images/logo.png" alt=""
-                                    [style.border-radius.px]="borderRadius">
-                                </td> -->
+                           
 
 
 
@@ -1197,7 +1213,7 @@
 
 
 
-                  </table>
+                  </table> -->
 
 
 
@@ -1205,13 +1221,45 @@
 
 
 
-                  <!-- 
-                  <div class="col-md-12 col-lg-12 mt-3 text-end">
-                    <button class="green-btn shadow  pe-4 ps-4 p-2 "  data-bs-toggle="modal"
-                      data-bs-target="#m-done">OK I'm Done</button>
 
 
-                  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
 
                 </div>
 

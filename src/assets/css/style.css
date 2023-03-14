@@ -13,6 +13,10 @@
   --shadow: 0px 0px 25px 4px #2929296e;
 
 }
+.all-pages_padding {
+  padding-top: 10px;
+   padding-left: 100px !important; 
+}
 
 body {
   font-family: 'Inter', sans-serif;

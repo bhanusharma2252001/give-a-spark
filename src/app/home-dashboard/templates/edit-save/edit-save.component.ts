@@ -151,6 +151,7 @@ copytext:any;
   @ViewChild('content') content: any;
   userProfile: any;
   logo: any;
+  std: any;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
     this.editTemplateForm = this.fb.group({
@@ -492,7 +493,7 @@ this.api.gmail(this.templateRef.outerHTML
   this.api.getsignatureDetails().subscribe((res:any)=>{
     this.tempDetails=res?.result;
     this.planDetail=res?.plan
-
+    this.std=res?.userData[0]?.stdCode
   
   
     console.log( this.tempDetails, 'free Templates');
@@ -543,6 +544,7 @@ this.api.gmail(this.templateRef.outerHTML
 
  getBindData(data:any) {
   console.log(data,'adadcw');
+
   this.logo=data?.logo
   this.username = data?.yourName
   this.title=data?.signatureName
@@ -579,7 +581,7 @@ this.userProfile=data?.profileImage
  gettemplatebyUser(){
   this.api.getbasicDetaiofUseer().subscribe((res: any) => {
  
-    
+
 this.code=res.result[0]?.QrCode;
 console.log(this.code);
 

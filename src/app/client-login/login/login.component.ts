@@ -57,7 +57,8 @@ token:any;
   }
 
   ngOnInit(): void {
-    setTimeout(() => { this.ngOnInit() }, 1000 * 1000000)
+    // setTimeout(() => { this.getData()
+    // this.googleAuthSDK();}, 1000 * 10)
  if (sessionStorage.getItem('email'))
  this.Email=sessionStorage.getItem('email')
  sessionStorage.removeItem('email')
@@ -72,6 +73,13 @@ token:any;
 
 
    
+    
+    this.getData()
+    this.googleAuthSDK();
+    
+  }
+
+  getData() {
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
       this.isLoggedin = user != null;
@@ -79,9 +87,6 @@ token:any;
         this._Router.navigate(['home-dashboard']);
       }) 
     });
-  
-    this.googleAuthSDK();
-    
   }
 
  

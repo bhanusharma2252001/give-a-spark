@@ -404,5 +404,10 @@ removeLogo(id:any) {
     headers: { Authorization: `bearer ${this.token}` },
   })
 }
+removeSignatureLogo(id:any) {
+  return this.http.get(environment.localApiURL + '/api/freeTemplate/deleteLogoById/'+id,{
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+}
 
 }
