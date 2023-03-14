@@ -127,7 +127,7 @@
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">
                                                 <img class="wh-150" src="assets/images/square-image.png" *ngIf="!details?.profile">
-                                                <img class="wh-150" src="{{details?.profile}}" *ngIf="details?.profile">
+                                                <img class="wh-150" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profile}}" *ngIf="details?.profile">
                                                 <!-- <p class="text-blue fs-12 mb-0 mt-2 text-nowrap pe-2"
                                                     data-bs-toggle="modal" data-bs-target="#change-image">
                                                     Change
@@ -145,7 +145,7 @@
                                     <div class="row m-0">
                                         <div class="col-md-3 col-lg-3 self-align-center">
                                             <img class="wh-150" src="assets/images/square-image.png" *ngIf="!details?.profile">
-                                            <img class="wh-150" src="{{details?.profile}}" *ngIf="details?.profile">
+                                            <img class="wh-150" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profile}}" *ngIf="details?.profile">
                                         </div>
                                         <div class="col-md-7 col-lg-6 ps-2 pe-0 position-relative">
                                             <div class="position-absolute start-0">
@@ -157,7 +157,7 @@
                                                 <hr class="text-black">
                                                 <div class="d-flex align-items-center mb-1">
                                                     <i class="fa fa-phone text-blue fs-12 pe-3" aria-hidden="true"></i>
-                                                    <p class="mb-0  fs-14" *ngIf="!number">984395709 </p>
+                                                    <p class="mb-0  fs-14" *ngIf="!number && !phoneCode">984395709 </p>
                                                     <p class="mb-0  fs-14">{{phoneCode}}{{number}} </p>
                                                 </div>
                                                 <!-- <div class="d-flex align-items-center mb-1">

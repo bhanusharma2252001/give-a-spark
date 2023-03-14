@@ -20,7 +20,7 @@ plandetails:any;
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
-  
+    this.profile();
   }
 
 
