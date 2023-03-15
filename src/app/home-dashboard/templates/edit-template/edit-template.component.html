@@ -268,7 +268,7 @@
                                         <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
                                             <div class="">
-                                                
+
 
 
 
@@ -683,11 +683,12 @@
                                                     alt="Profile" style="max-width:100%;width:70px;height:69px;border:0"
                                                     *ngIf="userProfile && !url"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                                                <div class="" > <a target="_blank"><img alt="Logo" *ngIf="logo"
+                                                <div class=""> <a target="_blank"><img alt="Logo" *ngIf="logo"
                                                             style="max-width:100%;width:95px;height:35px;border:0"
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a> </div>
-                                                <p style="font-size:8px;text-align:left;" (click)="remove(8)" *ngIf="logo">Remove Brand</p>
+                                                <p style="font-size:8px;text-align:left;" (click)="remove(8)"
+                                                    *ngIf="logo">Remove Brand</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -824,7 +825,8 @@
                                             <td *ngIf="logo">
                                                 <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                     alt="Photo" style="max-width:65px; height:auto; border:0;">
-                                                <p style="font-size:8px;text-align:center;" (click)="remove(9)" >Remove Brand</p>
+                                                <p style="font-size:8px;text-align:center;" (click)="remove(9)">Remove
+                                                    Brand</p>
                                             </td>
                                             <td colspan="2"
                                                 *ngIf="tempDetails[2]?.quotesId?.quotesName || tempDetails[2]?.quotes"
@@ -845,7 +847,81 @@
 
                             <!-- ------------------------TEMPLATE - 4----------------------------- -->
 
- <div *ngIf="templateId == 10" style="padding:10px;"> <p style="font-size:10px;text-align:left"> {{title}} </p> <table id="free-4" #tableData style="background-color: #FFFFFF; border-radius:15px; FONT-FAMILY: Tahoma, sans-serif; filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); color:#3a4345; max-width:480px;" cellspacing="0" cellpadding="0"> <tbody> <tr> <td style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma, sans-serif; COLOR: #3a4345; line-height:12pt; padding-bottom:10px; width: 135px;" valign="top"> <p style="text-align: center;padding: 25px 10px 0 15px;"> <img class="width" [src]="url" style="width:100px;height:115px;border-radius: 15px;" *ngIf="url"> <img alt="Profile" *ngIf="userProfile && !url" style="width:100px;height:100px; border-radius: 15px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}"> <br> </p> <div style="padding:5px 0;text-align:center;" *ngIf="logo"> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" alt="Photo" style="max-width:65px; height:auto; border:0;"> <p style="font-size:8px;margin-bottom: 0;" (click)="remove(10)">Remove Brand</p> </div> </td> <td style="FONT-FAMILY: Tahoma, sans-serif; line-height:15px; width: 285px;padding: 25px 10px 0 15px;" valign="top"> <p style="FONT-SIZE: 14pt; COLOR: #d53700;white-space: nowrap; FONT-FAMILY: Tahoma, sans-serif; margin-bottom: 0px; padding-bottom: 10px; "> <span style="FONT-SIZE: 14pt; COLOR: #d53700; FONT-FAMILY: Tahoma, sans-serif; text-transform: capitalize;"><strong>{{username}}</strong></span> <span style="FONT-SIZE: 10pt; COLOR: #3a4345;line-height: 15px; text-transform: capitalize;"><br><strong>{{desig}}</strong></span> </p> <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;" *ngIf="tempDetails"><strong>M:</strong> {{number}}<br></span> <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;" *ngIf="tempDetails"><strong>P:</strong> {{compPhone}}<br></span> <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"><strong>E :</strong> <a href="mailto:{email}" style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"><span style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;" *ngIf="tempDetails"> {{Email}}</span></a></span> <p style="padding-bottom: 0px; margin-bottom: 0px;"> <span style="FONT-SIZE: 9pt;COLOR: #3a4345; line-height: 13pt;" *ngIf="tempDetails"><strong>W:</strong> {{compWebsite}}<br></span> <span style="FONT-SIZE: 9pt; line-height: 13pt; text-transform: capitalize;" *ngIf="tempDetails"> <span><strong>A:</strong> {{useraddress}}<span> </span></span> <!-- <span>{address2}</span> --> </span> </p> </td> <td style=" padding: 0 15px 0px 15px;"> <p style="padding: 0px; margin: 0px;"> <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo" style="max-width:65px; height:65px; border:0;" width="90" border="0"> </p> <p style="font-size:8px;margin:0"> Scan/Click QR</p> </td> </tr> <tr> <td colspan="4" style="background-color:#d53700;height: 2px;"></td> </tr> <tr > <td colspan="3" style="height: 50px;"> <!-- <a href="https://www.codetwo.com/email-signatures/" target="_blank" rel="noopener"><img src="banner.png" alt="Banner" style="max-width:440px; height:auto; border:0;" width="440" border="0"></a> --> <a style="font-size: 9pt; padding:0 15px; line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;" *ngIf="tempDetails[3]?.quotesId?.quotesName"> "{{tempDetails[3]?.quotesId?.quotesName}}"</a> <a style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;" *ngIf="tempDetails[3]?.quotes"> "{{quotevar}}"</a> </td> </tr> <tr> </tr> </tbody> </table> </div>
+                            <div *ngIf="templateId == 10" style="padding:10px;">
+                                <p style="font-size:10px;text-align:left"> {{title}} </p>
+                                <table id="free-4" #tableData
+                                    style="background-color: #FFFFFF; border-radius:15px; FONT-FAMILY: Tahoma, sans-serif; filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); color:#3a4345; max-width:480px;"
+                                    cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma, sans-serif; COLOR: #3a4345; line-height:12pt; padding-bottom:10px; width: 135px;"
+                                                valign="top">
+                                                <p style="text-align: center;padding: 25px 10px 0 15px;"> <img
+                                                        class="width" [src]="url"
+                                                        style="width:100px;height:115px;border-radius: 15px;"
+                                                        *ngIf="url"> <img alt="Profile" *ngIf="userProfile && !url"
+                                                        style="width:100px;height:100px; border-radius: 15px;"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    <br> </p>
+                                                <div style="padding:5px 0;text-align:center;" *ngIf="logo"> <img
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
+                                                        alt="Photo" style="max-width:65px; height:auto; border:0;">
+                                                    <p style="font-size:8px;margin-bottom: 0;" (click)="remove(10)">
+                                                        Remove Brand</p>
+                                                </div>
+                                            </td>
+                                            <td style="FONT-FAMILY: Tahoma, sans-serif; line-height:15px; width: 285px;padding: 25px 10px 10px 15px;"
+                                                valign="top">
+                                                <p
+                                                    style="FONT-SIZE: 14pt; COLOR: #d53700;white-space: nowrap; FONT-FAMILY: Tahoma, sans-serif; margin-bottom: 0px; padding-bottom: 10px; ">
+                                                    <span
+                                                        style="FONT-SIZE: 14pt; COLOR: #d53700; FONT-FAMILY: Tahoma, sans-serif; text-transform: capitalize;"><strong>{{username}}</strong></span>
+                                                    <span
+                                                        style="FONT-SIZE: 10pt; COLOR: #3a4345;line-height: 15px; text-transform: capitalize;"><br><strong>{{desig}}</strong></span>
+                                                </p> <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"
+                                                    *ngIf="tempDetails"><strong>M:</strong> {{number}}<br></span> <span
+                                                    style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"
+                                                    *ngIf="tempDetails"><strong>P:</strong> {{compPhone}}<br></span>
+                                                <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"><strong>E
+                                                        :</strong> <a href="mailto:{email}"
+                                                        style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"><span
+                                                            style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"
+                                                            *ngIf="tempDetails"> {{Email}}</span></a></span>
+                                                <p style="padding-bottom: 0px; margin-bottom: 0px;"> <span
+                                                        style="FONT-SIZE: 9pt;COLOR: #3a4345; line-height: 13pt;"
+                                                        *ngIf="tempDetails"><strong>W:</strong>
+                                                        {{compWebsite}}<br></span> <span
+                                                        style="FONT-SIZE: 9pt; line-height: 13pt; text-transform: capitalize;"
+                                                        *ngIf="tempDetails"> <span><strong>A:</strong>
+                                                            {{useraddress}}<span> </span></span>
+                                                        <!-- <span>{address2}</span> --> </span> </p>
+                                            </td>
+                                            <td style=" padding: 0 15px 0px 15px;">
+                                                <p style="padding: 0px; margin: 0px;"> <img
+                                                        src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
+                                                        style="max-width:65px; height:65px; border:0;" width="90"
+                                                        border="0"> </p>
+                                                <p style="font-size:8px;margin:0"> Scan/Click QR</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" style="background-color:#d53700;height: 2px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" style="height: 50px;">
+                                                <!-- <a href="https://www.codetwo.com/email-signatures/" target="_blank" rel="noopener"><img src="banner.png" alt="Banner" style="max-width:440px; height:auto; border:0;" width="440" border="0"></a> -->
+                                                <a style="font-size: 9pt; padding:0 15px; line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
+                                                    *ngIf="tempDetails[3]?.quotesId?.quotesName">
+                                                    "{{tempDetails[3]?.quotesId?.quotesName}}"</a> <a
+                                                    style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
+                                                    *ngIf="tempDetails[3]?.quotes"> "{{quotevar}}"</a> </td>
+                                        </tr>
+                                        <tr><td colspan="3" style="background-color:#d53700;height:60px;border-radius: 0 0 10px 10px;">
+
+                                        </td> </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <!-- </div> -->
 
 
@@ -857,7 +933,7 @@
                                     style="FONT-FAMILY: Arial, sans-serif;background-color: #FFFFFF; border-radius:15px;  COLOR: #2e9aa4;max-width:450px;"
                                     cellspacing="0" cellpadding="0" border="0">
                                     <tbody>
-                                       
+
                                         <tr>
                                             <td colspan="3"
                                                 style="padding: 25px 15px 10px 15px; border-bottom: 3px solid #2f9aa3;"
@@ -867,7 +943,8 @@
                                                 <span><br></span>
                                                 <span
                                                     style="font-size: 10pt; color: #2e9aa4; text-transform: capitalize;">{{desig}}
-                                                    <span style="background-color: #2e9aa4;padding:1px;margin:5px;"> </span></span>
+                                                    <span style="background-color: #2e9aa4;padding:1px;margin:5px;">
+                                                    </span></span>
                                                 <span>
                                                     <a href="{website}" target="_blank" rel="noopener"
                                                         style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;"><span
@@ -936,8 +1013,8 @@
                                             <td style="" width="120">
                                                 <p style="padding: 10px 10px 0 10px; margin: 0px;">
                                                     <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
-                                                        style="max-width:90px; height:auto; border:0;color: #2e9aa4;" width="90"
-                                                        border="0">
+                                                        style="max-width:90px; height:auto; border:0;color: #2e9aa4;"
+                                                        width="90" border="0">
                                                 </p>
                                                 <p style="font-size:8px;text-align:center;margin:0">
                                                     Scan/Click QR</p>
@@ -956,10 +1033,11 @@
                                                     "{{quotevar}}"</a>
                                             </td>
                                             <td>
-                                                <div style="padding:5px 0"*ngIf=logo >
+                                                <div style="padding:5px 0" *ngIf=logo>
                                                     <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                         alt="Photo" style="max-width:65px; height:auto; border:0;">
-                                                    <p style="font-size:8px;text-align:left;margin:0px" (click)="remove(11)">Remove Brand</p>
+                                                    <p style="font-size:8px;text-align:left;margin:0px"
+                                                        (click)="remove(11)">Remove Brand</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -978,8 +1056,9 @@
 
 
                             <!-- ----------------------------TEMPLATE-6---------------- -->
-                            <div *ngIf="templateId == 12" style="background-color: #FFFFFF;padding:10px;border-radius:10px; ">
-                                <table id="free-6" cellspacing="0" cellpadding="0"  #tableData
+                            <div *ngIf="templateId == 12"
+                                style="background-color: #FFFFFF;padding:10px;border-radius:10px; ">
+                                <table id="free-6" cellspacing="0" cellpadding="0" #tableData
                                     style="color: #808080; font-family: Arial, sans-serif; width: 440px;">
                                     <tbody>
                                         <tr>
@@ -1019,9 +1098,8 @@
                                                     style="font-size: 9pt; color: #808080;"><br><span
                                                         style="color: #000000; text-transform: capitalize;
                                                                           "><strong>Address:</strong></span><span>{{useraddress}}</span></span>
-                                                <p style="margin:0"><span><a href="http://{website}"
-                                                            target="_blank" rel="noopener"
-                                                            style="text-decoration: none;"><strong
+                                                <p style="margin:0"><span><a href="http://{website}" target="_blank"
+                                                            rel="noopener" style="text-decoration: none;"><strong
                                                                 style="color: #000000; font-family: Arial, sans-serif; font-size: 9pt;">{{compWebsite}}</strong></a></span>
                                                 </p>
                                             </td>
@@ -1211,7 +1289,8 @@
                                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}">
 
                                                                 </div>
-                                                                <p style="font-size:8px;" (click)="remove(7)">Remove Brand</p>
+                                                                <p style="font-size:8px;" (click)="remove(7)">Remove
+                                                                    Brand</p>
                                                             </td>
                                                         </tr>
 
@@ -1325,7 +1404,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td style="vertical-align: baseline;"*ngIf=logo >
+                                            <td style="vertical-align: baseline;" *ngIf=logo>
                                                 <div style="padding:5px">
                                                     <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                         alt="Photo" style="max-width:65px; height:auto; border:0;">
@@ -1640,9 +1719,10 @@
                                         <tr>
                                             <td style="text-align:center;">
 
-                                                <img style="width:95px ;height:35px"  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}">
-                                             
-                                            <p style="font-size:8px;" (click)="remove(16)">Remove Brand</p>
+                                                <img style="width:95px ;height:35px"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}">
+
+                                                <p style="font-size:8px;" (click)="remove(16)">Remove Brand</p>
 
                                             </td>
 
@@ -1724,9 +1804,9 @@
                                                 <img class="width" [src]="url"
                                                     style="width:100px;height:100px;border-radius:50%;" *ngIf="url">
 
-                                                <img alt="Profile" [style.border-radius.px]="borderRadius"
-                                                    style=" width:100px;height:100px;border-radius:50%; vertical-align:
-                                                    middle; height: 65px;border-radius:50%;" *ngIf="userProfile && !url"
+                                                <img alt="Profile" [style.border-radius.px]="borderRadius" style=" width:100px;height:100px;border-radius:50%; vertical-align:
+                                                    middle; height: 65px;border-radius:50%;"
+                                                    *ngIf="userProfile && !url"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                         *ngIf="proList[0]?.profileImage"
@@ -1770,7 +1850,8 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p style="font-size:8px;text-align:center;" *ngIf="logo" (click)="remove(21)">Remove Brand</p>
+                                                <p style="font-size:8px;text-align:center;" *ngIf="logo"
+                                                    (click)="remove(21)">Remove Brand</p>
 
                                             </td>
 
@@ -1832,13 +1913,11 @@
                                                     padding: 6px;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[1]?.profileImage}}"> -->
 
-                                                    <img class="width" [src]="url"
-                                                    style="border-radius: 159px;
+                                                <img class="width" [src]="url" style="border-radius: 159px;
                                                     height: 100px;
                                                     width: 100px;
                                                     padding: 6px;" *ngIf="url">
-                                                    <img alt="Profile" [style.border-radius.px]="borderRadius"
-                                                    style="border-radius: 159px;
+                                                <img alt="Profile" [style.border-radius.px]="borderRadius" style="border-radius: 159px;
                                                     height: 100px;
                                                     width: 100px;
                                                     padding: 6px;" *ngIf="userProfile && !url"
@@ -1851,7 +1930,8 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p style="font-size:8px;" *ngIf="logo" (click)="remove(22)">Remove Brand</p>
+                                                <p style="font-size:8px;" *ngIf="logo" (click)="remove(22)">Remove Brand
+                                                </p>
                                             </td>
                                             <td style="color:white;width:35%">
                                                 <table>
@@ -1954,7 +2034,8 @@
                                                 <div
                                                     style="background-color: #fff;height: 140px;margin:10px;width:150px ;text-align:center;border-radius:0 0 225px 225px; ">
                                                     <img class="width" [src]="url"
-                                                    style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%" *ngIf="url">
+                                                        style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
+                                                        *ngIf="url">
                                                     <img [style.border-radius.px]="borderRadius"
                                                         *ngIf="userProfile && !url"
                                                         style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
@@ -2074,9 +2155,9 @@
                                             <td
                                                 style="width:194px;padding:10px;background-color: #fff; vertical-align: center;text-align:end;border-radius:0 225px 225px 0; ">
                                                 <img class="width" [src]="url"
-                                                style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%" *ngIf="url">
-                                                <img [style.border-radius.px]="borderRadius"
-                                                    *ngIf="userProfile && !url"
+                                                    style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                                                     style="width:100px;height:100px;margin-left:-75px; border-radius:50%"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
@@ -2140,7 +2221,8 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p *ngIf="logo" style="font-size:8px;text-align:left;" (click)="remove(24)">Remove Brand</p>
+                                                <p *ngIf="logo" style="font-size:8px;text-align:left;"
+                                                    (click)="remove(24)">Remove Brand</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2184,9 +2266,8 @@
                                             <td
                                                 style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;">
                                                 <img class="width" [src]="url"
-                                                style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
-                                                <img [style.border-radius.px]="borderRadius"
-                                                    *ngIf="userProfile && !url"
+                                                    style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                                                     style="width:150px;height:150px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                             </td>
@@ -2263,12 +2344,13 @@
                                                         style="box-shadow: 0 2px 0 10px #77653c;width:100px;height:100px;border-radius:50%;"
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[5]?.profileImage}}"> -->
 
-                                                        <img class="width" [src]="url"
-                                                        style="box-shadow: 0 2px 0 10px #77653c;width:100px;height:100px;border-radius:50%;" *ngIf="url">
-                                                        <img [style.border-radius.px]="borderRadius"
-                                                            *ngIf="userProfile && !url"
-                                                            style="box-shadow: 0 2px 0 10px #77653c;width:100px;height:100px;border-radius:50%;"
-                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    <img class="width" [src]="url"
+                                                        style="box-shadow: 0 2px 0 10px #77653c;width:100px;height:100px;border-radius:50%;"
+                                                        *ngIf="url">
+                                                    <img [style.border-radius.px]="borderRadius"
+                                                        *ngIf="userProfile && !url"
+                                                        style="box-shadow: 0 2px 0 10px #77653c;width:100px;height:100px;border-radius:50%;"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
                                                 </div>
                                             </td>
@@ -2296,7 +2378,8 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p  *ngIf="logo"   style="font-size:8px;text-align:left;" (click)="remove(26)">Remove Brand</p>
+                                                <p *ngIf="logo" style="font-size:8px;text-align:left;"
+                                                    (click)="remove(26)">Remove Brand</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -2363,19 +2446,18 @@
                                                 </div>
                                             </td>
                                             <td rowspan="2" style="vertical-align: center;text-align: center;">
-                                             
+
 
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     style="width:150px;height:150px;" *ngIf="proList[6]?.profileImage"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[6]?.profileImage}}"> -->
 
 
-                                                    <img class="width" [src]="url"
-                                                    style="width:150px;height:150px;"  *ngIf="url">
-                                                    <img [style.border-radius.px]="borderRadius"
-                                                        *ngIf="userProfile && !url"
-                                                        style="width:150px;height:150px;" 
-                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                <img class="width" [src]="url" style="width:150px;height:150px;"
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="width:150px;height:150px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
                                             <td rowspan="2">
                                                 <div
@@ -2466,10 +2548,10 @@
                                                 style="vertical-align: top; text-align:center;padding-top:5px;padding-right: 0;">
 
                                                 <img class="width" [src]="url"
-                                               style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;" *ngIf="url">
-                                                <img [style.border-radius.px]="borderRadius"
-                                                    *ngIf="userProfile && !url"
-                                                   style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;"
+                                                    style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;"
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
                                                 <!-- <img style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;"
@@ -2595,12 +2677,12 @@
                                             </td>
                                             <td rowspan="2"
                                                 style="vertical-align: middle;padding-right: 0;text-align: center;">
-                                                
+
                                                 <img class="width" [src]="url"
-                                              style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;" *ngIf="url">
-                                                <img [style.border-radius.px]="borderRadius"
-                                                    *ngIf="userProfile && !url"
-                                                  style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
+                                                    style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
                                                     *ngIf="proList[8]?.profileImage"
@@ -2691,7 +2773,8 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p style="font-size:8px;text-align:left;margin:0" (click)="remove(35)">Remove Brand</p>
+                                                <p style="font-size:8px;text-align:left;margin:0" (click)="remove(35)">
+                                                    Remove Brand</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2832,11 +2915,12 @@
                                                 <div
                                                     style="background-color: #341c30;width:150px;margin:20px;rotate: 40deg;">
                                                     <img class="width" [src]="url"
-                                                   style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;" *ngIf="url">
-                                                      <img [style.border-radius.px]="borderRadius"
-                                                          *ngIf="userProfile && !url"
-                                                       style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                        style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                                                        *ngIf="url">
+                                                    <img [style.border-radius.px]="borderRadius"
+                                                        *ngIf="userProfile && !url"
+                                                        style="rotate: -37deg;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
                                                     <!-- <img *ngIf="proplus[0]?.profileImage"
@@ -2921,15 +3005,13 @@
 
                                         <tr>
 
-                                            <td style="vertical-align: center;padding:20px;"
-                                                >
+                                            <td style="vertical-align: center;padding:20px;">
 
                                                 <img class="width" [src]="url"
-                                                 style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
-                                                   <img [style.border-radius.px]="borderRadius"
-                                                       *ngIf="userProfile && !url"
-                                                     style="width:150px;height:150px;border-radius:50%;"
-                                                       src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="width:150px;height:150px;border-radius:50%;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[1]?.profileImage"
                                                     style="width:150px;height:150px;border-radius:50%;"
@@ -3184,11 +3266,11 @@
                                             <td rowspan="2" style="vertical-align:top;padding:0 20px;">
 
                                                 <img class="width" [src]="url"
-                                                style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;" *ngIf="url">
-                                                  <img [style.border-radius.px]="borderRadius"
-                                                      *ngIf="userProfile && !url"
                                                     style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;"
-                                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[3]?.profileImage"
                                                     style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;"
@@ -3295,11 +3377,11 @@
                                                 style="background-color: #ea8a8a;text-align: center;padding: 20px;">
 
                                                 <img class="width" [src]="url"
-                                                style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%" *ngIf="url">
-                                                  <img [style.border-radius.px]="borderRadius"
-                                                      *ngIf="userProfile && !url"
                                                     style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
-                                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[1]?.profileImage"
                                                     style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
@@ -3404,15 +3486,16 @@
                                                             alt="">
 
 
-                                                            <img class="width" [src]="url"
-                                                           style="border-radius: 0 0 85px 85px;position: absolute;left:90px;" *ngIf="url">
-                                                              <img [style.border-radius.px]="borderRadius"
-                                                                  *ngIf="userProfile && !url"
-                                                               style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
-                                                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                        <img class="width" [src]="url"
+                                                            style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
+                                                            *ngIf="url">
+                                                        <img [style.border-radius.px]="borderRadius"
+                                                            *ngIf="userProfile && !url"
+                                                            style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
+                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
-<!-- 
+                                                        <!-- 
                                                         <img *ngIf="proplus[5]?.profileImage"
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[5]?.profileImage}}"
                                                             style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
@@ -3556,11 +3639,11 @@
                                             <td
                                                 style="background-color:white;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; border-radius: 0 0 186px 186px;">
                                                 <img class="width" [src]="url"
-                                                style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;" *ngIf="url">
-                                                   <img [style.border-radius.px]="borderRadius"
-                                                       *ngIf="userProfile && !url"
                                                     style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                       src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[6]?.profileImage"
                                                     style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
@@ -3632,16 +3715,14 @@ padding: 21px;">
                                             <td
                                                 style="position:relative;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
 
-                                                <img class="width" [src]="url"
-                                                style="position: absolute;
+                                                <img class="width" [src]="url" style="position: absolute;
                 top: 50%;
                 left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;" *ngIf="url">
-                                                   <img [style.border-radius.px]="borderRadius"
-                                                       *ngIf="userProfile && !url"
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                                                     style="position: absolute;
                 top: 50%;
                 left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                                                       src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
                                                 <!-- <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[7]?.profileImage" style="position: absolute;
@@ -3732,14 +3813,13 @@ padding: 21px;">
                                                 style="box-shadow: 24px 0 0px -8px #d2ad1c;padding:10px;background-color: #181818;width: 150px;height:100px;  border-radius: 0 0 76px; ">
 
                                                 <img class="width" [src]="url"
-                                                style="width:100px;height:100px;border-radius:10px;" *ngIf="url">
-                                                   <img [style.border-radius.px]="borderRadius"
-                                                       *ngIf="userProfile && !url"
+                                                    style="width:100px;height:100px;border-radius:10px;" *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                                                     style="width:100px;height:100px;border-radius:10px;"
-                                                       src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
-<!-- 
+                                                <!-- 
                                                 <img *ngIf="proplus[8]?.profileImage"
                                                     style="width:100px;height:100px;border-radius:10px;"
                                                     [style.border-radius.px]="borderRadius"
@@ -3899,17 +3979,16 @@ padding: 21px;">
                                                 </div>
 
                                             </td>
-                                            <td style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;" *ngIf="userProfile"
-                                               >
+                                            <td style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;"
+                                                *ngIf="userProfile">
 
 
-                                               <img class="width" [src]="url"
-                                              style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
-                                                  <img [style.border-radius.px]="borderRadius"
-                                                      *ngIf="userProfile && !url"
-                                                  style="width:150px;height:150px;border-radius:50%;"
-                                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-<!-- 
+                                                <img class="width" [src]="url"
+                                                    style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
+                                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
+                                                    style="width:150px;height:150px;border-radius:50%;"
+                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                <!-- 
                                                 <img style="width:150px;height:150px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[9]?.profileImage}}"> -->
                                             </td>
