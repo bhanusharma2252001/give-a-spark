@@ -17,7 +17,7 @@
     <div class="col-md-8 col-lg-8">
       <nav class="container">
         <div class="d-flex align-items-center justify-content-evenly">
-          <p class="bg-yellow text-white header-center">Your free trial ends in 10 days.Upgrade now and get 15% early
+          <p  *ngIf="planDetails == 'Plan A'"  class="bg-yellow text-white header-center">Your free trial ends in 10 days.Upgrade now and get 15% early
             bird
             discount.
           </p>

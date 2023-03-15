@@ -162,6 +162,10 @@ a {
 .fs-14 {
   font-size: 14px;
 }
+.dekstop-menu {
+  margin-top: 160px; 
+  position: fixed; 
+}
 
 .fs-16 {
   font-size: 16px;
@@ -881,10 +885,10 @@ img.top-left {
   overflow: scroll;
 }
 
-.all-pages_padding {
+/* .all-pages_padding {
   padding-top: 165px;
-  /* padding-left: 100px !important; */
-}
+  /* padding-left: 100px !important; 
+} */
 
 .apps_button {
   width: 250px;
@@ -1002,7 +1006,7 @@ img.top-left {
 @media (min-width: 481px) and (max-width: 769px) {}
 
 .timeline {
-  border-left: 1px solid hsl(0, 0%, 90%);
+  /* border-left: 1px solid hsl(0, 0%, 90%); */
   position: relative;
   list-style: none;
 }
@@ -1020,6 +1024,24 @@ img.top-left {
 .light-bg {
   background-color: #E8E8EA;
 }
+.line-vertical {
+  height: 176px;
+  width: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  left: -36px;
+  top: 12px;
+}
+
+
+.line-verticalx {
+  height: 176px;
+  width: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  left: -36px;
+  top: 12px;
+}
 
 .timeline .timeline-item:after {
   background-color: hsl(0, 0%, 90%);
@@ -1030,6 +1052,24 @@ img.top-left {
   content: "";
 }
 
+.line-vertical {
+  height: 176px;
+  width: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  left: -36px;
+  top: 12px;
+}
+
+
+.line-verticalx {
+  height: 176px;
+  width: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  left: -36px;
+  top: 12px;
+}
 #exampleInputtext {
   border: 0;
   border-bottom: 1px solid black;

@@ -846,25 +846,24 @@
                             <!-- ------------------------TEMPLATE - 4----------------------------- -->
 
 
-                            <div *ngIf="templateId == 10" style="background-color: #FFFFFF;padding:10px;">
-
+                            <div *ngIf="templateId == 10" style="padding:10px;">
+                                <p style="font-size:10px;text-align:right">
+                                        {{title}}
+                                   
+                                </p>
 
                                 <table id="free-4" #tableData
-                                    style="FONT-FAMILY: Tahoma, sans-serif; COLOR: #3a4345; max-width:440px;"
+                                    style="background-color: #FFFFFF;border-radius: 15px;FONT-FAMILY: Tahoma, sans-serif;box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); COLOR: #3a4345; max-width:500px;"
                                     cellspacing="0" cellpadding="0">
                                     <tbody>
-                                        <tr>
-                                            <td colspan="4" style="font-size:10px;text-align:right">
-                                                {{title}}
-                                            </td>
-                                        </tr>
+                                       
                                         <tr>
                                             <td style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma, sans-serif; COLOR: #3a4345; line-height:12pt; padding-bottom:10px; width: 135px;"
                                                 valign="top">
-                                                <p style="text-align: center; padding-right: 2px;">
-                                                    <img class="width" [src]="url" style="max-width:65px; height:65px;"
+                                                <p style="text-align: center;padding: 25px 10px 0 15px;">
+                                                    <img class="width" [src]="url" style="width:100px;height:115px;"
                                                         *ngIf="url">
-                                                    <img alt="Profile" *ngIf="userProfile && !url"
+                                                    <img alt="Profile" *ngIf="userProfile && !url" style="width:100px;height:100px; border:0;"
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                     <br>
 
@@ -873,11 +872,10 @@
                                                 <div style="padding:5px 0;text-align:center;" *ngIf="logo">
                                                     <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                         alt="Photo" style="max-width:65px; height:auto; border:0;">
-                                                    <p style="font-size:8px;" (click)="remove(10)">Remove Brand</p>
+                                                    <p style="font-size:8px;margin-bottom: 0;" (click)="remove(10)">Remove Brand</p>
                                                 </div>
                                             </td>
-                                            <td style="width: 20px;"></td>
-                                            <td style="FONT-FAMILY: Tahoma, sans-serif; line-height:15px; padding-bottom:0px; width: 285px;"
+                                            <td style="FONT-FAMILY: Tahoma, sans-serif; line-height:15px; width: 285px;padding: 25px 10px 0 15px;"
                                                 valign="top">
                                                 <p
                                                     style="FONT-SIZE: 14pt; COLOR: #d53700; FONT-FAMILY: Tahoma, sans-serif; margin-bottom: 0px; padding-bottom: 10px; ">
@@ -914,23 +912,8 @@
                                                     </span>
                                                 </p>
                                             </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td colspan="4" style="background-color:#d53700;height: 2px;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <!-- <a href="https://www.codetwo.com/email-signatures/" target="_blank" rel="noopener"><img src="banner.png" alt="Banner" style="max-width:440px; height:auto; border:0;" width="440" border="0"></a> -->
-                                                <a style="font-size: 9pt; line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
-                                                    *ngIf="tempDetails[3]?.quotesId?.quotesName">
-                                                    "{{tempDetails[3]?.quotesId?.quotesName}}"</a>
-                                                <a style="font-size: 9pt; line-height: 11px; color:#d53700; font-family: Arial, sans-serif;  text-transform: capitalize;"
-                                                    *ngIf="tempDetails[3]?.quotes">
-                                                    "{{quotevar}}"</a>
-                                            </td>
-                                            <td style=" text-align:right" width="120">
+                                            <td style="
+                                            padding: 0 15px 0px 15px;">
                                                 <p style="padding: 0px; margin: 0px;">
                                                     <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
                                                         style="max-width:65px; height:65px; border:0;" width="90"
@@ -940,6 +923,25 @@
                                                 <p style="font-size:8px;">
                                                     Scan/Click QR</p>
                                             </td>
+
+                                        </tr>
+
+
+                                        <tr>
+                                            <td colspan="4" style="background-color:#d53700;height: 2px;"></td>
+                                        </tr>
+                                        <tr >
+                                            <td colspan="3" >
+                                                <!-- <a href="https://www.codetwo.com/email-signatures/" target="_blank" rel="noopener"><img src="banner.png" alt="Banner" style="max-width:440px; height:auto; border:0;" width="440" border="0"></a> -->
+                                                <a style="font-size: 9pt;
+                                                padding:0 10px; line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
+                                                    *ngIf="tempDetails[3]?.quotesId?.quotesName">
+                                                    "{{tempDetails[3]?.quotesId?.quotesName}}"</a>
+                                                <a style="font-size: 9pt;  padding: 0 10px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif;  text-transform: capitalize;"
+                                                    *ngIf="tempDetails[3]?.quotes">
+                                                    "{{quotevar}}"</a>
+                                            </td>
+                                           
                                         </tr>
 
                                         <tr>
@@ -1087,8 +1089,8 @@
 
 
                             <!-- ----------------------------TEMPLATE-6---------------- -->
-                            <div *ngIf="templateId == 12" style="background-color: #FFFFFF;padding:10px;">
-                                <table id="free-6" cellspacing="0" cellpadding="0" border="0" #tableData
+                            <div *ngIf="templateId == 12" style="background-color: #FFFFFF;padding:10px;border-radius:10px; ">
+                                <table id="free-6" cellspacing="0" cellpadding="0"  #tableData
                                     style="color: #808080; font-family: Arial, sans-serif; width: 440px;">
                                     <tbody>
                                         <tr>
@@ -1115,7 +1117,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-top: 10px; font-size: 9pt; line-height: 14px;">
+                                            <td style="padding-top: 10px; font-size: 9pt; line-height: 20px;">
                                                 <span style="font-size: 9pt; color: #808080;" *ngIf="tempDetails"><span
                                                         style="color: #000000;"><strong>Mobile:</strong></span>{{number}}<span>
                                                         | </span></span><span style="font-size: 9pt; color: #808080;"
@@ -1128,7 +1130,7 @@
                                                     style="font-size: 9pt; color: #808080;"><br><span
                                                         style="color: #000000; text-transform: capitalize;
                                                                           "><strong>Address:</strong></span><span>{{useraddress}}</span></span>
-                                                <p style="padding-top: 15px;margin:0"><span><a href="http://{website}"
+                                                <p style="margin:0"><span><a href="http://{website}"
                                                             target="_blank" rel="noopener"
                                                             style="text-decoration: none;"><strong
                                                                 style="color: #000000; font-family: Arial, sans-serif; font-size: 9pt;">{{compWebsite}}</strong></a></span>
@@ -2993,7 +2995,7 @@
 
 
                                             <td style="color:black; margin: 3px;">
-                                                <p style="padding: 10px; padding: 0px;font-size: 12px; width: 250px;
+                                                <p *ngIf="proplus" style="padding: 10px; padding: 0px;font-size: 12px; width: 250px;
                 ">
                                                     <q *ngIf="proplus[0]?.quotesId?.quotesName">
                                                         {{proplus[0]?.quotesId?.quotesName}}

@@ -12,7 +12,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
   styleUrls: ['./basicdetails-company.component.scss']
 })
 export class BasicdetailsCompanyComponent implements OnInit {
-  tabClose:boolean;
+  tabClose:boolean=false;
   basicDetails:any;
   compWebsite:any;
   useremail:any;
@@ -79,13 +79,6 @@ window.onpopstate = function () {
  
 
     this.getScanText();
-    if(this.details?.companyPhone){
-      this.tabClose = true
-  
-    }
-
-
-
   }
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;

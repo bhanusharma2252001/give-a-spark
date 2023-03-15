@@ -60,12 +60,16 @@ export class PlanDashboardComponent implements OnInit {
   paymentSelectB() {
     let data = {
       "SelectPlan": "Plan B",
-      "quantity":"6"
+      "quantity":"1"
     }
-    this.api.makePayment(data).subscribe((res: any) => {
-      var paymentdata = res.paymentIntent;
-      console.log(res, paymentdata);
-      alert('Payment Successfully');
+    this.api.makePayment(data).subscribe(async (res: any) => {
+
+      let stripe = await loadStripe('pk_live_51Mds83SEEnMfzbAjs4DBJPc0LR3eaVUxn3zz6dJVeIQZVHEfXhgw648VGZI5OSetcVJFUkImaNHDAnPGDmnDsJ22001CDI558x');
+      stripe?.redirectToCheckout({
+        sessionId: res.id,
+      });
+      console.log(res, 'paymentdata');
+
 
     })
   }

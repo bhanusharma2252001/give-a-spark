@@ -10,6 +10,7 @@ import { SparkService } from 'src/app/service/spark.service';
 export class HeaderComponent implements OnInit {
 public href:string=""
   userDetails: any;
+  planDetails: any;
   constructor(private router:Router, private api:SparkService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,7 @@ public href:string=""
   profileData() {
     this.api.myProfile().subscribe((res:any)=>{
       this.userDetails = res;
-      console.log(this.userDetails,'profile')
+      this.planDetails=res?.SelectPlan
 
       console.log(this.userDetails?.address[0]?.addressline1, "addddd")
     })
