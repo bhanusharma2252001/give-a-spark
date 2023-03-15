@@ -12,12 +12,12 @@
                 <!-- Section: Timeline -->
                 <section class="">
                   <ul class="timeline" >
-                    <li class="timeline-item mb-5 position-relative" [class.timeline-item]="details?.companyPhone ||details?.companyPhone">
+                    <li class="timeline-item mb-5 position-relative" [class.timeline-item]="details?.companyPhone ||!details?.companyPhone">
 
                       <h5 class="fw-bold">
                         <p style="    position: absolute;left: -40px; top: 0px; width: 44px;z-index: 2;
                         margin-bottom: 0;color: #ffbf03;"
-                       [class.active]="!details?.companyPhone ||details?.companyPhone "   >1</p><div class="line-vertical"  [class.line-vertical]="details?.companyPhone"></div> Company Details
+                       [class.act]="!details?.companyPhone ||details?.companyPhone "   >1</p><div class="line-vertical"  [class.line-vertical]="details?.companyPhone"></div> Company Details
                       </h5>
 
                       <p class="text-muted">
@@ -34,7 +34,7 @@
                     <li class="timeline-item mb-5 position-relative" [class.timeline-item]="details?.companyPhone">
                       <h5 class="fw-bold">
                         <p style="position: absolute;left: -40px; top: 0px; width: 44px;z-index: 2;
-                        margin-bottom: 0;color: #ffbf03;"
+                        margin-bottom: 0;color: #fff;"
                          [class.smash]="details?.companyPhone" >2</p><div class="line-verticalx" ></div>Design Your Company Templates
                       </h5>
 

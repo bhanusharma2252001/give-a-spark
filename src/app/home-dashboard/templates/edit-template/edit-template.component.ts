@@ -639,7 +639,7 @@ this.userProfile=data?.profileImage
       }
  }
  getSignature(){
-  debugger
+ 
   this.sign = this.editTemplateForm.value.signatureName;
   console.log(this.sign, "signature name");
   
