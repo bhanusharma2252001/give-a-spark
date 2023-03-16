@@ -73,7 +73,7 @@ window.onpopstate = function () {
   }
   ngOnInit(): void {
     this.getBasicProfile();
-    this.title.setTitle('Templates');
+    this.title.setTitle('Give A Spark');
 
  
  
@@ -190,6 +190,7 @@ onSubmit() {
     //  sessionStorage.setItem('newcompanyweb',data.companyWebsite),
     //  sessionStorage.setItem('newcompanyname',data.companyName),
       this.router.navigate(["home-dashboard/basicdetails-company"])
+      this.getBasicProfile();
     },
     (err: any) => {
       this.toast.error('not submitted');

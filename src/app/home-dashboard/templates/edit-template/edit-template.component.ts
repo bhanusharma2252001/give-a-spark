@@ -237,7 +237,7 @@ b.value= "Copied"
 setonGmail(){
 
 
-
+  
   
 
 
@@ -253,6 +253,7 @@ this.api.gmail(this.templateRef.outerHTML
   ).subscribe((res:any)=>{
   console.log(res, 'setgmail');
   this.toast.success('Email Signature has been updated on your email');
+
   
 })
 
@@ -390,6 +391,7 @@ this.api.gmail(this.templateRef.outerHTML
       }
       // this.saveChanges() ;
       this.getFreeTemplate();
+      this.ngOnInit();
     },
       (error) => {
         this.toast.error('please try again');

@@ -441,7 +441,7 @@ this.userProfile=this.defaultDetails?.profile
       ],
       quotesId: this.QuoteId?this.QuoteId:'',
       quotes: data.quotes?data.quotes:'',
-      profileImage: this.imageData2?this.imageData2:'',
+      profileImage:this.imageData2?this.imageData2:this.userProfile,
       companyPhone: data.companyPhone?data.companyPhone:'',
   
       
