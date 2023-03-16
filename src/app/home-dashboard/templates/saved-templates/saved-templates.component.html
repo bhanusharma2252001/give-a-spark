@@ -83,12 +83,14 @@
                                 [style.font-family]="details?.templateDesign?.fontFamily"
                                 [style.font-size.px]="details?.templateDesign?.fontSizeItem">
                                 <span style="font-weight:bold;">M:</span>
-                                {{details?.companyWebsite}}
+                                <a href="{{details?.companyWebsite}}" target="_blank">{{details?.companyWebsite}}</a>
+     
                             </p>
 
-                            <p style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
+                            <p style="line-height:1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;" *ngIf="details?.address[0]?.city"
                              >
+
 
                                 <span style="font-weight:bold;"
                                     [style.color]="details?.templateDesign?.contactDetailColor"
@@ -121,7 +123,8 @@
 
                     </td>
                     <td style="padding: 20px;vertical-align:baseline;">
-                        <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                        <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
+                        <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}"></a>
                     </td>
                 </tr>
                 <tr>
@@ -153,7 +156,7 @@
                     class="signature-item-edit-btn-text">Edit</span></button>
             <button class="signature-item-edit-btn" (click)="openModal(details?._id)" onclick="openNav()"><span
                     class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                    class="signature-item-edit-btn-text">Share Template</span></button>
+                    class="signature-item-edit-btn-text">Sync Signature</span></button>
 
         </div>
 

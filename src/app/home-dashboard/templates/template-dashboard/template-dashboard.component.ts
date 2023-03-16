@@ -102,6 +102,7 @@ b:any;
   useraddress: any;
   proList: any;
   proplus: any;
+  planDetail: any;
 
   
 CopyToClipboard(element:any) {
@@ -198,7 +199,7 @@ this.setGmail();
   ngOnInit(): void {
     
 
-
+this.getPlanbyUser();
 
 
 
@@ -229,8 +230,15 @@ this.setGmail();
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+   
+  
   }
-
+  getPlanbyUser(){
+    this.api.getsignatureDetails().subscribe((res: any)=>{
+this.planDetail=res.plan;
+console.log(this.planDetail,'ppppp')
+    })
+  }
 setGmail(){
   let body={
 signature:this.b

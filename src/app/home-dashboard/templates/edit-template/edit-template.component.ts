@@ -74,6 +74,7 @@ TemplateId:any
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = ""
   // change new
+  @ViewChild('closeModal') private closeModal!: ElementRef;
   templateFontSize: any = 24;
   public contactDetailColor: string = '#e920e9';
   public lastNameColor: string = '#fff500';
@@ -217,7 +218,7 @@ else if (window.getSelection)
   console.log(this.copytext
     ,'copy');
   
-  this.toast.show('Signature has been copied')
+  this.toast.show('Signature Has Been Copied')
   
 }
 document.execCommand('copy');
@@ -257,6 +258,9 @@ this.api.gmail(this.templateRef.outerHTML
   
 })
 
+}
+hideModel() {
+  this.closeModal.nativeElement.click();      
 }
 
   // new change start
@@ -381,7 +385,7 @@ this.api.gmail(this.templateRef.outerHTML
     this.api.updateTemplate(this.templateId,body).subscribe((res: any) => {
       console.log(res);
       this.TemplateId=res?.data?._id      
-      this.toast.success('Template  Updated Successfully');
+      this.toast.success('Signature  Updated Successfully');
       if (localStorage.getItem('templatequoteId')) {
         this.QuoteId = localStorage.getItem('templatequoteId')
       }
@@ -394,7 +398,7 @@ this.api.gmail(this.templateRef.outerHTML
       this.ngOnInit();
     },
       (error) => {
-        this.toast.error('please try again');
+        this.toast.error('Please Try Again');
       })
   }
 
@@ -414,8 +418,8 @@ this.planDetail=res.plan;
       this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
         this.getFreeTemplate();
-        this.toast.success('Logo Has ')
-        this.toast.show('Logo has been removed')
+     
+        this.toast.show('Logo Removed')
         
       })
     }
@@ -426,7 +430,7 @@ this.planDetail=res.plan;
         this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
           console.log(this.tempId);
           this.getFreeTemplate();
-          this.toast.show('Logo has been removed')
+          this.toast.show('Logo Removed')
         })
       }
 //       else{
@@ -538,12 +542,12 @@ console.log(this.tempId,'iiiiidddddd');
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
         console.log(this.imageData1[0].key, "image key ")
-        this.toast.success('Image upload Successfully');
+        this.toast.success('Image Upload Successfully');
       },
       (err: any) => {
 
         console.log(err);
-        this.toast.error('File size is too big ');
+        this.toast.error('File size is too Large ');
       }
     )
 

@@ -146,7 +146,7 @@ copytext:any;
   title: any;
   planDetail: any;
 
-
+  @ViewChild('closeModal') private closeModal!: ElementRef;
 
   @ViewChild('content') content: any;
   userProfile: any;
@@ -190,7 +190,9 @@ copytext:any;
   }, 1000);
   // this. getProTemplate();
   }
-
+  hideModel() {
+    this.closeModal.nativeElement.click();      
+}
  
  
   

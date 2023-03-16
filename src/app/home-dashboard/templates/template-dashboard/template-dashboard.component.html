@@ -182,7 +182,8 @@
                                 <img src="assets/images/pix-1.png" alt="" class="free-wh m-1 "
                                   >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a  (click)="editTemplate(proList[0]?._id)">Unlock with Pro</a></div>
+                                    <div class="hover_btn"><a  *ngIf="planDetail =='Plan A'" routerLink="/home-dashboard/plan/plan-dashboard" >Unlock with Pro</a></div>
+                                    <div class="hover_btn"><a  (click)="editTemplate(proList[0]?._id)"  *ngIf=" planDetail == 'Plan C' || planDetail == 'Plan B'">Click Me</a></div>
                             </div>
                         </div>
 
@@ -193,7 +194,10 @@
                                 <img src="assets/images/pix-3.png" alt="" class="free-wh m-1"
                                   >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a   (click)="editTemplate(proList[1]?._id)">Unlock with Pro</a></div>
+                                    <div class="hover_btn">
+                                        <a  routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A'">Unlock with Pro</a>
+                                        <a  *ngIf=" planDetail == 'Plan C' || planDetail == 'Plan B'"  (click)="editTemplate(proList[1]?._id)">Click me</a>
+                                    </div>
                             </div>
                         </div>
                         <!-- TEMPLATE-3 -->
@@ -202,7 +206,9 @@
                                 <img src="assets/images/pix-2.png" alt="" class="free-wh m-1" class="free-wh m-1"
                                  >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a    (click)="editTemplate(proList[3]?._id)">Unlock with Pro</a></div>
+                                    <div class="hover_btn">
+                                        <a  routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A'">Unlock with Pro</a>
+                                        <a   *ngIf=" planDetail == 'Plan C' || planDetail == 'Plan B'"  (click)="editTemplate(proList[3]?._id)">Click me</a></div>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-4">
@@ -281,7 +287,8 @@
                                 <img src="assets/images/sm-2.png" alt="" class="free-wh m-1"
                                   >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a   (click)="editTemplate(proplus[0]?._id)">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a   routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A' || planDetail=='Plan B'">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a  *ngIf=" planDetail == 'Plan C'"  (click)="editTemplate(proplus[0]?._id)">Click me</a></div>
 
                             </div>
 
@@ -294,7 +301,8 @@
                                 <img src="assets/images/sm1.png" alt="" class="free-wh m-1"
                                    >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a (click)="editTemplate(proplus[1]?._id)">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a  routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A' || planDetail=='Plan B'">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a  *ngIf=" planDetail == 'Plan C'" (click)="editTemplate(proplus[1]?._id)">Click me</a></div>
 
                             </div>
 
@@ -329,7 +337,8 @@
                                 <img src="assets/images/sm-3.png" alt="" class="free-wh m-1"
                                     >
                                     <div class="overlay"></div>
-                                    <div class="hover_btn"><a (click)="editTemplate(proplus[2]?._id)">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A' || planDetail=='Plan B'">Unlock with Pro+</a></div>
+                                    <div class="hover_btn"><a  *ngIf=" planDetail == 'Plan C'" (click)="editTemplate(proplus[2]?._id)">Click me</a></div>
                             </div>
                         </div>
 

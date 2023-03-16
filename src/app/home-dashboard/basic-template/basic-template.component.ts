@@ -502,7 +502,7 @@ console.log(body,'sbxkabxak');
       console.log(this.TemplateId, 'iddddd');
       
 
-      this.toast.success('Template  Created Successfully');
+      this.toast.success('Signature Updated Successfully');
 
       this.getTemplateDetails();
       if(localStorage.getItem('quoteId')){
@@ -518,7 +518,7 @@ console.log(body,'sbxkabxak');
       this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
-        this.toast.error('please try again');
+        this.toast.error('Please Try Again');
       })
   }
 
@@ -567,7 +567,7 @@ console.log(body,'sbxkabxak');
     }
     this.api.templateCustomize(this.TemplateId, log).subscribe((res: any) => {
       console.log(res);
-      this.toast.success('Template  Created Successfully');
+      this.toast.success('Signature Updated Successfully');
 
       // this.getDesign();
     },
@@ -633,7 +633,7 @@ console.log(body,'sbxkabxak');
       (err: any) => {
 
         console.log(err);
-        this.toast.error('File size is too big ');
+        this.toast.error('File size is too Large ');
       }
     )
 

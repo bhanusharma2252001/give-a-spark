@@ -208,7 +208,7 @@ this.firstNameColor = templateResult?.firstNameColor,
       this.api.removeLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
         this.getTemplateDetails();
-        this.toast.show('Logo has been removed')
+        this.toast.show('Logo Removed')
       })
     }
     if( this.planDetail == 'Plan A'){
@@ -218,7 +218,7 @@ this.firstNameColor = templateResult?.firstNameColor,
         this.api.removeLogo(this.tempId).subscribe((res:any)=>{
           console.log(this.tempId);
           this.getTemplateDetails();
-          this.toast.show('Logo has been removed')
+          this.toast.show('Logo Removed')
         })
       }
 //       else{
@@ -266,7 +266,7 @@ else if (window.getSelection)
   console.log(this.copytext
     ,'copy');
   
-  this.toast.success('Email Signature has been copied')
+    this.toast.show('Signature Has Been Copied')
   
 }
 document.execCommand('copy');

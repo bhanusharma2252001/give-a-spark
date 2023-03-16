@@ -285,7 +285,7 @@
                                                         <input type="text" formControlName="fbProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="faceB">
+                                                            [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-3">
@@ -294,7 +294,7 @@
                                                         <input type="text" formControlName="instagramProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="insta">
+                                                            [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-3">
@@ -303,7 +303,7 @@
                                                         <input type="text" formControlName="linkedInProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Linkedin">
+                                                            [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-4">
@@ -312,7 +312,7 @@
                                                         <input type="text" formControlName="youtubeChannel"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="uTube">
+                                                            [(ngModel)]="uTube" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-4">
@@ -321,7 +321,7 @@
                                                         <input type="text" formControlName="twitterProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Twitter">
+                                                            [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A' ">
 
                                                     </div>
 
@@ -364,7 +364,7 @@
                                                             </label>
                                                             <select class="form-select " [(ngModel)]="fontFamilyNew"
                                                                 [ngModelOptions]="{standalone: true}"
-                                                                aria-label="Default select example">
+                                                                aria-label="Default select example"  [disabled]="planDetail == 'Plan A'">
 
                                                                 <option *ngFor="let item of fontFamilyList"
                                                                     [value]="item">{{item}}</option>
@@ -378,7 +378,7 @@
                                                                 :</label>
                                                             <input type="range" class="form-range" min="0" max="5"
                                                                 value="3" (change)="changeSize($event)"
-                                                                id="customRange2">
+                                                                id="customRange2" [disabled]="planDetail == 'Plan A'">
 
                                                         </div>
                                                         <div class="mb-2 grid-2">
@@ -387,7 +387,7 @@
                                                                 class="form-label fw-semibold ">Line
                                                                 Height :</label>
                                                             <input type="range" value="3" (change)="changeLine($event)"
-                                                                class="form-range" min="0" max="5" id="customRange2">
+                                                                class="form-range" min="0" max="5" id="customRange2"  [disabled]="planDetail == 'Plan A'">
 
                                                         </div>
                                                         <div class="mb-2 grid-2">
@@ -421,21 +421,21 @@
 
                                                             <input [(colorPicker)]="firstNameColor"
                                                                 [style.background]="firstNameColor" style="width: 15px;
-                                                                                    height: 14px;" />
+                                                                                    height: 14px;"  [disabled]="planDetail == 'Plan A'" />
                                                         </div>
                                                         <div class="d-flex align-items-center">
                                                             <p class="mb-0 p-1">Designation :</p>
 
                                                             <input [(colorPicker)]="designationColor"
                                                                 [style.background]="designationColor" style="width: 15px;
-                                                                                    height: 14px;" />
+                                                                                    height: 14px;"  [disabled]="planDetail == 'Plan A'" />
                                                         </div>
                                                         <div class="d-flex align-items-center">
                                                             <p class="mb-0 p-1">Contact Details :</p>
 
                                                             <input [(colorPicker)]="contactDetailColor"
                                                                 [style.background]="contactDetailColor" style="width: 15px;
-                                                                                    height: 14px;" />
+                                                                                    height: 14px;"   [disabled]="planDetail == 'Plan A'">
                                                         </div>
                                                     </div>
                                                     <div class="">
@@ -468,7 +468,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row p-1 mt-4">
+                                            <!-- <div class="row p-1 mt-4">
                                                 <div class="col-md-4">
                                                     <div class="bg-darkgray rounded-3">
                                                         <div class="grid-2">
@@ -493,7 +493,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
@@ -801,10 +801,11 @@
                                                             <td style="width:215; font-size: 10pt; line-height: 15px;">
 
 
-                                                                <span style="display: block;text-align:center; "><img
+                                                                <span style="display: block;text-align:center; ">
+                                                                    <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank"><img
                                                                         src="https://giveaspark.s3.amazonaws.com/{{code}}"
                                                                         alt="Photo"
-                                                                        style="max-width:65px;height:65px; border:0;"></span>
+                                                                        style="max-width:65px;height:65px; border:0;"></a></span>
                                                                 <p style="font-size:8px;text-align:center;">
                                                                     Scan/Click QR</p>
 
@@ -885,28 +886,28 @@
                                                     <span
                                                         style="FONT-SIZE: 10pt; COLOR: #3a4345;line-height: 15px; text-transform: capitalize;"><br><strong>{{desig}}</strong></span>
                                                 </p> <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"
-                                                    *ngIf="tempDetails"><strong>M:</strong> {{number}}<br></span> <span
+                                                    ><strong *ngIf="number">M:</strong> {{number}}<br></span> <span
                                                     style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"
-                                                    *ngIf="tempDetails"><strong>P:</strong> {{compPhone}}<br></span>
-                                                <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"><strong>E
-                                                        :</strong> <a href="mailto:{email}"
+                                                   ><strong  *ngIf="compPhone">P:</strong> {{compPhone}}<br></span>
+                                                <span style="FONT-SIZE: 8pt;COLOR: #000000; line-height: 13pt;"><strong *ngIf="Email">E
+                                                        :</strong> <a href="mailto:{{Email}}"
                                                         style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"><span
                                                             style="FONT-SIZE: 9pt;COLOR: #000000; line-height: 13pt; text-decoration: none;"
-                                                            *ngIf="tempDetails"> {{Email}}</span></a></span>
+                                                            > {{Email}}</span></a></span>
                                                 <p style="padding-bottom: 0px; margin-bottom: 0px;"> <span
                                                         style="FONT-SIZE: 9pt;COLOR: #3a4345; line-height: 13pt;"
-                                                        *ngIf="tempDetails"><strong>W:</strong>
-                                                        {{compWebsite}}<br></span> <span
+                                                        *ngIf="compWebsite"><strong>W:</strong>
+                                                       <a href="{{compWebsite}}">{{compWebsite}}</a> <br></span> <span
                                                         style="FONT-SIZE: 9pt; line-height: 13pt; text-transform: capitalize;"
-                                                        *ngIf="tempDetails"> <span><strong>A:</strong>
+                                                        *ngIf="useraddress"> <span><strong>A:</strong>
                                                             {{useraddress}}<span> </span></span>
                                                         <!-- <span>{address2}</span> --> </span> </p>
                                             </td>
                                             <td style=" padding: 0 15px 0px 15px;">
-                                                <p style="padding: 0px; margin: 0px;"> <img
+                                                <p style="padding: 0px; margin: 0px;"> <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank"><img
                                                         src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
                                                         style="max-width:65px; height:65px; border:0;" width="90"
-                                                        border="0"> </p>
+                                                        border="0"> </a></p>
                                                 <p style="font-size:8px;margin:0"> Scan/Click QR</p>
                                             </td>
                                         </tr>
@@ -956,7 +957,7 @@
                                                     <span style="background-color: #2e9aa4;padding:1px;margin:5px;">
                                                     </span></span>
                                                 <span>
-                                                    <a href="{website}" target="_blank" rel="noopener"
+                                                    <a href="{{compWebsite}}" target="_blank" rel="noopener"
                                                         style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;"><span
                                                             style="font-size: 10pt; color: #003e4d !important; text-decoration:none ; font-weight: bold;">{{compWebsite}}</span></a>
                                                 </span>
@@ -982,7 +983,7 @@
                                                 </p>
                                             </td>
                                             <td style="padding: 15px 0 0 15px;">
-                                                <p
+                                                <p *ngIf="number"
                                                     style="white-space: nowrap; margin-bottom: 0px; padding-top: 0px; margin-top: 0px; line-height: 10pt; ">
                                                     <span
                                                         style="font-size: 9pt; line-height: 13pt; color: #2e9aa4;padding: 0 10px; font-weight: bold;">T
@@ -990,7 +991,7 @@
                                                     <span
                                                         style="font-size: 9pt; line-height: 13pt; color: #101010">{{number}}</span>
                                                 </p>
-                                                <p
+                                                <p *ngIf="compPhone"
                                                     style="white-space: nowrap; margin-bottom: 0px; padding-top: 0px; margin-top: 0px; line-height: 13pt; ">
                                                     <span
                                                         style="font-size: 9pt; line-height: 13pt; color: #2e9aa4;padding: 0 10px; font-weight: bold;">M
@@ -998,33 +999,33 @@
                                                     <span
                                                         style="font-size: 9pt; line-height: 13pt; color: #101010">{{compPhone}}</span>
                                                 </p>
-                                                <p
+                                                <p *ngIf="Email"
                                                     style="white-space: nowrap; margin-bottom: 0px; padding-top: 0px; margin-top: 0px; line-height: 13pt; ">
                                                     <span
                                                         style="font-size: 9pt; line-height: 13pt; color: #2e9aa4;padding: 0 10px; font-weight: bold;">E
                                                         :</span>
-                                                    <a href="mailto:{email}"
+                                                    <a href="mailto:{{Email}}"
                                                         style="text-decoration: none; font-size: 9pt; line-height: 13pt;  color: #101010"><span
                                                             style="text-decoration: none; font-size: 9pt; line-height: 13pt;  color: #101010">{{Email}}</span></a>
                                                 </p>
 
-                                                <p
+                                                <p *ngIf="useraddress"
                                                     style=" line-height: 13pt; white-space: nowrap; margin-bottom: 0px; padding-top: 0px; margin-top: 0px;">
                                                     <span
                                                         style="font-size: 9pt;  line-height: 13pt; color: #2e9aa4;padding: 0 10px;  font-weight: bold;">A
                                                         :</span>
                                                     <!-- <span style="font-size: 9pt;  line-height: 13pt; color: #101010;">{company}</span>  -->
                                                     <span
-                                                        style="font-size: 9pt;  line-height: 13pt; color: #101010; text-transform: capitalize;">{{useraddress}}}</span>
+                                                        style="font-size: 9pt;  line-height: 13pt; color: #101010; text-transform: capitalize;">{{useraddress}}</span>
                                                     <!-- <span style="font-size: 9pt;  line-height: 13pt; color: #101010">{address2}</span> -->
                                                 </p>
 
                                             </td>
                                             <td style="" width="120">
                                                 <p style="padding: 10px 10px 0 10px; margin: 0px;">
-                                                    <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
-                                                        style="max-width:90px; height:auto; border:0;color: #2e9aa4;"
-                                                        width="90" border="0">
+                                                  <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank"> <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
+                                                    style="max-width:90px; height:auto; border:0;color: #2e9aa4;"
+                                                    width="90" border="0"></a> 
                                                 </p>
                                                 <p style="font-size:8px;text-align:center;margin:0">
                                                     Scan/Click QR</p>
@@ -1827,23 +1828,23 @@
                                             </td>
 
                                             <td style="vertical-align: end;padding:10px;">
-                                                <p style="margin-bottom:0" [style.color]="contactDetailColor"
+                                                <p *ngIf="number" style="margin-bottom:0" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
                                                     <span style="font-weight: bold;">Mob. :</span> {{number}}
                                                 </p>
-                                                <p style="margin-bottom:0" [style.color]="contactDetailColor"
+                                                <p *ngIf="Email" style="margin-bottom:0" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
                                                     <span style="font-weight: bold;">Email. :</span>
                                                     {{Email}}
                                                 </p>
-                                                <p style="margin-bottom:0" [style.color]="contactDetailColor"
+                                                <p *ngIf="compWebsite"   style="margin-bottom:0" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
-                                                    <span style="font-weight: bold;">Web. :</span> {{compWebsite}}
+                                                    <span style="font-weight: bold;">Web. :</span> <a href="{{compWebsite}}">{{compWebsite}}</a>
                                                 </p>
-                                                <p style="margin-bottom:0" [style.color]="contactDetailColor"
+                                                <p  *ngIf="useraddress"    style="margin-bottom:0" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
                                                     <span style="font-weight: bold; text-transform: capitalize">Address.
@@ -1851,10 +1852,10 @@
                                                 </p>
                                             </td>
                                             <td style="vertical-align: center;">
-
+                                                <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
 
                                                 <img style="width:65px ;height:65px;text-align:left;"
-                                                    src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                                    src="https://giveaspark.s3.amazonaws.com/{{code}}"></a>
                                                 <div class="" *ngIf="logo">
                                                     <a target="_blank"><img alt="Logo"
                                                             style="max-width:100%;width:95px;height:35px;border:0;padding-right:10px;"
@@ -1986,13 +1987,13 @@
                                                                     [style.line-height]="lineHeight"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.font-size.px]="itemFontSize"> <span
-                                                                        style="padding:0 5px;color:#fff;"><img
+                                                                        style="padding:0 5px;color:#fff;"><img  *ngIf="number"
                                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png" style="width:13px; margin-right:3px;">
                                                                         {{number}} </span> <span
                                                                         style="padding:0 5px;color:#B9B9B9;"><img
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png" style="width:10px; margin-right:3px;">{{Email}}</span>
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png" *ngIf="Email" style="width:10px; margin-right:3px;">{{Email}}</span>
                                                                 </p>
-                                                                <p [style.color]="contactDetailColor"
+                                                                <p *ngIf="useraddress" [style.color]="contactDetailColor"
                                                                     [style.line-height]="lineHeight"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.font-size.px]="itemFontSize"> <span
@@ -2016,9 +2017,12 @@
                                             </td>
                                             <td style="color:white;width:5%;vertical-align:center;">
                                                 <div>
-                                                    <p style="text-align:right;"> </p> <img
+                                                    <p style="text-align:right;"> </p> 
+                                                    <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
+                                                    
+                                                    <img
                                                         style="width:65px;height:65px;"
-                                                        src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                                        src="https://giveaspark.s3.amazonaws.com/{{code}}"></a>
                                                     <!-- <div style="background-color:#fe890d;webkit-clip-path: polygon(11% 81%, 35% 85%, 61% 93%, 76% 91%, 89% 78%, 95% 60%, 94% 44%, 88% 18%, 100% 0, 100% 100%, 0 100%, 0% 85%); clip-path: polygon(11% 81%, 35% 85%, 61% 93%, 76% 91%, 89% 78%, 95% 60%, 94% 44%, 88% 18%, 100% 0, 100% 100%, 0 100%, 0% 85%); "></div> -->
                                                     <!-- <img style="" src="images/pro-4.png"> -->
                                                 </div>
@@ -2179,7 +2183,7 @@
                                             <td style="padding-left:10px;">
 
                                                 <div style="margin-top:5px;">
-                                                    <p style="margin-bottom:0;white-space: nowrap;"
+                                                    <p  *ngIf="number" style="margin-bottom:0;white-space: nowrap;"
                                                         [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
@@ -2189,7 +2193,7 @@
 
                                                     </p>
 
-                                                    <p style="margin-bottom:0;white-space: nowrap;"
+                                                    <p  *ngIf ="Email" style="margin-bottom:0;white-space: nowrap;"
                                                         [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
@@ -2199,13 +2203,13 @@
 
                                                     </p>
 
-                                                    <p style="margin-bottom:0;white-space: nowrap;"
+                                                    <p  *ngIf ="compWebsite" style="margin-bottom:0;white-space: nowrap;"
                                                         [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
                                                         [style.font-size.px]="itemFontSize">W:-
-                                                        <span style="padding:0 5px;">
-                                                            {{compWebsite}}</span>
+                                                        <span style="padding:0 5px;"><a href="{{compWebsite}}">{{compWebsite}}</a>
+                                                </span>
 
                                                     </p>
                                                     <p style="margin-bottom:0;white-space: nowrap;"
@@ -2221,9 +2225,9 @@
                                                 </div>
                                             </td>
                                             <td style="padding:5px 20px;vertical-align: baseline ;">
+                                                <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
                                                 <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
-                                                    height="65">
-                                                <p style="font-size:8px;text-align:left;">Remove Brand</p>
+                                                    height="65"></a>
                                             </td>
                                         </tr>
 
@@ -2958,25 +2962,27 @@
                                         <tr style="background-color:#341c30;color:white;">
 
                                             <td style="vertical-align: center;padding:10px;background-color:#341c30">
+                                                <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
                                                 <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
-                                                    height="65">
+                                                    height="65"></a>
                                             </td>
 
 
                                             <td style="vertical-align: end;padding:10px;">
-                                                <p style="font-size:12px;margin-bottom: 0;"
+                                                <p *ngIf="number"  style="font-size:12px;margin-bottom: 0;"
                                                     [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
                                                     <span style="font-weight: bold;">Mob. :</span> {{number}}
                                                 </p>
-                                                <p style="font-size:12px;margin-bottom: 0;"
+                                                <p *ngIf="compWebsite"  style="font-size:12px;margin-bottom: 0;"
                                                     [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
-                                                    <span style="font-weight: bold;">Web. :</span>{{compWebsite}}
+                                                    <span style="font-weight: bold;">Web. :</span> <a href="{{compWebsite}}" target="_blank">{{compWebsite}}</a>
+
                                                 </p>
-                                                <p style="font-size:12px;margin-bottom: 0;text-transform: capitalize"
+                                                <p *ngIf="useraddress" style="font-size:12px;margin-bottom: 0;text-transform: capitalize"
                                                     [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                                                     [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">
@@ -3049,27 +3055,27 @@
                                                     [style.font-size.px]="itemFontSize">
                                                     {{desig}}</h5>
 
-                                                <p style="margin-bottom:0px;" [style.color]="contactDetailColor"
+                                                <p *ngIf="number" style="margin-bottom:0px;" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Mob. :</span>
                                                     {{number}}</p>
-                                                <p style="margin-bottom:0px;" [style.color]="contactDetailColor"
+                                                <p *ngIf="compWebsite" style="margin-bottom:0px;" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Web. :</span>
                                                     {{compWebsite}}</p>
-                                                <p style="margin-bottom:0px;" [style.color]="contactDetailColor"
+                                                <p *ngIf="useraddress" style="margin-bottom:0px;" [style.color]="contactDetailColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize"><span
                                                         style="font-weight: bold;">Address. :</span>
                                                     {{useraddress}}</p>
                                             </td>
                                             <td style="text-align: end;">
-
+                                                <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank" >
 
                                                 <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65"
-                                                    height="65">
+                                                    height="65"></a>
 
                                             </td>
 
@@ -3178,8 +3184,8 @@
 
                                                     </span><span>
                                                         <a href="{{Linkedin}}"><img
-                                                                style="width:20px;height:20px;margin:5px;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/link+.png"></a>
+                                                                style="width:20px;height:20px;margin:5px; background-color: #280823;"
+                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/link.png"></a>
                                                     </span><span><a href="{{Twitter}}"><img
                                                                 style="width:20px;height:20px;margin:5px;"
                                                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twtr.png"></a></span><span>
@@ -3202,19 +3208,19 @@
 
                                             <td colspan="2"
                                                 style="vertical-align: end;padding:10px;padding-left: 42px;">
-                                                <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
+                                                <span *ngIf="number"  style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
                                                         [style.font-size.px]="itemFontSize">Mob:</span>
                                                     {{number}}</span>
-                                                <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
+                                                <span *ngIf="compWebsite"  style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
                                                         [style.font-size.px]="itemFontSize">Web:</span>
                                                     {{compWebsite}}</span>
-                                                <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
+                                                <span *ngIf="useraddress"  style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
@@ -4536,7 +4542,9 @@ padding: 21px;">
     </div>
 
 </div>
-<div class="modal fade" id="change-image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" #closeModal id="change-image" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close"
+        (click)="hideModel();">
     <div class="modal-dialog quotes-box">
         <div class="modal-content">
             <div class="modal-body">
