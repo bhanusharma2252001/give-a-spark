@@ -13,9 +13,10 @@
   --shadow: 0px 0px 25px 4px #2929296e;
 
 }
+
 .all-pages_padding {
-  padding-top: 70px;
-   padding-left: 100px !important; 
+  padding-top: 170px;
+  padding-left: 40px !important;
 }
 
 body {
@@ -430,7 +431,17 @@ span.carousel-control-next-icon {
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-  color: black;
+  color: #000000 !important;
+}
+
+.nav-item.active,.nav.nav-item-active {
+  border-bottom-color: red;
+}
+
+.nav-itms_name {
+  font-size: 23px;
+  font-weight: 700;
+  color: #B4B4B6 !important;
 }
 
 .outside-circle {
@@ -793,7 +804,7 @@ img.top-left {
 .header-shadow {
   width: 100%;
   height: auto;
-  /* position: fixed; */
+  position: fixed;
   z-index: 1;
   box-shadow: 4px 0px 25px rgba(0, 0, 0, .1);
 }
@@ -882,8 +893,7 @@ img.top-left {
 }
 
 /* .all-pages_padding {
-  padding-top: 165px;
-  /* padding-left: 100px !important; 
+  padding-top: 40px;
 } */
 
 .apps_button {
@@ -1020,6 +1030,7 @@ img.top-left {
 .light-bg {
   background-color: #E8E8EA;
 }
+
 .line-vertical {
   height: 176px;
   width: 1px;
@@ -1066,6 +1077,7 @@ img.top-left {
   left: -36px;
   top: 12px;
 }
+
 #exampleInputtext {
   border: 0;
   border-bottom: 1px solid black;
@@ -1217,7 +1229,7 @@ img.top-left {
 
 
 .dekstop-menu {
-margin-top: 60px; 
+  margin-top: 190px;
   /* position: fixed; */
 }
 
@@ -1555,4 +1567,26 @@ img.author_image {
   border: none;
   border-radius: 50px;
   color: #FFFFFF;
+}
+
+.Gmail_gif{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 90px;
+}
+.ref_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 20px;
+}
+.ref_btn button{
+  background-color: #F03149;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none; 
 }

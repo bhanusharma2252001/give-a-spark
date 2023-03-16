@@ -1,17 +1,87 @@
-.temp-content{
+.temp-content {
     margin-top: 40px;
 }
-.free-wh{
-    width: 350px;
+
+.free-wh {
+    width: 337px;
+    height: 243px;
+    border-radius: 14px;
 }
+
+.free-white{
+    width: 371px;
+    margin: auto;
+}
+
 .box-free {
-  
     height: 250px;
     padding: 0px;
     border-radius: 10px;
 }
-.top-demanding{
+
+.top-demanding {
     max-width: 1159px;
     height: auto;
     margin: 40px 0;
 }
+
+.temp_pro_shadow {
+    cursor: pointer;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+    border-radius: 18px;
+}
+
+.temp_pro_shadow:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .7);
+}
+
+.hover_btn {
+    position: absolute;
+    left: 90px;
+    top: 105px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.hover_btns_free {
+    position: absolute;
+    left: 140px;
+    top: 105px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.hover_btn a {
+    padding: 12px 20px;
+    text-align: center;
+    color: #FFFFFF !important;
+    border: solid 2px pink;
+    border-radius: 8px;
+    background-color: var(--pink);
+    z-index: 1;
+}
+// .hover_btn a:hover{
+//     transition: 0.3s all ease-in;
+// }
+
+.temp_pro_shadow:hover .hover_btn {
+    opacity: 1;
+}
+.nav-pills{
+    border-bottom: 4px solid #0000001f;
+    line-height: 50px;
+}
+

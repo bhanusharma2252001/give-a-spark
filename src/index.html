@@ -16,7 +16,8 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63d102b7e591ca001a313fe3&product=inline-share-buttons&source=platform" async="async"></script>
-  <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script>
     function openNav() {
         document.getElementById("media-share").style.width = "800px";
     }
@@ -24,6 +25,15 @@
     function closeNav() {
         document.getElementById("media-share").style.width = "0";
     }
+</script>
+<script>
+  $(document).ready(function(){
+      $('.nav-item.active').parent().addClass('nav-item-active');
+      $('.nav-item').click(function(){
+        $('.nav-item').removeClass('active');
+        $(this).addClass('active')
+      });
+    });
 </script>
 </head>
 <body>

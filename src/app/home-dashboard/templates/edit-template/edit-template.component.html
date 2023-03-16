@@ -73,7 +73,7 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="details" role="tabpanel"
                                         aria-labelledby="details-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-5">
 
                                             <div class="d-flex justify-content-between">
                                                 <div>
@@ -583,7 +583,7 @@
                         <div class="col-md-6 col-lg-6 pe-3 ">
 
 
-                            <div class="row position-relative progress_padd pb-5">
+                            <div class="row position-relative progress_padd pb-4">
                                 <div class="profile_complt-detail">
 
                                 </div>
@@ -720,7 +720,7 @@
 
 
                             <!-- ---------------------------TEMPLATE-3 ----------------------------- -->
-                            <div *ngIf="templateId == 9" style="background-color: #FFFFFF;padding:10px;">
+                            <div *ngIf="templateId == 9" style="background-color: #FFFFFF;padding:10px; border-radius: 15px;" class="mt-5">
                                 <table #tableData style="width: 514px; font-size: 11pt; font-family: Arial, sans-serif;"
                                     id="free-3" cellspacing="0" cellpadding="0" border="0">
                                     <tbody>
@@ -817,6 +817,7 @@
                                                             <td colspan="3" style="height: 23px;"></td>
                                                         </tr>
 
+
                                                     </tbody>
                                                 </table>
                                             </td>
@@ -837,7 +838,11 @@
                                             </td>
 
                                         </tr>
-
+                                        <tr>
+                                            <td colspan="3"
+                                                style="background-color:#b26b42; height: 60px; border-radius: 0 0 10px 10px;">
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -847,10 +852,10 @@
 
                             <!-- ------------------------TEMPLATE - 4----------------------------- -->
 
-                            <div *ngIf="templateId == 10" style="padding:10px;">
+                            <div *ngIf="templateId == 10" style="padding:10px;" class="mt-4">
                                 <p style="font-size:10px;text-align:left"> {{title}} </p>
                                 <table id="free-4" #tableData
-                                    style="background-color: #FFFFFF; border-radius:15px; FONT-FAMILY: Tahoma, sans-serif; filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); color:#3a4345; max-width:450px;"
+                                    style="background-color: #FFFFFF; border-radius:15px; FONT-FAMILY: Tahoma, sans-serif; filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); color:#3a4345; max-width:520px;"
                                     cellspacing="0" cellpadding="0">
                                     <tbody>
                                         <tr>
@@ -862,7 +867,8 @@
                                                         *ngIf="url"> <img alt="Profile" *ngIf="userProfile && !url"
                                                         style="width:100px;height:100px; border-radius: 15px;"
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                                                    <br> </p>
+                                                    <br>
+                                                </p>
                                                 <div style="padding:5px 0;text-align:center;" *ngIf="logo"> <img
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                         alt="Photo" style="max-width:65px; height:auto; border:0;">
@@ -914,11 +920,15 @@
                                                     *ngIf="tempDetails[3]?.quotesId?.quotesName">
                                                     "{{tempDetails[3]?.quotesId?.quotesName}}"</a> <a
                                                     style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
-                                                    *ngIf="tempDetails[3]?.quotes"> "{{quotevar}}"</a> </td>
+                                                    *ngIf="tempDetails[3]?.quotes"> "{{quotevar}}"</a>
+                                            </td>
                                         </tr>
-                                        <tr><td colspan="3" style="background-color:#d53700;height:60px;border-radius: 0 0 10px 10px;">
+                                        <tr>
+                                            <td colspan="3"
+                                                style="background-color:#d53700;height:60px;border-radius: 0 0 10px 10px;">
 
-                                        </td> </tr>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -927,10 +937,10 @@
 
 
                             <!-- -----------------------------TEMPLATE-5------------------------ -->
-                            <div *ngIf="templateId == 11" style="">
+                            <div *ngIf="templateId == 11" style="" class="mt-5">
                                 <p style="font-size:8px;">{{title}}</p>
                                 <table id="free-5" #tableData
-                                    style="FONT-FAMILY: Arial, sans-serif;background-color: #FFFFFF; border-radius:15px;  COLOR: #2e9aa4;max-width:450px;"
+                                    style="FONT-FAMILY: Arial, sans-serif;background-color: #FFFFFF; border-radius:15px;  COLOR: #2e9aa4;max-width:520px;"
                                     cellspacing="0" cellpadding="0" border="0">
                                     <tbody>
 
@@ -1041,9 +1051,12 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr><td colspan="3" style="background-color:#2f9aa3;height:60px;border-radius: 0 0 10px 10px;">
+                                        <tr>
+                                            <td colspan="3"
+                                                style="background-color:#2f9aa3;height:60px;border-radius: 0 0 10px 10px;">
 
-                                        </td> </tr>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -1754,7 +1767,7 @@
 
 
                             <!-- .......................  T  E  M P L A T E -1 PRO ................ -->
-                            <div *ngIf="templateId == 21" class="shadow bg-white temp-style p-3">
+                            <div *ngIf="templateId == 21" class="shadow bg-white temp-style p-3 mt-5">
 
 
 
@@ -1802,8 +1815,8 @@
                                                 <img class="width" [src]="url"
                                                     style="width:100px;height:100px;border-radius:50%;" *ngIf="url">
 
-                                                <img alt="Profile" [style.border-radius.px]="borderRadius" style=" width:100px;height:100px;border-radius:50%; vertical-align:
-                                                    middle; height: 65px;border-radius:50%;"
+                                                <img alt="Profile" [style.border-radius.px]="borderRadius" style=" border-radius:50%; vertical-align:
+                                                    middle; height: 80px;border-radius:50%;"
                                                     *ngIf="userProfile && !url"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                                                 <!-- <img [style.border-radius.px]="borderRadius"
@@ -1898,9 +1911,9 @@
                             </div>
 
                             <!-- .......................  T  E  M P L A T E -2 PRO ................ -->
-                            <div *ngIf="templateId == 22">
+                            <div *ngIf="templateId == 22" class="mt-5">
                                 <table cellpadding="0" cellspacing="0" id="pro-2" #tableData
-                                    style="background-color: #0D1A2A;border-radius:10px; font-size: medium;width:500px;height:280px; font-family: Arial;">
+                                    style="background-color: #0D1A2A;border-radius:10px; font-size: medium;width:520px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr style="height: 238px;">
                                             <td
@@ -1974,17 +1987,17 @@
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.font-size.px]="itemFontSize"> <span
                                                                         style="padding:0 5px;color:#fff;"><img
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png">
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png" style="width:13px; margin-right:3px;">
                                                                         {{number}} </span> <span
                                                                         style="padding:0 5px;color:#B9B9B9;"><img
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png">{{Email}}</span>
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png" style="width:10px; margin-right:3px;">{{Email}}</span>
                                                                 </p>
                                                                 <p [style.color]="contactDetailColor"
                                                                     [style.line-height]="lineHeight"
                                                                     [style.font-family]="fontFamilyNew"
                                                                     [style.font-size.px]="itemFontSize"> <span
                                                                         style="padding:0 5px;color:#B9B9B9; text-transform: capitalize"><img
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction-pro.png">
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction-pro.png" style="width:10px; margin-right:3px;">
                                                                         {{useraddress}} </span> </p>
                                                             </td>
                                                         </tr>
@@ -2129,10 +2142,10 @@
                             </div>
 
                             <!-- .......................  T  E  M P L A T E -4 PRO ................ -->
-                            <div *ngIf="templateId == 24">
+                            <div *ngIf="templateId == 24" class="mt-3">
                                 <p style="font-size:12px;text-align:left;">Signature Name</p>
                                 <table cellpadding="0" cellspacing="0" id="pro-4" #tableData
-                                    style="  background-color:#6cc0cc;font-size: medium;border-radius:10px;width:500px;height:280px; font-family: Arial;">
+                                    style="  background-color:#6cc0cc;font-size: medium;border-radius:10px;width:520px;height:280px; font-family: Arial;">
                                     <tbody>
 
                                         <tr>
@@ -2195,7 +2208,15 @@
                                                             {{compWebsite}}</span>
 
                                                     </p>
+                                                    <p style="margin-bottom:0;white-space: nowrap;"
+                                                    [style.color]="contactDetailColor"
+                                                    [style.line-height]="lineHeight"
+                                                    [style.font-family]="fontFamilyNew"
+                                                    [style.font-size.px]="itemFontSize">A-
+                                                    <span style="padding:0 5px;">
+                                                        {{useraddress}}</span>
 
+                                                </p>
 
                                                 </div>
                                             </td>
@@ -2866,9 +2887,9 @@
 
 
 
-                            <div *ngIf="templateId == 1">
+                            <div *ngIf="templateId == 1" class="pt-5">
                                 <table cellpadding="0" cellspacing="0" id="one" #tableData
-                                    style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
+                                    style="background-color: #fff  ;font-size: medium;width:560px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
                                             <td colspan="3" style="background-color: #fff;padding:10px;">
@@ -2889,22 +2910,22 @@
                                                     {{desig}}
                                                 </h5>
 
-                                                <p style="padding:10px;border-radius:  10px 10px 0 0;">
+                                                <p style="padding:10px 0px;border-radius:  10px 10px 0 0;">
                                                     <span><a href="{{faceB}}"><img
                                                                 style="width:20px;height:20px;margin:5px;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/face+.png"></a>
+                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/face.png"></a>
                                                     </span><span>
                                                         <a href="{{Linkedin}}"> <img
-                                                                style="width:20px;height:20px;margin:5px;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/link+.png"></a>
+                                                                style="width:20px;height:20px;margin:5px; background-color: #341c30;"
+                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/link.png"></a>
                                                     </span><span>
                                                         <a href="{{Twitter}}"> <img
                                                                 style="width:20px;height:20px;margin:5px;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twtr+.png"></a>
+                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twtr.png"></a>
                                                     </span><span>
                                                         <a href="{{insta}}"><img
                                                                 style="width:20px;height:20px;margin:5px;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/insta+.png"></a>
+                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/insta.png"></a>
                                                     </span>
                                                 </p>
                                             </td>
@@ -2965,7 +2986,7 @@
                                             </td>
 
 
-                                            <td style="color:black; margin: 3px;">
+                                            <td style="color:white; margin: 3px;">
                                                 <p *ngIf="proplus" style="padding: 10px; padding: 0px;font-size: 12px; width: 250px;
                 ">
                                                     <q *ngIf="proplus[0]?.quotesId?.quotesName">
@@ -2989,9 +3010,9 @@
                             </div>
 
                             <!-- ..............................Template-2................... -->
-                            <div *ngIf="templateId == 2" #tableData>
+                            <div *ngIf="templateId == 2" #tableData  class="mt-5">
                                 <table cellpadding="0" cellspacing="0" id="two"
-                                    style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
+                                    style="background-color: #fff  ;font-size: medium;width:542px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
                                             <td colspan="3" style="background-color: #f2c030;padding:8px;">
@@ -3109,9 +3130,9 @@
 
 
                             <!-- ..............................Template-3................... -->
-                            <div *ngIf="templateId == 3">
+                            <div *ngIf="templateId == 3" class="mt-5">
                                 <table cellpadding="0" cellspacing="0" id="three" #tableData
-                                    style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
+                                    style="background-color: #fff  ;font-size: medium;width:560px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
                                             <td colspan="5" style="background-color: #B4199A;padding:6px;">
@@ -3131,7 +3152,7 @@
                                                 style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;">
                                                 <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[2]?.profileImage"
-                                                    style="box-shadow: 0 2px 0 10px #B4199A;width:150px;height:150px;border-radius:50%;"
+                                                    style="box-shadow: 0 2px 0 10px #B4199A;width:130px;height:130px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[2]?.profileImage}}">
                                             </td>
                                             <td>
@@ -3185,19 +3206,19 @@
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
-                                                        [style.font-size.px]="itemFontSize">Mob. :</span>
+                                                        [style.font-size.px]="itemFontSize">Mob:</span>
                                                     {{number}}</span>
                                                 <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
-                                                        [style.font-size.px]="itemFontSize">Web. :</span>
+                                                        [style.font-size.px]="itemFontSize">Web:</span>
                                                     {{compWebsite}}</span>
                                                 <span style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                                                         style="font-weight: bold;" [style.color]="contactDetailColor"
                                                         [style.line-height]="lineHeight"
                                                         [style.font-family]="fontFamilyNew"
-                                                        [style.font-size.px]="itemFontSize">Address. :</span>
+                                                        [style.font-size.px]="itemFontSize">Address:</span>
                                                     {{useraddress}}</span>
                                             </td>
 
@@ -4045,16 +4066,16 @@ padding: 21px;">
                             </div>
 
 
-                            <div class="text-end mt-3">
+                            <!-- <div class="text-end mt-3">
 
-                            </div>
+                            </div> -->
                             <!-- <button class="green-btn px-3 py-2" data-bs-toggle="modal"
                                     data-bs-target="#done-templateModal">Done</button> -->
 
 
-                            <div class="text-end mt-3">
+                            <div class="text-end mt-3 mx-3">
 
-                                <button class="green-btn px-3 py-2" onclick="openNav()"> Ok I'M Done</button>
+                                <button class="green-btn px-3 py-2" onclick="openNav()"> Save My Signature</button>
                             </div>
                         </div>
 
@@ -4500,7 +4521,8 @@ padding: 21px;">
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
-                        <div class=""> How do I add my new email signature to Gmail?</div>
+                        <div class="Gmail_gif"><img src="assets/images/sync-gif.gif" alt="Gmail GIF"></div>
+                        <div class="ref_btn"><button>Refresh Your Gmail</button></div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                         aria-labelledby="v-pills-profile-tab">.Coming Soon.......</div>

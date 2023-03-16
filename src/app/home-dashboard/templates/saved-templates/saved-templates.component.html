@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-4">
     <div class="col-md-7 m-4 " *ngFor="let details of tempDetails">
 
         <table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData
@@ -26,9 +26,9 @@
                             </a>
                          
 
-                            <img style="width:95px ;height:35px" *ngIf="!(planDetail == 'Plan A')"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
+                            <img style="width:95px ;height:35px;" *ngIf="!(planDetail == 'Plan A')"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
                  
-                            <p style="font-size:8px; display: inline;" >Remove logo</p><span (click)="remove(details?._id)">X</span>    
+                            <p style=" font-size: 10px; display: inline; color: blue;" >Remove logo</p><span (click)="remove(details?._id)" style="margin-left: 4px; font-size: 10px;">X</span>    
               
                         </div>
                     </td>
@@ -212,7 +212,8 @@
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                             aria-labelledby="v-pills-home-tab">
-                            <div class=""> How do I add my new email signature to Gmail?</div>
+                            <div class="Gmail_gif"><img src="assets/images/sync-gif.gif" alt="Gmail GIF"></div>
+                            <div class="ref_btn"><button>Refresh Your Gmail</button></div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab">.Coming Soon.......</div>

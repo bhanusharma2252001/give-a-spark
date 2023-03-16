@@ -196,6 +196,17 @@ this.setGmail();
 
 
   ngOnInit(): void {
+    
+
+
+
+
+
+
+
+
+
+
     this.getTemplateByUser();
 
     this.getDesign();

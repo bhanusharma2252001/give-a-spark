@@ -1324,17 +1324,25 @@
 <ng-template #secondDialog style="width:200px;">
   <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
   <mat-dialog-content>
-    <p style="color:red; margin-left:13px;">
-      you are using pro features
+    <p style="color:red;   text-align:center;">
+   
+
+      Upgradtion Needed
 
     </p>
-    <p style="font-size:10px;"> Please upgrade your plan to improve your signatures</p>
-    <button type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
-      Get it Now
-    </button>
+    <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need to purchase the pro plan. </p>
+
+
 
   </mat-dialog-content>
-  <mat-dialog-actions align="end">
-
+  <mat-dialog-actions >
+    <button align="right" type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+      Get it Now
+    </button>
+    <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
   </mat-dialog-actions>
+  <!-- <mat-dialog-actions >
+
+    <button mat-button mat-dialog-close class="action">Cancel</button>
+  </mat-dialog-actions> -->
 </ng-template>
