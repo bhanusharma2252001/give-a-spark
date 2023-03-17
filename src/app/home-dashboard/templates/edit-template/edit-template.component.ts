@@ -267,23 +267,23 @@ hideModel() {
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
-      this.templateFontSize = 33
+      this.templateFontSize = 24
       this.itemFontSize = 13
       this.fontSizeName = 14
     } else if (currnetSize == 5) {
-      this.templateFontSize = 36
+      this.templateFontSize = 25
       this.fontSizeName = 15
       this.itemFontSize = 14
     } else if (currnetSize == 3) {
-      this.templateFontSize = 32
+      this.templateFontSize = 20
       this.itemFontSize = 10
       this.fontSizeName = 13
     } else if (currnetSize == 2) {
-      this.templateFontSize = 31
+      this.templateFontSize = 18
       this.itemFontSize = 8
       this.fontSizeName = 12
     } else {
-      this.templateFontSize = 30
+      this.templateFontSize = 17
       this.itemFontSize = 10
       this.fontSizeName = 11
     }
