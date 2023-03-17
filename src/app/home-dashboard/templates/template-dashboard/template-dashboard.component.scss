@@ -6,6 +6,7 @@
     width: 337px;
     height: 243px;
     border-radius: 14px;
+    background-size: cover;
 }
 
 .free-white{
@@ -48,7 +49,7 @@
 
 .hover_btn {
     position: absolute;
-    left: 90px;
+    left: 134px;
     top: 105px;
     text-align: center;
     opacity: 0;
@@ -82,6 +83,6 @@
 }
 .nav-pills{
     border-bottom: 4px solid #0000001f;
-    line-height: 50px;
+    // line-height: 50px;
 }
 

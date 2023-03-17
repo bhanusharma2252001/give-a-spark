@@ -195,6 +195,7 @@ a {
 .wh-225 {
   width: 180px !important;
   height: 180px !important;
+  border-radius: 50% !important;
 }
 
 img.w-250 {
