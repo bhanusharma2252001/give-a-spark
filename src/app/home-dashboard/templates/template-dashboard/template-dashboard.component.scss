@@ -3,15 +3,15 @@
 }
 
 .free-wh {
-    width: 337px;
-    height: 243px;
+    width: 100%;
+    height: auto;
     border-radius: 14px;
     background-size: cover;
 }
 
 .free-white{
-    width: 371px;
-    margin: auto;
+   width: 100%;
+   height: auto;
 }
 
 .box-free {
@@ -49,7 +49,7 @@
 
 .hover_btn {
     position: absolute;
-    left: 134px;
+    left: 120px;
     top: 105px;
     text-align: center;
     opacity: 0;
