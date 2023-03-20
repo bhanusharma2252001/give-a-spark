@@ -27,6 +27,7 @@ plandetails:any;
 myPlans(){
   this.api.getMyPlan().subscribe((res:any)=>{
 this.plandetails=res?.result[0];
+console.log(this.plandetails, 'planmkkgdfkg')
 
   })
 }

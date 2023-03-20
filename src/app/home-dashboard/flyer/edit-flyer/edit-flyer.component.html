@@ -15,7 +15,7 @@
             <div class="border-white mt-3 pb-3 text-center">
               <h6 class="text-yellow">Templates</h6>
 
-              <div class="mt-4">
+              <!-- <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-1.jpg" (click)="image1()">
               </div>
               <div class="mt-4">
@@ -38,7 +38,7 @@
               </div>
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-8.jpg" (click)="image8()">
-              </div>
+              </div> -->
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-9.jpg" (click)="image9()">
               </div>
@@ -57,6 +57,9 @@
               </div>
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-14.jpg" (click)="image14()">
+              </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/flyer-15.jpg" (click)="image15('pro')">
               </div>
             </div>
           </div>
@@ -126,7 +129,7 @@
           <br>
 
 
-          <div id="your-element" class="example-boundary" style="background-image:url({{imageSrc}});background-position: contain;background-repeat: no-repeat;  border: 1px solid #FF9C00;
+          <div *ngIf="templateShow=='temp'" id="your-element" class="example-boundary" style="background-image:url({{imageSrc}});background-position: contain;background-repeat: no-repeat;  border: 1px solid #FF9C00;
               border-radius: 8px;
               background-color: #eeeeee;">
             <table style="width:1050px;height:400px;">
@@ -146,19 +149,22 @@
                       <tr style="position:relative">
                         <td style="width:50%;padding: 10px; font-weight: bold;text-align: left;">
 
-                          <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"  [style.font-weight]="fontWeightNew"
-                            [style.font-family]="fontFamilyNew" [(colorPicker)]="color1" [style.color]="color1" cdkDrag
-                            type="text" value="Heading" style="font-weight: bolder; text-transform: capitalize;">
+                          <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                            [style.font-weight]="fontWeightNew" [style.font-family]="fontFamilyNew"
+                            [(colorPicker)]="color1" [style.color]="color1" cdkDrag type="text" value="Heading"
+                            style="font-weight: bolder; text-transform: capitalize;">
 
                         </td>
 
                       </tr>
                       <tr>
                         <td style="text-align:left;padding-bottom:15px;">
-                          <button  cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"  [style.font-weight]="fontWeightNew"
-                          [style.font-family]="fontFamilyNew" [(colorPicker)]="color1" [style.color]="color1" cdkDrag
+                          <button cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                            [style.font-weight]="fontWeightNew" [style.font-family]="fontFamilyNew"
+                            [(colorPicker)]="color1" [style.color]="color1" cdkDrag
                             style="background-color:#f06129;padding:10px 15px;border-radius:50px;color:white;border:0">
-                            <input cdkDrag  cdkDragBoundary=".example-boundary"  type="text" value="Get Started Now" /></button>
+                            <input cdkDrag cdkDragBoundary=".example-boundary" type="text"
+                              value="Get Started Now" /></button>
                         </td>
 
                       </tr>
@@ -173,19 +179,22 @@
                         <td>
                           <ul cdkDragBoundary=".example-boundary" cdkDrag style="list-style-type: square; ">
                             <li style="font-size:12px;">
-                              <input type="text"  cdkDragBoundary=".example-boundary"
-                              [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"  [style.font-weight]="fontWeightNew"
-                              [(colorPicker)]="color1" [style.color]="color1" cdkDrag value="Lorem Ipsum is simply dummy text">
+                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                                [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
+                                [(colorPicker)]="color1" [style.color]="color1" cdkDrag
+                                value="Lorem Ipsum is simply dummy text">
                             </li>
                             <li style="font-size:12px;">
-                              <input type="text"  cdkDragBoundary=".example-boundary"
-                              [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"  [style.font-weight]="fontWeightNew"
-                              [(colorPicker)]="color1" [style.color]="color1" cdkDrag value="Lorem Ipsum is simply dummy text">
+                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                                [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
+                                [(colorPicker)]="color1" [style.color]="color1" cdkDrag
+                                value="Lorem Ipsum is simply dummy text">
                             </li>
                             <li style="font-size:12px;">
-                              <input type="text"  cdkDragBoundary=".example-boundary"
-                              [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"  [style.font-weight]="fontWeightNew"
-                              [(colorPicker)]="color1" [style.color]="color1" cdkDrag value="Lorem Ipsum is simply dummy text">
+                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                                [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
+                                [(colorPicker)]="color1" [style.color]="color1" cdkDrag
+                                value="Lorem Ipsum is simply dummy text">
                             </li>
                           </ul>
                         </td>
@@ -254,18 +263,21 @@
                   left: 4px;
                   width: 76%;" class="d-flex justify-content-between">
                     <input type="text" placeholder="loremispum123@gmail.com" style="width: 80%;"
-                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"  [style.font-weight]="fontWeightNew" [(colorPicker)]="color1"
-                      [style.color]="color1" cdkDragBoundary=".example-boundary" cdkDrag>
+                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"
+                      [style.font-weight]="fontWeightNew" [(colorPicker)]="color1" [style.color]="color1"
+                      cdkDragBoundary=".example-boundary" cdkDrag>
                     <input type="text" placeholder="www.perfectiongeeks.com" style="width: 80%;"
-                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"  [style.font-weight]="fontWeightNew" [(colorPicker)]="color1"
-                      [style.color]="color1" cdkDragBoundary=".example-boundary" cdkDrag>
+                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"
+                      [style.font-weight]="fontWeightNew" [(colorPicker)]="color1" [style.color]="color1"
+                      cdkDragBoundary=".example-boundary" cdkDrag>
                     <p [style.font-family]="fontFamilyNew" [style.fontSize]="fontSize.value"
                       cdkDragBoundary=".example-boundary" [style.font-weight]="fontWeightNew"
                       [style.font-style]="fontStyleNew" cdkDrag style="left:85px"
                       class="d-flex m-0 justify-content-around">
 
-                      Phone: <input cdkDragBoundary=".example-boundary" cdkDrag [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew" 
-                        type="phone" value="9087654321, 8065342310" style="margin-left:5px"> </p>
+                      Phone: <input cdkDragBoundary=".example-boundary" cdkDrag [style.font-family]="fontFamilyNew"
+                        [style.font-weight]="fontWeightNew" type="phone" value="9087654321, 8065342310"
+                        style="margin-left:5px"> </p>
                   </div>
                 </tr>
 
@@ -280,7 +292,67 @@
 
           </div>
 
+          <div *ngIf="templateShow=='pro'">
+            <div class="outline" id="your-element" >
 
+              <!-- <a href="https://res.cloudinary.com/jduquain/q_auto,f_auto/annual-report_t6gtjg.jpg" class="inspiration"
+                target="_blank" rel="noopener">Inspiration</a> -->
+
+              <!-- <h1><span>Annual</span><span>Report</span></h1> -->
+              <h1 style="margin-left: 149px;"> <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                [style.font-weight]="fontWeightNew" [style.font-family]="fontFamilyNew"
+               cdkDrag type="text" value="Annual Report "
+                style="font-weight: bolder;" style="  text-transform: uppercase;
+                text-align: center;
+                padding-top: .75em; 
+                font-weight: 700;
+                display: block;
+                font-size: 1.3em;
+                line-height: 1; color: rgb(55, 55, 99);"></h1>
+              <div class="wrappy">
+                <div class="img-wrap">
+                  <img *ngIf="!url" cdkDrag cdkDragBoundary=".example-boundary" class="img-city" src="https://res.cloudinary.com/jduquain/q_auto,f_auto/city_sjlhka.jpg" alt="">
+
+                    <img class="img-city" cdkDrag cdkDragBoundary=".example-boundary" [src]="url"*ngIf="url" alt="">
+                </div>
+              </div>
+
+              <div class="box"></div>
+
+              <div class="bar bar--one"></div>
+              <div class="bar bar--two"></div>
+
+              <div class="triangle triangle--one"></div>
+
+              <div class="footer">
+<h3><input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+  [style.font-family]="fontFamilyNew"
+ cdkDrag type="text" value="Your Headline"  style="color:white; text-transform: uppercase;margin-left: 54px;"></h3>
+                <!-- <h3>Your Headline</h3> -->
+                <div class="numbers">
+                  <div class="number--one">
+                    <span></span>
+                   <p> <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                   [style.font-family]="fontFamilyNew"
+                   cdkDrag type="text" value="Lorem ipsum dolor sit amet, inspector"  style="color:white; "></p>
+                    <!-- <p>Lorem ipsum dolor sit amet, inspector</p> -->
+                  </div>
+                  <div class="number--two">
+                    
+                    <p> <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                      [style.font-family]="fontFamilyNew"
+                     cdkDrag type="text" value="Lorem ipsum dolor sit amet, inspector"  style="color:white; "></p>
+                  </div>
+                </div>
+                <p class="site"><input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+ [style.font-family]="fontFamilyNew"
+                 cdkDrag type="text" value="Lorem@gmail.com "  style="color:white; "></p>
+
+              </div>
+
+            </div>
+
+          </div>
 
 
 

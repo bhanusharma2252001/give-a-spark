@@ -29,6 +29,7 @@ export class EditFlyerComponent implements OnInit {
   urls:any;
   imgChangeEvt: any = '';
   cropImgPreview: any = '';
+  templateShow: any;
   onFileChange(event: any): void {
       this.imgChangeEvt = event;
   }
@@ -378,5 +379,7 @@ triggerResize() {
     this.imageSrc = './assets/images/flyer-14.jpg'
   }
 
-
+  image15(val:any){
+    this.templateShow=val
+  }
 }

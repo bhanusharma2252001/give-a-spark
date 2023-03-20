@@ -43,7 +43,8 @@
                         <h5 class="border-bottom w-50">Plan Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14" *ngIf="!plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.SelectPlan }})</p>
+                       <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
                         <button class="pink-btn p-2 fs-12 pe-3 ps-3" (click)="navigate()">Upgrade Plan</button>
                     </div>
                 </div>
@@ -52,12 +53,14 @@
                         <h5 class="border-bottom w-50">Billing Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
-                        <p class="fw-400 fs-14">Price : {{plandetails?.planId?.amount}}</p>
-                        <p class="fw-400 fs-14">Time Duration : {{plandetails?.planId?.timeDuration}}</p>
+
+                        <p class="fw-400 fs-14" *ngIf="!plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.SelectPlan}})</p>
+                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.amount">Price : {{plandetails?.planId?.amount}}</p>
+                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.timeDuration">Time Duration : {{plandetails?.planId?.timeDuration}}</p>
                         <div class="d-flex justify-content-between">
-                            <p class="fw-400 fs-14">From : {{plandetails?.fromDate| date:'dd/MM/yyyy'}}</p>
-                            <p class="fw-400 fs-14">To : {{plandetails?.expireDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14" *ngIf="plandetails?.fromDate">From : {{plandetails?.fromDate| date:'dd/MM/yyyy'}}</p>
+                            <p class="fw-400 fs-14" *ngIf="plandetails?.expireDate">To : {{plandetails?.expireDate| date:'dd/MM/yyyy'}}</p>
                         </div>
                       
                     </div>

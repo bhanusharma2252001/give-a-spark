@@ -410,4 +410,17 @@ removeSignatureLogo(id:any) {
   })
 }
 
+
+
+
+
+
+updatePass(body:any){
+  return this.http.put(environment.localApiURL+ '/api/user/changePassword', body,
+  {
+    headers: { Authorization: `bearer ${this.token}` }
+  }
+);
+}
+
 }

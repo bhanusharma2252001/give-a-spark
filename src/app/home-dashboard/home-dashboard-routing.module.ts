@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeDashboardComponent } from './home-dashboard.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MyorderComponent } from './myorder/myorder.component';
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
     }  ,
      {
       path:'home-page', component:HomePageComponent
+     },
+     
+     {
+      path:'setting', component:SettingComponent
      }
     ]}
 
