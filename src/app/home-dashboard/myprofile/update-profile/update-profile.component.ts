@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -40,7 +40,7 @@ export class UpdateProfileComponent implements OnInit {
 
       firstName:['', ],
       email:[''],
-      phone:[''],
+      phone:['',Validators.compose([Validators.required, Validators.pattern('\b[0-9]+)/g'),this.noWhitespaceValidator])],
       designation:[''],
       address:[''],
          country:[''],
@@ -53,7 +53,11 @@ profile:['']
       
     })
   }
-
+  public noWhitespaceValidator(control: FormGroup) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+}
   details: any;
   ngOnInit(): void {
     this.getbasicDetails();

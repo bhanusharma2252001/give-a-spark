@@ -21,8 +21,17 @@
                                     formControlName="email" [(ngModel)]="Email" readonly>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control light-bg text-black rounded-0  p-3" [(ngModel)]="number"
+                                <input type="text" class="form-control light-bg text-black rounded-0  p-3" [(ngModel)]="number"
                                     placeholder="Phone Number" id="exampleInputfiled" aria-describedby="textHelp" formControlName="phone">
+                                    <div *ngIf="profileUpdate.hasError('whitespace')">Please enter valid data</div>
+                                    <div *ngIf="profileUpdate.get('phone')?.hasError('required') "
+                                                    class="text-danger text-sm">
+                                                    <small class="fs-12">*Phone no. is required</small>
+                                                </div>
+                                                <div *ngIf="profileUpdate.get('phone')?.hasError('pattern')"
+                                                    class="text-danger text-sm">
+                                                    <small class="fs-12">*Please enter valid no.</small>
+                                                </div>
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control light-bg text-black rounded-0  p-3"
@@ -62,7 +71,7 @@
                         <div class="col-md-6 col-lg-6">
 
 
-                            <button type="submit" class="btn green-btn   ">Create Profile</button>
+                            <button type="submit" class="btn green-btn" [disabled]="!profileUpdate.valid">Create Profile</button>
                         </div>
                     </form>
                 </div>
