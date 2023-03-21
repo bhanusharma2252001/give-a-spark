@@ -720,7 +720,7 @@ console.log(body,'sbxkabxak');
       this.uTube=null
       this.Twitter = null
       evt.preventDefault()
-      // alert('hihi pro')
+   
     }
 
     

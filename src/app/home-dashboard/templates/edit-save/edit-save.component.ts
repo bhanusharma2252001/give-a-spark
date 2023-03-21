@@ -616,7 +616,7 @@ console.log(this.code);
       this.uTube=null
       this.Twitter = null
       evt.preventDefault()
-      alert('Pro Plan')
+     
     }
   }
 

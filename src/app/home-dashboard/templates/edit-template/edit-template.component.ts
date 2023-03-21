@@ -186,6 +186,7 @@ copytext:any;
     }, 1000);
   this.gettemplatebyUser();
   this.getPlanbyUser();
+  
   }
 
  

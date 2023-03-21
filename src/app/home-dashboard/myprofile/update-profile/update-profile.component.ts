@@ -34,6 +34,8 @@ export class UpdateProfileComponent implements OnInit {
   addr: any;
   Email: any;
   yBio: any;
+  countryName: any;
+  maxDate: string;
 
   constructor(private api: SparkService, private router:Router, private fb:FormBuilder, private spinner:NgxSpinnerService,private toast:ToastrService) { 
     this.profileUpdate=this.fb.group({
@@ -84,6 +86,7 @@ profile:['']
 this.addr=res.result[0]?.address[0]?.addressline1
 this.designation=res.result[0]?.designation
 this.yBio=res.result[0]?.yourBio
+this.countryName=res.result[0]?.country
       console.log(this.compwebsite, 'jojo')
 
       console.log(this.details),
@@ -185,6 +188,19 @@ onSubmit(data:any){
       // this.toast.error(err.error.body.slice(0, 20));
     }
   );
+}
+
+
+
+
+
+
+
+
+
+
+getToday(): string {
+  return new Date().toISOString().split('T')[0]
 }
 }
   

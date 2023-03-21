@@ -64,10 +64,10 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control light-bg text-black rounded-0  p-3"
                                     placeholder="Country" id="exampleInputfiled" aria-describedby="textHelp"
-                                    formControlName="country">
+                                    formControlName="country" [(ngModel)]="countryName" readonly>
                             </div>
                             <div class="mb-3">
-                                <input type="date" class="form-control light-bg text-black rounded-0  p-3"
+                                <input type="date" [max]="getToday()" class="form-control light-bg text-black rounded-0  p-3"
                                     placeholder="Date Of Birth" id="exampleInputemail" aria-describedby="textHelp"
                                     formControlName="DOB">
                             </div>

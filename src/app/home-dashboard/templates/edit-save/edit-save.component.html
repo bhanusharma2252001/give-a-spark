@@ -286,7 +286,7 @@
                                                         <input type="text" formControlName="fbProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="faceB">
+                                                            [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-3">
@@ -295,7 +295,7 @@
                                                         <input type="text" formControlName="instagramProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="insta">
+                                                            [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
                                                     <div class="mb-3">
@@ -304,7 +304,7 @@
                                                         <input type="text" formControlName="linkedInProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Linkedin">
+                                                            [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
 
                                                     </div>
                                                     <div class="mb-4">
@@ -322,7 +322,7 @@
                                                         <input type="text" formControlName="twitterProfile"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Twitter">
+                                                            [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
 
                                                     </div>
 

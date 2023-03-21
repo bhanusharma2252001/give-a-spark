@@ -39,6 +39,7 @@ export class SettingComponent implements OnInit {
   plandetails: any;
   currentDetails: any;
   previousDetails: any;
+  today=new Date();
   constructor(private api :SparkService, private fb:FormBuilder,private toast:ToastrService, private router:Router) {
     this.updateProfile=this.fb.group({
       phone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
@@ -70,7 +71,9 @@ export class SettingComponent implements OnInit {
     this.myPlans();
     this.myOrder();
   }
-
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
   profileData() {
     this.api.myProfile().subscribe((res:any)=>{
       this.userDetails = res;
@@ -87,7 +90,7 @@ this.compPhone=res?.companyPhone
 this.userProfile=res?.profile
 this.useraddress=res?.address[0]?.addressline1
       console.log(this.userDetails?.address[0]?.addressline1, "addddd")
-      this.country=res?.address[0]?.country
+      this.country=res?.country
     })
   }
 
