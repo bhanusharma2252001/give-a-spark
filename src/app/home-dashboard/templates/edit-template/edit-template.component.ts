@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, TemplateRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
@@ -8,6 +8,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-template',
@@ -147,15 +148,15 @@ copytext:any;
   logo: any;
 
 
+  @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
 
-
-  constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,
+  constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
     this.editTemplateForm = this.fb.group({
       yourName: [''],
       designation: [''],
       email: [''],
-      phoneNo: [''],
+      phoneNo:['',[Validators.pattern('[0-9 ]+')]],
       companyWebsite: [''],
       address: [''],
       fbProfile: [''],
@@ -165,7 +166,7 @@ copytext:any;
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
-      companyPhone: [''],
+      companyPhone: ['',[Validators.pattern('[0-9 ]+')]],
       twitterProfile: [''],
       signatureName:['']
     })
@@ -189,7 +190,18 @@ copytext:any;
 
  
 
+  selectFeature(val:any){
+    if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
   
+    // let a:any=document.getElementById("design").style.width = "800px";
+    this.dialog.open(this.secondDialog);
+    }
+    if(( val == 'apps' || val == 'social') && this.planDetail == 'Plan B') {
+  
+      // let a:any=document.getElementById("design").style.width = "800px";
+      this.dialog.open(this.secondDialog);
+      }
+  }
 
 
 CopyToClipboard(element:any) {

@@ -140,7 +140,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="number">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
+                                              Please enter a valid no.
+                                            </small>
+                                          </ng-container>
                                                     </div>
 
 
@@ -151,7 +156,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="compPhone">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
+                                              Please enter a valid no.
+                                            </small>
+                                          </ng-container>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"

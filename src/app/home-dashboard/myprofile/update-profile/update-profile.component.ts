@@ -40,7 +40,7 @@ export class UpdateProfileComponent implements OnInit {
 
       firstName:['', ],
       email:[''],
-      phone:['',Validators.compose([Validators.required, Validators.pattern('\b[0-9]+)/g'),this.noWhitespaceValidator])],
+      phone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
       designation:[''],
       address:[''],
          country:[''],
@@ -53,6 +53,10 @@ profile:['']
       
     })
   }
+  get f() { return this.profileUpdate.controls; }
+
+
+
   public noWhitespaceValidator(control: FormGroup) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
@@ -135,6 +139,7 @@ this.yBio=res.result[0]?.yourBio
 
   }
 onSubmit(data:any){
+  this.Submitted=true
   let body:any = {
     firstName: data?.firstName,
     description: data?.description,

@@ -18,8 +18,9 @@
                     <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 
-              <!-- <p class="text-info" (click)="resendOTP()">resend otp</p> -->
-               
+              <p class="text-info"  type="button"  *ngIf="resendVisible"  (click)="resend()">resend otp</p>
+              <span *ngIf="!resendVisible">{{display}}</span>
+              
                 <button class="pink-btn w-100 p-2" type="submit">Send</button>
              
                 

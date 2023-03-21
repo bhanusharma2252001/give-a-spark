@@ -126,7 +126,12 @@
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                 (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
                                 [(ngModel)]="number">
-
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['phoneNo'].touched && !signatureDetailsForm.controls['phoneNo'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['phoneNo'].hasError('pattern')">
+                  Please enter a valid no.
+                </small>
+              </ng-container>
                             </div>
 
 
@@ -135,7 +140,12 @@
                               <input type="text" formControlName="companyPhone"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" [(ngModel)]="compPhone">
-
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['companyPhone'].touched && !signatureDetailsForm.controls['companyPhone'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['companyPhone'].hasError('pattern')">
+                  Please enter a valid no.
+                </small>
+              </ng-container>
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>

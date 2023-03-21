@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
@@ -154,7 +154,7 @@ profileImages:any;
       yourName: [''],
       designation: [''],
       email: [''],
-      phoneNo: [''],
+      phoneNo: ['',[Validators.pattern('[0-9 ]+')]],
       companyWebsite: [''],
       address: [''],
       fbProfile: [''],
@@ -164,7 +164,7 @@ profileImages:any;
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
-      companyPhone: [''],
+      companyPhone: ['',[Validators.pattern('[0-9 ]+')]],
       twitterProfile: [''],
       signatureName:['']
     })
@@ -175,7 +175,7 @@ profileImages:any;
   // };
 
   }
-
+  get f() { return this.signatureDetailsForm.controls; }
 
 
 
@@ -405,14 +405,17 @@ this.userProfile=this.defaultDetails?.profile
 
 
 
-
   selectFeature(val:any){
     if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
   
     // let a:any=document.getElementById("design").style.width = "800px";
     this.dialog.open(this.secondDialog);
     }
-
+    if(( val == 'apps' || val == 'social') && this.planDetail == 'Plan B') {
+  
+      // let a:any=document.getElementById("design").style.width = "800px";
+      this.dialog.open(this.secondDialog);
+      }
   }
   
 

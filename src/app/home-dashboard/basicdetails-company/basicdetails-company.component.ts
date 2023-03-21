@@ -42,7 +42,7 @@ export class BasicdetailsCompanyComponent implements OnInit {
       companyWebsite: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
       companyAddress:[''],  
 
-      companyPhone:['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      companyPhone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
       companyFax:[''],
       companyLogo:[''],
       fbProfile: ['', [ Validators.pattern(reg)]],

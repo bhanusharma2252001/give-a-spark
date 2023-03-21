@@ -13,12 +13,13 @@
                     <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  formControlName="otp">
                     <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
+                <span *ngIf="!resendVisible">{{display}}</span>
                 
+                <a  *ngIf="resendVisible" type="button"  (click)="resend()">Resend </a>
               
                
                 <button class="pink-btn w-100 p-2" type="submit">Send</button>
-              
-                
+            
             </form>
             <img src="assets/images/s-line.png"  class="img-fluid position-absolute bottom-0 end-0">
             <img src="assets/images/f-line.png"  class="img-fluid position-absolute top-0 start-0">

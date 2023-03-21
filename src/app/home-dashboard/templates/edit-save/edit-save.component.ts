@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
@@ -158,7 +158,7 @@ copytext:any;
       yourName: [''],
       designation: [''],
       email: [''],
-      phoneNo: [''],
+      phoneNo: ['',[Validators.pattern('[0-9 ]+')]],
       companyWebsite: [''],
       address: [''],
       fbProfile: [''],
@@ -196,14 +196,18 @@ copytext:any;
  
  
   
-  selectFeature(val:any){
-    if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
-  
+selectFeature(val:any){
+  if((val == 'design' || val == 'social' || val == 'apps') && this.planDetail == 'Plan A') {
+
+  // let a:any=document.getElementById("design").style.width = "800px";
+  this.dialog.open(this.secondDialog);
+  }
+  if(( val == 'apps' || val == 'social') && this.planDetail == 'Plan B') {
+
     // let a:any=document.getElementById("design").style.width = "800px";
     this.dialog.open(this.secondDialog);
     }
-
-  }
+}
   
 
 CopyToClipboard(element:any) {

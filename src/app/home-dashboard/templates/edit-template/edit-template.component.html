@@ -22,7 +22,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab"
                                         data-bs-target="#social" type="button" role="tab" aria-controls="social"
-                                        aria-selected="true">
+                                        aria-selected="true" (click)="selectFeature('social')">
                                         <div class="box">
                                             <!-- <img class="wh-35 active-icon" src="assets/images/social-yellow.png"> -->
                                             <img class="wh-35 active-black" src="assets/images/social.png">
@@ -44,7 +44,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab"
                                         data-bs-target="#design" type="button" role="tab" aria-controls="home"
-                                        aria-selected="true">
+                                        aria-selected="true" (click)="selectFeature('design')">
                                         <div class="box">
                                             <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
                                             <img class="wh-35 active-black" src="assets/images/design.png">
@@ -55,7 +55,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link box-link p-1 " id="apps-tab" data-bs-toggle="tab"
                                         data-bs-target="#apps" type="button" role="tab" aria-controls="home"
-                                        aria-selected="true">
+                                        aria-selected="true" (click)="selectFeature('apps')">
                                         <div class="box">
                                             <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
                                             <img class="wh-35 " src="assets/images/apps.svg">
@@ -141,6 +141,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="number">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
+                                              Please enter a valid no.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
 
@@ -152,6 +158,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="compPhone">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
+                                              Please enter a valid no.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-4">
@@ -1983,30 +1995,33 @@
                                                         <tr>
                                                             <td
                                                                 style="margin-top:5px;white-space: nowrap;padding-top:10px;padding: 6px;border-radius: 6px;">
-                                                                <p [style.color]="contactDetailColor"
-                                                                    [style.line-height]="lineHeight"
-                                                                    [style.font-family]="fontFamilyNew"
-                                                                    [style.font-size.px]="itemFontSize"> <span
+                                                                <p > <span
                                                                         style="padding:0 5px;color:#fff;"><img  *ngIf="number"
                                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png" style="width:13px; margin-right:3px;">
-                                                                        {{number}} </span> <span
+                                                                       <span [style.color]="contactDetailColor"
+                                                                       [style.line-height]="lineHeight"
+                                                                       [style.font-family]="fontFamilyNew"
+                                                                       [style.font-size.px]="itemFontSize"> {{number}}</span> </span> <span
                                                                         style="padding:0 5px;color:#B9B9B9;"><img
-                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png" *ngIf="Email" style="width:10px; margin-right:3px;">{{Email}}</span>
+                                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail-pro.png" *ngIf="Email" style="width:10px; margin-right:3px;"><span  [style.color]="contactDetailColor"
+                                                                            [style.line-height]="lineHeight"
+                                                                            [style.font-family]="fontFamilyNew"
+                                                                            [style.font-size.px]="itemFontSize">{{Email}}</span></span>
                                                                 </p>
-                                                                <p *ngIf="useraddress" [style.color]="contactDetailColor"
-                                                                    [style.line-height]="lineHeight"
-                                                                    [style.font-family]="fontFamilyNew"
-                                                                    [style.font-size.px]="itemFontSize"> <span
+                                                                <p *ngIf="useraddress"> <span
                                                                         style="padding:0 5px;color:#B9B9B9; text-transform: capitalize"><img
                                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction-pro.png" style="width:10px; margin-right:3px;">
-                                                                        {{useraddress}} </span> </p>
+                                                                 <span  [style.color]="contactDetailColor"
+                                                                 [style.line-height]="lineHeight"
+                                                                 
+                                                                 [style.font-size.px]="itemFontSize">  {{useraddress}} </span>      </span> </p>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"> <span color="#f2547d" direction="vertical"
                                                                     width="1"
                                                                     style=" border-bottom: none; border-left: 3px solid #fe890d;">
-                                                                </span> <span
+                                                                </span> <span [style.font-family]="fontFamilyNew"
                                                                     style="padding-left:10px;color:#f8f1f1;font-size: 12px;">
                                                                     <q *ngIf="proList[1]?.quotesId?.quotesName">“{{proList[1]?.quotesId?.quotesName}}
                                                                     </q> <q *ngIf="proList[1]?.quotes">{{quotevar}}</q>
@@ -4572,3 +4587,33 @@ padding: 21px;">
         </div>
     </div>
 </div>
+
+
+
+
+
+<ng-template #secondDialog style="width:200px;">
+    <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
+    <mat-dialog-content>
+      <p style="color:red;   text-align:center;">
+     
+  
+        Upgradtion Needed
+  
+      </p>
+      <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need to purchase the pro plan. </p>
+  
+  
+  
+    </mat-dialog-content>
+    <mat-dialog-actions >
+      <button align="right"  mat-button mat-dialog-close type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+        Get it Now
+      </button>
+      <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
+    </mat-dialog-actions>
+    <!-- <mat-dialog-actions >
+  
+      <button mat-button mat-dialog-close class="action">Cancel</button>
+    </mat-dialog-actions> -->
+  </ng-template>

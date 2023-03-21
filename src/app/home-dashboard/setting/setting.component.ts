@@ -41,8 +41,8 @@ export class SettingComponent implements OnInit {
   previousDetails: any;
   constructor(private api :SparkService, private fb:FormBuilder,private toast:ToastrService, private router:Router) {
     this.updateProfile=this.fb.group({
-      phone:[''],
-    companyPhone:[''],
+      phone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
+    companyPhone:['',Validators.pattern('[0-9 ]+')],
     companyWebsite:[''],
     companyName:[''],
     country:[''],
@@ -63,6 +63,7 @@ export class SettingComponent implements OnInit {
     }
     )
    }
+   get f() { return this.updateProfile.controls; }
 
   ngOnInit(): void {
     this.profileData() ;
@@ -138,6 +139,7 @@ subImageSubmit(){
 
 }
 onSubmit(data:any){
+  this.Submitted=true;
 let body:any = {
 
   profile:this.imageData2?this.imageData2:this.userProfile,

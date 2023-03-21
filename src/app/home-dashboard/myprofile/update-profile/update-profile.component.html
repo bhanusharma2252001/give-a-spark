@@ -23,7 +23,17 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control light-bg text-black rounded-0  p-3" [(ngModel)]="number"
                                     placeholder="Phone Number" id="exampleInputfiled" aria-describedby="textHelp" formControlName="phone">
-                                    <div *ngIf="profileUpdate.hasError('whitespace')">Please enter valid data</div>
+
+                                    <div *ngIf="Submitted && f['phone']errors" class="invalid-feedback">
+                                        <span *ngIf="f['phone']errors['required']">phone no. is required</span>
+                                      </div>
+                                      <ng-container class="po-re"
+                                      *ngIf="profileUpdate.controls['phone'].touched && !profileUpdate.controls['phone'].valid">
+                      <small class="text-danger" *ngIf="profileUpdate.controls['phone'].hasError('pattern')">
+                        Please enter a valid no.
+                      </small>
+                    </ng-container>
+                                    <!-- <div *ngIf="profileUpdate.hasError('whitespace')">Please enter valid data</div>
                                     <div *ngIf="profileUpdate.get('phone')?.hasError('required') "
                                                     class="text-danger text-sm">
                                                     <small class="fs-12">*Phone no. is required</small>
@@ -31,7 +41,7 @@
                                                 <div *ngIf="profileUpdate.get('phone')?.hasError('pattern')"
                                                     class="text-danger text-sm">
                                                     <small class="fs-12">*Please enter valid no.</small>
-                                                </div>
+                                                </div> -->
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control light-bg text-black rounded-0  p-3"

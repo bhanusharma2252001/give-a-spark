@@ -45,7 +45,7 @@ details:any;
       firstName:['',[Validators.required]],
       companyName:['',[Validators.required]],
       companyWebsite:['',[Validators.required]],
-      phone:['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      phone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
       stdCode:['']
       
 
