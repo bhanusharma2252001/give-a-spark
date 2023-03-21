@@ -154,22 +154,23 @@ copytext:any;
   std: any;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
+      const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.editTemplateForm = this.fb.group({
       yourName: [''],
       designation: [''],
-      email: [''],
+      email: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNo: ['',[Validators.pattern('[0-9 ]+')]],
       companyWebsite: [''],
       address: [''],
-      fbProfile: [''],
-      instagramProfile: [''],
-      linkedInProfile: [''],
-      youtubeChannel: [''],
+      fbProfile: ['', [ Validators.pattern(reg)]],
+      instagramProfile: ['', [ Validators.pattern(reg)]],
+      linkedInProfile: ['', [ Validators.pattern(reg)]],
+      youtubeChannel: ['', [ Validators.pattern(reg)]],
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
       companyPhone: [''],
-      twitterProfile: [''],
+      twitterProfile:  ['', [ Validators.pattern(reg)]],
       signatureName:['']
     })
 

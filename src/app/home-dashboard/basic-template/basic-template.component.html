@@ -162,14 +162,23 @@
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                 (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
                                 [(ngModel)]="Email">
-
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['email'].touched && !signatureDetailsForm.controls['email'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['email'].hasError('pattern')">
+                  Please enter a valid Email Address.
+                </small>
+              </ng-container>
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Website</label>
                               <input type="text" formControlName="companyWebsite" (keyup)="changeDesignation()"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="www.domain.com"
                                 aria-describedby="textHelp" [(ngModel)]="compWebsite">
-
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['youtubeChannel'].touched && !signatureDetailsForm.controls['youtubeChannel'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['youtubeChannel'].hasError('pattern')">Please enter a valid Domain.
+                </small>
+              </ng-container>
                             </div>
                             <div class="mb-4" *ngIf="!LongQuote">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
@@ -256,36 +265,62 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Facebook
                               </label>
                               <input type="text" formControlName="fbProfile"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.facebook.com/<username>"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="faceB">
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['fbProfile'].touched && !signatureDetailsForm.controls['fbProfile'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['fbProfile'].hasError('pattern')">Please enter a valid URL.
+                </small>
+              </ng-container>
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
-                              <input type="text" formControlName="instagramProfile"
+                              <input type="text" formControlName="instagramProfile" placeholder="https://www.instagrma.com/<username>"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="insta">
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['instagramProfile'].touched && !signatureDetailsForm.controls['instagramProfile'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['instagramProfile'].hasError('pattern')">Please enter a valid URL.
+                </small>
+              </ng-container>
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
                               <input type="text" formControlName="linkedInProfile"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.linkedIn.com/<username>"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Linkedin">
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['linkedInProfile'].touched && !signatureDetailsForm.controls['linkedInProfile'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['linkedInProfile'].hasError('pattern')">Please enter a valid URL.
+                </small>
+              </ng-container>
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
                               <input type="text" formControlName="youtubeChannel"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.youtube.com/<username>"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="uTube">
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['youtubeChannel'].touched && !signatureDetailsForm.controls['youtubeChannel'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['youtubeChannel'].hasError('pattern')">Please enter a valid URL.
+                </small>
+              </ng-container>
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
-                              <input type="text" formControlName="twitterProfile"
+                              <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Twitter">
+                                <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['twitterProfile'].touched && !signatureDetailsForm.controls['twitterProfile'].valid">
+                <small class="text-danger" *ngIf="signatureDetailsForm.controls['twitterProfile'].hasError('pattern')">Please enter a valid URL.
+                </small>
+              </ng-container>
+
 
                             </div>
 
@@ -479,24 +514,30 @@
                         <div class="col-md-12">
                           <div class="row align-items-center justify-content-center">
                             <button class="apps_button">
-                              <div class="app_div"><img src="assets/images/online-scheduler.png"
-                                  alt="Online Scheduler Image" /><span>Online Scheduler</span></div>
+                              <div onclick="openscheduler()" class="app_div"><img src="assets/images/online-scheduler.png"
+                                  alt="Online Scheduler Image" /><span>Online
+                                  Scheduler</span></div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="opendisclaimer()" class="apps_button">
                               <div class="app_div"><img src="assets/images/disclaimer.png"
-                                  alt="Disclaimer Image" /><span>Disclaimer</span></div>
+                                  alt="Disclaimer Image" /><span>Disclaimer</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="openaddgreenfooter()" class="apps_button">
                               <div class="app_div"><img src="assets/images/green-footer.png"
-                                  alt="Green Footer Image" /><span>Green Footer</span></div>
+                                  alt="Green Footer Image" /><span>Green Footer</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="openimagegallery()" class="apps_button">
                               <div class="app_div"><img src="assets/images/image-gallary.png"
-                                  alt="Image Gallary Image" /><span>Image Gallery</span></div>
+                                  alt="Image Gallary Image" /><span>Image
+                                  Gallery</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="openyoutubechannel()" class="apps_button">
                               <div class="app_div"><img src="assets/images/youtube-icon.png"
-                                  alt="Youtube Channel" /><span>Youtube Channel</span></div>
+                                  alt="Youtube Channel" /><span>Youtube Channel</span>
+                              </div>
                             </button>
                             <button class="apps_button">
                               <div class="app_div"><img src="assets/images/custom-button.png"
@@ -1356,3 +1397,729 @@
     <button mat-button mat-dialog-close class="action">Cancel</button>
   </mat-dialog-actions> -->
 </ng-template>
+
+
+<div id="myaddgreenfooter" class="addgreenfooter design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Add A Green Footer
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeaddgreenfooter()">×</a>
+    </div>
+
+    <h6>Choose A Text</h6>
+
+    <form class="mt-4">
+
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label fs-14" for="gridRadios1">
+          Environmental Responsibilities
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Environmental Responsibilities Short
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Do You Really Need ?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Printing Kills Trees
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Correct Recipients
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label fs-14" for="gridRadios2">
+              Custom Footer
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button class="pink-btn py-2 px-3">Upgrade Plan</button>
+        </div>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold">Footer style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div>
+      </div>
+
+
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;border-radius:50%;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="myimagegallery" class="imagegallery design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Image Gallery
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeimagegallery()">×</a>
+    </div>
+
+    <h6>Add your images :</h6>
+
+    <div class="mt-5">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <form>
+            <label class="upload-area">
+              <input class="upload-display" type="file">
+              <span class="upload-button">
+                <i class="fas fa fa-plus" aria-hidden="true"></i>
+              </span>
+            </label>
+          </form>
+
+        </div>
+        <div class="col-auto">
+          <label class="upload-area">
+            <input class="upload-display" type="file">
+            <span class="upload-button">
+              <i class="fas fa fa-plus" aria-hidden="true"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col-auto">
+          <label class="upload-area">
+            <input class="upload-display" type="file">
+            <span class="upload-button">
+              <i class="fas fa fa-plus" aria-hidden="true"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col-auto">
+          <label class="upload-area">
+            <input class="upload-display" type="file">
+            <span class="upload-button"><i class="fas fa fa-plus" aria-hidden="true"></i>
+
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+
+
+        </div>
+        <div class="col-auto">
+
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Title ( Optional) :</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" class="form-control" placeholder="Your image title">
+        </div>
+
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Size :</label>
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label></div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
+              <div style="width: 20px; height: 20px; background-color: #D9D9D9;"></div>
+            </label></div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
+              <div style="width: 20px; height: 20px; border-radius: 5px; background-color: #D9D9D9;"></div>
+            </label></div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
+            </label></div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" placeholder="  https://www.applylink">
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3">Cancel</button>
+          </div>
+          <div id="mydisclaimer" class="disclaimer design-app">
+
+            <div class="p-4">
+              <div class="d-flex">
+                <h4 class="fw-bold">Add A Disclaimer
+                </h4>
+                <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
+              </div>
+          
+              <h6>Choose A Disclaimer Type</h6>
+              <form class="mt-4">
+          
+                <div class="form-check text-black ">
+          
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                  <label class="form-check-label fs-14" for="gridRadios1">
+                    Confidentiality
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  <label class="form-check-label fs-14" for="gridRadios2">
+                    No Viruses
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                  <label class="form-check-label fs-14" for="gridRadios3">
+                    Non-Binding
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+                  <label class="form-check-label fs-14" for="gridRadios4">
+                    Personal Opinions
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
+                  <label class="form-check-label fs-14" for="gridRadios5">
+                    Correct Recipients
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
+                  <label class="form-check-label fs-14" for="gridRadios6">
+                    Custom Disclaimer
+                  </label>
+                </div>
+              </form>
+              <div class="mt-5">
+                <h5 class="fw-bold"> Disclaimer style
+                </h5>
+                <div class="row g-3 align-items-center mb-3">
+                  <div class="col-auto">
+                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+                  </div>
+                  <div class="col-auto">
+                    <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+                  </div>
+                </div>
+                <div class="row g-3 align-items-center mb-3">
+                  <div class="col-auto">
+                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+          
+                  </div>
+                  <div class="col-auto">
+                    <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+                  </div>
+                </div>
+                <div class="row g-3 align-items-center mb-3">
+                  <div class="col-auto">
+                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+                  </div>
+                  <div class="col-auto">
+                    <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+                  </div>
+                  <div class="col-auto">
+                    <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+                  </div>
+                  <div class="col-auto">
+                    <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+                  </div>
+                  <div class="col-auto">
+                    <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+                  </div>
+                </div>
+          
+          
+                <div class="row">
+                  <div class="col-auto">
+                    <button class="green-btn py-2 px-3">Add</button>
+                  </div>
+                  <div class="col-auto">
+                    <button class="gray-btn py-2 px-3">Cancel</button>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="myonline-scheduler" class="online-scheduler design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Online Meeting Scheduler
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()">×</a>
+    </div>
+
+    <h6>Choose Scheduling Provider</h6>
+    <form class="mt-4">
+      <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label fs-14" for="gridRadios1">
+          First radio
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Second radio
+        </label>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold"> Button Design
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="inputtext" class="form-control fs-14">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              Full
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              Light
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              Simple Link
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size">S</p>
+            <p class="design-size">S</p>
+            <p class="design-size">S</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="myyoutubechannel" class="youtubechannel design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Youtube Channel
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeyoutubechannel()">×</a>
+    </div>
+
+    <h6>Enter your channel URL/Title</h6>
+
+    <form class="mt-4">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Channel URL :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label fs-14" for="gridRadios2">
+              Custom Footer
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button class="pink-btn py-2 px-3">Upgrade Plan</button>
+        </div>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold">Footer style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/calender.png">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div>
+      </div>
+
+
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;border-radius:50%;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:20px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

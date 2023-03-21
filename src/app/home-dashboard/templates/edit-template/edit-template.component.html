@@ -144,7 +144,7 @@
                                                             <ng-container class="po-re"
                                                             *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
                                             <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
-                                              Please enter a valid no.
+                                              Please enter a valid Phone No.
                                             </small>
                                           </ng-container>
 
@@ -161,7 +161,7 @@
                                                             <ng-container class="po-re"
                                                             *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
                                             <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
-                                              Please enter a valid no.
+                                              Please enter a valid  Phone No.
                                             </small>
                                           </ng-container>
 
@@ -183,16 +183,26 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Email">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['email'].touched && !editTemplateForm.controls['email'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['email'].hasError('pattern')">
+                                              Please enter a valid Email Address.
+                                            </small>
+                                          </ng-container>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Website</label>
                                                         <input type="text" formControlName="companyWebsite"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" 
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="compWebsite">
-
+                                                            [(ngModel)]="compWebsite" placeholder="www.domain.com">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
+                                              Please enter a valid Domain.
+                                            </small>
+                                          </ng-container>
                                                     </div>
                                                     <div class="mb-4" *ngIf="!LongQuote">
                                                         <label for="exampleInputfiled"
@@ -247,23 +257,7 @@
                                                         <img class="wh-100"
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}"
                                                             *ngIf="userProfile && !url">
-                                                        <!-- <div *ngIf="!tempDetails?.profileImage">
-                                                            <img class="width" src="assets/images/logo.png " />
-                                                        </div> -->
-                                                        <!-- <div *ngIf="tempDetails?.profileImage ">
-
-
-                                                            <div
-                                                                *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                <img class="wh-150 rounded-circle"
-                                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                                            </div>
-                                                        </div> -->
-                                                        <!-- <div
-                                                        *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                        <img [style.border-radius.px]="borderRadius" class="w-40 p-2" src="{{tempDetails?.profileImage }}">
-                                                      </div> -->
-
+                                                        
 
                                                         <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
                                                             data-bs-toggle="modal" data-bs-target="#change-image">
@@ -294,46 +288,70 @@
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Facebook
                                                         </label>
-                                                        <input type="text" formControlName="fbProfile"
+                                                        <input type="text" formControlName="fbProfile" placeholder="https://www.facebook.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Instagram</label>
-                                                        <input type="text" formControlName="instagramProfile"
+                                                        <input type="text" formControlName="instagramProfile" placeholder="https://www.instagram.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">LinkedIn</label>
-                                                        <input type="text" formControlName="linkedInProfile"
+                                                        <input type="text" formControlName="linkedInProfile" placeholder="https://www.linkedIn.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Youtube</label>
-                                                        <input type="text" formControlName="youtubeChannel"
+                                                        <input type="text" formControlName="youtubeChannel" placeholder="https://www.youtube.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="uTube" [readonly]="planDetail == 'Plan A'">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Twitter</label>
-                                                        <input type="text" formControlName="twitterProfile"
+                                                        <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A' ">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
 
@@ -2185,7 +2203,7 @@
                                             <td
                                                 style="width:194px;padding:10px;background-color: #fff; vertical-align: center;text-align:end;border-radius:0 225px 225px 0; ">
                                                 <img class="width" [src]="url"
-                                                    style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
+                                                    style="width:110px;height:110px;padding:5px; border-radius:50%"
                                                     *ngIf="url">
                                                 <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                                                     style="width:100px;height:100px;margin-left:-75px; border-radius:50%"

@@ -180,6 +180,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Email">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['email'].touched && !editTemplateForm.controls['email'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['email'].hasError('pattern')">
+                                              Please enter a valid no.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-4">
@@ -283,7 +289,7 @@
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Facebook
                                                         </label>
-                                                        <input type="text" formControlName="fbProfile"
+                                                        <input type="text" formControlName="fbProfile" placeholder="https://www.facebook.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
@@ -292,7 +298,7 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Instagram</label>
-                                                        <input type="text" formControlName="instagramProfile"
+                                                        <input type="text" formControlName="instagramProfile" placeholder="https://www.instagram.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
@@ -301,7 +307,7 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">LinkedIn</label>
-                                                        <input type="text" formControlName="linkedInProfile"
+                                                        <input type="text" formControlName="linkedInProfile" placeholder="https://www.linkedIn.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
@@ -310,7 +316,7 @@
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Youtube</label>
-                                                        <input type="text" formControlName="youtubeChannel"
+                                                        <input type="text" formControlName="youtubeChannel" placeholder="https://www.youtube.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="uTube">
@@ -319,7 +325,7 @@
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
                                                             class="form-label fw-semibold ">Twitter</label>
-                                                        <input type="text" formControlName="twitterProfile"
+                                                        <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">

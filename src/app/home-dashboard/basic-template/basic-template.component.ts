@@ -150,22 +150,23 @@ profileImages:any;
 
   constructor(private api: SparkService, myElement: ElementRef,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private dialog: MatDialog,private spinner:NgxSpinnerService) {
+      const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.signatureDetailsForm = this.fb.group({
       yourName: [''],
       designation: [''],
-      email: [''],
+      email: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNo: ['',[Validators.pattern('[0-9 ]+')]],
-      companyWebsite: [''],
+      companyWebsite: ['', [ Validators.pattern(reg)]],
       address: [''],
-      fbProfile: [''],
-      instagramProfile: [''],
-      linkedInProfile: [''],
-      youtubeChannel: [''],
+      fbProfile: ['', [ Validators.pattern(reg)]],
+      instagramProfile: ['', [ Validators.pattern(reg)]],
+      linkedInProfile: ['', [ Validators.pattern(reg)]],
+      youtubeChannel: ['', [ Validators.pattern(reg)]],
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
       companyPhone: ['',[Validators.pattern('[0-9 ]+')]],
-      twitterProfile: [''],
+      twitterProfile:  ['', [ Validators.pattern(reg)]],
       signatureName:['']
     })
   //   router.canceledNavigationResolution = 'computed';

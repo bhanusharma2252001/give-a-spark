@@ -1475,9 +1475,9 @@ img.author_image {
   height: 90px;
 }
 
-.z-indexss {
+/* .z-indexss {
   z-index: 1;
-}
+} */
 
 .bannner_one {
   background: url(../images/botoom-banner.png);
@@ -1630,4 +1630,37 @@ img.author_image {
 .setting-color{
   color:#9C9C9E;
 }
+.upload {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  label {
+    cursor: pointer;
+}
+   .upload-display {
+      display: none;
+    }
+
+ .upload-button{
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border: 1px dashed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .4s; }
+
+    .fas {
+        position: absolute;
+        font-size: 25px;
+      }
+
+
 
