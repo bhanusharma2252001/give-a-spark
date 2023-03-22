@@ -126,12 +126,13 @@
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                 (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
                                 [(ngModel)]="number">
-                                <ng-container class="po-re"
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['phoneNo'].touched && !signatureDetailsForm.controls['phoneNo'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['phoneNo'].hasError('pattern')">
-                  Please enter a valid no.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['phoneNo'].hasError('pattern')">
+                                  Please enter a valid no.
+                                </small>
+                              </ng-container>
                             </div>
 
 
@@ -140,12 +141,13 @@
                               <input type="text" formControlName="companyPhone"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" [(ngModel)]="compPhone">
-                                <ng-container class="po-re"
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['companyPhone'].touched && !signatureDetailsForm.controls['companyPhone'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['companyPhone'].hasError('pattern')">
-                  Please enter a valid no.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['companyPhone'].hasError('pattern')">
+                                  Please enter a valid no.
+                                </small>
+                              </ng-container>
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>
@@ -162,23 +164,26 @@
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                 (keyup)="changeDesignation()" id="exampleInputfiled" aria-describedby="textHelp"
                                 [(ngModel)]="Email">
-                                <ng-container class="po-re"
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['email'].touched && !signatureDetailsForm.controls['email'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['email'].hasError('pattern')">
-                  Please enter a valid Email Address.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['email'].hasError('pattern')">
+                                  Please enter a valid Email Address.
+                                </small>
+                              </ng-container>
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Website</label>
                               <input type="text" formControlName="companyWebsite" (keyup)="changeDesignation()"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="www.domain.com"
-                                aria-describedby="textHelp" [(ngModel)]="compWebsite">
-                                <ng-container class="po-re"
-                                *ngIf="signatureDetailsForm.controls['youtubeChannel'].touched && !signatureDetailsForm.controls['youtubeChannel'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['youtubeChannel'].hasError('pattern')">Please enter a valid Domain.
-                </small>
-              </ng-container>
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                placeholder="www.domain.com" aria-describedby="textHelp" [(ngModel)]="compWebsite">
+                              <ng-container class="po-re"
+                                *ngIf="signatureDetailsForm.controls['companyWebsite'].touched && !signatureDetailsForm.controls['companyWebsite'].valid">
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['companyWebsite'].hasError('pattern')">Please
+                                  enter a valid Domain.
+                                </small>
+                              </ng-container>
                             </div>
                             <div class="mb-4" *ngIf="!LongQuote">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
@@ -229,10 +234,12 @@
                               <!-- <div *ngIf="!userProfile">
                                                                 <img class="width" src="assets/images/logo.png " />
                                                             </div> -->
-                              <div >
+                              <div>
 
-<img *ngIf="userProfile && !url " src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}" alt="" class="wh-150 rounded-circle">
-                               
+                                <img *ngIf="userProfile && !url "
+                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}" alt=""
+                                  class="wh-150 rounded-circle">
+
                               </div>
                               <!-- <div
                                                             *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
@@ -265,61 +272,76 @@
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Facebook
                               </label>
                               <input type="text" formControlName="fbProfile"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.facebook.com/<username>"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="faceB">
-                                <ng-container class="po-re"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                placeholder="https://www.facebook.com/<username>" aria-describedby="textHelp"
+                                (keyup)="changeSocialLink($event)" [(ngModel)]="faceB">
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['fbProfile'].touched && !signatureDetailsForm.controls['fbProfile'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['fbProfile'].hasError('pattern')">Please enter a valid URL.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['fbProfile'].hasError('pattern')">Please enter a
+                                  valid URL.
+                                </small>
+                              </ng-container>
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
-                              <input type="text" formControlName="instagramProfile" placeholder="https://www.instagrma.com/<username>"
+                              <input type="text" formControlName="instagramProfile"
+                                placeholder="https://www.instagrma.com/<username>"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="insta">
-                                <ng-container class="po-re"
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['instagramProfile'].touched && !signatureDetailsForm.controls['instagramProfile'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['instagramProfile'].hasError('pattern')">Please enter a valid URL.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['instagramProfile'].hasError('pattern')">Please
+                                  enter a valid URL.
+                                </small>
+                              </ng-container>
 
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
                               <input type="text" formControlName="linkedInProfile"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.linkedIn.com/<username>"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Linkedin">
-                                <ng-container class="po-re"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                placeholder="https://www.linkedIn.com/<username>" aria-describedby="textHelp"
+                                (keyup)="changeSocialLink($event)" [(ngModel)]="Linkedin">
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['linkedInProfile'].touched && !signatureDetailsForm.controls['linkedInProfile'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['linkedInProfile'].hasError('pattern')">Please enter a valid URL.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['linkedInProfile'].hasError('pattern')">Please
+                                  enter a valid URL.
+                                </small>
+                              </ng-container>
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
                               <input type="text" formControlName="youtubeChannel"
-                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled" placeholder="https://www.youtube.com/<username>"
-                                aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="uTube">
-                                <ng-container class="po-re"
+                                class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                                placeholder="https://www.youtube.com/<username>" aria-describedby="textHelp"
+                                (keyup)="changeSocialLink($event)" [(ngModel)]="uTube">
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['youtubeChannel'].touched && !signatureDetailsForm.controls['youtubeChannel'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['youtubeChannel'].hasError('pattern')">Please enter a valid URL.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['youtubeChannel'].hasError('pattern')">Please
+                                  enter a valid URL.
+                                </small>
+                              </ng-container>
 
                             </div>
                             <div class="mb-4">
                               <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
-                              <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
+                              <input type="text" formControlName="twitterProfile"
+                                placeholder="https://www.twitter.com/<username>"
                                 class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                                 aria-describedby="textHelp" (keyup)="changeSocialLink($event)" [(ngModel)]="Twitter">
-                                <ng-container class="po-re"
+                              <ng-container class="po-re"
                                 *ngIf="signatureDetailsForm.controls['twitterProfile'].touched && !signatureDetailsForm.controls['twitterProfile'].valid">
-                <small class="text-danger" *ngIf="signatureDetailsForm.controls['twitterProfile'].hasError('pattern')">Please enter a valid URL.
-                </small>
-              </ng-container>
+                                <small class="text-danger"
+                                  *ngIf="signatureDetailsForm.controls['twitterProfile'].hasError('pattern')">Please
+                                  enter a valid URL.
+                                </small>
+                              </ng-container>
 
 
                             </div>
@@ -514,8 +536,8 @@
                         <div class="col-md-12">
                           <div class="row align-items-center justify-content-center">
                             <button class="apps_button">
-                              <div onclick="openscheduler()" class="app_div"><img src="assets/images/online-scheduler.png"
-                                  alt="Online Scheduler Image" /><span>Online
+                              <div onclick="openscheduler()" class="app_div"><img
+                                  src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span>Online
                                   Scheduler</span></div>
                             </button>
                             <button onclick="opendisclaimer()" class="apps_button">
@@ -539,21 +561,26 @@
                                   alt="Youtube Channel" /><span>Youtube Channel</span>
                               </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="opencustombutton()" class="apps_button">
                               <div class="app_div"><img src="assets/images/custom-button.png"
-                                  alt="Custom BUtton" /><span>Custom Button</span></div>
+                                  alt="Custom BUtton" /><span>Custom Button</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="openuploadbanner()" class="apps_button">
                               <div class="app_div"><img src="assets/images/upload-banner.png"
-                                  alt="Upload Banner Image" /><span>Upload Banner</span></div>
+                                  alt="Upload Banner Image /"><span>Upload
+                                  Banner</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="opensalesevent()" class="apps_button">
                               <div class="app_div"><img src="assets/images/sales-event.png"
-                                  alt="Sales Event Image" /><span>Sales Event</span></div>
+                                  alt="Sales Event Image" /><span>Sales Event</span>
+                              </div>
                             </button>
-                            <button class="apps_button">
+                            <button onclick="opendownloadapp()" class="apps_button">
                               <div class="app_div"><img src="assets/images/downlod-app.png"
-                                  alt="Download Image" /><span>Download App</span></div>
+                                  alt="Download Image" /><span>Download App</span>
+                              </div>
                             </button>
                           </div>
                         </div>
@@ -624,18 +651,17 @@
                             <div style="padding: 7px 15px;">
                               <img class="width" [src]="url" height="65" width="72" *ngIf="url">
                               <img style="width: 72px;
-                                vertical-align: middle; height: 65px;border-radius:50%;"
-                                *ngIf="userProfile && ! url"
+                                vertical-align: middle; height: 65px;border-radius:50%;" *ngIf="userProfile && ! url"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
-                                <!-- https://giveaspark.s3.us-west-1.amazonaws.com/ -->
+                              <!-- https://giveaspark.s3.us-west-1.amazonaws.com/ -->
                             </div>
                             <div style="text-align:center;" *ngIf="tempDetails?.logo">
 
                               <img style="width:95px ;height:35px"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.logo}}" id="del"><br>
 
-                              <p style="font-size:8px; display: inline;">Remove logo</p><span>X</span>
+                              <p style=" font-size: 10px; display: inline; color: blue;">Remove logo</p><span>X</span>
 
                             </div>
 
@@ -646,7 +672,8 @@
                             line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
                               [style.color]="firstNameColor" [style.line-height]="lineHeight"
                               [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">
-                              <span>{{username}}</span></h5>
+                              <span>{{username}}</span>
+                            </h5>
                             <h5 *ngIf="!username" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
                                     line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
                               [style.color]="firstNameColor" [style.line-height]="lineHeight"
@@ -666,13 +693,14 @@
                               <span *ngIf="number" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only; 
                                 white-space: nowrap;" [style.color]="contactDetailColor"
                                 [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">M:</span>{{std}}{{number}}
+                                [style.font-size.px]="itemFontSize"><span
+                                  style="font-weight:bold;">M:</span>{{std}}{{number}}
                               </span>
                               <span *ngIf="compPhone" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only; 
-                              white-space: nowrap;" [style.color]="contactDetailColor"
-                              [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                              [style.font-size.px]="itemFontSize"><span style="font-weight:bold;">P:</span>{{compPhone}}
-                            </span>
+                              white-space: nowrap;" [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize"><span
+                                  style="font-weight:bold;">P:</span>{{compPhone}}
+                              </span>
 
                               <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
                                 white-space: nowrap;" [style.color]="contactDetailColor"
@@ -721,8 +749,7 @@
 
                           </td>
                           <td style="padding: 20px;vertical-align:baseline;">
-                            <img style="width:60px; height:60px;"
-                              src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                            <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
                           </td>
                         </tr>
                         <tr>
@@ -746,6 +773,19 @@
                             </p>
                           </td>
 
+                        </tr>
+                        <tr>
+                          <td colspan="3" [style.text-align]="youtubeAlignment">
+                            <a *ngIf="videoUrl" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}" alt=""
+                                height="80" [style.text-align]="youtubeAlignment" width="107"></a>
+
+                            <a href="{{youUrl}}" *ngIf="youImage &&!videoUrl "><img src="{{youImage}}"
+                                [style.text-align]="youtubeAlignment" height="80" width="107a" alt=""></a>
+                            <br>
+                            <p *ngIf="youtubeTitle " [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
+                              [style.text-align]="youtubeAlignment">
+                              {{youtubeTitle}}</p>
+                          </td>
                         </tr>
 
 
@@ -776,92 +816,9 @@
 
 
 
-
-
-
-<!-- 
-                    <div class="col-md-3 col-lg-3 self-align-center" *ngIf="!tempDetails?.profileImage">
-                      <img class="wh-150" src="assets/images/profile-image.png">
-                    </div>
-                    <div class="col-md-3 col-lg-3 self-align-center" *ngIf="tempDetails?.profileImage">
-                      <img class="wh-150" [style.border-radius.px]="borderRadius"
-                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                    </div>
-                    <div class="col-md-7 col-lg-6 ps-2 pe-0">
-                      <h4 class="" [style.text-align]="nameAlign"><span class="text-darkblue" *ngIf="!username"
-                          [style.color]="firstNameColor" [style.font-size.px]="templateFontSize"
-                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                          [style.text-align]="nameAlign">John &nbsp;
-                        </span> <span class="text-darkblue" *ngIf="!username" [style.color]="lastNameColor"
-                          [style.font-size.px]="templateFontSize">Doe</span></h4>
-                      <h4 class="" [style.text-align]="nameAlign">
-                        <span class="text-darkblue" *ngIf="username" [style.color]="firstNameColor"
-                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                          [style.font-size.px]="templateFontSize">{{username}}</span>
-                      </h4>
-                      <h6 class="mb-3" *ngIf="!'desig && tempDetails?.designation'" [style.font-family]="fontFamilyNew"
-                        [style.line-height]="lineHeight" [style.color]="designationColor">
-                        Marketing Expert</h6>
-                      <h6 class="mb-3" *ngIf="tempDetails?.designation" [style.font-family]="fontFamilyNew"
-                        [style.line-height]="lineHeight" [style.color]="designationColor"
-                        [style.font-size.px]="itemFontSize">
-                        {{desig}}</h6>
-
-
-
-                      <div class="d-flex pe-3">
-
-                        <i class="fa fa-phone pe-2" aria-hidden="true"></i>
-                        <p class=" fs-122" *ngIf="!number" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">+1129457850 | +1129457850 </p>
-                        <p class=" fs-122" *ngIf="number" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">{{number}} </p>
-                      </div>
-                      <div class="d-flex pe-3">
-                        <i class="fa fa-envelope pe-2" aria-hidden="true"></i>
-                        <p class=" fs-122" *ngIf="!Email" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">shreybhardwaj@gmail.com </p>
-                        <p class=" fs-122" *ngIf="Email" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">{{Email}} </p>
-                      </div>
-                      <div class="d-flex pe-3">
-                        <i class="fa fa-globe pe-2" aria-hidden="true"></i>
-                        <p class=" fs-122" *ngIf="!compWebsite" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">www.perfectiongeek.com</p>
-                        <p class=" fs-122" *ngIf="compWebsite" [style.font-family]="fontFamilyNew"
-                          [style.color]="contactDetailColor" [style.font-size.px]="itemFontSize"
-                          [style.line-height]="lineHeight">{{compWebsite}}</p>
-                      </div>
-
-                    </div>
-                    <div class="col-md-2 col-lg-3 pe-0 ps-0">
-                      <img src="https://giveaspark.s3.amazonaws.com/{{details?.QrCode}}" role="presentation" width="130"
-                        class="sc-cHGsZl bHiaRe" style="max-width: 130px; display: inline-block;">
-
-
-                    </div> -->
                   </div>
 
-                  <!-- <div class="row">
-                    <div class="col-lg-8 offset-lg-2 text-center">
-
-                      <div *ngIf="tempDetails?.quotesId?.quotesName">
-                        <p [style.font-size.px]="fontSizeName" [style.line-height]="lineHeight">
-                          {{tempDetails?.quotesId?.quotesName}}</p>
-                        <h6 [style.font-size.px]="itemFontSize" [style.line-height]="lineHeight">
-                          {{tempDetails?.quotesId?.authorId?.firstName}}</h6>
-                      </div>
-                      <p *ngIf="tempDetails?.quotes" [style.font-size.px]="itemFontSize"
-                        [style.line-height]="lineHeight">
-                        {{quotevar}}</p>
-                    </div>
-
-                  </div> -->
+            
 
                 </div>
 
@@ -902,21 +859,18 @@
 
                 <div id="scam">
 
-                  <div class="col-md-4 col-lg-4 p-0" >
+                  <div class="col-md-4 col-lg-4 p-0">
                     <div class="box-free shadow m-2" *ngIf="templateShow == 'free'">
-                        <img class="free-wh m-1" src="assets/images/free-7.png" alt="" (click)="navigate()"
-                          >
+                      <img class="free-wh m-1" src="assets/images/free-7.png" alt="" (click)="navigate()">
 
                     </div>
                     <div class="box-free shadow m-2" *ngIf="templateShow == 'pro'">
-                      <img src="assets/images/pro-8.png" alt="" class="free-wh m-1" (click)="navigate()"
-                         >
+                      <img src="assets/images/pro-8.png" alt="" class="free-wh m-1" (click)="navigate()">
+                    </div>
+                    <div class="box-free shadow m-2" *ngIf="templateShow == 'propro'">
+                      <img src="assets/images/pro+2.png" alt="" class="free-wh m-1" (click)="navigate()">
+                    </div>
                   </div>
-                  <div class="box-free shadow m-2" *ngIf="templateShow == 'propro'">
-                    <img src="assets/images/pro+2.png" alt="" class="free-wh m-1" (click)="navigate()"
-                       >
-                </div>
-                </div>
 
                   <!-- <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                     txtConfigFile *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
@@ -1310,7 +1264,7 @@
 
 
 
-             
+
 
                 </div>
 
@@ -1376,18 +1330,20 @@
   <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
   <mat-dialog-content>
     <p style="color:red;   text-align:center;">
-   
+
 
       Upgradtion Needed
 
     </p>
-    <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need to purchase the pro plan. </p>
+    <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need
+      to purchase the pro plan. </p>
 
 
 
   </mat-dialog-content>
-  <mat-dialog-actions >
-    <button align="right"  mat-button mat-dialog-close type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+  <mat-dialog-actions>
+    <button align="right" mat-button mat-dialog-close type="button" class="action" id="upgrade"
+      routerLink="/home-dashboard/plan/plan-dashboard">
       Get it Now
     </button>
     <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
@@ -1705,13 +1661,14 @@
                 </h4>
                 <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
               </div>
-          
+
               <h6>Choose A Disclaimer Type</h6>
               <form class="mt-4">
-          
+
                 <div class="form-check text-black ">
-          
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                    checked>
                   <label class="form-check-label fs-14" for="gridRadios1">
                     Confidentiality
                   </label>
@@ -1761,7 +1718,7 @@
                 <div class="row g-3 align-items-center mb-3">
                   <div class="col-auto">
                     <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
-          
+
                   </div>
                   <div class="col-auto">
                     <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
@@ -1784,8 +1741,8 @@
                     <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
                   </div>
                 </div>
-          
-          
+
+
                 <div class="row">
                   <div class="col-auto">
                     <button class="green-btn py-2 px-3">Add</button>
@@ -1795,7 +1752,7 @@
                   </div>
                 </div>
               </div>
-          
+
             </div>
           </div>
         </div>
@@ -1969,6 +1926,9 @@
 
   </div>
 </div>
+
+
+<!-- ------------------YOUTUBE MODEL---------- -->
 <div id="myyoutubechannel" class="youtubechannel design-app">
 
   <div class="p-4">
@@ -1980,45 +1940,328 @@
 
     <h6>Enter your channel URL/Title</h6>
 
-    <form class="mt-4">
+    <form class="mt-4" [formGroup]="youtubeForm">
 
       <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Channel URL :
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">YouTube video / playlist
+            URL:
+
             :</label></div>
-        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+        <div class="col-auto">
+          <input type="text" placeholder=" https://www.youtube.com/watch?v=123" formControlName="youtubeUrl"
+            (keyup)="getUrl()" class="form-control" width="107" height="80">
+        </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title
             :</label></div>
-        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="Song Name/Title " formControlName="youtubeTitle"
+            [(ngModel)]="youtubeTitle" class="form-control"></div>
       </div>
       <div class="row">
-        <div class="col-auto">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label fs-14" for="gridRadios2">
-              Custom Footer
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <button class="pink-btn py-2 px-3">Upgrade Plan</button>
-        </div>
+  
       </div>
     </form>
     <div class="mt-5">
-      <h5 class="fw-bold">Footer style
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <!-- <div style="width:20px;height: 20px;background-color: #003e4d;"></div> -->
+          <input [(colorPicker)]="youtubeColor" [style.background]="youtubeColor" style="width:20px;height: 20px;" />
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeYoutubeSize($event)"
+            id="customRange2">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="titleAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="titleAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="titleAlign('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" (click)="youTubeDetails()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="mycustombutton" class="custombutton design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Custom Button
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closecustombutton()">×</a>
+    </div>
+
+    <h5>Button Details</h5>
+
+    <form class="mt-4">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
+          </label></div>
+        <div class="col-auto"><input type="text" placeholder="Button" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+      </div>
+      <h5 class="mt-4"> Button Style</h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label></div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Full </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Light
+            </label></div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Simple Link
+            </label></div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label></div>
+        <div class="col-auto">
+          <div style="width: 20px; height: 20px; background-color: #003e4d;"></div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label></div>
+        <div class="col-auto"><input type="range" min="0" max="5" value="3" id="customRange2" class="form-range"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size">S</p>
+            <p class="design-size">M</p>
+            <p class="design-size">L</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div>
+      </div>
+    </form>
+
+    <div class="row mt-4">
+      <div class="col-auto">
+        <button class="green-btn py-2 px-3">Add</button>
+      </div>
+      <div class="col-auto">
+        <button class="gray-btn py-2 px-3">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myuploadbanner" class="uploadbanner design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Upload My Banner
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeuploadbanner()">×</a>
+    </div>
+
+    <h6>Upload your banner (jpg,png,gif)</h6>
+    <div class="">
+      <form class=""><label class="upload-area"><input type="file" class="upload-display"><span class="upload-button-1">
+            <p>Drag & Drop your banner here </p><br>
+
+          </span></label></form>
+    </div>
+    <div class="mt-5">
+      <h5 class="fw-bold">Banner Style
       </h5>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Banner URL" class="form-control"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="d-flex">
+            <img class="wh-25" src="assets/images/replace-icon.png ">
+            <p class="px-3 mb-0">Replace Banner</p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="d-flex">
+            <img class="wh-25" src="assets/images/delete.png ">
+            <p class="px-3 mb-0">Delete</p>
+          </div>
+        </div>
+
+    </div>
+    <div class="row mt-3">
+      <div class="col-auto">
+        <button class="green-btn py-2 px-3">Add</button>
+      </div>
+      <div class="col-auto">
+        <button class="gray-btn py-2 px-3">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<div id="mysalesevent" class="salesevent design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Sales Event
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closesalesevent()">×</a>
+    </div>
+
+    <h6>Enter your sale event details</h6>
+
+    <form class="mt-4">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"></div>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold">Style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Choose an icon :</label>
         </div>
         <div class="col-auto">
           <div class="form-check text-black ">
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/sale_icon.png">
             </label>
           </div>
         </div>
@@ -2027,7 +2270,7 @@
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/gift_icon.png">
             </label>
           </div>
         </div>
@@ -2036,7 +2279,7 @@
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/sale_icon_2.png">
             </label>
           </div>
         </div>
@@ -2076,41 +2319,103 @@
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
         </div>
       </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size">S</p>
+            <p class="design-size">M</p>
+            <p class="design-size">L</p>
+          </div>
+        </div>
+      </div>
 
+
+      <div class="row mt-4">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="mydownloadapp" class="downloadapp design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Download Our App
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closedownloadapp()">×</a>
+    </div>
+
+    <h6>Add app title & links</h6>
+    <form class="mt-4">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
+            </label></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">App Store
+            </label></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
+            </label></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"></div>
+      </div>
+    </form>
+
+    <div class="mt-5">
+      <h5 class="fw-bold">Style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+        </div>
+      </div>
 
 
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:20px;height: 20px;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
         </div>
         <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:20px;height: 20px;border-radius:50%;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
         </div>
         <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:20px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
         </div>
       </div>
+
+
+
+
       <div class="row">
         <div class="col-auto">
           <button class="green-btn py-2 px-3">Add</button>

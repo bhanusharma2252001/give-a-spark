@@ -146,7 +146,14 @@
                     </td>
 
                 </tr>
-
+<tr>
+    <td colspan="3" [style.text-align]="details?.templateDesign?.youtubeAlignment">
+        <a href="{{details?.youtubeUrl}}" *ngIf="details?.thumbnailImage"><img src="{{details?.thumbnailImage}}"   height="80"
+            width="107a" alt=""></a>
+          <p *ngIf="details?.youtubeTitle" [style.color]="details?.templateDesign?.youtubeColor" [style.font-size.px]="details?.templateDesign?.youtubeFont" >
+            {{details?.youtubeTitle}}</p>
+    </td>
+</tr>
 
             </tbody>
         </table>

@@ -194,7 +194,12 @@
                                                         <input type="text" formControlName="companyWebsite"
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="compWebsite">
+                                                            [(ngModel)]="compWebsite" placeholder="www.domainname.com">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small></ng-container>
 
                                                     </div>
                                                     <div class="mb-4" *ngIf="!LongQuote">
@@ -293,6 +298,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
 
                                                     </div>
                                                     <div class="mb-3">
@@ -302,7 +313,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small>
+                                          </ng-container>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputfiled"
@@ -311,7 +327,11 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small></ng-container>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="exampleInputfiled"
@@ -320,6 +340,11 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="uTube">
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small></ng-container>
 
                                                     </div>
                                                     <div class="mb-4">
@@ -329,7 +354,12 @@
                                                             class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
                                                             id="exampleInputfiled" aria-describedby="textHelp"
                                                             [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
-
+                                                            <ng-container class="po-re"
+                                                            *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
+                                            <small class="text-danger" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">
+                                              Please enter a valid URL.
+                                            </small></ng-container>
+                                                            
                                                     </div>
 
                                                     <!-- <div class="mb-4 d-flex">
@@ -610,6 +640,20 @@
 
 
 
+                            <div class="row position-relative progress_padd pb-4">
+                                <div class="profile_complt-detail">
+                
+                                </div>
+                                <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
+                                    alt="Signature image" /></div>
+                                <div class=" col-md-7">
+                
+                                </div>
+                                <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
+                                    class="sign_one" alt="Signature image" />
+                                </div>
+                              </div>
+                              <div class="mt-4">
 
                             <table cellpadding="0" cellspacing="0" id="one" 
                                 style="background-color: #FBFEFF ;font-size: medium;width:500px;height:280px; font-family: Arial;">
@@ -749,7 +793,7 @@
                                 </tbody>
                             </table>
 
-
+                              </div>
 
 
                         </div>

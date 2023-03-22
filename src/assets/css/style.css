@@ -1663,4 +1663,12 @@ img.author_image {
       }
 
 
+      .gray-btn {
+        background-color: #E8E8EA;
+        color: #111;
+        border: 1px solid #E8E8EA;
+        border-radius: 50px;
+        font-weight: 400;
+        font-size: 17px;
+      }
 

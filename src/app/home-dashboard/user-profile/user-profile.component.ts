@@ -42,10 +42,11 @@ details:any;
 
 
   constructor(private fb:FormBuilder, private api: SparkService, private router:Router, private toast:ToastrService, private _ngZone:NgZone,private spinner: NgxSpinnerService) {
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.profileForm=this.fb.group({
       firstName:['',[Validators.required]],
       companyName:['',[Validators.required]],
-      companyWebsite:['',[Validators.required]],
+      companyWebsite:['',[Validators.required, Validators.pattern(reg)]],
       phone:['',[Validators.required,Validators.pattern('[0-9 ]+')]],
       stdCode:['']
       

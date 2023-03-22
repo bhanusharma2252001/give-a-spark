@@ -21,7 +21,7 @@
             bird
             discount.
           </p>
-          <button class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
+          <button  *ngIf="!(planDetails == 'Plan C') "   class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
             routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
         </div>
       </nav>

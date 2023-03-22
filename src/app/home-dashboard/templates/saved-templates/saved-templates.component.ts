@@ -88,6 +88,11 @@ export class SavedTemplatesComponent implements OnInit {
   tempId: any;
   defaultDetails: any;
   std: any;
+  videoUrl: any;
+  videoid: any;
+  youId: any;
+  thumbnail: string;
+  youTubeUrl: any;
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -106,6 +111,7 @@ export class SavedTemplatesComponent implements OnInit {
     }, 1000);
     this. getTemplateDetails();
     this.gettemplatebyUser();
+    this.getUrl();
   }
   
   changeSize(evt: any) {
@@ -181,7 +187,7 @@ export class SavedTemplatesComponent implements OnInit {
       this.quotevar=this.tempDetails?.quotes
 this.tempimg=this.tempDetails?.profileImage
 
-
+this.youTubeUrl=this.tempDetails?.youtubeUrl
 let templateResult = this.tempDetails?.templateDesign;
 console.log(templateResult, 'ada');
 this.firstNameColor = templateResult?.firstNameColor,
@@ -197,6 +203,7 @@ this.firstNameColor = templateResult?.firstNameColor,
   this.borderRadius = templateResult?.borderRadius
       console.log(this.tempDetails, "kkkkkkkk")
 
+console.log(this.youTubeUrl, 'youtubeurl');
 
     })
   }
@@ -330,6 +337,42 @@ setonGmail(){
   this. selectedTemplateId = evt
 
 }
+getUrl(){
+  debugger
+ if(this.tempDetails?.youtubeUrl)
+ {
+  this.videoUrl = this.tempDetails?.youtubeUrl
+  console.log(this.videoUrl, 'dataurl')
+ }
+ 
+
+  console.log(this.videoUrl, "videoUrl name");
+
+  this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+if(this.videoid != null) {
+   console.log("video id = ",this.videoid[1]);
+this.youId=this.videoid[1]
+
+} else {
+    console.log("The youtube url is not valid.");
+}
+    this.thumbnail = "http://img.youtube.com/vi/"+this.youId+"/"+"mqdefault"+".jpg";
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

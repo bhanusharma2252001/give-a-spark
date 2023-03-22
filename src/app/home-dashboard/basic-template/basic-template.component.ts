@@ -46,7 +46,7 @@ profileImages:any;
   imageData1: any;
   imageData2: any;
   templateRef:any
-
+youtubeForm:FormGroup;
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
 
@@ -76,7 +76,12 @@ profileImages:any;
   value = ""
   // change new
   templateFontSize: any = 24;
-  // public barColor:string='fff500'
+  public youtubeColor:string='#000000'
+  youtubeFont:any=8
+  youtubeAlignment:any=''
+
+
+
   public contactDetailColor: string = '#000000';
   public lastNameColor: string = '#000000';
   public designationColor: string = '#000000';
@@ -99,7 +104,10 @@ profileImages:any;
     fontSizeItem: this.itemFontSize,
     nameFontSize: this.fontSizeName,
     nameAlign: this.nameAlign,
-    borderRadius: this.borderRadius
+    borderRadius: this.borderRadius,
+    youtubeColor:this.youtubeColor,
+  youtubeFont:this.youtubeFont,
+  youtubeAlignment:this.youtubeAlignment,
 
 
   }
@@ -134,6 +142,13 @@ profileImages:any;
   code: any;
   std:   any;
   add: any;
+  videoUrl: any;
+  videoid: any;
+  youId: any;
+  thumbnail: string;
+  youtubeTitle: any;
+  youUrl: any;
+  youImage: any;
 
 
   getScanText() {
@@ -169,6 +184,14 @@ profileImages:any;
       twitterProfile:  ['', [ Validators.pattern(reg)]],
       signatureName:['']
     })
+
+
+this.youtubeForm= this.fb.group({
+  youtubeUrl:['', [Validators.required]],
+  youtubeTitle:['', Validators.required]
+})
+
+
   //   router.canceledNavigationResolution = 'computed';
   //   history.pushState(null, '', location.href);
   // window.onpopstate = function () {
@@ -183,6 +206,7 @@ profileImages:any;
   
 
   ngOnInit(): void {
+    
     this.spinner.show();
 
     setTimeout(() => {
@@ -193,6 +217,7 @@ profileImages:any;
     // this.getBasicProfile()
     // this.getDesign();
     this.getTemplateDetails();
+
     if (localStorage.getItem('quoteId')) {
       this.QuoteId = localStorage.getItem('quoteId')
 
@@ -278,6 +303,21 @@ console.log(b,'b');
     }
 
   }
+
+  changeYoutubeSize(evt:any){
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+      this.youtubeFont=9
+    } else if (currnetSize == 5) {
+      this.youtubeFont=12
+    } else if (currnetSize == 3) {
+      this.youtubeFont=8
+    } else if (currnetSize == 2) {
+      this.youtubeFont=7
+    } else {
+      this.youtubeFont=6
+    }
+  }
   changeLine(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
@@ -298,8 +338,14 @@ console.log(b,'b');
     if(this.planDetail != 'Plan A') {
       this.nameAlign = val;
       } else {
-        alert('You shoud buy pro plan')
+        // s
       }  }
+
+    
+titleAlign(val:any){
+  this.youtubeAlignment=val;
+}
+
   //new change end
 getSignature(){
   this.sign = this.signatureDetailsForm.value.signatureName;
@@ -342,6 +388,7 @@ getSignature(){
 
   // }
   getTemplateDetails() {
+   
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.planDetail = res?.plan
       
@@ -367,6 +414,10 @@ getSignature(){
         this.Twitter = this.tempDetails?.twitterProfile
         this.faceB = this.tempDetails?.fbProfile
         this.quotevar=this.tempDetails?.quotes
+        this.youtubeTitle=this.tempDetails?.youtubeTitle
+this.youUrl=this.tempDetails?.youtubeUrl
+this.youImage=this.tempDetails?.thumbnailImage
+
       }
 
 else{
@@ -387,7 +438,7 @@ this.userProfile=this.defaultDetails?.profile
   this.Twitter = this.defaultDetails?.twitterProfile
   this.faceB = this.defaultDetails?.fbProfile
   
- 
+ console.log(this.username)
 }
 
     })
@@ -448,7 +499,9 @@ this.userProfile=this.defaultDetails?.profile
       profileImage:this.imageData2?this.imageData2:this.userProfile,
       companyPhone: data.companyPhone?data.companyPhone:'',
   
-      
+      youtubeUrl:this.videoUrl ,
+      youtubeTitle:this.youtubeTitle ,
+      thumbnailImage:this.thumbnail
     }
 
     if(this.planDetail != 'Plan A') {
@@ -469,8 +522,10 @@ this.userProfile=this.defaultDetails?.profile
         fontSizeItem: this.itemFontSize,
         nameFontSize: this.fontSizeName,
         nameAlign: this.nameAlign,
-        borderRadius: this.borderRadius
-
+        borderRadius: this.borderRadius,
+        youtubeColor:this.youtubeColor,
+        youtubeFont:this.youtubeFont,
+        youtubeAlignment:this.youtubeAlignment,
       }
       
     } 
@@ -507,7 +562,10 @@ console.log(body,'sbxkabxak');
       
 
       this.toast.success('Signature Updated Successfully');
-
+      
+  
+      
+      
       this.getTemplateDetails();
       if(localStorage.getItem('quoteId')){
         localStorage.removeItem('quoteId')
@@ -519,7 +577,7 @@ console.log(body,'sbxkabxak');
       
       }
       // this.saveChanges() ;
-      this.router.navigate(['/home-dashboard/templates/saved-templates'])
+      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('Please Try Again');
@@ -643,27 +701,7 @@ console.log(body,'sbxkabxak');
 
   }
 
-  // getDesign() {
-  //   this.api.getdesign().subscribe((res: any) => {
-  //     let data = res?.result;
-  //     let result = data[data?.length - 1]
-  //     let templateResult = result?.templateDesign;
-  //     console.log(templateResult, 'ada');
-  //     this.firstNameColor = templateResult?.firstNameColor,
-  //       this.lastNameColor = templateResult?.lastNameColor,
-  //       this.designationColor = templateResult?.designationColor,
-  //       this.contactDetailColor = templateResult?.contactDetailColor,
-  //       this.fontFamilyNew = templateResult?.fontFamily,
-  //       this.templateFontSize = templateResult?.fontSize,
-  //       this.lineHeight = templateResult?.lineHeight,
-  //       this.itemFontSize = templateResult?.fontSizeItem,
-  //       this.fontSizeName = templateResult?.nameFontSize,
-  //       this.nameAlign = templateResult?.nameAlign,
-  //       this.borderRadius = templateResult?.borderRadius
 
-
-  //   })
-  // }
 
   setimageSignature() {
     console.log(this.tableData.nativeElement);
@@ -691,7 +729,7 @@ console.log(body,'sbxkabxak');
   }
 
   changeSocialLink(evt:any) {
-    if(this.planDetail != 'Plan A') {
+    if(this.planDetail == 'Plan C') {
     console.log(this.imageData2 , this.useraddress , this.desig , this.username , this.Email , this.compName , this.compWebsite , this.faceB , this.insta , this.Linkedin , this.uTube , this.Twitter);
     
     if(this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite ) {
@@ -764,5 +802,57 @@ console.log(body,'sbxkabxak');
   hideModel() {
     this.closeModal.nativeElement.click();      
 }
+
+
+
+
+
+
+//  --------- YOU TUBE PLAYLIST-----
+
+getUrl(){
+ 
+
+  this.videoUrl = this.youtubeForm.value.youtubeUrl;
+
+  console.log(this.videoUrl, "videoUrl name");
+
+  this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+if(this.videoid != null) {
+   console.log("video id = ",this.videoid[1]);
+this.youId=this.videoid[1];
+console.log(this.youId, "youtube ID");
+
+
+} else {
+    console.log("The youtube url is not valid.");
+}
+    this.thumbnail = "http://img.youtube.com/vi/"+this.youId+"/"+"mqdefault"+".jpg";
+
+
+
+  }
+
+
+
+  youTubeDetails(){
+    this.youtubeTitle = this.youtubeForm.value.youtubeTitle;
+    this.getUrl();
+    console.log(this.youtubeTitle)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 }
