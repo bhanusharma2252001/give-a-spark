@@ -74,32 +74,32 @@
             <div class="position-absolute order_img"><img src="assets/images/quo.png" alt=""></div>
             <div class="position-absolute order_content">
               <h6>Total Quotes</h6>
-              <p class="count">42</p>
-              <p class="exp">Expiry</p>
+              <p class="count">{{details?.quotes}}</p>
+              <!-- <p class="exp">Expiry</p> -->
             </div>
           </div>
           <div class="pink_temp position-relative ">
             <div class="position-absolute order_img"><img src="assets/images/stories.png" alt=""></div>
             <div class="position-absolute order_content">
               <h6>Total Stories</h6>
-              <p class="count">42</p>
-              <p class="exp"> Expiry</p>
+              <p class="count">{{details?.stories}}</p>
+              <!-- <p class="exp"> Expiry</p> -->
             </div>
           </div>
           <div class="yellow_temp position-relative ">
             <div class="position-absolute order_img"><img src="assets/images/order.png" alt=""></div>
             <div class="position-absolute order_content d-flex align-items-center justify-content-center">
               <h6>Active Plan</h6>
-              <p class="count"> Pro</p>
-              <p class="exp">Expiry</p>
+              <p class="count"> {{details?.activePlan[0]?.planId?.planName}}</p>
+              <p class="exp">{{details?.activePlan[0]?.expireDate |date:'dd/MM/yyyy' }}</p>
             </div>
           </div>
           <div class="black_temp position-relative">
             <div class="position-absolute order_img"><img src="assets/images/order.png" alt=""></div>
             <div class="position-absolute order_content">
             <h6>Total Orders</h6>
-            <p class="count">3</p>
-            <p class="exp">Expiry</p>
+            <p class="count">{{details?.order}}</p>
+            <!-- <p class="exp">Expiry</p> -->
             </div>
           </div>
         </div>

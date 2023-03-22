@@ -139,4 +139,19 @@
       width: 80vw;
       min-width: initial;
     }
+  }.disableTab:disabled,
+  .disableTab{
+    background-color: var(--pink);
+    color: var(--white);
+    border: 1px solid var;
+  pointer-events:none;
+  // text-decoration: line-through;
+  }
+  .dis:disabled,
+  .dis{
+    background-color: var(--pink);
+    color: var(--white);
+    border: 1px solid var;
+  pointer-events:none;
+  // text-decoration: line-through;
   }

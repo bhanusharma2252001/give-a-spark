@@ -422,5 +422,11 @@ updatePass(body:any){
   }
 );
 }
+homeVariable() {
+  return this.http.get(environment.localApiURL + '/api/user/clientHomePageVariable'
 
+  ,{
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+}
 }

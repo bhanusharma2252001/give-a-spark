@@ -24,6 +24,8 @@ export class PlanDashboardComponent implements OnInit {
   private paymentIntentId: string | undefined;
   private amount: number = 0;
   private cardErrors: string | undefined;
+  userDetails: any;
+  planDetails: any;
 
   constructor(private elementRef:ElementRef,private api: SparkService, private spinner:NgxSpinnerService,private fb: FormBuilder) { }
 
@@ -74,7 +76,14 @@ export class PlanDashboardComponent implements OnInit {
     })
   }
 
+  profileData() {
+    this.api.myProfile().subscribe((res:any)=>{
+      this.userDetails = res;
+      this.planDetails=res?.SelectPlan
 
+      console.log(this.userDetails?.address[0]?.addressline1, "addddd")
+    })
+  }
 
 
 }

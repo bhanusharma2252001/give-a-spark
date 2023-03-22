@@ -16,7 +16,7 @@
                   <p class="text-lgblack fs-14">Create a simple email signature
                       for yourself.</p>
   
-                  <button class="white-btn fw-semibold p-2 pe-4 ps-4">
+                  <button class="white-btn fw-semibold p-2 pe-4 ps-4" [disabled]>
                       Get This Plan
                   </button>
   
@@ -77,7 +77,7 @@
                       for yourself.</p>
   
   
-                      <button (click)="paymentSelectB(); "
+                      <button (click)="paymentSelectB(); " [class.disableTab]="planDetails != 'Plan A'"
                       class="white-btn fw-semibold p-2 pe-4 ps-4">
                       Get This Plan
                     </button>
@@ -141,7 +141,7 @@
                       for yourself.</p>
   
                       <button  type="button"
-                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan"   (click)="paymentSelectC();  ">
+                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan" [class.disableTab]="planDetails == 'Plan C'"   (click)="paymentSelectC();  ">
                       Get This Plan
                     </button>
                     <!-- data-bs-toggle="modal" data-bs-target="#exampleModal1" -->
