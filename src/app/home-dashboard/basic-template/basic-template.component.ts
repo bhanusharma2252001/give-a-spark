@@ -149,6 +149,7 @@ youtubeForm:FormGroup;
   youtubeTitle: any;
   youUrl: any;
   youImage: any;
+  tempId: any;
 
 
   getScanText() {
@@ -760,6 +761,7 @@ console.log(body,'sbxkabxak');
       this.Twitter = null
       evt.preventDefault()
    
+      
     }
 
     
@@ -803,7 +805,37 @@ console.log(body,'sbxkabxak');
     this.closeModal.nativeElement.click();      
 }
 
+remove(logoId:any){this.tempId=logoId
+    
+  if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
+    this.api.removeLogo(this.tempId).subscribe((res:any)=>{
+      console.log(this.tempId);
+      this.getTemplateDetails();
+      this.toast.show('Logo Removed')
+    })
+  }
+  if( this.planDetail == 'Plan A'){
+    this.router.navigate(['home-dashboard/plan/plan-dashboard'])
 
+    if(this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
+      this.api.removeLogo(this.tempId).subscribe((res:any)=>{
+        console.log(this.tempId);
+        this.getTemplateDetails();
+        this.toast.show('Logo Removed')
+      })
+    }
+//       else{
+// this.logo
+//       }
+  }
+
+
+console.log(this.tempId,'iiiiidddddd');
+
+  console.log('working');
+  // debugger
+
+   }
 
 
 

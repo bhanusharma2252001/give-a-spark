@@ -25,7 +25,7 @@ import { NgxPhotoEditorService } from 'ngx-photo-editor';
   styleUrls: ['./edit-flyer.component.scss']
 })
 export class EditFlyerComponent implements OnInit {
- 
+ imageUrl:any;
   urls:any;
   imgChangeEvt: any = '';
   cropImgPreview: any = '';
@@ -117,7 +117,9 @@ export class EditFlyerComponent implements OnInit {
   fileDatas=[] as any;
   url:any;
   // urls = '';
-
+  contentSize:any=10
+  HeadingSize: any = 18
+  SocialLinksSize: any = 9
   preview: any;
   fontFamilyNew: any = 'Poppins, sans-serif';
   fontWeightNew: any = 200;
@@ -270,6 +272,19 @@ public delete(){
     }
   }
 
+
+  onSelectFileImage(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event: any) => { // called once readAsDataURL is completed
+        console.log(event);
+        this.imageUrl = event.target.result;
+      }
+    }
+  }
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
 triggerResize() {
   this._ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
@@ -382,4 +397,38 @@ triggerResize() {
   image15(val:any){
     this.templateShow=val
   }
+
+  changeYoutubeSize(evt:any){
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+    
+      this.contentSize=12
+      this.HeadingSize= 25
+      this.SocialLinksSize = 11
+    }
+     else if (currnetSize == 5) {
+      this.contentSize=14
+      this.HeadingSize= 30
+      this.SocialLinksSize = 10
+    } 
+    else if (currnetSize == 3) {
+      this.contentSize=10
+      this.HeadingSize= 18
+      this.SocialLinksSize = 9
+ 
+    }
+     else if (currnetSize == 2) {
+
+      this.HeadingSize = 17
+      this.SocialLinksSize = 8
+      this.contentSize=7
+    } 
+    else if (currnetSize == 1) {
+      this.contentSize=15
+      this.HeadingSize = 15
+      this.SocialLinksSize = 7
+      
+    } 
+  }
+
 }
