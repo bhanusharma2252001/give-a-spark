@@ -780,7 +780,14 @@
                                 height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
                             <a href="{{youUrl}}" *ngIf="youImage &&!videoUrl "><img src="{{youImage}}"
-                                [style.text-align]="youtubeAlignment" height="80" width="107a" alt=""></a>
+                                [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a>
+
+
+                                <a href="{{youUrl}}" ><img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                                  [style.text-align]="youtubeAlignment" height="60" width="50" alt=""></a>
+  
+
+                                
                             <br>
                             <p *ngIf="youtubeTitle " [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
                               [style.text-align]="youtubeAlignment">
@@ -1287,7 +1294,7 @@
               <div class="Neon Neon-theme-dragdropbox">
                 <input
                   style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                  name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/*"
+                  name="files[]" id="filer_input2" multiple="multiple"  max-size="2000" type="file" accept="image/jpeg/png*"
                   (keyup)="changeDesignation()" (change)="onSelectImage($event)">
                 <div class="Neon-input-dragDrop">
                   <div class="Neon-input-inner">
@@ -1949,7 +1956,7 @@
             :</label></div>
         <div class="col-auto">
           <input type="text" placeholder=" https://www.youtube.com/watch?v=123" formControlName="youtubeUrl"
-            (keyup)="getUrl()" class="form-control" width="107" height="80">
+            (keyup)="getUrl()" class="form-control" width="300" height="80">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -1959,7 +1966,18 @@
             [(ngModel)]="youtubeTitle" class="form-control"></div>
       </div>
       <div class="row">
-  
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" (change)="youtubeIcon('youIcon')">
+          <label class="form-check-label fs-14" for="gridRadios2">
+            <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png">
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" (change)="youtubeIcon('thumb')">
+          <label class="form-check-label fs-14" for="gridRadios2">
+        Youtube Thumbnail
+          </label>
+        </div>
       </div>
     </form>
     <div class="mt-5">

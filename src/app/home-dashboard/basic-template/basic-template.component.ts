@@ -150,6 +150,8 @@ youtubeForm:FormGroup;
   youUrl: any;
   youImage: any;
   tempId: any;
+  showIcon: boolean;
+  icon: any;
 
 
   getScanText() {
@@ -453,7 +455,27 @@ this.userProfile=this.defaultDetails?.profile
 
 
 
+  youtubeIcon(val: any) {
+    // if (this.showPro = !this.showPro) {
+    //   this.templatData = false;
+    // }
+    this.icon=val
 
+if(this.icon=='youtubeThumb'){
+  this.showIcon=false;
+  this.showIcon=true;
+  console.log(this.showIcon)
+}
+else if(this.icon =='youIcon'){
+  this.showIcon=true;
+  this.showIcon=false;
+  console.log(this.showIcon)
+}
+  }
+
+// youtubeThumb(val:any){
+
+// }
 
 
 
@@ -502,8 +524,16 @@ this.userProfile=this.defaultDetails?.profile
   
       youtubeUrl:this.videoUrl ,
       youtubeTitle:this.youtubeTitle ,
-      thumbnailImage:this.thumbnail
+   
     }
+    if(
+      this.showIcon=true){
+        body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+      }
+    else  if(
+        this.showIcon=false){
+          body['thumbnailImage']=this.thumbnail
+        }
 
     if(this.planDetail != 'Plan A') {
       body['fbProfile']= data.fbProfile,
@@ -673,6 +703,7 @@ console.log(body,'sbxkabxak');
         this.url = event.target?.result;
       };
     }
+    
   }
   subImageSubmit() {
     this.Submitted = true
