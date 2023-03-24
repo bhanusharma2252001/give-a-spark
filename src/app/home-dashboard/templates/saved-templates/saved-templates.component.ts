@@ -111,7 +111,7 @@ export class SavedTemplatesComponent implements OnInit {
     }, 1000);
     this. getTemplateDetails();
     this.gettemplatebyUser();
-    this.getUrl();
+
   }
   
   changeSize(evt: any) {
@@ -337,30 +337,7 @@ setonGmail(){
   this. selectedTemplateId = evt
 
 }
-getUrl(){
-  debugger
- if(this.tempDetails?.youtubeUrl)
- {
-  this.videoUrl = this.tempDetails?.youtubeUrl
-  console.log(this.videoUrl, 'dataurl')
- }
- 
 
-  console.log(this.videoUrl, "videoUrl name");
-
-  this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-if(this.videoid != null) {
-   console.log("video id = ",this.videoid[1]);
-this.youId=this.videoid[1]
-
-} else {
-    console.log("The youtube url is not valid.");
-}
-    this.thumbnail = "http://img.youtube.com/vi/"+this.youId+"/"+"mqdefault"+".jpg";
-
-
-
-  }
 
 
 

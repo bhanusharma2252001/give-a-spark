@@ -461,16 +461,18 @@ this.userProfile=this.defaultDetails?.profile
     // }
     this.icon=val
 
-if(this.icon=='youtubeThumb'){
-  this.showIcon=false;
-  this.showIcon=true;
-  console.log(this.showIcon)
-}
-else if(this.icon =='youIcon'){
-  this.showIcon=true;
-  this.showIcon=false;
-  console.log(this.showIcon)
-}
+    this.showIcon= !this.showIcon;
+    console.log(this.showIcon);
+// if(this.icon=='youtubeThumb'){
+//   this.showIcon=false;
+//   this.showIcon=true;
+//   console.log(this.showIcon)
+// }
+// else if(this.icon =='youIcon'){
+//   this.showIcon=true;
+//   this.showIcon=false;
+//   console.log(this.showIcon)
+// }
   }
 
 // youtubeThumb(val:any){
@@ -526,12 +528,17 @@ else if(this.icon =='youIcon'){
       youtubeTitle:this.youtubeTitle ,
    
     }
+     
+    console.log(this.showIcon, "showicon value");
+    
+
+
     if(
-      this.showIcon=true){
+      this.showIcon == true){
         body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
       }
     else  if(
-        this.showIcon=false){
+        this.showIcon == false){
           body['thumbnailImage']=this.thumbnail
         }
 
@@ -608,7 +615,7 @@ console.log(body,'sbxkabxak');
       
       }
       // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('Please Try Again');
@@ -902,6 +909,7 @@ console.log(this.youId, "youtube ID");
     this.youtubeTitle = this.youtubeForm.value.youtubeTitle;
     this.getUrl();
     console.log(this.youtubeTitle)
+    this.toast.show('Please click On Create Signature to Save ')
   }
 
 

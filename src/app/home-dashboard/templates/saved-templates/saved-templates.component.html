@@ -101,7 +101,7 @@
                         </p>
                         </div>
 
-                        <div style="padding:10px;border-radius:  10px 10px 0 0;">
+                        <div style="padding:10px;border-radius:  10px 10px 0 0;" *ngIf="planDetail=='Plan C'">
                             <span *ngIf="details?.fbProfile">
                                 <a href="{{details?.fbProfile}}"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
@@ -147,8 +147,8 @@
 
                 </tr>
 <tr>
-    <td colspan="3" [style.text-align]="details?.templateDesign?.youtubeAlignment">
-        <a href="{{details?.youtubeUrl}}" *ngIf="details?.thumbnailImage"><img src="{{details?.thumbnailImage}}"   height="80"
+    <td *ngIf="planDetail=='Plan C'" colspan="3" [style.text-align]="details?.templateDesign?.youtubeAlignment">
+        <a href="{{details?.youtubeUrl}}" target="_blank" *ngIf="details?.thumbnailImage"><img src="{{details?.thumbnailImage}}"   height="80"
             width="107a" alt=""></a>
           <p *ngIf="details?.youtubeTitle" [style.color]="details?.templateDesign?.youtubeColor" [style.font-size.px]="details?.templateDesign?.youtubeFont" >
             {{details?.youtubeTitle}}</p>
