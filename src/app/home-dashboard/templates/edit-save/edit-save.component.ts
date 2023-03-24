@@ -381,7 +381,7 @@ this.api.gmail(this.templateRef.outerHTML
       quotesId:data.quotesId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
-      profileImage:this.imageData2,
+      profileImage:this.imageData2?this.imageData2:this.userProfile,
       fbProfile: data.fbProfile,
       twitterProfile: data?.twitterProfile,
       instagramProfile: data.instagramProfile,

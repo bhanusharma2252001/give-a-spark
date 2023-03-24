@@ -17,6 +17,9 @@
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-16.webp" (click)="image15('pro-1')">
               </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/flyer-17.PNG" (click)="image15('flyer-2')">
+              </div>
               <!-- <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-1.jpg" (click)="image1()">
               </div>
@@ -68,38 +71,111 @@
 
         </div>
         <div class="col-md-9 col-lg-9 pt-2">
-          <div class="row">
-            <div class="col-md-2">
-              <label class="btn btn-danger btn-sm center-block btn-file"> Profile
-                <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
-                <input type="file" style="display: none;" (change)="onSelectFile($event);">
-              </label>
-              <!-- <input type="file"   (change)="onSelectFile($event);"  /> -->
+          <!-- <div class="row text-center">
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile">
+                <label class="btn btn-danger btn-sm center-block btn-file"> 
+                  <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
+                  <input type="file" style="display: none;" (change)="onSelectFile($event);">
+                </label>
+              </button>
+              
+        
 
             </div>
 
-            <div class="col-md-2">
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile">
               <label class="btn btn-success btn-sm center-block btn-file">Logo
                 <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
                 <input type="file" style="display: none;" (change)="onSelectFile1($event);">
               </label>
+              </button>
             </div>
-            <div class="col-md-2">
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile">
               <label class="btn btn-black btn-sm center-block btn-file">Bg
                 <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
                 <input type="file" style="display: none;" (change)="onSelectFileImage($event);">
               </label>
+              </button>
             </div>
 
 
 
 
 
-            <div class="col-md-2 d-flex align-items-center justify-content-center"><button
+            <div class="col-auto d-flex align-items-center justify-content-center"><button
                 class="bg-yellow border-0 mb-4 text-white" (click)="func()">Import</button></div>
 
             <div class="col-md-3 mt-3">
               <label for="exampleInputfiled" class="form-label fw-semibold mt-1 ">Font Family :</label>
+              <select class="form-select " [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}"
+                aria-label="Default select example">
+                <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
+              </select>
+            </div>
+
+
+
+            <div class="col-md-3 mt-3">
+              <div class="col-auto">
+                <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+              </div>
+              <div class="col-auto">
+                <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeYoutubeSize($event)"
+                  id="customRange2">
+              </div>
+            </div>
+          </div> -->
+
+          <div class="row flyer-header text-center d-flex align-items-center justify-content-around p-1 bg-gray rounded-pill">
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Upload">
+                <label class=" btn-sm center-block btn-file">
+                  <img src="assets/images/profile-upload.png">
+                  <input type="file" style="display: none;" (change)="onSelectFile($event);">
+                </label>
+              </button>
+
+              <!-- <input type="file"   (change)="onSelectFile($event);"  /> -->
+
+            </div>
+
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Logo">
+                <label class=" btn-sm center-block btn-file">
+                  <img src="assets/images/logo-upload.png">
+                  <input type="file" style="display: none;" (change)="onSelectFile1($event);">
+                </label>
+              </button>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Background">
+                <label class=" btn-sm center-block btn-file">
+                  <img src="assets/images/image upload.png">
+                  <input type="file" style="display: none;" (change)="onSelectFileImage($event);">
+                </label>
+              </button>
+            </div>
+
+
+
+
+
+            <div class="col-auto d-flex align-items-center justify-content-center"><button
+                class="border-0 p-1 rounded-3 text-white" data-bs-toggle="tooltip" title="Import"
+                (click)="func()">
+                <img src="assets/images/download.png">
+              </button></div>
+
+            <div class="col-md-3 mt-3">
+              <label for="exampleInputfiled" class="form-label fw-semibold " data-bs-toggle="tooltip"
+                title="Font Family">Font Family :</label>
               <select class="form-select " [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}"
                 aria-label="Default select example">
                 <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
@@ -113,7 +189,7 @@
                   style="font-style: italic;">I</span>
             </div> -->
 
-            <div class="col-md-3 mt-3">
+            <!-- <div class="col-md-3 mt-3">
               <label for="exampleInputfiled" class="form-label fw-semibold font_size">Font Size :</label>
 
               <mat-form-field style="width: 103px; height: 68px;" appearance="fill">
@@ -129,17 +205,18 @@
                 </mat-select>
               </mat-form-field>
 
-            </div>
+            </div> -->
 
             <div class="col-md-3 mt-3">
-              <div class="col-auto">
-                <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
 
-              </div>
-              <div class="col-auto">
-                <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeYoutubeSize($event)"
-                  id="customRange2">
-              </div>
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold" data-bs-toggle="tooltip"
+                title="Font Size">Font Size :</label>
+
+
+
+              <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeYoutubeSize($event)"
+                id="customRange2">
+
             </div>
           </div>
           <br>
@@ -165,7 +242,7 @@
                       <tr style="position:relative">
                         <td style="width:50%;padding: 10px; font-weight: bold;text-align: left;">
 
-                          <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                          <input id="editable" cdkDragBoundary=".example-boundary"
                             [style.font-weight]="fontWeightNew" [style.font-family]="fontFamilyNew"
                             [(colorPicker)]="color1" [style.color]="color1" cdkDrag type="text" value="Heading"
                             style="font-weight: bolder; text-transform: capitalize;">
@@ -175,7 +252,7 @@
                       </tr>
                       <tr>
                         <td style="text-align:left;padding-bottom:15px;">
-                          <button cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                          <button cdkDragBoundary=".example-boundary"
                             [style.font-weight]="fontWeightNew" [style.font-family]="fontFamilyNew"
                             [(colorPicker)]="color1" [style.color]="color1" cdkDrag
                             style="background-color:#f06129;padding:10px 15px;border-radius:50px;color:white;border:0">
@@ -187,7 +264,7 @@
                       <tr>
                         <!-- <td>
                           <input  cdkDragBoundary=".example-boundary" cdkDrag type="text" [(colorPicker)]="color1" [style.color]="color1"
-                            [style.fontSize]="fontSize.value" [style.font-style]="fontStyleNew"
+                            [style.font-style]="fontStyleNew"
                             [style.font-family]="fontFamilyNew" type="text" style="width:100%;"
                             value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book">
 
@@ -195,19 +272,19 @@
                         <td>
                           <ul cdkDragBoundary=".example-boundary" cdkDrag style="list-style-type: square; ">
                             <li style="font-size:12px;">
-                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                              <input type="text" cdkDragBoundary=".example-boundary"
                                 [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
                                 [(colorPicker)]="color1" [style.color]="color1" cdkDrag
                                 value="Lorem Ipsum is simply dummy text">
                             </li>
                             <li style="font-size:12px;">
-                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                              <input type="text" cdkDragBoundary=".example-boundary"
                                 [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
                                 [(colorPicker)]="color1" [style.color]="color1" cdkDrag
                                 value="Lorem Ipsum is simply dummy text">
                             </li>
                             <li style="font-size:12px;">
-                              <input type="text" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                              <input type="text" cdkDragBoundary=".example-boundary"
                                 [style.font-family]="fontFamilyNew" [style.font-weight]="fontWeightNew"
                                 [(colorPicker)]="color1" [style.color]="color1" cdkDrag
                                 value="Lorem Ipsum is simply dummy text">
@@ -279,14 +356,14 @@
                   left: 4px;
                   width: 76%;" class="d-flex justify-content-between">
                     <input type="text" placeholder="loremispum123@gmail.com" style="width: 80%;"
-                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"
+                      [style.font-family]="fontFamilyNew"
                       [style.font-weight]="fontWeightNew" [(colorPicker)]="color1" [style.color]="color1"
                       cdkDragBoundary=".example-boundary" cdkDrag>
                     <input type="text" placeholder="www.perfectiongeeks.com" style="width: 80%;"
-                      [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew"
+                      [style.font-family]="fontFamilyNew"
                       [style.font-weight]="fontWeightNew" [(colorPicker)]="color1" [style.color]="color1"
                       cdkDragBoundary=".example-boundary" cdkDrag>
-                    <p [style.font-family]="fontFamilyNew" [style.fontSize]="fontSize.value"
+                    <p [style.font-family]="fontFamilyNew"
                       cdkDragBoundary=".example-boundary" [style.font-weight]="fontWeightNew"
                       [style.font-style]="fontStyleNew" cdkDrag style="left:85px"
                       class="d-flex m-0 justify-content-around">
@@ -316,7 +393,7 @@
 
               <!-- <h1><span>Annual</span><span>Report</span></h1> -->
               <h1 style="margin-left: 149px;"> <input id="editable" cdkDragBoundary=".example-boundary"
-                  [style.fontSize]="fontSize.value" [style.font-weight]="fontWeightNew"
+                  [style.font-weight]="fontWeightNew"
                   [style.font-family]="fontFamilyNew" cdkDrag type="text" value="Annual Report "
                   style="font-weight: bolder;" style="  text-transform: uppercase;
                 text-align: center;
@@ -342,27 +419,27 @@
               <div class="triangle triangle--one"></div>
 
               <div class="footer">
-                <h3><input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                <h3><input id="editable" cdkDragBoundary=".example-boundary"
                     [style.font-family]="fontFamilyNew" cdkDrag type="text" value="Your Headline"
                     style="color:white; text-transform: uppercase;margin-left: 54px;"></h3>
                 <!-- <h3>Your Headline</h3> -->
                 <div class="numbers">
                   <div class="number--one">
                     <span></span>
-                    <p> <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                    <p> <input id="editable" cdkDragBoundary=".example-boundary"
                         [style.font-family]="fontFamilyNew" cdkDrag type="text"
                         value="Lorem ipsum dolor sit amet, inspector" style="color:white; "></p>
                     <!-- <p>Lorem ipsum dolor sit amet, inspector</p> -->
                   </div>
                   <div class="number--two">
 
-                    <p> <input id="editable" cdkDragBoundary=".example-boundary" [style.fontSize]="fontSize.value"
+                    <p> <input id="editable" cdkDragBoundary=".example-boundary"
                         [style.font-family]="fontFamilyNew" cdkDrag type="text"
                         value="Lorem ipsum dolor sit amet, inspector" style="color:white; "></p>
                   </div>
                 </div>
                 <p class="site"><input id="editable" cdkDragBoundary=".example-boundary"
-                    [style.fontSize]="fontSize.value" [style.font-family]="fontFamilyNew" cdkDrag type="text"
+                    [style.font-family]="fontFamilyNew" cdkDrag type="text"
                     value="Lorem@gmail.com " style="color:white; "></p>
 
               </div>
@@ -374,10 +451,10 @@
 
 
 
-          <!-- --------------E  D I T  ---FLYER----- -->
+          <!-- --------------E  D I T  ---FLYER -1----- -->
 
 
-        
+
           <div *ngIf="templateShow=='pro-1'" id="your-element" style="width:500px; height: 700px;
  border: 1px solid hsl(0, 6%, 64%);
  position: relative;
@@ -410,7 +487,8 @@
      color:hsl(218, 17%, 35%);
    ">
                 <img *ngIf="!urls" src="assets/images/flyer-logo.png" style="width:100px;height:30px;">
-                <img cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls" style="width:100px;height:30px;">
+                <img cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls"
+                  style="width:100px;height:30px;">
               </h3>
               <p style="margin-top: 0.5em; flex: 0 0 100%; font-size: 0.7em">
                 <!-- Lorem ipsum dolor sit amet adipis elit Architecto quibusdam eligendi.
@@ -418,8 +496,9 @@
                 [style.font-family]="fontFamilyNew"   tabindex="1"  name="q"   style="width:250pxs ;"
                 cdkDrag
                 value="Lorem ipsum dolor sit amet adipis elit Architecto quibusdam eligendi."> -->
-                <textarea cdkDragBoundary=".example-boundary" cdkDrag rows="2" cols="38" name="comment" form="usrform" cdkDragBoundary=".example-boundary"
-                  [style.font-family]="fontFamilyNew" [style.font-size.px]="contentSize" style="    background-color: #f6f9fa;
+                <textarea cdkDragBoundary=".example-boundary" cdkDrag rows="2" cols="38" name="comment" form="usrform"
+                  cdkDragBoundary=".example-boundary" [style.font-family]="fontFamilyNew"
+                  [style.font-size.px]="contentSize" style="    background-color: #f6f9fa;
                 border: none;">
                   Lorem ipsum dolor sit amet adipis elit Architecto quibusdam eligendi.</textarea>
               </p>
@@ -437,7 +516,7 @@
    filter: grayscale(1);
    clip-path: polygon(0% 35%, 75% 0%, 100% 0%, 100% 35%, 0% 85%);
  "></div>
-           <div cdkDragBoundary=".example-boundary" cdkDrag  *ngIf="imageUrl"style="
+            <div cdkDragBoundary=".example-boundary" cdkDrag *ngIf="imageUrl" style="
            position: absolute;
            top: 0;
            left: 0;
@@ -449,10 +528,12 @@
            filter: grayscale(1);
            clip-path: polygon(0% 35%, 75% 0%, 100% 0%, 100% 35%, 0% 85%);
          "></div>
- <div class="img">
-  <img *ngIf="url"  cdkDragBoundary=".example-boundary" cdkDrag [src]="url" style="width:100px;height:100px;top:90px;left:370px;position: absolute;">
-  <img *ngIf="!url" src="assets/images/testi-3.png" style="width:100px;height:100px;top:90px;left:370px;position: absolute;">
- </div>
+            <div class="img">
+              <img *ngIf="url" cdkDragBoundary=".example-boundary" cdkDrag [src]="url"
+                style="width:100px;height:100px;top:90px;left:370px;position: absolute;">
+              <img *ngIf="!url" src="assets/images/testi-3.png"
+                style="width:100px;height:100px;top:90px;left:370px;position: absolute;">
+            </div>
 
             <div style="
    position: absolute;
@@ -481,12 +562,12 @@
      ">Annual Report</span> -->
 
 
-<input style="transform: skewX(30deg); color: #fff;   display: block;
+                <input style="transform: skewX(30deg); color: #fff;   display: block;
        font-size: 2.2em; margin-left:104px ;
        line-height: 1;
        margin-top: 0.14em;
        transform: translateX(18px);     margin-left:198px;" type="text" cdkDragBoundary=".example-boundary"
-                    [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew" cdkDrag value="Annual Report">
+                  [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew" cdkDrag value="Annual Report">
               </h1>
             </div>
 
@@ -512,7 +593,7 @@
               <!-- <h4 style="text-transform: uppercase; font-size: 0.7em">
                 Lorem Ipsum <span style="color: hsl(194, 80%, 48%)">Dolor Sit Amet</span>
               </h4> -->
-             
+
               <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignin,
                 possimus, quis? Odio ullam eos aliquid consequatur, expedita sit quae ah
@@ -521,7 +602,7 @@
 
 
 
-              <textarea name="" id="" cols="50" rows="4" cdkDragBoundary=".example-boundary" cdkDrag style="    position: absolute;
+              <textarea name="" id="" cols="50" rows="4" cdkDragBoundary=".example-boundary" cdkDrag   style="position: absolute;
               background-color: transparent;color: hsl(194, 80%, 48%);
               border: none;
               bottom: 50px;
@@ -532,59 +613,91 @@
               padding-right: 1.5em;
               font-size: 10px;
               font-family: Poppins, sans-serif;
-              transform: translate3d(-71px, 14px, 0px);" [style.font-size.px]="contentSize" [style.font-family]="fontFamilyNew"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignin,
+              transform: translate3d(-71px, 14px, 0px);" [style.font-size.px]="contentSize"
+                [style.font-family]="fontFamilyNew"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignin,
                 possimus, quis? Odio ullam eos aliquid consequatur, expedita sit quae ah
                 bota ale sure hollish.</textarea>
-              <!-- <div style="font-size: 0.45em; text-align: center; margin-top: 1em ;display: flex; ">
-                <div style="display: flex; flex-direction: column; align-items: center">
-                  <div cdkDragBoundary=".example-boundary" cdkDrag  style="
-         width: 35px;
-         height: 35px;
-         border-radius: 50%;
-         background-color: hsl(194, 80%, 48%);
-         fill: #fff;
-       ">
-                    <svg   class="icon-user" viewBox="-16 -13 63 63" width="35" height="35">
-                      <path 
-                        d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z">
-                      </path>
-                    </svg>
-                  </div>
-                  <input cdkDragBoundary=".example-boundary" cdkDrag  type="text" value="Accusamus dicta sed quia, ullam aut." [style.font-size.px]="SocialLinksSize" [style.font-family]="fontFamilyNew">
-                  
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center">
-                  <div class="icon--svg">
-                    <svg  cdkDragBoundary=".example-boundary" cdkDrag  class="icon-search" viewBox="-16 -15 63 63" width="35" height="35">
-                      <path
-                        d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z">
-                      </path>
-                    </svg>
-                  </div>
-                  
-                  <input cdkDragBoundary=".example-boundary" cdkDrag  type="text" value="Accusamus dicta sed quia, ullam aut." [style.font-size.px]="SocialLinksSize" [style.font-family]="fontFamilyNew">
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center">
-                  <div class="icon--svg">
-                    <svg  cdkDragBoundary=".example-boundary" cdkDrag  class="icon-home" viewBox="-16 -13 63 63" width="35" height="35">
-                      <path
-                        d="M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z">
-                      </path>
-                    </svg>
-                  </div>
-                  
-                  <input cdkDragBoundary=".example-boundary" cdkDrag  type="text" value="Accusamus dicta sed quia, ullam aut." [style.font-size.px]="SocialLinksSize" [style.font-family]="fontFamilyNew">
-                </div>
-              </div> -->
+
+
+
             </div>
           </div>
 
 
 
+          <!-- ----------------- E D I T   FLYER-2--------- -->
 
 
+          <div style="width:900px;height:800px;" *ngIf="templateShow=='flyer-2'"  id="your-element" >
+            <div style="display:flex;background-image:url(assets/images/background.png);background-size:cover;padding:15px;">
+              <div style="width:70%;position: relative;padding:20px;padding-right:50px;">
+<!-- 
+                <textarea  cdkDragBoundary=".example-boundary" cdkDrag   [style.font-size.px]="contentSize" [style.font-family]="fontFamilyNew" style="color:#FFFFFF; 
+          background-color: transparent;
+          width: 800px;
+          height: auto;overflow: hidden;
+          font-size:28px;font-weight:600;position: absolute;top:30px;font-family: 'Mynerve', cursive;
+          left: -52px;
+          border: 0;" id="w3review" name="w3review">
+           Training Camp
+        </textarea> -->
+        <img *ngIf="!urls" src="assets/images/flyer-logo.png" style="width:100px;height:30px; position: absolute;top:8px; background-color: white;">
+        <img cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls"
+          style="width:100px;height:30px;" (mouseover)="showImage=true">
+          <span *ngIf="showImage"><i (click)="delete()" class="fas fa-times"></i></span>
+                <textarea cdkDragBoundary=".example-boundary" cdkDrag   [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew" style="color:#FFBA00;font-family: 'Roboto Condensed', sans-serif;
+          background-color: transparent;
+          width: 800px;padding-left: 52px;
+          height: auto;overflow: hidden;
+          font-size:36px;font-weight:800;
+          border: 0;" id="w3review" name="w3review" cdkDragBoundary=".example-boundary" cdkDrag >
 
+      ARE YOU READY?
+        </textarea><br>
+                <textarea  cdkDragBoundary=".example-boundary" cdkDrag   [style.font-size.px]="contentSize" [style.font-family]="fontFamilyNew" style="color: #FFFFFF;font-family: 'Roboto Condensed', sans-serif;
+          background-color: transparent;
+          width: 800px;
+          height: 116px;
+          border: 0;" id="w3review" name="w3review">
 
+              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+              classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief,
+              Lorem Ipsum is not simply random text.
+        </textarea><br>
+                <!-- <div class="  ">
+                  <button style="color:#FFFFFF;background-color:#043ED2;  position: absolute;
+              top: 197px;
+              left: 75px;border-radius:25px;border:0;padding:10px 12px;">Visit
+                    Now</button>
+                </div> -->
+                <br>
+                <textarea   cdkDragBoundary=".example-boundary" cdkDrag   [style.font-size.px]="contentSize" [style.font-family]="fontFamilyNew" style="color: #FFFFFF;
+              background-color: transparent;
+              width: 800px;font-family: 'Roboto Condensed', sans-serif;
+              height: 116px;
+              border: 0;" id="w3review" name="w3review">
+
+                  Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                  classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief,
+                  Lorem Ipsum is not simply random text.
+            </textarea><br>
+              </div>
+              <div style="width:30%;position: relative;">
+                <img style="width:200px;height:200px" src="assets/images/blue-bg.png">
+
+                <img *ngIf="!url" src="assets/images/rugby-model.png" style="position: absolute;
+          top: 5px;
+          right: 68px;
+          width: 187px;">
+          <img *ngIf="url" cdkDragBoundary=".example-boundary" cdkDrag [src]="url"
+          style="position: absolute;
+          top: 5px;
+          right: 68px;
+          width: 187px;">
+
+              </div>
+            </div>
+          </div>
 
 
 

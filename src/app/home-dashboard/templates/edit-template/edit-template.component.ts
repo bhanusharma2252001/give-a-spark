@@ -376,7 +376,7 @@ hideModel() {
       quotesId: this.QuoteId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
-      profileImage:this.imageData2,
+      profileImage:this.imageData2?this.imageData2:this.userProfile,
       fbProfile: data.fbProfile,
       twitterProfile: data?.twitterProfile,
       instagramProfile: data.instagramProfile,
@@ -398,6 +398,7 @@ hideModel() {
     
 
     this.api.updateTemplate(this.templateId,body).subscribe((res: any) => {
+      debugger
       console.log(res);
       this.TemplateId=res?.data?._id      
       this.toast.success('Signature  Updated Successfully');
@@ -410,7 +411,7 @@ hideModel() {
       }
       // this.saveChanges() ;
       this.getFreeTemplate();
-      this.ngOnInit();
+    
     },
       (error) => {
         this.toast.error('Please Try Again');
@@ -428,7 +429,7 @@ this.planDetail=res.plan;
   }
 
   remove(logoId:any){this.tempId=logoId
-    
+    debugger
     if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
       this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
@@ -441,7 +442,7 @@ this.planDetail=res.plan;
     if( this.planDetail == 'Plan A'){
       this.router.navigate(['home-dashboard/plan/plan-dashboard'])
 
-      if(this.planDetail == 'Plan B' || this.planDetail == 'Plan c' ){
+      if(this.planDetail == 'Plan B' || this.planDetail == 'Plan C' ){
         this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
           console.log(this.tempId);
           this.getFreeTemplate();
