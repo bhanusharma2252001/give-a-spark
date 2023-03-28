@@ -811,24 +811,23 @@
                         <tr><td >{{galleryTitle}}</td></tr>
                         <tr>
                           
-                          <td style="width: 100px;">
-                            <img [style.width.px]="imageSize"  [style.border-radius.px]="imageRadious" style=" width: 61px; display: block;" *ngIf="url1"
-                              [src]="url1" alt="Gallery Image" height="61">
-                              <!-- <img  [style.width.px]="imageSize"  [style.border-radius.px]="imageRadious" style=" width: 61px; display: block;" *ngIf="url1"
-                              [src]="url1" alt="Gallery Image" height="61"> -->
+                          <td colspan="4">
+                            <div style="display:flex; text-align:start;">
+                              <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize" [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace"  *ngIf="url1"
+                              [src]="url1" alt="Gallery Image" >
+                              
 
-                          </td>
-                          <td style="width: 100px;">
-                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style=" width: 61px; display: block; "*ngIf="url2"
-                            [src]="url2" alt="Gallery Image" height="61">
-                          </td>
-                          <td style="width: 100px;">
-                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style="width: 61px; display: block; "*ngIf="url3"
-                            [src]="url3" alt="Gallery Image" height="61">
-                          </td>
-                          <td  style="width: 100px;">
-                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style="width: 61px; display: block; "*ngIf="url4"
-                            [src]="url4" alt="Gallery Image" height="61">
+                         
+                            <img style="margin: 0 5px;" [style.width.px]="imageSize"[style.height.px]="imageSize" [style.border-radius.px]="imageRadious"  [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
+                            [src]="url2" alt="Gallery Image" >
+                        
+                            <img style="margin: 0 5px;"[style.width.px]="imageSize"[style.height.px]="imageSize" [style.border-radius.px]="imageRadious"   [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace"*ngIf="url3"
+                            [src]="url3" alt="Gallery Image" >
+                        
+                            <img style="margin: 0 5px;"[style.width.px]="imageSize" [style.height.px]="imageSize"[style.border-radius.px]="imageRadious"  [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
+                            [src]="url4" alt="Gallery Image" >
+                            </div>
+                         
                           </td>
                         </tr>
 
@@ -1669,7 +1668,7 @@
             <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
           </div>
           <div class="col-auto">
-            <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+            <input type="range" min="0" max="5" value="2" id="customRange2" class="form-range" (change)="changeImageSpace($event)">
           </div>
 
         </div>
@@ -1688,7 +1687,7 @@
               </label></div>
           </div>
           <div class="col-auto">
-            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1" (click)="changeImageRadious(50)"
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1" (click)="changeImageRadious(150)"
                 checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
                 <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
               </label></div>

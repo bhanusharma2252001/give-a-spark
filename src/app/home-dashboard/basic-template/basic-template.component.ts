@@ -171,6 +171,7 @@ imageSize:any=64
   galleryImage2: any;
   galleryImage3: any;
   galleryImage4: any;
+  imageSpace: number;
 
 
   getScanText() {
@@ -573,6 +574,9 @@ this.userProfile=this.defaultDetails?.profile
           this.showIcon == false){
             body['thumbnailImage']=this.thumbnail
           }
+          else{
+            body['thumbnailImage']=this.thumbnail 
+          }
       body['fbProfile']= data.fbProfile,
       body['twitterProfile']= data?.twitterProfile,
       body['instagramProfile']= data.instagramProfile,
@@ -603,7 +607,8 @@ body['imageLink'] =this.galleryLink,
         youtubeFont:this.youtubeFont,
         youtubeAlignment:this.youtubeAlignment,
         imageRadious:this.imageRadious,
-        imageSize:this.imageSize
+        imageSize:this.imageSize,
+        imageSpace:this.imageSpace
       }
       
     } 
@@ -633,33 +638,33 @@ body['imageLink'] =this.galleryLink,
 console.log(body,'sbxkabxak');
 
 
-    this.api.addsignatureDetails(body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId=res?.data?._id
-      console.log(this.TemplateId, 'iddddd');
+    // this.api.addsignatureDetails(body).subscribe((res: any) => {
+    //   console.log(res);
+    //   this.TemplateId=res?.data?._id
+    //   console.log(this.TemplateId, 'iddddd');
       
 
-      this.toast.success('Signature Updated Successfully');
+    //   this.toast.success('Signature Updated Successfully');
       
   
       
       
-      this.getTemplateDetails();
-      if(localStorage.getItem('quoteId')){
-        localStorage.removeItem('quoteId')
+    //   this.getTemplateDetails();
+    //   if(localStorage.getItem('quoteId')){
+    //     localStorage.removeItem('quoteId')
       
-      }
+    //   }
       
-      if(localStorage.getItem('LongQuotes')){
-        localStorage.removeItem('LongQuotes')
+    //   if(localStorage.getItem('LongQuotes')){
+    //     localStorage.removeItem('LongQuotes')
       
-      }
-      // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error('Please Try Again');
-      })
+    //   }
+    //   // this.saveChanges() ;
+    //   // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    // },
+    //   (error) => {
+    //     this.toast.error('Please Try Again');
+    //   })
   }
 
 
@@ -999,8 +1004,30 @@ chaneImageSize(evt:any){
 changeImageRadious(val:any){
   this.imageRadious=val
 }
+changeImageSpace(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+ 
+    this.imageSpace = 11
+  
+  } else if (currnetSize == 5) {
+
+    this.imageSpace = 13
+
+  } else if (currnetSize == 3) {
+   
+    
+    this.imageSpace = 10
+  } else if (currnetSize == 2) {
 
 
+    this.imageSpace = 8
+  } else {
+   
+
+    this.imageSpace = 6
+  }
+}
 
 // ------------ CUSTOM PROFILE-1-------------
 
@@ -1217,6 +1244,7 @@ imageDetails(data:any){
   this.galleryLink=data.imageLink
   console.log(this.galleryLink, 'link of image')
   console.log(this.galleryTitle, 'title')
+  this.toast.show('Please click On Create Signature to Save after you done editing ')
 }
 
 
