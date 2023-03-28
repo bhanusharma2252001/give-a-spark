@@ -398,7 +398,6 @@ hideModel() {
     
 
     this.api.updateTemplate(this.templateId,body).subscribe((res: any) => {
-      debugger
       console.log(res);
       this.TemplateId=res?.data?._id      
       this.toast.success('Signature  Updated Successfully');
@@ -429,7 +428,6 @@ this.planDetail=res.plan;
   }
 
   remove(logoId:any){this.tempId=logoId
-    debugger
     if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B' ){
       this.api.removeSignatureLogo(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
@@ -648,6 +646,8 @@ this.title=data?.signatureName
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
 this.userProfile=data?.profileImage
+console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
+
       this.QuoteId = data?.quotesId
       if (localStorage.getItem('templatequoteId')) {
         this.QuoteId = localStorage.getItem('templatequoteId')

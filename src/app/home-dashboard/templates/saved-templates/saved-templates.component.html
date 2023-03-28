@@ -51,39 +51,39 @@
                         <div style="padding-top:10px;margin-bottom:0px;">
                             <p *ngIf="details?.phoneNo" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
-                                [style.color]="details?.templateDesign?.contactDetailColor"
-                                [style.line-height]="details?.templateDesign?.lineHeight"
-                                [style.font-family]="details?.templateDesign?.fontFamily"
-                                [style.font-size.px]="details?.templateDesign?.fontSizeItem"><span
-                                    style="font-weight:bold;">M:</span>{{std}}{{details?.phoneNo}}
+                                ><span
+                                    style="font-weight:bold;">M:</span> <span [style.color]="details?.templateDesign?.contactDetailColor"
+                                    [style.line-height]="details?.templateDesign?.lineHeight"
+                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{std}}{{details?.phoneNo}}</span>
                         </p>
                         <p *ngIf="details?.companyPhone" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                         color: #212121; white-space: wrap;font-size: 13px;"
-                                    [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem"><span
-                                        style="font-weight:bold;">P:</span>{{details?.companyPhone}}
+                                   ><span
+                                        style="font-weight:bold;">P:</span> <span  [style.color]="details?.templateDesign?.contactDetailColor"
+                                        [style.line-height]="details?.templateDesign?.lineHeight"
+                                        [style.font-family]="details?.templateDesign?.fontFamily"
+                                        [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyPhone}}</span>
                             </p>
 
                             <p *ngIf="details?.email" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
-                                [style.color]="details?.templateDesign?.contactDetailColor"
-                                [style.line-height]="details?.templateDesign?.lineHeight"
-                                [style.font-family]="details?.templateDesign?.fontFamily"
-                                [style.font-size.px]="details?.templateDesign?.fontSizeItem">
+                                >
                                 <span style="font-weight:bold;">E:</span>
-                                {{details?.email}}
+                              <span [style.color]="details?.templateDesign?.contactDetailColor"
+                              [style.line-height]="details?.templateDesign?.lineHeight"
+                              [style.font-family]="details?.templateDesign?.fontFamily"
+                              [style.font-size.px]="details?.templateDesign?.fontSizeItem">  {{details?.email}}</span>
                         </p>
 
                             <p *ngIf="details?.companyWebsite" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
                     color: #212121; white-space: wrap;font-size: 13px;"
-                                [style.color]="details?.templateDesign?.contactDetailColor"
+                                >
+                                <span style="font-weight:bold;">M:</span>
+                                <a href="https://{{details?.companyWebsite}}" target="_blank" [style.color]="details?.templateDesign?.contactDetailColor"
                                 [style.line-height]="details?.templateDesign?.lineHeight"
                                 [style.font-family]="details?.templateDesign?.fontFamily"
-                                [style.font-size.px]="details?.templateDesign?.fontSizeItem">
-                                <span style="font-weight:bold;">M:</span>
-                                <a href="{{details?.companyWebsite}}" target="_blank">{{details?.companyWebsite}}</a>
+                                [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyWebsite}}</a>
      
                             </p>
 
@@ -154,6 +154,30 @@
             {{details?.youtubeTitle}}</p>
     </td>
 </tr>
+<tr *ngIf="details?.imageTitle">
+<p>{{details?.imageTitle}}</p>
+</tr>
+<tr>
+                          
+    <td style="width: 100px;" *ngIf="details?.customProfile1">
+      <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize"  [style.border-radius.px]="details?.templateDesign?.imageRadious" style="  display: block;" 
+        src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile1}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
+ 
+
+    </td>
+    <td style="width: 100px;" *ngIf="details?.customProfile2">
+     <a href="{{details?.imageLink}}" target="_blank"> <img [style.width.px]="details?.templateDesign?.imageSize" [style.height.px]="details?.templateDesign?.imageSize" [style.border-radius.px]="details?.templateDesign?.imageRadious" style="  display: block; "
+        src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile2}}" alt="Gallery Image" ></a>
+    </td>
+    <td style="width: 100px;" *ngIf="details?.customProfile3">
+      <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block; "
+        src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile3}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize" ></a>
+    </td>
+    <td  style="width: 100px;" *ngIf="details?.customProfile4">
+      <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block; "
+        src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile4}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
+    </td>
+  </tr>
 
             </tbody>
         </table>

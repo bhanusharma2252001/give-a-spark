@@ -9,12 +9,12 @@
                 <ul class="nav nav-tabs rounded-pill px-4 py-4 align-items-center justify-content-around" id="myTab"
                   role="tablist">
                   <li class="nav-item_details" role="presentation">
-                    <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab" (click)="openTemp('temp')"
+                    <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
                       data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/Details.svg"> -->
-                        <img class="wh-35 active-black" src="assets/images/details-black.png" >
-                        <p class="mb-0 fs-5 fs-12 mt-1"> 
+                        <img class="wh-35 active-black" src="assets/images/details-black.png">
+                        <p class="mb-0 fs-5 fs-12 mt-1">
                           Details</p>
                       </div>
                     </button>
@@ -208,7 +208,7 @@
 
 
 
-                            <div class="mb-4 d-flex" (click)="addQuote()">
+                            <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
 
                               <p class=" mb-0 mt-1">
                                 <i class="fa fa-plus-circle text-blue"></i>
@@ -217,6 +217,7 @@
                               </p>
                               <p class="mb-0 ps-2 text-blue">
                                 Add Quotes</p>
+
                             </div>
 
 
@@ -622,7 +623,7 @@
                 </div>
 
 
-                <div class="card-box  border-10 p-4 pe-2 ps-2"  >
+                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData" style="width:695px">
                   <div class="row m-0">
                     <!-- <div class="col-md-12">
                       <p class="">{{tempDetails?.signatureName}}</p>
@@ -635,7 +636,7 @@
 
 
                     <table cellpadding="0" cellspacing="0" id="one"
-                      style="background-color: #FBFEFF ;font-size: medium;width:500px;height:280px; font-family: Arial;">
+                      style="background-color: #FBFEFF ;font-size: medium;width:500px; font-family: Arial;">
                       <tbody style="padding:10px;
                     ">
                         <tr>
@@ -661,7 +662,8 @@
                               <img style="width:95px ;height:35px"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.logo}}" id="del"><br>
 
-                              <p style=" font-size: 10px; display: inline; color: blue;" (click)="remove(tempDetails?._id)">Remove logo</p>
+                              <p style=" font-size: 10px; display: inline; color: blue;"
+                                (click)="remove(tempDetails?._id)">Remove logo</p>
 
                             </div>
 
@@ -776,24 +778,60 @@
                         </tr>
                         <tr>
                           <td colspan="3" [style.text-align]="youtubeAlignment">
-                            <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}" alt=""
-                                height="80" [style.text-align]="youtubeAlignment" width="107"></a>
+                            <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
+                                src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
+                                width="107"></a>
 
                             <a href="{{youUrl}}" *ngIf="youImage &&!videoUrl "><img src="{{youImage}}"
                                 [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a>
 
 
-                                <a href="{{videoUrl}}"  *ngIf="(icon =='youIcon' && showIcon)"><img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-                                  [style.text-align]="youtubeAlignment" height="60" width="50" alt=""></a>
-  
+                            <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                                [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
 
-                                
+
+
                             <br>
-                            <p *ngIf="youtubeTitle " [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
+                            <p *ngIf="youtubeTitle && (videoUrl || youUrl)" [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
                               [style.text-align]="youtubeAlignment">
                               {{youtubeTitle}}</p>
                           </td>
                         </tr>
+                        <!-- <tr>
+                          <td><img src="assets/images/square-image.png" width="74" alt="">
+                            <img src="assets/images/square-image.png" width="74" alt="">
+
+                            <img src="assets/images/square-image.png" width="74" alt="">
+
+                            <img src="assets/images/square-image.png" width="74" alt="">
+                          </td>
+
+                        </tr> -->
+                        <tr><td >{{galleryTitle}}</td></tr>
+                        <tr>
+                          
+                          <td style="width: 100px;">
+                            <img [style.width.px]="imageSize"  [style.border-radius.px]="imageRadious" style=" width: 61px; display: block;" *ngIf="url1"
+                              [src]="url1" alt="Gallery Image" height="61">
+                              <!-- <img  [style.width.px]="imageSize"  [style.border-radius.px]="imageRadious" style=" width: 61px; display: block;" *ngIf="url1"
+                              [src]="url1" alt="Gallery Image" height="61"> -->
+
+                          </td>
+                          <td style="width: 100px;">
+                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style=" width: 61px; display: block; "*ngIf="url2"
+                            [src]="url2" alt="Gallery Image" height="61">
+                          </td>
+                          <td style="width: 100px;">
+                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style="width: 61px; display: block; "*ngIf="url3"
+                            [src]="url3" alt="Gallery Image" height="61">
+                          </td>
+                          <td  style="width: 100px;">
+                            <img [style.width.px]="imageSize" [style.border-radius.px]="imageRadious" style="width: 61px; display: block; "*ngIf="url4"
+                            [src]="url4" alt="Gallery Image" height="61">
+                          </td>
+                        </tr>
+
 
 
                       </tbody>
@@ -825,7 +863,7 @@
 
                   </div>
 
-            
+
 
                 </div>
 
@@ -866,7 +904,7 @@
 
                 <div id="scam">
 
-                  <div class="col-md-4 col-lg-4 p-0">
+                 
                     <div class="box-free shadow m-2" *ngIf="templateShow == 'free'">
                       <img class="free-wh m-1" src="assets/images/free-7.png" alt="" (click)="navigate()">
 
@@ -877,7 +915,7 @@
                     <div class="box-free shadow m-2" *ngIf="templateShow == 'propro'">
                       <img src="assets/images/pro+2.png" alt="" class="free-wh m-1" (click)="navigate()">
                     </div>
-                  </div>
+             
 
                   <!-- <table id="first-clip" #tableData cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW"
                     txtConfigFile *ngIf="templateShow == 'free' || templateShow == 'pro' || templateShow == 'propro'"
@@ -1294,8 +1332,9 @@
               <div class="Neon Neon-theme-dragdropbox">
                 <input
                   style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                  name="files[]" id="filer_input2" multiple="multiple"  max-size="2000" type="file" accept="image/jpeg/png*"
-                  (keyup)="changeDesignation()" (change)="onSelectImage($event)">
+                  name="files[]" id="filer_input2" multiple="multiple" max-size="2000" type="file"
+                  accept="image/gif, image/jpeg, image/png" (keyup)="changeDesignation()"
+                  (change)="onSelectImage($event)">
                 <div class="Neon-input-dragDrop">
                   <div class="Neon-input-inner">
                     <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
@@ -1549,225 +1588,245 @@
     <h6>Add your images :</h6>
 
     <div class="mt-5">
+      <form [formGroup]="customGalleryForm">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
 
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <form>
             <label class="upload-area">
-              <input class="upload-display" type="file">
+              <input class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile1" (change)="onSelectFile1($event)">
               <span class="upload-button">
                 <i class="fas fa fa-plus" aria-hidden="true"></i>
+                <img *ngIf="url1" [src]="url1" alt="" width="50" height="50">
+
               </span>
             </label>
-          </form>
-
-        </div>
-        <div class="col-auto">
-          <label class="upload-area">
-            <input class="upload-display" type="file">
-            <span class="upload-button">
-              <i class="fas fa fa-plus" aria-hidden="true"></i>
-            </span>
-          </label>
-        </div>
-        <div class="col-auto">
-          <label class="upload-area">
-            <input class="upload-display" type="file">
-            <span class="upload-button">
-              <i class="fas fa fa-plus" aria-hidden="true"></i>
-            </span>
-          </label>
-        </div>
-        <div class="col-auto">
-          <label class="upload-area">
-            <input class="upload-display" type="file">
-            <span class="upload-button"><i class="fas fa fa-plus" aria-hidden="true"></i>
-
-            </span>
-          </label>
-        </div>
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
 
 
-        </div>
-        <div class="col-auto">
-
-        </div>
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Title ( Optional) :</label>
-        </div>
-        <div class="col-auto">
-          <input type="text" class="form-control" placeholder="Your image title">
-        </div>
-
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Size :</label>
-        </div>
-        <div class="col-auto">
-          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
-        </div>
-
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
-        </div>
-        <div class="col-auto">
-          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
-        </div>
-
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label></div>
-        <div class="col-auto">
-          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
-              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
-              <div style="width: 20px; height: 20px; background-color: #D9D9D9;"></div>
-            </label></div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
-              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
-              <div style="width: 20px; height: 20px; border-radius: 5px; background-color: #D9D9D9;"></div>
-            </label></div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
-              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
-              <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
-            </label></div>
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input *ngIf="url1" class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile2" (change)="onSelectFile2($event)">
+              <span class="upload-button">
+                <i class="fas fa fa-plus" aria-hidden="true"  *ngIf="url1" > </i>
+                <img *ngIf="url2" [src]="url2" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input  *ngIf="url1 && url2 " class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile3" (change)="onSelectFile3($event)">
+              <span class="upload-button">
+                <i *ngIf="url1 && url2"  class="fas fa fa-plus" aria-hidden="true"> </i>
+                <img *ngIf="url3" [src]="url3" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input  *ngIf="url1 && url2 && url3" class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile4" (change)="onSelectFile4($event)">
+              <span class="upload-button"><i  *ngIf="url1 && url2 && url3" class="fas fa fa-plus" aria-hidden="true"></i>
+                <img *ngIf="url4" [src]="url4" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
           <div class="col-auto">
-            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
+
+
           </div>
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="  https://www.applylink">
+
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Title ( Optional) :</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" placeholder="Your image title" formControlName="imageTitle" [(ngModel)]="galleryTitle">
           </div>
 
         </div>
 
-        <div class="row">
+        <div class="row g-3 align-items-center mb-3">
           <div class="col-auto">
-            <button class="green-btn py-2 px-3">Add</button>
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Size :</label>
           </div>
           <div class="col-auto">
-            <button class="gray-btn py-2 px-3">Cancel</button>
+            <input type="range" min="0" max="5" value="1" id="customRange2" class="form-range"
+              (change)="chaneImageSize($event)">
           </div>
-          <div id="mydisclaimer" class="disclaimer design-app">
-
-            <div class="p-4">
-              <div class="d-flex">
-                <h4 class="fw-bold">Add A Disclaimer
-                </h4>
-                <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
-              </div>
-
-              <h6>Choose A Disclaimer Type</h6>
-              <form class="mt-4">
-
-                <div class="form-check text-black ">
-
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                    checked>
-                  <label class="form-check-label fs-14" for="gridRadios1">
-                    Confidentiality
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                  <label class="form-check-label fs-14" for="gridRadios2">
-                    No Viruses
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-                  <label class="form-check-label fs-14" for="gridRadios3">
-                    Non-Binding
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
-                  <label class="form-check-label fs-14" for="gridRadios4">
-                    Personal Opinions
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
-                  <label class="form-check-label fs-14" for="gridRadios5">
-                    Correct Recipients
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
-                  <label class="form-check-label fs-14" for="gridRadios6">
-                    Custom Disclaimer
-                  </label>
-                </div>
-              </form>
-              <div class="mt-5">
-                <h5 class="fw-bold"> Disclaimer style
-                </h5>
-                <div class="row g-3 align-items-center mb-3">
-                  <div class="col-auto">
-                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
-                  </div>
-                  <div class="col-auto">
-                    <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
-                  </div>
-                </div>
-                <div class="row g-3 align-items-center mb-3">
-                  <div class="col-auto">
-                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
-
-                  </div>
-                  <div class="col-auto">
-                    <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
-                  </div>
-                </div>
-                <div class="row g-3 align-items-center mb-3">
-                  <div class="col-auto">
-                    <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
-                  </div>
-                  <div class="col-auto">
-                    <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
-                  </div>
-                  <div class="col-auto">
-                    <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
-                  </div>
-                  <div class="col-auto">
-                    <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
-                  </div>
-                  <div class="col-auto">
-                    <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
-                  </div>
-                </div>
 
 
-                <div class="row">
-                  <div class="col-auto">
-                    <button class="green-btn py-2 px-3">Add</button>
-                  </div>
-                  <div class="col-auto">
-                    <button class="gray-btn py-2 px-3">Cancel</button>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
+          </div>
+          <div class="col-auto">
+            <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+          </div>
 
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label></div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                checked="" class="form-check-input"  (click)="changeImageRadious(0)"><label for="gridRadios1" class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1" (click)="changeImageRadious(25)"
+                checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; border-radius: 5px; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1" (click)="changeImageRadious(50)"
+                checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
             </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" placeholder="  https://www.applylink" fomControlName="imageLink">
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-auto">
+              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)">Add</button>
+            </div>
+            <div class="col-auto">
+              <button class="gray-btn py-2 px-3">Cancel</button>
+            </div>
+
           </div>
         </div>
-      </div>
-
+      </form>
     </div>
   </div>
 </div>
+<!-- ----------DISCLAIMER- MODAL--------------- -->
+
+<div id="mydisclaimer" class="disclaimer design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Add A Disclaimer
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
+    </div>
+
+    <h6>Choose A Disclaimer Type</h6>
+    <form class="mt-4">
+
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label fs-14" for="gridRadios1">
+          Confidentiality
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          No Viruses
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+        <label class="form-check-label fs-14" for="gridRadios3">
+          Non-Binding
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+        <label class="form-check-label fs-14" for="gridRadios4">
+          Personal Opinions
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
+        <label class="form-check-label fs-14" for="gridRadios5">
+          Correct Recipients
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
+        <label class="form-check-label fs-14" for="gridRadios6">
+          Custom Disclaimer
+        </label>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold"> Disclaimer style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- ------------S C H E D LU L E R - MODAL-------------- -->
 <div id="myonline-scheduler" class="online-scheduler design-app">
 
   <div class="p-4">
@@ -1973,12 +2032,12 @@
           </label>
         </div> -->
         <div class="form-check">
-          <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png" ></span>
+          <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
 
           <label class="switch">
             <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
             <span class="slider round"></span>
-           
+
           </label>
         </div>
       </div>
@@ -2227,18 +2286,18 @@
           </div>
         </div>
 
-    </div>
-    <div class="row mt-3">
-      <div class="col-auto">
-        <button class="green-btn py-2 px-3">Add</button>
       </div>
-      <div class="col-auto">
-        <button class="gray-btn py-2 px-3">Cancel</button>
+      <div class="row mt-3">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
 </div>
 
 
@@ -2379,17 +2438,17 @@
     <form class="mt-4">
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
-            </label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">App Store
-            </label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
-            </label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"></div>
       </div>
     </form>
@@ -2447,5 +2506,19 @@
       </div>
     </div>
 
+  </div>
+</div>
+<!-- <app-quote-dashboard #modal></app-quote-dashboard> --><!-- quotes model -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:800px">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

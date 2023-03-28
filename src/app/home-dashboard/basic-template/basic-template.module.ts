@@ -10,10 +10,12 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import {ProgressBarAngularModule} from "progress-bar-angular"
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import { QuoteDashboardModule } from '../motivational-quote/quote-dashboard/quote-dashboard.module';
 
 @NgModule({
   declarations: [
     BasicTemplateComponent
+
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ClipboardModule,
     ProgressBarAngularModule,
     NgxSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    QuoteDashboardModule
   ]
 })
 export class BasicTemplateModule { }

@@ -23,7 +23,7 @@ export class BasicTemplateComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
- 
+  customGalleryForm:FormGroup;
 img:boolean=true;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   signatureDetailsForm: FormGroup
@@ -79,7 +79,7 @@ youtubeForm:FormGroup;
   public youtubeColor:string='#000000'
   youtubeFont:any=8
   youtubeAlignment:any=''
-
+imageSize:any=64
 
 
   public contactDetailColor: string = '#000000';
@@ -145,13 +145,32 @@ youtubeForm:FormGroup;
   videoUrl: any;
   videoid: any;
   youId: any;
-  thumbnail: string;
+  thumbnail: any;
   youtubeTitle: any;
   youUrl: any;
   youImage: any;
   tempId: any;
   showIcon: boolean;
   icon: any;
+  url1: any;
+  profile1: any;
+  imageProfile1: any;
+  imageProfile2: any;
+  url2: string | ArrayBuffer | null | undefined;
+  profile2: any;
+  imageProfile3: any;
+  url3: string | ArrayBuffer | null | undefined;
+  profile3: any;
+  imageProfile4: any;
+  url4: string | ArrayBuffer | null | undefined;
+  profile4: any;
+  galleryTitle: any;
+  galleryLink: any;
+  imageRadious: any;
+  galleryImage1: any;
+  galleryImage2: any;
+  galleryImage3: any;
+  galleryImage4: any;
 
 
   getScanText() {
@@ -195,6 +214,16 @@ this.youtubeForm= this.fb.group({
 })
 
 
+
+
+this.customGalleryForm=this.fb.group({
+  customProfile1:[''],
+  customProfile2:[''],
+  customProfile3:[''],
+  customProfile4:[''],
+imageTitle:[''],
+imageLink:['']
+})
   //   router.canceledNavigationResolution = 'computed';
   //   history.pushState(null, '', location.href);
   // window.onpopstate = function () {
@@ -284,11 +313,11 @@ console.log(b,'b');
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
-      this.templateFontSize = 33
+      
       this.itemFontSize = 14
       this.fontSizeName = 14
     } else if (currnetSize == 5) {
-      this.templateFontSize = 36
+    
       this.fontSizeName = 15
       this.itemFontSize = 15
     } else if (currnetSize == 3) {
@@ -420,7 +449,10 @@ getSignature(){
         this.youtubeTitle=this.tempDetails?.youtubeTitle
 this.youUrl=this.tempDetails?.youtubeUrl
 this.youImage=this.tempDetails?.thumbnailImage
-
+this.galleryImage2=this.tempDetails?.customProfile2
+this.galleryImage1=this.tempDetails?.customProfile1
+this.galleryImage3=this.tempDetails?.customProfile3
+this.galleryImage4=this.tempDetails?.customProfile4
       }
 
 else{
@@ -463,21 +495,10 @@ this.userProfile=this.defaultDetails?.profile
 
     this.showIcon= !this.showIcon;
     console.log(this.showIcon);
-// if(this.icon=='youtubeThumb'){
-//   this.showIcon=false;
-//   this.showIcon=true;
-//   console.log(this.showIcon)
-// }
-// else if(this.icon =='youIcon'){
-//   this.showIcon=true;
-//   this.showIcon=false;
-//   console.log(this.showIcon)
-// }
+
   }
 
-// youtubeThumb(val:any){
 
-// }
 
 
 
@@ -524,8 +545,7 @@ this.userProfile=this.defaultDetails?.profile
       profileImage:this.imageData2?this.imageData2:this.userProfile,
       companyPhone: data.companyPhone?data.companyPhone:'',
   
-      youtubeUrl:this.videoUrl ,
-      youtubeTitle:this.youtubeTitle ,
+      
    
     }
      
@@ -533,22 +553,40 @@ this.userProfile=this.defaultDetails?.profile
     
 
 
-    if(
-      this.showIcon == true){
-        body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-      }
-    else  if(
-        this.showIcon == false){
-          body['thumbnailImage']=this.thumbnail
-        }
+    // if(
+    //   this.showIcon == true){
+    //     body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+    //   }
+    // else  if(
+    //     this.showIcon == false){
+    //       body['thumbnailImage']=this.thumbnail
+    //     }
 
     if(this.planDetail != 'Plan A') {
+      if(
+        this.showIcon == true){
+          body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+       
+          
+        }
+      else  if(
+          this.showIcon == false){
+            body['thumbnailImage']=this.thumbnail
+          }
       body['fbProfile']= data.fbProfile,
       body['twitterProfile']= data?.twitterProfile,
       body['instagramProfile']= data.instagramProfile,
       body['linkedInProfile']= data.linkedInProfile,
       body['youtubeChannel']=data.youtubeChannel,
-      
+      body ['youtubeUrl']=this.videoUrl ,
+      body ['youtubeTitle']=this.youtubeTitle,
+      body['customProfile1']=this.profile1,
+      body['customProfile2']=this.profile2,
+      body['customProfile3']=this.profile3,
+      body['customProfile4']=this.profile4,
+body['imageTitle'] =this.galleryTitle,
+body['imageLink'] =this.galleryLink,
+
       body['templateDesign']={
         firstNameColor: this.firstNameColor,
         lastNameColor: this.lastNameColor,
@@ -564,6 +602,8 @@ this.userProfile=this.defaultDetails?.profile
         youtubeColor:this.youtubeColor,
         youtubeFont:this.youtubeFont,
         youtubeAlignment:this.youtubeAlignment,
+        imageRadious:this.imageRadious,
+        imageSize:this.imageSize
       }
       
     } 
@@ -615,7 +655,7 @@ console.log(body,'sbxkabxak');
       
       }
       // this.saveChanges() ;
-      this.router.navigate(['/home-dashboard/templates/saved-templates'])
+      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {
         this.toast.error('Please Try Again');
@@ -914,16 +954,278 @@ console.log(this.youId, "youtube ID");
 
 
 
+  chooseQuotes(evt:any) {
+    console.log(evt);
+    if(evt) {
+      if (localStorage.getItem('quoteId')) {
+        this.QuoteId = localStorage.getItem('quoteId')
+      }
+      if (localStorage.getItem('LongQuotes')) {
+        this.LongQuote = localStorage.getItem('LongQuotes')
+      }
+    }
+    
+  }
 
 
+  // ---------CUSTOM  IMAGE GALLLERY-------
 
 
-
-
-
-
-
-
-
+chaneImageSize(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
  
+    this.imageSize = 125
+  
+  } else if (currnetSize == 5) {
+
+    this.imageSize = 150
+
+  } else if (currnetSize == 3) {
+   
+    
+    this.imageSize = 80
+  } else if (currnetSize == 2) {
+
+
+    this.imageSize = 61
+  } else {
+   
+
+    this.imageSize = 50
+  }
+}
+
+changeImageRadious(val:any){
+  this.imageRadious=val
+}
+
+
+
+// ------------ CUSTOM PROFILE-1-------------
+
+onSelectFile1(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile1 = files[0]
+    this.File1ubmit()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url1 = event.target?.result;
+    };
+  }
+
+}
+ 
+File1ubmit(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.imageProfile1);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+     
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile1=res[0]?.key;
+      console.log(this.profile1, 'image111111');
+      
+      // console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+      
+    }
+  )
+
+}
+
+
+
+// -------------- CUSTOM PROFILE -2 -----------
+onSelectFile2(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile2 = files[0]
+    this.File1ubmit2()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url2 = event.target?.result;
+    };
+  }
+
+}
+ 
+File1ubmit2(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.imageProfile2);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+     
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile2=res[0]?.key;
+      console.log(this.profile1, 'image111111');
+      
+      // console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+      
+    }
+  )
+
+}
+
+
+// ---------------CUSTOM PROFILE-3------------
+onSelectFile3(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile3 = files[0]
+    this.File1ubmit3()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url3 = event.target?.result;
+    };
+  }
+
+}
+ 
+File1ubmit3(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.imageProfile3);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+     
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile3=res[0]?.key;
+      console.log(this.profile3, 'image111111');
+      
+      // console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+      
+    }
+  )
+
+}
+
+
+// ---------------CUSTOM PROFILE-4------------
+onSelectFile4(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile4 = files[0]
+    this.File1ubmit4()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url4 = event.target?.result;
+    };
+  }
+
+}
+ 
+File1ubmit4(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.imageProfile4);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+     
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile4=res[0]?.key;
+      console.log(this.profile4, 'image111111');
+      
+      // console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+      
+    }
+  )
+
+}
+
+
+imageDetails(data:any){
+  this.galleryTitle=data.imageTitle
+  this.galleryLink=data.imageLink
+  console.log(this.galleryLink, 'link of image')
+  console.log(this.galleryTitle, 'title')
+}
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -35,6 +35,7 @@ export class QuoteDashboardComponent implements OnInit {
   SubSubstoryData: any;
   SubSubStoryList: any;
   templatesId: number;
+  @Output() quotesSelect = new EventEmitter() 
   constructor(private api: SparkService,private spinner:NgxSpinnerService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
@@ -61,9 +62,10 @@ export class QuoteDashboardComponent implements OnInit {
     }
 
     if(this.templateId == 0 ) {
-      this.router.navigate(['/home-dashboard/basic-template'])
+      // this.router.navigate(['/home-dashboard/basic-template'])
       localStorage.setItem('quoteId', this.quoteId)  
       localStorage.setItem('LongQuotes', this.LongQuotes)
+      this.quotesSelect.emit('getQuotes');
     }  else if(this.templateId != 0 && this.templatesId == 0 ){
       localStorage.setItem('templatequoteId', this.quoteId)
       localStorage.setItem('templateLongQuotes', this.LongQuotes)      
