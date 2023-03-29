@@ -169,7 +169,7 @@ copytext:any;
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
-      companyPhone: [''],
+      companyPhone: ['',[Validators.pattern('[0-9 ]+')]],
       twitterProfile:  ['', [ Validators.pattern(reg)]],
       signatureName:['']
     })

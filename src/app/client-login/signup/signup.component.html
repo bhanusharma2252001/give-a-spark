@@ -28,6 +28,13 @@
                     }"
                     (click)="toggleFieldTextType()"
                   ></i> 
+                  <ng-container class="po-re"
+                  *ngIf="signupForm.controls['password'].touched && !signupForm.controls['password'].valid">
+                  <small class="text-danger"
+                    *ngIf="signupForm.controls['password'].hasError('pattern')">
+                    Please enter Password.
+                  </small>
+                </ng-container>
                     <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
               

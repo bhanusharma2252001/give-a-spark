@@ -1788,109 +1788,117 @@
                             </div>
 
                             <div *ngIf="templateId==16">
-
+                                <p style="padding: 7px 15px;" colspan="3">
+                                  {{title}}
+                                </p>
                                 <table cellpadding="0" cellspacing="0" id="free-10" #tableData
-                                    style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
-                                    <tbody style="padding:10px;
-                                            ">
-                                        <tr>
-                                            <td style="padding: 7px 15px;" colspan="3">
-                                                {{title}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align: baseline;">
-                                                <div style="padding: 7px 15px;" >
-                                                    <img class="width" [src]="url" style="width: 72px;" *ngIf="url">
-                                                    <img alt="Profile"
-                                                        style="   vertical-align: middle; height: 65px;border-radius:50%;"
-                                                        *ngIf="userProfile && !url"
-                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-
-                                                    <!-- <img style="width: 72px;
-                                                        vertical-align: middle; height: 65px;border-radius:50%;"
-                                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails[9]?.profileImage}}"> -->
-
-
-                                                </div>
-                                            </td>
-                                            <td colspan="2"
-                                                style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
-                                                <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
-                                                    line-height: 1.2; font-size: 16.0px;"><span>{{username}}</span>
-                                                </h5>
-                                                <h6
-                                                    style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                                                    <span style="border-bottom:3px solid#FFBA00;padding:5px;">{{desig}}
-                                                    </span>
-                                                </h6>
-                                                <p style="padding-top:10px;margin-bottom:0px;">
-                                                    <span *ngIf="number" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                                        color: #212121; white-space: nowrap;font-size: 13px;"><span
-                                                            style="font-weight:bold;">M:</span>{{number}}
-                                                    </span>
-
-                                                    <span *ngIf="Email" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                                        color: #212121; white-space: nowrap;font-size: 13px;">
-                                                        <span style="font-weight:bold;">E:</span>
-                                                        {{Email}}
-                                                    </span>
-
-                                                    <span *ngIf="compWebsite" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                                        color: #212121; white-space: nowrap;font-size: 13px;">
-                                                        <span style="font-weight:bold;">M:</span>
-                                                        <a href="https://{{compWebsite}}"> {{compWebsite}}</a>
-                                                    </span>
-
-                                                    <span *ngIf="useraddress" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                                        color: #212121; white-space: nowrap;font-size: 13px;">
-
-                                                        <span style="font-weight:bold;">A:</span>
-                                                        {{useraddress}}
-                                                    </span>
-                                                </p>
-
-
-                                            </td>
-                                            <td style="padding: 20px;vertical-align:baseline;">
-                                                <img style="width:60px; height:60px;"
-                                                    src="https://giveaspark.s3.amazonaws.com/{{code}}">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align:center;" *ngIf="logo">
-
-                                                <img style="width:95px ;height:35px"
-                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}">
-
-                                                <p style="font-size:8px;" (click)="remove(16)">Remove Brand</p>
-
-                                            </td>
-
-                                            <td style="padding-left:13px" colspan="2">
-
-                                                <p style="font-size:12px;">
-                                                    <q *ngIf="details?.quotesId?.quotesName">
-                                                        {{details?.quotesId?.quotesName}}
-                                                    </q>
-                                                    <q *ngIf="quotevar">
-                                                        {{quotevar}}
-                                                    </q>
-
-
-
-                                                </p>
-                                            </td>
-
-                                        </tr>
-
-
-                                    </tbody>
+                                  style="background-color: #FBFEFF ;width:500px;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;height:280px; font-family: Arial;">
+                                  <tbody>
+                                    <tr>
+                                      <td style="padding:4px 14px;">
+                                        <h5 style=" text-transform: initial;font-weight: bold;color: #A45391;letter-spacing: 0px;
+                                                              line-height: 1.2; font-size: 16.0px;"><span>{{username}}</span>
+                                        </h5>
+                                        <h6 style="margin:0px;color:#000;font-weight: bold;font-size: 18x;">
+                                          {{desig}}
+                
+                                        </h6>
+                
+                                      </td>
+                                      <td style="text-align:center;" *ngIf="logo">
+                
+                                        <img style="width:95px ;height:35px"
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}">
+                
+                                        <p style="font-size:8px;margin:0" (click)="remove(16)">Remove Brand</p>
+                
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        <div style="width:100%;border-bottom:3px solid#A45391;padding:5px;">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                
+                                      <td
+                                        style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                
+                                        <p style="padding-top:10px;margin:0px;">
+                                          <span *ngIf="number" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                                      color: #212121; white-space: nowrap;font-size: 13px;"><span
+                                              style="font-weight:bold;">M:</span>{{number}}
+                                          </span>
+                                        </p>
+                                        <p style="margin-bottom:0">
+                                          <span *ngIf="Email" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                                      color: #212121; white-space: nowrap;font-size: 13px;">
+                                            <span style="font-weight:bold;">E:</span>
+                                            {{Email}}
+                                          </span>
+                                        </p>
+                                        <p style="margin-bottom:0">
+                                          <span *ngIf="compWebsite" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                                      color: #212121; white-space: nowrap;font-size: 13px;">
+                                            <span style="font-weight:bold;">M:</span>
+                                            <a href="https://{{compWebsite}}"> {{compWebsite}}</a>
+                                          </span>
+                                        </p>
+                                        <p style="margin-bottom:0">
+                
+                                          <span *ngIf="useraddress" style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                                                      color: #212121; white-space: nowrap;font-size: 13px;">
+                
+                                            <span style="font-weight:bold;">A:</span>
+                                            {{useraddress}}
+                                          </span>
+                                        </p>
+                
+                
+                                      </td>
+                                      <td style="vertical-align: baseline;">
+                                        <div style="padding: 7px 15px;">
+                                          <img class="width" [src]="url" style="width: 72px;" *ngIf="url">
+                                          <img alt="Profile" style="   vertical-align: middle; height: 65px;border-radius:50%;"
+                                            *ngIf="userProfile && !url"
+                                            src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                        </div>
+                                      </td>
+                
+                                    </tr>
+                                    <tr>
+                
+                
+                                      <td style="padding-left:13px">
+                
+                                        <p style="font-size:12px;margin:0">
+                                          <q *ngIf="details?.quotesId?.quotesName">
+                                            {{details?.quotesId?.quotesName}}
+                                          </q>
+                                          <q *ngIf="quotevar">
+                                            {{quotevar}}
+                                          </q>
+                
+                
+                
+                                        </p>
+                                      </td>
+                                      <td style="text-align:center;vertical-align:baseline;">
+                                        <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3" style="background-color: #A45391; height: 60px; border-radius: 0 0 10px 10px;">
+                                      </td>
+                                    </tr>
+                
+                                  </tbody>
                                 </table>
-
-
-
-                            </div>
+                
+                
+                
+                              </div>
 
                             <!-- ................................STARTING FOR PRO TEMPLATES........................ -->
 
@@ -4992,6 +5000,7 @@ padding: 21px;">
                     <div class="email__name " *ngIf="templateId == 5" (click)="CopyToClipboard('five')">Html</div>
 
                     <div class="email__name " *ngIf="templateId == 6" (click)="CopyToClipboard('six')">Html</div>
+                    <div class="email__name " *ngIf="templateId == 7" (click)="CopyToClipboard('free-1')">Html</div>
 
                     <div class="email__name " *ngIf="templateId == 32" (click)="CopyToClipboard('seven')">Html</div>
 
