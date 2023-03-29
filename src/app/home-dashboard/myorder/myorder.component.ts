@@ -31,7 +31,9 @@ this.router.navigate(['/plan/plan-dashboard'])
   myOrder(){
     this.api. getOrder().subscribe((res:any)=>{
       this.currentDetails=res?.currentPlan[0][0];
-      this.previousDetails=res?.previousPlan[0];
+      this.previousDetails=res?.previousPlan;
+      console.log(this.previousDetails);
+      
     })
   }
   profile(){

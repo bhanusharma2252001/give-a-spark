@@ -27,6 +27,7 @@ export class BasicTemplateComponent implements OnInit {
 img:boolean=true;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   signatureDetailsForm: FormGroup
+  disclaimerForm:FormGroup;
   planShow = false;
   public toggle: boolean = false;
   showPro: boolean = false;
@@ -79,8 +80,8 @@ youtubeForm:FormGroup;
   public youtubeColor:string='#000000'
   youtubeFont:any=8
   youtubeAlignment:any=''
-imageSize:any=64
-
+imageSize:any=61
+public disclaimerColor:string='#000000';
 
   public contactDetailColor: string = '#000000';
   public lastNameColor: string = '#000000';
@@ -92,6 +93,7 @@ imageSize:any=64
   itemFontSize: any = 12
   fontSizeName: any = 18
   nameAlign: any = '';
+  disclaimerAlignment:any=''
   borderRadius: any = 0
   templateDesign: any = {
     firstNameColor: this.firstNameColor,
@@ -166,12 +168,23 @@ imageSize:any=64
   profile4: any;
   galleryTitle: any;
   galleryLink: any;
-  imageRadious: any;
+  imageRadious: any=0;
   galleryImage1: any;
   galleryImage2: any;
   galleryImage3: any;
   galleryImage4: any;
-  imageSpace: number;
+  imageSpace:any=5;
+  eventdata: any;
+
+newArray = [
+  {'id': 1, 'content': "A"},
+  {'id': 2, 'content': "B"},
+  {'id': 3, 'content': "C"},
+
+]
+  content: string;
+textareaValue:any;
+  disclaimerSize: any=10;
 
 
   getScanText() {
@@ -225,6 +238,10 @@ this.customGalleryForm=this.fb.group({
 imageTitle:[''],
 imageLink:['']
 })
+
+this.disclaimerForm= this.fb.group({
+  disclaimer:['']
+})
   //   router.canceledNavigationResolution = 'computed';
   //   history.pushState(null, '', location.href);
   // window.onpopstate = function () {
@@ -267,6 +284,48 @@ imageLink:['']
 
   }
 
+
+  getEvent(event:any, data:any){
+    this.eventdata = data;
+    if(this.eventdata == 1){
+      this.textareaValue=''
+      this.content = " IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof. "
+    }
+    else if(this.eventdata == 2){
+     
+      
+      this.content = " Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments. "
+    }
+    else if(this.eventdata == 3){
+    
+      this.content = " No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation.  "
+    }
+    else if(this.eventdata == 4){
+   
+      this.content = "  All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message.  "
+    }
+    else if(this.eventdata == 5){
+     
+      this.content = "  If you received this email in error, please notify us immediately by sending an e-mail or by calling. "
+    }
+    else {
+      this.content=''
+    }
+
+    console.log(this.eventdata,this.content,  "toggle data");
+
+
+  }
+  changeDesclaimer(){
+    
+    this.textareaValue=this.disclaimerForm.value.disclaimer
+    this.content=this.textareaValue
+    console.log(this.textareaValue , 'kaya');
+    console.log(this.content, 'content');
+    
+    
+
+  }
 navigate(){
 this.router.navigate(['home-dashboard/templates/template-dashboard'])
 }
@@ -577,6 +636,7 @@ this.userProfile=this.defaultDetails?.profile
           else{
             body['thumbnailImage']=this.thumbnail 
           }
+          body['disclaimer']= this.content, 
       body['fbProfile']= data.fbProfile,
       body['twitterProfile']= data?.twitterProfile,
       body['instagramProfile']= data.instagramProfile,
@@ -606,6 +666,9 @@ body['imageLink'] =this.galleryLink,
         youtubeColor:this.youtubeColor,
         youtubeFont:this.youtubeFont,
         youtubeAlignment:this.youtubeAlignment,
+        disclaimerAlignment:this.disclaimerAlignment,
+        disclaimerSize:this.disclaimerSize,
+ disclaimerColor:this.disclaimerColor,
         imageRadious:this.imageRadious,
         imageSize:this.imageSize,
         imageSpace:this.imageSpace
@@ -638,33 +701,33 @@ body['imageLink'] =this.galleryLink,
 console.log(body,'sbxkabxak');
 
 
-    // this.api.addsignatureDetails(body).subscribe((res: any) => {
-    //   console.log(res);
-    //   this.TemplateId=res?.data?._id
-    //   console.log(this.TemplateId, 'iddddd');
+    this.api.addsignatureDetails(body).subscribe((res: any) => {
+      console.log(res);
+      this.TemplateId=res?.data?._id
+      console.log(this.TemplateId, 'iddddd');
       
 
-    //   this.toast.success('Signature Updated Successfully');
+      this.toast.success('Signature Updated Successfully');
       
   
       
       
-    //   this.getTemplateDetails();
-    //   if(localStorage.getItem('quoteId')){
-    //     localStorage.removeItem('quoteId')
+      this.getTemplateDetails();
+      if(localStorage.getItem('quoteId')){
+        localStorage.removeItem('quoteId')
       
-    //   }
+      }
       
-    //   if(localStorage.getItem('LongQuotes')){
-    //     localStorage.removeItem('LongQuotes')
+      if(localStorage.getItem('LongQuotes')){
+        localStorage.removeItem('LongQuotes')
       
-    //   }
-    //   // this.saveChanges() ;
-    //   // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    // },
-    //   (error) => {
-    //     this.toast.error('Please Try Again');
-    //   })
+      }
+      // this.saveChanges() ;
+      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    },
+      (error) => {
+        this.toast.error('Please Try Again');
+      })
   }
 
 
@@ -1248,10 +1311,33 @@ imageDetails(data:any){
 }
 
 
+// -------- DI S CLAIMER  FONT------
+
+disclaimerSizechange(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+ 
+    this.disclaimerSize = 14
+  
+  }  else if (currnetSize == 3) {
+   
+    
+    this.disclaimerSize = 12
+  } else if (currnetSize == 2) {
 
 
+    this.disclaimerSize = 10
+  } else {
+   
+
+    this.disclaimerSize = 8
+  }
+}
 
 
+changeDiscAlign(val:any){
+  this.disclaimerAlignment=val
+}
 
 
 

@@ -77,7 +77,7 @@
                       for yourself.</p>
   
   
-                      <button (click)="paymentSelectB(); " [class.disableTab]="planDetails != 'Plan A'"
+                      <button (click)="paymentSelectB(); " 
                       class="white-btn fw-semibold p-2 pe-4 ps-4">
                       Get This Plan
                     </button>
@@ -141,7 +141,7 @@
                       for yourself.</p>
   
                       <button  type="button"
-                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan" [class.disableTab]="planDetails == 'Plan C'"   (click)="paymentSelectC();  ">
+                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan"   (click)="paymentSelectC();  ">
                       Get This Plan
                     </button>
                     <!-- data-bs-toggle="modal" data-bs-target="#exampleModal1" -->

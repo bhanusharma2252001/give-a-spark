@@ -43,8 +43,9 @@
                         <h5 class="border-bottom w-50">Plan Details</h5>
                     </div>
                     <div class="mt-4">
-                        <p class="fw-400 fs-14" *ngIf="!plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.SelectPlan }})</p>
-                       <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14" *ngIf="!(plandetails?.planId?.planName=='Plan B' ||plandetails?.planId?.planName=='Plan C') ">Plan Name : Free</p>
+                       <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName =='Plan B'">Plan Name : Pro</p>
+                       <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName =='Plan C'">Plan Name : Pro+</p>
                         <button class="pink-btn p-2 fs-12 pe-3 ps-3" (click)="navigate()">Upgrade Plan</button>
                     </div>
                 </div>
@@ -54,8 +55,9 @@
                     </div>
                     <div class="mt-4">
 
-                        <p class="fw-400 fs-14" *ngIf="!plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.SelectPlan}})</p>
-                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName">Plan Name : Pro ( {{plandetails?.planId?.planName}})</p>
+                        <p class="fw-400 fs-14" *ngIf="!(plandetails?.planId?.planName=='Plan B' ||plandetails?.planId?.planName=='Plan C') ">Plan Name : Free</p>
+                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName =='Plan B'">Plan Name : Pro</p>
+                        <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.planName =='Plan C'">Plan Name : Pro+</p>
                         <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.amount">Price : {{plandetails?.planId?.amount}}</p>
                         <p class="fw-400 fs-14" *ngIf="plandetails?.planId?.timeDuration">Time Duration : {{plandetails?.planId?.timeDuration}}</p>
                         <div class="d-flex justify-content-between">

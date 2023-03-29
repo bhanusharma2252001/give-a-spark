@@ -48,7 +48,7 @@
                       aria-selected="true">
                       <div class="box">
                         <!-- <img class="wh-35 active-icon" src="assets/images/Design.svg" (click)="openTemp('free')"> -->
-                        <img class="wh-35 active-black" src="assets/images/design.png" (click)="openTemp('free')">
+                        <img class="wh-35 active-black" src="assets/images/design.png" >
                         <p class="mb-0 fs-5 fs-12 mt-1">
                           Design</p>
                       </div>
@@ -383,7 +383,7 @@
                           <img class="h-110" src="assets/images/pro-img.png" (click)="openTemp('pro')">
                         </div>
                         <div class="mt-2">
-                          <p class="mb-1 fw-semibold">Pro</p>
+                          <p class="mb-1 fw-semibold">Pro+</p>
                           <img class="h-110" src="assets/images/pro-pro-img.png" (click)="openTemp('propro')">
                         </div>
                       </div>
@@ -623,7 +623,7 @@
                 </div>
 
 
-                <div class="card-box  border-10 p-4 pe-2 ps-2" *ngIf="templatData" style="width:695px">
+                <div class=" border-10 p-4 pe-2 ps-2" *ngIf="templatData" style="width:695px">
                   <div class="row m-0">
                     <!-- <div class="col-md-12">
                       <p class="">{{tempDetails?.signatureName}}</p>
@@ -781,9 +781,9 @@
                             <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
                                 src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
                                 width="107"></a>
-
+<!-- 
                             <a href="{{youUrl}}" *ngIf="youImage &&!videoUrl "><img src="{{youImage}}"
-                                [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a>
+                                [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a> -->
 
 
                             <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
@@ -793,7 +793,7 @@
 
 
                             <br>
-                            <p *ngIf="youtubeTitle && (videoUrl || youUrl)" [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
+                            <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" [style.font-size.px]="youtubeFont"
                               [style.text-align]="youtubeAlignment">
                               {{youtubeTitle}}</p>
                           </td>
@@ -811,7 +811,7 @@
                         <tr><td >{{galleryTitle}}</td></tr>
                         <tr>
                           
-                          <td colspan="4">
+                          <td style="border-bottom: 3px solid #e0e0e0;" colspan="4">
                             <div style="display:flex; text-align:start;">
                               <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize" [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace"  *ngIf="url1"
                               [src]="url1" alt="Gallery Image" >
@@ -830,8 +830,32 @@
                          
                           </td>
                         </tr>
+                        <tr> <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content" [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment" [style.color]="disclaimerColor">
+                        
+                      {{content}}
+                        </td>
+
+                        </tr>
+                        <!-- <tr> 
+                          <td>
+<img style="width:30px;height:30px;" src="green-logo">
+                          </td><td style="border-bottom: 3px solid #e0e0e0;" colspan="3">
+                          
+                          footer des
+                        </td> -->
+
+                        <!-- </tr> -->
+                        <!-- <tr> 
+                          <td>
 
 
+                            <button style="background-color:blue;color:white;">Custom Button</button>
+                          </td><td style="border-bottom: 3px solid #e0e0e0;" colspan="3">
+                          
+                        
+                        </td>
+
+                        </tr> -->
 
                       </tbody>
                     </table>
@@ -1697,7 +1721,7 @@
               <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
             </div>
             <div class="col-auto">
-              <input type="text" class="form-control" placeholder="  https://www.applylink" fomControlName="imageLink">
+              <input type="text" class="form-control" placeholder="  https://www.applylink" formControlName="imageLink">
             </div>
 
           </div>
@@ -1705,10 +1729,10 @@
 
           <div class="row">
             <div class="col-auto">
-              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)">Add</button>
+              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)" onclick="closeimagegallery()">Add</button>
             </div>
             <div class="col-auto">
-              <button class="gray-btn py-2 px-3">Cancel</button>
+              <button class="gray-btn py-2 px-3"onclick="closeimagegallery()">Cancel</button>
             </div>
 
           </div>
@@ -1729,44 +1753,46 @@
     </div>
 
     <h6>Choose A Disclaimer Type</h6>
-    <form class="mt-4">
+    <form class="mt-4" [formGroup]="disclaimerForm">
 
       <div class="form-check text-black ">
 
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <input class="form-check-input" type="radio"   (change)="getEvent($event, 1)" name="gridRadios"  id="gridRadios1" value="1">
         <label class="form-check-label fs-14" for="gridRadios1">
           Confidentiality
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 2)"name="gridRadios"   id="gridRadios2" value="2">
         <label class="form-check-label fs-14" for="gridRadios2">
           No Viruses
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+        <input class="form-check-input" type="radio"  (change)="getEvent($event, 3)"name="gridRadios"  id="gridRadios3" value="3">
         <label class="form-check-label fs-14" for="gridRadios3">
           Non-Binding
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 4)"  name="gridRadios" id="gridRadios4" value="4">
         <label class="form-check-label fs-14" for="gridRadios4">
           Personal Opinions
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
+        <input class="form-check-input" type="radio"  (change)="getEvent($event, 5)"name="gridRadios"  id="gridRadios5" value="5" >
         <label class="form-check-label fs-14" for="gridRadios5">
           Correct Recipients
         </label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
+      <div class="form-check dropdown">
+        <input id="toggle" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" (change)="getEvent($event, 6)"data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" class="form-check-input" type="radio"   name="gridRadios"  id="gridRadios6" value="6" >
         <label class="form-check-label fs-14" for="gridRadios6">
           Custom Disclaimer
         </label>
+        <input id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" [(ngModel)]="content" name="" (change)="changeDesclaimer()" class="dropdown-menu"  formControlName="disclaimer" >
+
       </div>
     </form>
     <div class="mt-5">
@@ -1777,7 +1803,7 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
         </div>
         <div class="col-auto">
-          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+          <input style="width:20px;height: 20px;" [(colorPicker)]="disclaimerColor" [style.background]="disclaimerColor">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -1786,7 +1812,7 @@
 
         </div>
         <div class="col-auto">
-          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+          <input type="range" min="0" max="4" value="2" id="customRange2" class="form-range" (change)="disclaimerSizechange($event)">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -1794,26 +1820,26 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')" ></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
         </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
-        </div>
+        </div> -->
       </div>
 
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closedisclaimer()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2085,10 +2111,10 @@
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (click)="youTubeDetails()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="youTubeDetails()" href="javascript:void(0)" onclick="closeyoutubechannel()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Cancel</button>
+          <button class="gray-btn py-2 px-3"  onclick="closeyoutubechannel()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2509,7 +2535,7 @@
 </div>
 <!-- <app-quote-dashboard #modal></app-quote-dashboard> --><!-- quotes model -->
 <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width:800px">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
         <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
