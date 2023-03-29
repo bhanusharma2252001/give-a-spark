@@ -48,6 +48,8 @@ profileImages:any;
   imageData2: any;
   templateRef:any
 youtubeForm:FormGroup;
+EventForm:FormGroup;
+footerForm:FormGroup;
   public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
 
 
@@ -76,25 +78,30 @@ youtubeForm:FormGroup;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = ""
   // change new
+  bannerSize:any=300
   templateFontSize: any = 24;
-  public youtubeColor:string='#000000'
+  public youtubeColor:string='#000000';
   youtubeFont:any=8
   youtubeAlignment:any=''
 imageSize:any=61
 public disclaimerColor:string='#000000';
-
+public eventColor:string='#000000';
   public contactDetailColor: string = '#000000';
   public lastNameColor: string = '#000000';
   public designationColor: string = '#000000';
   public firstNameColor: string = '#000000';
+  public footerColor:string='#000000';
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
   itemFontSize: any = 12
   fontSizeName: any = 18
+  footerSize:any=12
   nameAlign: any = '';
+  footerAlignment:any=''
   disclaimerAlignment:any=''
   borderRadius: any = 0
+  bannerAlign:any=''
   templateDesign: any = {
     firstNameColor: this.firstNameColor,
     lastNameColor: this.lastNameColor,
@@ -175,7 +182,9 @@ public disclaimerColor:string='#000000';
   galleryImage4: any;
   imageSpace:any=5;
   eventdata: any;
-
+  eventAlignment:any=''
+  eventSize:any=10
+  iconSize:any=20
 newArray = [
   {'id': 1, 'content': "A"},
   {'id': 2, 'content': "B"},
@@ -185,8 +194,19 @@ newArray = [
   content: string;
 textareaValue:any;
   disclaimerSize: any=10;
+  eventIcon: any;
+  eventTitle: any;
+  eventName: any;
+  eventLink: any;
+  footerText: string;
+  footerValue: any;
+  greenIcon: any;
+  bannerImage: any;
+  bannerUrl: string | ArrayBuffer | null | undefined;
+  banner: any;
+  bannerLink: any;
 
-
+  bannerForm:FormGroup;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -227,20 +247,30 @@ this.youtubeForm= this.fb.group({
   youtubeTitle:['', Validators.required]
 })
 
+this.EventForm=this.fb.group({
+  eventTitle:[''],
+  eventName:[''],
+  eventLink: ['', [ Validators.pattern(reg)]]
+})
 
-
-
+this.footerForm =this.fb.group({
+  greenFooter:['']
+})
 this.customGalleryForm=this.fb.group({
   customProfile1:[''],
   customProfile2:[''],
   customProfile3:[''],
   customProfile4:[''],
 imageTitle:[''],
-imageLink:['']
+imageLink: ['', [ Validators.pattern(reg)]]
 })
 
 this.disclaimerForm= this.fb.group({
   disclaimer:['']
+})
+
+this.bannerForm=this.fb.group({
+  bannerLink: ['', [ Validators.pattern(reg)]]
 })
   //   router.canceledNavigationResolution = 'computed';
   //   history.pushState(null, '', location.href);
@@ -577,158 +607,6 @@ this.userProfile=this.defaultDetails?.profile
   }
   
 
-  onSubmit(data: any) {
-   let body :any= {}
-     body = {
-
-      yourName: data.yourName,
-      signatureName: this.sign?this.sign:'',
-      designation: data.designation,
-      email: data.email,
-      phoneNo: data.phoneNo,
-      companyWebsite: data.companyWebsite,
-      address: [
-
-        {
-          addressline: data.address,
-          addressline2: data.address,
-          landmark: data.address,
-          city: data.address,
-          state: data.address,
-          pincode: '',
-          country: data.address,
-        }
-
-      ],
-      quotesId: this.QuoteId?this.QuoteId:'',
-      quotes: data.quotes?data.quotes:'',
-      profileImage:this.imageData2?this.imageData2:this.userProfile,
-      companyPhone: data.companyPhone?data.companyPhone:'',
-  
-      
-   
-    }
-     
-    console.log(this.showIcon, "showicon value");
-    
-
-
-    // if(
-    //   this.showIcon == true){
-    //     body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-    //   }
-    // else  if(
-    //     this.showIcon == false){
-    //       body['thumbnailImage']=this.thumbnail
-    //     }
-
-    if(this.planDetail != 'Plan A') {
-      if(
-        this.showIcon == true){
-          body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-       
-          
-        }
-      else  if(
-          this.showIcon == false){
-            body['thumbnailImage']=this.thumbnail
-          }
-          else{
-            body['thumbnailImage']=this.thumbnail 
-          }
-          body['disclaimer']= this.content, 
-      body['fbProfile']= data.fbProfile,
-      body['twitterProfile']= data?.twitterProfile,
-      body['instagramProfile']= data.instagramProfile,
-      body['linkedInProfile']= data.linkedInProfile,
-      body['youtubeChannel']=data.youtubeChannel,
-      body ['youtubeUrl']=this.videoUrl ,
-      body ['youtubeTitle']=this.youtubeTitle,
-      body['customProfile1']=this.profile1,
-      body['customProfile2']=this.profile2,
-      body['customProfile3']=this.profile3,
-      body['customProfile4']=this.profile4,
-body['imageTitle'] =this.galleryTitle,
-body['imageLink'] =this.galleryLink,
-
-      body['templateDesign']={
-        firstNameColor: this.firstNameColor,
-        lastNameColor: this.lastNameColor,
-        designationColor: this.designationColor,
-        contactDetailColor: this.contactDetailColor,
-        fontFamily: this.fontFamilyNew,
-        fontSize: this.templateFontSize,
-        lineHeight: this.lineHeight,
-        fontSizeItem: this.itemFontSize,
-        nameFontSize: this.fontSizeName,
-        nameAlign: this.nameAlign,
-        borderRadius: this.borderRadius,
-        youtubeColor:this.youtubeColor,
-        youtubeFont:this.youtubeFont,
-        youtubeAlignment:this.youtubeAlignment,
-        disclaimerAlignment:this.disclaimerAlignment,
-        disclaimerSize:this.disclaimerSize,
- disclaimerColor:this.disclaimerColor,
-        imageRadious:this.imageRadious,
-        imageSize:this.imageSize,
-        imageSpace:this.imageSpace
-      }
-      
-    } 
-    else {
-      body['fbProfile']= '',
-      body['twitterProfile']= '',
-      body['instagramProfile']= '',
-      body['linkedInProfile']= '',
-      body['youtubeChannel']= '',
-      
-      body['templateDesign']= {
-        firstNameColor: '',
-        lastNameColor: '',
-        designationColor: '',
-        contactDetailColor: '',
-        fontFamily: '',
-        fontSize: '',
-        lineHeight: '',
-        fontSizeItem: '',
-        nameFontSize: '',
-        nameAlign: '',
-        borderRadius: ''
-
-      }
-      }
-    
-console.log(body,'sbxkabxak');
-
-
-    this.api.addsignatureDetails(body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId=res?.data?._id
-      console.log(this.TemplateId, 'iddddd');
-      
-
-      this.toast.success('Signature Updated Successfully');
-      
-  
-      
-      
-      this.getTemplateDetails();
-      if(localStorage.getItem('quoteId')){
-        localStorage.removeItem('quoteId')
-      
-      }
-      
-      if(localStorage.getItem('LongQuotes')){
-        localStorage.removeItem('LongQuotes')
-      
-      }
-      // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error('Please Try Again');
-      })
-  }
 
 
   showOnPlan() {
@@ -1330,6 +1208,8 @@ disclaimerSizechange(evt:any){
   } else {
    
 
+
+    
     this.disclaimerSize = 8
   }
 }
@@ -1339,7 +1219,442 @@ changeDiscAlign(val:any){
   this.disclaimerAlignment=val
 }
 
+// ------------ S A L E S   E V E N T ----------
+salesEvent(event:any, data:any){
+  this.eventdata = data;
+  if(this.eventdata == 1){
+    this.textareaValue=''
+    this.eventIcon= "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png "
+  }
+  else if(this.eventdata == 2){
+   
+    
+    this.eventIcon= "https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png "
+  }
+  else if(this.eventdata == 3){
+  
+    this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png "
+  }
+ 
+
+  console.log(this.eventdata,this.eventIcon,  "toggle data");
 
 
+}
+
+getEventAlign(val:any){
+  this.eventAlignment= val
+}
+
+changeIconSize(evt:any){
+  this.iconSize=evt
+
+}
+getEventFontSize(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+ 
+    this.eventSize = 14
+  
+  }  else if (currnetSize == 3) {
+   
+    
+    this.eventSize = 13
+  } else if (currnetSize == 2) {
+
+
+    this.eventSize = 12
+  } else if (currnetSize == 1) {
+
+
+    this.eventSize = 10
+  }
+
+}
+getSalesDetails(){
+  this.eventTitle=this.EventForm.value.eventTitle;
+  this.eventName=this.EventForm.value.eventName;
+  this.eventLink=this.EventForm.value.eventLink;
+  console.log( this.eventTitle,this.eventName, this.eventLink, 'Sales Event')
+}
+
+
+
+
+
+// --------------footer-----------
+
+
+
+
+chooseFooter(event:any, data:any){
+  // debugger
+  this.eventdata = data;
+  if(this.eventdata == 1){
+    this.footerValue=''
+    this.footerText = "  Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy.  "
+  }
+  else if(this.eventdata == 2){
+   
+    this.footerValue=''
+    this.footerText = " Please consider the environment before printing this e-mail! "
+  }
+  else if(this.eventdata == 3){
+    this.footerValue=''
+    this.footerText = "  Do you really need to print this email?   "
+  }
+  else if(this.eventdata == 4){
+    this.footerValue=''
+    this.footerText = " Printing emails kills trees. Print is murder! "
+  }
+  else if(this.eventdata == 5){
+    this.footerValue=''
+    this.footerText = " Don't print this, Ok?  "
+  }
+  else if(this.eventdata == 6){
+   
+    this.footerText =''
+  }
+
+  console.log(this.eventdata, this.footerText,  "toggle data");
+
+
+}
+customFooter(){
+  
+  this.footerValue=this.footerForm.value.greenFooter
+  this.footerText=this.footerValue
+  // console.log(this.textareaValue , 'kaya');
+  console.log(this.footerText, 'content');
+  
+  
+
+}
+
+selectfooterIcon(event:any, data:any){
+  this.eventdata = data;
+  if(this.eventdata == 1){
+
+    this.greenIcon= "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png"
+  }
+  else if(this.eventdata == 2){
+   
+    
+    this.greenIcon= "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-icon.png "
+  }
+  else if(this.eventdata == 3){
+  
+    this.greenIcon = 'https://giveaspark.s3.us-west-1.amazonaws.com/category/image_2023_03_29T08_56_13_879Z.png'
+  }
+ 
+
+  console.log(this.eventdata,this.greenIcon,  "toggle data");
+}
+
+
+
+
+
+getFooterSize(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 3) {
+ 
+    this.footerSize = 12
+  
+  }  else if (currnetSize == 2) {
+   
+    
+    this.footerSize = 10
+  } else if (currnetSize == 1) {
+
+
+    this.footerSize = 8
+  } else {
+   
+
+
+    
+    this.footerSize = 8
+  }
+
+}
+
+getFooterAlignment(val:any){
+  this.footerAlignment=val
+
+}
+
+
+// ------------------- B A N N E R ---------------
+
+
+
+
+
+selectBanner(event: any) {
+  this.Submitted=true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.bannerImage = files[0]
+    this.submitBanner();
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.bannerUrl = event.target?.result;
+    };
+  }
+
+}
+ 
+submitBanner(){
+  this.Submitted=true
+  let formData = new FormData();    
+  formData.append('attachment', this.bannerImage);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+     
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.banner=res[0]?.key;
+      console.log(this.profile4, 'image111111');
+      
+      // console.log(this.imageData1[0].key, "image key ")
+      
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+      
+    }
+  )
+
+}
+
+
+changeBannerSize(evt:any){
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 3) {
+ 
+    this.bannerSize = 500
+  
+  }  else if (currnetSize == 2) {
+   
+    
+    this.bannerSize = 400
+  } else if (currnetSize == 1) {
+
+
+    this.bannerSize = 300
+  } else {
+   
+
+
+    
+    this.bannerSize = 300
+  }
+
+}
+
+bannerAlignment(val:any){
+  this.bannerAlign=val
+}
+
+
+
+
+
+bannerValue(){
+  this.bannerLink=this.bannerForm.value.bannerLink
+  console.log(this.bannerLink);
+  
+}
+
+
+
+
+
+
+
+
+
+onSubmit(data: any) {
+  let body :any= {}
+    body = {
+
+     yourName: data.yourName,
+     signatureName: this.sign?this.sign:'',
+     designation: data.designation,
+     email: data.email,
+     phoneNo: data.phoneNo,
+     companyWebsite: data.companyWebsite,
+     address: [
+
+       {
+         addressline: data.address,
+         addressline2: data.address,
+         landmark: data.address,
+         city: data.address,
+         state: data.address,
+         pincode: '',
+         country: data.address,
+       }
+
+     ],
+     quotesId: this.QuoteId?this.QuoteId:'',
+     quotes: data.quotes?data.quotes:'',
+     profileImage:this.imageData2?this.imageData2:this.userProfile,
+     companyPhone: data.companyPhone?data.companyPhone:'',
+ 
+     
+  
+   }
+    
+   console.log(this.showIcon, "showicon value");
+   
+
+
+   // if(
+   //   this.showIcon == true){
+   //     body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+   //   }
+   // else  if(
+   //     this.showIcon == false){
+   //       body['thumbnailImage']=this.thumbnail
+   //     }
+
+   if(this.planDetail != 'Plan A') {
+     if(
+       this.showIcon == true){
+         body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+      
+         
+       }
+     else  if(
+         this.showIcon == false){
+           body['thumbnailImage']=this.thumbnail
+         }
+         else{
+           body['thumbnailImage']=this.thumbnail 
+         }
+         body['disclaimer']= this.content, 
+     body['fbProfile']= data.fbProfile,
+     body['twitterProfile']= data?.twitterProfile,
+     body['instagramProfile']= data.instagramProfile,
+     body['linkedInProfile']= data.linkedInProfile,
+     body['youtubeChannel']=data.youtubeChannel,
+     body ['youtubeUrl']=this.videoUrl ,
+     body ['youtubeTitle']=this.youtubeTitle,
+     body['customProfile1']=this.profile1,
+     body['customProfile2']=this.profile2,
+     body['customProfile3']=this.profile3,
+     body['customProfile4']=this.profile4,
+body['imageTitle'] =this.galleryTitle,
+body['imageLink'] =this.galleryLink,
+body['eventTitle']=this.eventTitle,
+body['eventLink']=this.eventLink,
+body['eventName']=this.eventName,
+body['eventIcon']=this.eventIcon,
+body['greenFooter']=this.footerText,
+body['greenIcon']=this.greenIcon,
+body['bannerImage']=this.banner
+body['bannerLink']=this.bannerLink
+     body['templateDesign']={
+       firstNameColor: this.firstNameColor,
+       lastNameColor: this.lastNameColor,
+       designationColor: this.designationColor,
+       contactDetailColor: this.contactDetailColor,
+       fontFamily: this.fontFamilyNew,
+       fontSize: this.templateFontSize,
+       lineHeight: this.lineHeight,
+       fontSizeItem: this.itemFontSize,
+       nameFontSize: this.fontSizeName,
+       nameAlign: this.nameAlign,
+       borderRadius: this.borderRadius,
+       youtubeColor:this.youtubeColor,
+       youtubeFont:this.youtubeFont,
+       youtubeAlignment:this.youtubeAlignment,
+       disclaimerAlignment:this.disclaimerAlignment,
+       disclaimerSize:this.disclaimerSize,
+disclaimerColor:this.disclaimerColor,
+       imageRadious:this.imageRadious,
+       imageSize:this.imageSize,
+       imageSpace:this.imageSpace,
+       eventColor:this.eventColor,
+       eventSize:this.eventSize,
+       iconSize:this.iconSize,
+       eventAlignment:this.eventAlignment,
+       footerSize:this.footerSize,
+       footerColor:this.footerColor,
+      footerAlignment:this.footerAlignment,
+      bannerSize:this.bannerSize,
+      bannerAlign:this.bannerAlign
+     }
+     
+   } 
+   else {
+     body['fbProfile']= '',
+     body['twitterProfile']= '',
+     body['instagramProfile']= '',
+     body['linkedInProfile']= '',
+     body['youtubeChannel']= '',
+     
+     body['templateDesign']= {
+       firstNameColor: '',
+       lastNameColor: '',
+       designationColor: '',
+       contactDetailColor: '',
+       fontFamily: '',
+       fontSize: '',
+       lineHeight: '',
+       fontSizeItem: '',
+       nameFontSize: '',
+       nameAlign: '',
+       borderRadius: ''
+
+     }
+     }
+   
+console.log(body,'sbxkabxak');
+
+
+   this.api.addsignatureDetails(body).subscribe((res: any) => {
+     console.log(res);
+     this.TemplateId=res?.data?._id
+     console.log(this.TemplateId, 'iddddd');
+     
+
+     this.toast.success('Signature Updated Successfully');
+     
+ 
+     
+     
+     this.getTemplateDetails();
+     if(localStorage.getItem('quoteId')){
+       localStorage.removeItem('quoteId')
+     
+     }
+     
+     if(localStorage.getItem('LongQuotes')){
+       localStorage.removeItem('LongQuotes')
+     
+     }
+     // this.saveChanges() ;
+     // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+   },
+     (error) => {
+       this.toast.error('Please Try Again');
+     })
+ }
 
 }

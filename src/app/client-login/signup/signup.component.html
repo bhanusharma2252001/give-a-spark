@@ -2,7 +2,7 @@
     <div class="col-md-6 position-relative col-lg-6 bg-lgblue min-vh-100">
         <div class="box p-2 ">
           
-            <form [formGroup]="signupForm"  (ngSubmit)="signup()"  class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450">
+            <form [formGroup]="signupForm"   class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450">
                 <div  class="text-center mb-3 ">
                     <h3 class="mb-0">Sign Up</h3>
                     <img src="assets/images/pink-line.png"  class="img-fluid">
@@ -28,18 +28,12 @@
                     }"
                     (click)="toggleFieldTextType()"
                   ></i> 
-                  <ng-container class="po-re"
-                  *ngIf="signupForm.controls['password'].touched && !signupForm.controls['password'].valid">
-                  <small class="text-danger"
-                    *ngIf="signupForm.controls['password'].hasError('pattern')">
-                    Please enter Password.
-                  </small>
-                </ng-container>
+           
                     <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
               
                
-                <button class="btn pink-btn w-100 p-2" type="submit">Sign up</button>
+                <button class="btn pink-btn w-100 p-2" type="submit" (click)="signup()">Sign up</button>
               
                 <div class="text-center mt-5">
 

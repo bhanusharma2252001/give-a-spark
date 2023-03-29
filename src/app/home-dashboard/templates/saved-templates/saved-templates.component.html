@@ -213,6 +213,35 @@
                       </td>
 
                       </tr>
+                      <tr>
+
+                        <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="details?.templateDesign?.eventAlignment">
+                          <a href="{{details?.eventLink}}">
+                            <img *ngIf="details?.eventIcon" style="width:40px;height:40px;" src="{{details?.eventIcon}}"
+                              [style.width.px]="details?.templateDesign?.iconSize">
+                            <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize"
+                              [style.color]="details?.templateDesign?.eventColor">{{details?.eventTitle}}</span>
+                            <span style="margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize"
+                              [style.color]="details?.templateDesign?.eventColor">{{details?.eventName}}</span></a>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <td *ngIf="details?.greenIcon" [style.text-align]="details?.templateDesign?.footerAlignment"
+                          style=" border-right: 1px solid #e5e5e5;text-align: center;">
+                          <img style="width:20px;height:20px;" src="{{details?.greenIcon}}" alt="">
+
+                        </td>
+                        <td [style.text-align]="details?.templateDesign?.footerAlignment" style="padding:2px 10px;" colspan="2"
+                          [style.font-size.px]="details?.templateDesign?.footerSize" [style.color]="details?.templateDesign?.footerColor">
+                          <span>{{details?.greenFooter}}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                     <img *ngIf="details?.bannerImage" src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt="" [style.width.px]="details?.templateDesign?.bannerSize" [style.text-align]="details?.templateDesign?.bannerAlign" height="150" >
+
+                      </tr>
 
             </tbody>
         </table>
