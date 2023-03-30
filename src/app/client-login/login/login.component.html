@@ -8,11 +8,11 @@
 
                 
                   
-                    <h4 class="mb-0 log_in">Log In</h4>
+                    <h4  class="mb-0 log_in text-capitalize">Log In</h4>
                     <img src="assets/images/pink-line.png"  class="img-fluid">
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputinput-field" class="form-label fw-semibold">User Name</label>
+                    <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
                     <input type="email" class="form-control p-2 rounded-pill" id="exampleInputinput-field" aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
                     <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
@@ -22,7 +22,7 @@
 <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputPassword1" class="form-label fw-semibold ">Password</label>
+                    <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
                     <input [type]="fieldTextType ? 'text' : 'password'" class="form-control p-2 rounded-pill" id="exampleInputPassword1" formControlName="password">
                     <i
                     class="fa mt-1 icon-position text-purple position-absolute top-50 start-50  mt-3 ms-2 translate-middle-y" aria-hidden="true" style="margin-left:50px;"
@@ -45,9 +45,9 @@
                     <a class="fw-semibold forget_txt" routerLink="/client-login/forget-password/forget-email">Forgot Password?</a>
                 </div>
                
-                <button class="pink-btn w-100 p-2" type="submit" >Log In</button>
+                <button class="pink-btn w-100 p-2 text-capitalize" type="submit" >Log In</button>
                 <div class="text-center mt-3">
-                    <p class="fw-semibold">or login with</p>
+                    <p class="fw-semibold text-capitalize">or login with</p>
      
                 </div>
           
@@ -63,8 +63,8 @@
               
                 <div class="text-center mt-5">
 
-                    <p class="fw-semibold mb-0">You haven’t account</p>
-                    <p class="fw-semibold text-green"><a (click)="signup()">Sign Up</a></p>
+                    <p class="fw-semibold mb-0 text-capitalize">You haven’t account</p>
+                    <p class="fw-semibold text-green text-capitalize"><a (click)="signup()">Sign Up</a></p>
                 </div>
             </form>
           

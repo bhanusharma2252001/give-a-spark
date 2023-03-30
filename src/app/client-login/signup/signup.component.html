@@ -8,17 +8,17 @@
                     <img src="assets/images/pink-line.png"  class="img-fluid">
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputinput-field" class="form-label fw-semibold">User Name</label>
+                    <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
                     <input type="text" class="form-control" id="exampleInputinput-field" aria-describedby="emailHelp" formControlName="firstName">
                     <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputEmail1" class="form-label fw-semibold">Email</label>
+                    <label for="exampleInputEmail1" class="form-label fw-semibold text-capitalize">Email</label>
                     <input type="email" class="form-control" [(ngModel)]="emailId" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
                     <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputPassword1" class="form-label fw-semibold">Password</label>
+                    <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
                     <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" id="exampleInputPassword1" formControlName="password">
                     <i
                     class="fa mt-1 icon-position text-purple position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true" style="margin-left:50px;"
@@ -37,8 +37,8 @@
               
                 <div class="text-center mt-5">
 
-                    <p class="fw-semibold mb-0">You already have an account</p>
-                    <p class="fw-semibold"><a routerLink="client-login/login">Log In</a></p>
+                    <p class="fw-semibold mb-0 text-capitalize">You already have an account</p>
+                    <p class="fw-semibold text-capitalize"><a routerLink="client-login/login">Log In</a></p>
                 </div>
             </form>
             <img src="assets/images/s-line.png"  class="img-fluid position-absolute bottom-0 end-0">

@@ -8,7 +8,7 @@
           
             <form class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450" [formGroup]="enterOtpForm" (ngSubmit)="otpSubmit()">
                 <div  class="text-center mb-3 ">
-                    <h3 class="mb-0">Enter OTP</h3>
+                    <h3 class="mb-0 text-capitalize">Enter OTP</h3>
                     <img src="assets/images/pink-line.png"  class="img-fluid">
                 </div>
                
@@ -18,10 +18,10 @@
                     <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 
-              <p class="text-info"  type="button"  *ngIf="resendVisible"  (click)="resend()">resend otp</p>
+              <p class="text-info text-capitalize"  type="button"  *ngIf="resendVisible"  (click)="resend()">resend otp</p>
               <span *ngIf="!resendVisible">{{display}}</span>
               
-                <button class="pink-btn w-100 p-2" type="submit">Send</button>
+                <button class="pink-btn w-100 p-2 text-capitalize" type="submit">Send</button>
              
                 
             </form>

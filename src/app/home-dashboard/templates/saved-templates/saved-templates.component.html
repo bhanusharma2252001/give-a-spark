@@ -11,8 +11,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: baseline;">
-                        <div style="padding: 7px 15px;" *ngIf="details?.profileImage">
+                    <td style="vertical-align: baseline;text-align: center;padding: 5px">
+                        <div style="" *ngIf="details?.profileImage">
                             <img style="width: 72px;
                     vertical-align: middle; height: 65px;border-radius:50%;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profileImage}}">
@@ -123,7 +123,7 @@
                         </div>
 
                     </td>
-                    <td style="padding: 20px;vertical-align:baseline;">
+                    <td style="vertical-align:baseline;">
                         <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
                             <img style="width:60px; height:60px;"
                                 src="https://giveaspark.s3.amazonaws.com/{{code}}"></a>
@@ -149,7 +149,7 @@
 
                 </tr>
                 <tr>
-                    <td *ngIf="planDetail=='Plan C'" colspan="3"
+                    <td *ngIf="planDetail=='Plan C'" colspan="4" style="padding:5px 10px"
                         [style.text-align]="details?.templateDesign?.youtubeAlignment">
                         <a href="{{details?.youtubeUrl}}" target="_blank" *ngIf="details?.thumbnailImage"><img
                                 src="{{details?.thumbnailImage}}" height="80" width="107a" alt=""></a>
@@ -158,11 +158,16 @@
                             {{details?.youtubeTitle}}</p>
                     </td>
                 </tr>
-                <tr *ngIf="details?.imageTitle">
-                    <p>{{details?.imageTitle}}</p>
+                <tr>
+                    <td *ngIf="details?.imageTitle" colspan="4" style="padding:5px 10px">
+                        <p style="margin:0;font-weight:bold">{{details?.imageTitle}}</p>
+                    </td>
+
                 </tr>
                 <tr>
 
+                    <td colspan="4" style="border-bottom: 3px solid #e0e0e0;">
+                <tr>
                     <td style="width: 100px;" *ngIf="details?.customProfile1">
                         <a href="{{details?.imageLink}}" target="_blank"><img
                                 [style.width.px]="details?.templateDesign?.imageSize"
@@ -207,41 +212,82 @@
                                 alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
                     </td>
                 </tr>
-                <tr> <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="details?.disclaimer" [style.font-size.px]="details?.templateDesign?.disclaimerSize" [style.text-align]="details?.templateDesign?.disclaimerAlignment" [style.color]="details?.templateDesign?.disclaimerColor">
-                        
-                    {{details?.disclaimer}}
-                      </td>
+                </td>
+                </tr>
+                <tr>
+                    <td style=" font-size:8px ;padding:15px;" colspan="4" *ngIf="details?.disclaimer"
+                        [style.font-size.px]="details?.templateDesign?.disclaimerSize"
+                        [style.text-align]="details?.templateDesign?.disclaimerAlignment"
+                        [style.color]="details?.templateDesign?.disclaimerColor">
 
-                      </tr>
-                      <tr>
+                        {{details?.disclaimer}}
+                    </td>
 
-                        <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="details?.templateDesign?.eventAlignment">
-                          <a href="{{details?.eventLink}}">
-                            <img *ngIf="details?.eventIcon" style="width:40px;height:40px;" src="{{details?.eventIcon}}"
-                              [style.width.px]="details?.templateDesign?.iconSize">
-                            <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize"
-                              [style.color]="details?.templateDesign?.eventColor">{{details?.eventTitle}}</span>
+                </tr>
+                <tr>
+
+                    <td style="padding:5px 10px" colspan="4"
+                        [style.text-align]="details?.templateDesign?.eventAlignment">
+                        <a href="{{details?.eventLink}}">
+                            <img *ngIf="details?.eventIcon" style="width:30px;height:30px;" src="{{details?.eventIcon}}"
+                                [style.width.px]="details?.templateDesign?.iconSize">
+                            <span style="font-weight:bold;margin:1px 3px;"
+                                [style.font-size.px]="details?.templateDesign?.eventSize"
+                                [style.color]="details?.templateDesign?.eventColor">{{details?.eventTitle}}</span>
                             <span style="margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize"
-                              [style.color]="details?.templateDesign?.eventColor">{{details?.eventName}}</span></a>
-                        </td>
+                                [style.color]="details?.templateDesign?.eventColor">{{details?.eventName}}</span></a>
+                    </td>
 
-                      </tr>
+                </tr>
 
-                      <tr>
-                        <td *ngIf="details?.greenIcon" [style.text-align]="details?.templateDesign?.footerAlignment"
-                          style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                          <img style="width:20px;height:20px;" src="{{details?.greenIcon}}" alt="">
+                <tr>
+                    <td style="padding:15px" colspan="4">
+                <tr>
+                    <td style="padding:5px;" *ngIf="details?.greenIcon"
+                        [style.text-align]="details?.templateDesign?.footerAlignment"
+                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
+                        <img style="width:20px;height:20px;padding:5px;" src="{{details?.greenIcon}}" alt="">
 
-                        </td>
-                        <td [style.text-align]="details?.templateDesign?.footerAlignment" style="padding:2px 10px;" colspan="2"
-                          [style.font-size.px]="details?.templateDesign?.footerSize" [style.color]="details?.templateDesign?.footerColor">
-                          <span>{{details?.greenFooter}}</span>
-                        </td>
-                      </tr>
-                      <tr>
-                     <img *ngIf="details?.bannerImage" src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt="" [style.width.px]="details?.templateDesign?.bannerSize" [style.text-align]="details?.templateDesign?.bannerAlign" height="150" >
+                    </td>
+                    <td [style.text-align]="details?.templateDesign?.footerAlignment" style="padding:2px 10px;"
+                        colspan="2" [style.font-size.px]="details?.templateDesign?.footerSize"
+                        [style.color]="details?.templateDesign?.footerColor">
+                        <span>{{details?.greenFooter}}</span>
+                    </td>
+                </tr>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="padding:7px 0px;">
+                        <img *ngIf="details?.bannerImage"
+                            src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt=""
+                            [style.width.%]="details?.templateDesign?.bannerSize"
+                            [style.text-align]="details?.templateDesign?.bannerAlign" height="150">
+                    </td>
 
-                      </tr>
+
+                </tr>
+                <tr>
+                    <td style="padding:15px" colspan="4" [style.text-align]="details?.templateDesign?.appbuttonAlign">
+                        <p style="margin:0;padding:15px" [style.color]="details?.templateDesign?.appButtonColor"
+                            [style.font-size.px]="details?.templateDesign?.appButtonSize">{{details?.appName}}</p>
+                <tr>
+                    <td> <a *ngIf="details?.googleAppLink" href="{{details?.googleAppLink}}"
+                            style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img
+                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
+                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                alt="Download App"> </a></td>
+                    <td> <a *ngIf="details?.appleAppLink" href="{{details?.appleAppLink
+    }}" style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
+                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                alt="Download App"></a></td>
+                </tr>
+
+
+
+                </td>
+                </tr>
 
             </tbody>
         </table>

@@ -227,7 +227,7 @@
 
 
 
-                                                    <div class="mb-4 d-flex" (click)="addQuote()">
+                                                    <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
 
                                                         <p class="mb-0 mt-1 ">
                                                             <i class="fa fa-plus-circle text-blue"></i>
@@ -929,3 +929,17 @@
     
     </section>
 </main>
+
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:75%;height:75%;">
+      <div class="modal-content">
+        <div class="modal-body">
+          <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -55,21 +55,22 @@ export class QuoteDashboardComponent implements OnInit {
     this.LongQuotes = data?.quotesName
     console.log(this.templateId,this.templatesId,'SAQ');
     
-     if(this.templatesId != 0) {
-      localStorage.setItem('templatequoteId', this.quoteId)
-      localStorage.setItem('templateLongQuotes', this.LongQuotes)      
-      this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: this.templateId } })
-    }
+    //  if(this.templatesId != 0) {
+    //   localStorage.setItem('templatequoteId', this.quoteId)
+    //   localStorage.setItem('templateLongQuotes', this.LongQuotes)      
+    //   this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: this.templateId } })
+    // }
 
     if(this.templateId == 0 ) {
       // this.router.navigate(['/home-dashboard/basic-template'])
       localStorage.setItem('quoteId', this.quoteId)  
       localStorage.setItem('LongQuotes', this.LongQuotes)
       this.quotesSelect.emit('getQuotes');
-    }  else if(this.templateId != 0 && this.templatesId == 0 ){
+    }  else {
       localStorage.setItem('templatequoteId', this.quoteId)
-      localStorage.setItem('templateLongQuotes', this.LongQuotes)      
-      this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
+      localStorage.setItem('templateLongQuotes', this.LongQuotes)  
+      this.quotesSelect.emit('getQuotes');    
+      // this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
     }
   }
  
@@ -88,17 +89,17 @@ export class QuoteDashboardComponent implements OnInit {
 
   getTemplateId() {
     this.route.queryParamMap.subscribe((params: any) => {
-      this.templatesId = params.params['templatesId'] || 0
+      // this.templatesId = params.params['templatesId'] || 0
      this.templateId = params.params['templateId'] || 0;
-     if(this.templatesId != 0) {
-      this.templateId = Number(this.templatesId)
-     } 
-     if(this.templateId !=0) {
-      this.templateId = Number(this.templateId)
-     }
-     if (this.templateId == 0) {
-      //  this.router.navigate(['home-dashboard/basic-template'])
-     }
+    //  if(this.templatesId != 0) {
+    //   this.templateId = Number(this.templatesId)
+    //  } 
+    //  if(this.templateId !=0) {
+    //   this.templateId = Number(this.templateId)
+    //  }
+    //  if (this.templateId == 0) {
+    //   //  this.router.navigate(['home-dashboard/basic-template'])
+    //  }
    });
  }
 

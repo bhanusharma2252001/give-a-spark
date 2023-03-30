@@ -5,19 +5,19 @@
           
             <form class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450"  [formGroup]="enterEmail" (ngSubmit)="onSubmit()">
                 <div  class="text-center mb-3 ">
-                    <h4 class="mb-0 log_in">Enter Email</h4>
+                    <h4 class="mb-0 log_in text-capitalize">Enter Email</h4>
                     <img src="assets/images/pink-line.png"  class="img-fluid">
                 </div>
                
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputEmail1" class="form-label fw-semibold">Email</label>
+                    <label for="exampleInputEmail1" class="form-label fw-semibold text-capitalize">Email</label>
                     <input type="email" class="form-control p-2 rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp"  formControlName="email">
                     <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 
               
                
-                <button class="pink-btn w-100 p-2" type="submit">Send</button>
+                <button class="pink-btn w-100 p-2 text-capitalize" type="submit">Send</button>
               
                 
             </form>

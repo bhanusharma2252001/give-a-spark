@@ -691,4 +691,19 @@ console.log(this.code);
   // Pro Templates
   
 
+  
+  chooseQuotes(evt:any) {
+    if(evt) {
+      if (localStorage.getItem('templatequoteId')) {
+        this.QuoteId = localStorage.getItem('templatequoteId')
+      }
+      if (localStorage.getItem('templateLongQuotes')) {
+        this.LongQuote = localStorage.getItem('templateLongQuotes')
+        this.quotevar=this.LongQuote
+  
+      }
+    }
+    
+  }
+
 }

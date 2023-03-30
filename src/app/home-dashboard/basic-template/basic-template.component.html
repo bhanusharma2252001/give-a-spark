@@ -874,7 +874,7 @@
                           </td>
                         </tr>
                         <tr>
-                       <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.px]="bannerSize" [style.text-align]="bannerAlign" height="150" >
+                       <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150" >
 
                         </tr>
                         <!-- <tr> 
@@ -888,6 +888,15 @@
                         </td>
 
                         </tr> -->
+                        <tr>
+                          <td colspan="3" [style.text-align]="appbuttonAlign" >
+                            <p [style.color]="appButtonColor" [style.font-size.px]="appButtonSize">{{appName}}</p>
+
+                            <a *ngIf="googleAppLink" href="{{googleAppLink}}"  style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png" height="33" width="auto" style="width: auto; height: 33px; display: block;" alt="Download App"> </a>
+
+                            <a *ngIf="appleAppLink" href="{{appleAppLink}}"style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"height="33" width="auto" style="width: auto; height: 33px; display: block;" alt="Download App"></a>
+                          </td>
+                        </tr>
 
                       </tbody>
                     </table>
@@ -2511,21 +2520,23 @@
     </div>
 
     <h6>Add app title & links</h6>
-    <form class="mt-4">
+    <form class="mt-4" [formGroup]="downloadAppForm">
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control" formControlName="appName" [(ngModel)]="appName"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">App Store
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control" formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="googleAppLink"  
+
+          [(ngModel)]="googleAppLink"></div>
       </div>
     </form>
 
@@ -2538,7 +2549,7 @@
 
         </div>
         <div class="col-auto">
-          <input type="range" min="0" max="5" value="3" id="customRange2" class="form-range">
+          <input type="range" min="0" max="4" value="1" id="customRange2" class="form-range" (change)="getdownloadFont($event)" >
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2546,8 +2557,10 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
         </div>
         <div class="col-auto">
-          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
-        </div>
+
+          <input [(colorPicker)]="appButtonColor" [style.background]="appButtonColor " style="width:20px;height: 20px;" /> 
+
+                </div>
       </div>
 
 
@@ -2556,17 +2569,17 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getDownloadbuttonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getDownloadbuttonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getDownloadbuttonAlign('right')"></i>
         </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
-        </div>
+        </div> -->
       </div>
 
 
@@ -2574,10 +2587,10 @@
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3">Add</button>
+          <button class="green-btn py-2 px-3"onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Cancel</button>
+          <button class="gray-btn py-2 px-3"onclick="closedownloadapp()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2593,7 +2606,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Save changes</button>
       </div>
     </div>
   </div>
