@@ -60,7 +60,13 @@ export class BasicTemplateComponent implements OnInit {
   progress: any = 0
 
   public color19: string = '#070606';
-  storyList: any;
+   customButtonShape:any = 0
+  customButtonSize:any=10
+  customAlign: any='';
+
+
+ public buttonTextColor:string ='#fff'
+  public customButtonBg:string ='#0d6efd'
   quotesList: any;
   desig: any;
   addr: any;
@@ -215,6 +221,9 @@ export class BasicTemplateComponent implements OnInit {
   appName: any;
   appleAppLink: any;
   googleAppLink: any;
+  customText: any;
+  customUrl: any;
+  customButtonForm:FormGroup;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -284,6 +293,10 @@ export class BasicTemplateComponent implements OnInit {
       appName: [''],
       appleAppLink: ['', [Validators.pattern(reg)]],
       googleAppLink: ['', [Validators.pattern(reg)]]
+    })
+    this.customButtonForm=this.fb.group({
+      customButtonText: [''],
+      customUrl: ['', [Validators.pattern(reg)]],
     })
     //   router.canceledNavigationResolution = 'computed';
     //   history.pushState(null, '', location.href);
@@ -1543,7 +1556,24 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
 
 
 
-
+// -------------------CUSTOM  BUTTON--------------------
+customButtonAlign(val:any){
+  this.customAlign=val
+  
+  }
+  getButtonShape(val:any){
+    this.customButtonShape=val
+  }
+  
+  getCustomSize(val:any){
+    this.customButtonSize=val
+  
+  }
+  getCustoBtDetails(){
+    this.customText=this.customButtonForm.value.customButtonText
+   this.customUrl=this.customButtonForm.value.customUrl
+  
+  }
 
 
   onSubmit(data: any) {
@@ -1630,7 +1660,9 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
       body['appName'] = this.appName
       body['appleAppLink'] = this.appleAppLink
       body['googleAppLink'] = this.googleAppLink
-      body['templateDesign'] = {
+      body ['customButtonText']=this.customText,
+      body['customUrl']=this.customUrl,
+   body['templateDesign'] = {
         firstNameColor: this.firstNameColor,
         lastNameColor: this.lastNameColor,
         designationColor: this.designationColor,
@@ -1662,7 +1694,12 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
         bannerAlign: this.bannerAlign,
         appbuttonAlign: this.appbuttonAlign,
         appButtonSize: this.appButtonSize,
-        appButtonColor: this.appButtonColor
+        appButtonColor: this.appButtonColor,
+        customButtonSize:this.customButtonSize,
+        buttonTextColor:this.buttonTextColor,
+        customButtonShape:this.customButtonShape,
+        customButtonAlign:this.customButtonAlign,
+        customButtonBg:this.customButtonBg
       }
 
     }
@@ -1692,33 +1729,33 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
     console.log(body, 'sbxkabxak');
 
 
-    this.api.addsignatureDetails(body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId = res?.data?._id
-      console.log(this.TemplateId, 'iddddd');
+    // this.api.addsignatureDetails(body).subscribe((res: any) => {
+    //   console.log(res);
+    //   this.TemplateId = res?.data?._id
+    //   console.log(this.TemplateId, 'iddddd');
 
 
-      this.toast.success('Signature Updated Successfully');
+    //   this.toast.success('Signature Updated Successfully');
 
 
 
 
-      this.getTemplateDetails();
-      if (localStorage.getItem('quoteId')) {
-        localStorage.removeItem('quoteId')
+    //   this.getTemplateDetails();
+    //   if (localStorage.getItem('quoteId')) {
+    //     localStorage.removeItem('quoteId')
 
-      }
+    //   }
 
-      if (localStorage.getItem('LongQuotes')) {
-        localStorage.removeItem('LongQuotes')
+    //   if (localStorage.getItem('LongQuotes')) {
+    //     localStorage.removeItem('LongQuotes')
 
-      }
-      // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error('Please Try Again');
-      })
+    //   }
+    //   // this.saveChanges() ;
+    //   // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    // },
+    //   (error) => {
+    //     this.toast.error('Please Try Again');
+    //   })
   }
 
 }

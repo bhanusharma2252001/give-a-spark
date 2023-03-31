@@ -874,7 +874,8 @@
                           </td>
                         </tr>
                         <tr>
-                       <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150" >
+                          <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.%]="bannerSize"
+                            [style.text-align]="bannerAlign" height="150">
 
                         </tr>
                         <!-- <tr> 
@@ -889,20 +890,39 @@
 
                         </tr> -->
                         <tr>
-                          <td colspan="3" [style.text-align]="appbuttonAlign" >
+                          <td colspan="3" [style.text-align]="appbuttonAlign">
                             <p [style.color]="appButtonColor" [style.font-size.px]="appButtonSize">{{appName}}</p>
 
-                            <a *ngIf="googleAppLink" href="{{googleAppLink}}"  style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png" height="33" width="auto" style="width: auto; height: 33px; display: block;" alt="Download App"> </a>
+                            <a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                              target="_blank" rel="nofollow noreferrer"> <img
+                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
+                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                alt="Download App"> </a>
 
-                            <a *ngIf="appleAppLink" href="{{appleAppLink}}"style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"height="33" width="auto" style="width: auto; height: 33px; display: block;" alt="Download App"></a>
+                            <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
+                              target="_blank" rel="nofollow noreferrer"><img
+                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                alt="Download App"></a>
                           </td>
                         </tr>
+                        <!-- <tr>
+                          <td colspan="3" >
+
+                            <a href="{{customUrl}}" [style.text-align]="customButtonAlign" *ngIf=" customText">
+                              <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
+                                   [style.padding-left.px]="customButtonSize"  [style.right-right.px]="customButtonSize"  [style.color]="buttonTextColor"
+                              [style.background-color]="customButtonBg"
+                              [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
+                          </td>
+                        </tr> -->
 
                       </tbody>
                     </table>
 
 
 
+                    <!-- <p><a href="mailto:someone@example.com">Send email</a></p> -->
 
 
 
@@ -2183,17 +2203,19 @@
 
     <h5>Button Details</h5>
 
-    <form class="mt-4">
+    <form class="mt-4" [formGroup]="customButtonForm">
 
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="Button" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="Button" class="form-control"
+            formControlName="customButtonText" [(ngModel)]="customText"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
             :</label></div>
-        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"></div>
+        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
+            formControlName="customUrl" [(ngModel)]="customUrl"></div>
       </div>
       <h5 class="mt-4"> Button Style</h5>
       <div class="row g-3 align-items-center mb-3">
@@ -2203,7 +2225,8 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+              (change)="getButtonShape('0')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
             </label>
@@ -2212,7 +2235,8 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+              (change)="getButtonShape('10')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
             </label>
@@ -2221,7 +2245,8 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+              (change)="getButtonShape('25')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
             </label>
@@ -2247,9 +2272,17 @@
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label></div>
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold"> Color :</label></div>
         <div class="col-auto">
-          <div style="width: 20px; height: 20px; background-color: #003e4d;"></div>
+          <input [(colorPicker)]="customButtonBg" [style.background]="customButtonBg"
+            style="width:20px;height: 20px;" />
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Color :</label></div>
+        <div class="col-auto">
+          <input [(colorPicker)]="buttonTextColor" [style.background]="buttonTextColor"
+            style="width:20px;height: 20px;" />
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2260,9 +2293,9 @@
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size">S</p>
-            <p class="design-size">M</p>
-            <p class="design-size">L</p>
+            <p class="design-size" (change)="getCustomSize('10')">S</p>
+            <p class="design-size" (change)="getCustomSize('25')">M</p>
+            <p class="design-size" (change)="getCustomSize('60')">L</p>
           </div>
         </div>
       </div>
@@ -2271,26 +2304,27 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left" (change)="customButtonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center" (change)="customButtonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right" (change)="customButtonAlign('right')"></i>
         </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
-        </div>
+        </div> -->
       </div>
     </form>
 
     <div class="row mt-4">
       <div class="col-auto">
-        <button class="green-btn py-2 px-3">Add</button>
+
+        <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
       </div>
       <div class="col-auto">
-        <button class="gray-btn py-2 px-3">Cancel</button>
+        <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
       </div>
     </div>
   </div>
@@ -2308,11 +2342,12 @@
 
     <h6>Upload your banner (jpg,png,gif)</h6>
     <div class="">
-    <label class="upload-area"><input type="file" class="upload-display"  (change)="selectBanner($event)" accept="image/gif, image/jpeg, image/png"><span class="upload-button-1" >
-      <img *ngIf="bannerUrl" src="{{bannerUrl}}" alt="" height="96px" width="800">
-            <p *ngIf="!bannerUrl">Drag & Drop your banner here </p><br>
+      <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
+          accept="image/gif, image/jpeg, image/png"><span class="upload-button-1">
+          <img *ngIf="bannerUrl" src="{{bannerUrl}}" alt="" height="96px" width="800">
+          <p *ngIf="!bannerUrl">Drag & Drop your banner here </p><br>
 
-          </span></label>
+        </span></label>
     </div>
     <div class="mt-5">
       <h5 class="fw-bold">Banner Style
@@ -2323,7 +2358,8 @@
 
         </div>
         <div class="col-auto">
-          <input type="range" min="0" max="3" value="2" id="customRange2" class="form-range" (change)="changeBannerSize($event)">
+          <input type="range" min="0" max="3" value="2" id="customRange2" class="form-range"
+            (change)="changeBannerSize($event)">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2339,14 +2375,15 @@
         <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="bannerAlignment('right')"></i>
         </div>
-      
+
       </div>
-<form [formGroup]="bannerForm">
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
-            :</label></div>
-        <div class="col-auto"><input type="text" placeholder="Banner URL" class="form-control" formControlName="bannerLink" ></div>
-      </div>
+      <form [formGroup]="bannerForm">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="Banner URL" class="form-control"
+              formControlName="bannerLink"></div>
+        </div>
       </form>
       <div class="row">
         <div class="col-md-6 ">
@@ -2365,7 +2402,7 @@
       </div>
       <div class="row mt-3">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (clicl)="bannerValue()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="bannerValue()">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3">Cancel</button>
@@ -2524,19 +2561,20 @@
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control" formControlName="appName" [(ngModel)]="appName"></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control" formControlName="appName"
+            [(ngModel)]="appName"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">App Store
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control" formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
+            formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
           </label></div>
-        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="googleAppLink"  
-
-          [(ngModel)]="googleAppLink"></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"
+            formControlName="googleAppLink" [(ngModel)]="googleAppLink"></div>
       </div>
     </form>
 
@@ -2549,7 +2587,8 @@
 
         </div>
         <div class="col-auto">
-          <input type="range" min="0" max="4" value="1" id="customRange2" class="form-range" (change)="getdownloadFont($event)" >
+          <input type="range" min="0" max="4" value="1" id="customRange2" class="form-range"
+            (change)="getdownloadFont($event)">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2558,9 +2597,10 @@
         </div>
         <div class="col-auto">
 
-          <input [(colorPicker)]="appButtonColor" [style.background]="appButtonColor " style="width:20px;height: 20px;" /> 
+          <input [(colorPicker)]="appButtonColor" [style.background]="appButtonColor "
+            style="width:20px;height: 20px;" />
 
-                </div>
+        </div>
       </div>
 
 
@@ -2587,10 +2627,10 @@
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3"onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3"onclick="closedownloadapp()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2606,7 +2646,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Save changes</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
