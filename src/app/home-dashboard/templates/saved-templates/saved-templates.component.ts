@@ -1,11 +1,12 @@
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsulation, ViewChildren, QueryList,  Renderer2 } from '@angular/core';
 import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+// import * as OfficeHelpers from '@microsoft/office-js-helpers';
 @Component({
   selector: 'app-saved-templates',
   templateUrl: './saved-templates.component.html',
@@ -93,6 +94,7 @@ export class SavedTemplatesComponent implements OnInit {
   youId: any;
   thumbnail: string;
   youTubeUrl: any;
+  outLookRef: any;
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -322,10 +324,9 @@ setonGmail(){
   ).subscribe ((res: any)=>{
   console.log(res, 'setgmail');})}})
   
-   
-  
+
   this.toast.success('Please Check your Email');
-    
+    localStorage.setItem('outlook',this.templateRef.outerHTML)
   // this.api.gmail(this.templateRef.outerHTML
   //   ).subscribe((res:any)=>{
   //   console.log(res, 'setgmail');
@@ -335,10 +336,20 @@ setonGmail(){
   }
   openModal (evt:any) {  console.log(evt);
   this. selectedTemplateId = evt
-
+  
 }
 
-
+setOnOutlook(){
+  // this.outLookRef = this.tableData.nativeElement
+  // localStorage.setItem( 'outlooktemp',this.tableData)
+  let tabledata:any = this.tableData;
+  let result:any = tabledata?._results;
+  console.log(result, 'any');
+  
+  result.filter( (item:any)=>{
+  if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
+  this.templateRef = item?.nativeElement
+}})
 
 
 
@@ -357,4 +368,4 @@ setonGmail(){
 
 
 
-
+}
