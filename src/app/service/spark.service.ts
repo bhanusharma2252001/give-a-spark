@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 /// <reference types="chrome"/>
-// import {chrome} from 'chrome';
+// import * as chrome from 'chrome';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'

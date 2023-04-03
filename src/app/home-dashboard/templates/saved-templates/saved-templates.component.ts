@@ -6,6 +6,9 @@ import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+/// <reference types="chrome"/>
+// import * as chrome from 'chrome';
+
 // import * as OfficeHelpers from '@microsoft/office-js-helpers';
 @Component({
   selector: 'app-saved-templates',
@@ -15,7 +18,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
-
+// chrome: any;
  logotext="sky"
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
@@ -327,12 +330,13 @@ setonGmail(){
 
   this.toast.success('Please Check your Email');
     localStorage.setItem('outlook',this.templateRef.outerHTML)
-  // this.api.gmail(this.templateRef.outerHTML
-  //   ).subscribe((res:any)=>{
-  //   console.log(res, 'setgmail');
-    
-  // })
-  
+
+
+   
+  //  chrome.storage.local.set({ ['outlook']: this.templateRef.outerHTML });
+  //     console.log(chrome.storage.local.set({ ['outlook']: this.templateRef.outerHTML }), 'xxxx' );
+      
+    // }
   }
   openModal (evt:any) {  console.log(evt);
   this. selectedTemplateId = evt
@@ -362,7 +366,6 @@ setOnOutlook(){
 
 
 }
-
 
     
 

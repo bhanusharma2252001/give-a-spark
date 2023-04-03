@@ -77,7 +77,7 @@ const googleLoginOptions = {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '314583230343-6mbufrpromdmb1ucouu8ai7i878bctn7.apps.googleusercontent.com',googleLoginOptions
+              '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com',googleLoginOptions
               
             )
           },
@@ -92,7 +92,7 @@ const googleLoginOptions = {
       } as SocialAuthServiceConfig,
     }
   ],
-  // '538732973134-hcoh31a8sbf6t3gu2mlkngj5co0qebg8.apps.googleusercontent.com' 
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

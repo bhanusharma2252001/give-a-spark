@@ -658,7 +658,7 @@
 
                             <!-- -----------------------  TEMPLATE -2   ----------------------- -->
 
-                            <div *ngIf="templateId == 8" class="shadow  temp-style p-3"
+                            <div *ngIf="templateId == 8" class="p-3"
                                 >
                                 <p>{{title}}</p>
                                 <table cellpadding="0" cellspacing="0" #tableData
@@ -781,8 +781,8 @@
 
                             <!-- ---------------------------TEMPLATE-3 ----------------------------- -->
                             <div *ngIf="templateId == 9"
-                                style="background-color: #FFFFFF;padding:10px; border-radius: 15px;" class="mt-5">
-                                <table #tableData style="width: 514px; font-size: 11pt; font-family: Arial, sans-serif;"
+                                style="padding:10px; border-radius: 15px;" class="mt-5">
+                                <table #tableData style="width: 500px; background-color: #FFFFFF;font-size: 11pt; font-family: Arial, sans-serif;"
                                     id="free-3" cellspacing="0" cellpadding="0" border="0">
                                     <tbody>
                                         <tr>
@@ -801,7 +801,7 @@
 
                                             </td>
 
-                                            <td style="width:410px;" width="410">
+                                            <td style="width:410px;padding:0 10px">
                                                 <span
                                                     style="font-family: Arial, sans-serif; color:#784c3f; font-weight: bold; font-size: 12pt; line-height: 23px;text-transform: capitalize;"
                                                     *ngIf="username">{{username}}
@@ -860,7 +860,7 @@
 
                                                             </td>
                                                             <td style="width: 2px;height: 45px; "></td>
-                                                            <td style="width:215; font-size: 10pt; line-height: 15px;">
+                                                            <td style=" font-size: 10pt; line-height: 15px;">
 
 
                                                                 <span style="display: block;text-align:center; ">
@@ -2239,7 +2239,7 @@
                                                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
                                                             height="56" border="0"></a>
                                                 </div>
-                                                <p *ngIf="logo" style="font-size:8px;color:#fff;" (click)="remove(23)">
+                                                <p *ngIf="logo" style="font-size:8px;color:#fff;margin:0" (click)="remove(23)">
                                                     Remove Brand</p>
                                                 <div>
                                                     <p style="margin-bottom:0;color:#fff;" colspan="2"
@@ -2256,15 +2256,19 @@
 
 
                                         </tr>
-
+<tr>
+    <td style="padding:0 10px" colspan="2">
+        <h2 style="margin-bottom:0px; " [style.text-align]="nameAlign"
+        [style.color]="firstNameColor" [style.line-height]="lineHeight"
+        [style.font-family]="fontFamilyNew"
+        [style.font-size.px]="templateFontSize">{{username}}
+    </h2>
+    </td>
+    </tr>
                                         <tr>
 
                                             <td style="padding:0 10px;height:100px;color:white;text-align: center;">
-                                                <h2 style="margin-bottom:0px; " [style.text-align]="nameAlign"
-                                                    [style.color]="firstNameColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="templateFontSize">{{username}}
-                                                </h2>
+                                               
                                                 <h6 style="margin-bottom:6px;" [style.color]="designationColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="itemFontSize">{{desig}}
@@ -3451,7 +3455,7 @@
                             <div *ngIf="templateId == 3" class="mt-5">
                                 <p>{{title}}</p>
                                 <table cellpadding="0" cellspacing="0" id="three" #tableData
-                                    style="background-color: #fff  ;font-size: medium;width:560px;height:280px; font-family: Arial;">
+                                    style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
                                             <td colspan="5" style="background-color: #B4199A;padding:6px;">
@@ -3471,7 +3475,7 @@
                                                 style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;">
                                                 <img [style.border-radius.px]="borderRadius"
                                                     *ngIf="proplus[2]?.profileImage"
-                                                    style="box-shadow: 0 2px 0 10px #B4199A;width:130px;height:130px;border-radius:50%;"
+                                                    style="width:130px;height:130px;border-radius:50%;"
                                                     src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[2]?.profileImage}}">
                                             </td>
                                             <td>
@@ -4132,7 +4136,7 @@
                             <div *ngIf="templateId == 30">
                                 {{title}}
                                 <table cellpadding="0" cellspacing="0" id="eight" #tableData
-                                    style="background-image:  linear-gradient(110deg, #02213d 35%, #fff 20% 70%);font-size: medium;width:600px;height:280px; font-family: Arial;">
+                                    style="background-image:  linear-gradient(110deg, #02213d 35%, #fff 20% 70%);font-size: medium;width:500px;height:280px; font-family: Arial;">
                                     <tbody>
                                         <tr>
                                             <td rowspan="2" style=" vertical-align: top;width:275px;-webkit-clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
@@ -4555,7 +4559,7 @@ padding: 21px;">
                             <div *ngIf="templateId==38">
                                 <p style="font-size:12px;text-align:left;">{{title}}</p>
                                 <table cellpadding="0" cellspacing="0" #tableData id="eleven"
-                                    style="background-color: #fff  ;font-size: medium;width:520px;height:280px; font-family: Arial;">
+                                    style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                                     <tbody>
 
                                         <tr>
@@ -4571,7 +4575,7 @@ padding: 21px;">
                                                     style="padding:20px;margin: 0 50px;width: 6px;background-color: #FFC118;height:50px;border-radius:0 0 25px 25px  ;">
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td style="padding:0 5px">
                                                 <div class="" *ngIf="logo">
                                                     <a target="_blank"><img alt="Logo"
                                                             style="max-width:100%;width:95px;height:35px;border:0"
@@ -4612,7 +4616,7 @@ padding: 21px;">
                                             </td>
 
                                             <td style="vertical-align: end;">
-                                                <p [style.text-align]="nameAlign" [style.color]="firstNameColor"
+                                                <p style="white-space: nowrap;margin:0" [style.text-align]="nameAlign" [style.color]="firstNameColor"
                                                     [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                                                     [style.font-size.px]="templateFontSize">{{username}}</p>
 

@@ -264,16 +264,17 @@ this.googleEmail=details.getEmail()
        
     }, (error: any) => {
       // console.log(error);
-      this.toast.error(JSON.stringify(error, undefined, 2));
+      alert(JSON.stringify(error, undefined, 2));
     });
 
 }
+
 googleAuthSDK() {
   
   (<any>window)['googleSDKLoaded'] = () => {
     (<any>window)['gapi'].load('auth2', () => {
       this.auth2 = (<any>window)['gapi'].auth2.getAuthInstance({
-        client_id:'314583230343-6mbufrpromdmb1ucouu8ai7i878bctn7.apps.googleusercontent.com',
+        client_id:'314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com',
         plugin_name:'login',
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
@@ -283,7 +284,7 @@ googleAuthSDK() {
     });
    
   }
-
+  // 538732973134-hcoh31a8sbf6t3gu2mlkngj5co0qebg8.apps.googleusercontent.com
   (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) { return; }
