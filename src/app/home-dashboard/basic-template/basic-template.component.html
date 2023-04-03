@@ -906,16 +906,16 @@
                                 alt="Download App"></a>
                           </td>
                         </tr>
-                        <!-- <tr>
+                        <tr>
                           <td colspan="3" >
 
-                            <a href="{{customUrl}}" [style.text-align]="customButtonAlign" *ngIf=" customText">
+                            <a href="{{customUrl}}" *ngIf=" customText"  [style.text-align]="customAlign">
                               <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                                   [style.padding-left.px]="customButtonSize"  [style.right-right.px]="customButtonSize"  [style.color]="buttonTextColor"
+                                   [style.padding-left.px]="customButtonSize"   [style.padding-right.px]="customButtonSize"  [style.color]="buttonTextColor"
                               [style.background-color]="customButtonBg"
                               [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
                           </td>
-                        </tr> -->
+                        </tr>
 
                       </tbody>
                     </table>
@@ -2285,17 +2285,20 @@
             style="width:20px;height: 20px;" />
         </div>
       </div>
-      <div class="row g-3 align-items-center mb-3">
+      <!-- <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label></div>
         <div class="col-auto"><input type="range" min="0" max="5" value="3" id="customRange2" class="form-range"></div>
-      </div>
+      </div> -->
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" (change)="getCustomSize('10')">S</p>
-            <p class="design-size" (change)="getCustomSize('25')">M</p>
-            <p class="design-size" (change)="getCustomSize('60')">L</p>
+            <p class="design-size" (click)="getCustomSize
+            ('10')">S</p>
+            <p class="design-size" (click)="getCustomSize
+            ('25')">M</p>
+            <p class="design-size" (click)="getCustomSize
+            ('60')">L</p>
           </div>
         </div>
       </div>
@@ -2304,13 +2307,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (change)="customButtonAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="customButtonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (change)="customButtonAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="customButtonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (change)="customButtonAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="customButtonAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>

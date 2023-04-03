@@ -257,7 +257,7 @@ this.googleEmail=details.getEmail()
           // console.log(reject);
         
           //  this.toastr.errorToastr("Please Try Again");
-          alert(reject.error.error)
+          this.toast.error(reject.error.error)
          }
        );
       //  console.log(successData );

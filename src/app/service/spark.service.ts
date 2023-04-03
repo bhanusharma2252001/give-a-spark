@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
+/// <reference types="chrome"/>
+// import {chrome} from 'chrome';
 import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SparkService {
   [x: string]: any;
   public content = new BehaviorSubject<any>(null);
 
-
+  // private storage: chrome.storage.StorageArea;
 
   token: any;
   isLoggedIn = false;
@@ -429,4 +430,6 @@ homeVariable() {
     headers: { Authorization: `bearer ${this.token}` },
   })
 }
-}
+} 
+   
+  

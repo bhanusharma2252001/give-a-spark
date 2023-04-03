@@ -1559,7 +1559,7 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
 // -------------------CUSTOM  BUTTON--------------------
 customButtonAlign(val:any){
   this.customAlign=val
-  
+  console.log(this.customAlign, 'size')
   }
   getButtonShape(val:any){
     this.customButtonShape=val
@@ -1567,6 +1567,7 @@ customButtonAlign(val:any){
   
   getCustomSize(val:any){
     this.customButtonSize=val
+    console.log(this.customButtonSize, 'size')
   
   }
   getCustoBtDetails(){
@@ -1698,7 +1699,7 @@ customButtonAlign(val:any){
         customButtonSize:this.customButtonSize,
         buttonTextColor:this.buttonTextColor,
         customButtonShape:this.customButtonShape,
-        customButtonAlign:this.customButtonAlign,
+        customButtonAlign:this.customAlign,
         customButtonBg:this.customButtonBg
       }
 
