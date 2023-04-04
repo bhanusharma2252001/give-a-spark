@@ -15,7 +15,13 @@
                 <div class="mb-3 position-relative">
                     <label for="exampleInputEmail1" class="form-label fw-semibold text-capitalize">Email</label>
                     <input type="email" class="form-control" [(ngModel)]="emailId" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
-                    <!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
+                    <ng-container class="po-re"
+                    *ngIf="signupForm.controls['email'].touched && !signupForm.controls['email'].valid">
+                    <small class="text-danger"
+                        *ngIf="signupForm.controls['email'].hasError('pattern')">
+                      Please Enter Valid Email
+                    </small>
+                </ng-container><!-- <i class="fa fa-envelope position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 <div class="mb-3 position-relative">
                     <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
@@ -28,12 +34,19 @@
                     }"
                     (click)="toggleFieldTextType()"
                   ></i> 
-           
+                  <ng-container class="po-re"
+                  *ngIf="signupForm.controls['password'].touched && !signupForm.controls['password'].valid">
+                  <small class="text-danger"
+                      *ngIf="signupForm.controls['password'].hasError('pattern')">
+                      Password must contain more than 8 characters, 1 upper case letter, and 1
+                      special character
+                  </small>
+              </ng-container>
                     <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
               
                
-                <button class="btn pink-btn w-100 p-2" type="submit" (click)="signup()">Sign up</button>
+                <button class="btn pink-btn w-100 p-2" type="submit" (click)="signup()" [disabled]="!signupForm.valid">Sign up</button>
               
                 <div class="text-center mt-5">
 
