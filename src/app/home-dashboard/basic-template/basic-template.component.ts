@@ -17,6 +17,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class BasicTemplateComponent implements OnInit {
+  showInputBox: boolean = false;
+  selectedOption: string = 'option1';
+  inputValue: string = '';
   details: any;
   username: any;
   Email: any;
@@ -195,6 +198,15 @@ export class BasicTemplateComponent implements OnInit {
   appButtonSize: any = 10
   public appButtonColor: string = '#000000';
   appbuttonAlign: any = ''
+
+
+
+ public scheduleBg:string='#0009a3'
+scheduleSize:any=10
+scheduleShape:any=0
+
+
+
   newArray = [
     { 'id': 1, 'content': "A" },
     { 'id': 2, 'content': "B" },
@@ -224,6 +236,10 @@ export class BasicTemplateComponent implements OnInit {
   customText: any;
   customUrl: any;
   customButtonForm:FormGroup;
+  scheduleForm:FormGroup;
+  scheduleLink: any;
+  scheduleIcon: any;
+  scheduleData: any;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -303,7 +319,10 @@ export class BasicTemplateComponent implements OnInit {
     // window.onpopstate = function () {
     //    history.go(1);
     // };
-
+this.scheduleForm=this.fb.group({
+  scheduleLink: ['', [Validators.pattern(reg)]],
+  scheduleText: [''], 
+})
   }
   get f() { return this.signatureDetailsForm.controls; }
 
@@ -1576,6 +1595,63 @@ customButtonAlign(val:any){
   
   }
 
+// ----------------------- S C H E D U L E R --------------------
+
+
+getScheduleSize(val:any){
+  this.scheduleSize=val
+  console.log(this.scheduleSize, 'size')
+}
+
+getScheduleShape(val:any){
+  this.scheduleShape=val
+  console.log(this.scheduleShape, 'size')
+}
+getScheduleDetails(){
+this.inputValue=this.scheduleForm.value.scheduleText
+this.scheduleLink=this.scheduleForm.value.scheduleLink
+console.log(this.inputValue, this.scheduleLink, 'schedule')
+}
+
+
+getScheduleIcon(event: any, data: any){
+ 
+    this.scheduleData = data;
+    if (this.eventdata == 1) {
+  
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png "
+    }
+    else if (this.scheduleData == 2) {
+
+
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png "
+    }
+    else if (this.scheduleData == 3) {
+
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png "
+    }
+
+
+    console.log(this.scheduleData, this.scheduleIcon, "toggle data");
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   onSubmit(data: any) {
     let body: any = {}
@@ -1663,6 +1739,9 @@ customButtonAlign(val:any){
       body['googleAppLink'] = this.googleAppLink
       body ['customButtonText']=this.customText,
       body['customUrl']=this.customUrl,
+      body['scheduleText'] =this.inputValue
+      body['scheduleLink'] =this.scheduleLink
+      body['scheduleIcon']=this.scheduleIcon
    body['templateDesign'] = {
         firstNameColor: this.firstNameColor,
         lastNameColor: this.lastNameColor,
@@ -1700,7 +1779,10 @@ customButtonAlign(val:any){
         buttonTextColor:this.buttonTextColor,
         customButtonShape:this.customButtonShape,
         customButtonAlign:this.customAlign,
-        customButtonBg:this.customButtonBg
+        customButtonBg:this.customButtonBg,
+        scheduleBg:this.scheduleBg,
+        scheduleSize:this.scheduleSize,
+        scheduleShape:this.scheduleShape
       }
 
     }

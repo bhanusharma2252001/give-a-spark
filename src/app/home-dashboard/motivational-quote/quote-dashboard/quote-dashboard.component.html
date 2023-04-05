@@ -114,13 +114,12 @@
         
                                     </div>
                                 </div>
-                            </div>
-        
+                            </div>       
                             <!-- SUBCATEGORY  Quotes-->
                             <div class="col-md-12 col-lg-12">
                                 <div class="row" *ngIf="subCatQuotes">
         
-                                    <div class="col-md-6" *ngFor="let subQ of subCatQuotes">
+                                    <div class="col-md-6 col-lg-6" *ngFor="let subQ of subCatQuotes">
                                         <div class="border-10 box-border m-2 p-2">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -131,18 +130,22 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <figure class="text-centers">
-        
-        
-        
+               
                                                         <blockquote class="blockquote">
                                                             <div class="d-flex justify-content-between">
-                                                                <p class="fs-14 limit"> {{subQ?.quotesName}}
-                                                                    <span data-bs-toggle="modal" data-bs-target="#moresublong"
-                                                                        (click)="viewSubquotes(subQ)" class="text-blue">Read
-                                                                        more...</span>
-                                                                </p>
-        
+                                                                <p class="fs-14 limit"> {{subQ?.quotesName}} </p>
+                                                                   
+                                                               
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value=""
+                                                                        id="flexCheckDefault" (click)="getQuoteEvent($event, subQ)"
+                                                                        >
+                
+                                                                </div>
                                                             </div>
+                                                            <span data-bs-toggle="modal" data-bs-target="#moresublong"
+                                                            (click)="viewSubquotes(subQ)" class="text-blue">Read
+                                                            more...</span>
                                                         </blockquote>
                                                         <figcaption class="blockquote-footer">
         
@@ -150,12 +153,7 @@
                                                                 {{subQ?.authorId?.firstName}}
                                                                 {{subQ?.authorId?.lastName}}</cite>
                                                         </figcaption>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="flexCheckDefault" (click)="getQuoteEvent($event, subQ)"
-                                                                style="position: relative; bottom:95px ; left: 482px;">
-        
-                                                        </div>
+                                                      
                                                     </figure>
         
                                                 </div>

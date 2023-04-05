@@ -916,7 +916,18 @@
                               [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
                           </td>
                         </tr>
+                        <tr>
+                          <td colspan="3" >
+                            
 
+
+                            <a href="{{scheduleLink}}" *ngIf=" inputValue"  >
+                              <button style="border-radius:50px; padding: 10px;" *ngIf="inputValue"
+                                   [style.padding-left.px]="scheduleSize"   [style.padding-right.px]="scheduleSize" 
+                              [style.background-color]="scheduleBg"
+                              [style.border-radius.px]="scheduleShape">{{inputValue}}</button> </a>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
 
@@ -1930,22 +1941,28 @@
     </div>
 
     <h6>Choose Scheduling Provider</h6>
-    <form class="mt-4">
+    <form class="mt-4" [formGroup]="scheduleForm">
       <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
       <div class="form-check text-black ">
 
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-        <label class="form-check-label fs-14" for="gridRadios1">
+        <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" name="options"  value="option1" (click)="showInputBox = false">
+        <label class="form-check-label fs-14" >
    Use  Scheduling Solution( Recommended by Give a spark)
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-        <label class="form-check-label fs-14" for="gridRadios2">
+        <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption"  name="options"  value="option2" (click)="showInputBox = true">
+        <label class="form-check-label fs-14" >
     I already have a scheduler provider
         </label>
       </div>
-    </form>
+      <div *ngIf="showInputBox">
+        <label>
+          Input box:
+          <input type="text"  formControlName="scheduleLink">
+        </label>
+      </div>
+    
     <div class="mt-5">
       <h5 class="fw-bold"> Button Design
       </h5>
@@ -1954,7 +1971,7 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
         </div>
         <div class="col-auto">
-          <input type="text" id="inputtext" class="form-control fs-14">
+          <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -1995,9 +2012,9 @@
         </div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size">S</p>
-            <p class="design-size">S</p>
-            <p class="design-size">S</p>
+            <p class="design-size" (click)="getScheduleSize('10')">S</p>
+            <p class="design-size" (click)="getScheduleSize('15')">M</p>
+            <p class="design-size" (click)="getScheduleSize('25')">L</p>
           </div>
         </div>
       </div>
@@ -2006,7 +2023,8 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
         </div>
         <div class="col-auto">
-          <div style="width:20px;height: 20px;background-color: #003e4d;"></div>
+          <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg"
+          style="width:20px;height: 20px;" />
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2016,7 +2034,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked  >
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/calender.png">
             </label>
@@ -2027,7 +2045,7 @@
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/calender-clock.jpg">
             </label>
           </div>
         </div>
@@ -2048,7 +2066,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked  (change)="getScheduleShape('0')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
             </label>
@@ -2057,7 +2075,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked (change)="getScheduleShape('10')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
             </label>
@@ -2066,7 +2084,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked (change)="getScheduleShape('20')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
             </label>
@@ -2075,14 +2093,14 @@
       </div>
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closescheduler()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Add</button>
+          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Add</button>
         </div>
       </div>
     </div>
-
+  </form>
   </div>
 </div>
 
@@ -2253,7 +2271,7 @@
           </div>
         </div>
       </div>
-      <div class="row g-3 align-items-center mb-3">
+      <!-- <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label></div>
         <div class="col-auto">
           <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
@@ -2271,7 +2289,7 @@
             </label></div>
         </div>
        
-      </div>
+      </div> -->
 
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold"> Color :</label></div>

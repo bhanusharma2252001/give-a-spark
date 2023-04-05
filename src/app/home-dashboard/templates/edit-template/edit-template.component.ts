@@ -274,6 +274,45 @@ this.api.gmail(this.templateRef.outerHTML
 })
 
 }
+
+outlook(){
+
+
+  
+  
+
+
+  // document.getElementById("btn").value="Copied";
+  
+    this.templateRef = this.tableData.nativeElement
+    console.log(this.templateRef, "templatesssssssss")
+   
+  
+  
+    
+  this.api.gmail(this.templateRef.outerHTML
+    ).subscribe((res:any)=>{
+    console.log(res, 'setgmail');
+    this.toast.success('Email Signature has been updated on your email');
+  
+    
+  })
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 hideModel() {
   this.closeModal.nativeElement.click();      
 }

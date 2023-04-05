@@ -15,7 +15,8 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-saved-templates',
   templateUrl: './saved-templates.component.html',
-  styleUrls: ['./saved-templates.component.scss']
+  styleUrls: ['./saved-templates.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
@@ -356,7 +357,41 @@ setOnOutlook(){
   result.filter( (item:any)=>{
   if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
   this.templateRef = item?.nativeElement
-}})
+  this.api.outlook(this.templateRef.outerHTML
+  ).subscribe ((res: any)=>{
+  console.log(res, 'set on Outllok');})}})
+  
+
+  this.toast.success('Please Check your Outlook');
+    // localStorage.setItem('outlook',this.templateRef.outerHTML)
+
+   
+
+  }
+
+
+
+  Yahoo(){
+    // this.outLookRef = this.tableData.nativeElement
+    // localStorage.setItem( 'outlooktemp',this.tableData)
+    let tabledata:any = this.tableData;
+    let result:any = tabledata?._results;
+    console.log(result, 'any');
+    
+    result.filter( (item:any)=>{
+    if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
+    this.templateRef = item?.nativeElement
+    this.api.yahoo(this.templateRef.outerHTML
+    ).subscribe ((res: any)=>{
+    console.log(res, 'set on Outllok');})}})
+    
+  
+    this.toast.success('Please Check your Yahoo Mail');
+      // localStorage.setItem('outlook',this.templateRef.outerHTML)
+  
+     
+  
+    }
 
 
 
@@ -366,9 +401,6 @@ setOnOutlook(){
 
 
 
-
-
-}
 
     
 

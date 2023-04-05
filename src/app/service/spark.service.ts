@@ -378,11 +378,31 @@ gmail( data:any){
   }
 );
 }
+//  ---------Outlook-------
 
 
 
 
 
+
+outlook( data:any){
+  return this.http.post(environment.localApiURL+ '/api/user/setSignatureOnOutlook', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` }
+  }
+);
+}
+
+
+
+
+yahoo( data:any){
+  return this.http.post(environment.localApiURL+ '/api/user/setSignatureOnYahoo', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` }
+  }
+);
+}
   //  O R D E R   HISTORY
 
   getOrder(){
