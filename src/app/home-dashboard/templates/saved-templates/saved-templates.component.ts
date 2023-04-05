@@ -6,8 +6,10 @@ import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 /// <reference types="chrome"/>
 // import * as chrome from 'chrome';
+
 
 // import * as OfficeHelpers from '@microsoft/office-js-helpers';
 @Component({
@@ -19,7 +21,7 @@ export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
 // chrome: any;
- logotext="sky"
+ logotext="Cookies for outlook"
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
   public lastNameColor: string = '#fff500';
@@ -98,7 +100,7 @@ export class SavedTemplatesComponent implements OnInit {
   thumbnail: string;
   youTubeUrl: any;
   outLookRef: any;
-  constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
+  constructor(private fb: FormBuilder,private cookieService: CookieService, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -329,18 +331,19 @@ setonGmail(){
   
 
   this.toast.success('Please Check your Email');
-    localStorage.setItem('outlook',this.templateRef.outerHTML)
-
+    // localStorage.setItem('outlook',this.templateRef.outerHTML)
 
    
-  //  chrome.storage.local.set({ ['outlook']: this.templateRef.outerHTML });
-  //     console.log(chrome.storage.local.set({ ['outlook']: this.templateRef.outerHTML }), 'xxxx' );
+
+   
       
-    // }
+
   }
   openModal (evt:any) {  console.log(evt);
   this. selectedTemplateId = evt
-  
+    
+
+
 }
 
 setOnOutlook(){
@@ -369,6 +372,13 @@ setOnOutlook(){
 
     
 
+  
+setNameInCookie() {
+  this.cookieService.set('New key', this.logotext, new Date().setMonth(11))
+  
+}
 
 
 }
+
+

@@ -249,6 +249,9 @@ SOFTWARE.
 ngx-color-picker
 MIT
 
+ngx-cookie-service
+MIT
+
 ngx-image-cropper
 MIT
 MIT License

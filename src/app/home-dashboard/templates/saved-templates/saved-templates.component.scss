@@ -50,14 +50,28 @@
     padding:0px;
     z-index:99999;
 }
-
+.mail-img {
+    justify-self: center;
+    max-width: 40px;
+    padding-left: 5px;
+}
+.email__name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+}
 .social-button .active {
     z-index: 1;
     background-color: hsla(47, 92%, 72%, .4);
     border-radius: 3px;
     border-left: 3px solid #f9dc74;
 }
-
+.email .button{
+    width: 95%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
 .sidenav .closebtn {
 
     font-size: 36px;
@@ -77,11 +91,7 @@
     padding-left: 5px;
 }
 
-.email__name {
-    font-weight: 700;
-    font-size: 14px;
-    margin-left: 10px;
-}
+
 
 .side-modal {
     padding-top: 40px

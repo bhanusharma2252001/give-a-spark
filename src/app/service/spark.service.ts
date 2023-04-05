@@ -431,6 +431,15 @@ homeVariable() {
     headers: { Authorization: `bearer ${this.token}` },
   })
 }
-} 
+ 
    
-  
+giftForSomeOne( data:any){
+  return this.http.post(environment.localApiURL+ '/api/stripe/byPackageForSomeone', data,
+  {
+    headers: { Authorization: `bearer ${this.token}` }
+  }
+);
+}
+
+}
+
