@@ -922,6 +922,7 @@
 
 
                             <a href="{{scheduleLink}}" *ngIf=" inputValue"  >
+                              <img src="{{scheduleIcon}}" alt="">
                               <button style="border-radius:50px; padding: 10px;" *ngIf="inputValue"
                                    [style.padding-left.px]="scheduleSize"   [style.padding-right.px]="scheduleSize" 
                               [style.background-color]="scheduleBg"
@@ -1974,7 +1975,7 @@
           <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
         </div>
       </div>
-      <div class="row g-3 align-items-center mb-3">
+      <!-- <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label>
         </div>
@@ -2005,7 +2006,7 @@
             </label>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
@@ -2034,7 +2035,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked  >
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)"  >
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/calender.png">
             </label>
@@ -2043,18 +2044,18 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender-clock.jpg">
+              <img src="assets/images/schedule.png">
             </label>
           </div>
         </div>
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/online-meeting.png">
             </label>
           </div>
         </div>
@@ -2066,7 +2067,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked  (change)="getScheduleShape('0')">
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option2"   (change)="getScheduleShape('0')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
             </label>
@@ -2075,7 +2076,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked (change)="getScheduleShape('10')">
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('10')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
             </label>
@@ -2084,7 +2085,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked (change)="getScheduleShape('20')">
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('20')">
             <label class="form-check-label fs-14" for="gridRadios1">
               <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
             </label>
@@ -2093,10 +2094,10 @@
       </div>
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closescheduler()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Add</button>
+          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2466,6 +2467,13 @@
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="eventLink"
             [(ngModel)]="eventLink"></div>
+            <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
+            <small class="text-danger"
+              *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
       </div>
     </form>
     <div class="mt-5">
@@ -2592,12 +2600,26 @@
           </label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
             formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
+            <ng-container class="po-re"
+            *ngIf="downloadAppForm.controls['appleAppLink'].touched && !downloadAppForm.controls['appleAppLink'].valid">
+            <small class="text-danger"
+              *ngIf="downloadAppForm.controls['appleAppLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
           </label></div>
         <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"
             formControlName="googleAppLink" [(ngModel)]="googleAppLink"></div>
+            <ng-container class="po-re"
+            *ngIf="downloadAppForm.controls['googleAppLink'].touched && !downloadAppForm.controls['googleAppLink'].valid">
+            <small class="text-danger"
+              *ngIf="downloadAppForm.controls['googleAppLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
       </div>
     </form>
 

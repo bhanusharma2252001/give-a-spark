@@ -1812,33 +1812,34 @@ getScheduleIcon(event: any, data: any){
     console.log(body, 'sbxkabxak');
 
 
-    this.api.addsignatureDetails(body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId = res?.data?._id
-      console.log(this.TemplateId, 'iddddd');
+  //   this.api.addsignatureDetails(body).subscribe((res: any) => {
+  //     console.log(res);
+  //     this.TemplateId = res?.data?._id
+  //     console.log(this.TemplateId, 'iddddd');
 
 
-      this.toast.success('Signature Updated Successfully');
+  //     this.toast.success('Signature Updated Successfully');
 
 
 
 
-      this.getTemplateDetails();
-      if (localStorage.getItem('quoteId')) {
-        localStorage.removeItem('quoteId')
+  //     this.getTemplateDetails();
+  //     if (localStorage.getItem('quoteId')) {
+  //       localStorage.removeItem('quoteId')
 
-      }
+  //     }
 
-      if (localStorage.getItem('LongQuotes')) {
-        localStorage.removeItem('LongQuotes')
+  //     if (localStorage.getItem('LongQuotes')) {
+  //       localStorage.removeItem('LongQuotes')
 
-      }
-      // this.saveChanges() ;
-      // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error(error);
-      })
-  }
+  //     }
+  //     // this.saveChanges() ;
+  //     // this.router.navigate(['/home-dashboard/templates/saved-templates'])
+  //   },
+  //     (error) => {
+  //       this.toast.error(error);
+  //     })
+  // }
 
+}
 }

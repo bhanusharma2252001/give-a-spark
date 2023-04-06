@@ -52,13 +52,22 @@
                 </div>
           
                 
-                <div class="d-flex mt-3 justify-content-center">
-                    <button type="button" (click)="loginWithFacebook()" style="border:none; background-color: #FFFFFF;">
+                <div class="d-flex mt-3 flex-column justify-content-center">
+                    <!-- <button type="button" (click)="loginWithFacebook()" style="border:none; background-color: #FFFFFF;">
                         <img src="assets/images/facebook.png" class="img-fluid me-2 rounded-circle">
-                    </button>
+                    </button> -->
                     <!-- <button type="button" style="border:none; background-color: #FFFFFF;" class="login-with-google-btn" #loginRef id="buttonDiv" >
                      <img src="assets/images/google.png" class=" ms-2 wh-30 " >
                       </button> -->
+                      <div class="ps-5 pt-3">
+                        <button class="d-flex outer-box" #loginRef id="buttonDiv">
+                          <div class="google-box">
+                            <img src="assets/images/facebook.png" class="google-icon" >
+                          </div>
+        
+                          <p class="google-text">SIGN IN WITH facebook</p>
+                        </button>
+                      </div>
                       <div class="ps-5 pt-3">
                         <button class="d-flex outer-box" #loginRef id="buttonDiv">
                           <div class="google-box">
