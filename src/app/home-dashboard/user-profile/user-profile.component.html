@@ -43,7 +43,7 @@
                                             <div class="mb-2">
                                                 <label for="exampleInputfiled" class="form-label">Your Name</label>
                                                 <input type="text" [(ngModel)]="userName" pattern="[A-Za-z]+"
-                                                    class="form-control ps-2 rounded-0 border-0 border-bottom p-0"
+                                                    class="form-control bg-transparent ps-2 rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="firstName">
                                                 <div *ngIf="profileForm.get('firstName')?.hasError('required') "
@@ -56,7 +56,7 @@
                                                 <label for="exampleInputfiled" class="form-label">Company
                                                     Name</label>
                                                 <input type="text"
-                                                    class="form-control ps-2 rounded-0 border-0 border-bottom p-0"
+                                                    class="form-control bg-transparent ps-2 rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="companyName" [(ngModel)]="compname">
                                                 <div *ngIf="profileForm.get('companyName')?.hasError('required') "
@@ -68,7 +68,7 @@
                                                 <label for="exampleInputfiled" class="form-label">Company
                                                     Website</label>
                                                 <input type="text"
-                                                    class="form-control ps-2 rounded-0 border-0 border-bottom p-0"
+                                                    class="form-control bg-transparent ps-2 rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp" placeholder="www.domainname.com"
                                                     formControlName="companyWebsite" [(ngModel)]="compwebsite">
                                                 <div *ngIf="profileForm.get('companyWebsite')?.hasError('required') "
@@ -110,7 +110,7 @@
                                                  border: none;  border-left: none; border-bottom: 1px solid black;">
 
                                                 <input type="text" 
-                                                    class="form-control ps-2 rounded-0 border-0 border-bottom p-0"
+                                                    class="form-control bg-transparent ps-2 rounded-0 border-0 border-bottom p-0"
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="phone" [(ngModel)]="number"
                                                     style="width:312px; margin-left:60px;">
@@ -128,7 +128,7 @@
 
                                             </div>
                                             <button type="submit"
-                                                class="green-btn shadow  pe-3 ps-3 p-2">Create</button>
+                                                class="green-btn shadow py-2 px-4 p-2">Create</button>
                                         </div>
                                         <div class="col-md-1 col-lg-3">
                                             <div class="image-square">

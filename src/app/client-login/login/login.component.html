@@ -4,7 +4,7 @@
           
        
             <form [formGroup]="LoginForm" class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450">
-                <div  class="text-center mb-5 ">
+                <div  class="text-center mb-3 ">
 
                 
                   
@@ -52,7 +52,7 @@
                 </div>
           
                 
-                <div class="d-flex mt-3 flex-column justify-content-center">
+             
                     <!-- <button type="button" (click)="loginWithFacebook()" style="border:none; background-color: #FFFFFF;">
                         <img src="assets/images/facebook.png" class="img-fluid me-2 rounded-circle">
                     </button> -->
@@ -60,12 +60,12 @@
                      <img src="assets/images/google.png" class=" ms-2 wh-30 " >
                       </button> -->
                       <div class="ps-5 pt-3">
-                        <button class="d-flex outer-box" #loginRef id="buttonDiv">
+                        <button class="d-flex outer-box" id="buttonDiv" (click)="loginWithFacebook()">
                           <div class="google-box">
                             <img src="assets/images/facebook.png" class="google-icon" >
                           </div>
         
-                          <p class="google-text">SIGN IN WITH facebook</p>
+                          <p class="google-text">SIGN IN WITH FACEBOOK</p>
                         </button>
                       </div>
                       <div class="ps-5 pt-3">
@@ -77,9 +77,9 @@
                           <p class="google-text">SIGN IN WITH GOOGLE</p>
                         </button>
                       </div>
-                </div>
               
-                <div class="text-center mt-5">
+              
+                <div class="text-center mt-3">
 
                     <p class="fw-semibold mb-0 text-capitalize">You haven’t account</p>
                     <p class="fw-semibold text-green text-capitalize"><a (click)="signup()">Sign Up</a></p>
