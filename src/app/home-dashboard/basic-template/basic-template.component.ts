@@ -563,7 +563,7 @@ this.scheduleForm=this.fb.group({
       this.code = this.defaultDetails?.QrCode
       if (res?.result.length > 0) {
         this.tempDetails = res.result[res.result.length - 1];
-        this.useraddress = this.tempDetails?.address[0]?.city
+        this.useraddress = this.tempDetails?.address[0]?.addressline
         this.username = this.tempDetails?.yourName
         this.Email = this.tempDetails?.email
         this.compName = this.tempDetails?.companyName
@@ -590,7 +590,7 @@ this.scheduleForm=this.fb.group({
       }
 
       else {
-        this.useraddress = this.defaultDetails?.address[0]?.city
+        this.useraddress = this.defaultDetails?.address[0]?.addressline
         this.username = this.defaultDetails?.firstName
         this.Email = this.defaultDetails?.email
         this.compName = this.defaultDetails?.companyName
@@ -1812,34 +1812,33 @@ getScheduleIcon(event: any, data: any){
     console.log(body, 'sbxkabxak');
 
 
-  //   this.api.addsignatureDetails(body).subscribe((res: any) => {
-  //     console.log(res);
-  //     this.TemplateId = res?.data?._id
-  //     console.log(this.TemplateId, 'iddddd');
+    this.api.addsignatureDetails(body).subscribe((res: any) => {
+      console.log(res);
+      this.TemplateId = res?.data?._id
+      console.log(this.TemplateId, 'iddddd');
 
 
-  //     this.toast.success('Signature Updated Successfully');
+      this.toast.success('Signature Updated Successfully');
 
 
 
 
-  //     this.getTemplateDetails();
-  //     if (localStorage.getItem('quoteId')) {
-  //       localStorage.removeItem('quoteId')
+      this.getTemplateDetails();
+      if (localStorage.getItem('quoteId')) {
+        localStorage.removeItem('quoteId')
 
-  //     }
+      }
 
-  //     if (localStorage.getItem('LongQuotes')) {
-  //       localStorage.removeItem('LongQuotes')
+      if (localStorage.getItem('LongQuotes')) {
+        localStorage.removeItem('LongQuotes')
 
-  //     }
-  //     // this.saveChanges() ;
-  //     // this.router.navigate(['/home-dashboard/templates/saved-templates'])
-  //   },
-  //     (error) => {
-  //       this.toast.error(error);
-  //     })
-  // }
+      }
+      // this.saveChanges() ;
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    },
+      (error) => {
+        this.toast.error(error);
+      })
+  }
 
-}
 }

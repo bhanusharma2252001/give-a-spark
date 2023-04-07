@@ -25,6 +25,7 @@
     "@techiediaries/ngx-qrcode": "^9.1.0",
     "@types/google-one-tap": "^1.2.2",
     "angularx-social-login": "^4.1.0",
+    "gapi-client": "0.0.3",
     "gapi-script": "^1.2.0",
     "html-to-image": "^1.11.11",
     "ngx-color-picker": "^13.0.0",

@@ -5,8 +5,8 @@ import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef, ViewEncapsu
 import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
+import gapi from 'gapi-client'; 
 
 // import * as chrome from 'chrome';
 
@@ -21,6 +21,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
+  @ViewChild('request', { static: true }) request: ElementRef;
 // chrome: any;
  logotext="Cookies for outlook"
   templateFontSize: any = 24;
@@ -101,6 +102,11 @@ export class SavedTemplatesComponent implements OnInit {
   thumbnail: string;
   youTubeUrl: any;
   outLookRef: any;
+
+  private clientId: string = '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com';
+  private discoveryDocs: string[] = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
+  auth2: any;
+
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -112,14 +118,66 @@ export class SavedTemplatesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.clientId, 'client id')
+    gapi.load('client', () => {
+      gapi.client.init({
+        'clientId': this.clientId,
+        'discoveryDocs': this.discoveryDocs
+      }).then(() => {
+        this.auth2 = gapi.auth2.getAuthInstance();
+        console.log("init auth2",this.auth2);
+        console.log("after calling init auth2");
+        
+        console.log('Google APIs client library loaded and initialized');
+      }, (error:any) => {
+        console.error('Error loading or initializing the Google APIs client library:', error);
+      });
+    });
+
+
     this.spinner.show();
 
     setTimeout(() => {
+
+
+
+
+
+
+
+
+
+
+
+
       this.spinner.hide();
     }, 1000);
     this. getTemplateDetails();
     this.gettemplatebyUser();
 
+
+
+
+  //   console.log("set on gmail fn");
+  //   console.log("set on gmail",gapi);
+  //   var CLIENT_ID = '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com';
+  
+  // gapi.load('client', function initClient() {
+  //   console.log("starting of function");
+    
+  //   gapi.client.init({
+  //     discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
+  //     clientId: '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com',
+  //     scope: 'https://www.googleapis.com/auth/gmail.settings.basic'
+  //   }).then(function () {
+  //     // do stuff with loaded APIs
+  //     console.log('it worked');
+  //   }).catch((error:any) =>
+  //   {
+  // console.log("error thrown from gapi",error);
+  
+  //   });
+  // });
   }
   
   changeSize(evt: any) {
@@ -317,21 +375,22 @@ console.log(this.code);
 }
 setonGmail(){
 
+ 
+// Initialize the API client library
 
-
-  let tabledata:any = this.tableData;
-  let result:any = tabledata?._results;
-  console.log(result, 'any');
+  // let tabledata:any = this.tableData;
+  // let result:any = tabledata?._results;
+  // console.log(result, 'any');
   
-  result.filter( (item:any)=>{
-  if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
-  this.templateRef = item?.nativeElement
-  this.api.gmail(this.templateRef.outerHTML
-  ).subscribe ((res: any)=>{
-  console.log(res, 'setgmail');})}})
+  // result.filter( (item:any)=>{
+  // if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
+  // this.templateRef = item?.nativeElement
+  // this.api.gmail(this.templateRef.outerHTML
+  // ).subscribe ((res: any)=>{
+  // console.log(res, 'setgmail');})}})
   
 
-  this.toast.success('Please Check your Email');
+  // this.toast.success('Please Check your Email');
     // localStorage.setItem('outlook',this.templateRef.outerHTML)
 
    
@@ -394,20 +453,26 @@ setOnOutlook(){
     }
 
 
-
-
-
-
-
-
-
-
-    
-
-  
-
-
-
-}
+    requestRestrictedScopes() {
+      // Get the Google Auth2 instance
+      console.log("auth", this.auth2);
+      
+      if (!this.auth2) {
+        console.log('Google Auth2 library not yet loaded');
+        return;
+      }
+      const currentUser = this.auth2.currentUser.get();
+      // Request restricted scopes
+      currentUser.grant({
+        'scope': 'https://www.googleapis.com/auth/gmail.settings.basic'
+      }).then((response:any) => {
+        // Scopes granted successfully
+        console.log('Scopes granted successfully:', response);
+      }, (error:any) => {
+        // Error occurred while granting scopes
+        console.error('Error occurred while granting scopes:', error);
+      });
+    }
+    }
 
 

@@ -1,0 +1,22 @@
+ul.nav li.dropdown:hover ul.dropdown-menu{ display: block;  padding: 15px;transition-duration: 1000ms; }
+.dropdown {
+  position: absolute;
+  top: 35px;
+  translate: -51px;
+}
+.navbar-nav .dropdown-menu {
+  position: absolute;
+
+}
+.wh-20
+{
+  width:18px;
+  height:18px;
+padding:2px;
+}
+.fs-12{
+  font-size:12px;
+}
+.drop-hover{
+  padding-right: 12px;
+}

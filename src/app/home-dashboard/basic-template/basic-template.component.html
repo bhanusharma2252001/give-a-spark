@@ -922,11 +922,11 @@
 
 
                             <a href="{{scheduleLink}}" *ngIf=" inputValue"  >
-                              <img src="{{scheduleIcon}}" alt="">
-                              <button style="border-radius:50px; padding: 10px;" *ngIf="inputValue"
+                            
+                              <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;" *ngIf="inputValue"
                                    [style.padding-left.px]="scheduleSize"   [style.padding-right.px]="scheduleSize" 
                               [style.background-color]="scheduleBg"
-                              [style.border-radius.px]="scheduleShape">{{inputValue}}</button> </a>
+                              [style.border-radius.px]="scheduleShape">  <img src="{{scheduleIcon}}" style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
                           </td>
                         </tr>
                       </tbody>

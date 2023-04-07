@@ -19,6 +19,7 @@ import {
 })
 export class LoginComponent implements OnInit {
 auth2: any;
+authInstance:any;
   @ViewChild('loginRef', { static: true }) loginElement!: ElementRef;
   LoginForm: FormGroup;
 googleEmail:any;
@@ -227,7 +228,23 @@ callLogin() {
  
   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
     (googleAuthUser: any) => {
+    
       let details = googleAuthUser.getBasicProfile();
+      console.log("this.auth2",this.auth2);
+      
+      const currentUser = this.auth2.currentUser.get();
+      console.log("currentUser",currentUser);
+      // Request restricted scopes
+      currentUser.grant({
+        'scope': 'https://www.googleapis.com/auth/gmail.settings.basic'
+      }).then((response:any) => {
+        // Scopes granted successfully
+        console.log('Scopes granted successfully:', response);
+      }, (error:any) => {
+        // Error occurred while granting scopes
+        console.error('Error occurred while granting scopes:', error);
+      });
+
       // console.log('Token || ' + googleAuthUser.getAuthResponse().id_token);
       // console.log('ID: ' + profile.getId());
       // console.log('Name: ' + profile.getName());
@@ -279,7 +296,10 @@ googleAuthSDK() {
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
       });
-      this.callLogin();
+      
+      console.log("this.auth2",this.auth2);
+      
+      // this.callLogin();
      
     });
    
@@ -301,6 +321,62 @@ signup() {
   
   this._Router.navigate(['./client-login/enter-email'])
 }
+requestRestrictedScopes() {
+  // Get the Google Auth2 instance
+  console.log("auth", this.auth2);
+  
+  if (!this.auth2) {
+    console.log('Google Auth2 library not yet loaded');
+    return;
+  }
+  const currentUser = this.auth2.currentUser.get();
+  // Request restricted scopes
+  currentUser.grant({
+    'scope': 'profile email https://www.googleapis.com/auth/gmail.settings.basic'
+  }).then((response:any) => {
+    // Scopes granted successfully
+    let details = response.getBasicProfile();
+    console.log(details, 'detail of email')
+    console.log('Scopes granted successfully:', response);
+    let data = {
+      email: details.getEmail(),
+      firstName: details.getName(),
+      socialId: details.getId(),
+      profile:details.getImageUrl(),
+
+      isGoogle: true,
+      isFacebook: false
+    }
+  
+
+this.googleEmail=details.getEmail()
+
+      this.sparkService.registerSocialUser(data).subscribe
+      (   
+       (successData) => this.success(successData),
+       
+      
+       
+       (reject:any) => {
+        // console.log(reject);
+      
+        //  this.toastr.errorToastr("Please Try Again");
+        this.toast.error(reject.error.error)
+       }
+     );
+    //  console.log(successData );
+     
+  }, (error: any) => {
+    // console.log(error);
+    alert(JSON.stringify(error, undefined, 2));
+  });
+  // }, (error:any) => {
+  //   // Error occurred while granting scopes
+  //   console.error('Error occurred while granting scopes:', error);
+  // });
 }
 
+
+
+}
 
