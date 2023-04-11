@@ -86,15 +86,32 @@
               </div>
               <div class="mb-3">
                 <input type="password" placeholder="New Password" class="form-control" id="inputPasswo" formControlName="newPassword">
+                <ng-container class="po-re"
+                *ngIf="updatePasswordForm.controls['newPassword'].touched && !updatePasswordForm.controls['newPassword'].valid">
+                <small class="text-danger"
+                    *ngIf="updatePasswordForm.controls['newPassword'].hasError('pattern')">
+                    Password must contain more than 8 characters, 1 upper case letter, and 1
+                    special character
+                </small>
+            </ng-container>
               </div>
               <div class="mb-3">
                 <input type="password" placeholder="Confirm Password" class="form-control" id="inputPassw" formControlName="confirmPassword">
               </div>
+              <ng-container class="po-re"
+              *ngIf="updatePasswordForm.controls['confirmPassword'].touched && !updatePasswordForm.controls['confirmPassword'].valid">
+              <small class="text-danger"
+                  *ngIf="updatePasswordForm.controls['confirmPassword'].hasError('pattern')">
+                  Password must contain more than 8 characters, 1 upper case letter, and 1
+                  special character
+              </small>
+          </ng-container>
               <div *ngIf="updatePasswordForm.hasError('passwordNotMatch')">
-                <small class="text-red ">Password does not match</small>
+                <small class="text-danger ">Password does not match</small> <br>
+ 
             </div>
               <div class="mb-3">
-                <button type="submit" class="blue-btn py-2 px-3" (click)="changePassword(updatePasswordForm.value)"  >Save Changes</button>
+                <button type="submit" class="blue-btn py-2 px-3" (click)="changePassword(updatePasswordForm.value)" [class.disabled]="!updatePasswordForm.valid"  >Save Changes</button>
               </div>
             </form>
           </div>

@@ -431,9 +431,12 @@
                               <div class="mb-2 grid-2">
                                 <div>Align :</div>
                                 <div class="d-flex">
-                                  <i class="m-1 fa fa-align-left" aria-hidden="true" (click)="getAlign('left')"></i>
-                                  <i class="m-1 fa fa-align-center" aria-hidden="true" (click)="getAlign('center')"></i>
-                                  <i class="m-1 fa fa-align-right" aria-hidden="true" (click)="getAlign('right')"></i>
+                                  <i class="m-1 fa fa-align-left text-gray highlight-align" aria-hidden="true"
+                                    (click)="getAlign('left')"></i>
+                                  <i class="m-1 fa fa-align-center text-gray highlight-align" aria-hidden="true"
+                                    (click)="getAlign('center')"></i>
+                                  <i class="m-1 fa fa-align-right text-gray highlight-align" aria-hidden="true"
+                                    (click)="getAlign('right')"></i>
                                   <i class="m-1 fa fa-align-justify" aria-hidden="true"
                                     (click)="getAlign('center')"></i>
                                 </div>
@@ -608,9 +611,10 @@
 
                 <div class="row position-relative progress_padd">
                   <div class="profile_complt-detail">
-                    <p class="profile_status"> Profile  
+                    <p class="profile_status"> Profile
                       <span class="progress-number">{{progress}}</span>
-                      % Completed</p>
+                      % Completed
+                    </p>
                   </div>
                   <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                       alt="Signature image" /></div>
@@ -670,7 +674,7 @@
                             </div>
 
                           </td>
-                          <td colspan="2"
+                          <td
                             style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
                             <h5 *ngIf="username" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
                             line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
@@ -757,12 +761,12 @@
                           </td>
                         </tr>
                         <tr>
-                          <td style="text-align:center;">
+                          <td style="text-align:center; padding:5px 15px;">
 
 
                           </td>
 
-                          <td style="padding-left:10px" colspan="2">
+                          <td style="padding:5px 15px;" colspan="2">
 
                             <p style="font-size:12px;">
                               <q *ngIf="tempDetails?.quotesId?.quotesName">
@@ -779,7 +783,7 @@
 
                         </tr>
                         <tr>
-                          <td colspan="3" [style.text-align]="youtubeAlignment">
+                          <td colspan="3" style="padding:5px 15px;" [style.text-align]="youtubeAlignment">
                             <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
                                 src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
                                 width="107"></a>
@@ -800,22 +804,13 @@
                               {{youtubeTitle}}</p>
                           </td>
                         </tr>
-                        <!-- <tr>
-                          <td><img src="assets/images/square-image.png" width="74" alt="">
-                            <img src="assets/images/square-image.png" width="74" alt="">
 
-                            <img src="assets/images/square-image.png" width="74" alt="">
-
-                            <img src="assets/images/square-image.png" width="74" alt="">
-                          </td>
-
-                        </tr> -->
                         <tr>
-                          <td>{{galleryTitle}}</td>
+                          <td style="padding:5px 15px;font-size:10px;">{{galleryTitle}}</td>
                         </tr>
                         <tr>
 
-                          <td style="border-bottom: 3px solid #e0e0e0;" colspan="4">
+                          <td style="padding:5px 15px;" colspan="3">
                             <div style="display:flex; text-align:start;">
                               <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                                 [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -842,9 +837,9 @@
                           </td>
                         </tr>
                         <tr>
-                          <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
-                            [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
-                            [style.color]="disclaimerColor">
+                          <td colspan="3" style=" padding:5px 15px; font-size:8px ;"
+                            *ngIf="content" [style.font-size.px]="disclaimerSize"
+                            [style.text-align]="disclaimerAlignment" [style.color]="disclaimerColor">
 
                             {{content}}
                           </td>
@@ -852,33 +847,52 @@
                         </tr>
                         <tr>
 
-                          <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
-                            <a href="">
-                              <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
-                                [style.width.px]="iconSize">
+                          <td colspan="3" style="padding:5px 15px;"
+                            [style.text-align]="eventAlignment">
+                        <tr>
+                          <a href="">
+                            <td style="width:10%;">
+                              <img *ngIf="eventIcon" src="{{eventIcon}}" [style.width.px]="iconSize"
+                                [style.height.px]="iconSize">
+
+                            </td>
+                            <td>
                               <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                                 [style.color]="eventColor">{{eventTitle}}</span>
                               <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
-                                [style.color]="eventColor">{{eventName}}</span></a>
-                          </td>
+                                [style.color]="eventColor">{{eventName}}</span>
+                            </td>
+                          </a>
+                        </tr>
+
+
+                        </td>
 
                         </tr>
 
                         <tr>
+
+                          <td colspan="3" style="padding:5px 15px;">
+                        <tr>
                           <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                            style=" border-right: 1px solid #e5e5e5;text-align: center;">
+                            style="width:10%;padding-right:5px; border-right: 1px solid #e5e5e5;text-align: center;">
                             <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
                           </td>
-                          <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
+                          <td style="padding:2px 10px;" colspan="2" [style.text-align]="footerAlignment"
                             [style.font-size.px]="footerSize" [style.color]="footerColor">
                             <span>{{footerText}}</span>
                           </td>
                         </tr>
-                        <tr>
-                          <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.%]="bannerSize"
-                            [style.text-align]="bannerAlign" height="150">
+                        </td>
 
+
+                        </tr>
+                        <tr>
+                          <td colspan="3" style="padding:5px 15px;">
+                            <img *ngIf="bannerUrl" [src]="bannerUrl" alt="" [style.width.%]="bannerSize"
+                              [style.text-align]="bannerAlign" height="150">
+                          </td>
                         </tr>
                         <!-- <tr> 
                           <td>
@@ -893,42 +907,48 @@
                         </tr> -->
                         <tr>
                           <td colspan="3" [style.text-align]="appbuttonAlign">
-                            <p [style.color]="appButtonColor" [style.font-size.px]="appButtonSize">{{appName}}</p>
+                            <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                              [style.font-size.px]="appButtonSize">{{appName}}</p>
+                       
 
-                            <a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                            <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
                               target="_blank" rel="nofollow noreferrer"> <img
                                 src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
-                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
-                                alt="Download App"> </a>
+                                height="33"  style=" height: 33px; display: inline-block;padding:0 10px;"  [style.text-align]="appbuttonAlign"
+                                alt="Download App"> </a></span>
+                                <span>  <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
+                                  target="_blank" rel="nofollow noreferrer"><img
+                                    src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                                    height="33"  style=" height: 33px; display: inline-block;padding:0 10px;" [style.text-align]="appbuttonAlign"
+                                    alt="Download App"></a></span>
+                          </td>
+                        
+                        </tr>
 
-                            <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
-                              target="_blank" rel="nofollow noreferrer"><img
-                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
-                                height="33" width="auto" style="width: auto; height: 33px; display: block;"
-                                alt="Download App"></a>
+
+                      
+                        <tr>
+                          <td colspan="3" style="padding:5px 15px;">
+
+                            <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
+                              <button style="border-radius:50px; padding: 10px 15px;border:0" *ngIf="customText"
+                                [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                                [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                                [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="3" >
-
-                            <a href="{{customUrl}}" *ngIf=" customText"  [style.text-align]="customAlign">
-                              <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                                   [style.padding-left.px]="customButtonSize"   [style.padding-right.px]="customButtonSize"  [style.color]="buttonTextColor"
-                              [style.background-color]="customButtonBg"
-                              [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colspan="3" >
-                            
+                          <td colspan="3" style="padding:5px 15px;">
 
 
-                            <a href="{{scheduleLink}}" *ngIf=" inputValue"  >
-                            
-                              <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;" *ngIf="inputValue"
-                                   [style.padding-left.px]="scheduleSize"   [style.padding-right.px]="scheduleSize" 
-                              [style.background-color]="scheduleBg"
-                              [style.border-radius.px]="scheduleShape">  <img src="{{scheduleIcon}}" style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+
+                            <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                              <button style="border-radius:50%; padding: 10px 15px; border:0;color:white;"
+                                *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                                [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                                [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                                  style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
                           </td>
                         </tr>
                       </tbody>
@@ -1490,7 +1510,7 @@
       routerLink="/home-dashboard/plan/plan-dashboard">
       Get it Now
     </button>
-    <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
+    <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Later</button>
   </mat-dialog-actions>
   <!-- <mat-dialog-actions >
 
@@ -1631,13 +1651,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getFooterAlignment('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align "
+            (click)="getFooterAlignment('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getFooterAlignment('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="getFooterAlignment('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getFooterAlignment('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="getFooterAlignment('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1902,13 +1925,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align"
+            (click)="changeDiscAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="changeDiscAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="changeDiscAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1943,136 +1969,143 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()">×</a>
     </div>
 
-    <h6>Choose Scheduling Provider</h6>
+    <!-- <h6>Choose Scheduling Provider</h6> -->
     <form class="mt-4" [formGroup]="scheduleForm">
-      <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
-      <div class="form-check text-black ">
+      <!-- <p class="mb-0 fs-14">Which scheduling service would you like to use</p> -->
+      <!-- <div class="form-check text-black ">
 
         <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" name="options"  value="option1" (click)="showInputBox = false">
         <label class="form-check-label fs-14" >
    Use  Scheduling Solution( Recommended by Give a spark)
         </label>
-      </div>
-      <div class="form-check">
+      </div> -->
+      <!-- <div class="">
         <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption"  name="options"  value="option2" (click)="showInputBox = true">
-        <label class="form-check-label fs-14" >
-    I already have a scheduler provider
-        </label>
-      </div>
-      <div *ngIf="showInputBox">
-        <label>
-          Input box:
-          <input type="text"  formControlName="scheduleLink">
-        </label>
-      </div>
-    
-    <div class="mt-5">
-      <h5 class="fw-bold"> Button Design
-      </h5>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
-        </div>
-        <div class="col-auto">
-          <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
-        </div>
-      </div>
       
-      <div class="row g-3 align-items-center mb-3">
+      </div> -->
+      <div class="row fs-14 fw-semibold align-items-center form-floating">
         <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+          <label class="floatingInput">
+            Schedule Meeting : </label>
         </div>
         <div class="col-auto">
-          <div class="d-flex">
-            <p class="design-size" (click)="getScheduleSize('10')">S</p>
-            <p class="design-size" (click)="getScheduleSize('15')">M</p>
-            <p class="design-size" (click)="getScheduleSize('25')">L</p>
+          <input type="text" class="design-input fs-14 col-md-6" formControlName="scheduleLink">
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h5 class="fw-bold"> Button Design
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputtext" class="form-control bg-transparent fs-14" formControlName="scheduleText"
+              [(ngModel)]="inputValue">
+          </div>
+        </div>
+
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+          </div>
+          <div class="col-auto">
+            <div class="d-flex">
+              <p class="design-size highlight" (click)="getScheduleSize('10')">S</p>
+              <p class="design-size highlight" (click)="getScheduleSize('15')">M</p>
+              <p class="design-size highlight" (click)="getScheduleSize('25')">L</p>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg" style="width:20px;height: 20px;" />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="getScheduleIcon($event, 1)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img class="wh-20" src="assets/images/color-calender.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="getScheduleIcon($event, 2)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img class="wh-20" src="assets/images/schedule.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="getScheduleIcon($event, 3)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img class="wh-20" src="assets/images/color-meet.png">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option2"
+                (change)="getScheduleShape('0')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"
+                (change)="getScheduleShape('10')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"
+                (change)="getScheduleShape('35')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
           </div>
         </div>
       </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
-        </div>
-        <div class="col-auto">
-          <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg"
-          style="width:20px;height: 20px;" />
-        </div>
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)"  >
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/color-calender.png">
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)">
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/schedule.png">
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)">
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/color-meet.png">
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option2"   (change)="getScheduleShape('0')">
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('10')">
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('20')">
-            <label class="form-check-label fs-14" for="gridRadios1">
-              <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
-        </div>
-        <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </form>
+    </form>
   </div>
 </div>
 
@@ -2114,14 +2147,19 @@
             <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png">
           </label>
         </div> -->
-        <div class="form-check">
-          <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
+        <div class="row">
+          <div class="col-md-1 px-3">
+            <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
+          </div>
+          <div class="col-auto px-3">
+            <label class="switch">
+              <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
+              <span class="slider round"></span>
 
-          <label class="switch">
-            <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
-            <span class="slider round"></span>
+            </label>
+          </div>
 
-          </label>
+
         </div>
       </div>
     </form>
@@ -2152,13 +2190,15 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="titleAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align" (click)="titleAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="titleAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="titleAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="titleAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="titleAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -2285,11 +2325,11 @@
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" (click)="getCustomSize
+            <p class="design-size highlight" (click)="getCustomSize
             ('10')">S</p>
-            <p class="design-size" (click)="getCustomSize
+            <p class="design-size highlight" (click)="getCustomSize
             ('25')">M</p>
-            <p class="design-size" (click)="getCustomSize
+            <p class="design-size highlight" (click)="getCustomSize
             ('60')">L</p>
           </div>
         </div>
@@ -2299,13 +2339,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="customButtonAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align"
+            (click)="customButtonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="customButtonAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="customButtonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="customButtonAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="customButtonAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -2362,13 +2405,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="bannerAlignment('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align"
+            (click)="bannerAlignment('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="bannerAlignment('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="bannerAlignment('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="bannerAlignment('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="bannerAlignment('right')"></i>
         </div>
 
       </div>
@@ -2423,28 +2469,27 @@
     <form class="mt-4" [formGroup]="EventForm">
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
-            :</label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"
             formControlName="eventTitle" [(ngModel)]="eventTitle"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
-            :</label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
             formControlName="eventName" [(ngModel)]="eventName"></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
-            :</label></div>
+          </label></div>
         <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="eventLink"
             [(ngModel)]="eventLink"></div>
-            <ng-container class="po-re"
-            *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
-            <small class="text-danger"
-              *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
-              Please enter a valid url.
-            </small>
-          </ng-container>
+        <ng-container class="po-re"
+          *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
+          <small class="text-danger" *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
+            Please enter a valid url.
+          </small>
+        </ng-container>
       </div>
     </form>
     <div class="mt-5">
@@ -2509,13 +2554,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getEventAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align"
+            (click)="getEventAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getEventAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="getEventAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getEventAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="getEventAlign('right')"></i>
         </div>
 
       </div>
@@ -2525,9 +2573,9 @@
         </div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" (click)="changeIconSize(20)">S</p>
-            <p class="design-size" (click)="changeIconSize(25)">M</p>
-            <p class="design-size" (click)="changeIconSize(30)">L</p>
+            <p class="design-size highlight" (click)="changeIconSize(30)">S</p>
+            <p class="design-size highlight" (click)="changeIconSize(32)">M</p>
+            <p class="design-size highlight" (click)="changeIconSize(35)">L</p>
           </div>
 
         </div>
@@ -2571,26 +2619,24 @@
           </label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
             formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
-            <ng-container class="po-re"
-            *ngIf="downloadAppForm.controls['appleAppLink'].touched && !downloadAppForm.controls['appleAppLink'].valid">
-            <small class="text-danger"
-              *ngIf="downloadAppForm.controls['appleAppLink'].hasError('pattern')">
-              Please enter a valid url.
-            </small>
-          </ng-container>
+        <ng-container class="po-re"
+          *ngIf="downloadAppForm.controls['appleAppLink'].touched && !downloadAppForm.controls['appleAppLink'].valid">
+          <small class="text-danger" *ngIf="downloadAppForm.controls['appleAppLink'].hasError('pattern')">
+            Please enter a valid url.
+          </small>
+        </ng-container>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
           </label></div>
         <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"
             formControlName="googleAppLink" [(ngModel)]="googleAppLink"></div>
-            <ng-container class="po-re"
-            *ngIf="downloadAppForm.controls['googleAppLink'].touched && !downloadAppForm.controls['googleAppLink'].valid">
-            <small class="text-danger"
-              *ngIf="downloadAppForm.controls['googleAppLink'].hasError('pattern')">
-              Please enter a valid url.
-            </small>
-          </ng-container>
+        <ng-container class="po-re"
+          *ngIf="downloadAppForm.controls['googleAppLink'].touched && !downloadAppForm.controls['googleAppLink'].valid">
+          <small class="text-danger" *ngIf="downloadAppForm.controls['googleAppLink'].hasError('pattern')">
+            Please enter a valid url.
+          </small>
+        </ng-container>
       </div>
     </form>
 
@@ -2625,13 +2671,16 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getDownloadbuttonAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align"
+            (click)="getDownloadbuttonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getDownloadbuttonAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align"
+            (click)="getDownloadbuttonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getDownloadbuttonAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align"
+            (click)="getDownloadbuttonAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>

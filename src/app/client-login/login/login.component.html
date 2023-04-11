@@ -13,7 +13,7 @@
                 </div>
                 <div class="mb-3 position-relative">
                     <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
-                    <input type="email" class="form-control p-2 rounded-pill" id="exampleInputinput-field" aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                    <input type="email" class="form-control bg-transparent p-2 rounded-pill" id="exampleInputinput-field" aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
                     <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                       <div *ngIf="f['email'].errors['required']">Email is required</div>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-3 position-relative">
                     <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
-                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control p-2 rounded-pill" id="exampleInputPassword1" formControlName="password">
+                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control bg-transparent p-2 rounded-pill" id="exampleInputPassword1" formControlName="password">
                     <i
                     class="fa mt-1 icon-position text-purple position-absolute top-50 start-50  mt-3 ms-2 translate-middle-y" aria-hidden="true" style="margin-left:50px;"
                     [ngClass]="{
@@ -89,19 +89,19 @@
             </form>
           
             
-            <img src="assets/images/s-line.png"  class="img-fluid position-absolute bottom-0 end-0">
-            <img src="assets/images/f-line.png"  class="img-fluid position-absolute top-0 start-0">
+            <img src="assets/images/login-gif.gif"  class="img-fluid position-absolute bottom-0 end-0">
+            <img src="assets/images/login-gif2.gif"  class="img-fluid position-absolute top-0 start-0">
         </div>
     </div>
     <div class="col-md-6 col-lg-6 bg-white position-relative min-vh-100">
         <div class="position-absolute top-50 start-50 translate-middle ">
             
             <img src="assets/images/login.gif" class="wh-250">
-            <video width="100%" height="200" autoplay loop controls>
+            <!-- <video width="100%" height="200" autoplay loop controls>
               <source src="assets/images/writing-signature.mp4" type="video/mp4">
            
      
-            </video>
+            </video> -->
         </div>
     </div>
 </div>

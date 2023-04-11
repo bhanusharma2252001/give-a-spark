@@ -56,8 +56,12 @@ export class SettingComponent implements OnInit {
     })
     this.updatePasswordForm=this.fb.group({
       oldPassword:['',[Validators.required]],
-      newPassword:['',[Validators.required]],
-      confirmPassword:['',[Validators.required]]
+      newPassword:['',[Validators.required, Validators.minLength(8),
+        Validators.required,
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]],
+      confirmPassword:['',[Validators.required, Validators.minLength(8),
+        Validators.required,
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]]
     },
     { 
       validators: this.password.bind(this)
@@ -210,7 +214,7 @@ this.api.updatePass(body).subscribe((res:any)=>{
 },
 (err: any) => {
   
-  this.toast.error('Please Check your Password');
+  this.toast.error(err.error.error);
   // this.toast.error(err.error.body.slice(0, 20));
 })
 }

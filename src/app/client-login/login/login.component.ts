@@ -43,6 +43,7 @@ token:any;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
   Email:any;
+  error: any;
   constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService,private spinner: NgxSpinnerService ) { console.log(this.isLoggedin);
 
  
@@ -156,11 +157,17 @@ token:any;
 
 
       },
-      (error) => {
-        this.toast.error('please try again');
-        this.spinner.hide()
-      }
-    );
+      error => {
+        
+        this.error = error.error; 
+        console.log(error,'error')
+        console.log(this.error, 'this error')
+        this.toast.error(this.error.error);
+        this.spinner.hide();
+      })
+      
+   
+
   }
 
   success(data: any) {

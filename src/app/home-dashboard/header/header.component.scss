@@ -1,8 +1,8 @@
 ul.nav li.dropdown:hover ul.dropdown-menu{ display: block;  padding: 15px;transition-duration: 1000ms; }
 .dropdown {
   position: absolute;
-  top: 35px;
-  translate: -51px;
+  top: -25px;
+  translate: -45px;
 }
 .navbar-nav .dropdown-menu {
   position: absolute;
@@ -18,5 +18,5 @@ padding:2px;
   font-size:12px;
 }
 .drop-hover{
-  padding-right: 12px;
+  padding-right: 0 0px;
 }

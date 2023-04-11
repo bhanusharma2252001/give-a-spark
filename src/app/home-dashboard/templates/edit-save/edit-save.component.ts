@@ -513,83 +513,75 @@ this.api.gmail(this.templateRef.outerHTML
   console.log(this.sign, "signature name");
   
 }
-  onSubmit(data: any) { 
-    let body:any={}
-   body = {signatureName:this.sign,
-      yourName: data.yourName,
-      designation: data.designation,
-      email: data.email,
-      phoneNo: data.phoneNo,
-      companyWebsite: data.companyWebsite,
-      address: [
+  // onSubmit(data: any) { 
+  //   let body:any={}
+  //  body = {signatureName:this.sign,
+  //     yourName: data.yourName,
+  //     designation: data.designation,
+  //     email: data.email,
+  //     phoneNo: data.phoneNo,
+  //     companyWebsite: data.companyWebsite,
+  //     address: [
   
-        {
-          addressline: data.address,
-          addressline2: data.address,
-          landmark: data.address,
-          city: data.address,
-          state: data.address,
-          pincode: '',
-          country: data.address,
-        }
-      ],
-      templateDesign: {
-        firstNameColor: this.firstNameColor,
-        lastNameColor: this.lastNameColor,
-        designationColor: this.designationColor,
-        contactDetailColor: this.contactDetailColor,
-        fontFamily: this.fontFamilyNew,
-        fontSize: this.templateFontSize,
-        lineHeight: this.lineHeight,
-        fontSizeItem: this.itemFontSize,
-        nameFontSize: this.fontSizeName,
-        nameAlign: this.nameAlign,
-        borderRadius: this.borderRadius
+  //       {
+  //         addressline: data.address,
+  //         addressline2: data.address,
+  //         landmark: data.address,
+  //         city: data.address,
+  //         state: data.address,
+  //         pincode: '',
+  //         country: data.address,
+  //       }
+  //     ],
+  //     templateDesign: {
+  //       firstNameColor: this.firstNameColor,
+  //       lastNameColor: this.lastNameColor,
+  //       designationColor: this.designationColor,
+  //       contactDetailColor: this.contactDetailColor,
+  //       fontFamily: this.fontFamilyNew,
+  //       fontSize: this.templateFontSize,
+  //       lineHeight: this.lineHeight,
+  //       fontSizeItem: this.itemFontSize,
+  //       nameFontSize: this.fontSizeName,
+  //       nameAlign: this.nameAlign,
+  //       borderRadius: this.borderRadius
 
-      },
-      quotesId:data.quotesId,
-      quotes: this.quotevar,  
-      companyPhone: data.companyPhone,
-      profileImage:this.imageData2?this.imageData2:this.userProfile,
-      fbProfile: data.fbProfile,
-      twitterProfile: data?.twitterProfile,
-      instagramProfile: data.instagramProfile,
-      linkedInProfile: data.linkedInProfile,
-      youtubeChannel: data.youtubeChannel,
+  //     },
+  //     quotesId:data.quotesId,
+  //     quotes: this.quotevar,  
+  //     companyPhone: data.companyPhone,
+  //     profileImage:this.imageData2?this.imageData2:this.userProfile,
+  //     fbProfile: data.fbProfile,
+  //     twitterProfile: data?.twitterProfile,
+  //     instagramProfile: data.instagramProfile,
+  //     linkedInProfile: data.linkedInProfile,
+  //     youtubeChannel: data.youtubeChannel,
   
-    }
-    
-    // if(this.proTemplate) {
-    //   body['proTemplateId']=this.templateId
-    // }
-    //   else if(this.freeTemplate) {
-    //     body['templateId']=this.templateId
-        
-    //   } else if(this.proPlusTemplate) {
-    //     body['proPlusTemplateId']=this.templateId
-    //   }
-    console.log(body,'dssfcsfvcs');
+  //   }
     
 
-    this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId=res?.data?._id      
-      this.toast.success('Template  Updated Successfully');
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-      }
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-        this.quotevar=this.LongQuote
-      }
-      // this.saveChanges() ;
-      this.getTemplate();
-      this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error('please try again');
-      })
-  }
+  //   console.log(body,'dssfcsfvcs');
+    
+
+  //   this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
+  //     console.log(res);
+  //     this.TemplateId=res?.data?._id      
+  //     this.toast.success('Template  Updated Successfully');
+  //     if (localStorage.getItem('templatequoteId')) {
+  //       this.QuoteId = localStorage.getItem('templatequoteId')
+  //     }
+  //     if (localStorage.getItem('templateLongQuotes')) {
+  //       this.LongQuote = localStorage.getItem('templateLongQuotes')
+  //       this.quotevar=this.LongQuote
+  //     }
+  //     // this.saveChanges() ;
+  //     this.getTemplate();
+  //     this.router.navigate(['/home-dashboard/templates/saved-templates'])
+  //   },
+  //     (error) => {
+  //       this.toast.error('please try again');
+  //     })
+  // }
 
 
   addQuote() {
@@ -785,6 +777,7 @@ this.userProfile=data?.profileImage
       this.imgSizeVal = (this.imageSize == 150)?5:(this.imageSize == 125)?4:(this.imageSize == 80) ? 3 : (this.imageSize == 61)? 2 : 1
       
       // youtube
+      this.thumbnail=data?.thumbnailImage
       this.youtubeUrl = data?.youtubeUrl
       if(this.youtubeUrl) {
         this.getUrl()
@@ -1701,5 +1694,153 @@ getScheduleIcon(event: any, data: any){
 
   }
 
+  onSubmit(data: any) { 
+    let body:any={}
+   body = {signatureName:this.sign,
+      yourName: data.yourName,
+      designation: data.designation,
+      email: data.email,
+      phoneNo: data.phoneNo,
+      companyWebsite: data.companyWebsite,
+      address: [
+  
+        {
+          addressline: data.address,
+          addressline2: data.address,
+          landmark: data.address,
+          city: data.address,
+          state: data.address,
+          pincode: '',
+          country: data.address,
+        }
+      ],
+      templateDesign: {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius
 
+      },
+      quotesId:data.quotesId,
+      quotes: this.quotevar,  
+      companyPhone: data.companyPhone,
+      profileImage:this.imageData2?this.imageData2:this.userProfile,
+      fbProfile: data.fbProfile,
+      twitterProfile: data?.twitterProfile,
+      instagramProfile: data.instagramProfile,
+      linkedInProfile: data.linkedInProfile,
+      youtubeChannel: data.youtubeChannel,
+  
+    }
+    body['disclaimer'] = this.content,
+        body['fbProfile'] = data.fbProfile,
+        body['twitterProfile'] = data?.twitterProfile,
+        body['instagramProfile'] = data.instagramProfile,
+        body['linkedInProfile'] = data.linkedInProfile,
+        body['youtubeChannel'] = data.youtubeChannel,
+        body['youtubeUrl'] = this.videoUrl,
+        body['youtubeTitle'] = this.youtubeTitle,
+        body['customProfile1'] = this.url1,
+        body['customProfile2'] = this.url2,
+        body['customProfile3'] = this.url3,
+        body['customProfile4'] = this.url4,
+        body['imageTitle'] = this.galleryTitle,
+        body['imageLink'] = this.galleryLink,
+        body['eventTitle'] = this.eventTitle,
+        body['eventLink'] = this.eventLink,
+        body['eventName'] = this.eventName,
+        body['eventIcon'] = this.eventIcon,
+        body['greenFooter'] = this.footerText,
+        body['greenIcon'] = this.greenIcon,
+        body['bannerImage'] =this.bannerUrl
+      body['bannerLink'] = this.bannerLink
+      body['appName'] = this.appName
+      body['appleAppLink'] = this.appleAppLink
+      body['googleAppLink'] = this.googleAppLink
+      body ['customButtonText']=this.customText,
+      body['customUrl']=this.customUrl,
+      body['scheduleText'] =this.inputValue
+      body['scheduleLink'] =this.scheduleLink
+      body['scheduleIcon']=this.scheduleIcon
+      body['thumbnailImage']=this.thumbnail,
+   body['templateDesign'] = {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius,
+        youtubeColor: this.youtubeColor,
+        youtubeFont: this.youtubeFont,
+        youtubeAlignment: this.youtubeAlignment,
+        disclaimerAlignment: this.disclaimerAlignment,
+        disclaimerSize: this.disclaimerSize,
+        disclaimerColor: this.disclaimerColor,
+        imageRadious: this.imageRadious,
+        imageSize: this.imageSize,
+        imageSpace: this.imageSpace,
+        eventColor: this.eventColor,
+        eventSize: this.eventSize,
+        iconSize: this.iconSize,
+        eventAlignment: this.eventAlignment,
+        footerSize: this.footerSize,
+        footerColor: this.footerColor,
+        footerAlignment: this.footerAlignment,
+        bannerSize: this.bannerSize,
+        bannerAlign: this.bannerAlign,
+        appbuttonAlign: this.appbuttonAlign,
+        appButtonSize: this.appButtonSize,
+        appButtonColor: this.appButtonColor,
+        customButtonSize:this.customButtonSize,
+        buttonTextColor:this.buttonTextColor,
+        customButtonShape:this.customButtonShape,
+        customButtonAlign:this.customAlign,
+        customButtonBg:this.customButtonBg,
+        scheduleBg:this.scheduleBg,
+        scheduleSize:this.scheduleSize,
+        scheduleShape:this.scheduleShape
+      }
+    // if(this.proTemplate) {
+    //   body['proTemplateId']=this.templateId
+    // }
+    //   else if(this.freeTemplate) {
+    //     body['templateId']=this.templateId
+        
+    //   } else if(this.proPlusTemplate) {
+    //     body['proPlusTemplateId']=this.templateId
+    //   }
+    console.log(body,'dssfcsfvcs');
+    
+
+    this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
+      console.log(res);
+      this.TemplateId=res?.data?._id      
+      this.toast.success('Template  Updated Successfully');
+      if (localStorage.getItem('templatequoteId')) {
+        this.QuoteId = localStorage.getItem('templatequoteId')
+      }
+      if (localStorage.getItem('templateLongQuotes')) {
+        this.LongQuote = localStorage.getItem('templateLongQuotes')
+        this.quotevar=this.LongQuote
+      }
+      // this.saveChanges() ;
+      this.getTemplate();
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    },
+      (error) => {
+        this.toast.error('please try again');
+      })
+  }
 }

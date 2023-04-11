@@ -88,7 +88,13 @@
         
                                                         <blockquote class="blockquote">
                                                             <div class="d-flex justify-content-between">
-                                                                <p class="fs-14 limit"> {{ss?.quotesName}} </p>
+                                                                <div class="text-start">
+                                                                    <p class="fs-14 limit"> {{ss?.quotesName}} </p> 
+                                                                    <p data-bs-toggle="modal" data-bs-target="#morelong"
+                                                                    (click)="viewQuotes(ss)" class="text-blue fs-12">Read
+                                                                    more...</p>
+                                                                </div>
+                                                              
                                                                 <div class="form-check px-3">
                                                                     <input class="form-check-input" type="checkbox" value=""
                                                                         id="flexCheckDefault"
@@ -97,9 +103,7 @@
                                                                 </div>
                                                             </div>
         
-                                                            <span data-bs-toggle="modal" data-bs-target="#morelong"
-                                                                (click)="viewQuotes(ss)" class="text-blue">Read
-                                                                more...</span>
+                                                           
                                                         </blockquote>
                                                         <figcaption class="blockquote-footer">
                                                             <cite class="fs-24"
@@ -144,7 +148,7 @@
                                                                 </div>
                                                             </div>
                                                             <span data-bs-toggle="modal" data-bs-target="#moresublong"
-                                                            (click)="viewSubquotes(subQ)" class="text-blue">Read
+                                                            (click)="viewSubquotes(subQ)" class="text-blue fs-12">Read
                                                             more...</span>
                                                         </blockquote>
                                                         <figcaption class="blockquote-footer">
@@ -163,7 +167,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- SUBSUBCATEGORY STORY -->
+                            <!-- SUBSUBCATEGORY Quotes -->
                             <div class="col-md-12 col-lg-12">
                                 <div class="row" *ngIf="quoteList">
                                     <div class="col-md-6" *ngFor="let quote of quoteList">
@@ -184,7 +188,7 @@
                                                                 <p class="fs-14 limit"> {{quote?.quotesName}}
                                                                     <span data-bs-toggle="modal"
                                                                         data-bs-target="#moresubsublong"
-                                                                        (click)="viewSubSubQuotes(quote)" class="text-blue">Read
+                                                                        (click)="viewSubSubQuotes(quote)" class="text-blue fs-12">Read
                                                                         more...</span>
                                                                 </p>
                                                                 <div class="form-check">
@@ -322,7 +326,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{catQuoteData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{catQuoteData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
@@ -442,7 +446,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{subQuotesData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{subQuotesData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
@@ -458,7 +462,7 @@
         
         
         
-                    <!-- SUBSUB STORY MODAL 3 -->
+                    <!-- SUBSUB Quote MODAL 3 -->
         
         
                     <div class="modal fade" id="moresubsublong" data-bs-backdrop="static" tabindex="-1"
@@ -566,7 +570,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{SubSubQuotesData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{SubSubQuotesData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
@@ -650,7 +654,7 @@
                                                     <figure class="text-centers">
                                                         <blockquote class="blockquote">
                                                             <p class="fs-14 limit"> {{ll?.longStory}} </p>
-                                                            <span data-bs-toggle="modal" data-bs-target="#x" (click)="viewStory(ll)" class="text-blue read_txt">Read more...</span>
+                                                            <span data-bs-toggle="modal" data-bs-target="#x" (click)="viewStory(ll)" class="text-blue fs-12">Read more...</span>
             
                                                                 
                                                         </blockquote>
@@ -704,7 +708,7 @@
                                                             <p class="fs-14 limit"> {{substory?.storiesName}}
                                                                 <span data-bs-toggle="modal" data-bs-target="#y"
                                                                     (click)="viewSubStory(substory)"
-                                                                    class="text-blue read_txt">Read
+                                                                    class="text-blue fs-12">Read
                                                                     more...</span>
                                                             </p>
                                                         </blockquote>
@@ -737,7 +741,7 @@
                                                                     <span data-bs-toggle="modal"
                                                                         data-bs-target="#z"
                                                                         (click)="viewSubSubStory(stories)"
-                                                                        class="text-blue read_txt">Read
+                                                                        class="text-blue fs-12">Read
                                                                         more...</span>
                                                                 </p>
                                                             </blockquote>
@@ -866,7 +870,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{storyData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{storyData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
@@ -992,7 +996,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{substoryData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{substoryData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
@@ -1116,7 +1120,7 @@
                                                         <!-- <img src="images/recording.png"> -->
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <p>{{SubSubstoryData?.merchandise}}</p>
+                                                        <p class="text-wrap">{{SubSubstoryData?.merchandise}}</p>
                                                     </div>
                                                 </div>
         
