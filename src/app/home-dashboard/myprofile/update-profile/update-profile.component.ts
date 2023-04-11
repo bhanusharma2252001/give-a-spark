@@ -175,7 +175,7 @@ onSubmit(data:any){
   this.api.basicDetailofUser(body).subscribe(
     (res: any) => {
       // console.log(res);
-     
+      this.api.updateImage.next(true)
       this.toast.success('submitted');
      
       // this.bannerData=null
@@ -201,6 +201,11 @@ onSubmit(data:any){
 
 getToday(): string {
   return new Date().toISOString().split('T')[0]
+}
+
+ngOnDestroy() {
+  this.api.updateImage.complete();
+
 }
 }
   

@@ -76,21 +76,21 @@ export class SettingComponent implements OnInit {
  }
   profileData() {
     this.api.myProfile().subscribe((res:any)=>{
-      this.userDetails = res;
+      this.userDetails = res[0];
       console.log(this.userDetails,'kaya');
- this.Email=res?.email     
-this.dob=res?.DOB
+ this.Email=res[0]?.email     
+this.dob=res[0]?.DOB
 
-this.desig=res?.designation
-this.compName=res?.companyName
-this.compWeb=res?.companyWebsite
-this.number=res?.phone
-this.std=res?.stdCode
-this.compPhone=res?.companyPhone
-this.userProfile=res?.profile
-this.useraddress=res?.address[0]?.addressline1
-      console.log(this.userDetails?.address[0]?.addressline1, "addddd")
-      this.country=res?.country
+this.desig=res[0]?.designation
+this.compName=res[0]?.companyName
+this.compWeb=res[0]?.companyWebsite
+this.number=res[0]?.phone
+this.std=res[0]?.stdCode
+this.compPhone=res[0]?.companyPhone
+this.userProfile=res[0]?.profile
+this.useraddress=res[0]?.address[0]?.addressline
+      console.log(this.userDetails?.address[0]?.addressline, "addddd")
+      this.country=res[0]?.country
     })
   }
 
@@ -171,7 +171,7 @@ this.api.basicDetailofUser(body).subscribe(
     // console.log(res);
    
     this.toast.success('submitted');
-   
+   this.api.updateImage.next(true)
     // this.bannerData=null
     // this.fileData=null
     this.router.navigate(["/home-dashboard/myprofile/profile-dashboard"])
@@ -182,6 +182,11 @@ this.api.basicDetailofUser(body).subscribe(
     // this.toast.error(err.error.body.slice(0, 20));
   }
 );
+}
+
+ngOnDestroy() {
+  this.api.updateImage.complete();
+
 }
 
 password(formGroup: any) {

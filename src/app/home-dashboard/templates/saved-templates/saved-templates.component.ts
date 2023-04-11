@@ -453,26 +453,13 @@ setOnOutlook(){
     }
 
 
-    requestRestrictedScopes() {
-      // Get the Google Auth2 instance
-      console.log("auth", this.auth2);
-      
-      if (!this.auth2) {
-        console.log('Google Auth2 library not yet loaded');
-        return;
-      }
-      const currentUser = this.auth2.currentUser.get();
-      // Request restricted scopes
-      currentUser.grant({
-        'scope': 'https://www.googleapis.com/auth/gmail.settings.basic'
-      }).then((response:any) => {
-        // Scopes granted successfully
-        console.log('Scopes granted successfully:', response);
-      }, (error:any) => {
-        // Error occurred while granting scopes
-        console.error('Error occurred while granting scopes:', error);
-      });
-    }
+    delTemplate(val:any){
+      this.tempId=val
+      this.api.delTemplate(this.tempId).subscribe((res:any)=>{
+        console.log(this.tempId);
+        this.getTemplateDetails();
+    })
+   
     }
 
-
+  }

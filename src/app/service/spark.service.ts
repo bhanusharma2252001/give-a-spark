@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 /// <reference types="chrome"/>
 // import * as chrome from 'chrome';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,17 +16,50 @@ export class SparkService {
 
   token: any;
   isLoggedIn = false;
+  updateImage= new Subject()
   // private path = environment.apiUrl
   constructor(private http: HttpClient) {
     console.log(environment);
-    
+    this.token =localStorage.getItem('ClientSpark')
     this.token = sessionStorage.getItem('ClientSpark');
+    window.addEventListener('storage', this.handleStorageEvent,false);
+    this.requestSyncSessionStorage();
+
   }
+  requestSyncSessionStorage(): void {
+    if (!sessionStorage.length) {
+       const current = new Date().toLocaleTimeString();
+       localStorage.setItem(
+          'requestSyncSessionStorage',
+          'request session storage' + current
+       );
+    }
+ }
+ handleStorageEvent = (event: StorageEvent): void => {
+  if (event.key === 'requestSyncSessionStorage') {
+     localStorage.setItem('sessionStorage', JSON.stringify(sessionStorage));
+     localStorage.removeItem('sessionStorage');
+  } else if (event.key === 'sessionStorage') {
+     const sessionStorage = JSON.parse(event.newValue || '{}');
+     for (const key in sessionStorage) {
+        window.sessionStorage.setItem(key, sessionStorage[key]);
+     }
+  } else if(event.key === 'CREDENTIALS_FLUSH'){
+     window.sessionStorage.clear()
+ }
+};
+
+ ngOnDestroy(): void {
+  window.removeEventListener('storage', this.handleStorageEvent, false);
+}
+
   getLatestValue(data:any) {    
     this.content.next(data);    
   }
   isLoggedInAdmin() {
+    this.token =localStorage.getItem('ClientSpark')
     this.token = sessionStorage.getItem('ClientSpark');
+    
     if (this.token) {
       return (this.isLoggedIn = true);
     } else {
@@ -460,6 +493,21 @@ giftForSomeOne( data:any){
   }
 );
 }
+
+
+
+
+// ------------del template-----------
+
+
+delTemplate(id:any) {
+  return this.http.delete(environment.localApiURL + '/api/template/deleteTemplateById/'+id,{
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+}
+
+
+
 
 }
 

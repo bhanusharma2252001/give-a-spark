@@ -600,7 +600,7 @@
 
               <!-- T E M P L A T E S -->
               <div class="col-md-6 col-lg-6 pe-3" #myText>
-                <span class="progress-number">{{progress}}</span>
+                <!-- <span class="progress-number">{{progress}}</span> -->
                 <progress-bar-angular barColor={{barColor}} [progress]='progress'
                   backgroundColor='rgba(226, 183, 152, 0.2)' mode='determinate' value="0 "
                   style="display:none;"></progress-bar-angular>
@@ -608,7 +608,9 @@
 
                 <div class="row position-relative progress_padd">
                   <div class="profile_complt-detail">
-                    <p class="profile_status">Profile 100% Completed</p>
+                    <p class="profile_status"> Profile  
+                      <span class="progress-number">{{progress}}</span>
+                      % Completed</p>
                   </div>
                   <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                       alt="Signature image" /></div>
@@ -1975,38 +1977,7 @@
           <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
         </div>
       </div>
-      <!-- <div class="row g-3 align-items-center mb-3">
-        <div class="col-auto">
-          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              Full
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              Light
-            </label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-check text-black ">
-
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label fs-14" for="gridRadios1">
-              Simple Link
-            </label>
-          </div>
-        </div>
-      </div> -->
+      
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
@@ -2037,7 +2008,7 @@
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)"  >
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/calender.png">
+              <img src="assets/images/color-calender.png">
             </label>
           </div>
         </div>
@@ -2055,7 +2026,7 @@
 
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/online-meeting.png">
+              <img src="assets/images/color-meet.png">
             </label>
           </div>
         </div>
@@ -2489,7 +2460,7 @@
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 1)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/sale_icon.png">
+              <img src="assets/images/sale-tag.png">
             </label>
           </div>
         </div>
@@ -2499,7 +2470,7 @@
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 2)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/gift_icon.png">
+              <img src="assets/images/giftbox.png">
             </label>
           </div>
         </div>
@@ -2509,7 +2480,7 @@
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 3)">
             <label class="form-check-label fs-14" for="gridRadios1">
-              <img src="assets/images/sale_icon_2.png">
+              <img src="assets/images/sale-black.png">
             </label>
           </div>
         </div>

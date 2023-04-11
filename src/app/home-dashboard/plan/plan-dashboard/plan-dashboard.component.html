@@ -77,7 +77,7 @@
                       for yourself.</p>
   
   
-                      <button (click)="paymentSelectB(); " 
+                      <button (click)="paymentSelectB()" [disabled]="buttonClicked1" 
                       class="white-btn fw-semibold p-2 pe-4 ps-4">
                       Get This Plan
                     </button>
@@ -141,7 +141,7 @@
                       for yourself.</p>
   
                       <button  type="button"
-                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan"   (click)="paymentSelectC();  ">
+                      class="white-btn fw-semibold p-2 pe-4 ps-4" id="getThisPlan"   (click)="paymentSelectC()" [disabled]="buttonClicked">
                       Get This Plan
                     </button>
                     <!-- data-bs-toggle="modal" data-bs-target="#exampleModal1" -->

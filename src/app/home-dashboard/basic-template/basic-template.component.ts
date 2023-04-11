@@ -26,10 +26,11 @@ export class BasicTemplateComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
-  customGalleryForm: FormGroup;
+  
   img: boolean = true;
   @ViewChild('tableData', { static: false }) tableData!: ElementRef
   signatureDetailsForm: FormGroup
+  customGalleryForm: FormGroup;
   disclaimerForm: FormGroup;
   planShow = false;
   public toggle: boolean = false;
@@ -66,7 +67,7 @@ export class BasicTemplateComponent implements OnInit {
    customButtonShape:any = 0
   customButtonSize:any=10
   customAlign: any='';
-
+  bannerSize: any = 100
 
  public buttonTextColor:string ='#fff'
   public customButtonBg:string ='#0d6efd'
@@ -87,19 +88,20 @@ export class BasicTemplateComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = ""
   // change new
-  bannerSize: any = 300
+
   templateFontSize: any = 24;
   public youtubeColor: string = '#000000';
   youtubeFont: any = 8
   youtubeAlignment: any = ''
   imageSize: any = 61
+  public footerColor: string = '#000000';
   public disclaimerColor: string = '#000000';
   public eventColor: string = '#000000';
   public contactDetailColor: string = '#000000';
   public lastNameColor: string = '#000000';
   public designationColor: string = '#000000';
   public firstNameColor: string = '#000000';
-  public footerColor: string = '#000000';
+  
   fontFamilyNew: any = 'Poppins, sans-serif'
   lineHeight: any = 1.5
   tempDetails: any;
@@ -1105,7 +1107,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.profile2 = res[0]?.key;
-        console.log(this.profile1, 'image111111');
+        console.log(this.profile2, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
 
@@ -1268,16 +1270,16 @@ this.scheduleForm=this.fb.group({
     this.eventdata = data;
     if (this.eventdata == 1) {
       this.textareaValue = ''
-      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png "
+      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-tag.png"
     }
     else if (this.eventdata == 2) {
 
 
-      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png "
+      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/giftbox.png"
     }
     else if (this.eventdata == 3) {
 
-      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png "
+      this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-black.png"
     }
 
 
@@ -1336,24 +1338,24 @@ this.scheduleForm=this.fb.group({
     this.eventdata = data;
     if (this.eventdata == 1) {
       this.footerValue = ''
-      this.footerText = "  Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy.  "
+      this.footerText = "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy."
     }
     else if (this.eventdata == 2) {
 
       this.footerValue = ''
-      this.footerText = " Please consider the environment before printing this e-mail! "
+      this.footerText = "Please consider the environment before printing this e-mail!"
     }
     else if (this.eventdata == 3) {
       this.footerValue = ''
-      this.footerText = "  Do you really need to print this email?   "
+      this.footerText = "Do you really need to print this email?"
     }
     else if (this.eventdata == 4) {
       this.footerValue = ''
-      this.footerText = " Printing emails kills trees. Print is murder! "
+      this.footerText = "Printing emails kills trees. Print is murder!"
     }
     else if (this.eventdata == 5) {
       this.footerValue = ''
-      this.footerText = " Don't print this, Ok?  "
+      this.footerText = "Don't print this, Ok?"
     }
     else if (this.eventdata == 6) {
 
@@ -1617,18 +1619,18 @@ console.log(this.inputValue, this.scheduleLink, 'schedule')
 getScheduleIcon(event: any, data: any){
  
     this.scheduleData = data;
-    if (this.eventdata == 1) {
+    if (this.scheduleData == 1) {
   
-      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png "
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-calender.png"
     }
     else if (this.scheduleData == 2) {
 
 
-      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png "
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-clock.png"
     }
     else if (this.scheduleData == 3) {
 
-      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png "
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-meet.png"
     }
 
 
@@ -1689,14 +1691,7 @@ getScheduleIcon(event: any, data: any){
 
 
 
-    // if(
-    //   this.showIcon == true){
-    //     body['thumbnailImage']="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-    //   }
-    // else  if(
-    //     this.showIcon == false){
-    //       body['thumbnailImage']=this.thumbnail
-    //     }
+    
 
     if (this.planDetail != 'Plan A') {
       if (

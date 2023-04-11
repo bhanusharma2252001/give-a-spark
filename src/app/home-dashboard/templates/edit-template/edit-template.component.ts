@@ -147,7 +147,119 @@ copytext:any;
   tempId: any;
   logo: any;
 
+  // -----------Modal----------
+  videoUrl: any;
+  videoid: any;
+  youId: any;
+  thumbnail: any;
+  youtubeTitle: any;
+  youUrl: any;
+  youImage: any;
 
+  icon: any;
+  url1: any;
+  profile1: any;
+  imageProfile1: any;
+  imageProfile2: any;
+  url2: string | ArrayBuffer | null | undefined;
+  profile2: any;
+  imageProfile3: any;
+  url3: string | ArrayBuffer | null | undefined;
+  profile3: any;
+  imageProfile4: any;
+  url4: string | ArrayBuffer | null | undefined;
+  profile4: any;
+  galleryTitle: any;
+  galleryLink: any;
+  imageRadious: any = 0;
+  galleryImage1: any;
+  galleryImage2: any;
+  galleryImage3: any;
+  galleryImage4: any;
+  imageSpace: any = 5;
+  eventdata: any;
+  eventAlignment: any = ''
+  eventSize: any = 10
+  iconSize: any = 20
+
+  appButtonSize: any = 10
+  public appButtonColor: string = '#000000';
+  appbuttonAlign: any = ''
+
+
+
+ public scheduleBg:string='#0009a3'
+scheduleSize:any=10
+scheduleShape:any=0
+
+
+content: string;
+  newArray = [
+    { 'id': 1, 'content': "A" },
+    { 'id': 2, 'content': "B" },
+    { 'id': 3, 'content': "C" },
+
+  ]
+ 
+  textareaValue: any;
+  disclaimerSize: any = 10;
+  eventIcon: any;
+  eventTitle: any;
+  eventName: any;
+  eventLink: any;
+  footerText: string;
+  footerValue: any;
+  greenIcon: any;
+  bannerImage: any;
+  bannerUrl: string | ArrayBuffer | null | undefined;
+  banner: any;
+  bannerLink: any;
+
+ 
+  appName: any;
+  appleAppLink: any;
+  googleAppLink: any;
+  customText: any;
+  customUrl: any;
+
+  scheduleLink: any;
+  scheduleIcon: any;
+  scheduleData: any;
+
+  footerSize: any = 12
+ 
+  footerAlignment: any = ''
+  disclaimerAlignment: any = ''
+  public youtubeColor: string = '#000000';
+  youtubeFont: any = 8
+  youtubeAlignment: any = ''
+  imageSize: any = 61
+  public footerColor: string = '#000000';
+  public disclaimerColor: string = '#000000';
+  public eventColor: string = '#000000';
+  bannerAlign: any = ''
+  customButtonShape:any = 0
+  customButtonSize:any=10
+  customAlign: any='';
+  bannerSize: any = 100
+
+ public buttonTextColor:string ='#fff'
+  public customButtonBg:string ='#0d6efd'
+  showInputBox: boolean = false;
+  selectedOption: string = 'option1';
+  inputValue: string = '';
+  showIcon: boolean;
+  youtubeForm: FormGroup;
+  EventForm: FormGroup;
+  footerForm: FormGroup;
+  customGalleryForm: FormGroup;
+  disclaimerForm: FormGroup;
+  bannerForm: FormGroup;
+  downloadAppForm: FormGroup;
+  customButtonForm:FormGroup;
+  scheduleForm:FormGroup;
+
+  // --------------end---------
   @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
 
   constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,
@@ -173,6 +285,50 @@ copytext:any;
       signatureName:['']
     })
 
+    this.youtubeForm = this.fb.group({
+      youtubeUrl: ['', [Validators.required]],
+      youtubeTitle: ['', Validators.required]
+    })
+
+    this.EventForm = this.fb.group({
+      eventTitle: [''],
+      eventName: [''],
+      eventLink: ['', [Validators.pattern(reg)]]
+    })
+
+    this.footerForm = this.fb.group({
+      greenFooter: ['']
+    })
+    this.customGalleryForm = this.fb.group({
+      customProfile1: [''],
+      customProfile2: [''],
+      customProfile3: [''],
+      customProfile4: [''],
+      imageTitle: [''],
+      imageLink: ['', [Validators.pattern(reg)]]
+    })
+
+    this.disclaimerForm = this.fb.group({
+      disclaimer: ['']
+    })
+
+    this.bannerForm = this.fb.group({
+      bannerLink: ['', [Validators.pattern(reg)]]
+    })
+    this.downloadAppForm = this.fb.group({
+      appName: [''],
+      appleAppLink: ['', [Validators.pattern(reg)]],
+      googleAppLink: ['', [Validators.pattern(reg)]]
+    })
+    this.customButtonForm=this.fb.group({
+      customButtonText: [''],
+      customUrl: ['', [Validators.required,Validators.pattern(reg)]],
+    })
+
+this.scheduleForm=this.fb.group({
+  scheduleLink: ['', [Validators.pattern(reg)]],
+  scheduleText: [''], 
+})
     this.getTemplateId()
   }
 
@@ -274,23 +430,34 @@ this.api.gmail(this.templateRef.outerHTML
 })
 
 }
-
-outlook(){
+setOnOutlook(){
+  this.templateRef = this.tableData.nativeElement
+  console.log(this.templateRef, "templatesssssssss")
+ 
 
 
   
+this.api.outlook(this.templateRef.outerHTML
+  ).subscribe((res:any)=>{
+  console.log(res, 'setgmail');
+  this.toast.success('Email Signature has been updated on your email');
+
   
+})
 
 
-  // document.getElementById("btn").value="Copied";
-  
+  }
+
+
+
+  Yahoo(){
     this.templateRef = this.tableData.nativeElement
     console.log(this.templateRef, "templatesssssssss")
    
   
   
     
-  this.api.gmail(this.templateRef.outerHTML
+  this.api.yahoo(this.templateRef.outerHTML
     ).subscribe((res:any)=>{
     console.log(res, 'setgmail');
     this.toast.success('Email Signature has been updated on your email');
@@ -298,7 +465,9 @@ outlook(){
     
   })
   
-  }
+  
+    }
+
 
 
 
@@ -670,7 +839,7 @@ this.borderRadius = data?.borderRadius
   this.username = data?.yourName
   this.logo=data?.logo
       this.Email = data?.email
-      this.useraddress = data?.address[0]?.city
+      this.useraddress = data?.address[0]?.addressline
       this.compName = data?.companyName
       this.compWebsite = data?.companyWebsite
       this.number = data?.phoneNo
@@ -744,5 +913,803 @@ console.log(this.code);
     }
     
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+  
+  titleAlign(val: any) {
+    this.youtubeAlignment = val;
+  } 
+youtubeIcon(val: any) {
+  // if (this.showPro = !this.showPro) {
+  //   this.templatData = false;
+  // }
+  this.icon = val
+
+  this.showIcon = !this.showIcon;
+  console.log(this.showIcon);
+
+}
+
+
+changeYoutubeSize(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+    this.youtubeFont = 9
+  } else if (currnetSize == 5) {
+    this.youtubeFont = 12
+  } else if (currnetSize == 3) {
+    this.youtubeFont = 8
+  } else if (currnetSize == 2) {
+    this.youtubeFont = 7
+  } else {
+    this.youtubeFont = 6
+  }
+}
+  getUrl() {
+
+
+    this.videoUrl = this.youtubeForm.value.youtubeUrl;
+
+    console.log(this.videoUrl, "videoUrl name");
+
+    this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+    if (this.videoid != null) {
+      console.log("video id = ", this.videoid[1]);
+      this.youId = this.videoid[1];
+      console.log(this.youId, "youtube ID");
+
+
+    } else {
+      console.log("The youtube url is not valid.");
+    }
+    this.thumbnail = "http://img.youtube.com/vi/" + this.youId + "/" + "mqdefault" + ".jpg";
+
+
+
+  }
+
+
+
+  youTubeDetails() {
+    this.youtubeTitle = this.youtubeForm.value.youtubeTitle;
+    this.getUrl();
+    console.log(this.youtubeTitle)
+    this.toast.show('Please click On Create Signature to Save ')
+  }
+
+// ---------CUSTOM  IMAGE GALLLERY-------
+
+
+chaneImageSize(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+
+    this.imageSize = 125
+
+  } else if (currnetSize == 5) {
+
+    this.imageSize = 150
+
+  } else if (currnetSize == 3) {
+
+
+    this.imageSize = 80
+  } else if (currnetSize == 2) {
+
+
+    this.imageSize = 61
+  } else {
+
+
+    this.imageSize = 50
+  }
+}
+
+changeImageRadious(val: any) {
+  this.imageRadious = val
+}
+changeImageSpace(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+
+    this.imageSpace = 11
+
+  } else if (currnetSize == 5) {
+
+    this.imageSpace = 13
+
+  } else if (currnetSize == 3) {
+
+
+    this.imageSpace = 10
+  } else if (currnetSize == 2) {
+
+
+    this.imageSpace = 8
+  } else {
+
+
+    this.imageSpace = 6
+  }
+}
+
+// ------------ CUSTOM PROFILE-1-------------
+
+onSelectFile1(event: any) {
+  this.Submitted = true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile1 = files[0]
+    this.File1ubmit()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url1 = event.target?.result;
+    };
+  }
+
+}
+
+File1ubmit() {
+  this.Submitted = true
+  let formData = new FormData();
+  formData.append('attachment', this.imageProfile1);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile1 = res[0]?.key;
+      console.log(this.profile1, 'image111111');
+
+      // console.log(this.imageData1[0].key, "image key ")
+
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+
+    }
+  )
+
+}
+
+
+
+// -------------- CUSTOM PROFILE -2 -----------
+onSelectFile2(event: any) {
+  this.Submitted = true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile2 = files[0]
+    this.File1ubmit2()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url2 = event.target?.result;
+    };
+  }
+
+}
+
+File1ubmit2() {
+  this.Submitted = true
+  let formData = new FormData();
+  formData.append('attachment', this.imageProfile2);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile2 = res[0]?.key;
+      console.log(this.profile1, 'image111111');
+
+      // console.log(this.imageData1[0].key, "image key ")
+
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+
+    }
+  )
+
+}
+
+
+// ---------------CUSTOM PROFILE-3------------
+onSelectFile3(event: any) {
+  this.Submitted = true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile3 = files[0]
+    this.File1ubmit3()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url3 = event.target?.result;
+    };
+  }
+
+}
+
+File1ubmit3() {
+  this.Submitted = true
+  let formData = new FormData();
+  formData.append('attachment', this.imageProfile3);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile3 = res[0]?.key;
+      console.log(this.profile3, 'image111111');
+
+      // console.log(this.imageData1[0].key, "image key ")
+
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+
+    }
+  )
+
+}
+
+
+// ---------------CUSTOM PROFILE-4------------
+onSelectFile4(event: any) {
+  this.Submitted = true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.imageProfile4 = files[0]
+    this.File1ubmit4()
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.url4 = event.target?.result;
+    };
+  }
+
+}
+
+File1ubmit4() {
+  this.Submitted = true
+  let formData = new FormData();
+  formData.append('attachment', this.imageProfile4);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.profile4 = res[0]?.key;
+      console.log(this.profile4, 'image111111');
+
+      // console.log(this.imageData1[0].key, "image key ")
+
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+
+    }
+  )
+
+}
+
+
+imageDetails(data: any) {
+  this.galleryTitle = data.imageTitle
+  this.galleryLink = data.imageLink
+  console.log(this.galleryLink, 'link of image')
+  console.log(this.galleryTitle, 'title')
+  this.toast.show('Please click On Create Signature to Save after you done editing ')
+}
+
+
+// -------- DI S CLAIMER  FONT------
+
+getEvent(event: any, data: any) {
+  this.eventdata = data;
+  if (this.eventdata == 1) {
+    this.textareaValue = ''
+    this.content = " IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof. "
+  }
+  else if (this.eventdata == 2) {
+
+
+    this.content = " Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments. "
+  }
+  else if (this.eventdata == 3) {
+
+    this.content = " No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation.  "
+  }
+  else if (this.eventdata == 4) {
+
+    this.content = "  All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message.  "
+  }
+  else if (this.eventdata == 5) {
+
+    this.content = "  If you received this email in error, please notify us immediately by sending an e-mail or by calling. "
+  }
+  else {
+    this.content = ''
+  }
+
+  console.log(this.eventdata, this.content, "toggle data");
+
+
+}
+changeDesclaimer() {
+
+  this.textareaValue = this.disclaimerForm.value.disclaimer
+  this.content = this.textareaValue
+  console.log(this.textareaValue, 'kaya');
+  console.log(this.content, 'content');
+
+
+
+}
+
+disclaimerSizechange(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+
+    this.disclaimerSize = 14
+
+  } else if (currnetSize == 3) {
+
+
+    this.disclaimerSize = 12
+  } else if (currnetSize == 2) {
+
+
+    this.disclaimerSize = 10
+  } else {
+
+
+
+
+    this.disclaimerSize = 8
+  }
+}
+
+
+changeDiscAlign(val: any) {
+  this.disclaimerAlignment = val
+}
+
+// ------------ S A L E S   E V E N T ----------
+salesEvent(event: any, data: any) {
+  this.eventdata = data;
+  if (this.eventdata == 1) {
+    this.textareaValue = ''
+    this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-tag.png"
+  }
+  else if (this.eventdata == 2) {
+
+
+    this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/giftbox.png"
+  }
+  else if (this.eventdata == 3) {
+
+    this.eventIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-black.png"
+  }
+
+
+  console.log(this.eventdata, this.eventIcon, "toggle data");
+
+
+}
+
+getEventAlign(val: any) {
+  this.eventAlignment = val
+}
+
+changeIconSize(evt: any) {
+  this.iconSize = evt
+
+}
+getEventFontSize(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+
+    this.eventSize = 14
+
+  } else if (currnetSize == 3) {
+
+
+    this.eventSize = 13
+  } else if (currnetSize == 2) {
+
+
+    this.eventSize = 12
+  } else if (currnetSize == 1) {
+
+
+    this.eventSize = 10
+  }
+
+}
+getSalesDetails() {
+  this.eventTitle = this.EventForm.value.eventTitle;
+  this.eventName = this.EventForm.value.eventName;
+  this.eventLink = this.EventForm.value.eventLink;
+  console.log(this.eventTitle, this.eventName, this.eventLink, 'Sales Event')
+}
+
+
+
+
+
+// --------------footer-----------
+
+
+
+
+chooseFooter(event: any, data: any) {
+  // debugger
+  this.eventdata = data;
+  if (this.eventdata == 1) {
+    this.footerValue = ''
+    this.footerText = "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy."
+  }
+  else if (this.eventdata == 2) {
+
+    this.footerValue = ''
+    this.footerText = "Please consider the environment before printing this e-mail!"
+  }
+  else if (this.eventdata == 3) {
+    this.footerValue = ''
+    this.footerText = "Do you really need to print this email?"
+  }
+  else if (this.eventdata == 4) {
+    this.footerValue = ''
+    this.footerText = "Printing emails kills trees. Print is murder!"
+  }
+  else if (this.eventdata == 5) {
+    this.footerValue = ''
+    this.footerText = "Don't print this, Ok?"
+  }
+  else if (this.eventdata == 6) {
+
+    this.footerText = ''
+  }
+
+  console.log(this.eventdata, this.footerText, "toggle data");
+
+
+}
+customFooter() {
+
+  this.footerValue = this.footerForm.value.greenFooter
+  this.footerText = this.footerValue
+  // console.log(this.textareaValue , 'kaya');
+  console.log(this.footerText, 'content');
+
+
+
+}
+
+selectfooterIcon(event: any, data: any) {
+  this.eventdata = data;
+  if (this.eventdata == 1) {
+
+    this.greenIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png"
+  }
+  else if (this.eventdata == 2) {
+
+
+    this.greenIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-icon.png "
+  }
+  else if (this.eventdata == 3) {
+
+    this.greenIcon = 'https://giveaspark.s3.us-west-1.amazonaws.com/category/image_2023_03_29T08_56_13_879Z.png'
+  }
+
+
+  console.log(this.eventdata, this.greenIcon, "toggle data");
+}
+
+
+
+
+
+getFooterSize(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 3) {
+
+    this.footerSize = 12
+
+  } else if (currnetSize == 2) {
+
+
+    this.footerSize = 10
+  } else if (currnetSize == 1) {
+
+
+    this.footerSize = 8
+  } else {
+
+
+
+
+    this.footerSize = 8
+  }
+
+}
+
+getFooterAlignment(val: any) {
+  this.footerAlignment = val
+
+}
+
+
+// ------------------- B A N N E R ---------------
+
+
+
+
+
+selectBanner(event: any) {
+  this.Submitted = true;
+  let files = event.target.files;
+  this.fileImageName = event.target.files[0].name;
+  if (files) {
+    this.bannerImage = files[0]
+    this.submitBanner();
+    for (let file of files) {
+      if (!file.type.includes('image')) {
+        this.isImage = false;
+        return;
+      }
+      this.fileData.push(file);
+    }
+  }
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+      this.bannerUrl = event.target?.result;
+    };
+  }
+
+}
+
+submitBanner() {
+  this.Submitted = true
+  let formData = new FormData();
+  formData.append('attachment', this.bannerImage);
+  // this.spinner.show()
+  this.api.addAttachments(formData).subscribe(
+    (res: any) => {
+
+      // this.imageData1 = res;
+      // this.imageData2 = this.imageData1[0].key;
+      this.banner = res[0]?.key;
+      console.log(this.profile4, 'image111111');
+
+      // console.log(this.imageData1[0].key, "image key ")
+
+    },
+    (err: any) => {
+      // this.spinner.hide()
+      console.log(err);
+
+    }
+  )
+
+}
+
+
+changeBannerSize(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 3) {
+
+    this.bannerSize = 100
+
+  } else if (currnetSize == 2) {
+
+
+    this.bannerSize = 75
+  } else if (currnetSize == 1) {
+
+
+    this.bannerSize = 50
+  } else {
+
+
+
+
+    this.bannerSize = 300
+  }
+
+}
+
+bannerAlignment(val: any) {
+  this.bannerAlign = val
+}
+
+
+
+
+
+bannerValue() {
+  this.bannerLink = this.bannerForm.value.bannerLink
+  console.log(this.bannerLink);
+
+}
+
+
+
+// -----------------DOWNLOAD APP----------
+
+getdownloadFont(evt: any) {
+  let currnetSize = Number(evt.target.value);
+  if (currnetSize == 4) {
+
+    this.appButtonSize = 16
+
+  } else if (currnetSize == 3) {
+
+
+    this.appButtonSize = 14
+  } 
+  else if (currnetSize == 2) {
+
+
+    this.appButtonSize = 14
+  } else if (currnetSize == 1) {
+
+
+    this.appButtonSize = 12
+  } else {
+
+
+
+
+    this.appButtonSize = 10
+  }
+
+
+}
+
+getDownloadbuttonAlign(val: any) {
+  this.appbuttonAlign = val
+}
+getAppDetails() {
+  this.appName = this.downloadAppForm.value.appName
+  this.appleAppLink = this.downloadAppForm.value.appleAppLink
+  this.googleAppLink = this.downloadAppForm.value.googleAppLink
+console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
+
+}
+
+
+
+
+
+
+
+// -------------------CUSTOM  BUTTON--------------------
+customButtonAlign(val:any){
+this.customAlign=val
+console.log(this.customAlign, 'size')
+}
+getButtonShape(val:any){
+  this.customButtonShape=val
+}
+
+getCustomSize(val:any){
+  this.customButtonSize=val
+  console.log(this.customButtonSize, 'size')
+
+}
+getCustoBtDetails(){
+  this.customText=this.customButtonForm.value.customButtonText
+ this.customUrl=this.customButtonForm.value.customUrl
+
+}
+
+// ----------------------- S C H E D U L E R --------------------
+
+
+getScheduleSize(val:any){
+this.scheduleSize=val
+console.log(this.scheduleSize, 'size')
+}
+
+getScheduleShape(val:any){
+this.scheduleShape=val
+console.log(this.scheduleShape, 'size')
+}
+getScheduleDetails(){
+this.inputValue=this.scheduleForm.value.scheduleText
+this.scheduleLink=this.scheduleForm.value.scheduleLink
+console.log(this.inputValue, this.scheduleLink, 'schedule')
+}
+
+getScheduleIcon(event: any, data: any){
+ 
+  this.scheduleData = data;
+  if (this.scheduleData == 1) {
+
+    this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-calender.png"
+  }
+  else if (this.scheduleData == 2) {
+
+
+    this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-clock.png"
+  }
+  else if (this.scheduleData == 3) {
+
+    this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-meet.png"
+  }
+
+
+  console.log(this.scheduleData, this.scheduleIcon, "toggle data");
+
+
+}
+
 
 }

@@ -11,7 +11,13 @@ export class HeaderComponent implements OnInit {
 public href:string=""
   userDetails: any;
   planDetails: any;
-  constructor(private router:Router, private api:SparkService) { }
+  constructor(private router:Router, private api:SparkService) { 
+    this.api.updateImage.subscribe((res:any)=>{
+      if(res==true) {
+        this.profileData()
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.profileData();
@@ -21,10 +27,10 @@ public href:string=""
 
   profileData() {
     this.api.myProfile().subscribe((res:any)=>{
-      this.userDetails = res;
-      this.planDetails=res?.SelectPlan
+      this.userDetails = res[0];
+      this.planDetails=res[0]?.SelectPlan
 
-      console.log(this.userDetails?.address[0]?.addressline1, "addddd")
+      console.log(this.userDetails?.address[0]?.addressline1, "addddd",this.userDetails.profile)
     })
   }
 }

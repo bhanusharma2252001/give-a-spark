@@ -551,65 +551,64 @@
                                             </div> -->
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade mt-4" id="apps" role="tabpanel" aria-labelledby="apps">
+                                    <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
                                         <div class="row app_background">
-                                            <div>
-                                                <h5 class="para-app mb-4 pro-lock">Enhance Your Signature</h5>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row align-items-center justify-content-center">
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img
-                                                                src="assets/images/online-scheduler.png"
-                                                                alt="Online Scheduler Image" /><span>Online
-                                                                Scheduler</span></div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/disclaimer.png"
-                                                                alt="Disclaimer Image" /><span>Disclaimer</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/green-footer.png"
-                                                                alt="Green Footer Image" /><span>Green Footer</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/image-gallary.png"
-                                                                alt="Image Gallary Image" /><span>Image
-                                                                Gallery</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/youtube-icon.png"
-                                                                alt="Youtube Channel" /><span>Youtube Channel</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/custom-button.png"
-                                                                alt="Custom BUtton" /><span>Custom Button</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/upload-banner.png"
-                                                                alt="Upload Banner Image /"><span>Upload
-                                                                Banner</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/sales-event.png"
-                                                                alt="Sales Event Image" /><span>Sales Event</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/downlod-app.png"
-                                                                alt="Download Image" /><span>Download App</span>
-                                                        </div>
-                                                    </button>
+                                          <div>
+                                            <h5 class="para-app mb-4 pro-lock">Enhance Your Signature</h5>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <div class="row align-items-center justify-content-center">
+                                              <button class="apps_button">
+                                                <div onclick="openscheduler()" class="app_div"><img
+                                                    src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span>Online
+                                                    Scheduler</span></div>
+                                              </button>
+                                              <button onclick="opendisclaimer()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/disclaimer.png"
+                                                    alt="Disclaimer Image" /><span>Disclaimer</span>
                                                 </div>
+                                              </button>
+                                              <button onclick="openaddgreenfooter()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/green-footer.png"
+                                                    alt="Green Footer Image" /><span>Green Footer</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="openimagegallery()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/image-gallary.png"
+                                                    alt="Image Gallary Image" /><span>Image
+                                                    Gallery</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="openyoutubechannel()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/youtube-icon.png"
+                                                    alt="Youtube Channel" /><span>Youtube Channel</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="opencustombutton()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/custom-button.png"
+                                                    alt="Custom BUtton" /><span>Custom Button</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="openuploadbanner()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/upload-banner.png"
+                                                    alt="Upload Banner Image /"><span>Upload
+                                                    Banner</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="opensalesevent()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/sales-event.png"
+                                                    alt="Sales Event Image" /><span>Sales Event</span>
+                                                </div>
+                                              </button>
+                                              <button onclick="opendownloadapp()" class="apps_button">
+                                                <div class="app_div"><img src="assets/images/downlod-app.png"
+                                                    alt="Download Image" /><span>Download App</span>
+                                                </div>
+                                              </button>
                                             </div>
+                                          </div>
                                         </div>
-                                    </div>
+                                      </div>
                                 </div>
 
                                 <div class="mt-4 text-end">
@@ -4768,7 +4767,7 @@ padding: 21px;">
                             <!-- ------------------- template -12------------- -->
 
                             <div *ngIf="templateId==39">
-                                <table cellpadding="0" cellspacing="0" #tableData
+                                <table cellpadding="0" cellspacing="0" #tableData id="twelve"
                                     style="background-color: #fff  ;font-size: medium;width:520px;height:280px; font-family: Arial;">
                                     <tbody>
 
@@ -4918,7 +4917,7 @@ padding: 21px;">
 
 
 
-                            <div *ngIf="templateId==40">
+                            <div *ngIf="templateId==40" #tableData id="thirteen">
                                 <table cellpadding="0" cellspacing="0"
                                     style="background-image:url('https://giveaspark.s3.us-west-1.amazonaws.com/category/Group+1845.png');background-size: cover;font-size: medium;width:600px;height:280px; font-family: Arial;">
                                     <tbody>
@@ -4938,10 +4937,10 @@ padding: 21px;">
                                                     <!-- <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/logo(round).png"
                                                             alt="Photo"  width="90"
                                                             border="0"> -->
-                                                    <img class="width" [src]="url"
+                                                    <img [style.border-radius.px]="borderRadius" class="width" [src]="url"
                                                         style="max-width:100px; height:100px; border-radius:10px 45px 10px 10px;"
                                                         *ngIf="url">
-                                                    <img alt="Profile"
+                                                    <img [style.border-radius.px]="borderRadius" alt="Profile"
                                                         style="max-width:100px; height:100px; border-radius:10px 45px 10px 10px;"
                                                         *ngIf="userProfile && !url"
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -5420,13 +5419,13 @@ padding: 21px;">
                     <div class="email__name " (click)="setonGmail()">Set Signature To Gmail</div>
 
                 </div>
-                <div class="d-flex social-button py-4 px-3" id="v-pills-profile-tab" data-bs-toggle="pill"
+                <div class="d-flex social-button py-4 px-3" id="v-pills-profile-tab" data-bs-toggle="pill" (click)="Yahoo()"
                     data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
                     aria-selected="false">
                     <div><img class="email__icon" src="assets/images/yahoo-s.png" class="edit-icons"></div>
                     <div class="email__name email--pro">Yahoo</div>
                 </div>
-                <div class="d-flex social-button py-4 px-3" id="v-pills-messages-tab" data-bs-toggle="pill"
+                <div class="d-flex social-button py-4 px-3" id="v-pills-messages-tab" data-bs-toggle="pill" (click)="setOnOutlook()"
                     data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
                     aria-selected="false">
                     <div><img class="email__icon" src="assets/images/outlook-s.png" class="edit-icons">
@@ -5496,7 +5495,9 @@ padding: 21px;">
                     <div class="email__name " *ngIf="templateId == 33" (click)="CopyToClipboard('nine')">Html</div>
                     <div class="email__name " *ngIf="templateId == 30" (click)="CopyToClipboard('eight')">Html</div>
                     <div class="email__name " *ngIf="templateId == 38" (click)="CopyToClipboard('eleven')">Html</div>
+                    <div class="email__name " *ngIf="templateId == 39" (click)="CopyToClipboard('twelve')">Html</div>
 
+                    <div class="email__name " *ngIf="templateId == 40" (click)="CopyToClipboard('thirteen')">Html</div>
 
 
 
@@ -5603,3 +5604,1060 @@ padding: 21px;">
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- ---------------------------MODAL  FOR APPS--------------------- -->
+
+<div id="myaddgreenfooter" class="addgreenfooter design-app">
+
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Add A Green Footer
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeaddgreenfooter()">×</a>
+      </div>
+  
+      <h6>Choose A Text</h6>
+  
+      <form class="mt-4" [formGroup]="footerForm">
+  
+        <div class="form-check text-black ">
+  
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+            (change)="chooseFooter($event, 1)">
+          <label class="form-check-label fs-14" for="gridRadios1">
+            Environmental Responsibilities
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"
+            (change)="chooseFooter($event, 2)">
+          <label class="form-check-label fs-14" for="gridRadios2">
+            Environmental Responsibilities Short
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option2"
+            (change)="chooseFooter($event, 3)">
+          <label class="form-check-label fs-14" for="gridRadios3">
+            Do You Really Need ?
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4"
+            (change)="chooseFooter($event, 4)" value="option2">
+          <label class="form-check-label fs-14" for="gridRadios4">
+            Printing Kills Trees
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option2"
+            (change)="chooseFooter($event, 5)">
+          <label class="form-check-label fs-14" for="gridRadios5">
+            Correct Recipients
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-auto  dropdown">
+            <div class="form-check" id="dropdownMenuButton1 " data-bs-toggle="dropdown" aria-expanded="false">
+              <input class="form-check-input" (change)="chooseFooter($event, 6) " type="radio" name="gridRadios"
+                value="optionty2" id="gridRadios6">
+              <label class="form-check-label fs-14" for="gridRadios6">
+                Custom Footer
+              </label>
+  
+              <div class="dropdown">
+                <input [(ngModel)]="footerText" name="" (change)="customFooter()" class="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1" formControlName="greenFooter">
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </form>
+      <div class="mt-5">
+        <h5 class="fw-bold">Footer style
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="selectfooterIcon($event, 1)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/green-leaf.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="selectfooterIcon($event, 2)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/green-icon.png" height="22" width="22">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="selectfooterIcon($event, 3)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/green-tech.png" height="22" width="22">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <input style="width:20px;height: 20px;" [(colorPicker)]="footerColor" [style.background]="footerColor">
+          </div>
+        </div>
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+  
+          </div>
+          <div class="col-auto">
+            <input type="range" min="1" max="3" value="2" id="customRange2" class="form-range"
+              (change)="getFooterSize($event)">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getFooterAlignment('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getFooterAlignment('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getFooterAlignment('right')"></i>
+          </div>
+          <!-- <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+          </div> -->
+        </div>
+  
+  
+  
+  
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" onclick="closeaddgreenfooter()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  <!-- --------------- GALLERY  MODAL--------- -->
+  <div id="myimagegallery" class="imagegallery design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Image Gallery
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeimagegallery()">×</a>
+      </div>
+  
+      <h6>Add your images :</h6>
+  
+      <div class="mt-5">
+        <form [formGroup]="customGalleryForm">
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+  
+              <label class="upload-area">
+                <input class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                  formControlName="customProfile1" (change)="onSelectFile1($event)">
+                <span class="upload-button">
+                  <i class="fas fa fa-plus" aria-hidden="true"></i>
+                  <img *ngIf="url1" [src]="url1" alt="" width="50" height="50">
+  
+                </span>
+              </label>
+  
+  
+            </div>
+            <div class="col-auto">
+              <label class="upload-area">
+                <input *ngIf="url1" class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                  formControlName="customProfile2" (change)="onSelectFile2($event)">
+                <span class="upload-button">
+                  <i class="fas fa fa-plus" aria-hidden="true" *ngIf="url1"> </i>
+                  <img *ngIf="url2" [src]="url2" alt="" width="50" height="50">
+                </span>
+              </label>
+            </div>
+            <div class="col-auto">
+              <label class="upload-area">
+                <input *ngIf="url1 && url2 " class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                  formControlName="customProfile3" (change)="onSelectFile3($event)">
+                <span class="upload-button">
+                  <i *ngIf="url1 && url2" class="fas fa fa-plus" aria-hidden="true"> </i>
+                  <img *ngIf="url3" [src]="url3" alt="" width="50" height="50">
+                </span>
+              </label>
+            </div>
+            <div class="col-auto">
+              <label class="upload-area">
+                <input *ngIf="url1 && url2 && url3" class="upload-display" type="file"
+                  accept="image/gif, image/jpeg, image/png" formControlName="customProfile4"
+                  (change)="onSelectFile4($event)">
+                <span class="upload-button"><i *ngIf="url1 && url2 && url3" class="fas fa fa-plus" aria-hidden="true"></i>
+                  <img *ngIf="url4" [src]="url4" alt="" width="50" height="50">
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+  
+  
+            </div>
+            <div class="col-auto">
+  
+            </div>
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Title ( Optional) :</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" placeholder="Your image title" formControlName="imageTitle"
+                [(ngModel)]="galleryTitle">
+            </div>
+  
+          </div>
+  
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Size :</label>
+            </div>
+            <div class="col-auto">
+              <input type="range" min="0" max="5" value="1" id="customRange2" class="form-range"
+                (change)="chaneImageSize($event)">
+            </div>
+  
+  
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
+            </div>
+            <div class="col-auto">
+              <input type="range" min="0" max="5" value="2" id="customRange2" class="form-range"
+                (change)="changeImageSpace($event)">
+            </div>
+  
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label></div>
+            <div class="col-auto">
+              <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                  checked="" class="form-check-input" (click)="changeImageRadious(0)"><label for="gridRadios1"
+                  class="form-check-label fs-14">
+                  <div style="width: 20px; height: 20px; background-color: #D9D9D9;"></div>
+                </label></div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                  (click)="changeImageRadious(25)" checked="" class="form-check-input"><label for="gridRadios1"
+                  class="form-check-label fs-14">
+                  <div style="width: 20px; height: 20px; border-radius: 5px; background-color: #D9D9D9;"></div>
+                </label></div>
+            </div>
+            <div class="col-auto">
+              <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                  (click)="changeImageRadious(150)" checked="" class="form-check-input"><label for="gridRadios1"
+                  class="form-check-label fs-14">
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
+                </label></div>
+            </div>
+            <div class="row g-3 align-items-center mb-3">
+              <div class="col-auto">
+                <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" class="form-control" placeholder="  https://www.applylink" formControlName="imageLink">
+              </div>
+  
+            </div>
+  
+  
+            <div class="row">
+              <div class="col-auto">
+                <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)"
+                  onclick="closeimagegallery()">Add</button>
+              </div>
+              <div class="col-auto">
+                <button class="gray-btn py-2 px-3" onclick="closeimagegallery()">Cancel</button>
+              </div>
+  
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- ----------DISCLAIMER- MODAL--------------- -->
+  
+  <div id="mydisclaimer" class="disclaimer design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Add A Disclaimer
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
+      </div>
+  
+      <h6>Choose A Disclaimer Type</h6>
+      <form class="mt-4" [formGroup]="disclaimerForm">
+  
+        <div class="form-check text-black ">
+  
+          <input class="form-check-input" type="radio" (change)="getEvent($event, 1)" name="gridRadios" id="gridRadios1"
+            value="1">
+          <label class="form-check-label fs-14" for="gridRadios1">
+            Confidentiality
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" (change)="getEvent($event, 2)" name="gridRadios" id="gridRadios2"
+            value="2">
+          <label class="form-check-label fs-14" for="gridRadios2">
+            No Viruses
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" (change)="getEvent($event, 3)" name="gridRadios" id="gridRadios3"
+            value="3">
+          <label class="form-check-label fs-14" for="gridRadios3">
+            Non-Binding
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" (change)="getEvent($event, 4)" name="gridRadios" id="gridRadios4"
+            value="4">
+          <label class="form-check-label fs-14" for="gridRadios4">
+            Personal Opinions
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" (change)="getEvent($event, 5)" name="gridRadios" id="gridRadios5"
+            value="5">
+          <label class="form-check-label fs-14" for="gridRadios5">
+            Correct Recipients
+          </label>
+        </div>
+        <div class="form-check dropdown">
+          <input id="toggle" class="accordion-button collapsed" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false" (change)="getEvent($event, 6)" class="form-check-input"
+            type="radio" name="gridRadios" id="gridRadios6" value="6">
+          <label class="form-check-label fs-14" for="gridRadios6">
+            Custom Disclaimer
+          </label>
+          <input [(ngModel)]="content" name="" (change)="changeDesclaimer()" class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton1" formControlName="disclaimer">
+  
+        </div>
+      </form>
+      <div class="mt-5">
+        <h5 class="fw-bold"> Disclaimer style
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <input style="width:20px;height: 20px;" [(colorPicker)]="disclaimerColor"
+              [style.background]="disclaimerColor">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+  
+          </div>
+          <div class="col-auto">
+            <input type="range" min="0" max="4" value="2" id="customRange2" class="form-range"
+              (change)="disclaimerSizechange($event)">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
+          </div>
+          <!-- <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+          </div> -->
+        </div>
+  
+  
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" onclick="closedisclaimer()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closedisclaimer()">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <!-- ------------S C H E D LU L E R - MODAL-------------- -->
+  <div id="myonline-scheduler" class="online-scheduler design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Online Meeting Scheduler
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()">×</a>
+      </div>
+  
+      <h6>Choose Scheduling Provider</h6>
+      <form class="mt-4" [formGroup]="scheduleForm">
+        <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
+        <div class="form-check text-black ">
+  
+          <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" name="options"  value="option1" (click)="showInputBox = false">
+          <label class="form-check-label fs-14" >
+     Use  Scheduling Solution( Recommended by Give a spark)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption"  name="options"  value="option2" (click)="showInputBox = true">
+          <label class="form-check-label fs-14" >
+      I already have a scheduler provider
+          </label>
+        </div>
+        <div *ngIf="showInputBox">
+          <label>
+            Input box:
+            <input type="text"  formControlName="scheduleLink">
+          </label>
+        </div>
+      
+      <div class="mt-5">
+        <h5 class="fw-bold"> Button Design
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
+          </div>
+        </div>
+        
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+          </div>
+          <div class="col-auto">
+            <div class="d-flex">
+              <p class="design-size" (click)="getScheduleSize('10')">S</p>
+              <p class="design-size" (click)="getScheduleSize('15')">M</p>
+              <p class="design-size" (click)="getScheduleSize('25')">L</p>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg"
+            style="width:20px;height: 20px;" />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)"  >
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/color-calender.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/schedule.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/color-meet.png">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option2"   (change)="getScheduleShape('0')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('10')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('20')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  
+  
+  <!-- ------------------YOUTUBE MODEL---------- -->
+  <div id="myyoutubechannel" class="youtubechannel design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Youtube Channel
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeyoutubechannel()">×</a>
+      </div>
+  
+      <h6>Enter your channel URL/Title</h6>
+  
+      <form class="mt-4" [formGroup]="youtubeForm">
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">YouTube video / playlist
+              URL:
+  
+              :</label></div>
+          <div class="col-auto">
+            <input type="text" placeholder=" https://www.youtube.com/watch?v=123" formControlName="youtubeUrl"
+              (keyup)="getUrl()" class="form-control" width="300" height="80">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="Title " formControlName="youtubeTitle"
+              [(ngModel)]="youtubeTitle" class="form-control"></div>
+        </div>
+        <div class="row">
+          <!-- <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" (change)="youtubeIcon('youIcon')">
+            <label class="form-check-label fs-14" for="gridRadios2">
+              <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png">
+            </label>
+          </div> -->
+          <div class="form-check">
+            <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
+  
+            <label class="switch">
+              <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
+              <span class="slider round"></span>
+  
+            </label>
+          </div>
+        </div>
+      </form>
+      <div class="mt-5">
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <!-- <div style="width:20px;height: 20px;background-color: #003e4d;"></div> -->
+            <input [(colorPicker)]="youtubeColor" [style.background]="youtubeColor" style="width:20px;height: 20px;" />
+          </div>
+        </div>
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+  
+          </div>
+          <div class="col-auto">
+            <input type="range" class="form-range" min="0" max="5" value="3" (change)="changeYoutubeSize($event)"
+              id="customRange2">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="titleAlign('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="titleAlign('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="titleAlign('right')"></i>
+          </div>
+          <!-- <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+          </div> -->
+        </div>
+  
+  
+  
+        <div class="row">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" (click)="youTubeDetails()" href="javascript:void(0)"
+              onclick="closeyoutubechannel()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  <div id="mycustombutton" class="custombutton design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Custom Button
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closecustombutton()">×</a>
+      </div>
+  
+      <h5>Button Details</h5>
+  
+      <form class="mt-4" [formGroup]="customButtonForm">
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
+            </label></div>
+          <div class="col-auto"><input type="text" placeholder="Button" class="form-control"
+              formControlName="customButtonText" [(ngModel)]="customText"></div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
+              formControlName="customUrl" [(ngModel)]="customUrl"></div>
+        </div>
+        <h5 class="mt-4"> Button Style</h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+                (change)="getButtonShape('0')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+                (change)="getButtonShape('10')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked
+                (change)="getButtonShape('25')">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label></div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Full </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Light
+              </label></div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Simple Link
+              </label></div>
+          </div>
+         
+        </div> -->
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold"> Color :</label></div>
+          <div class="col-auto">
+            <input [(colorPicker)]="customButtonBg" [style.background]="customButtonBg"
+              style="width:20px;height: 20px;" />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Color :</label></div>
+          <div class="col-auto">
+            <input [(colorPicker)]="buttonTextColor" [style.background]="buttonTextColor"
+              style="width:20px;height: 20px;" />
+          </div>
+        </div>
+        <!-- <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label></div>
+          <div class="col-auto"><input type="range" min="0" max="5" value="3" id="customRange2" class="form-range"></div>
+        </div> -->
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
+          <div class="col-auto">
+            <div class="d-flex">
+              <p class="design-size" (click)="getCustomSize
+              ('10')">S</p>
+              <p class="design-size" (click)="getCustomSize
+              ('25')">M</p>
+              <p class="design-size" (click)="getCustomSize
+              ('60')">L</p>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="customButtonAlign('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="customButtonAlign('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="customButtonAlign('right')"></i>
+          </div>
+          <!-- <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+          </div> -->
+        </div>
+      </form>
+  
+      <div class="row mt-4">
+        <div class="col-auto">
+  
+          <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- --------------Banner Modal------- -->
+  <div id="myuploadbanner" class="uploadbanner design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Upload My Banner
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeuploadbanner()">×</a>
+      </div>
+  
+      <h6>Upload your banner (jpg,png,gif)</h6>
+      <div class="">
+        <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
+            accept="image/gif, image/jpeg, image/png"><span class="upload-button-1">
+            <img *ngIf="bannerUrl" src="{{bannerUrl}}" alt="" height="96px" width="800">
+            <p *ngIf="!bannerUrl">Drag & Drop your banner here </p><br>
+  
+          </span></label>
+      </div>
+      <div class="mt-5">
+        <h5 class="fw-bold">Banner Style
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Size :</label>
+  
+          </div>
+          <div class="col-auto">
+            <input type="range" min="0" max="3" value="2" id="customRange2" class="form-range"
+              (change)="changeBannerSize($event)">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="bannerAlignment('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="bannerAlignment('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="bannerAlignment('right')"></i>
+          </div>
+  
+        </div>
+        <form [formGroup]="bannerForm">
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
+                :</label></div>
+            <div class="col-auto"><input type="text" placeholder="Banner URL" class="form-control"
+                formControlName="bannerLink"></div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md-6 ">
+            <div class="d-flex">
+              <img class="wh-25" src="assets/images/replace-icon.png ">
+              <p class="px-3 mb-0">Replace Banner</p>
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="d-flex">
+              <img class="wh-25" src="assets/images/delete.png ">
+              <p class="px-3 mb-0">Delete</p>
+            </div>
+          </div>
+  
+        </div>
+        <div class="row mt-3">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" (click)="bannerValue()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <!-- ----------- S  A L E S      M O D A L-------- -->
+  <div id="mysalesevent" class="salesevent design-app">
+  
+    <div class="p-4">
+      <div class="d-flex">
+        <h4 class="fw-bold">Sales Event
+        </h4>
+        <a href="javascript:void(0)" class="closebtn" onclick="closesalesevent()">×</a>
+      </div>
+  
+      <h6>Enter your sale event details</h6>
+  
+      <form class="mt-4" [formGroup]="EventForm">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"
+              formControlName="eventTitle" [(ngModel)]="eventTitle"></div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
+              formControlName="eventName" [(ngModel)]="eventName"></div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
+              :</label></div>
+          <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="eventLink"
+              [(ngModel)]="eventLink"></div>
+              <ng-container class="po-re"
+              *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
+              <small class="text-danger"
+                *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
+                Please enter a valid url.
+              </small>
+            </ng-container>
+        </div>
+      </form>
+      <div class="mt-5">
+        <h5 class="fw-bold">Style
+        </h5>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Choose an icon :</label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="salesEvent($event, 1)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/sale-tag.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="salesEvent($event, 2)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/giftbox.png">
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black ">
+  
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (change)="salesEvent($event, 3)">
+              <label class="form-check-label fs-14" for="gridRadios1">
+                <img src="assets/images/sale-black.png">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+          </div>
+          <div class="col-auto">
+            <input [(colorPicker)]="eventColor" [style.background]="eventColor" style="width:20px;height: 20px;" />
+          </div>
+        </div>
+  
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+  
+          </div>
+          <div class="col-auto">
+            <input type="range" min="1" max="4" value="2" id="customRange2" class="form-range"
+              (change)="getEventFontSize($event)">
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-left" (click)="getEventAlign('left')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-center" (click)="getEventAlign('center')"></i>
+          </div>
+          <div class="col-auto">
+            <i aria-hidden="true" class="m-1 fa fa-align-right" (click)="getEventAlign('right')"></i>
+          </div>
+  
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+          </div>
+          <div class="col-auto">
+            <div class="d-flex">
+              <p class="design-size" (click)="changeIconSize(20)">S</p>
+              <p class="design-size" (click)="changeIconSize(25)">M</p>
+              <p class="design-size" (click)="changeIconSize(30)">L</p>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <div class="row mt-4">
+          <div class="col-auto">
+            <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()">Add</button>
+          </div>
+          <div class="col-auto">
+            <button class="gray-btn py-2 px-3" onclick="closesalesevent()">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

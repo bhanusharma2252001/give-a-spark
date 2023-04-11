@@ -1,945 +1,2246 @@
 <main class="">
-    <section>
-        <div class="container-fluid p-0 mt-5">
-            <div class="row m-0 p-0 mt-3">
+  <section>
+      <div class="container-fluid p-0 mt-5">
+          <div class="row m-0 p-0 mt-3">
 
-                <div class="col-md-12 col-lg-12">
-                    <div class="row pe-5">
-                        <div class="col-md-6 col-lg-6">
-                            <ul class="nav nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around"
-                                id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
-                                        data-bs-target="#details" type="button" role="tab" aria-controls="details"
-                                        aria-selected="true">
-                                        <div class="box">
-                                            <!-- <img class="wh-35 active-icon" src="assets/images/details.png"> -->
-                                            <img class="wh-35 active-black" src="assets/images/details-black.png">
-                                            <p class="mb-0 fs-5 fs-12">Details</p>
-                                        </div>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab" (click)="selectFeature('social')" 
-                                        data-bs-target="#social" type="button" role="tab" aria-controls="social"
-                                        aria-selected="true">
-                                        <div class="box">
-                                            <!-- <img class="wh-35 active-icon" src="assets/images/social-yellow.png"> -->
-                                            <img class="wh-35 active-black" src="assets/images/social.png">
-                                            <p class="mb-0 fs-5 fs-12">Social</p>
-                                        </div>
-                                    </button>
-                                </li>
-                                <!-- <li class="nav-item" role="presentation">
-                                    <button class="nav-link box-link m-1  p-1" id="home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#template" type="button" role="tab" aria-controls="home"
-                                        aria-selected="true">
-                                        <div class="box">
-                                            <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
-                                            <img class="wh-35 active-black" src="assets/images/template.png">
-                                            <p class="mb-0 fs-5 fs-12">Template</p>
-                                        </div>
-                                    </button>
-                                </li> -->
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" (click)="selectFeature('design')"
-                                 data-bs-target="#design" type="button" role="tab" aria-controls="home"
-                                        aria-selected="true">
-                                        <div class="box">
-                                            <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
-                                            <img class="wh-35 active-black" src="assets/images/design.png">
-                                            <p class="mb-0 fs-5 fs-12" >Design</p>
-                                        </div>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link box-link p-1 " id="apps-tab" data-bs-toggle="tab"
-                                        data-bs-target="#apps" type="button" role="tab" aria-controls="home" (click)="selectFeature('apps')" 
-                                        aria-selected="true">
-                                        <div class="box">
-                                            <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
-                                            <img class="wh-35 " src="assets/images/apps.svg">
-                                            <p class="mb-0 fs-5 fs-12">Apps</p>
-                                        </div>
-                                    </button>
-                                </li>
-                            </ul>
-
-
-
-                            <form [formGroup]="editTemplateForm">
-
-
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="details" role="tabpanel"
-                                        aria-labelledby="details-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <h5 class="mb-4 ">Signature Details</h5>
-                                                </div>
-                                                <div class="d-flex ">
-                                                    <p class="plus_icon">
-                                                        <i class="fa fa-plus-circle text-blue"></i>
-                                                    </p>
-                                                    <a class="my_sign" data-bs-toggle="modal" href="#exampleModalToggle"
-                                                        role="button">My
-                                                        Signature</a>
-                                                </div>
-                                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
-                                                    aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalToggleLabel"> My
-                                                                    Signature</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <input type="text" class="my-signature p-2"
-                                                                    formControlName="signatureName" [(ngModel)]="title">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button class="add_button rounded-pill"
-                                                                    (click)="getSignature()"
-                                                                    data-bs-target="#exampleModalToggle2"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-dismiss="modal">Add</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row position-relative">
-                                                <div class="col-md-11 col-lg-9">
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Your
-                                                            Name</label>
-                                                        <input type="text" formControlName="yourName"
-                                                            [(ngModel)]="username "
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Designation</label>
-                                                        <input type="text" formControlName="designation"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="desig">
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Phone</label>
-                                                        <input type="text" formControlName="phoneNo"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="number">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
-                                              Please enter a valid no.
-                                            </small>
-                                          </ng-container>
-                                                    </div>
-
-
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled" class="form-label fw-semibold ">
-                                                            Company Phone</label>
-                                                        <input type="text" formControlName="companyPhone"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="compPhone">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
-                                              Please enter a valid no.
-                                            </small>
-                                          </ng-container>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Address</label>
-                                                        <input type="text" formControlName="address"
-                                                            [(ngModel)]="useraddress"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
-
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Email</label>
-                                                        <input type="text" formControlName="email"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Email">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['email'].touched && !editTemplateForm.controls['email'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['email'].hasError('pattern')">
-                                              Please enter a valid no.
-                                            </small>
-                                          </ng-container>
-
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Website</label>
-                                                        <input type="text" formControlName="companyWebsite"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="compWebsite" placeholder="www.domainname.com">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small></ng-container>
-
-                                                    </div>
-                                                    <div class="mb-4" *ngIf="!LongQuote">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Quotes</label>
-                                                        <input type="text" formControlName="quotes"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            placeholder="write quote" [(ngModel)]="quotevar">
-
-                                                    </div>
-                                                    <div class="mb-4" *ngIf="LongQuote">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Quotes</label>
-
-                                                        <p style="position: relative;
-                                                        top: 40px">{{LongQuote}}</p>
-                                                        <input type="text" formControlName="quotesId"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
-                                                            id="exampleInputfiled" aria-describedby="textHelp">
-
-                                                    </div>
+              <div class="col-md-12 col-lg-12">
+                  <div class="row pe-5">
+                      <div class="col-md-6 col-lg-6">
+                          <ul class="nav nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around"
+                              id="myTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                  <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
+                                      data-bs-target="#details" type="button" role="tab" aria-controls="details"
+                                      aria-selected="true">
+                                      <div class="box">
+                                          <!-- <img class="wh-35 active-icon" src="assets/images/details.png"> -->
+                                          <img class="wh-35 active-black" src="assets/images/details-black.png">
+                                          <p class="mb-0 fs-5 fs-12">Details</p>
+                                      </div>
+                                  </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                  <button class="nav-link box-link p-1 bg-white" id="social-tab" data-bs-toggle="tab" (click)="selectFeature('social')" 
+                                      data-bs-target="#social" type="button" role="tab" aria-controls="social"
+                                      aria-selected="true">
+                                      <div class="box">
+                                          <!-- <img class="wh-35 active-icon" src="assets/images/social-yellow.png"> -->
+                                          <img class="wh-35 active-black" src="assets/images/social.png">
+                                          <p class="mb-0 fs-5 fs-12">Social</p>
+                                      </div>
+                                  </button>
+                              </li>
+                              <!-- <li class="nav-item" role="presentation">
+                                  <button class="nav-link box-link m-1  p-1" id="home-tab" data-bs-toggle="tab"
+                                      data-bs-target="#template" type="button" role="tab" aria-controls="home"
+                                      aria-selected="true">
+                                      <div class="box">
+                                          <img class="wh-35 active-icon" src="assets/images/template-yellow.png">
+                                          <img class="wh-35 active-black" src="assets/images/template.png">
+                                          <p class="mb-0 fs-5 fs-12">Template</p>
+                                      </div>
+                                  </button>
+                              </li> -->
+                              <li class="nav-item" role="presentation">
+                                  <button class="nav-link box-link p-1 " id="home-tab" data-bs-toggle="tab" (click)="selectFeature('design')"
+                               data-bs-target="#design" type="button" role="tab" aria-controls="home"
+                                      aria-selected="true">
+                                      <div class="box">
+                                          <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
+                                          <img class="wh-35 active-black" src="assets/images/design.png">
+                                          <p class="mb-0 fs-5 fs-12" >Design</p>
+                                      </div>
+                                  </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                  <button class="nav-link box-link p-1 " id="apps-tab" data-bs-toggle="tab"
+                                      data-bs-target="#apps" type="button" role="tab" aria-controls="home" (click)="selectFeature('apps')" 
+                                      aria-selected="true">
+                                      <div class="box">
+                                          <!-- <img class="wh-35 active-icon" src="assets/images/design-yellow.png"> -->
+                                          <img class="wh-35 " src="assets/images/apps.svg">
+                                          <p class="mb-0 fs-5 fs-12">Apps</p>
+                                      </div>
+                                  </button>
+                              </li>
+                          </ul>
 
 
 
+                          <form [formGroup]="editTemplateForm">
 
 
-                                                    <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                              <div class="tab-content" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="details" role="tabpanel"
+                                      aria-labelledby="details-tab">
+                                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
-                                                        <p class="mb-0 mt-1 ">
-                                                            <i class="fa fa-plus-circle text-blue"></i>
+                                          <div class="d-flex justify-content-between">
+                                              <div>
+                                                  <h5 class="mb-4 ">Signature Details</h5>
+                                              </div>
+                                              <div class="d-flex ">
+                                                  <p class="plus_icon">
+                                                      <i class="fa fa-plus-circle text-blue"></i>
+                                                  </p>
+                                                  <a class="my_sign" data-bs-toggle="modal" href="#exampleModalToggle"
+                                                      role="button">My
+                                                      Signature</a>
+                                              </div>
+                                              <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                                                  aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                  <div class="modal-dialog modal-dialog-centered">
+                                                      <div class="modal-content">
+                                                          <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalToggleLabel"> My
+                                                                  Signature</h5>
+                                                              <button type="button" class="btn-close"
+                                                                  data-bs-dismiss="modal" aria-label="Close"></button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                              <input type="text" class="my-signature p-2"
+                                                                  formControlName="signatureName" [(ngModel)]="title">
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                              <button class="add_button rounded-pill"
+                                                                  (click)="getSignature()"
+                                                                  data-bs-target="#exampleModalToggle2"
+                                                                  data-bs-toggle="modal"
+                                                                  data-bs-dismiss="modal">Add</button>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row position-relative">
+                                              <div class="col-md-11 col-lg-9">
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Your
+                                                          Name</label>
+                                                      <input type="text" formControlName="yourName"
+                                                          [(ngModel)]="username "
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                  </div>
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Designation</label>
+                                                      <input type="text" formControlName="designation"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="desig">
+
+                                                  </div>
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Phone</label>
+                                                      <input type="text" formControlName="phoneNo"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="number">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
+                                            Please enter a valid no.
+                                          </small>
+                                        </ng-container>
+                                                  </div>
 
 
-                                                        </p>
-                                                        <p class="mb-0 ps-2 text-blue">
-                                                            Add Quotes</p>
-                                                    </div>
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled" class="form-label fw-semibold ">
+                                                          Company Phone</label>
+                                                      <input type="text" formControlName="companyPhone"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="compPhone">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
+                                            Please enter a valid no.
+                                          </small>
+                                        </ng-container>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Address</label>
+                                                      <input type="text" formControlName="address"
+                                                          [(ngModel)]="useraddress"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                  </div>
+
+                                                  <div class="mb-4">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Email</label>
+                                                      <input type="text" formControlName="email"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="Email">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['email'].touched && !editTemplateForm.controls['email'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['email'].hasError('pattern')">
+                                            Please enter a valid no.
+                                          </small>
+                                        </ng-container>
+
+                                                  </div>
+                                                  <div class="mb-4">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Website</label>
+                                                      <input type="text" formControlName="companyWebsite"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="compWebsite" placeholder="www.domainname.com">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small></ng-container>
+
+                                                  </div>
+                                                  <div class="mb-4" *ngIf="!LongQuote">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Quotes</label>
+                                                      <input type="text" formControlName="quotes"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          placeholder="write quote" [(ngModel)]="quotevar">
+
+                                                  </div>
+                                                  <div class="mb-4" *ngIf="LongQuote">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Quotes</label>
+
+                                                      <p style="position: relative;
+                                                      top: 40px">{{LongQuote}}</p>
+                                                      <input type="text" formControlName="quotesId"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
+                                                          id="exampleInputfiled" aria-describedby="textHelp">
+
+                                                  </div>
 
 
 
-                                                </div>
-                                                <div class="col-md-1 col-lg-3 ps-0">
-                                                    <div class="position-absolute top-0">
-                                                        <!-- <div>
-                                                            <img class="width" [src]="url" height="200"
-                                                                *ngIf="!tempDetails?.profileImage &&  !img">
-                                                            <img class="width" src="assets/images/logo.png "
-                                                                *ngIf="!tempDetails?.profileImage && img" />
-                                                        </div> -->
-                                                        <img class="width"  [src]="url" height="200" *ngIf="url">
-                                                        <img class="wh-100" *ngIf="userProfile && !url" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                                                        <!-- <div *ngIf="!tempDetails?.profileImage">
-                                                            <img class="width" src="assets/images/logo.png " />
-                                                        </div> -->
-                                                        <!-- <div *ngIf="tempDetails?.profileImage ">
 
 
-                                                            <div
-                                                                *ngIf="tempDetails?.profileImage !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                <img class="wh-150 rounded-circle"
-                                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{tempDetails?.profileImage}}" />
-                                                            </div>
-                                                        </div> -->
-                                                        <!-- <div
-                                                        *ngIf=" tempDetails?.profileImage == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                        <img [style.border-radius.px]="borderRadius" class="w-40 p-2" src="{{tempDetails?.profileImage }}">
+                                                  <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
+
+                                                      <p class="mb-0 mt-1 ">
+                                                          <i class="fa fa-plus-circle text-blue"></i>
+
+
+                                                      </p>
+                                                      <p class="mb-0 ps-2 text-blue">
+                                                          Add Quotes</p>
+                                                  </div>
+
+
+
+                                              </div>
+                                              <div class="col-md-1 col-lg-3 ps-0">
+                                                  <div class="position-absolute top-0">
+                                                      <!-- <div>
+                                                          <img class="width" [src]="url" height="200"
+                                                              *ngIf="!tempDetails?.profileImage &&  !img">
+                                                          <img class="width" src="assets/images/logo.png "
+                                                              *ngIf="!tempDetails?.profileImage && img" />
                                                       </div> -->
+                                                      <img class="width"  [src]="url" height="200" *ngIf="url">
+                                                      <img class="wh-100" *ngIf="userProfile && !url" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+       
 
 
-                                                        <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
-                                                            data-bs-toggle="modal" data-bs-target="#change-image">
-                                                            Change
-                                                            Photo</p>
-                                                        <!-- <p class="text-blue fs-12 mb-0">Remove</p> -->
-                                                    </div>
-                                                </div>
+                                                      <p class="text-blue fs-12 mb-0 text-nowrap pe-2"
+                                                          data-bs-toggle="modal" data-bs-target="#change-image">
+                                                          Change
+                                                          Photo</p>
+                                                      <!-- <p class="text-blue fs-12 mb-0">Remove</p> -->
+                                                  </div>
+                                              </div>
 
-                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
+                                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                          <div class="">
+
+                                              <h4 class="mb-4 pro-for">Add Social Links</h4>
+                                          </div>
+
+                                          <div class="row position-relative">
+                                              <div class="col-md-11 col-lg-9">
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Facebook
+                                                      </label>
+                                                      <input type="text" formControlName="fbProfile" placeholder="https://www.facebook.com/<username>"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small>
+                                        </ng-container>
+
+                                                  </div>
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Instagram</label>
+                                                      <input type="text" formControlName="instagramProfile" placeholder="https://www.instagram.com/<username>"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small>
+                                        </ng-container>
+                                                  </div>
+                                                  <div class="mb-3">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">LinkedIn</label>
+                                                      <input type="text" formControlName="linkedInProfile" placeholder="https://www.linkedIn.com/<username>"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small></ng-container>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Youtube</label>
+                                                      <input type="text" formControlName="youtubeChannel" placeholder="https://www.youtube.com/<username>"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="uTube">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small></ng-container>
+
+                                                  </div>
+                                                  <div class="mb-4">
+                                                      <label for="exampleInputfiled"
+                                                          class="form-label fw-semibold ">Twitter</label>
+                                                      <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
+                                                          class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
+                                                          id="exampleInputfiled" aria-describedby="textHelp"
+                                                          [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
+                                                          <ng-container class="po-re"
+                                                          *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
+                                          <small class="text-danger" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">
+                                            Please enter a valid URL.
+                                          </small></ng-container>
+                                                          
+                                                  </div>
+
+                                                  <!-- <div class="mb-4 d-flex">
+
+                                                      <p class="mb-0 ">
+                                                          <i class="fa fa-plus-circle text-blue"></i>
+                                                      </p>
+                                                      <p class="mb-0 ps-2 text-blue">
+                                                          Add New Field</p>
+                                                  </div> -->
+
+                                              </div>
+                                              <div class="col-md-1 col-lg-3">
+
+                                              </div>
+
+                                          </div>
+
+                                      </div>
+                                  </div>
+                                  <!-- <div class="tab-pane fade" id="template" role="tabpanel"
+                                      aria-labelledby="template-tab">
+                                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                          <div class="">
+
+                                              <h4 class="mb-4">Templates</h4>
+                                          </div>
+                                          <div class="">
+                                              <p class="mb-1 fw-semibold">Free</p>
+                                              <img class="h-110" src="assets/images/free-template.png" (click)="
+                                              openTemp('free')">
+                                          </div>
+                                          <hr class="">
+
+                                          <div class="mt-2">
+                                              <p class="mb-1 fw-semibold">Pro</p>
+                                              <img class="h-110" src="assets/images/pro-img.png"
+                                                  (click)="openTemp('pro')">
+                                          </div>
+                                          <div class="mt-2">
+                                              <p class="mb-1 fw-semibold">Pro</p>
+                                              <img class="h-110" src="assets/images/pro-pro-img.png"
+                                                  (click)="openTemp('propro')">
+                                          </div>
+                                      </div>
+                                  </div> -->
+                                  <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+                                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
+
+                                          <div class="">
+
+                                              <h5 class="mb-4 pro-for">Font Styles & Colors</h5>
+                                          </div>
+                                          <div class="">
+                                              <h6 class="mb-4 fw-semibold">Font Styles</h6>
+
+                                              <form class="row position-relative">
+                                                  <div class="col-md-11 col-lg-9">
+                                                      <div class="mb-2 grid-2">
+                                                          <label for="exampleInputfiled"
+                                                              class="form-label fw-semibold mt-1 ">Font
+                                                              Family :
+                                                          </label>
+                                                          <select class="form-select " [(ngModel)]="fontFamilyNew"
+                                                              [ngModelOptions]="{standalone: true}"
+                                                              aria-label="Default select example" [disabled]="planDetail == 'Plan A'">
+
+                                                              <option *ngFor="let item of fontFamilyList"
+                                                                  [value]="item">{{item}}</option>
+                                                          </select>
+
+                                                      </div>
+                                                      <div class="mb-2 grid-2">
+
+                                                          <label for="customRange2"
+                                                              class="form-label fw-semibold ">Size
+                                                              :</label>
+                                                          <input type="range" class="form-range" min="0" max="5"
+                                                              value="3" (change)="changeSize($event)"
+                                                              id="customRange2" [disabled]="planDetail == 'Plan A'">
+
+                                                      </div>
+                                                      <div class="mb-2 grid-2">
+
+                                                          <label for="customRange2"
+                                                              class="form-label fw-semibold ">Line
+                                                              Height :</label>
+                                                          <input type="range" value="3" (change)="changeLine($event)"
+                                                              class="form-range" min="0" max="5" id="customRange2" [disabled]="planDetail == 'Plan A'">
+
+                                                      </div>
+                                                      <div class="mb-2 grid-2">
+                                                          <div>Align :</div>
+                                                          <div class="d-flex">
+                                                              <i class="m-1 fa fa-align-left" aria-hidden="true"
+                                                                  (click)="getAlign('left')"></i>
+                                                              <i class="m-1 fa fa-align-center" aria-hidden="true"
+                                                                  (click)="getAlign('center')"></i>
+                                                              <i class="m-1 fa fa-align-right" aria-hidden="true"
+                                                                  (click)="getAlign('right')"></i>
+                                                              <i class="m-1 fa fa-align-justify" aria-hidden="true"
+                                                                  (click)="getAlign('center')"></i>
+                                                          </div>
+                                                      </div>
+
+
+                                                  </div>
+                                                  <div class="col-md-1 col-lg-3">
+
+                                                  </div>
+
+                                              </form>
+                                          </div>
+                                          <div class="mt-3">
+                                              <h6 class="mb-4 fw-semibold">Color</h6>
+                                              <div class="mb-2 grid-2">
+                                                  <div class="">
+                                                      <div class="d-flex align-items-center">
+                                                          <p class="mb-0 p-1"> Name:</p>
+
+                                                          <input [(colorPicker)]="firstNameColor"
+                                                              [style.background]="firstNameColor" style="width: 15px;
+                                                                                  height: 14px;" [disabled]="planDetail == 'Plan A'"/>
+                                                      </div>
+                                                      <div class="d-flex align-items-center">
+                                                          <p class="mb-0 p-1">Designation :</p>
+
+                                                          <input [(colorPicker)]="designationColor"
+                                                              [style.background]="designationColor" style="width: 15px;
+                                                                                  height: 14px;" [disabled]="planDetail == 'Plan A'"/>
+                                                      </div>
+                                                      <div class="d-flex align-items-center">
+                                                          <p class="mb-0 p-1">Contact Details :</p>
+
+                                                          <input [(colorPicker)]="contactDetailColor"
+                                                              [style.background]="contactDetailColor" style="width: 15px;
+                                                                                  height: 14px;" [disabled]="planDetail == 'Plan A'"/>
+                                                      </div>
+                                                  </div>
+                                                  <div class="">
+                                                      <!-- <div class="d-flex align-items-center">
+                                                                                  <p class="mb-0 p-1">Last Name:</p>
+                  
+                                                                                  <input [(colorPicker)]="lastNameColor"
+                                                                                      [style.background]="lastNameColor" style="width: 15px;
+                                                                                  height: 14px;" />
+                                                                              </div> -->
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="">
+
+                                              <h6 class="mb-4">Shapes</h6>
+                                          </div>
+                                          <div class="bg-darkgray w-25">
+
+                                              <div class="row p-1">
+                                                  <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
+                                                      <i class="p-2  fa fa-square" aria-hidden="true"></i>
+                                                  </div>
+                                                  <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
+                                                      <i class="p-2  fa fa-circle" aria-hidden="true"></i>
+                                                  </div>
+                                                  <div class="col-md-4 rounded-3">
+                                                      <i class="p-2  fa fa-line" aria-hidden="true"></i>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- <div class="row p-1 mt-4">
+                                              <div class="col-md-4">
+                                                  <div class="bg-darkgray rounded-3">
+                                                      <div class="grid-2">
+                                                          <p class="mb-0 p-2">Width:</p>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <div class="bg-darkgray rounded-3">
+                                                      <div class="grid-2">
+                                                          <p class="mb-0 p-2">Height:</p>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <div class="bg-darkgray rounded-3">
+                                                      <div class="grid-2">
+                                                          <p class="mb-0 p-2">Color:</p>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div> -->
+                                      </div>
+                                  </div>
+                                  <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
+                                      <div class="row app_background">
+                                        <div>
+                                          <h5 class="para-app mb-4 pro-lock">Enhance Your Signature</h5>
                                         </div>
+                                        <div class="col-md-12">
+                                          <div class="row align-items-center justify-content-center">
+                                            <button class="apps_button">
+                                              <div onclick="openscheduler()" class="app_div"><img
+                                                  src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span>Online
+                                                  Scheduler</span></div>
+                                            </button>
+                                            <button onclick="opendisclaimer()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/disclaimer.png"
+                                                  alt="Disclaimer Image" /><span>Disclaimer</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="openaddgreenfooter()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/green-footer.png"
+                                                  alt="Green Footer Image" /><span>Green Footer</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="openimagegallery()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/image-gallary.png"
+                                                  alt="Image Gallary Image" /><span>Image
+                                                  Gallery</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="openyoutubechannel()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/youtube-icon.png"
+                                                  alt="Youtube Channel" /><span>Youtube Channel</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="opencustombutton()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/custom-button.png"
+                                                  alt="Custom BUtton" /><span>Custom Button</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="openuploadbanner()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/upload-banner.png"
+                                                  alt="Upload Banner Image /"><span>Upload
+                                                  Banner</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="opensalesevent()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/sales-event.png"
+                                                  alt="Sales Event Image" /><span>Sales Event</span>
+                                              </div>
+                                            </button>
+                                            <button onclick="opendownloadapp()" class="apps_button">
+                                              <div class="app_div"><img src="assets/images/downlod-app.png"
+                                                  alt="Download Image" /><span>Download App</span>
+                                              </div>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                                            <div class="">
-
-                                                <h4 class="mb-4 pro-for">Add Social Links</h4>
-                                            </div>
-
-                                            <div class="row position-relative">
-                                                <div class="col-md-11 col-lg-9">
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Facebook
-                                                        </label>
-                                                        <input type="text" formControlName="fbProfile" placeholder="https://www.facebook.com/<username>"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small>
-                                          </ng-container>
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Instagram</label>
-                                                        <input type="text" formControlName="instagramProfile" placeholder="https://www.instagram.com/<username>"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small>
-                                          </ng-container>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">LinkedIn</label>
-                                                        <input type="text" formControlName="linkedInProfile" placeholder="https://www.linkedIn.com/<username>"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small></ng-container>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Youtube</label>
-                                                        <input type="text" formControlName="youtubeChannel" placeholder="https://www.youtube.com/<username>"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="uTube">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small></ng-container>
-
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <label for="exampleInputfiled"
-                                                            class="form-label fw-semibold ">Twitter</label>
-                                                        <input type="text" formControlName="twitterProfile" placeholder="https://www.twitter.com/<username>"
-                                                            class="form-control bg-gray rounded-0 border-0 border-bottom p-0" (click)="changeSocialLink($event)"
-                                                            id="exampleInputfiled" aria-describedby="textHelp"
-                                                            [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
-                                                            <ng-container class="po-re"
-                                                            *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
-                                            <small class="text-danger" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">
-                                              Please enter a valid URL.
-                                            </small></ng-container>
-                                                            
-                                                    </div>
-
-                                                    <!-- <div class="mb-4 d-flex">
-
-                                                        <p class="mb-0 ">
-                                                            <i class="fa fa-plus-circle text-blue"></i>
-                                                        </p>
-                                                        <p class="mb-0 ps-2 text-blue">
-                                                            Add New Field</p>
-                                                    </div> -->
-
-                                                </div>
-                                                <div class="col-md-1 col-lg-3">
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- <div class="tab-pane fade" id="template" role="tabpanel"
-                                        aria-labelledby="template-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                                            <div class="">
-
-                                                <h4 class="mb-4">Templates</h4>
-                                            </div>
-                                            <div class="">
-                                                <p class="mb-1 fw-semibold">Free</p>
-                                                <img class="h-110" src="assets/images/free-template.png" (click)="
-                                                openTemp('free')">
-                                            </div>
-                                            <hr class="">
-
-                                            <div class="mt-2">
-                                                <p class="mb-1 fw-semibold">Pro</p>
-                                                <img class="h-110" src="assets/images/pro-img.png"
-                                                    (click)="openTemp('pro')">
-                                            </div>
-                                            <div class="mt-2">
-                                                <p class="mb-1 fw-semibold">Pro</p>
-                                                <img class="h-110" src="assets/images/pro-pro-img.png"
-                                                    (click)="openTemp('propro')">
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
-                                        <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                                            <div class="">
-
-                                                <h5 class="mb-4 pro-for">Font Styles & Colors</h5>
-                                            </div>
-                                            <div class="">
-                                                <h6 class="mb-4 fw-semibold">Font Styles</h6>
-
-                                                <form class="row position-relative">
-                                                    <div class="col-md-11 col-lg-9">
-                                                        <div class="mb-2 grid-2">
-                                                            <label for="exampleInputfiled"
-                                                                class="form-label fw-semibold mt-1 ">Font
-                                                                Family :
-                                                            </label>
-                                                            <select class="form-select " [(ngModel)]="fontFamilyNew"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                aria-label="Default select example" [disabled]="planDetail == 'Plan A'">
-
-                                                                <option *ngFor="let item of fontFamilyList"
-                                                                    [value]="item">{{item}}</option>
-                                                            </select>
-
-                                                        </div>
-                                                        <div class="mb-2 grid-2">
-
-                                                            <label for="customRange2"
-                                                                class="form-label fw-semibold ">Size
-                                                                :</label>
-                                                            <input type="range" class="form-range" min="0" max="5"
-                                                                value="3" (change)="changeSize($event)"
-                                                                id="customRange2" [disabled]="planDetail == 'Plan A'">
-
-                                                        </div>
-                                                        <div class="mb-2 grid-2">
-
-                                                            <label for="customRange2"
-                                                                class="form-label fw-semibold ">Line
-                                                                Height :</label>
-                                                            <input type="range" value="3" (change)="changeLine($event)"
-                                                                class="form-range" min="0" max="5" id="customRange2" [disabled]="planDetail == 'Plan A'">
-
-                                                        </div>
-                                                        <div class="mb-2 grid-2">
-                                                            <div>Align :</div>
-                                                            <div class="d-flex">
-                                                                <i class="m-1 fa fa-align-left" aria-hidden="true"
-                                                                    (click)="getAlign('left')"></i>
-                                                                <i class="m-1 fa fa-align-center" aria-hidden="true"
-                                                                    (click)="getAlign('center')"></i>
-                                                                <i class="m-1 fa fa-align-right" aria-hidden="true"
-                                                                    (click)="getAlign('right')"></i>
-                                                                <i class="m-1 fa fa-align-justify" aria-hidden="true"
-                                                                    (click)="getAlign('center')"></i>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <div class="col-md-1 col-lg-3">
-
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                            <div class="mt-3">
-                                                <h6 class="mb-4 fw-semibold">Color</h6>
-                                                <div class="mb-2 grid-2">
-                                                    <div class="">
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 p-1"> Name:</p>
-
-                                                            <input [(colorPicker)]="firstNameColor"
-                                                                [style.background]="firstNameColor" style="width: 15px;
-                                                                                    height: 14px;" [disabled]="planDetail == 'Plan A'"/>
-                                                        </div>
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 p-1">Designation :</p>
-
-                                                            <input [(colorPicker)]="designationColor"
-                                                                [style.background]="designationColor" style="width: 15px;
-                                                                                    height: 14px;" [disabled]="planDetail == 'Plan A'"/>
-                                                        </div>
-                                                        <div class="d-flex align-items-center">
-                                                            <p class="mb-0 p-1">Contact Details :</p>
-
-                                                            <input [(colorPicker)]="contactDetailColor"
-                                                                [style.background]="contactDetailColor" style="width: 15px;
-                                                                                    height: 14px;" [disabled]="planDetail == 'Plan A'"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="">
-                                                        <!-- <div class="d-flex align-items-center">
-                                                                                    <p class="mb-0 p-1">Last Name:</p>
-                    
-                                                                                    <input [(colorPicker)]="lastNameColor"
-                                                                                        [style.background]="lastNameColor" style="width: 15px;
-                                                                                    height: 14px;" />
-                                                                                </div> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="">
-
-                                                <h6 class="mb-4">Shapes</h6>
-                                            </div>
-                                            <div class="bg-darkgray w-25">
-
-                                                <div class="row p-1">
-                                                    <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
-                                                        <i class="p-2  fa fa-square" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
-                                                        <i class="p-2  fa fa-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col-md-4 rounded-3">
-                                                        <i class="p-2  fa fa-line" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="row p-1 mt-4">
-                                                <div class="col-md-4">
-                                                    <div class="bg-darkgray rounded-3">
-                                                        <div class="grid-2">
-                                                            <p class="mb-0 p-2">Width:</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="bg-darkgray rounded-3">
-                                                        <div class="grid-2">
-                                                            <p class="mb-0 p-2">Height:</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="bg-darkgray rounded-3">
-                                                        <div class="grid-2">
-                                                            <p class="mb-0 p-2">Color:</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="apps">
-                                        <div class="row app_background">
-                                            <div>
-                                                <h5 class="para-app mb-4 pro-lock">Enhance Your Signature</h5>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row align-items-center justify-content-center">
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img
-                                                                src="assets/images/online-scheduler.png"
-                                                                alt="Online Scheduler Image" /><span>Online
-                                                                Scheduler</span></div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/disclaimer.png"
-                                                                alt="Disclaimer Image" /><span>Disclaimer</span></div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/green-footer.png"
-                                                                alt="Green Footer Image" /><span>Green Footer</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/image-gallary.png"
-                                                                alt="Image Gallary Image" /><span>Image Gallery</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/youtube-icon.png"
-                                                                alt="Youtube Channel" /><span>Youtube Channel</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/custom-button.png"
-                                                                alt="Custom BUtton" /><span>Custom Button</span></div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/upload-banner.png"
-                                                                alt="Upload Banner Image /"><span>Upload Banner</span>
-                                                        </div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/sales-event.png"
-                                                                alt="Sales Event Image" /><span>Sales Event</span></div>
-                                                    </button>
-                                                    <button class="apps_button">
-                                                        <div class="app_div"><img src="assets/images/downlod-app.png"
-                                                                alt="Download Image" /><span>Download App</span></div>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mt-4 text-end">
-                                    <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(editTemplateForm.value)">Update
-                                        Signature</button>
-                                </div>
-
-                            </form>
-                            <!-- <button class="btn btn-outline-warning" (click)="saveChanges()"> save</button> -->
-
-
-                            <!-- form End -->
-
-
-                        </div>
-
-
-
-
-
-
-                        <!-- T E M P L A T E S -->
-
-
-
-                        <div class="col-md-6 col-lg-6 pe-3 ">
-
-
-
-                            <div class="row position-relative progress_padd pb-4">
-                                <div class="profile_complt-detail">
-                
-                                </div>
-                                <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
-                                    alt="Signature image" /></div>
-                                <div class=" col-md-7">
-                
-                                </div>
-                                <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
-                                    class="sign_one" alt="Signature image" />
-                                </div>
-                              </div>
-                              <div class="mt-4">
-
-                            <table cellpadding="0" cellspacing="0" id="one" 
-                                style="background-color: #FBFEFF ;font-size: medium;width:500px;height:280px; font-family: Arial;">
-                                <tbody style="padding:10px;
-                                ">
-                                    <tr>
-                                        <td style="padding: 7px 15px;" colspan="3">
-                                            {{title}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="vertical-align: baseline;">
-                                            <div style="padding: 7px 15px;" >
-                                                <img class="width"  [src]="url" height="65" width="72" *ngIf="url">
-                                                <img style="width: 72px;
-                                            vertical-align: middle; height: 65px;border-radius:50%;" *ngIf="userProfile && ! url"
-                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-
-
-                                            </div>
-                                            <!-- <div style="text-align:center;" *ngIf="logo">
- 
-                                                <img style="width:95px ;height:35px"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" id="del"><br>
-                                     
-                                                <p style="font-size:8px; display: inline;" >Remove logo</p><span>X</span>    
-                                  
-                                            </div> -->
-                                            
-                                        </td>
-                                        <td colspan="2"
-                                            style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
-                                            <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
-                                        line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
-                                                [style.color]="firstNameColor" [style.line-height]="lineHeight"
-                                                [style.font-family]="fontFamilyNew"
-                                                [style.font-size.px]="templateFontSize"><span>{{username}}</span></h5>
-                                            <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                                                <span style="border-bottom:3px solid#FFBA00;padding:5px;"
-                                                    [style.color]="designationColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize">{{desig}}
-                                                </span>
-                                            </h6>
-                                            <p style="padding-top:10px;" >
-                                                <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                            white-space: nowrap;" *ngIf="number"
-                                                    [style.color]="contactDetailColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize"><span
-                                                        style="font-weight:bold;">M:</span>{{std}}{{number}}
-                                                </span>
-                                                <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                                white-space: nowrap;" *ngIf="compPhone"
-                                                        [style.color]="contactDetailColor" [style.line-height]="lineHeight"
-                                                        [style.font-family]="fontFamilyNew"
-                                                        [style.font-size.px]="itemFontSize"><span
-                                                            style="font-weight:bold;">P:</span>{{compPhone}}
-                                                    </span>
-
-                                                <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                            white-space: nowrap;"
-                                                    [style.color]="contactDetailColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize">
-                                                    <span style="font-weight:bold;">E:</span>
-                                                    {{Email}}
-                                                </span>
-                                              <br>
-                                                <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                            white-space: nowrap;"
-                                                    [style.color]="contactDetailColor" [style.line-height]="lineHeight"
-                                                    [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize">
-                                                    <span style="font-weight:bold;">M:</span>
-                                                    {{compWebsite}}
-                                                </span>
-
-                                                <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
-                                            white-space: nowrap;"[style.color]="contactDetailColor"
-                                                    [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                                    [style.font-size.px]="itemFontSize">
-
-                                                    <span style="font-weight:bold;">A:</span>
-                                                    {{useraddress}}
-                                                </span>
-                                            </p>
-
-                                            <div style="padding:10px;border-radius:  10px 10px 0 0;">
-                                                <span *ngIf="faceB">
-                                                    <a  href="{{faceB}}" ><img
-                                                            style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                                            src="assets/images/fb-1.png"></a>
-                                                </span><span *ngIf="Twitter"><a  href="{{Twitter}}"><img
-                                                            style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                                            src="assets/images/tt-1.png"></a></span><span  *ngIf="Linkedin" > 
-                                                    <a href="{{Linkedin}}"><img
-                                                            style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                                            src="assets/images/ln-1.png"></a>
-                                                </span><span  *ngIf="insta">
-                                                    <a  href="{{insta}}"><img
-                                                            style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                                            src="assets/images/it-1.png"></a>
-                                                </span>
-                                            </div>
-
-
-                                        </td>
-                                        <td style="padding: 20px;vertical-align:baseline;">
-                                            <img style="width:60px; height:60px;"
-                                                src="https://giveaspark.s3.amazonaws.com/{{code}}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align:center;">
-
-
-                                        </td>
-
-                                        <td style="padding-left:10px" colspan="2">
-
-                                            <p style="font-size:12px;">
-                                                <q *ngIf="details?.quotesId?.quotesName">
-                                                    {{details?.quotesId?.quotesName}}
-                                                </q>
-                                                <q *ngIf="quotevar">
-                                                    {{quotevar}}
-                                                </q>
-
-
-
-                                            </p>
-                                        </td>
-
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-
                               </div>
 
+                              <div class="mt-4 text-end">
+                                  <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" (click)="onSubmit(editTemplateForm.value)">Update
+                                      Signature</button>
+                              </div>
 
-                        </div>
+                          </form>
+                          <!-- <button class="btn btn-outline-warning" (click)="saveChanges()"> save</button> -->
 
 
+                          <!-- form End -->
 
 
+                      </div>
 
 
 
 
 
 
+                      <!-- T E M P L A T E S -->
 
 
 
+                      <div class="col-md-6 col-lg-6 pe-3 ">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-            </div>
-
-        </div>
-        <!-- </div> -->
-        <!-- </div> -->
-        <div class="modal fade" #closeModal id="change-image" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close"
-        (click)="hideModel();">
-            <div class="modal-dialog quotes-box">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
-                                aria-hidden="true"></i></div>
-                        <div class="Neon Neon-theme-dragdropbox">
-                            <input
-                                style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
-                                name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/gif, image/jpeg, image/png"
-                                (change)="onSelectImage($event)">
-                            <div class="Neon-input-dragDrop">
-                                <div class="Neon-input-inner">
-                                    <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
-                                    <div class="Neon-input-text">
-                                        <img class="width"  [src]="url" height="65" width="72" *ngIf="url">
-                                              
-                                        <h3>Drag&amp;Drop files here</h3> <span
-                                            style="display:inline-block; margin: 15px 0">or</span>
-                                    </div><a class="Neon-input-choose-btn blue">Browse Files</a>
-
-                                </div>
+                          <div class="row position-relative progress_padd pb-4">
+                              <div class="profile_complt-detail">
+              
+                              </div>
+                              <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
+                                  alt="Signature image" /></div>
+                              <div class=" col-md-7">
+              
+                              </div>
+                              <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
+                                  class="sign_one" alt="Signature image" />
+                              </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div class="mt-4">
 
-        <ng-template #secondDialog style="width:200px;">
-            <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
-            <mat-dialog-content>
-              <p style="color:red;   text-align:center;">
-             
-          
-                Upgradtion Needed
-          
-              </p>
-              <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need to purchase the pro plan. </p>
-          
-          
-          
-            </mat-dialog-content>
-            <mat-dialog-actions >
-              <button align="right" mat-button mat-dialog-close type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
-                Get it Now
-              </button>
-              <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
-            </mat-dialog-actions>
-            <!-- <mat-dialog-actions >
-          
-              <button mat-button mat-dialog-close class="action">Cancel</button>
-            </mat-dialog-actions> -->
-          </ng-template>
+                          <table cellpadding="0" cellspacing="0" id="one" 
+                              style="background-color: #FBFEFF ;font-size: medium;width:500px;height:280px; font-family: Arial;">
+                              <tbody style="padding:10px;
+                              ">
+                                  <tr>
+                                      <td style="padding: 7px 15px;" colspan="3">
+                                          {{title}}
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td style="vertical-align: baseline;">
+                                          <div style="padding: 7px 15px;" >
+                                              <img class="width"  [src]="url" height="65" width="72" *ngIf="url">
+                                              <img style="width: 72px;
+                                          vertical-align: middle; height: 65px;border-radius:50%;" *ngIf="userProfile && ! url"
+                                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
-    
-    </section>
+                                          </div>
+                                          <!-- <div style="text-align:center;" *ngIf="logo">
+
+                                              <img style="width:95px ;height:35px"   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" id="del"><br>
+                                   
+                                              <p style="font-size:8px; display: inline;" >Remove logo</p><span>X</span>    
+                                
+                                          </div> -->
+                                          
+                                      </td>
+                                      <td colspan="2"
+                                          style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                                          <h5 style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
+                                      line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
+                                              [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                              [style.font-family]="fontFamilyNew"
+                                              [style.font-size.px]="templateFontSize"><span>{{username}}</span></h5>
+                                          <h6 style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
+                                              <span style="border-bottom:3px solid#FFBA00;padding:5px;"
+                                                  [style.color]="designationColor" [style.line-height]="lineHeight"
+                                                  [style.font-family]="fontFamilyNew"
+                                                  [style.font-size.px]="itemFontSize">{{desig}}
+                                              </span>
+                                          </h6>
+                                          <p style="padding-top:10px;" >
+                                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                          white-space: nowrap;" *ngIf="number"
+                                                  [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                  [style.font-family]="fontFamilyNew"
+                                                  [style.font-size.px]="itemFontSize"><span
+                                                      style="font-weight:bold;">M:</span>{{std}}{{number}}
+                                              </span>
+                                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                              white-space: nowrap;" *ngIf="compPhone"
+                                                      [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                      [style.font-family]="fontFamilyNew"
+                                                      [style.font-size.px]="itemFontSize"><span
+                                                          style="font-weight:bold;">P:</span>{{compPhone}}
+                                                  </span>
+
+                                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                          white-space: nowrap;"
+                                                  [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                  [style.font-family]="fontFamilyNew"
+                                                  [style.font-size.px]="itemFontSize">
+                                                  <span style="font-weight:bold;">E:</span>
+                                                  {{Email}}
+                                              </span>
+                                            <br>
+                                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                          white-space: nowrap;"
+                                                  [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                                                  [style.font-family]="fontFamilyNew"
+                                                  [style.font-size.px]="itemFontSize">
+                                                  <span style="font-weight:bold;">M:</span>
+                                                  {{compWebsite}}
+                                              </span>
+
+                                              <span style="line-height: 1.2;padding:0 10px; font-family: Arial;color-scheme: light only;
+                                          white-space: nowrap;"[style.color]="contactDetailColor"
+                                                  [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                                  [style.font-size.px]="itemFontSize">
+
+                                                  <span style="font-weight:bold;">A:</span>
+                                                  {{useraddress}}
+                                              </span>
+                                          </p>
+
+                                          <div style="padding:10px;border-radius:  10px 10px 0 0;">
+                                              <span *ngIf="faceB">
+                                                  <a  href="{{faceB}}" ><img
+                                                          style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                                          src="assets/images/fb-1.png"></a>
+                                              </span><span *ngIf="Twitter"><a  href="{{Twitter}}"><img
+                                                          style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                                          src="assets/images/tt-1.png"></a></span><span  *ngIf="Linkedin" > 
+                                                  <a href="{{Linkedin}}"><img
+                                                          style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                                          src="assets/images/ln-1.png"></a>
+                                              </span><span  *ngIf="insta">
+                                                  <a  href="{{insta}}"><img
+                                                          style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
+                                                          src="assets/images/it-1.png"></a>
+                                              </span>
+                                          </div>
+
+
+                                      </td>
+                                      <td style="padding: 20px;vertical-align:baseline;">
+                                          <img style="width:60px; height:60px;"
+                                              src="https://giveaspark.s3.amazonaws.com/{{code}}">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td style="text-align:center;">
+
+
+                                      </td>
+
+                                      <td style="padding-left:10px" colspan="2">
+
+                                          <p style="font-size:12px;">
+                                              <q *ngIf="details?.quotesId?.quotesName">
+                                                  {{details?.quotesId?.quotesName}}
+                                              </q>
+                                              <q *ngIf="quotevar">
+                                                  {{quotevar}}
+                                              </q>
+
+
+
+                                          </p>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3" [style.text-align]="youtubeAlignment">
+                                      <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
+                                          src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
+                                          width="107"></a>
+                                      <!-- 
+                                      <a href="{{youUrl}}" *ngIf="youImage &&!videoUrl "><img src="{{youImage}}"
+                                          [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a> -->
+          
+          
+                                      <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                                          [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
+          
+          
+          
+                                      <br>
+                                      <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                                        [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
+                                        {{youtubeTitle}}</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                      <td>{{galleryTitle}}</td>
+                                    </tr>
+                                    <tr>
+            
+                                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4">
+                                        <div style="display:flex; text-align:start;">
+                                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                                            [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
+                                            [style.margin-left.px]="imageSpace" *ngIf="url1" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="Gallery Image">
+            
+            
+            
+                                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
+                                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="Gallery Image">
+            
+                                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url3"
+                                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="Gallery Image">
+            
+                                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
+                                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="Gallery Image">
+                                        </div>
+            
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
+                                        [style.color]="disclaimerColor">
+            
+                                        {{content}}
+                                      </td>
+            
+                                    </tr>
+                                    <tr>
+            
+                                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                                        <a href="">
+                                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                                            [style.width.px]="iconSize">
+                                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                                            [style.color]="eventColor">{{eventTitle}}</span>
+                                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                                            [style.color]="eventColor">{{eventName}}</span></a>
+                                      </td>
+            
+                                    </tr>
+            
+                                    <tr>
+                                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
+                                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
+                                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+            
+                                      </td>
+                                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
+                                        [style.font-size.px]="footerSize" [style.color]="footerColor">
+                                        <span>{{footerText}}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl" alt="" [style.width.%]="bannerSize"
+                                        [style.text-align]="bannerAlign" height="150">
+            
+                                    </tr>
+                                    <!-- <tr> 
+                                      <td>
+            
+            
+                                        <button style="background-color:blue;color:white;">Custom Button</button>
+                                      </td><td style="border-bottom: 3px solid #e0e0e0;" colspan="3">
+                                      
+                                    
+                                    </td>
+            
+                                    </tr> -->
+                                    <tr>
+                                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                                        <p [style.color]="appButtonColor" [style.font-size.px]="appButtonSize">{{appName}}</p>
+            
+                                        <a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                                          target="_blank" rel="nofollow noreferrer"> <img
+                                            src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
+                                            height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                            alt="Download App"> </a>
+            
+                                        <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
+                                          target="_blank" rel="nofollow noreferrer"><img
+                                            src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                                            height="33" width="auto" style="width: auto; height: 33px; display: block;"
+                                            alt="Download App"></a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3" >
+            
+                                        <a href="{{customUrl}}" *ngIf=" customText"  [style.text-align]="customAlign">
+                                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
+                                               [style.padding-left.px]="customButtonSize"   [style.padding-right.px]="customButtonSize"  [style.color]="buttonTextColor"
+                                          [style.background-color]="customButtonBg"
+                                          [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3" >
+                                        
+            
+            
+                                        <a href="{{scheduleLink}}" *ngIf=" inputValue"  >
+                                        
+                                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;" *ngIf="inputValue"
+                                               [style.padding-left.px]="scheduleSize"   [style.padding-right.px]="scheduleSize" 
+                                          [style.background-color]="scheduleBg"
+                                          [style.border-radius.px]="scheduleShape">  <img src="{{scheduleIcon}}" style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                                      </td>
+                                    </tr>
+
+                              </tbody>
+                          </table>
+
+                            </div>
+
+
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+          </div>
+
+      </div>
+      <!-- </div> -->
+      <!-- </div> -->
+      <div class="modal fade" #closeModal id="change-image" data-bs-backdrop="static" tabindex="-1"
+      aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-dismiss="modal" aria-label="Close"
+      (click)="hideModel();">
+          <div class="modal-dialog quotes-box">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <div class="text-end"><i class="fa fa-times" data-bs-dismiss="modal" aria-label="Close"
+                              aria-hidden="true"></i></div>
+                      <div class="Neon Neon-theme-dragdropbox">
+                          <input
+                              style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+                              name="files[]" id="filer_input2" multiple="multiple" type="file" accept="image/gif, image/jpeg, image/png"
+                              (change)="onSelectImage($event)">
+                          <div class="Neon-input-dragDrop">
+                              <div class="Neon-input-inner">
+                                  <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+                                  <div class="Neon-input-text">
+                                      <img class="width"  [src]="url" height="65" width="72" *ngIf="url">
+                                            
+                                      <h3>Drag&amp;Drop files here</h3> <span
+                                          style="display:inline-block; margin: 15px 0">or</span>
+                                  </div><a class="Neon-input-choose-btn blue">Browse Files</a>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <ng-template #secondDialog style="width:200px;">
+          <!-- <h2 matDialogTitle>Lovely dialog!</h2> -->
+          <mat-dialog-content>
+            <p style="color:red;   text-align:center;">
+           
+        
+              Upgradtion Needed
+        
+            </p>
+            <p style="font-size:14px; text-align:center;">You're trying to use Pro Features.<br> To use these feature you need to purchase the pro plan. </p>
+        
+        
+        
+          </mat-dialog-content>
+          <mat-dialog-actions >
+            <button align="right" mat-button mat-dialog-close type="button" class="action" id="upgrade" routerLink="/home-dashboard/plan/plan-dashboard">
+              Get it Now
+            </button>
+            <button align="left" style="margin-left: 183px;" mat-button mat-dialog-close class="action">Cancel</button>
+          </mat-dialog-actions>
+          <!-- <mat-dialog-actions >
+        
+            <button mat-button mat-dialog-close class="action">Cancel</button>
+          </mat-dialog-actions> -->
+        </ng-template>
+
+
+  
+  </section>
 </main>
 
 <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width:75%;height:75%;">
-      <div class="modal-content">
-        <div class="modal-body">
-          <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-        </div>
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------- A P P S    MODAL----------------------- -->
+
+<!-- -------------GREEN FOOTER-------------- -->
+
+<div id="myaddgreenfooter" class="addgreenfooter design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Add A Green Footer
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeaddgreenfooter()">×</a>
+    </div>
+
+    <h6>Choose A Text</h6>
+
+    <form class="mt-4" [formGroup]="footerForm">
+
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" [checked]="footerText == 'Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy.'" name="gridRadios" id="gridRadios1" value="option1"
+          (change)="chooseFooter($event, 1)">
+        <label class="form-check-label fs-14" for="gridRadios1">
+          Environmental Responsibilities
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [checked]="footerText == 'Please consider the environment before printing this e-mail!'" name="gridRadios" id="gridRadios2" value="option2"
+          (change)="chooseFooter($event, 2)">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          Environmental Responsibilities Short
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [checked]="footerText == 'Do you really need to print this email?'" name="gridRadios" id="gridRadios3" value="option2"
+          (change)="chooseFooter($event, 3)">
+        <label class="form-check-label fs-14" for="gridRadios3">
+          Do You Really Need ?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [checked]="footerText == 'Printing emails kills trees. Print is murder!'" name="gridRadios" id="gridRadios4"
+          (change)="chooseFooter($event, 4)" value="option2">
+        <label class="form-check-label fs-14" for="gridRadios4">
+          Printing Kills Trees
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [checked]="footerText == 'Do not print this, Ok?'"  name="gridRadios" id="gridRadios5" value="option2"
+          (change)="chooseFooter($event, 5)">
+        <label class="form-check-label fs-14" for="gridRadios5">
+          Correct Recipients
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-auto ">
+          <div class="form-check">
+            <input class="form-check-input" (change)="chooseFooter($event, 6) " type="radio" name="gridRadios"
+              value="optionty2" id="gridRadios6" [checked]="isCustomFooter(footerText)">
+            <label class="form-check-label fs-14" for="gridRadios6">
+              Custom Footer
+            </label>
+
+            <div class="dropdown">
+              <input [(ngModel)]="footerText" name="" *ngIf="isCustomFooter(footerText)" (change)="customFooter()"  formControlName="greenFooter">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold">Footer style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="greenIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="selectfooterIcon($event, 1)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/green-leaf.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="greenIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/green-icon.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="selectfooterIcon($event, 2)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/green-icon.png" height="22" width="22">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="greenIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/image_2023_03_29T08_56_13_879Z.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="selectfooterIcon($event, 3)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/green-tech.png" height="22" width="22">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <input style="width:20px;height: 20px;" [(colorPicker)]="footerColor" [style.background]="footerColor">
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="1" max="3" [value]="footerSizeVal" id="customRange2" class="form-range"
+            (change)="getFooterSize($event)">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.activeFooterAlign]="footerAlignment == 'left'" (click)="getFooterAlignment('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.activeFooterAlign]="footerAlignment == 'center'" (click)="getFooterAlignment('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.activeFooterAlign]="footerAlignment == 'right'" (click)="getFooterAlignment('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" onclick="closeaddgreenfooter()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- --------------- GALLERY  MODAL--------- -->
+<div id="myimagegallery" class="imagegallery design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Image Gallery
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeimagegallery()">×</a>
+    </div>
+
+    <h6>Add your images :</h6>
+
+    <div class="mt-5">
+      <form [formGroup]="customGalleryForm">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+
+            <label class="upload-area">
+              <input class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile1" (change)="onSelectFile1($event)">
+              <span class="upload-button">
+                <i class="fas fa fa-plus" aria-hidden="true"></i>
+                <img *ngIf="url1" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="" width="50" height="50">
+
+              </span>
+            </label>
+
+
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input *ngIf="url1" class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile2" (change)="onSelectFile2($event)">
+              <span class="upload-button">
+                <i class="fas fa fa-plus" aria-hidden="true" *ngIf="url1"> </i>
+                <img *ngIf="url2" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input *ngIf="url1 && url2 " class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
+                formControlName="customProfile3" (change)="onSelectFile3($event)">
+              <span class="upload-button">
+                <i *ngIf="url1 && url2" class="fas fa fa-plus" aria-hidden="true"> </i>
+                <img *ngIf="url3" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
+          <div class="col-auto">
+            <label class="upload-area">
+              <input *ngIf="url1 && url2 && url3" class="upload-display" type="file"
+                accept="image/gif, image/jpeg, image/png" formControlName="customProfile4"
+                (change)="onSelectFile4($event)">
+              <span class="upload-button"><i *ngIf="url1 && url2 && url3" class="fas fa fa-plus" aria-hidden="true"></i>
+                <img *ngIf="url4" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="" width="50" height="50">
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+
+
+          </div>
+          <div class="col-auto">
+
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Title ( Optional) :</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" placeholder="Your image title" formControlName="imageTitle"
+              [(ngModel)]="galleryTitle">
+          </div>
+
+        </div>
+
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Image Size :</label>
+          </div>
+          <div class="col-auto">
+            <input type="range" min="0" max="5" [value]="imgSizeVal" id="customRange2" class="form-range"
+              (change)="chaneImageSize($event)">
+          </div>
+
+
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="inputtext" class="col-form-label fs-14 fw-semibold">Space Between :</label>
+          </div>
+          <div class="col-auto">
+            <input type="range" min="0" max="5" [value]="imageSpaceVal" id="customRange2" class="form-range"
+              (change)="changeImageSpace($event)">
+          </div>
+
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label></div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                [checked]="imageRadious == '0' " class="form-check-input" (click)="changeImageRadious(0)"><label for="gridRadios1"
+                class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (click)="changeImageRadious(25)" [checked]="imageRadious == '25'" class="form-check-input"><label for="gridRadios1"
+                class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; border-radius: 5px; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                (click)="changeImageRadious(150)" [checked]="imageRadious == '150'" class="form-check-input"><label for="gridRadios1"
+                class="form-check-label fs-14">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D9D9D9;"></div>
+              </label></div>
+          </div>
+          <div class="row g-3 align-items-center mb-3">
+            <div class="col-auto">
+              <label for="inputtext" class="col-form-label fs-14 fw-semibold">Apply link to all images :</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" [(ngModel)]="imageLink" class="form-control" placeholder="  https://www.applylink" formControlName="imageLink">
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-auto">
+              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)"
+                onclick="closeimagegallery()">Add</button>
+            </div>
+            <div class="col-auto">
+              <button class="gray-btn py-2 px-3" onclick="closeimagegallery()">Cancel</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ----------DISCLAIMER- MODAL--------------- -->
+
+<div id="mydisclaimer" class="disclaimer design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Add A Disclaimer
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
+    </div>
+
+    <h6>Choose A Disclaimer Type</h6>
+    <form class="mt-4" [formGroup]="disclaimerForm">
+
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 1)" name="gridRadios" id="gridRadios1"
+          value="1" [checked]="content == 'IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof.'">
+        <label class="form-check-label fs-14" for="gridRadios1">
+          Confidentiality
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 2)" name="gridRadios" id="gridRadios2"
+          value="2" [checked]="content == 'Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments.'">
+        <label class="form-check-label fs-14" for="gridRadios2">
+          No Viruses
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 3)" name="gridRadios" id="gridRadios3"
+          value="3" [checked]="content == 'No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation.'">
+        <label class="form-check-label fs-14" for="gridRadios3">
+          Non-Binding
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 4)" name="gridRadios" id="gridRadios4"
+          value="4" [checked]="content == 'All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message.'">
+        <label class="form-check-label fs-14" for="gridRadios4">
+          Personal Opinions
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" (change)="getEvent($event, 5)" name="gridRadios" id="gridRadios5"
+          value="5" [checked]="content == 'If you received this email in error, please notify us immediately by sending an e-mail or by calling.'">
+        <label class="form-check-label fs-14" for="gridRadios5">
+          Correct Recipients
+        </label>
+      </div>
+      <div class="form-check">
+        <input (change)="getEvent($event, 6)"  class="form-check-input"
+          type="radio" name="gridRadios" id="gridRadios6" value="6" [checked]="checkCustomDisclamir(content)">
+        <label class="form-check-label fs-14" for="gridRadios6">
+          Custom Disclaimer
+        </label>
+        <input [(ngModel)]="content" *ngIf="checkCustomDisclamir(content)" name="" (change)="changeDesclaimer()"  formControlName="disclaimer">
+
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold"> Disclaimer style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <input style="width:20px;height: 20px;" [(colorPicker)]="disclaimerColor"
+            [style.background]="disclaimerColor">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="4" [value]="disclaimerValue"  id="customRange2" class="form-range"
+            (change)="disclaimerSizechange($event)">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'left'" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'center'" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'right'" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" onclick="closedisclaimer()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- ------------S C H E D LU L E R - MODAL-------------- -->
+<div id="myonline-scheduler" class="online-scheduler design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Online Meeting Scheduler
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()">×</a>
+    </div>
+
+    <h6>Choose Scheduling Provider</h6>
+    <form class="mt-4" [formGroup]="scheduleForm">
+      <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
+      <div class="form-check text-black ">
+
+        <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" name="options"  value="option1" (click)="showInputBox = false">
+        <label class="form-check-label fs-14" >
+   Use  Scheduling Solution( Recommended by Give a spark)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}"  name="options"  value="option2" (click)="showInputBox = true">
+        <label class="form-check-label fs-14" >
+    I already have a scheduler provider
+        </label>
+      </div>
+      <div *ngIf="showInputBox">
+        <label>
+          Input box:
+          <input type="text" [(ngModel)] ="scheduleLink"  formControlName="scheduleLink">
+        </label>
+      </div>
+    
+    <div class="mt-5">
+      <h5 class="fw-bold"> Button Design
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
+        </div>
+      </div>
+      
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '10'" (click)="getScheduleSize('10')">S</p>
+            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '15'" (click)="getScheduleSize('15')">M</p>
+            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '25'" (click)="getScheduleSize('25')">L</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg"
+          style="width:20px;height: 20px;" />
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png'" >
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/color-calender.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png'">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/schedule.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png'">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/color-meet.png">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option2"   (change)="getScheduleShape('0')" [checked]="scheduleShape == '0'">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('10')" [checked]="scheduleShape == '10'">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1"  (change)="getScheduleShape('20')" [checked]="scheduleShape == '20'">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+
+<!-- ------------------YOUTUBE MODEL---------- -->
+<div id="myyoutubechannel" class="youtubechannel design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Youtube Channel
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeyoutubechannel()">×</a>
+    </div>
+
+    <h6>Enter your channel URL/Title</h6>
+
+    <form class="mt-4" [formGroup]="youtubeForm">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">YouTube video / playlist
+            URL:
+
+            :</label></div>
+        <div class="col-auto">
+          <input type="text" [(ngModel)]="youtubeUrl" placeholder=" https://www.youtube.com/watch?v=123" formControlName="youtubeUrl"
+            (keyup)="getUrl()" class="form-control" width="300" height="80">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Title " formControlName="youtubeTitle"
+            [(ngModel)]="youtubeTitle" class="form-control"></div>
+      </div>
+      <div class="row">
+        <!-- <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" (change)="youtubeIcon('youIcon')">
+          <label class="form-check-label fs-14" for="gridRadios2">
+            <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png">
+          </label>
+        </div> -->
+        <div class="form-check">
+          <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
+
+          <label class="switch">
+            <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
+            <span class="slider round"></span>
+
+          </label>
+        </div>
+      </div>
+    </form>
+    <div class="mt-5">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <!-- <div style="width:20px;height: 20px;background-color: #003e4d;"></div> -->
+          <input [(colorPicker)]="youtubeColor" [style.background]="youtubeColor" style="width:20px;height: 20px;" />
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" class="form-range" min="0" max="5" [value]="youtubeVal" (change)="changeYoutubeSize($event)"
+            id="customRange2">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.youtubeActive] ="youtubeAlignment == 'left'" (click)="titleAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.youtubeActive] ="youtubeAlignment == 'center'" (click)="titleAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.youtubeActive] ="youtubeAlignment == 'right'" (click)="titleAlign('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" (click)="youTubeDetails()" href="javascript:void(0)"
+            onclick="closeyoutubechannel()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="mycustombutton" class="custombutton design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Custom Button
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closecustombutton()">×</a>
+    </div>
+
+    <h5>Button Details</h5>
+
+    <form class="mt-4" [formGroup]="customButtonForm">
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
+          </label></div>
+        <div class="col-auto"><input type="text" placeholder="Button" class="form-control"
+            formControlName="customButtonText" [(ngModel)]="customText"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
+            formControlName="customUrl" [(ngModel)]="customUrl"></div>
+      </div>
+      <h5 class="mt-4"> Button Style</h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Shape :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input"  type="radio" name="gridRadios" id="gridRadios1" value="option1" [checked]="customButtonShape == '0'"
+              (change)="getButtonShape('0')">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" [checked]="customButtonShape == '10'"
+              (change)="getButtonShape('10')">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:5px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" [checked]="customButtonShape == '25'"
+              (change)="getButtonShape('25')">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <div style="width:40px;height: 20px;border-radius:10px;background-color: #D9D9D9;"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Type :</label></div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Full </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Light
+            </label></div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black"><input type="radio" name="gridRadios" id="gridRadios1" value="option1"
+              checked="" class="form-check-input"><label for="gridRadios1" class="form-check-label fs-14"> Simple Link
+            </label></div>
+        </div>
+       
+      </div> -->
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold"> Color :</label></div>
+        <div class="col-auto">
+          <input [(colorPicker)]="customButtonBg" [style.background]="customButtonBg"
+            style="width:20px;height: 20px;" />
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Color :</label></div>
+        <div class="col-auto">
+          <input [(colorPicker)]="buttonTextColor" [style.background]="buttonTextColor"
+            style="width:20px;height: 20px;" />
+        </div>
+      </div>
+      <!-- <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label></div>
+        <div class="col-auto"><input type="range" min="0" max="5" value="3" id="customRange2" class="form-range"></div>
+      </div> -->
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size" [class.customBtnActive]="customButtonSize == '10'" (click)="getCustomSize
+            ('10')">S</p>
+            <p class="design-size" [class.customBtnActive]="customButtonSize == '25'" (click)="getCustomSize
+            ('25')">M</p>
+            <p class="design-size" [class.customBtnActive]="customButtonSize == '60'" (click)="getCustomSize
+            ('60')">L</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.customAlignActive]="customAlign == 'left'" (click)="customButtonAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.customAlignActive]="customAlign == 'center'" (click)="customButtonAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.customAlignActive]="customAlign == 'right'" (click)="customButtonAlign('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+    </form>
+
+    <div class="row mt-4">
+      <div class="col-auto">
+
+        <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
+      </div>
+      <div class="col-auto">
+        <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- --------------Banner Modal------- -->
+<div id="myuploadbanner" class="uploadbanner design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Upload My Banner
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeuploadbanner()">×</a>
+    </div>
+
+    <h6>Upload your banner (jpg,png,gif)</h6>
+    <div class="">
+      <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
+          accept="image/gif, image/jpeg, image/png"><span class="upload-button-1">
+          <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl" alt="" height="96px" width="800">
+          <p *ngIf="!bannerUrl">Drag & Drop your banner here </p><br>
+
+        </span></label>
+    </div>
+    <div class="mt-5">
+      <h5 class="fw-bold">Banner Style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="3" [value]="bannerSizeVal" id="customRange2" class="form-range"
+            (change)="changeBannerSize($event)">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.activeBannerAlign]="bannerAlign == 'left'" (click)="bannerAlignment('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.activeBannerAlign]="bannerAlign == 'center'" (click)="bannerAlignment('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.activeBannerAlign]="bannerAlign == 'right'" (click)="bannerAlignment('right')"></i>
+        </div>
+
+      </div>
+      <form [formGroup]="bannerForm">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
+              :</label></div>
+          <div class="col-auto"><input type="text" [(ngModel)]="bannerLink" placeholder="Banner URL" class="form-control"
+              formControlName="bannerLink"></div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="d-flex">
+            <img class="wh-25" src="assets/images/replace-icon.png ">
+            <p class="px-3 mb-0">Replace Banner</p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="d-flex">
+            <img class="wh-25" src="assets/images/delete.png ">
+            <p class="px-3 mb-0">Delete</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="row mt-3">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" (click)="bannerValue()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ----------- S  A L E S      M O D A L-------- -->
+<div id="mysalesevent" class="salesevent design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Sales Event
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closesalesevent()">×</a>
+    </div>
+
+    <h6>Enter your sale event details</h6>
+
+    <form class="mt-4" [formGroup]="EventForm">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"
+            formControlName="eventTitle" [(ngModel)]="eventTitle"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
+            formControlName="eventName" [(ngModel)]="eventName"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
+            :</label></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control" formControlName="eventLink"
+            [(ngModel)]="eventLink"></div>
+            <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
+            <small class="text-danger"
+              *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
+      </div>
+    </form>
+    <div class="mt-5">
+      <h5 class="fw-bold">Style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Choose an icon :</label>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="salesEvent($event, 1)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/sale-tag.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="salesEvent($event, 2)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/giftbox.png">
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check text-black ">
+
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png'" name="gridRadios" id="gridRadios1" value="option1"
+              (change)="salesEvent($event, 3)">
+            <label class="form-check-label fs-14" for="gridRadios1">
+              <img src="assets/images/sale-black.png">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+          <input [(colorPicker)]="eventColor" [style.background]="eventColor" style="width:20px;height: 20px;" />
+        </div>
+      </div>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="1" max="4" [value]="eventFontVal" id="customRange2" class="form-range"
+            (change)="getEventFontSize($event)">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.eventAlign]="eventAlignment == 'left'" (click)="getEventAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.eventAlign]="eventAlignment == 'center'"  (click)="getEventAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.eventAlign]="eventAlignment == 'right'"  (click)="getEventAlign('right')"></i>
+        </div>
+
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex">
+            <p class="design-size" [class.eventSizeActive]="iconSize == '20'" (click)="changeIconSize(20)">S</p>
+            <p class="design-size" [class.eventSizeActive]="iconSize == '25'" (click)="changeIconSize(25)">M</p>
+            <p class="design-size" [class.eventSizeActive]="iconSize == '30'" (click)="changeIconSize(30)">L</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row mt-4">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closesalesevent()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ---------------D OWNLOAD   APP------------------- -->
+<div id="mydownloadapp" class="downloadapp design-app">
+
+  <div class="p-4">
+    <div class="d-flex">
+      <h4 class="fw-bold">Download Our App
+      </h4>
+      <a href="javascript:void(0)" class="closebtn" onclick="closedownloadapp()">×</a>
+    </div>
+
+    <h6>Add app title & links</h6>
+    <form class="mt-4" [formGroup]="downloadAppForm">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
+          </label></div>
+        <div class="col-auto"><input type="text" placeholder="Title here" class="form-control" formControlName="appName"
+            [(ngModel)]="appName"></div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">App Store
+          </label></div>
+        <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
+            formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
+            <ng-container class="po-re"
+            *ngIf="downloadAppForm.controls['appleAppLink'].touched && !downloadAppForm.controls['appleAppLink'].valid">
+            <small class="text-danger"
+              *ngIf="downloadAppForm.controls['appleAppLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Google Play :
+          </label></div>
+        <div class="col-auto"><input type="text" placeholder="URL here" class="form-control"
+            formControlName="googleAppLink" [(ngModel)]="googleAppLink"></div>
+            <ng-container class="po-re"
+            *ngIf="downloadAppForm.controls['googleAppLink'].touched && !downloadAppForm.controls['googleAppLink'].valid">
+            <small class="text-danger"
+              *ngIf="downloadAppForm.controls['googleAppLink'].hasError('pattern')">
+              Please enter a valid url.
+            </small>
+          </ng-container>
+      </div>
+    </form>
+
+    <div class="mt-5">
+      <h5 class="fw-bold">Style
+      </h5>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Font Size :</label>
+
+        </div>
+        <div class="col-auto">
+          <input type="range" min="0" max="4" [value]="appSizeFont" id="customRange2" class="form-range"
+            (change)="getdownloadFont($event)">
+        </div>
+      </div>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
+        </div>
+        <div class="col-auto">
+
+          <input [(colorPicker)]="appButtonColor" [style.background]="appButtonColor "
+            style="width:20px;height: 20px;" />
+
+        </div>
+      </div>
+
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.appBtnalignActive]="appbuttonAlign == 'left'" (click)="getDownloadbuttonAlign('left')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.appBtnalignActive]="appbuttonAlign == 'center'" (click)="getDownloadbuttonAlign('center')"></i>
+        </div>
+        <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.appBtnalignActive]="appbuttonAlign == 'right'" (click)="getDownloadbuttonAlign('right')"></i>
+        </div>
+        <!-- <div class="col-auto">
+          <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
+        </div> -->
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-auto">
+          <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
+        </div>
+        <div class="col-auto">
+          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

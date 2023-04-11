@@ -64,7 +64,7 @@ token:any;
  this.Email=sessionStorage.getItem('email')
  sessionStorage.removeItem('email')
 
- 
+//  this.isLoggedInAdmin();
     // this.spinner.show();
 
     // setTimeout(() => {
@@ -169,7 +169,7 @@ token:any;
     if (data) {
 
       sessionStorage.setItem('ClientSpark', this.tokenValue);
-     
+      localStorage.setItem('ClientSpark', this.tokenValue);
       this.sparkService.isLoggedInAdmin();
       console.log(this.sparkService.isLoggedIn);
       console.log(this.googleEmail)
@@ -218,6 +218,7 @@ let userDetail=res.result[0];
 
   logout() {
     sessionStorage.removeItem('AdminUser');
+    localStorage.removeItem('AdminUser');
   }
 
 

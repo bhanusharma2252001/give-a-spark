@@ -26,7 +26,8 @@ export class PlanDashboardComponent implements OnInit {
   private cardErrors: string | undefined;
   userDetails: any;
   planDetails: any;
-
+  buttonClicked = false;
+  buttonClicked1 = false;
   constructor(private elementRef:ElementRef,private api: SparkService, private spinner:NgxSpinnerService,private fb: FormBuilder) { }
 
    ngOnInit() {
@@ -39,6 +40,7 @@ export class PlanDashboardComponent implements OnInit {
 
 
   paymentSelectC() {
+    this.buttonClicked = true;
     let data = {
      "SelectPlan": "Plan C",
      "quantity":"1"
@@ -60,6 +62,7 @@ export class PlanDashboardComponent implements OnInit {
 
 
   paymentSelectB() {
+    this.buttonClicked1 = true;
     let data = {
       "SelectPlan": "Plan B",
       "quantity":"1"

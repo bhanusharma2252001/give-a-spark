@@ -128,6 +128,13 @@
               <div class="mb-3">
                 <label for="text" class="form-label">Name</label>
                 <input formControlName="firstName" class="form-control bg-gray text-gray ps-2 rounded-0 border-0 border-bottom p-0 " type="text" value="Readonly input here...">
+                <ng-container class="po-re"
+                *ngIf="giftForm.controls['firstName'].touched && !giftForm.controls['firstName'].valid">
+                <small class="text-danger"
+                  *ngIf="giftForm.controls['firstName'].hasError('pattern')">Please
+              Fill Name
+                </small>  <small class="fs-12 text-danger"  *ngIf="giftForm.get('firstName')?.hasError('required') ">Name is required </small>
+              </ng-container>
               </div>
               <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -138,6 +145,9 @@
                   *ngIf="giftForm.controls['email'].hasError('pattern')">Please
                   enter a valid Email.
                 </small>
+                
+                <small class="fs-12 text-danger" *ngIf="giftForm.get('email')?.hasError('required') "> Email is required </small>
+           
               </ng-container>
               </div>
               <div class="mb-3">

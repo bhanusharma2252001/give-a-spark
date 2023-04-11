@@ -25,7 +25,7 @@ export class EditSaveComponent implements OnInit {
   number: any;
  
 img:boolean=true;
-@ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
+@ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   editTemplateForm: FormGroup
   planShow = false;
@@ -148,10 +148,133 @@ copytext:any;
 
   @ViewChild('closeModal') private closeModal!: ElementRef;
 
-  @ViewChild('content') content: any;
+  // @ViewChild('content') content: any;
   userProfile: any;
   logo: any;
   std: any;
+
+// -------------Modal---------
+
+videoUrl: any;
+  videoid: any;
+  youId: any;
+  thumbnail: any;
+  youtubeTitle: any;
+  youUrl: any;
+  youImage: any;
+
+  icon: any;
+  url1: any;
+  profile1: any;
+  imageProfile1: any;
+  imageProfile2: any;
+  url2: string | ArrayBuffer | null | undefined;
+  profile2: any;
+  imageProfile3: any;
+  url3: string | ArrayBuffer | null | undefined;
+  profile3: any;
+  imageProfile4: any;
+  url4: string | ArrayBuffer | null | undefined;
+  profile4: any;
+  galleryTitle: any;
+  galleryLink: any;
+  imageRadious: any = 0;
+  galleryImage1: any;
+  galleryImage2: any;
+  galleryImage3: any;
+  galleryImage4: any;
+  imageSpace: any = 5;
+  eventdata: any;
+  eventAlignment: any = ''
+  eventSize: any = 10
+  iconSize: any = 20
+
+  appButtonSize: any = 10
+  public appButtonColor: string = '#000000';
+  appbuttonAlign: any = ''
+
+
+
+ public scheduleBg:string='#0009a3'
+scheduleSize:any=10
+scheduleShape:any=0
+
+
+content!: string;
+  newArray = [
+    { 'id': 1, 'content': "A" },
+    { 'id': 2, 'content': "B" },
+    { 'id': 3, 'content': "C" },
+
+  ]
+ 
+  textareaValue: any;
+  disclaimerSize: any = 10;
+  eventIcon: any;
+  eventTitle: any;
+  eventName: any;
+  eventLink: any;
+  footerText!: string;
+  footerValue: any;
+  greenIcon: any;
+  bannerImage: any;
+  bannerUrl: string | ArrayBuffer | null | undefined;
+  banner: any;
+  bannerLink: any;
+
+ 
+  appName: any;
+  appleAppLink: any;
+  googleAppLink: any;
+  customText: any;
+  customUrl: any;
+
+  scheduleLink: any;
+  scheduleIcon: any;
+  scheduleData: any;
+
+  footerSize: any = 12
+ 
+  footerAlignment: any = ''
+  disclaimerAlignment: any = ''
+  public youtubeColor: string = '#000000';
+  youtubeFont: any = 8
+  youtubeAlignment: any = ''
+  imageSize: any = 61
+  public footerColor: string = '#000000';
+  public disclaimerColor: string = '#000000';
+  public eventColor: string = '#000000';
+  bannerAlign: any = ''
+  customButtonShape:any = 0
+  customButtonSize:any=10
+  customAlign: any='';
+  bannerSize: any = 100
+
+ public buttonTextColor:string ='#fff'
+  public customButtonBg:string ='#0d6efd'
+  showInputBox: boolean = false;
+  selectedOption: string = 'option1';
+  inputValue: string = '';
+  showIcon!: boolean;
+  youtubeForm: FormGroup;
+  EventForm: FormGroup;
+  footerForm: FormGroup;
+  customGalleryForm: FormGroup;
+  disclaimerForm: FormGroup;
+  bannerForm: FormGroup;
+  downloadAppForm: FormGroup;
+  customButtonForm:FormGroup;
+  scheduleForm:FormGroup;
+  disclaimerValue:any=2
+  footerSizeVal: number=2;
+  imageLink: any;
+  imageSpaceVal: number=2;
+  imgSizeVal: number=1;
+  youtubeUrl: any;
+  youtubeVal: number=3;
+  bannerSizeVal: number=3;
+  eventFontVal: number=2;
+  appSizeFont: number=1;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
       const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -173,6 +296,52 @@ copytext:any;
       twitterProfile:  ['', [ Validators.pattern(reg)]],
       signatureName:['']
     })
+    
+
+    this.youtubeForm = this.fb.group({
+      youtubeUrl: ['', [Validators.required]],
+      youtubeTitle: ['', Validators.required]
+    })
+
+    this.EventForm = this.fb.group({
+      eventTitle: [''],
+      eventName: [''],
+      eventLink: ['', [Validators.pattern(reg)]]
+    })
+
+    this.footerForm = this.fb.group({
+      greenFooter: ['']
+    })
+    this.customGalleryForm = this.fb.group({
+      customProfile1: [''],
+      customProfile2: [''],
+      customProfile3: [''],
+      customProfile4: [''],
+      imageTitle: [''],
+      imageLink: ['', [Validators.pattern(reg)]]
+    })
+
+    this.disclaimerForm = this.fb.group({
+      disclaimer: ['']
+    })
+
+    this.bannerForm = this.fb.group({
+      bannerLink: ['', [Validators.pattern(reg)]]
+    })
+    this.downloadAppForm = this.fb.group({
+      appName: [''],
+      appleAppLink: ['', [Validators.pattern(reg)]],
+      googleAppLink: ['', [Validators.pattern(reg)]]
+    })
+    this.customButtonForm=this.fb.group({
+      customButtonText: [''],
+      customUrl: ['', [Validators.required,Validators.pattern(reg)]],
+    })
+
+this.scheduleForm=this.fb.group({
+  scheduleLink: ['', [Validators.pattern(reg)]],
+  scheduleText: [''], 
+})
 
     this.getTemplateId()
   }
@@ -581,8 +750,90 @@ this.userProfile=data?.profileImage
         // this.quotevar=this.LongQuote
   
       }
+      // schedule 
+      this.inputValue = data?.scheduleText
+      this.scheduleSize = Number(data?.templateDesign?.scheduleSize)
+      this.scheduleBg = data?.templateDesign?.scheduleBg
+      this.scheduleIcon = data?.scheduleIcon
+      this.scheduleShape = data?.templateDesign?.scheduleShape
+      this.scheduleLink = data?.scheduleLink
+      //disclaimer
+      this.content = data?.disclaimer
+      this.disclaimerColor = data?.templateDesign?.disclaimerColor
+      this.disclaimerSize = Number(data?.templateDesign?.disclaimerSize)
+      this.disclaimerValue = (this.disclaimerSize == 14)?4:(this.disclaimerSize == 12)?3:(this.disclaimerSize == 10) ? 2 : 1
+      this.disclaimerAlignment = data?.templateDesign?.disclaimerAlignment
+
+    //footer
+      this.footerText = data?.greenFooter
+      this.greenIcon=data?.greenIcon
+      this.footerColor = data?.templateDesign?.footerColor
+      this.footerSize = Number(data?.templateDesign?.footerSize)
+      this.footerSizeVal = (this.footerSize == 12)?3:(this.footerSize == 10) ? 2 : 1
+      this.footerAlignment = data?.templateDesign?.footerAlignment
+      // image gallery
+      this.url1 = data?.customProfile1;
+      this.url2 = data?.customProfile2
+      this.url3 = data?.customProfile3
+      this.url4 = data?.customProfile4
+      this.galleryTitle = data?.imageTitle;
+      this.imageLink = data?.imageLink
+      this.imageRadious = data?.templateDesign?.imageRadious
+      this.imageSpace = Number(data?.templateDesign?.imageSpace)
+      this.imageSpaceVal = (this.imageSpace == 13)?5:(this.imageSpace == 11)?4:(this.imageSpace == 10) ? 3 : (this.imageSpace == 8)? 2 : 1
+      this.imageSize = Number(data?.templateDesign?.imageSize)
+      this.imgSizeVal = (this.imageSize == 150)?5:(this.imageSize == 125)?4:(this.imageSize == 80) ? 3 : (this.imageSize == 61)? 2 : 1
+      
+      // youtube
+      this.youtubeUrl = data?.youtubeUrl
+      if(this.youtubeUrl) {
+        this.getUrl()
+      }
+      this.youtubeTitle = data?.youtubeTitle
+      this.youtubeColor = data?.templateDesign?.youtubeColor
+      this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
+      this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
+      this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
+     
+      // custom button
+      this.customText = data?.customButtonText
+      this.customUrl = data?.customUrl
+      this.customButtonShape = data?.templateDesign?.customButtonShape
+      this.customButtonBg = data?.templateDesign?.customButtonBg
+      this.buttonTextColor = data?.templateDesign?.buttonTextColor
+      this.customButtonSize = data?.templateDesign?.customButtonSize
+      this.customAlign = data?.templateDesign?.customButtonAlign
+
+      // banner
+      this.bannerUrl = data?.bannerImage
+      this.bannerLink = data?.bannerLink
+      this.bannerAlign = data?.templateDesign?.bannerAlign
+      this.bannerSize = Number(data?.templateDesign?.bannerSize)
+      this.bannerSizeVal = (this.bannerSize == 100)?3:(this.bannerSize == 75)?2:(this.bannerSize == 50) ? 1 : 300
+
+      // sales event
+      this.eventTitle = data?.eventTitle
+      this.eventName =  data?.eventName
+      this.eventLink =  data?.eventLink
+      this.eventIcon = data?.eventIcon
+      this.eventColor = data?.templateDesign?.eventColor
+      this.eventSize = Number(data?.templateDesign?.eventSize)
+      this.eventFontVal = (this.eventSize == 14)?4:(this.eventSize == 13)?3:(this.eventSize == 12) ? 2 : 1
+      this.eventAlignment = data?.templateDesign?.eventAlignment
+      this.iconSize = data?.templateDesign?.iconSize
+
+      //download app 
+      this.appName = data?.appName
+      this.appleAppLink = data?.appleAppLink
+      this.googleAppLink = data?.googleAppLink
+      this.appButtonColor = data?.templateDesign.appButtonColor
+      this.appbuttonAlign = data?.templateDesign?.appbuttonAlign
+      this.appButtonSize = Number(data?.templateDesign?.appButtonSize)
+      this.appSizeFont = (this.appButtonSize == 16)?4:(this.appButtonSize == 14)?3:(this.appButtonSize == 14) ? 2 : (this.appButtonSize == 12)?1 : 0
+
+     
  }
-   
+    
 
 //  i'm  using this only for qrcode
  gettemplatebyUser(){
@@ -633,5 +884,822 @@ console.log(this.code);
     }
     
   }
+
+
+
+
+
+
+
+    //  --------- YOU TUBE PLAYLIST-----
+  
+  
+  
+    titleAlign(val: any) {
+      this.youtubeAlignment = val;
+    } 
+  youtubeIcon(val: any) {
+    // if (this.showPro = !this.showPro) {
+    //   this.templatData = false;
+    // }
+    this.icon = val
+
+    this.showIcon = !this.showIcon;
+    console.log(this.showIcon);
+
+  }
+
+
+  changeYoutubeSize(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+      this.youtubeFont = 9
+    } else if (currnetSize == 5) {
+      this.youtubeFont = 12
+    } else if (currnetSize == 3) {
+      this.youtubeFont = 8
+    } else if (currnetSize == 2) {
+      this.youtubeFont = 7
+    } else {
+      this.youtubeFont = 6
+    }
+  }
+    getUrl() {
+
+
+      this.videoUrl = this.youtubeForm.value.youtubeUrl?this.youtubeForm.value.youtubeUrl:this.youtubeUrl;
+  
+      console.log(this.videoUrl, "videoUrl name");
+  
+      this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+      if (this.videoid != null) {
+        console.log("video id = ", this.videoid[1]);
+        this.youId = this.videoid[1];
+        console.log(this.youId, "youtube ID");
+  
+  
+      } else {
+        console.log("The youtube url is not valid.");
+      }
+      this.thumbnail = "http://img.youtube.com/vi/" + this.youId + "/" + "mqdefault" + ".jpg";
+      console.log(this.thumbnail,'thtiroshtfoi');
+      
+  
+  
+    }
+  
+  
+  
+    youTubeDetails() {
+      this.youtubeTitle = this.youtubeForm.value.youtubeTitle;
+      this.getUrl();
+      console.log(this.youtubeTitle)
+      this.toast.show('Please click On Create Signature to Save ')
+    }
+
+  // ---------CUSTOM  IMAGE GALLLERY-------
+
+
+  chaneImageSize(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+
+      this.imageSize = 125
+
+    } else if (currnetSize == 5) {
+
+      this.imageSize = 150
+
+    } else if (currnetSize == 3) {
+
+
+      this.imageSize = 80
+    } else if (currnetSize == 2) {
+
+
+      this.imageSize = 61
+    } else {
+
+
+      this.imageSize = 50
+    }
+  }
+
+  changeImageRadious(val: any) {
+    this.imageRadious = val
+  }
+  changeImageSpace(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+
+      this.imageSpace = 11
+
+    } else if (currnetSize == 5) {
+
+      this.imageSpace = 13
+
+    } else if (currnetSize == 3) {
+
+
+      this.imageSpace = 10
+    } else if (currnetSize == 2) {
+
+
+      this.imageSpace = 8
+    } else {
+
+
+      this.imageSpace = 6
+    }
+  }
+
+  // ------------ CUSTOM PROFILE-1-------------
+
+  onSelectFile1(event: any) {
+    this.Submitted = true;
+    let files = event.target.files;
+    this.fileImageName = event.target.files[0].name;
+    if (files) {
+      this.imageProfile1 = files[0]
+      this.File1ubmit()
+      for (let file of files) {
+        if (!file.type.includes('image')) {
+          this.isImage = false;
+          return;
+        }
+        this.fileData.push(file);
+      }
+    }
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url1 = event.target?.result;
+        console.log(this.url,'admlasdal');
+        
+      };
+    }
+
+  }
+
+  File1ubmit() {
+    this.Submitted = true
+    let formData = new FormData();
+    formData.append('attachment', this.imageProfile1);
+    // this.spinner.show()
+    this.api.addAttachments(formData).subscribe(
+      (res: any) => {
+
+        // this.imageData1 = res;
+        // this.imageData2 = this.imageData1[0].key;
+        this.profile1 = res[0]?.key;
+        this.url1 = this.profile1
+        console.log(this.profile1, 'image111111');
+
+        // console.log(this.imageData1[0].key, "image key ")
+
+      },
+      (err: any) => {
+        // this.spinner.hide()
+        console.log(err);
+
+      }
+    )
+
+  }
+
+
+
+  // -------------- CUSTOM PROFILE -2 -----------
+  onSelectFile2(event: any) {
+    this.Submitted = true;
+    let files = event.target.files;
+    this.fileImageName = event.target.files[0].name;
+    if (files) {
+      this.imageProfile2 = files[0]
+      this.File1ubmit2()
+      for (let file of files) {
+        if (!file.type.includes('image')) {
+          this.isImage = false;
+          return;
+        }
+        this.fileData.push(file);
+      }
+    }
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url2 = event.target?.result;
+      };
+    }
+
+  }
+
+  File1ubmit2() {
+    this.Submitted = true
+    let formData = new FormData();
+    formData.append('attachment', this.imageProfile2);
+    // this.spinner.show()
+    this.api.addAttachments(formData).subscribe(
+      (res: any) => {
+
+        // this.imageData1 = res;
+        // this.imageData2 = this.imageData1[0].key;
+        this.profile2 = res[0]?.key;
+        this.url2 = this.profile2
+        console.log(this.profile1, 'image111111');
+
+        // console.log(this.imageData1[0].key, "image key ")
+
+      },
+      (err: any) => {
+        // this.spinner.hide()
+        console.log(err);
+
+      }
+    )
+
+  }
+
+
+  // ---------------CUSTOM PROFILE-3------------
+  onSelectFile3(event: any) {
+    this.Submitted = true;
+    let files = event.target.files;
+    this.fileImageName = event.target.files[0].name;
+    if (files) {
+      this.imageProfile3 = files[0]
+      this.File1ubmit3()
+      for (let file of files) {
+        if (!file.type.includes('image')) {
+          this.isImage = false;
+          return;
+        }
+        this.fileData.push(file);
+      }
+    }
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url3 = event.target?.result;
+      };
+    }
+
+  }
+
+  File1ubmit3() {
+    this.Submitted = true
+    let formData = new FormData();
+    formData.append('attachment', this.imageProfile3);
+    // this.spinner.show()
+    this.api.addAttachments(formData).subscribe(
+      (res: any) => {
+
+        // this.imageData1 = res;
+        // this.imageData2 = this.imageData1[0].key;
+        this.profile3 = res[0]?.key;
+        this.url3 = this.profile3
+        console.log(this.profile3, 'image111111');
+
+        // console.log(this.imageData1[0].key, "image key ")
+
+      },
+      (err: any) => {
+        // this.spinner.hide()
+        console.log(err);
+
+      }
+    )
+
+  }
+
+
+  // ---------------CUSTOM PROFILE-4------------
+  onSelectFile4(event: any) {
+    this.Submitted = true;
+    let files = event.target.files;
+    this.fileImageName = event.target.files[0].name;
+    if (files) {
+      this.imageProfile4 = files[0]
+      this.File1ubmit4()
+      for (let file of files) {
+        if (!file.type.includes('image')) {
+          this.isImage = false;
+          return;
+        }
+        this.fileData.push(file);
+      }
+    }
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url4 = event.target?.result;
+      };
+    }
+
+  }
+
+  File1ubmit4() {
+    this.Submitted = true
+    let formData = new FormData();
+    formData.append('attachment', this.imageProfile4);
+    // this.spinner.show()
+    this.api.addAttachments(formData).subscribe(
+      (res: any) => {
+
+        // this.imageData1 = res;
+        // this.imageData2 = this.imageData1[0].key;
+        this.profile4 = res[0]?.key;
+        this.url4 = this.profile4
+        console.log(this.profile4, 'image111111');
+
+        // console.log(this.imageData1[0].key, "image key ")
+
+      },
+      (err: any) => {
+        // this.spinner.hide()
+        console.log(err);
+
+      }
+    )
+
+  }
+
+
+  imageDetails(data: any) {
+    this.galleryTitle = data.imageTitle
+    this.galleryLink = data.imageLink
+    console.log(this.galleryLink, 'link of image')
+    console.log(this.galleryTitle, 'title')
+    this.toast.show('Please click On Create Signature to Save after you done editing ')
+  }
+
+
+  // -------- DI S CLAIMER  FONT------
+  
+  getEvent(event: any, data: any) {
+    this.eventdata = data;
+    if (this.eventdata == 1) {
+      this.textareaValue = ''
+      this.content = "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof."
+    }
+    else if (this.eventdata == 2) {
+
+
+      this.content = "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments."
+    }
+    else if (this.eventdata == 3) {
+
+      this.content = "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation."
+    }
+    else if (this.eventdata == 4) {
+
+      this.content = "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message."
+    }
+    else if (this.eventdata == 5) {
+
+      this.content = "If you received this email in error, please notify us immediately by sending an e-mail or by calling."
+    }
+    else if((this.eventdata == 6)){
+      this.content = ''
+    }
+
+    console.log(this.eventdata, this.content, "toggle data");
+
+
+  }
+
+  checkCustomDisclamir(content:any) :any{
+    if (this.content == "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof." || this.content == "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments." || this.content == "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation." || this.content == "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message." || this.content == "If you received this email in error, please notify us immediately by sending an e-mail or by calling.") {
+     return false
+    }
+    else {
+      return true
+    }
+  }
+  changeDesclaimer() {
+
+    this.textareaValue = this.disclaimerForm.value.disclaimer
+    this.content = this.textareaValue
+    console.log(this.textareaValue, 'kaya');
+    console.log(this.content, 'content');
+
+
+
+  }
+
+  disclaimerSizechange(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+
+      this.disclaimerSize = 14
+
+    } else if (currnetSize == 3) {
+
+
+      this.disclaimerSize = 12
+    } else if (currnetSize == 2) {
+
+
+      this.disclaimerSize = 10
+    } else {
+
+
+
+
+      this.disclaimerSize = 8
+    }
+  }
+
+
+  changeDiscAlign(val: any) {
+    this.disclaimerAlignment = val
+  }
+
+  // ------------ S A L E S   E V E N T ----------
+  salesEvent(event: any, data: any) {
+    this.eventdata = data;
+    if (this.eventdata == 1) {
+      this.textareaValue = ''
+      this.eventIcon ="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-tag.png"
+    }
+    else if (this.eventdata == 2) {
+
+
+      this.eventIcon ="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/giftbox.png"
+    }
+    else if (this.eventdata == 3) {
+
+      this.eventIcon ="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-black.png"
+    }
+
+
+    console.log(this.eventdata, this.eventIcon, "toggle data");
+
+
+  }
+
+  getEventAlign(val: any) {
+    this.eventAlignment = val
+  }
+
+  changeIconSize(evt: any) {
+    this.iconSize = evt
+
+  }
+  getEventFontSize(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+
+      this.eventSize = 14
+
+    } else if (currnetSize == 3) {
+
+
+      this.eventSize = 13
+    } else if (currnetSize == 2) {
+
+
+      this.eventSize = 12
+    } else if (currnetSize == 1) {
+
+
+      this.eventSize = 10
+    }
+
+  }
+  getSalesDetails() {
+    this.eventTitle = this.EventForm.value.eventTitle;
+    this.eventName = this.EventForm.value.eventName;
+    this.eventLink = this.EventForm.value.eventLink;
+    console.log(this.eventTitle, this.eventName, this.eventLink, 'Sales Event')
+  }
+
+
+
+
+
+  // --------------footer-----------
+
+
+
+
+  chooseFooter(event: any, data: any) {
+    // debugger
+    this.eventdata = data;
+    if (this.eventdata == 1) {
+      this.footerValue = ''
+      this.footerText = "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy."
+    }
+    else if (this.eventdata == 2) {
+
+      this.footerValue = ''
+      this.footerText = "Please consider the environment before printing this e-mail!"
+    }
+    else if (this.eventdata == 3) {
+      this.footerValue = ''
+      this.footerText = "Do you really need to print this email?"
+    }
+    else if (this.eventdata == 4) {
+      this.footerValue = ''
+      this.footerText = "Printing emails kills trees. Print is murder!"
+    }
+    else if (this.eventdata == 5) {
+      this.footerValue = ''
+      this.footerText = "Do not print this, Ok?"
+    }
+    else if (this.eventdata == 6) {
+
+      this.footerText = ''
+    }
+
+    console.log(this.eventdata, this.footerText, "toggle data");
+
+
+  }
+
+  isCustomFooter(data:any):any {
+    if(data == "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy." || data == "Please consider the environment before printing this e-mail!" || data == "Do you really need to print this email?"|| data == "Printing emails kills trees. Print is murder!" || data == "Do not print this, Ok?") {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  customFooter() {
+
+    this.footerValue = this.footerForm.value.greenFooter
+    this.footerText = this.footerValue
+    // console.log(this.textareaValue , 'kaya');
+    console.log(this.footerText, 'content');
+
+
+
+  }
+
+  selectfooterIcon(event: any, data: any) {
+    this.eventdata = data;
+    if (this.eventdata == 1) {
+
+      this.greenIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png"
+    }
+    else if (this.eventdata == 2) {
+
+
+      this.greenIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/category/green-icon.png"
+    }
+    else if (this.eventdata == 3) {
+
+      this.greenIcon = 'https://giveaspark.s3.us-west-1.amazonaws.com/category/image_2023_03_29T08_56_13_879Z.png'
+    }
+
+
+    console.log(this.eventdata, this.greenIcon, "toggle data");
+  }
+
+
+
+
+
+  getFooterSize(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 3) {
+
+      this.footerSize = 12
+
+    } else if (currnetSize == 2) {
+
+
+      this.footerSize = 10
+    } else if (currnetSize == 1) {
+
+
+      this.footerSize = 8
+    } else {
+
+
+
+
+      this.footerSize = 8
+    }
+
+  }
+
+  getFooterAlignment(val: any) {
+    this.footerAlignment = val
+
+  }
+
+
+  // ------------------- B A N N E R ---------------
+
+
+
+
+
+  selectBanner(event: any) {
+    this.Submitted = true;
+    let files = event.target.files;
+    this.fileImageName = event.target.files[0].name;
+    if (files) {
+      this.bannerImage = files[0]
+      this.submitBanner();
+      for (let file of files) {
+        if (!file.type.includes('image')) {
+          this.isImage = false;
+          return;
+        }
+        this.fileData.push(file);
+      }
+    }
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.bannerUrl = event.target?.result;
+        console.log(this.bannerUrl,'url find');
+        
+      };
+    }
+
+  }
+
+  submitBanner() {
+    this.Submitted = true
+    let formData = new FormData();
+    formData.append('attachment', this.bannerImage);
+    // this.spinner.show()
+    this.api.addAttachments(formData).subscribe(
+      (res: any) => {
+
+        // this.imageData1 = res;
+        // this.imageData2 = this.imageData1[0].key;
+        this.banner = res[0]?.key;
+        this.bannerUrl = this.banner
+        console.log(this.profile4, 'image111111');
+
+        // console.log(this.imageData1[0].key, "image key ")
+
+      },
+      (err: any) => {
+        // this.spinner.hide()
+        console.log(err);
+
+      }
+    )
+
+  }
+
+
+  changeBannerSize(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 3) {
+
+      this.bannerSize = 100
+
+    } else if (currnetSize == 2) {
+
+
+      this.bannerSize = 75
+    } else if (currnetSize == 1) {
+
+
+      this.bannerSize = 50
+    } else {
+
+
+
+
+      this.bannerSize = 300
+    }
+
+  }
+
+  bannerAlignment(val: any) {
+    this.bannerAlign = val
+  }
+
+
+
+
+
+  bannerValue() {
+    this.bannerLink = this.bannerForm.value.bannerLink
+    console.log(this.bannerLink);
+
+  }
+
+
+
+  // -----------------DOWNLOAD APP----------
+
+  getdownloadFont(evt: any) {
+    let currnetSize = Number(evt.target.value);
+    if (currnetSize == 4) {
+
+      this.appButtonSize = 16
+
+    } else if (currnetSize == 3) {
+
+
+      this.appButtonSize = 14
+    } 
+    else if (currnetSize == 2) {
+
+
+      this.appButtonSize = 14
+    } else if (currnetSize == 1) {
+
+
+      this.appButtonSize = 12
+    } else {
+
+
+
+
+      this.appButtonSize = 10
+    }
+
+
+  }
+
+  getDownloadbuttonAlign(val: any) {
+    this.appbuttonAlign = val
+  }
+  getAppDetails() {
+    this.appName = this.downloadAppForm.value.appName
+    this.appleAppLink = this.downloadAppForm.value.appleAppLink
+    this.googleAppLink = this.downloadAppForm.value.googleAppLink
+console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
+
+  }
+
+
+
+
+
+
+
+// -------------------CUSTOM  BUTTON--------------------
+customButtonAlign(val:any){
+  this.customAlign=val
+  console.log(this.customAlign, 'size')
+  }
+  getButtonShape(val:any){
+    this.customButtonShape=val
+  }
+  
+  getCustomSize(val:any){
+    this.customButtonSize=val
+    console.log(this.customButtonSize, 'size')
+  
+  }
+  getCustoBtDetails(){
+    this.customText=this.customButtonForm.value.customButtonText
+   this.customUrl=this.customButtonForm.value.customUrl
+  
+  }
+
+// ----------------------- S C H E D U L E R --------------------
+
+
+getScheduleSize(val:any){
+  this.scheduleSize=val
+  console.log(this.scheduleSize, 'size')
+}
+
+getScheduleShape(val:any){
+  this.scheduleShape=val
+  console.log(this.scheduleShape, 'size')
+}
+getScheduleDetails(){
+this.inputValue=this.scheduleForm.value.scheduleText
+this.scheduleLink=this.scheduleForm.value.scheduleLink
+console.log(this.inputValue, this.scheduleLink, 'schedule')
+}
+
+
+getScheduleIcon(event: any, data: any){
+ 
+    this.scheduleData = data;
+    if (this.scheduleData == 1) {
+      this.scheduleIcon = "https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-calender.png"
+    }
+    else if (this.scheduleData == 2) {
+      this.scheduleIcon ="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-clock.png"
+    }
+    else if (this.scheduleData == 3) {
+      this.scheduleIcon ="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-meet.png"
+    }
+
+
+    console.log(this.scheduleData, this.scheduleIcon, "toggle data");
+
+
+  }
+
 
 }
