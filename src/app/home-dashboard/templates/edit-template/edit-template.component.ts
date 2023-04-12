@@ -180,7 +180,7 @@ copytext:any;
   eventdata: any;
   eventAlignment: any = ''
   eventSize: any = 10
-  iconSize: any = 20
+  iconSize: any = 30
 
   appButtonSize: any = 10
   public appButtonColor: string = '#000000';
@@ -193,7 +193,7 @@ scheduleSize:any=10
 scheduleShape:any=0
 
 
-content: string;
+content!: string;
   newArray = [
     { 'id': 1, 'content': "A" },
     { 'id': 2, 'content': "B" },
@@ -207,7 +207,7 @@ content: string;
   eventTitle: any;
   eventName: any;
   eventLink: any;
-  footerText: string;
+  footerText!: string;
   footerValue: any;
   greenIcon: any;
   bannerImage: any;
@@ -248,7 +248,7 @@ content: string;
   showInputBox: boolean = false;
   selectedOption: string = 'option1';
   inputValue: string = '';
-  showIcon: boolean;
+  showIcon!: boolean;
   youtubeForm: FormGroup;
   EventForm: FormGroup;
   footerForm: FormGroup;
@@ -258,9 +258,18 @@ content: string;
   downloadAppForm: FormGroup;
   customButtonForm:FormGroup;
   scheduleForm:FormGroup;
-
+  disclaimerValue:any=2
+  footerSizeVal: number=2;
+  imageLink: any;
+  imageSpaceVal: number=2;
+  imgSizeVal: number=1;
+  youtubeUrl: any;
+  youtubeVal: number=3;
+  bannerSizeVal: number=3;
+  eventFontVal: number=2;
+  appSizeFont: number=1;
   // --------------end---------
-  @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
+  @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
 
   constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
@@ -602,6 +611,80 @@ hideModel() {
       } else if(this.proPlusTemplate) {
         body['proPlusTemplateId']=this.templateId
       }
+
+      body['disclaimer'] = this.content,
+        body['fbProfile'] = data.fbProfile,
+        body['twitterProfile'] = data?.twitterProfile,
+        body['instagramProfile'] = data.instagramProfile,
+        body['linkedInProfile'] = data.linkedInProfile,
+        body['youtubeChannel'] = data.youtubeChannel,
+        body['youtubeUrl'] = this.videoUrl,
+        body['youtubeTitle'] = this.youtubeTitle,
+        body['thumbnailImage']=this.thumbnail,
+        body['customProfile1'] = this.url1,
+        body['customProfile2'] = this.url2,
+        body['customProfile3'] = this.url3,
+        body['customProfile4'] = this.url4,
+        body['imageTitle'] = this.galleryTitle,
+        body['imageLink'] = this.galleryLink,
+        body['eventTitle'] = this.eventTitle,
+        body['eventLink'] = this.eventLink,
+        body['eventName'] = this.eventName,
+        body['eventIcon'] = this.eventIcon,
+        body['greenFooter'] = this.footerText,
+        body['greenIcon'] = this.greenIcon,
+        body['bannerImage'] =this.bannerUrl
+      body['bannerLink'] = this.bannerLink
+      body['appName'] = this.appName
+      body['appleAppLink'] = this.appleAppLink
+      body['googleAppLink'] = this.googleAppLink
+      body ['customButtonText']=this.customText,
+      body['customUrl']=this.customUrl,
+      body['scheduleText'] =this.inputValue
+      body['scheduleLink'] =this.scheduleLink
+      body['scheduleIcon']=this.scheduleIcon
+   body['templateDesign'] = {
+        firstNameColor: this.firstNameColor,
+        lastNameColor: this.lastNameColor,
+        designationColor: this.designationColor,
+        contactDetailColor: this.contactDetailColor,
+        fontFamily: this.fontFamilyNew,
+        fontSize: this.templateFontSize,
+        lineHeight: this.lineHeight,
+        fontSizeItem: this.itemFontSize,
+        nameFontSize: this.fontSizeName,
+        nameAlign: this.nameAlign,
+        borderRadius: this.borderRadius,
+        youtubeColor: this.youtubeColor,
+        youtubeFont: this.youtubeFont,
+        youtubeAlignment: this.youtubeAlignment,
+        disclaimerAlignment: this.disclaimerAlignment,
+        disclaimerSize: this.disclaimerSize,
+        disclaimerColor: this.disclaimerColor,
+        imageRadious: this.imageRadious,
+        imageSize: this.imageSize,
+        imageSpace: this.imageSpace,
+        eventColor: this.eventColor,
+        eventSize: this.eventSize,
+        iconSize: this.iconSize,
+        eventAlignment: this.eventAlignment,
+        footerSize: this.footerSize,
+        footerColor: this.footerColor,
+        footerAlignment: this.footerAlignment,
+        bannerSize: this.bannerSize,
+        bannerAlign: this.bannerAlign,
+        appbuttonAlign: this.appbuttonAlign,
+        appButtonSize: this.appButtonSize,
+        appButtonColor: this.appButtonColor,
+        customButtonSize:this.customButtonSize,
+        buttonTextColor:this.buttonTextColor,
+        customButtonShape:this.customButtonShape,
+        customButtonAlign:this.customAlign,
+        customButtonBg:this.customButtonBg,
+        scheduleBg:this.scheduleBg,
+        scheduleSize:this.scheduleSize,
+        scheduleShape:this.scheduleShape
+      }
     console.log(body,'dssfcsfvcs');
     
 
@@ -867,6 +950,89 @@ console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
         this.quotevar=this.LongQuote
   
       }
+
+       // schedule 
+       this.inputValue = data?.scheduleText
+       this.scheduleSize = Number(data?.templateDesign?.scheduleSize)
+       this.scheduleBg = data?.templateDesign?.scheduleBg
+       this.scheduleIcon = data?.scheduleIcon
+       this.scheduleShape = data?.templateDesign?.scheduleShape
+       this.scheduleLink = data?.scheduleLink
+       //disclaimer
+       this.content = data?.disclaimer
+       this.disclaimerColor = data?.templateDesign?.disclaimerColor
+       this.disclaimerSize = Number(data?.templateDesign?.disclaimerSize)
+       this.disclaimerValue = (this.disclaimerSize == 14)?4:(this.disclaimerSize == 12)?3:(this.disclaimerSize == 10) ? 2 : 1
+       this.disclaimerAlignment = data?.templateDesign?.disclaimerAlignment
+ 
+     //footer
+       this.footerText = data?.greenFooter
+       this.greenIcon=data?.greenIcon
+       this.footerColor = data?.templateDesign?.footerColor
+       this.footerSize = Number(data?.templateDesign?.footerSize)
+       this.footerSizeVal = (this.footerSize == 12)?3:(this.footerSize == 10) ? 2 : 1
+       this.footerAlignment = data?.templateDesign?.footerAlignment
+       // image gallery
+       this.url1 = data?.customProfile1;
+       this.url2 = data?.customProfile2
+       this.url3 = data?.customProfile3
+       this.url4 = data?.customProfile4
+       this.galleryTitle = data?.imageTitle;
+       this.imageLink = data?.imageLink
+       this.imageRadious = data?.templateDesign?.imageRadious
+       this.imageSpace = Number(data?.templateDesign?.imageSpace)
+       this.imageSpaceVal = (this.imageSpace == 13)?5:(this.imageSpace == 11)?4:(this.imageSpace == 10) ? 3 : (this.imageSpace == 8)? 2 : 1
+       this.imageSize = Number(data?.templateDesign?.imageSize)
+       this.imgSizeVal = (this.imageSize == 150)?5:(this.imageSize == 125)?4:(this.imageSize == 80) ? 3 : (this.imageSize == 61)? 2 : 1
+       
+       // youtube
+       this.youtubeUrl = data?.youtubeUrl
+       if(this.youtubeUrl) {
+         this.getUrl()
+       }
+       this.thumbnail=data?.thumbnailImage
+       this.youtubeTitle = data?.youtubeTitle
+       this.youtubeColor = data?.templateDesign?.youtubeColor
+       this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
+       this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
+       this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
+      
+       // custom button
+       this.customText = data?.customButtonText
+       this.customUrl = data?.customUrl
+       this.customButtonShape = data?.templateDesign?.customButtonShape
+       this.customButtonBg = data?.templateDesign?.customButtonBg
+       this.buttonTextColor = data?.templateDesign?.buttonTextColor
+       this.customButtonSize = data?.templateDesign?.customButtonSize
+       this.customAlign = data?.templateDesign?.customButtonAlign
+ 
+       // banner
+       this.bannerUrl = data?.bannerImage
+       this.bannerLink = data?.bannerLink
+       this.bannerAlign = data?.templateDesign?.bannerAlign
+       this.bannerSize = Number(data?.templateDesign?.bannerSize)
+       this.bannerSizeVal = (this.bannerSize == 100)?3:(this.bannerSize == 75)?2:(this.bannerSize == 50) ? 1 : 300
+ 
+       // sales event
+       this.eventTitle = data?.eventTitle
+       this.eventName =  data?.eventName
+       this.eventLink =  data?.eventLink
+       this.eventIcon = data?.eventIcon
+       this.eventColor = data?.templateDesign?.eventColor
+       this.eventSize = Number(data?.templateDesign?.eventSize)
+       this.eventFontVal = (this.eventSize == 14)?4:(this.eventSize == 13)?3:(this.eventSize == 12) ? 2 : 1
+       this.eventAlignment = data?.templateDesign?.eventAlignment
+       this.iconSize = data?.templateDesign?.iconSize
+ 
+       //download app 
+       this.appName = data?.appName
+       this.appleAppLink = data?.appleAppLink
+       this.googleAppLink = data?.googleAppLink
+       this.appButtonColor = data?.templateDesign.appButtonColor
+       this.appbuttonAlign = data?.templateDesign?.appbuttonAlign
+       this.appButtonSize = Number(data?.templateDesign?.appButtonSize)
+       this.appSizeFont = (this.appButtonSize == 16)?4:(this.appButtonSize == 14)?3:(this.appButtonSize == 14) ? 2 : (this.appButtonSize == 12)?1 : 0
+ 
  }
  getSignature(){
  
@@ -962,7 +1128,7 @@ changeYoutubeSize(evt: any) {
   getUrl() {
 
 
-    this.videoUrl = this.youtubeForm.value.youtubeUrl;
+    this.videoUrl = this.youtubeForm.value.youtubeUrl?this.youtubeForm.value.youtubeUrl:this.youtubeUrl;
 
     console.log(this.videoUrl, "videoUrl name");
 
@@ -1085,6 +1251,7 @@ File1ubmit() {
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile1 = res[0]?.key;
+      this.url1 = this.profile1
       console.log(this.profile1, 'image111111');
 
       // console.log(this.imageData1[0].key, "image key ")
@@ -1138,6 +1305,7 @@ File1ubmit2() {
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile2 = res[0]?.key;
+      this.url2 = this.profile2
       console.log(this.profile1, 'image111111');
 
       // console.log(this.imageData1[0].key, "image key ")
@@ -1190,6 +1358,7 @@ File1ubmit3() {
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile3 = res[0]?.key;
+      this.url3 = this.profile3
       console.log(this.profile3, 'image111111');
 
       // console.log(this.imageData1[0].key, "image key ")
@@ -1242,6 +1411,7 @@ File1ubmit4() {
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile4 = res[0]?.key;
+      this.url4 = this.profile4
       console.log(this.profile4, 'image111111');
 
       // console.log(this.imageData1[0].key, "image key ")
@@ -1272,24 +1442,24 @@ getEvent(event: any, data: any) {
   this.eventdata = data;
   if (this.eventdata == 1) {
     this.textareaValue = ''
-    this.content = " IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof. "
+    this.content = "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof."
   }
   else if (this.eventdata == 2) {
 
 
-    this.content = " Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments. "
+    this.content = "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments."
   }
   else if (this.eventdata == 3) {
 
-    this.content = " No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation.  "
+    this.content = "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation."
   }
   else if (this.eventdata == 4) {
 
-    this.content = "  All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message.  "
+    this.content = "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message."
   }
   else if (this.eventdata == 5) {
 
-    this.content = "  If you received this email in error, please notify us immediately by sending an e-mail or by calling. "
+    this.content = "If you received this email in error, please notify us immediately by sending an e-mail or by calling."
   }
   else {
     this.content = ''
@@ -1298,6 +1468,14 @@ getEvent(event: any, data: any) {
   console.log(this.eventdata, this.content, "toggle data");
 
 
+}
+checkCustomDisclamir(content:any) :any{
+  if (this.content == "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof." || this.content == "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments." || this.content == "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation." || this.content == "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message." || this.content == "If you received this email in error, please notify us immediately by sending an e-mail or by calling.") {
+   return false
+  }
+  else {
+    return true
+  }
 }
 changeDesclaimer() {
 
@@ -1439,6 +1617,13 @@ chooseFooter(event: any, data: any) {
 
 
 }
+isCustomFooter(data:any):any {
+  if(data == "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy." || data == "Please consider the environment before printing this e-mail!" || data == "Do you really need to print this email?"|| data == "Printing emails kills trees. Print is murder!" || data == "Do not print this, Ok?") {
+    return false
+  } else {
+    return true
+  }
+}
 customFooter() {
 
   this.footerValue = this.footerForm.value.greenFooter
@@ -1546,6 +1731,7 @@ submitBanner() {
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.banner = res[0]?.key;
+      this.bannerUrl = this.banner
       console.log(this.profile4, 'image111111');
 
       // console.log(this.imageData1[0].key, "image key ")
@@ -1580,7 +1766,7 @@ changeBannerSize(evt: any) {
 
 
 
-    this.bannerSize = 300
+    this.bannerSize = 100
   }
 
 }

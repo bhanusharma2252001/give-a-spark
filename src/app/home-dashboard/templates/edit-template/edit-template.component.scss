@@ -1,301 +1,336 @@
 .signatures-list-create {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 101px;
-    background: rgba(28, 183, 235, .1);
-    border: 1px dashed #1cb7eb;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 101px;
+  background: rgba(28, 183, 235, .1);
+  border: 1px dashed #1cb7eb;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 21px;
 }
 
 .signature-item-edit-btn {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: inherit;
-    min-width: 150px;
-    cursor: pointer;
-    background-color: #33cc9d;
-    ;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    appearance: none;
-    transition: all .2s ease;
-    margin-right: auto;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  min-width: 150px;
+  cursor: pointer;
+  background-color: #33cc9d;
+  ;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  appearance: none;
+  transition: all .2s ease;
+  margin-right: auto;
 }
 
 .signature-item-edit-btn,
 .signature-item-publish-btn {
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    height: 36px;
-    padding: 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  height: 36px;
+  padding: 0 10px;
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    overflow:hidden;
-    transition: 0.5s;
-    z-index:999999 !important;
-    padding:0px;
-    z-index:99999;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow:hidden;
+  transition: 0.5s;
+  z-index:999999 !important;
+  padding:0px;
+  z-index:99999;
 }
 
 .social-button .active {
-    z-index: 1;
-    background-color: hsla(47, 92%, 72%, .4);
-    border-radius: 3px;
-    border-left: 3px solid #f9dc74;
+  z-index: 1;
+  background-color: hsla(47, 92%, 72%, .4);
+  border-radius: 3px;
+  border-left: 3px solid #f9dc74;
 }
 
 .sidenav .closebtn {
 
-    font-size: 36px;
-    margin-left: 50px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
 .social-button {
-    width: 95%;
-    height: 40px;
-    display: flex;
-    align-items: center;
+  width: 95%;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .email__icon {
-    justify-self: center;
-    max-width: 25px;
-    padding-left: 5px;
+  justify-self: center;
+  max-width: 25px;
+  padding-left: 5px;
 }
 
 .email__name {
-    font-weight: 700;
-    font-size: 14px;
-    margin-left: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 .side-modal {
-    padding-top: 40px
+  padding-top: 40px
 }
 .Neon {
-    font-family: sans-serif;
-    font-size: 14px;
-    color: #494949;
-    position: relative;
-    
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #494949;
+  position: relative;
+  
 
 }
 .Neon * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .Neon-input-dragDrop {
-    display: block;
-    width: 343px;
-    margin: 0 auto 25px auto;
-    padding: 25px;
-    color: #8d9499;
-    color: #97A1A8;
-    background: #fff;
-    border: 2px dashed #C8CBCE;
-    text-align: center;
-    -webkit-transition: box-shadow 0.3s, border-color 0.3s;
-    -moz-transition: box-shadow 0.3s, border-color 0.3s;
-    transition: box-shadow 0.3s, border-color 0.3s;
+  display: block;
+  width: 343px;
+  margin: 0 auto 25px auto;
+  padding: 25px;
+  color: #8d9499;
+  color: #97A1A8;
+  background: #fff;
+  border: 2px dashed #C8CBCE;
+  text-align: center;
+  -webkit-transition: box-shadow 0.3s, border-color 0.3s;
+  -moz-transition: box-shadow 0.3s, border-color 0.3s;
+  transition: box-shadow 0.3s, border-color 0.3s;
 }
 .Neon-input-dragDrop .Neon-input-icon {
-    font-size: 48px;
-    margin-top: -10px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+  font-size: 48px;
+  margin-top: -10px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .Neon-input-text h3 {
-    margin: 0;
-    font-size: 18px;
+  margin: 0;
+  font-size: 18px;
 }
 .Neon-input-text span {
-    font-size: 12px;
+  font-size: 12px;
 }
 .Neon-input-choose-btn.blue {
-    color: #008BFF;
-    border: 1px solid #008BFF;
+  color: #008BFF;
+  border: 1px solid #008BFF;
 }
 .Neon-input-choose-btn {
-    display: inline-block;
-    padding: 8px 14px;
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: bold;
-    color: #8d9496;
-    border-radius: 3px;
-    border: 1px solid #c6c6c6;
-    vertical-align: middle;
-    background-color: #fff;
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
+  display: inline-block;
+  padding: 8px 14px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8d9496;
+  border-radius: 3px;
+  border: 1px solid #c6c6c6;
+  vertical-align: middle;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 
 
 .bshadow {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(5px 5px 5px #222222);
-    opacity: .5;
-  
-  }
-  ::ng-deep .bshadow img{
-    max-height:20px ;
-    min-width:20px ;
-  }
-  .width{height: 90px;
-    width: 90px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(5px 5px 5px #222222);
+  opacity: .5;
+
+}
+::ng-deep .bshadow img{
+  max-height:20px ;
+  min-width:20px ;
+}
+.width{height: 90px;
+  width: 90px;
 }
 .progress-number {
-    color: red;
-    position: relative;
-    top: 3.7%;
-    left: 50%;
-    z-index: 1;
+  color: red;
+  position: relative;
+  top: 3.7%;
+  left: 50%;
+  z-index: 1;
 }
 .action {
-    padding: 10px 17px;
-    border-radius: 4px;
-    font-size:12px;
-    background-color:#ff4058;
-    color: #FFFFFF;
-    outline: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    border: 0;
-    transition: all 0.2s ease;}
-   
-    
+  padding: 10px 17px;
+  border-radius: 4px;
+  font-size:12px;
+  background-color:#ff4058;
+  color: #FFFFFF;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  border: 0;
+  transition: all 0.2s ease;}
+ 
+  
 .design-app {
-    width: 0;
-    position: fixed;
-    z-index: 99999999;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 10px;
-  
-  }
-  
-  
-  .design-app a {
-    text-decoration: none;
-    font-size: 25px;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  
-  .design-app .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-  } .upload-button-1{
-    position: relative;
-    text-align: center;
-    width: 285px;
-    height: 100px;
-    border: 1px dashed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s; }
-    .wh-25{
-      width:25px;
-      height:25px;
-    }.gray-btn {
-        background-color: #E8E8EA;
-        color: #111;
-        border: 1px solid #E8E8EA;
-        border-radius: 50px;
-        font-weight: 400;
-        font-size: 17px;
-      }.slider.round {
-        border-radius: 34px;
-      }
-      
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
-      
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      
-      .slider{
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #00000000;
-        transition: .4s;
-        height: 35px;
-        border: 1px solid #107f79;
-      }
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 24px;
-        width: 24px;
-        left: 4px;
-        bottom: 6px;
-        background-color: rgb(196, 14, 14);
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-      
-      input:checked + .slider {
-        background-color: #107f79;
-      }
-      
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-      .slider.round:before {
-        border-radius: 50%;
-      }
-      .design-size {
-        border: 1px solid  #D9D9D9;
-        padding: 3px 12px;
-        margin-bottom: 0;
-        font-size: 16px;
-        font-weight: 700;
+  width: 0;
+  position: fixed;
+  z-index: 99999999;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+
+}
+
+
+.design-app a {
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.design-app .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+} .upload-button-1{
+  position: relative;
+  text-align: center;
+  width: 285px;
+  height: 100px;
+  border: 1px dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s; }
+  .wh-25{
+    width:25px;
+    height:25px;
+  }.gray-btn {
+      background-color: #E8E8EA;
+      color: #111;
+      border: 1px solid #E8E8EA;
+      border-radius: 50px;
+      font-weight: 400;
+      font-size: 17px;
+    }.slider.round {
+      border-radius: 34px;
     }
+    
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider{
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #00000000;
+      transition: .4s;
+      height: 35px;
+      border: 1px solid #107f79;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 6px;
+      background-color: rgb(196, 14, 14);
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #107f79;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    .design-size {
+      border: 1px solid  #D9D9D9;
+      padding: 3px 12px;
+      margin-bottom: 0;
+      font-size: 16px;
+      font-weight: 700;
+  }
+
+  .activeSchedularSize {
+    background:#ff4058;;
+    color: white;
+  }
+  
+  .activeDiscAlign {
+  color:black;
+  }
+  .activeFooterAlign {
+  color: black;
+  }   
+  .youtubeActive {
+  color: black;
+  }
+  .customBtnActive {
+  background:#ff4058;;
+    color: white;
+  }
+  .customAlignActive {
+  color: black;
+  }
+  .activeBannerAlign {
+  color:black
+  }
+  .eventAlign {
+  color:black
+  }
+  .eventSizeActive {
+  background:#ff4058;;
+    color: white;
+  }
+  .appBtnalignActive {
+  color:black
+  }

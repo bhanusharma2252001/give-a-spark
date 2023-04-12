@@ -224,7 +224,7 @@ let userDetail=res.result[0];
   }
 
   logout() {
-    sessionStorage.removeItem('AdminUser');
+    sessionStorage.removeItem('ClientSpark');
     localStorage.removeItem('AdminUser');
   }
 

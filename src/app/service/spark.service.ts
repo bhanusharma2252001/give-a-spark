@@ -506,6 +506,43 @@ delTemplate(id:any) {
   })
 }
 
+createTicket(data: any): Observable<any> {
+  return this.http.post(environment.localApiURL+'/api/user/addAuthor',data, {
+      headers: {
+        Authorization: `bearer ${this.token}`,
+      },
+    });
+}
+
+updateTicket(id:any, data: any): Observable<any> {
+  return this.http.put(environment.localApiURL+'/api/Ticket/updateTicketById/'+id,data, {
+      headers: {
+        Authorization: `bearer ${this.token}`,
+      },
+    });
+}
+
+deleteTicket(id:any): Observable<any> {
+  return this.http.delete(environment.localApiURL+'/api/Ticket/deleteTicketById/'+id, {
+      headers: {
+        Authorization: `bearer ${this.token}`,
+      },
+    });
+}
+
+getTicketList(): Observable<any> {
+  return this.http.get(environment.localApiURL + '/api/Ticket/getTicketList', {
+    headers: {
+       Authorization: `bearer ${this.token}`},
+  });
+}
+
+getTicketbyId(id:any): Observable<any> {
+  return this.http.get(environment.localApiURL + '/api/Ticket/getTicketById/'+id, {
+    headers: {
+       Authorization: `bearer ${this.token}`},
+  });
+}
 
 
 

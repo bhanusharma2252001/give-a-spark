@@ -187,7 +187,7 @@ videoUrl: any;
   eventdata: any;
   eventAlignment: any = ''
   eventSize: any = 10
-  iconSize: any = 20
+  iconSize: any = 30
 
   appButtonSize: any = 10
   public appButtonColor: string = '#000000';

@@ -805,7 +805,7 @@
                                     </tr>
                                     <tr>
             
-                                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4">
+                                      <td style="padding:5px 15px;" colspan="3">
                                         <div style="display:flex; text-align:start;">
                                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -866,37 +866,31 @@
                                       </td>
                                     </tr>
                                     <tr>
+                          <td colspan="3" style="padding:5px 15px;">
+
                                       <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl" alt="" [style.width.%]="bannerSize"
                                         [style.text-align]="bannerAlign" height="150">
-            
+                                      </td>
                                     </tr>
-                                    <!-- <tr> 
-                                      <td>
-            
-            
-                                        <button style="background-color:blue;color:white;">Custom Button</button>
-                                      </td><td style="border-bottom: 3px solid #e0e0e0;" colspan="3">
-                                      
-                                    
-                                    </td>
-            
-                                    </tr> -->
+                               
                                     <tr>
                                       <td colspan="3" [style.text-align]="appbuttonAlign">
-                                        <p [style.color]="appButtonColor" [style.font-size.px]="appButtonSize">{{appName}}</p>
+                                        <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                                          [style.font-size.px]="appButtonSize">{{appName}}</p>
+                                   
             
-                                        <a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                                        <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
                                           target="_blank" rel="nofollow noreferrer"> <img
                                             src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
-                                            height="33" width="auto" style="width: auto; height: 33px; display: block;"
-                                            alt="Download App"> </a>
-            
-                                        <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
-                                          target="_blank" rel="nofollow noreferrer"><img
-                                            src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
-                                            height="33" width="auto" style="width: auto; height: 33px; display: block;"
-                                            alt="Download App"></a>
+                                            height="33"  style=" height: 33px; display: inline-block;padding:0 10px;"  [style.text-align]="appbuttonAlign"
+                                            alt="Download App"> </a></span>
+                                            <span>  <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
+                                              target="_blank" rel="nofollow noreferrer"><img
+                                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                                                height="33"  style=" height: 33px; display: inline-block;padding:0 10px;" [style.text-align]="appbuttonAlign"
+                                                alt="Download App"></a></span>
                                       </td>
+                                    
                                     </tr>
                                     <tr>
                                       <td colspan="3" >
@@ -1224,13 +1218,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.activeFooterAlign]="footerAlignment == 'left'" (click)="getFooterAlignment('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align " [class.activeFooterAlign]="footerAlignment == 'left'" (click)="getFooterAlignment('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.activeFooterAlign]="footerAlignment == 'center'" (click)="getFooterAlignment('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align " [class.activeFooterAlign]="footerAlignment == 'center'" (click)="getFooterAlignment('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.activeFooterAlign]="footerAlignment == 'right'" (click)="getFooterAlignment('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align " [class.activeFooterAlign]="footerAlignment == 'right'" (click)="getFooterAlignment('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1493,13 +1487,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'left'" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
+          <i aria-hidden="true" class="text-gray highlight-align" [class.activeDiscAlign]="disclaimerAlignment == 'left'" class="m-1 fa fa-align-left" (click)="changeDiscAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'center'" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')"></i>
+          <i aria-hidden="true" class="text-gray highlight-align" [class.activeDiscAlign]="disclaimerAlignment == 'center'" class="m-1 fa fa-align-center" (click)="changeDiscAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" [class.activeDiscAlign]="disclaimerAlignment == 'right'" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
+          <i aria-hidden="true" class="text-gray highlight-align" [class.activeDiscAlign]="disclaimerAlignment == 'right'" class="m-1 fa fa-align-right" (click)="changeDiscAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1536,7 +1530,7 @@
 
     <h6>Choose Scheduling Provider</h6>
     <form class="mt-4" [formGroup]="scheduleForm">
-      <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
+      <!-- <p class="mb-0 fs-14">Which scheduling service would you like to use</p>
       <div class="form-check text-black ">
 
         <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" name="options"  value="option1" (click)="showInputBox = false">
@@ -1549,13 +1543,17 @@
         <label class="form-check-label fs-14" >
     I already have a scheduler provider
         </label>
+      </div> -->
+      <div class="row fs-14 fw-semibold align-items-center form-floating">
+        <div class="col-auto">
+          <label class="floatingInput">
+            Schedule Meeting : </label>
+        </div>
+        <div class="col-auto">
+          <input type="text" class="design-input fs-14 col-md-6"[(ngModel)] ="scheduleLink" formControlName="scheduleLink">
+        </div>
       </div>
-      <div *ngIf="showInputBox">
-        <label>
-          Input box:
-          <input type="text" [(ngModel)] ="scheduleLink"  formControlName="scheduleLink">
-        </label>
-      </div>
+
     
     <div class="mt-5">
       <h5 class="fw-bold"> Button Design
@@ -1575,9 +1573,9 @@
         </div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '10'" (click)="getScheduleSize('10')">S</p>
-            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '15'" (click)="getScheduleSize('15')">M</p>
-            <p class="design-size" [class.activeSchedularSize]="scheduleSize == '25'" (click)="getScheduleSize('25')">L</p>
+            <p class="design-size highlight" [class.activeSchedularSize]="scheduleSize == '10'" (click)="getScheduleSize('10')">S</p>
+            <p class="design-size highlight" [class.activeSchedularSize]="scheduleSize == '15'" (click)="getScheduleSize('15')">M</p>
+            <p class="design-size highlight" [class.activeSchedularSize]="scheduleSize == '25'" (click)="getScheduleSize('25')">L</p>
           </div>
         </div>
       </div>
@@ -1743,13 +1741,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.youtubeActive] ="youtubeAlignment == 'left'" (click)="titleAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align" [class.youtubeActive] ="youtubeAlignment == 'left'" (click)="titleAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.youtubeActive] ="youtubeAlignment == 'center'" (click)="titleAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align" [class.youtubeActive] ="youtubeAlignment == 'center'" (click)="titleAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.youtubeActive] ="youtubeAlignment == 'right'" (click)="titleAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align" [class.youtubeActive] ="youtubeAlignment == 'right'" (click)="titleAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1772,7 +1770,7 @@
   </div>
 </div>
 
-
+ <!-- --------custom button modal------------------ -->
 <div id="mycustombutton" class="custombutton design-app">
 
   <div class="p-4">
@@ -1876,11 +1874,11 @@
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Size :</label></div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" [class.customBtnActive]="customButtonSize == '10'" (click)="getCustomSize
+            <p class="design-size highlight" [class.customBtnActive]="customButtonSize == '10'" (click)="getCustomSize
             ('10')">S</p>
-            <p class="design-size" [class.customBtnActive]="customButtonSize == '25'" (click)="getCustomSize
+            <p class="design-size highlight" [class.customBtnActive]="customButtonSize == '25'" (click)="getCustomSize
             ('25')">M</p>
-            <p class="design-size" [class.customBtnActive]="customButtonSize == '60'" (click)="getCustomSize
+            <p class="design-size highlight" [class.customBtnActive]="customButtonSize == '60'" (click)="getCustomSize
             ('60')">L</p>
           </div>
         </div>
@@ -1890,13 +1888,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.customAlignActive]="customAlign == 'left'" (click)="customButtonAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-lefttext-gray highlight-align" [class.customAlignActive]="customAlign == 'left'" (click)="customButtonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.customAlignActive]="customAlign == 'center'" (click)="customButtonAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-centertext-gray highlight-align" [class.customAlignActive]="customAlign == 'center'" (click)="customButtonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.customAlignActive]="customAlign == 'right'" (click)="customButtonAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-righttext-gray highlight-align" [class.customAlignActive]="customAlign == 'right'" (click)="customButtonAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>
@@ -1953,13 +1951,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.activeBannerAlign]="bannerAlign == 'left'" (click)="bannerAlignment('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align" [class.activeBannerAlign]="bannerAlign == 'left'" (click)="bannerAlignment('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.activeBannerAlign]="bannerAlign == 'center'" (click)="bannerAlignment('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align" [class.activeBannerAlign]="bannerAlign == 'center'" (click)="bannerAlignment('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.activeBannerAlign]="bannerAlign == 'right'" (click)="bannerAlignment('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align" [class.activeBannerAlign]="bannerAlign == 'right'" (click)="bannerAlignment('right')"></i>
         </div>
 
       </div>
@@ -1988,10 +1986,10 @@
       </div>
       <div class="row mt-3">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (click)="bannerValue()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2100,13 +2098,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.eventAlign]="eventAlignment == 'left'" (click)="getEventAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align" [class.eventAlign]="eventAlignment == 'left'" (click)="getEventAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.eventAlign]="eventAlignment == 'center'"  (click)="getEventAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align" [class.eventAlign]="eventAlignment == 'center'"  (click)="getEventAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.eventAlign]="eventAlignment == 'right'"  (click)="getEventAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align" [class.eventAlign]="eventAlignment == 'right'"  (click)="getEventAlign('right')"></i>
         </div>
 
       </div>
@@ -2116,9 +2114,9 @@
         </div>
         <div class="col-auto">
           <div class="d-flex">
-            <p class="design-size" [class.eventSizeActive]="iconSize == '20'" (click)="changeIconSize(20)">S</p>
-            <p class="design-size" [class.eventSizeActive]="iconSize == '25'" (click)="changeIconSize(25)">M</p>
-            <p class="design-size" [class.eventSizeActive]="iconSize == '30'" (click)="changeIconSize(30)">L</p>
+            <p class="design-size highlight" [class.eventSizeActive]="iconSize == '30'" (click)="changeIconSize(30)">S</p>
+            <p class="design-size highlight" [class.eventSizeActive]="iconSize == '32'" (click)="changeIconSize(32)">M</p>
+            <p class="design-size highlight" [class.eventSizeActive]="iconSize == '35'" (click)="changeIconSize(35)">L</p>
           </div>
 
         </div>
@@ -2216,13 +2214,13 @@
           <label for="inputtext" class="col-form-label fs-14 fw-semibold">Alignment :</label>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-left" [class.appBtnalignActive]="appbuttonAlign == 'left'" (click)="getDownloadbuttonAlign('left')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-left text-gray highlight-align" [class.appBtnalignActive]="appbuttonAlign == 'left'" (click)="getDownloadbuttonAlign('left')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-center" [class.appBtnalignActive]="appbuttonAlign == 'center'" (click)="getDownloadbuttonAlign('center')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-center text-gray highlight-align" [class.appBtnalignActive]="appbuttonAlign == 'center'" (click)="getDownloadbuttonAlign('center')"></i>
         </div>
         <div class="col-auto">
-          <i aria-hidden="true" class="m-1 fa fa-align-right" [class.appBtnalignActive]="appbuttonAlign == 'right'" (click)="getDownloadbuttonAlign('right')"></i>
+          <i aria-hidden="true" class="m-1 fa fa-align-right text-gray highlight-align" [class.appBtnalignActive]="appbuttonAlign == 'right'" (click)="getDownloadbuttonAlign('right')"></i>
         </div>
         <!-- <div class="col-auto">
           <i aria-hidden="true" class="m-1 fa fa-align-justify"></i>

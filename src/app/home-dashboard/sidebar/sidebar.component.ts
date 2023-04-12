@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
     // this.socialAuthService.signOut();
     sessionStorage.clear();
     localStorage.clear();
+    // this.api.requestSyncSessionStorage().clear();
     this.api.isLoggedIn = false;
     this.api.signOutExternal();
     this._ngZone.run(() => {
