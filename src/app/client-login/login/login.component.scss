@@ -26,6 +26,10 @@
     margin-left: 115px;
     content: "\f06e";
 }
+.login-gif{
+  width:100px;
+  height:100px;
+}
 .forget_txt{
   font-size: 13px;
 }
@@ -63,4 +67,8 @@
   border: 0;
   box-shadow: 0 0 2px 0px #787878;
   border: 0 0 1px 0 solid black;
+}
+.login-gif{
+  height:auto;
+  width:100px;
 }
