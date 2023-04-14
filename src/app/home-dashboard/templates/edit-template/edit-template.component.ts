@@ -1896,6 +1896,10 @@ getScheduleIcon(event: any, data: any){
 
 
 }
-
+removeBanner(){
+  this.banner = ''
+  this.bannerUrl=''
+  console.log(this.banner)
+    }
 
 }

@@ -1835,5 +1835,9 @@ getScheduleIcon(event: any, data: any){
         this.toast.error(error);
       })
   }
-
+  removeBanner(){
+this.banner = ''
+this.bannerUrl=''
+console.log(this.banner)
+  }
 }
