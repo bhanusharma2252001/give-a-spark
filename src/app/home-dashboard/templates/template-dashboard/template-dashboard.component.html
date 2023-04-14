@@ -402,6 +402,17 @@
 
 
                         </div>
+                        <div class="col-md-4 col-lg-4">
+                          
+                            <div class=" temp_pro_shadow  position-relative  m-2 ">
+                                <img src="assets/images/pro+5.png" alt="" class="free-wh m-1"
+                                >
+                                    <div class="overlay"></div>
+                                    <div class="hover_btn position-absolute top-50 start-50 translate-middle"><a routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A' || planDetail=='Plan B'">Unlock with Pro+</a></div>
+                                    <div class="hover_btn position-absolute top-50 start-50 translate-middle"><a  *ngIf=" planDetail == 'Plan C'" (click)="editTemplate(proplus[4]?._id)" >Click me</a></div>
+                            </div>
+
+                        </div>
                         <div class="col-md-12">
                             <img src="assets/images/pro+banner.png" class="top-demanding">
                         </div>
@@ -489,7 +500,7 @@
                         </div>
 
                         <!-- ----------------------------- -----------------------------TEMPLATE-5------------------------ -->
-                        <div class="col-md-4 col-lg-4">
+                        <!-- <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
                                 <img src="assets/images/pro+5.png" alt="" class="free-wh m-1"
                                     (click)="editTemplate(proplus[4]?._id)">
@@ -497,7 +508,7 @@
                             </div>
 
 
-                        </div>
+                        </div> -->
 
 
                         <!-- ----------------------------TEMPLATE-6---------------- -->

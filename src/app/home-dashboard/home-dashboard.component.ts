@@ -4,11 +4,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home-dashboard',
-  templateUrl: './home-dashboard.component.html',
+  templateUrl: './home-dashboard.component.html', 
   styleUrls: ['./home-dashboard.component.scss']
 })
 export class HomeDashboardComponent implements OnInit {
 public href:string="";
+  openUrl: string;
   constructor(private router:Router, private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,8 @@ public href:string="";
     // }, 1000);
     
   }
+
+ 
   }
 
 

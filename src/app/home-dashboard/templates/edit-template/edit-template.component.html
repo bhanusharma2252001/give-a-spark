@@ -3048,7 +3048,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;padding:10px 15px;" colspan="4"
+                      <td style=" font-size:8px ;padding:10px 15px;" colspan="4"
                         *ngIf="content" [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -3058,10 +3058,10 @@
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;padding:10px 15px;" colspan="4"
+                      <td style="padding:10px 15px;" colspan="4"
                         [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" src="{{eventIcon}}"
                             [style.width.px]="iconSize" [style.height.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;padding-left:10px;"
                             [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
@@ -3164,7 +3164,7 @@
 
                     <tr>
 
-                      <td style="vertical-align: center;padding:0 2px;">
+                      <td style="vertical-align: center;padding:10px 15px;">
 
                         <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%;" *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
@@ -3207,22 +3207,19 @@
                         <p style="margin-bottom:0;font-size:12px;">Click/ Scan QR </p>
                       </td>
 
-
-
-
                     </tr>
                     <tr style="background-color: #fff;">
-                      <td colspan="2" style="background-color: #fff;padding: 5px;margin: 3px;">
-
-                        <div class="" *ngIf="logo">
-                          <a target="_blank"><img alt="Logo" style="width:70px;height:30px;border:0"
-                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" border="0"></a>
+                      <td colspan="3" >
+                        <div style="display:flex">
+                        <div style="background-color: #fff;padding: 5px;margin: 3px;width:70%">
+                          <div class="" *ngIf="logo">
+                            <a target="_blank"><img alt="Logo" style="width:70px;height:30px;border:0"
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" border="0"></a>
+                          </div>
+                          <p *ngIf="logo" style="font-size:8px;text-align:left;margin:0;" (click)="remove(2)">Remove Brand</p>
                         </div>
-                        <p *ngIf="logo" style="font-size:8px;text-align:left;margin:0;" (click)="remove(2)">Remove Brand</p>
-
-                      </td>
-                      <td style="    background-color: #007ab6;border-radius: 116px 0 0 0px;
-                                      height: 59px;padding: 0 16px;">
+                        <div style="background-color: #007ab6;width:30%;text-align:center;border-radius: 116px 0 0 0px;
+                                      height:59px;padding: 10px;">
                         <span *ngIf="faceB">
                           <a href="{{faceB}}" target="_blank"><img style="width:20px;height:20px;margin:5px;"
                               src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/face-y.png"></a>
@@ -3237,7 +3234,10 @@
                               src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/insta-y.png"></a>
                         </span>
 
+                      </div>
+                    </div>
                       </td>
+                     
                     </tr>
 
                     <tr style="background-color: #007ab6;">
@@ -3277,7 +3277,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>{{galleryTitle}}</td>
+                      <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
@@ -3309,7 +3309,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0;padding: 10px 15px;font-size:8px ;" colspan="3" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;" colspan="3" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -3319,13 +3319,13 @@
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
@@ -3346,15 +3346,42 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:5px 15px;">
+                      <td colspan="3" style="padding:15px 0px;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
                       </td>
                     </tr>
 
+                  
+                    <tr *ngIf ="customText">
+                      <td style="padding: 10px 15px;" colspan="3"  [style.text-align]="customAlign">
+
+                        <a href="{{customUrl}}" *ngIf=" customText">
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                            [style.border-radius.px]="customButtonShape">
+                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                        </a>
+                      </td>
+                    </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                      <td colspan="3" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
@@ -3372,33 +3399,6 @@
                       </td>
 
                     </tr>
-                    <tr *ngIf=" customText">
-                      <td style="padding: 10px 15px;" colspan="3"  [style.text-align]="customAlign">
-
-                        <a href="{{customUrl}}" *ngIf=" customText">
-                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600; display: inline;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">
-                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
-                    </tr>
-
 
 
 
@@ -3530,7 +3530,7 @@
 
                     </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="youtubeAlignment">
+                      <td style="padding: 10px 15px;" colspan="5" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
@@ -3549,11 +3549,11 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>{{galleryTitle}}</td>
+                      <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
-                      <td style="padding:5px 15px;" colspan="3">
+                      <td style="padding:5px 15px;" colspan="5">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -3581,7 +3581,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;" colspan="5" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -3591,39 +3591,69 @@
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="padding: 10px 15px;" colspan="5" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
                     </tr>
 
                     <tr>
-                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+                      <td colspan="5" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
-                      </td>
-                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
-                        [style.font-size.px]="footerSize" [style.color]="footerColor">
-                        <span>{{footerText}}</span>
+                          </div>
+                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:5px 15px;">
+                      <td colspan="5" style="padding:15px 0px;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
                       </td>
                     </tr>
 
+                  
+                    <tr *ngIf ="customText">
+                      <td style="padding: 10px 15px;" colspan="5"  [style.text-align]="customAlign">
+
+                        <a href="{{customUrl}}" *ngIf=" customText">
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                            [style.border-radius.px]="customButtonShape">
+                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                        </a>
+                      </td>
+                    </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                      <td colspan="5" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
@@ -3640,30 +3670,6 @@
                               [style.text-align]="appbuttonAlign" alt="Download App"></a></span>
                       </td>
 
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-                        <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
-                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -3844,7 +3850,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -3854,9 +3860,9 @@
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                             [style.width.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
@@ -3921,7 +3927,7 @@
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
@@ -4045,7 +4051,7 @@
                     </tr>
 
                     <tr>
-                      <td colspan="2" style="font-size:12px;padding:10px;height:100px;color:#000c;"
+                      <td  style="font-size:12px;padding:10px;height:100px;color:#000c;"
                         [style.font-family]="fontFamilyNew">
                         <q *ngIf="proplus[4]?.quotesId?.quotesName">
                           {{proplus[4]?.quotesId?.quotesName}}
@@ -4057,142 +4063,148 @@
 
 
                     </tr>
-                    <tr>
-                      <td colspan="3" [style.text-align]="youtubeAlignment">
-                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
-                            alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
+                                 <tr>
+                    <td style="padding: 10px 15px;" colspan="3" [style.text-align]="youtubeAlignment">
+                      <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
+                          alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
 
 
-                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
-                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-                            [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
+                      <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                          [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
 
 
 
-                        <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
-                          [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
-                          {{youtubeTitle}}</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>{{galleryTitle}}</td>
-                    </tr>
-                    <tr>
+                      <br>
+                      <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
+                        {{youtubeTitle}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
+                  </tr>
+                  <tr>
 
-                      <td style="padding:5px 15px;" colspan="3">
-                        <div style="display:flex; text-align:start;">
-                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
-                            [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
-                            [style.margin-left.px]="imageSpace" *ngIf="url1"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="Gallery Image">
+                    <td style="padding:5px 15px;" colspan="3">
+                      <div style="display:flex; text-align:start;">
+                        <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                          [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
+                          [style.margin-left.px]="imageSpace" *ngIf="url1"
+                          [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="Gallery Image">
 
 
 
-                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
-                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
-                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="Gallery Image">
+                        <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                          [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                          [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
+                          [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="Gallery Image">
 
-                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
-                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
-                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url3"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="Gallery Image">
+                        <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                          [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                          [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url3"
+                          [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="Gallery Image">
 
-                          <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
-                            [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
-                            [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="Gallery Image">
+                        <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
+                          [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
+                          [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
+                          [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="Gallery Image">
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 15px;font-size:8px ;" colspan="3" *ngIf="content"
+                      [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
+                      [style.color]="disclaimerColor">
+
+                      {{content}}
+                    </td>
+
+                  </tr>
+                  <tr>
+
+                    <td style="padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
+                      <a href="">
+                        <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
+                          [style.width.px]="iconSize">
+                        <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
+                          [style.color]="eventColor">{{eventTitle}}</span>
+                        <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
+                          [style.color]="eventColor">{{eventName}}</span></a>
+                    </td>
+
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" [style.text-align]="footerAlignment">
+                      <div style="display: flex;">
+                        <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                      border-right: 1px solid #e5e5e5;">
+                          <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+
                         </div>
+                        <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                          <span>{{footerText}}</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="padding:15px 0px;">
 
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
-                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
-                        [style.color]="disclaimerColor">
+                      <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
+                        alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
+                    </td>
+                  </tr>
 
-                        {{content}}
-                      </td>
+                
+                  <tr *ngIf ="customText">
+                    <td style="padding: 10px 15px;" colspan="3"  [style.text-align]="customAlign">
 
-                    </tr>
-                    <tr>
-
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
-                        <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
-                            [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
-                            [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
-                            [style.color]="eventColor">{{eventName}}</span></a>
-                      </td>
-
-                    </tr>
-
-                    <tr>
-                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
-
-                      </td>
-                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
-                        [style.font-size.px]="footerSize" [style.color]="footerColor">
-                        <span>{{footerText}}</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" style="padding:5px 15px;">
-
-                        <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
-                          alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
-                        <p style="padding:5px 15px;" [style.color]="appButtonColor"
-                          [style.font-size.px]="appButtonSize">{{appName}}</p>
-
-
-                        <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
-                            target="_blank" rel="nofollow noreferrer"> <img
-                              src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
-                              height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
-                              [style.text-align]="appbuttonAlign" alt="Download App"> </a></span>
-                        <span> <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
-                            target="_blank" rel="nofollow noreferrer"><img
-                              src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
-                              height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
-                              [style.text-align]="appbuttonAlign" alt="Download App"></a></span>
-                      </td>
-
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-                        <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
-                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
+                      <a href="{{customUrl}}" *ngIf=" customText">
+                        <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                          [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                          [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                          [style.border-radius.px]="customButtonShape">
+                        {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="padding: 10px 15px;">
 
 
 
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+                      <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
-                    </tr>
+                        <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                          *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                          [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                          [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                            style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
+                      <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                        [style.font-size.px]="appButtonSize">{{appName}}</p>
+
+
+                      <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                          target="_blank" rel="nofollow noreferrer"> <img
+                            src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
+                            height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
+                            [style.text-align]="appbuttonAlign" alt="Download App"> </a></span>
+                      <span> <a *ngIf="appleAppLink" href="{{appleAppLink}}" style="text-decoration: none;"
+                          target="_blank" rel="nofollow noreferrer"><img
+                            src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
+                            height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
+                            [style.text-align]="appbuttonAlign" alt="Download App"></a></span>
+                    </td>
+
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -4372,7 +4384,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                          <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                             [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                             [style.color]="disclaimerColor">
 
@@ -4382,9 +4394,9 @@
                         </tr>
                         <tr>
 
-                          <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                          <td style="" colspan="4" [style.text-align]="eventAlignment">
                             <a href="">
-                              <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                              <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                                 [style.width.px]="iconSize">
                               <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                                 [style.color]="eventColor">{{eventTitle}}</span>
@@ -4450,7 +4462,7 @@
                             <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
                               <button
-                                style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                                style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                                 *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                                 [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                                 [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
@@ -4592,7 +4604,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -4602,9 +4614,9 @@
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                             [style.width.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
@@ -4669,7 +4681,7 @@
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
@@ -4842,7 +4854,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -4852,9 +4864,9 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                             [style.width.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
@@ -4919,7 +4931,7 @@ padding: 21px;">
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
@@ -5059,7 +5071,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="youtubeAlignment">
+                      <td style="padding: 10px 15px;" colspan="3" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
@@ -5078,7 +5090,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td>{{galleryTitle}}</td>
+                      <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
@@ -5110,7 +5122,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;" colspan="3" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -5120,39 +5132,69 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
                     </tr>
 
                     <tr>
-                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+                      <td colspan="3" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
-                      </td>
-                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
-                        [style.font-size.px]="footerSize" [style.color]="footerColor">
-                        <span>{{footerText}}</span>
+                          </div>
+                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:5px 15px;">
+                      <td colspan="3" style="padding:15px 0px;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
                       </td>
                     </tr>
 
+                  
+                    <tr *ngIf ="customText">
+                      <td style="padding: 10px 15px;" colspan="3"  [style.text-align]="customAlign">
+
+                        <a href="{{customUrl}}" *ngIf=" customText">
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                            [style.border-radius.px]="customButtonShape">
+                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                        </a>
+                      </td>
+                    </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                      <td colspan="3" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
@@ -5170,30 +5212,7 @@ padding: 21px;">
                       </td>
 
                     </tr>
-                    <tr>
-                      <td colspan="3">
 
-                        <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
-                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
 
@@ -5357,7 +5376,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -5367,9 +5386,9 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                             [style.width.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
@@ -5434,7 +5453,7 @@ padding: 21px;">
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
@@ -5574,7 +5593,7 @@ padding: 21px;">
                     </tr>
 
                     <tr>
-                      <td colspan="3" [style.text-align]="youtubeAlignment">
+                      <td style="padding: 10px 15px;" colspan="6" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
@@ -5593,11 +5612,11 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td>{{galleryTitle}}</td>
+                      <td  colspan="6" style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
-                      <td style="padding:5px 15px;" colspan="3">
+                      <td style="padding:5px 15px;" colspan="6">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -5625,7 +5644,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;" colspan="6" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -5635,39 +5654,69 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="padding: 10px 15px;" colspan="6" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
                     </tr>
 
                     <tr>
-                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+                      <td colspan="6" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
-                      </td>
-                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
-                        [style.font-size.px]="footerSize" [style.color]="footerColor">
-                        <span>{{footerText}}</span>
+                          </div>
+                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:5px 15px;">
+                      <td colspan="6" style="padding:15px 0px;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
                       </td>
                     </tr>
 
+                  
+                    <tr *ngIf ="customText">
+                      <td style="padding: 10px 15px;" colspan="6"  [style.text-align]="customAlign">
+
+                        <a href="{{customUrl}}" *ngIf=" customText">
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                            [style.border-radius.px]="customButtonShape">
+                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                        </a>
+                      </td>
+                    </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                      <td colspan="6" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
@@ -5684,30 +5733,6 @@ padding: 21px;">
                               [style.text-align]="appbuttonAlign" alt="Download App"></a></span>
                       </td>
 
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-                        <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
-                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
                     </tr>
 
                   </tbody>
@@ -5762,15 +5787,15 @@ padding: 21px;">
                           [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">{{username}}</p>
                         <p style="" [style.color]="designationColor" [style.line-height]="lineHeight"
                           [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{desig}}</p>
-                        <p *ngIf="number" style=" font-weight: bold;">Mob. :<span style="margin:0;white-space: nowrap;"
+                        <p *ngIf="number" style=" font-weight: bold;margin:0;">Mob. :<span style="margin:0;white-space: nowrap;"
                             [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{number}}</span>
                         </p>
-                        <p *ngIf="Email" style=" font-weight: bold;">E. :<span style="margin:0;white-space: nowrap;"
+                        <p *ngIf="Email" style=" font-weight: bold;margin:0;">E. :<span style="margin:0;white-space: nowrap;"
                             [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{Email}}</span>
                         </p>
-                        <p *ngIf="useraddress" style=" font-weight: bold;">Address. :<span
+                        <p *ngIf="useraddress" style=" font-weight: bold;margin:0;">Address. :<span
                             style="margin:0;white-space: nowrap;" [style.color]="contactDetailColor"
                             [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                             [style.font-size.px]="itemFontSize">{{useraddress}}</span> </p>
@@ -5830,23 +5855,23 @@ padding: 21px;">
  ">
 
                         <a href="{{faceB}}" target="_blank"><img
-                            style="width:20px ;height:20px;padding:3px 0;margin: 5px 0;"
+                            style="width:20px ;height:20px;padding:3px 0;margin:0 5px;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/yellow-fb.png"></a>
                         <a href="{{insta}}" target="_blank"> <img
-                            style="width:20px ;height:20px;padding:3px 0;margin: 5px 0;"
+                            style="width:20px ;height:20px;padding:3px 0;margin:0 5px;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/yellow-in.png"></a>
                         <a href="{{Linkedin}}" target="_blank"><img
-                            style="width:20px ;height:20px;padding:3px 0;margin: 5px 0;"
+                            style="width:20px ;height:20px;padding:3px 0;margin:0 5px;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/yellow-li.png"></a>
                         <a href="{{Twitter}}" target="_blank"><img
-                            style="width:20px ;height:20px;padding:3px 0;margin: 5px 0;"
+                            style="width:20px ;height:20px;padding:3px 0;margin:0 5px;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/yellow-tw.png"></a>
                       </td>
 
                     </tr>
 
                     <tr>
-                      <td colspan="3" [style.text-align]="youtubeAlignment">
+                      <td style="padding: 10px 15px;" colspan="6" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
@@ -5865,11 +5890,11 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td>{{galleryTitle}}</td>
+                      <td  colspan="6" style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
-                      <td style="padding:5px 15px;" colspan="3">
+                      <td style="padding:5px 15px;" colspan="6">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -5897,7 +5922,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;" colspan="6" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -5907,39 +5932,69 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="padding: 10px 15px;" colspan="6" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon"  src="{{eventIcon}}"  [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
                     </tr>
 
                     <tr>
-                      <td *ngIf="greenIcon" [style.text-align]="footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+                      <td colspan="6" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
-                      </td>
-                      <td [style.text-align]="footerAlignment" style="padding:2px 10px;" colspan="2"
-                        [style.font-size.px]="footerSize" [style.color]="footerColor">
-                        <span>{{footerText}}</span>
+                          </div>
+                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:5px 15px;">
+                      <td colspan="6" style="padding:15px 0px;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
                       </td>
                     </tr>
 
+                  
+                    <tr *ngIf ="customText">
+                      <td style="padding: 10px 15px;" colspan="6"  [style.text-align]="customAlign">
+
+                        <a href="{{customUrl}}" *ngIf=" customText">
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;" *ngIf="customText"
+                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
+                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
+                            [style.border-radius.px]="customButtonShape">
+                          {{customText}} <span ><img   [style.background-color]="buttonTextColor" src="assets/images/arrowin.png"></span></p>
+                        </a>
+                      </td>
+                    </tr>
                     <tr>
-                      <td colspan="3" [style.text-align]="appbuttonAlign">
+                      <td colspan="6" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img *ngIf="scheduleIcon" src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
@@ -5956,30 +6011,6 @@ padding: 21px;">
                               [style.text-align]="appbuttonAlign" alt="Download App"></a></span>
                       </td>
 
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-                        <a href="{{customUrl}}" *ngIf=" customText" [style.text-align]="customAlign">
-                          <button style="border-radius:50px; padding: 10px;" *ngIf="customText"
-                            [style.padding-left.px]="customButtonSize" [style.padding-right.px]="customButtonSize"
-                            [style.color]="buttonTextColor" [style.background-color]="customButtonBg"
-                            [style.border-radius.px]="customButtonShape">{{customText}}</button> </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -6154,7 +6185,7 @@ padding: 21px;">
                       </td>
                     </tr>
                     <tr>
-                      <td style="border-bottom: 3px solid #e0e0e0; font-size:8px ;" colspan="4" *ngIf="content"
+                      <td style=" font-size:8px ;" colspan="4" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -6164,9 +6195,9 @@ padding: 21px;">
                     </tr>
                     <tr>
 
-                      <td style="border-bottom: 3px solid #e0e0e0;" colspan="4" [style.text-align]="eventAlignment">
+                      <td style="" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
-                          <img *ngIf="eventIcon" style="width:40px;height:40px;" src="{{eventIcon}}"
+                          <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                             [style.width.px]="iconSize">
                           <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventTitle}}</span>
@@ -6231,7 +6262,7 @@ padding: 21px;">
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;margin: 8px 43px; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;padding: 10px 12px; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
