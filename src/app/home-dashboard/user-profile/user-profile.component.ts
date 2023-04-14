@@ -158,7 +158,14 @@ this.Email=res.result[0]?.email
   if(this.countryList) {
     this.countryList.filter((item:any)=>{
       if(item?.stdCode == this.phoneCode) {
-        this.country = item?.name
+        if( item?.name)
+        {
+          this.country = item?.name
+        }
+      }
+      else{
+        this.country =this.countryList[0]?.name
+        this.phoneCode= "+1"
       }
     })
   }
@@ -196,7 +203,7 @@ console.log(this.details)
   }
 
 
-  // yha chnage h
+
 
 
 

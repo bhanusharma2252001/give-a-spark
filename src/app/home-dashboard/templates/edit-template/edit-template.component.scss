@@ -265,14 +265,14 @@
       bottom: 0;
       background-color: #00000000;
       transition: .4s;
-      height: 35px;
+      height: 28px;
       border: 1px solid #107f79;
     }
     .slider:before {
       position: absolute;
       content: "";
-      height: 24px;
-      width: 24px;
+      height: 15px;
+      width: 15px;
       left: 4px;
       bottom: 6px;
       background-color: rgb(196, 14, 14);

@@ -6,7 +6,6 @@ import { SparkService } from 'src/app/service/spark.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
-import gapi from 'gapi-client'; 
 
 // import * as chrome from 'chrome';
 
@@ -119,20 +118,7 @@ export class SavedTemplatesComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.clientId, 'client id')
-    gapi.load('client', () => {
-      gapi.client.init({
-        'clientId': this.clientId,
-        'discoveryDocs': this.discoveryDocs
-      }).then(() => {
-        this.auth2 = gapi.auth2.getAuthInstance();
-        console.log("init auth2",this.auth2);
-        console.log("after calling init auth2");
-        
-        console.log('Google APIs client library loaded and initialized');
-      }, (error:any) => {
-        console.error('Error loading or initializing the Google APIs client library:', error);
-      });
-    });
+   
 
 
     this.spinner.show();
@@ -375,29 +361,29 @@ console.log(this.code);
 }
 setonGmail(){
 
- 
-// Initialize the API client library
 
-  // let tabledata:any = this.tableData;
-  // let result:any = tabledata?._results;
-  // console.log(result, 'any');
+
+  let tabledata:any = this.tableData;
+  let result:any = tabledata?._results;
+  console.log(result, 'any');
   
-  // result.filter( (item:any)=>{
-  // if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
-  // this.templateRef = item?.nativeElement
+  result.filter( (item:any)=>{
+  if (this.selectedTemplateId == Number(item?.nativeElement.id)) {
+  this.templateRef = item?.nativeElement
+  this.api.gmail(this.templateRef.outerHTML
+  ).subscribe ((res: any)=>{
+  console.log(res, 'setgmail');})}})
+  
+   
+  
+  this.toast.success('Please Check your Email');
+    
   // this.api.gmail(this.templateRef.outerHTML
-  // ).subscribe ((res: any)=>{
-  // console.log(res, 'setgmail');})}})
+  //   ).subscribe((res:any)=>{
+  //   console.log(res, 'setgmail');
+    
+  // })
   
-
-  // this.toast.success('Please Check your Email');
-    // localStorage.setItem('outlook',this.templateRef.outerHTML)
-
-   
-
-   
-      
-
   }
   openModal (evt:any) {  console.log(evt);
   this. selectedTemplateId = evt
@@ -457,6 +443,7 @@ setOnOutlook(){
       this.tempId=val
       this.api.delTemplate(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
+        this.toast.success('This Signature is deleted successfully.');
         this.getTemplateDetails();
     })
    

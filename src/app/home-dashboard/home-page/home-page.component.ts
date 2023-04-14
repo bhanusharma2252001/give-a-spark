@@ -13,6 +13,8 @@ import { SparkService } from 'src/app/service/spark.service';
 export class HomePageComponent implements OnInit {
   details: any;
   giftForm:FormGroup;
+
+  email: any;
   constructor(private spinner:NgxSpinnerService, private api:SparkService,  private fb:FormBuilder, private toast:ToastrService, private router:Router) {   
      this.giftForm=this.fb.group({
     email:['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -27,6 +29,13 @@ export class HomePageComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+    if (sessionStorage.getItem('ff')) {
+      this.email = sessionStorage.getItem('ff')
+    }
+    else if (sessionStorage.getItem('gg')) {
+      this.email = sessionStorage.getItem('gg')
+    }
+    console.log(this.email, 'email for gmail')
   }
 
 getVariable(){

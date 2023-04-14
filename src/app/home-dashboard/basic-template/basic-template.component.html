@@ -238,7 +238,7 @@
                               <div>
 
                                 <img *ngIf="userProfile && !url "
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}" alt=""
+                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}" alt=""   [style.border-radius.px]="borderRadius"
                                   class="wh-150 rounded-circle">
 
                               </div>
@@ -656,10 +656,10 @@
                         <tr>
                           <td style="vertical-align: baseline;">
                             <div style="padding: 7px 15px;">
-                              <img class="width" [src]="url" height="65" width="72" *ngIf="url">
+                              <img class="width" [src]="url" height="65" width="72" *ngIf="url"  [style.border-radius.px]="borderRadius">
                               <img style="width: 72px;
                                 vertical-align: middle; height: 65px;border-radius:50%;" *ngIf="userProfile && ! url"
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}"  [style.border-radius.px]="borderRadius">
 
                               <!-- https://giveaspark.s3.us-west-1.amazonaws.com/ -->
                             </div>
@@ -2428,9 +2428,18 @@
       </form>
       <div class="row">
         <div class="col-md-6 ">
+       
+   
           <div class="d-flex">
-            <img class="wh-25" src="assets/images/replace-icon.png ">
-            <p class="px-3 mb-0">Replace Banner</p>
+            
+            <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
+              accept="image/gif, image/jpeg, image/png"><span class="d-flex">
+                <img class="wh-25" src="assets/images/replace-icon.png ">
+                <p class="px-3 mb-0">Replace Banner</p>
+           
+    
+            </span></label>
+          
           </div>
         </div>
         <div class="col-md-6 ">
@@ -2443,10 +2452,10 @@
       </div>
       <div class="row mt-3">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (click)="bannerValue()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()">Cancel</button>
         </div>
       </div>
     </div>

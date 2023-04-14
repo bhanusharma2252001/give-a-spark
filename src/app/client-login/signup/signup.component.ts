@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private sparkService:SparkService, private toast:ToastrService, private _Router:Router, private _ngZone: NgZone) { 
     this.signupForm=this.fb.group({
-          firstName:['',Validators.required],
+          firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
         email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         password: ['', [Validators.required, Validators.minLength(8),
           Validators.required,

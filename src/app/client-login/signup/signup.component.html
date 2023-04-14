@@ -8,8 +8,10 @@
                     <img src="assets/images/pink-line.png"  class="img-fluid">
                 </div>
                 <div class="mb-3 position-relative">
-                    <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
+                    <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize"> Name</label>
                     <input type="text" class="form-control" id="exampleInputinput-field" aria-describedby="emailHelp" formControlName="firstName">
+                    <div *ngIf="signupForm.controls['firstName'].hasError('pattern')" style="font-size: 8px; color: red;">Input should only contain alphabetic characters</div>
+  <div *ngIf="signupForm.controls['firstName'].hasError?.('required')" style="font-size: 8px; color: red;">Name is Required</div>
                     <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
                 </div>
                 <div class="mb-3 position-relative">

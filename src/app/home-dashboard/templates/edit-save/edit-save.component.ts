@@ -1843,4 +1843,95 @@ getScheduleIcon(event: any, data: any){
         this.toast.error('please try again');
       })
   }
+
+
+
+
+
+delyoutube(){
+
+  this.api.delyouTube(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+
+}
+
+
+
+
+
+
+
+delFooter(){
+
+  this.api.delFooter(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+
+}
+delSchedule(){
+  
+  this.api.delSchedule(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+
+}
+
+
+delSale(){
+  
+  this.api.delEvent(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+
+}
+delDesclaimer(){
+  this.api.deldesclaimer(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+
+}
+
+delGallery(){
+  this.api.delGallery(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+  
+}
+
+delBanner(){
+  this.api.delBanner(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+}
+
+delcustomButton(){
+  this.api.delcustom(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+}
+
+delApp(){
+  this.api.delApp(this.templateId).subscribe((res:any)=>{
+    console.log(res);
+    this.getTemplate();
+
+  })
+}
 }

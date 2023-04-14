@@ -44,6 +44,7 @@ token:any;
   isLoggedin?: boolean = undefined;
   Email:any;
   error: any;
+  facebookEamil:any;
   constructor(private fb: FormBuilder, private sparkService: SparkService, private _Router: Router, private toast:ToastrService, private _ngZone: NgZone,  private socialAuthService: SocialAuthService,private spinner: NgxSpinnerService ) { console.log(this.isLoggedin);
 
  
@@ -107,11 +108,13 @@ token:any;
         isFacebook: true,
         
       }
+      this.facebookEamil= details.email
       console.log(data, 'ffffffffff');
       
         this.sparkService.registerSocialUser(data).subscribe
         (
          (successData) => this.success(successData),
+         
          (reject) => {
           console.log(reject);
           
@@ -181,6 +184,7 @@ token:any;
       console.log(this.sparkService.isLoggedIn);
       console.log(this.googleEmail)
       sessionStorage.setItem('gg',this.googleEmail)
+      sessionStorage.setItem('gg',this.facebookEamil)
       if(data?.result?.roleId == 0) {
         sessionStorage.setItem('roleId', data?.result?.roleId);
         // this._ngZone.run(() => {

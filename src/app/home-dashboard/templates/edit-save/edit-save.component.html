@@ -347,14 +347,7 @@
                                                           
                                                   </div>
 
-                                                  <!-- <div class="mb-4 d-flex">
-
-                                                      <p class="mb-0 ">
-                                                          <i class="fa fa-plus-circle text-blue"></i>
-                                                      </p>
-                                                      <p class="mb-0 ps-2 text-blue">
-                                                          Add New Field</p>
-                                                  </div> -->
+                                             
 
                                               </div>
                                               <div class="col-md-1 col-lg-3">
@@ -365,33 +358,7 @@
 
                                       </div>
                                   </div>
-                                  <!-- <div class="tab-pane fade" id="template" role="tabpanel"
-                                      aria-labelledby="template-tab">
-                                      <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
-
-                                          <div class="">
-
-                                              <h4 class="mb-4">Templates</h4>
-                                          </div>
-                                          <div class="">
-                                              <p class="mb-1 fw-semibold">Free</p>
-                                              <img class="h-110" src="assets/images/free-template.png" (click)="
-                                              openTemp('free')">
-                                          </div>
-                                          <hr class="">
-
-                                          <div class="mt-2">
-                                              <p class="mb-1 fw-semibold">Pro</p>
-                                              <img class="h-110" src="assets/images/pro-img.png"
-                                                  (click)="openTemp('pro')">
-                                          </div>
-                                          <div class="mt-2">
-                                              <p class="mb-1 fw-semibold">Pro</p>
-                                              <img class="h-110" src="assets/images/pro-pro-img.png"
-                                                  (click)="openTemp('propro')">
-                                          </div>
-                                      </div>
-                                  </div> -->
+                        
                                   <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
                                       <div class=" bg-gray p-4 mb-4 shadow border-10 mt-4">
 
@@ -550,6 +517,7 @@
                                         </div>
                                         <div class="col-md-12">
                                           <div class="row align-items-center justify-content-center">
+                                            
                                             <button class="apps_button">
                                               <div onclick="openscheduler()" class="app_div"><img
                                                   src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span>Online
@@ -574,8 +542,10 @@
                                             <button onclick="openyoutubechannel()" class="apps_button">
                                               <div class="app_div"><img src="assets/images/youtube-icon.png"
                                                   alt="Youtube Channel" /><span>Youtube Channel</span>
+
                                               </div>
                                             </button>
+                                            <button (click)="delyoutube()">delete</button>
                                             <button onclick="opencustombutton()" class="apps_button">
                                               <div class="app_div"><img src="assets/images/custom-button.png"
                                                   alt="Custom BUtton" /><span>Custom Button</span>
@@ -1166,7 +1136,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" [checked]="greenIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png'" name="gridRadios" id="gridRadios1" value="option1"
+            <input class="form-check-input" type="radio" [checked]="greenIcon =='https://giveaspark.s3.us-west-1.amazonaws.com/category/green-leaf.png'" name="gridRadios" id="gridRadios1" value="option1"
               (change)="selectfooterIcon($event, 1)">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/green-leaf.png">
@@ -1595,7 +1565,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png'" >
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 1)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-calender.png'" >
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/color-calender.png">
             </label>
@@ -1604,7 +1574,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png'">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 2)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-clock.png'">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/schedule.png">
             </label>
@@ -1613,7 +1583,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png'">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" (change)="getScheduleIcon($event, 3)" [checked]="scheduleIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/white-meet.png'">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/color-meet.png">
             </label>
@@ -1972,10 +1942,18 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="d-flex">
-            <img class="wh-25" src="assets/images/replace-icon.png ">
-            <p class="px-3 mb-0">Replace Banner</p>
+            
+            <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
+              accept="image/gif, image/jpeg, image/png"><span class="d-flex">
+                <img class="wh-25" src="assets/images/replace-icon.png ">
+                <p class="px-3 mb-0">Replace Banner</p>
+           
+    
+            </span></label>
+          
           </div>
         </div>
+      
         <div class="col-md-6 ">
           <div class="d-flex">
             <img class="wh-25" src="assets/images/delete.png ">
@@ -2046,7 +2024,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon.png'" name="gridRadios" id="gridRadios1" value="option1"
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-tag.png'" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 1)">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/sale-tag.png">
@@ -2056,7 +2034,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/gift_icon.png'" name="gridRadios" id="gridRadios1" value="option1"
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/giftbox.png'" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 2)">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/giftbox.png">
@@ -2066,7 +2044,7 @@
         <div class="col-auto">
           <div class="form-check text-black ">
 
-            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/category/sale_icon_2.png'" name="gridRadios" id="gridRadios1" value="option1"
+            <input class="form-check-input" type="radio" [checked]="eventIcon == 'https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/sale-black.png'" name="gridRadios" id="gridRadios1" value="option1"
               (change)="salesEvent($event, 3)">
             <label class="form-check-label fs-14" for="gridRadios1">
               <img src="assets/images/sale-black.png">
