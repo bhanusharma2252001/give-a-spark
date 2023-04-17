@@ -2466,7 +2466,7 @@
                   <tbody>
                     <tr>
                       <td style="vertical-align: baseline;">
-                        <img style="width:65px;height:65px;" src="assets/images/template-23.png">
+                        <img style="width:65px;height:65px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/template-23.png">
                       </td>
                       <td rowspan="3">
                         <div style="background-color: #53746b;width:10px;height: 100%;">
@@ -2996,7 +2996,7 @@
 </td>
                     </tr>
 
-                    <tr>
+                    <tr *ngIf="videoUrl">
                       <td colspan="3" style="padding:10px 15px;" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
@@ -3015,34 +3015,34 @@
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="galleryTitle">
                       <td style="padding:10px 15px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
-                      <td style="padding:10px 15px;" colspan="3">
+                      <td style="padding:10px 15px;" colspan="3" *ngIf="url1 || url2 || url3 || url4">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
                             [style.margin-left.px]="imageSpace" *ngIf="url1"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="Gallery Image">
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" >
 
 
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="Gallery Image">
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" >
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url3"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="Gallery Image">
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" >
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="Gallery Image">
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" >
                         </div>
 
                       </td>
@@ -3072,7 +3072,7 @@
                     </tr>
 
                     <tr>
-                      <td colspan="2" [style.text-align]="footerAlignment">
+                      <td colspan="2" [style.text-align]="footerAlignment" *ngIf="footerText || greenIcon" >
                         <div style="display: flex;">
                           <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
                         border-right: 1px solid #e5e5e5;">
@@ -3086,7 +3086,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:10px 0;">
+                      <td colspan="3" style="padding:10px 0;" *ngIf="bannerUrl">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
@@ -3105,8 +3105,8 @@
                         </a>
                       </td>
                     </tr>
-                    <tr>
-                      <td colspan="3" style="padding: 10px 15px;">
+                    <tr *ngIf="scheduleLink || inputValue">
+                      <td colspan="3" style="padding: 10px 15px;" *ngIf="scheduleLink || inputValue">
 
 
 
@@ -3121,14 +3121,15 @@
                       </td>
                     </tr>
 
-                    <tr>
-                      <td colspan="3" style="padding: 10px 15px;padding-bottom:20px;"
+                    
+                    <tr  *ngIf="appleAppLink || googleAppLink || appName">
+                      <td colspan="3" style="padding: 10px 15px;padding-bottom:20px;" *ngIf="appleAppLink || googleAppLink || appName"
                         [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
 
-                        <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                        <span ><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
                             target="_blank" rel="nofollow noreferrer"> <img
                               src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
                               height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
