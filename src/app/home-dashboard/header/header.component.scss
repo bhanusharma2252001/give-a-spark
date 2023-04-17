@@ -3,10 +3,13 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block;  padding: 15px;transi
   position: absolute;
   top: -25px;
   translate: -45px;
+
+ 
 }
 .navbar-nav .dropdown-menu {
   position: absolute;
-
+  right: -73px;
+  width: 212px;
 }
 .wh-20
 {
@@ -19,4 +22,11 @@ padding:2px;
 }
 .drop-hover{
   padding-right: 0 0px;
+}
+.hover-light:hover{
+  background-color:#F44336;
+  border-radius:5px;
+}
+.hover-light:hover a{
+  color: #fff;
 }

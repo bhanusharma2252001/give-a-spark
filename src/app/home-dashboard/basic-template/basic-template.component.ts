@@ -287,14 +287,15 @@ scheduleShape:any=0
     })
 
 
+ 
     this.youtubeForm = this.fb.group({
-      youtubeUrl: ['', [Validators.required]],
+      youtubeUrl: ['', [Validators.required,]],
       youtubeTitle: ['', Validators.required]
     })
 
     this.EventForm = this.fb.group({
-      eventTitle: [''],
-      eventName: [''],
+      eventTitle: ['',Validators.required],
+      eventName: ['',Validators.required],
       eventLink: ['', [Validators.pattern(reg)]]
     })
 
@@ -323,23 +324,23 @@ scheduleShape:any=0
       googleAppLink: ['', [Validators.pattern(reg)]]
     })
     this.customButtonForm=this.fb.group({
-      customButtonText: [''],
+      customButtonText: ['',Validators.required],
       customUrl: ['', [Validators.required,Validators.pattern(reg)]],
     })
-    //   router.canceledNavigationResolution = 'computed';
-    //   history.pushState(null, '', location.href);
-    // window.onpopstate = function () {
-    //    history.go(1);
-    // };
+
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.pattern(reg)]],
-  scheduleText: [''], 
+  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleText: ['',Validators.required], 
 })
   }
-  get f() { return this.signatureDetailsForm.controls; }
+  get f() { return this.signatureDetailsForm.controls; 
+  
+  }
 
 
-
+  get c(){  
+    return this.scheduleForm.controls; 
+  }  
 
 
   ngOnInit(): void {
@@ -1641,6 +1642,7 @@ getScheduleShape(val:any){
   console.log(this.scheduleShape, 'size')
 }
 getScheduleDetails(){
+  this.Submitted = true;
 this.inputValue=this.scheduleForm.value.scheduleText
 this.scheduleLink=this.scheduleForm.value.scheduleLink
 console.log(this.inputValue, this.scheduleLink, 'schedule')

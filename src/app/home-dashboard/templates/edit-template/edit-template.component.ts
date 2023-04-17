@@ -301,8 +301,8 @@ content!: string;
     })
 
     this.EventForm = this.fb.group({
-      eventTitle: [''],
-      eventName: [''],
+      eventTitle: ['',Validators.required],
+      eventName: ['',Validators.required],
       eventLink: ['', [Validators.pattern(reg)]]
     })
 
@@ -331,13 +331,13 @@ content!: string;
       googleAppLink: ['', [Validators.pattern(reg)]]
     })
     this.customButtonForm=this.fb.group({
-      customButtonText: [''],
+      customButtonText: ['',Validators.required],
       customUrl: ['', [Validators.required,Validators.pattern(reg)]],
     })
 
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.pattern(reg)]],
-  scheduleText: [''], 
+  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleText: ['',Validators.required], 
 })
     this.getTemplateId()
   }
@@ -633,7 +633,7 @@ hideModel() {
         body['eventName'] = this.eventName,
         body['eventIcon'] = this.eventIcon,
         body['greenFooter'] = this.footerText,
-        body['greenIcon'] = this.greenIcon,
+        body['footerIcon'] = this.greenIcon,
         body['bannerImage'] =this.bannerUrl
       body['bannerLink'] = this.bannerLink
       body['appName'] = this.appName
@@ -919,7 +919,7 @@ this.borderRadius = data?.borderRadius
 
  getBindData(data:any) {
   console.log(data,'adadcw');
-  
+  this.bindData = data;
   this.username = data?.yourName
   this.logo=data?.logo
       this.Email = data?.email
@@ -953,15 +953,15 @@ console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
       }
 
       
-      this.getScheduleData()
-      this.getDisclamierData()
-      this.getFooterData()
-      this.getGalleryData()
-      this.getYouTubeData()
-      this.getCustomData()
-      this.getBannerData()
-      this.getSalesEventData()
-      this.getDownloadAppData()
+      this.getScheduleData();
+      this.getDisclamierData();
+      this.getFooterData();
+      this.getGalleryData();
+      this.getYouTubeData();
+      this.getCustomData();
+      this.getBannerData();
+      this.getSalesEventData();
+      this.getDownloadAppData();
  }
  
 //  / schedule fn
@@ -1945,6 +1945,152 @@ removeBanner(){
   this.banner = ''
   this.bannerUrl=''
   console.log(this.banner)
+  this.toast.success( ' Removed  Successfully');
+   
+
+
     }
+
+
+
+// -----------------del app------------
+ delyouTube(){
+
+  this.api.delProYouTube(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+ }
+
+
+delBanner(){
+
+  this.api.delProBanner(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+
+
+ delGallery(){
+
+  this.api.delProGallery(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+
+ delSchedule(){
+
+  this.api.delProSchedule(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+ deldesclaimer(){
+
+  this.api.delProDesclaimer(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+ delFooter(){
+
+  this.api.delProFooter(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+ delApp(){
+
+  this.api.delAppLink(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+ delEvent(){
+
+  this.api.delProEvent(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+
+ }
+ delCustom(){
+ 
+  this.api.delProCustombutton(this.templateId).subscribe((res:any)=>{
+    console.log(res, 'del youtube');
+    console.log(this.templateId)
+    this.getFreeTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
+
+  },
+  (error) => {
+    this.toast.error('please try again');
+  })
+ }
 
 }

@@ -507,7 +507,244 @@
                         <h5 class="para-app mb-4 pro-lock">Enhance Your Signature</h5>
                       </div>
                       <div class="col-md-12">
-                        <div class="row align-items-center justify-content-center">
+                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="inputValue || scheduleLink">
+                          <button class="apps_button w-445">
+                            <div class="row align-items-center">
+                              <div class="col-md-6 col-lg-6">
+                                <div class="app_div" >
+                                  <img src="assets/images/online-scheduler.png" 
+                                    alt="Online Scheduler Image" /><span>Online
+                                    Scheduler</span>
+
+                                </div>
+                              </div>
+                              <div class="col-md-6 col-lg-6">
+                                <div class="app_div justify-content-end ">
+
+                                  <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="openscheduler()"></i>
+                                  <i class="fa fa-trash px-2 fs-20 delete-btn"
+                                    aria-hidden="true" (click)="delSchedule()"></i>
+                                </div>
+                              </div>
+                            </div>
+
+                          </button>
+                        </div>
+
+                        <!-- ---------------desclaimer-------- -->
+
+                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="content">
+                          <button class="apps_button w-445">
+                            <div class="row align-items-center">
+                              <div class="col-md-6 col-lg-6">
+                                <div class="app_div" >
+                                  <img src="assets/images/disclaimer.png"
+                                    alt="Online Scheduler Image" /><span>Desclaimer
+                                    </span>
+
+                                </div>
+                              </div>
+                              <div class="col-md-6 col-lg-6">
+                                <div class="app_div justify-content-end ">
+
+                                  <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="opendisclaimer()"></i>
+                                  <i class="fa fa-trash px-2 fs-20 delete-btn"
+                                    aria-hidden="true"  (click)="deldesclaimer()"></i>
+                                </div>
+                              </div>
+                            </div>
+
+                          </button>
+                        </div>
+<!-- -------------------------greenfooter-------------- -->
+
+<div class="delete_apps row align-items-center justify-content-center" *ngIf="footerText || greenIcon">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/green-footer.png"
+            alt="Online Scheduler Image" /><span>Green Footer
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="openaddgreenfooter()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delFooter()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+<!-- --------------------------image gallery-------------- -->
+
+
+<div class="delete_apps row align-items-center justify-content-center" *ngIf=" url1 ||  url2 ||  url3 ||  url4 ">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/image-gallary.png"
+            alt="Online Scheduler Image" /><span>Image
+              Gallery
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="openimagegallery()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delGallery()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+
+
+<!-- -----------------------youtube---------- -->
+
+<div class="delete_apps row align-items-center justify-content-center"  *ngIf="videoUrl">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/youtube-icon.png"
+            alt="Online Scheduler Image" /><span>Youtube Channel
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="openyoutubechannel()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delyouTube()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+
+
+<!-- -------------custombutton------------- -->
+
+<div class="delete_apps row align-items-center justify-content-center" *ngIf="customText ||customUrl">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/custom-button.png"
+            alt="Online Scheduler Image" /><span>Custom Button
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="opencustombutton()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delCustom( )"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+<!-- ----------------upload banner------------- -->
+          
+<div class="delete_apps row align-items-center justify-content-center" *ngIf="bannerUrl" >
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/upload-banner.png"
+            alt="Online Scheduler Image" /><span>Upload
+              Banner
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="openuploadbanner()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delBanner ()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>  
+<!-- -----------------sales------------ -->
+
+
+
+<div class="delete_apps row align-items-center justify-content-center" *ngIf="eventName || eventIcon">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/sales-event.png"
+            alt="Online Scheduler Image" /><span> Sales Event
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="opensalesevent()"                        
+            ></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delEvent()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+
+<!-- ----------------------downloadapp---------------- -->
+
+<div class="delete_apps row align-items-center justify-content-center" *ngIf="appName || googleAppLink || appleAppLink">
+  <button class="apps_button w-445">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div" >
+          <img src="assets/images/downlod-app.png"
+            alt="Online Scheduler Image" /><span>Download App
+            </span>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="app_div justify-content-end ">
+
+          <i class="fa fa-edit fs-20 px-2 edit-btn" onclick="opendownloadapp()"></i>
+          <i class="fa fa-trash px-2 fs-20 delete-btn"
+            aria-hidden="true" (click)="delApp()"></i>
+        </div>
+      </div>
+    </div>
+
+  </button>
+</div>
+
+
+<div class="row align-items-center justify-content-center">
                           <button class="apps_button">
                             <div onclick="openscheduler()" class="app_div"><img src="assets/images/online-scheduler.png"
                                 alt="Online Scheduler Image" /><span>Online
@@ -671,7 +908,7 @@
                         </div>
                       </td>
                       <td style="vertical-align:center;">
-                        <div style="width:110px;height:110px;border-radius:50%;text-align: center;">
+                        <div style="text-align:end;">
 
                           <img class="width" [src]="url"
                             style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
@@ -1323,7 +1560,7 @@
                       <td style="text-align:start;border-radius:0 225px 225px 0">
 
                         <div style="margin-top:5px;margin-left: -70px;">
-                          <p style="color:#000;font-size: 8px;margin-bottom:1px;margin:0;" *ngIf="number">
+                          <p style="color:#000;font-size:12px;margin-bottom:1px;margin:0;" *ngIf="number">
                             <span style="padding:0 5px;color:#000"><img
                                 style="width:12px;height:12px;background-color:#add27b; width: 12px;padding: 3px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png">
@@ -1331,7 +1568,7 @@
 
                           </p>
 
-                          <p style="color:#000;font-size: 8px;margin-bottom:1px;margin:0;" *ngIf="useraddress">
+                          <p style="color:#000;font-size: 12px;margin-bottom:1px;margin:0;" *ngIf="useraddress">
                             <span style="padding:0 5px;color:#000"><img
                                 style="width:12px;height:12px;background-color:#add27b; width: 12px;padding: 3px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction.png">
@@ -1339,13 +1576,13 @@
 
                           </p>
 
-                          <p style="color:#000;font-size: 8px;margin-bottom:1px;margin:0;" *ngIf="Email">
+                          <p style="color:#000;font-size: 12px;margin-bottom:1px;margin:0;" *ngIf="Email">
                             <span style="padding:0 5px;color:#000"><img
                                 style="width:12px;height:12px;background-color:#add27b; width: 12px;padding: 3px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail.png"></span>
                             {{Email}}
                           </p>
-                          <p style="color:#000;font-size: 8px;margin-bottom:1px;margin:0;" *ngIf="compWebsite">
+                          <p style="color:#000;font-size: 12px;margin-bottom:1px;margin:0;" *ngIf="compWebsite">
                             <span style="padding:0 5px;color:#000"><img
                                 style="width:12px;height:12px;background-color:#add27b; width: 12px;padding: 3px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/web.png"></span>
@@ -2127,9 +2364,9 @@
 
                           </p>
                           <p *ngIf="compPhone" style="color:black;font-size: 12px;margin-bottom:1px;margin:0;"
-                            [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                           >
+                            <span style="padding:0 5px;color:black"  [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
-                            <span style="padding:0 5px;color:black">
                               <img style="   background: #078b7b;
                             border-radius: 26px;
                             width: 15px;
@@ -2139,9 +2376,9 @@
 
                           </p>
                           <p *ngIf="Email" style="color:black;font-size: 12px;margin-bottom:1px;margin:0;"
-                            [style.color]="contactDetailColor" [style.line-height]="lineHeight"
-                            [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
-                            <span style="padding:0 5px;color:black"><img style="    background: #078b7b;
+                            >
+                            <span style="padding:0 5px;color:black" [style.color]="contactDetailColor" [style.line-height]="lineHeight"
+                            [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize"><img style="    background: #078b7b;
                             border-radius: 26px;
                             width: 15px;
                             padding: 2px;"
@@ -2996,7 +3233,7 @@
 </td>
                     </tr>
 
-                    <tr *ngIf="videoUrl">
+                    <tr>
                       <td colspan="3" style="padding:10px 15px;" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
@@ -3015,34 +3252,34 @@
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
-                    <tr *ngIf="galleryTitle">
+                    <tr>
                       <td style="padding:10px 15px;">{{galleryTitle}}</td>
                     </tr>
                     <tr>
 
-                      <td style="padding:10px 15px;" colspan="3" *ngIf="url1 || url2 || url3 || url4">
+                      <td style="padding:10px 15px;" colspan="3">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
                             [style.margin-left.px]="imageSpace" *ngIf="url1"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" >
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="Gallery Image">
 
 
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url2"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" >
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="Gallery Image">
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url3"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" >
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="Gallery Image">
 
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.border-radius.px]="imageRadious"
                             [style.margin-right.px]="imageSpace" [style.margin-left.px]="imageSpace" *ngIf="url4"
-                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" >
+                            [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="Gallery Image">
                         </div>
 
                       </td>
@@ -3072,7 +3309,7 @@
                     </tr>
 
                     <tr>
-                      <td colspan="2" [style.text-align]="footerAlignment" *ngIf="footerText || greenIcon" >
+                      <td colspan="2" [style.text-align]="footerAlignment">
                         <div style="display: flex;">
                           <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
                         border-right: 1px solid #e5e5e5;">
@@ -3086,7 +3323,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="3" style="padding:10px 0;" *ngIf="bannerUrl">
+                      <td colspan="3" style="padding:10px 0;">
 
                         <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
                           alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
@@ -3105,8 +3342,8 @@
                         </a>
                       </td>
                     </tr>
-                    <tr *ngIf="scheduleLink || inputValue">
-                      <td colspan="3" style="padding: 10px 15px;" *ngIf="scheduleLink || inputValue">
+                    <tr>
+                      <td colspan="3" style="padding: 10px 15px;">
 
 
 
@@ -3121,15 +3358,14 @@
                       </td>
                     </tr>
 
-                    
-                    <tr  *ngIf="appleAppLink || googleAppLink || appName">
-                      <td colspan="3" style="padding: 10px 15px;padding-bottom:20px;" *ngIf="appleAppLink || googleAppLink || appName"
+                    <tr>
+                      <td colspan="3" style="padding: 10px 15px;padding-bottom:20px;"
                         [style.text-align]="appbuttonAlign">
                         <p style="padding:5px 15px;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
 
-                        <span ><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
+                        <span><a *ngIf="googleAppLink" href="{{googleAppLink}}" style="text-decoration: none;"
                             target="_blank" rel="nofollow noreferrer"> <img
                               src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
                               height="33" style=" height: 33px; display: inline-block;padding:0 10px;"
@@ -3146,6 +3382,7 @@
                   </tbody>
                 </table>
               </div>
+
 
               <!-- ..............................Template-2................... -->
 
@@ -7133,6 +7370,13 @@ padding: 21px;">
             <div class="col-auto">
               <input type="text" [(ngModel)]="imageLink" class="form-control" placeholder="  https://www.applylink"
                 formControlName="imageLink">
+                <ng-container class="po-re"
+                *ngIf="customGalleryForm.controls['imageLink'].touched && !customGalleryForm.controls['imageLink'].valid">
+                <small class="text-danger"
+                  *ngIf="customGalleryForm.controls['imageLink'].hasError('pattern')">
+                  Please enter a valid Url.
+                </small>
+              </ng-container>
             </div>
 
           </div>
@@ -7140,7 +7384,7 @@ padding: 21px;">
 
           <div class="row">
             <div class="col-auto">
-              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)"
+              <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)" [disabled]="customGalleryForm.invalid"
                 onclick="closeimagegallery()">Add</button>
             </div>
             <div class="col-auto">
@@ -7320,6 +7564,13 @@ padding: 21px;">
         <div class="col-auto">
           <input type="text" class="design-input fs-14 col-md-6" [(ngModel)]="scheduleLink"
             formControlName="scheduleLink">
+            <ng-container class="po-re"
+            *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
+            <small class="fs-12 text-danger">Url is required </small> <br>
+  <small class="text-danger" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
+  Please enter a valid Url.
+  </small>
+  </ng-container>
         </div>
       </div>
 
@@ -7333,6 +7584,12 @@ padding: 21px;">
           <div class="col-auto">
             <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText"
               [(ngModel)]="inputValue">
+              <ng-container class="po-re"
+              *ngIf="scheduleForm.controls['scheduleText'].touched && !scheduleForm.controls['scheduleText'].valid">
+    <small class="text-danger">
+      Text is required
+    </small>
+    </ng-container>
           </div>
         </div>
 
@@ -7434,7 +7691,7 @@ padding: 21px;">
         </div>
         <div class="row">
           <div class="col-auto">
-            <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
+            <button class="green-btn py-2 px-3" onclick="closescheduler()" [disabled]="scheduleForm.invalid" (click)="getScheduleDetails()">Add</button>
           </div>
           <div class="col-auto">
             <button class="gray-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleData()">Cancel</button>
@@ -7468,7 +7725,13 @@ padding: 21px;">
         <div class="col-auto">
           <input type="text" [(ngModel)]="youtubeUrl" placeholder=" https://www.youtube.com/watch?v=123"
             formControlName="youtubeUrl" (keyup)="getUrl()" class="form-control" width="300" height="80">
-        </div>
+            <ng-container class="po-re"
+            *ngIf="youtubeForm.controls['youtubeUrl'].touched && !youtubeForm.controls['youtubeUrl'].valid">
+  <small class="text-danger" >
+ * Youtube url is required
+  </small> 
+  </ng-container>
+          </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title
@@ -7542,7 +7805,7 @@ padding: 21px;">
       <div class="row">
         <div class="col-auto">
           <button class="green-btn py-2 px-3" (click)="youTubeDetails()" href="javascript:void(0)"
-            onclick="closeyoutubechannel()">Add</button>
+            onclick="closeyoutubechannel()" [disabled]="youtubeForm.invalid" >Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()" (click)="getYouTubeData()">Cancel</button>
@@ -7571,13 +7834,26 @@ padding: 21px;">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
           </label></div>
         <div class="col-auto"><input type="text" placeholder="Button" class="form-control"
-            formControlName="customButtonText" [(ngModel)]="customText"></div>
+            formControlName="customButtonText" [(ngModel)]="customText">
+            <ng-container class="po-re"
+            *ngIf="customButtonForm.controls['customButtonText'].touched && !customButtonForm.controls['customButtonText'].valid">
+  <small class="text-danger" >
+Please fill the blank field.
+  </small>
+  </ng-container></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
-            formControlName="customUrl" [(ngModel)]="customUrl"></div>
+            formControlName="customUrl" [(ngModel)]="customUrl">
+            <ng-container class="po-re"
+            *ngIf="customButtonForm.controls['customUrl'].touched && !customButtonForm.controls['customUrl'].valid">
+            <small class="fs-12">Url is required </small>
+  <small class="text-danger" *ngIf="customButtonForm.controls['customUrl'].hasError('pattern')">
+  Please enter a valid Url.
+  </small>
+  </ng-container></div>
       </div>
       <h5 class="mt-4"> Button Style</h5>
       <div class="row g-3 align-items-center mb-3">
@@ -7691,7 +7967,7 @@ padding: 21px;">
     <div class="row mt-4">
       <div class="col-auto">
 
-        <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
+        <button class="green-btn py-2 px-3" onclick="closecustombutton()" [disabled]="customButtonForm.invalid" (click)="getCustoBtDetails()">Add</button>
       </div>
       <div class="col-auto">
         <button class="gray-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustomData()">Cancel</button>
@@ -7756,7 +8032,11 @@ padding: 21px;">
           <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
               :</label></div>
           <div class="col-auto"><input type="text" [(ngModel)]="bannerLink" placeholder="Banner URL"
-              class="form-control" formControlName="bannerLink"></div>
+              class="form-control" formControlName="bannerLink"> <ng-container class="po-re"
+              *ngIf="bannerForm.controls['bannerLink'].touched && !bannerForm.controls['bannerLink'].valid">
+    <small class="text-danger" *ngIf="bannerForm.controls['bannerLink'].hasError('pattern')">
+    Please enter a valid Url.
+    </small></ng-container></div>
         </div>
       </form>
       <div class="row">
@@ -7784,7 +8064,7 @@ padding: 21px;">
       </div>
       <div class="row mt-3">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="bannerValue()" [disabled]="bannerForm.invalid" onclick="closeuploadbanner()">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()" (click)="getBannerData()">Cancel</button>
@@ -7812,13 +8092,21 @@ padding: 21px;">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"
-            formControlName="eventTitle" [(ngModel)]="eventTitle"></div>
+            formControlName="eventTitle" [(ngModel)]="eventTitle"> <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventTitle'].touched && !EventForm.controls['eventTitle'].valid">
+            <small class="fs-12">Event Title is required </small>
+ 
+  </ng-container></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
-            formControlName="eventName" [(ngModel)]="eventName"></div>
+            formControlName="eventName" [(ngModel)]="eventName">  <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventName'].touched && !EventForm.controls['eventName'].valid">
+            <small class="fs-12">Text is required </small>
+  
+  </ng-container></div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
@@ -7931,7 +8219,7 @@ padding: 21px;">
 
       <div class="row mt-4">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()" [disabled]="EventForm.invalid">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesEventData()">Cancel</button>
@@ -8039,7 +8327,7 @@ padding: 21px;">
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closedownloadapp()"  [disabled]="downloadAppForm.invalid" (click)="getAppDetails()">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closedownloadapp()" (click)=" getDownloadAppData()">Cancel</button>

@@ -1812,6 +1812,13 @@
             </div>
             <div class="col-auto">
               <input type="text" [(ngModel)]="imageLink" class="form-control" placeholder="  https://www.applylink" formControlName="imageLink">
+              <ng-container class="po-re"
+              *ngIf="customGalleryForm.controls['imageLink'].touched && !customGalleryForm.controls['imageLink'].valid">
+              <small class="text-danger"
+                *ngIf="customGalleryForm.controls['imageLink'].hasError('pattern')">
+                Please enter a valid Url.
+              </small>
+            </ng-container>
             </div>
 
           </div>
@@ -1820,7 +1827,7 @@
           <div class="row">
             <div class="col-auto">
               <button class="green-btn py-2 px-3" (click)="imageDetails(customGalleryForm.value)"
-                onclick="closeimagegallery()">Add</button>
+                onclick="closeimagegallery()" [disabled]="customGalleryForm.invalid">Add</button>
             </div>
             <div class="col-auto">
               <button class="gray-btn py-2 px-3" onclick="closeimagegallery()">Cancel</button>
@@ -1965,18 +1972,7 @@
 
     <!-- <h6>Choose Scheduling Provider</h6> -->
     <form class="mt-4" [formGroup]="scheduleForm">
-      <!-- <p class="mb-0 fs-14">Which scheduling service would you like to use</p> -->
-      <!-- <div class="form-check text-black ">
 
-        <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" name="options"  value="option1" (click)="showInputBox = false">
-        <label class="form-check-label fs-14" >
-   Use  Scheduling Solution( Recommended by Give a spark)
-        </label>
-      </div> -->
-      <!-- <div class="">
-        <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption"  name="options"  value="option2" (click)="showInputBox = true">
-      
-      </div> -->
       <div class="row fs-14 fw-semibold align-items-center form-floating">
         <div class="col-auto">
           <label class="floatingInput">
@@ -1984,6 +1980,14 @@
         </div>
         <div class="col-auto">
           <input type="text" class="design-input fs-14 col-md-6" formControlName="scheduleLink">
+          
+          <ng-container class="po-re"
+          *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
+          <small class="fs-12 text-danger">Url is required </small> <br>
+<small class="text-danger" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
+Please enter a valid Url.
+</small>
+</ng-container>
         </div>
       </div>
 
@@ -1997,6 +2001,15 @@
           <div class="col-auto">
             <input type="text" id="inputtext" class="form-control bg-transparent fs-14" formControlName="scheduleText"
               [(ngModel)]="inputValue">
+              <div *ngIf="Submitted && f['scheduleText']errors" class="invalid-feedback">
+                <span *ngIf="f['scheduleText']errors['required']">Text is required</span>
+              </div>
+              <ng-container class="po-re"
+              *ngIf="scheduleForm.controls['scheduleText'].touched && !scheduleForm.controls['scheduleText'].valid">
+    <small class="text-danger">
+      Text is required
+    </small>
+    </ng-container>
           </div>
         </div>
 
@@ -2092,7 +2105,7 @@
         </div>
         <div class="row">
           <div class="col-auto">
-            <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
+            <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()" [disabled]="scheduleForm.invalid">Add</button>
           </div>
           <div class="col-auto">
             <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
@@ -2126,6 +2139,13 @@
         <div class="col-auto">
           <input type="text" placeholder=" https://www.youtube.com/watch?v=123" formControlName="youtubeUrl"
             (keyup)="getUrl()" class="form-control" width="300" height="80">
+           
+        <ng-container class="po-re"
+            *ngIf="youtubeForm.controls['youtubeUrl'].touched && !youtubeForm.controls['youtubeUrl'].valid">
+  <small class="text-danger" >
+ * Youtube url is required
+  </small> 
+  </ng-container>
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
@@ -2204,7 +2224,7 @@
       <div class="row">
         <div class="col-auto">
           <button class="green-btn py-2 px-3" (click)="youTubeDetails()" href="javascript:void(0)"
-            onclick="closeyoutubechannel()">Add</button>
+            onclick="closeyoutubechannel()" [disabled]="youtubeForm.invalid">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()">Cancel</button>
@@ -2233,13 +2253,29 @@
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button Text :
           </label></div>
         <div class="col-auto"><input type="text" placeholder="Button" class="form-control"
-            formControlName="customButtonText" [(ngModel)]="customText"></div>
+            formControlName="customButtonText" [(ngModel)]="customText">
+           
+            <ng-container class="po-re"
+            *ngIf="customButtonForm.controls['customButtonText'].touched && !customButtonForm.controls['customButtonText'].valid">
+  <small class="text-danger" >
+Please fill the blank field.
+  </small>
+  </ng-container>
+</div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Button URL :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
-            formControlName="customUrl" [(ngModel)]="customUrl"></div>
+            formControlName="customUrl" [(ngModel)]="customUrl">
+            <ng-container class="po-re"
+            *ngIf="customButtonForm.controls['customUrl'].touched && !customButtonForm.controls['customUrl'].valid">
+            <small class="fs-12">Url is required </small>
+  <small class="text-danger" *ngIf="customButtonForm.controls['customUrl'].hasError('pattern')">
+  Please enter a valid Url.
+  </small>
+  </ng-container>
+          </div>
       </div>
       <h5 class="mt-4"> Button Style</h5>
       <div class="row g-3 align-items-center mb-3">
@@ -2350,7 +2386,7 @@
     <div class="row mt-4">
       <div class="col-auto">
 
-        <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
+        <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()" [disabled]="customButtonForm.invalid">Add</button>
       </div>
       <div class="col-auto">
         <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
@@ -2414,7 +2450,16 @@
           <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Banner Link To :
               :</label></div>
           <div class="col-auto"><input type="text" [(ngModel)]="bannerLink" placeholder="Banner URL" class="form-control"
-              formControlName="bannerLink"></div>
+              formControlName="bannerLink">
+              <!-- <div *ngIf="Submitted && f['customButtonText']errors" class="invalid-feedback">
+                <span *ngIf="f['customButtonText']errors['required']">Please fill the field</span>
+              </div> -->
+              <ng-container class="po-re"
+              *ngIf="bannerForm.controls['bannerLink'].touched && !bannerForm.controls['bannerLink'].valid">
+    <small class="text-danger" *ngIf="bannerForm.controls['bannerLink'].hasError('pattern')">
+    Please enter a valid Url.
+    </small></ng-container>
+  </div>
         </div>
       </form>
       <div class="row">
@@ -2443,7 +2488,7 @@
       </div>
       <div class="row mt-3">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()">Add</button>
+          <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()" [disabled]="bannerForm.invalid">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()">Cancel</button>
@@ -2471,13 +2516,30 @@
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Title :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="Title here" class="form-control"
-            formControlName="eventTitle" [(ngModel)]="eventTitle"></div>
+            formControlName="eventTitle" [(ngModel)]="eventTitle">
+            <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventTitle'].touched && !EventForm.controls['eventTitle'].valid">
+            <small class="fs-12">Event Title is required </small>
+ 
+  </ng-container>
+              <!-- <ng-container class="po-re"
+              *ngIf="bannerForm.controls['bannerLink'].touched && !bannerForm.controls['bannerLink'].valid">
+    <small class="text-danger" *ngIf="bannerForm.controls['bannerLink'].hasError('pattern')">
+    Please enter a valid Url.
+    </small></ng-container> -->
+          </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link Text :
             :</label></div>
         <div class="col-auto"><input type="text" placeholder="Link text here" class="form-control"
-            formControlName="eventName" [(ngModel)]="eventName"></div>
+            formControlName="eventName" [(ngModel)]="eventName">
+            <ng-container class="po-re"
+            *ngIf="EventForm.controls['eventName'].touched && !EventForm.controls['eventName'].valid">
+            <small class="fs-12">Text is required </small>
+  
+  </ng-container>
+          </div>
       </div>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto"><label for="inputtext" class="col-form-label fs-14 fw-semibold">Link URL :
@@ -2582,7 +2644,7 @@
 
       <div class="row mt-4">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()" [disabled]="EventForm.invalid">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closesalesevent()" >Cancel</button>
@@ -2689,7 +2751,7 @@
 
       <div class="row">
         <div class="col-auto">
-          <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
+          <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()" [disabled]="downloadAppForm.invalid">Add</button>
         </div>
         <div class="col-auto">
           <button class="gray-btn py-2 px-3" onclick="closedownloadapp()" >Cancel</button>

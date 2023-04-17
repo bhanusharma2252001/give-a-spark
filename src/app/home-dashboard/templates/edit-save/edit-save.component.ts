@@ -299,14 +299,15 @@ content!: string;
     })
     
 
+  
     this.youtubeForm = this.fb.group({
       youtubeUrl: ['', [Validators.required]],
       youtubeTitle: ['', Validators.required]
     })
 
     this.EventForm = this.fb.group({
-      eventTitle: [''],
-      eventName: [''],
+      eventTitle: ['',Validators.required],
+      eventName: ['',Validators.required],
       eventLink: ['', [Validators.pattern(reg)]]
     })
 
@@ -335,13 +336,13 @@ content!: string;
       googleAppLink: ['', [Validators.pattern(reg)]]
     })
     this.customButtonForm=this.fb.group({
-      customButtonText: [''],
+      customButtonText: ['',Validators.required],
       customUrl: ['', [Validators.required,Validators.pattern(reg)]],
     })
 
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.pattern(reg)]],
-  scheduleText: [''], 
+  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleText: ['',Validators.required], 
 })
 
     this.getTemplateId()
@@ -1889,9 +1890,15 @@ delyoutube(){
 
   this.api.delyouTube(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( 'Youtube Video has been removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
+  
+
 
 }
 
@@ -1905,8 +1912,12 @@ delFooter(){
 
   this.api.delFooter(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( 'Footer has been removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 
 }
@@ -1914,10 +1925,13 @@ delSchedule(){
   
   this.api.delSchedule(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( ' Removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
-
 }
 
 
@@ -1925,16 +1939,24 @@ delSale(){
   
   this.api.delEvent(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( ' Removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 
 }
 delDesclaimer(){
   this.api.deldesclaimer(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( 'Desclaimer has been removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 
 }
@@ -1942,8 +1964,12 @@ delDesclaimer(){
 delGallery(){
   this.api.delGallery(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( 'Images has been removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
   
 }
@@ -1951,8 +1977,12 @@ delGallery(){
 delBanner(){
   this.api.delBanner(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( ' Banner has been removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 }
 
@@ -1960,15 +1990,24 @@ delcustomButton(){
   this.api.delcustom(this.templateId).subscribe((res:any)=>{
     console.log(res);
     this.getTemplate();
+    this.toast.success( ' Removed  Successfully');
+   
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 }
 
 delApp(){
   this.api.delApp(this.templateId).subscribe((res:any)=>{
     console.log(res);
+    this.toast.success( ' Removed  Successfully');
     this.getTemplate();
 
+  },
+  (error) => {
+    this.toast.error('please try again');
   })
 }
 removeBanner(){

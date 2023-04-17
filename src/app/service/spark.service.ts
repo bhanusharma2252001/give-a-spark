@@ -628,18 +628,100 @@ export class SparkService {
     });
   }
   delApp(id: any): Observable<any> {
-    return this.http.delete(environment.localApiURL + '/api/template/deleteYouTubeById/' + id, {
+    return this.http.delete(environment.localApiURL + '/api/template/deleteAppById/' + id, {
       headers: {
         Authorization: `bearer ${this.token}`,
       },
     });
   }
   delcustom(id: any): Observable<any> {
-    return this.http.delete(environment.localApiURL + '/api/template/deleteYouTubeById/' + id, {
+    return this.http.delete(environment.localApiURL + '/api/template/deleteCustomButtonById/' + id, {
       headers: {
         Authorization: `bearer ${this.token}`,
       },
     });
   }
+
+// -----------------------Del pro plus app------------------------
+
+
+delProBanner(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteBannerById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+
+delProYouTube(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteYouTubeById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  })};
+
+  delProEvent(id: any){
+    return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteEventById/' + id, {
+      headers: {
+        Authorization: `bearer ${this.token}`,
+      },
+    });
+
+}
+
+
+delProDesclaimer(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteDisclaimerById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+
+delProCustombutton(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteCustomButtonById' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+
+
+delAppLink(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteAppById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+delProFooter(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteGreenFooterAndIconById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+
+delProSchedule(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteScheduleById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
+delProGallery(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteCustomProfileById/' + id, {
+    headers: {
+      Authorization: `bearer ${this.token}`,
+    },
+  });
+
+}
 }
 
