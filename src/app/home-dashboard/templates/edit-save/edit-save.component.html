@@ -545,7 +545,7 @@
 
                                               </div>
                                             </button>
-                                            <button (click)="delyoutube()">delete</button>
+                                            <!-- <button (click)="delyoutube()">delete</button> -->
                                             <button onclick="opencustombutton()" class="apps_button">
                                               <div class="app_div"><img src="assets/images/custom-button.png"
                                                   alt="Custom BUtton" /><span>Custom Button</span>
@@ -1209,7 +1209,7 @@
           <button class="green-btn py-2 px-3" onclick="closeaddgreenfooter()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()" (click)="getFooterData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1361,7 +1361,7 @@
                 onclick="closeimagegallery()">Add</button>
             </div>
             <div class="col-auto">
-              <button class="gray-btn py-2 px-3" onclick="closeimagegallery()">Cancel</button>
+              <button class="gray-btn py-2 px-3" onclick="closeimagegallery()" (click)="getGalleryData()">Cancel</button>
             </div>
 
           </div>
@@ -1476,7 +1476,7 @@
           <button class="green-btn py-2 px-3" onclick="closedisclaimer()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()" (click)="getDisclamierData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1627,7 +1627,7 @@
           <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closescheduler()"  (click)="getScheduleData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1732,7 +1732,7 @@
             onclick="closeyoutubechannel()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel() " (click)="getYouTubeData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1878,7 +1878,7 @@
         <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()">Add</button>
       </div>
       <div class="col-auto">
-        <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
+        <button class="gray-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustomData()">Cancel</button>
       </div>
     </div>
   </div>
@@ -1967,7 +1967,7 @@
           <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()" (click)=" getBannerData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2106,7 +2106,7 @@
           <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closesalesevent()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesEventData()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2213,7 +2213,7 @@
           <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()" (click)="getDownloadAppData()">Cancel</button>
         </div>
       </div>
     </div>

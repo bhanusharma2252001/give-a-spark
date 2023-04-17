@@ -270,6 +270,7 @@ content!: string;
   appSizeFont: number=1;
   // --------------end---------
   @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
+  bindData: any;
 
   constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
@@ -951,89 +952,132 @@ console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
   
       }
 
-       // schedule 
-       this.inputValue = data?.scheduleText
-       this.scheduleSize = Number(data?.templateDesign?.scheduleSize)
-       this.scheduleBg = data?.templateDesign?.scheduleBg
-       this.scheduleIcon = data?.scheduleIcon
-       this.scheduleShape = data?.templateDesign?.scheduleShape
-       this.scheduleLink = data?.scheduleLink
-       //disclaimer
-       this.content = data?.disclaimer
-       this.disclaimerColor = data?.templateDesign?.disclaimerColor
-       this.disclaimerSize = Number(data?.templateDesign?.disclaimerSize)
-       this.disclaimerValue = (this.disclaimerSize == 14)?4:(this.disclaimerSize == 12)?3:(this.disclaimerSize == 10) ? 2 : 1
-       this.disclaimerAlignment = data?.templateDesign?.disclaimerAlignment
- 
-     //footer
-       this.footerText = data?.greenFooter
-       this.greenIcon=data?.greenIcon
-       this.footerColor = data?.templateDesign?.footerColor
-       this.footerSize = Number(data?.templateDesign?.footerSize)
-       this.footerSizeVal = (this.footerSize == 12)?3:(this.footerSize == 10) ? 2 : 1
-       this.footerAlignment = data?.templateDesign?.footerAlignment
-       // image gallery
-       this.url1 = data?.customProfile1;
-       this.url2 = data?.customProfile2
-       this.url3 = data?.customProfile3
-       this.url4 = data?.customProfile4
-       this.galleryTitle = data?.imageTitle;
-       this.imageLink = data?.imageLink
-       this.imageRadious = data?.templateDesign?.imageRadious
-       this.imageSpace = Number(data?.templateDesign?.imageSpace)
-       this.imageSpaceVal = (this.imageSpace == 13)?5:(this.imageSpace == 11)?4:(this.imageSpace == 10) ? 3 : (this.imageSpace == 8)? 2 : 1
-       this.imageSize = Number(data?.templateDesign?.imageSize)
-       this.imgSizeVal = (this.imageSize == 150)?5:(this.imageSize == 125)?4:(this.imageSize == 80) ? 3 : (this.imageSize == 61)? 2 : 1
-       
-       // youtube
-       this.youtubeUrl = data?.youtubeUrl
-       if(this.youtubeUrl) {
-         this.getUrl()
-       }
-       this.thumbnail=data?.thumbnailImage
-       this.youtubeTitle = data?.youtubeTitle
-       this.youtubeColor = data?.templateDesign?.youtubeColor
-       this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
-       this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
-       this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
       
-       // custom button
-       this.customText = data?.customButtonText
-       this.customUrl = data?.customUrl
-       this.customButtonShape = data?.templateDesign?.customButtonShape
-       this.customButtonBg = data?.templateDesign?.customButtonBg
-       this.buttonTextColor = data?.templateDesign?.buttonTextColor
-       this.customButtonSize = data?.templateDesign?.customButtonSize
-       this.customAlign = data?.templateDesign?.customButtonAlign
+      this.getScheduleData()
+      this.getDisclamierData()
+      this.getFooterData()
+      this.getGalleryData()
+      this.getYouTubeData()
+      this.getCustomData()
+      this.getBannerData()
+      this.getSalesEventData()
+      this.getDownloadAppData()
+ }
  
-       // banner
-       this.bannerUrl = data?.bannerImage
-       this.bannerLink = data?.bannerLink
-       this.bannerAlign = data?.templateDesign?.bannerAlign
-       this.bannerSize = Number(data?.templateDesign?.bannerSize)
-       this.bannerSizeVal = (this.bannerSize == 100)?3:(this.bannerSize == 75)?2:(this.bannerSize == 50) ? 1 : 300
- 
-       // sales event
-       this.eventTitle = data?.eventTitle
-       this.eventName =  data?.eventName
-       this.eventLink =  data?.eventLink
-       this.eventIcon = data?.eventIcon
-       this.eventColor = data?.templateDesign?.eventColor
-       this.eventSize = Number(data?.templateDesign?.eventSize)
-       this.eventFontVal = (this.eventSize == 14)?4:(this.eventSize == 13)?3:(this.eventSize == 12) ? 2 : 1
-       this.eventAlignment = data?.templateDesign?.eventAlignment
-       this.iconSize = data?.templateDesign?.iconSize
- 
-       //download app 
-       this.appName = data?.appName
-       this.appleAppLink = data?.appleAppLink
-       this.googleAppLink = data?.googleAppLink
-       this.appButtonColor = data?.templateDesign.appButtonColor
-       this.appbuttonAlign = data?.templateDesign?.appbuttonAlign
-       this.appButtonSize = Number(data?.templateDesign?.appButtonSize)
-       this.appSizeFont = (this.appButtonSize == 16)?4:(this.appButtonSize == 14)?3:(this.appButtonSize == 14) ? 2 : (this.appButtonSize == 12)?1 : 0
+//  / schedule fn
+ getScheduleData() {
+  // schedule 
+  let data = this.bindData
+  this.inputValue = data?.scheduleText
+  this.scheduleSize = Number(data?.templateDesign?.scheduleSize)
+  this.scheduleBg = data?.templateDesign?.scheduleBg
+  this.scheduleIcon = data?.scheduleIcon
+  this.scheduleShape = data?.templateDesign?.scheduleShape
+  this.scheduleLink = data?.scheduleLink
+ }
+
+ //get disclaimer
+ getDisclamierData() {
+  let data = this.bindData
+  this.content = data?.disclaimer
+  this.disclaimerColor = data?.templateDesign?.disclaimerColor
+  this.disclaimerSize = Number(data?.templateDesign?.disclaimerSize)
+  this.disclaimerValue = (this.disclaimerSize == 14)?4:(this.disclaimerSize == 12)?3:(this.disclaimerSize == 10) ? 2 : 1
+  this.disclaimerAlignment = data?.templateDesign?.disclaimerAlignment
+ }
+
+ getFooterData() {
+  let data = this.bindData
+  this.footerText = data?.greenFooter
+  this.greenIcon=data?.greenIcon
+  this.footerColor = data?.templateDesign?.footerColor
+  this.footerSize = Number(data?.templateDesign?.footerSize)
+  this.footerSizeVal = (this.footerSize == 12)?3:(this.footerSize == 10) ? 2 : 1
+  this.footerAlignment = data?.templateDesign?.footerAlignment
+ }
+  
+ getGalleryData() {
+  let data = this.bindData
+  this.url1 = data?.customProfile1;
+  this.url2 = data?.customProfile2
+  this.url3 = data?.customProfile3
+  this.url4 = data?.customProfile4
+  this.galleryTitle = data?.imageTitle;
+  this.imageLink = data?.imageLink
+  this.imageRadious = data?.templateDesign?.imageRadious
+  this.imageSpace = Number(data?.templateDesign?.imageSpace)
+  this.imageSpaceVal = (this.imageSpace == 13)?5:(this.imageSpace == 11)?4:(this.imageSpace == 10) ? 3 : (this.imageSpace == 8)? 2 : 1
+  this.imageSize = Number(data?.templateDesign?.imageSize)
+  this.imgSizeVal = (this.imageSize == 150)?5:(this.imageSize == 125)?4:(this.imageSize == 80) ? 3 : (this.imageSize == 61)? 2 : 1
+  
+ }
+
+ getYouTubeData() {
+  let data = this.bindData
+  this.thumbnail=data?.thumbnailImage
+  this.youtubeUrl = data?.youtubeUrl
+  if(this.youtubeUrl) {
+    this.getUrl()
+  }
+  this.youtubeTitle = data?.youtubeTitle
+  this.youtubeColor = data?.templateDesign?.youtubeColor
+  this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
+  this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
+  this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
  
  }
+
+ getCustomData() {
+  let data = this.bindData
+  this.customText = data?.customButtonText
+  this.customUrl = data?.customUrl
+  this.customButtonShape = data?.templateDesign?.customButtonShape
+  this.customButtonBg = data?.templateDesign?.customButtonBg
+  this.buttonTextColor = data?.templateDesign?.buttonTextColor
+  this.customButtonSize = data?.templateDesign?.customButtonSize
+  this.customAlign = data?.templateDesign?.customButtonAlign
+
+ }
+
+ getBannerData() {
+  let data = this.bindData
+  this.bannerUrl = data?.bannerImage
+  this.bannerLink = data?.bannerLink
+  this.bannerAlign = data?.templateDesign?.bannerAlign
+  this.bannerSize = Number(data?.templateDesign?.bannerSize)
+  this.bannerSizeVal = (this.bannerSize == 100)?3:(this.bannerSize == 75)?2:(this.bannerSize == 50) ? 1 : 300
+
+ }
+
+ getSalesEventData() {
+  let data = this.bindData;
+  this.eventTitle = data?.eventTitle
+  this.eventName =  data?.eventName
+  this.eventLink =  data?.eventLink
+  this.eventIcon = data?.eventIcon
+  this.eventColor = data?.templateDesign?.eventColor
+  this.eventSize = Number(data?.templateDesign?.eventSize)
+  this.eventFontVal = (this.eventSize == 14)?4:(this.eventSize == 13)?3:(this.eventSize == 12) ? 2 : 1
+  this.eventAlignment = data?.templateDesign?.eventAlignment
+  this.iconSize = data?.templateDesign?.iconSize
+ }
+
+ getDownloadAppData() {
+  let data = this.bindData
+  this.appName = data?.appName
+  this.appleAppLink = data?.appleAppLink
+  this.googleAppLink = data?.googleAppLink
+  this.appButtonColor = data?.templateDesign.appButtonColor
+  this.appbuttonAlign = data?.templateDesign?.appbuttonAlign
+  this.appButtonSize = Number(data?.templateDesign?.appButtonSize)
+  this.appSizeFont = (this.appButtonSize == 16)?4:(this.appButtonSize == 14)?3:(this.appButtonSize == 14) ? 2 : (this.appButtonSize == 12)?1 : 0
+
+ }
+
+
+
+
+ 
  getSignature(){
  
   this.sign = this.editTemplateForm.value.signatureName;
@@ -1585,7 +1629,6 @@ getSalesDetails() {
 
 
 chooseFooter(event: any, data: any) {
-  // debugger
   this.eventdata = data;
   if (this.eventdata == 1) {
     this.footerValue = ''
@@ -1606,7 +1649,7 @@ chooseFooter(event: any, data: any) {
   }
   else if (this.eventdata == 5) {
     this.footerValue = ''
-    this.footerText = "Don't print this, Ok?"
+    this.footerText = "Do not print this, Ok?"
   }
   else if (this.eventdata == 6) {
 
@@ -1621,6 +1664,8 @@ isCustomFooter(data:any):any {
   if(data == "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy." || data == "Please consider the environment before printing this e-mail!" || data == "Do you really need to print this email?"|| data == "Printing emails kills trees. Print is murder!" || data == "Do not print this, Ok?") {
     return false
   } else {
+    console.log('footer kk');
+    
     return true
   }
 }

@@ -242,6 +242,16 @@ scheduleShape:any=0
   scheduleLink: any;
   scheduleIcon: any;
   scheduleData: any;
+  disclaimerValue:any=2
+  footerSizeVal: number=2;
+  imageLink: any;
+  imageSpaceVal: number=2;
+  imgSizeVal: number=1;
+  youtubeUrl: any;
+  youtubeVal: number=3;
+  bannerSizeVal: number=3;
+  eventFontVal: number=2;
+  appSizeFont: number=1;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -366,24 +376,24 @@ this.scheduleForm=this.fb.group({
     this.eventdata = data;
     if (this.eventdata == 1) {
       this.textareaValue = ''
-      this.content = " IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof. "
+      this.content = "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof."
     }
     else if (this.eventdata == 2) {
 
 
-      this.content = " Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments. "
+      this.content = "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments."
     }
     else if (this.eventdata == 3) {
 
-      this.content = " No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation.  "
+      this.content = "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation."
     }
     else if (this.eventdata == 4) {
 
-      this.content = "  All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message.  "
+      this.content = "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message."
     }
     else if (this.eventdata == 5) {
 
-      this.content = "  If you received this email in error, please notify us immediately by sending an e-mail or by calling. "
+      this.content = "If you received this email in error, please notify us immediately by sending an e-mail or by calling."
     }
     else {
       this.content = ''
@@ -392,6 +402,14 @@ this.scheduleForm=this.fb.group({
     console.log(this.eventdata, this.content, "toggle data");
 
 
+  }
+  checkCustomDisclamir(content:any) :any{
+    if (this.content == "IMPORTANT: The contents of this email and any attachments are confidential. They are intended for the named recipient(s) only. If you have received this email by mistake, please notify the sender immediately and do not disclose the contents to anyone or make copies thereof." || this.content == "Warning: Although taking reasonable precautions to ensure no viruses or malicious softwares are present in this email, the sender cannot accept responsibility for any loss or damage arising from the use of this email or attachments." || this.content == "No employee or agent is authorized to conclude any binding agreement on behalf of the company with another party by email without specific confirmation." || this.content == "All views and opinions expressed in this email message are the personal opinions of the author and do not represent those of the company. No liability can be held for any damages, however caused, to any recipients of this message." || this.content == "If you received this email in error, please notify us immediately by sending an e-mail or by calling.") {
+     return false
+    }
+    else {
+      return true
+    }
   }
   changeDesclaimer() {
 
@@ -1054,6 +1072,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.profile1 = res[0]?.key;
+        this.url1 = this.profile1
         console.log(this.profile1, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
@@ -1107,6 +1126,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.profile2 = res[0]?.key;
+        this.url2 = this.profile2
         console.log(this.profile2, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
@@ -1159,6 +1179,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.profile3 = res[0]?.key;
+        this.url3 = this.profile3
         console.log(this.profile3, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
@@ -1211,6 +1232,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.profile4 = res[0]?.key;
+        this.url4 = this.profile4
         console.log(this.profile4, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
@@ -1355,7 +1377,7 @@ this.scheduleForm=this.fb.group({
     }
     else if (this.eventdata == 5) {
       this.footerValue = ''
-      this.footerText = "Don't print this, Ok?"
+      this.footerText = "Do not print this, Ok?"
     }
     else if (this.eventdata == 6) {
 
@@ -1366,6 +1388,14 @@ this.scheduleForm=this.fb.group({
 
 
   }
+  isCustomFooter(data:any):any {
+    if(data == "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy." || data == "Please consider the environment before printing this e-mail!" || data == "Do you really need to print this email?"|| data == "Printing emails kills trees. Print is murder!" || data == "Do not print this, Ok?") {
+      return false
+    } else {
+      return true
+    }
+  }
+
   customFooter() {
 
     this.footerValue = this.footerForm.value.greenFooter
@@ -1473,6 +1503,7 @@ this.scheduleForm=this.fb.group({
         // this.imageData1 = res;
         // this.imageData2 = this.imageData1[0].key;
         this.banner = res[0]?.key;
+        this.bannerUrl = this.banner
         console.log(this.profile4, 'image111111');
 
         // console.log(this.imageData1[0].key, "image key ")
@@ -1715,10 +1746,10 @@ getScheduleIcon(event: any, data: any){
         body['youtubeChannel'] = data.youtubeChannel,
         body['youtubeUrl'] = this.videoUrl,
         body['youtubeTitle'] = this.youtubeTitle,
-        body['customProfile1'] = this.profile1,
-        body['customProfile2'] = this.profile2,
-        body['customProfile3'] = this.profile3,
-        body['customProfile4'] = this.profile4,
+        body['customProfile1'] = this.url1,
+        body['customProfile2'] = this.url2,
+        body['customProfile3'] = this.url3,
+        body['customProfile4'] = this.url4,
         body['imageTitle'] = this.galleryTitle,
         body['imageLink'] = this.galleryLink,
         body['eventTitle'] = this.eventTitle,
