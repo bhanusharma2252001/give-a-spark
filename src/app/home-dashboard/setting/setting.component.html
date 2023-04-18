@@ -142,9 +142,18 @@
                 Plan Name :<span> Pro+</span>
               </p>
               </div>
-              <div class="mb-3">
-                <button type="submit" class="green-btn py-2 px-3" (click)="navigate()">Upgrade Plan</button>
+              <div class="row">
+                <div class="col-md-4">
+                  <button type="submit" class="green-btn py-2 px-3" (click)="navigate()">Upgrade Plan</button>
+                </div>
+                <div class="col-md-5">
+                  <a href="https://billing.stripe.com/p/login/6oE4ineJb4044HS4gg
+                        " *ngIf="plandetails?.planId?.planName !=='Plan A'" target="_blank" class="pink-btn py-2 px-3"
+             class="pink-btn py-2 px-3">Cancel Subscription</a>
+                </div>
+                <div class="col-md-3"></div>
               </div>
+             
             </div>
           </div>
           <div class="col-md-6" *ngIf="(plandetails?.planId?.planName=='Plan B'|| plandetails?.planId?.planName=='Plan C') ">

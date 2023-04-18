@@ -164,7 +164,7 @@
                     </td>
 
                 </tr>
-                <tr>
+                <tr *ngIf="details?.customProfile1">
 
                     <td colspan="3" style="border-bottom: 3px solid #e0e0e0;padding:15px 15px">
                 <tr>
@@ -214,7 +214,7 @@
                 </tr>
                 </td>
                 </tr>
-                <tr>
+                <tr >
                     <td style="font-size:8px ;padding:10px 15px" colspan="3" *ngIf="details?.disclaimer"
                         [style.font-size.px]="details?.templateDesign?.disclaimerSize"
                         [style.text-align]="details?.templateDesign?.disclaimerAlignment"
@@ -224,7 +224,7 @@
                     </td>
 
                 </tr>
-                <tr>
+                <tr *ngIf="details?.eventIcon || details?.eventTitle || details?.eventName ">
 
                     <td style="padding:10px 15px" colspan="3"
                         [style.text-align]="details?.templateDesign?.eventAlignment">
@@ -242,7 +242,7 @@
 
                 <tr>
                     <td style="padding:15px" colspan="3">
-                <tr>
+                <tr *ngIf="details?.greenIcon || details?.greenFooter">
                     <td style="padding:5px;" *ngIf="details?.greenIcon"
                         [style.text-align]="details?.templateDesign?.footerAlignment"
                         style=" border-right: 1px solid #e5e5e5;text-align: center;">
@@ -257,7 +257,7 @@
                 </tr>
                 </td>
                 </tr>
-                <tr>
+                <tr *ngIf="details?.bannerImage">
                     <td colspan="3" style="padding:7px 0px;">
                         <img *ngIf="details?.bannerImage"
                             src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt=""
@@ -269,7 +269,7 @@
                 </tr>
 
 
-                <tr>
+                <tr *ngIf="details?.customButtonText">
                     <td colspan="3" style="padding:10px 15px;">
 
                         <a href="{{ details?.customUrl}}" *ngIf=" details?.customButtonText"
@@ -284,7 +284,7 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
+                <tr *ngIf="details?.scheduleText">
                     <td colspan="3" style="padding:10px 15px;">
 
 
@@ -303,25 +303,23 @@
                 </tr>
 
 
-                <tr>
+                <tr *ngIf= "details?.appName || details?.googleAppLink || details?.appleAppLink ">
                     <td style="padding:10px 15px ;padding-bottom:20px;" colspan="3"
                         [style.text-align]="details?.templateDesign?.appbuttonAlign">
                         <p style="margin:0;" [style.color]="details?.templateDesign?.appButtonColor"
                             [style.font-size.px]="details?.templateDesign?.appButtonSize">{{details?.appName}}</p>
-                
 
-                 
-                       <a style="padding:0 10px;" *ngIf="details?.googleAppLink" href="{{details?.googleAppLink}}"
+
+
+                        <a style="padding:0 10px;" *ngIf="details?.googleAppLink" href="{{details?.googleAppLink}}"
                             style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img
                                 src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
-                                height="33"  style=" height: 33px; display: inline-block;"
-                                alt="Download App"> </a>
-                    <a style="padding:0 10px;" *ngIf="details?.appleAppLink" href="{{details?.appleAppLink
-    }}" style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
+                                height="33" style=" height: 33px; display: inline-block;" alt="Download App"> </a>
+                        <a style="padding:0 10px;" *ngIf="details?.appleAppLink" href="{{details?.appleAppLink}}"
+     style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
                                 src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
-                                height="33"  style=" height: 33px; display: inline-block;"
-                                alt="Download App"></a>
-                            </td>
+                                height="33" style=" height: 33px; display: inline-block;" alt="Download App"></a>
+                    </td>
                 <tr>
 
 
@@ -331,20 +329,20 @@
         <div class="row  m-3">
             <div class="col-md-2">
                 <button class="signature-item-edit-btn" (click)="editTemplate(details?._id)"><span
-                    class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                    class="signature-item-edit-btn-text">Edit</span></button>
+                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
+                        class="signature-item-edit-btn-text">Edit</span></button>
             </div>
             <div class="col-md-3">
                 <button class="signature-item-edit-btn" (click)="openModal(details?._id)" onclick="openNav()"><span
-                    class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                    class="signature-item-edit-btn-text">Sync Signature</span></button>
+                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
+                        class="signature-item-edit-btn-text">Sync Signature</span></button>
             </div>
-            <div class="col-md-2">   <span data-v-614574b9="" class="sw-icon-trash" (click)="delTemplate(details?._id)"><i
-                class='far fa-trash-alt' style='font-size:36px;color:red'></i></span></div>
-          
-          
-         
-          
+            <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash" (click)="delTemplate(details?._id)"><i
+                        class='far fa-trash-alt' style='font-size:36px;color:red'></i></span></div>
+
+
+
+
 
 
         </div>
@@ -374,7 +372,7 @@
                         data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
                         aria-selected="true" (click)="setonGmail()">
                         <div><img class="email__icon" src="assets/images/email-gmail.svg" class="edit-icons"></div>
-                        <div class="email__name " >Gmail</div>
+                        <div class="email__name ">Gmail</div>
                         <!-- <button type="button" > gmail</button> -->
                     </div>
                     <div class="d-flex social-button py-4" id="v-pills-profile-tab" data-bs-toggle="pill"

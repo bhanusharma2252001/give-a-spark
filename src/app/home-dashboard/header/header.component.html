@@ -1,3 +1,62 @@
+<!-- <header class="header-shadow" *ngIf="!(href =='/home-dashboard/user-profile' ) " style="z-index: 1;">
+
+  <div class="row align-items-center back_clr">
+
+    <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg position-relative">
+      <div class="gif_img">
+        <img src="assets/images/gif_left.gif" alt="" class="gif_style">
+        <a class="navbar-brand d-flex justify-content-center" href="assets/index.html">
+          <img src="assets/images/logo(round).png" class="img-fl ms-4 position-absolute">
+        </a>
+      </div>
+    </div>
+    <div class="col-md-8 col-lg-8">
+      <nav class="container">
+        <div class="d-flex align-items-center justify-content-evenly">
+          <p *ngIf="planDetails == 'Plan A'" class="bg-yellow text-white header-center">Your free trial ends in 10
+            days.Upgrade now and get 15% early
+            bird
+            discount.
+          </p>
+          <button *ngIf="!(planDetails == 'Plan C') " class="pink-btn rounded-pill shadow upgrade_btn" type="submit"
+            routerLink="/home-dashboard/plan/plan-dashboard">Upgrade Plan</button>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-2 col-lg-2 user_back">
+      <div class="gif_img">
+ 
+        <form class="d-flex justify-content-center ">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur dropdown-toggle" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"
+            routerLink="/home-dashboard/myprofile/profile-dashboard" style="border-radius: 50%;">
+              <img *ngIf="userDetails?.profile" class="wh-50 cur dropdown-toggle"
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt="" style="border-radius: 50%;">
+
+              <ul class="dropdown-menu">
+                <li><a routerLink="/home-dashboard/myprofile/profile-dashboard" class="fs-14 p-1"><span
+                      class="drop-hover"><img class="wh-20" src="assets/images/profile.png"></span>Profile</a></li>
+                <li><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span class="drop-hover"><img
+                        class="wh-20" src="assets/images/active plan.png"></span>Plan And Billing</a></li>
+                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
+                        src="assets/images/faq.png"></span>FAQ</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
+                        src="assets/images/htlp.png"></span>Help</a></li>
+
+                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
+                        src="assets/images/cnt.png"></span>Contact Us</a></li>
+              </ul>
+            </li>
+          </ul>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+
+</header> -->
 <header class="header-shadow" *ngIf="!(href =='/home-dashboard/user-profile' ) " style="z-index: 1;">
 
   <div class="row align-items-center back_clr">
@@ -30,7 +89,7 @@
     <div class="col-md-2 col-lg-2 user_back">
       <div class="gif_img">
         <!-- <img src="assets/images/gif-right.gif" class="right_new_gif" alt=""> -->
-        <form class="d-flex justify-content-center ">
+        <form class="d-flex justify-content-center position-relative">
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur dropdown-toggle" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"
@@ -39,17 +98,17 @@
                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt="" style="border-radius: 50%;">
 
               <ul class="dropdown-menu">
-                <li><a routerLink="/home-dashboard/myprofile/profile-dashboard" class="fs-14 p-1"><span
-                      class="drop-hover"><img class="wh-20" src="assets/images/profile.png"></span>Profile</a></li>
-                <li><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span class="drop-hover"><img
-                        class="wh-20" src="assets/images/active plan.png"></span>Plan And Billing</a></li>
-                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
+                <li class="py-2 hover-light"><a routerLink="/home-dashboard/myprofile/profile-dashboard" class="fs-14 p-1"><span
+                      class="drop-hover"><img class="wh-20 pe-3 fw-semibold" src="assets/images/headerprofile.png"></span>Profile</a></li>
+                <li class="py-2 hover-light"><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span class="drop-hover"><img
+                        class="wh-20 pe-3 fw-semibold" src="assets/images/header-plan.png"></span>Plan And Billing</a></li>
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
                         src="assets/images/faq.png"></span>FAQ</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
-                        src="assets/images/htlp.png"></span>Help</a></li>
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
+                        src="assets/images/help.png"></span>Help</a></li>
 
-                <li><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20"
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
                         src="assets/images/cnt.png"></span>Contact Us</a></li>
               </ul>
             </li>

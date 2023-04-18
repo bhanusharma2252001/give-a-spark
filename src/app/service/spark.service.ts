@@ -681,7 +681,7 @@ delProDesclaimer(id: any){
 }
 
 delProCustombutton(id: any){
-  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteCustomButtonById' + id, {
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteCustomButtonById/' + id, {
     headers: {
       Authorization: `bearer ${this.token}`,
     },

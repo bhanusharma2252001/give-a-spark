@@ -612,6 +612,7 @@ hideModel() {
       } else if(this.proPlusTemplate) {
         body['proPlusTemplateId']=this.templateId
       }
+      
 
       body['disclaimer'] = this.content,
         body['fbProfile'] = data.fbProfile,
@@ -633,7 +634,7 @@ hideModel() {
         body['eventName'] = this.eventName,
         body['eventIcon'] = this.eventIcon,
         body['greenFooter'] = this.footerText,
-        body['footerIcon'] = this.greenIcon,
+        body['greenIcon'] = this.greenIcon,
         body['bannerImage'] =this.bannerUrl
       body['bannerLink'] = this.bannerLink
       body['appName'] = this.appName
