@@ -8,7 +8,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {MatDialog} from '@angular/material/dialog';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-save',
@@ -276,7 +276,7 @@ content!: string;
   eventFontVal: number=2;
   appSizeFont: number=1;
   bindData: any;
-  constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,
+  constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,private location: Location,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
       const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.editTemplateForm = this.fb.group({
@@ -1892,7 +1892,7 @@ delyoutube(){
     console.log(res);
     this.toast.success( 'Youtube Video has been removed  Successfully');
     this.getTemplate();
-
+    window.location.reload();
   },
   (error) => {
     this.toast.error('please try again');

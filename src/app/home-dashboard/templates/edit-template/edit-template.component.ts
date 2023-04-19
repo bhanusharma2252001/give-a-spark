@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-template',
@@ -17,6 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None
 })
 export class EditTemplateComponent implements OnInit {
+  dataForApps:any
   details: any;
   username: any;
   Email: any;
@@ -272,7 +274,7 @@ content!: string;
   @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   bindData: any;
 
-  constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,
+  constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,private location: Location,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
       const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.editTemplateForm = this.fb.group({
@@ -892,12 +894,15 @@ console.log(this.tempId,'iiiiidddddd');
       
     })
     this.proplus.filter((item:any)=>{
+     
+    
       if(item?._id == this.templateId) {
+        this.dataForApps=item
         this.proPlusTemplate=true
         this.getBindData(item)
         this.getTemplateDesign(item?.templateDesign)
       }
-      
+      console.log(this.dataForApps, 'app check items')
       
     })
   })
@@ -1959,8 +1964,15 @@ removeBanner(){
 
   this.api.delProYouTube(this.templateId).subscribe((res:any)=>{
     console.log(res, 'del youtube');
-    console.log(this.templateId)
+    console.log(this.templateId);
+
     this.getFreeTemplate();
+   
+    this.spinner.show();
+    window.location.reload();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.toast.success( ' Removed  Successfully');
    
 
@@ -2094,4 +2106,14 @@ delBanner(){
   })
  }
 
+
+
+
+
+
+
+
+
+
+ 
 }

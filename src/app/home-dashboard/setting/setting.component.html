@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link fs-4 px-4 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
         role="tab" aria-controls="home" aria-selected="true">General</button>
@@ -142,13 +142,13 @@
                 Plan Name :<span> Pro+</span>
               </p>
               </div>
-              <div class="row">
+              <div class="row align-items-center">
                 <div class="col-md-4">
                   <button type="submit" class="green-btn py-2 px-3" (click)="navigate()">Upgrade Plan</button>
                 </div>
                 <div class="col-md-5">
                   <a href="https://billing.stripe.com/p/login/6oE4ineJb4044HS4gg
-                        " *ngIf="plandetails?.planId?.planName !=='Plan A'" target="_blank" class="pink-btn py-2 px-3"
+                        " *ngIf="plandetails?.planId?.planName !=='Plan A'" target="_blank"
              class="pink-btn py-2 px-3">Cancel Subscription</a>
                 </div>
                 <div class="col-md-3"></div>

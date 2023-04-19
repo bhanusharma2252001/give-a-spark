@@ -6,7 +6,7 @@
         <div class="col-md-12 col-lg-12">
           <div class="row pe-5">
             <div class="col-md-6 col-lg-6">
-              <ul class="nav nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around" id="myTab"
+              <ul class="nav nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around bg-gray" id="myTab"
                 role="tablist">
                 <li class="nav-item" role="presentation">
                   <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
@@ -113,21 +113,21 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Your
                               Name</label>
                             <input type="text" formControlName="yourName" [(ngModel)]="username "
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp">
 
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Designation</label>
                             <input type="text" formControlName="designation"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="desig">
 
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Phone</label>
                             <input type="text" formControlName="phoneNo"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="number">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
@@ -144,7 +144,7 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">
                               Company Phone</label>
                             <input type="text" formControlName="companyPhone"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="compPhone">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
@@ -158,7 +158,7 @@
                           <div class="mb-4">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Address</label>
                             <input type="text" formControlName="address" [(ngModel)]="useraddress"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp">
 
                           </div>
@@ -166,7 +166,7 @@
                           <div class="mb-4">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Email</label>
                             <input type="text" formControlName="email"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="Email">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['email'].touched && !editTemplateForm.controls['email'].valid">
@@ -178,7 +178,7 @@
                           <div class="mb-4">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Website</label>
                             <input type="text" formControlName="companyWebsite"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="compWebsite" placeholder="www.domain.com">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
@@ -191,7 +191,7 @@
                           <div class="mb-4" *ngIf="!LongQuote">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
                             <input type="text" formControlName="quotes"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar">
 
                           </div>
@@ -201,7 +201,7 @@
                             <p style="position: relative;
                                                         top: 40px">{{LongQuote}}</p>
                             <input type="text" formControlName="quotesId"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp">
 
                           </div>
@@ -268,7 +268,7 @@
                             </label>
                             <input type="text" formControlName="fbProfile"
                               placeholder="https://www.facebook.com/<username>"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
@@ -282,7 +282,7 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Instagram</label>
                             <input type="text" formControlName="instagramProfile"
                               placeholder="https://www.instagram.com/<username>"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
@@ -297,7 +297,7 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">LinkedIn</label>
                             <input type="text" formControlName="linkedInProfile"
                               placeholder="https://www.linkedIn.com/<username>"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
@@ -312,7 +312,7 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
                             <input type="text" formControlName="youtubeChannel"
                               placeholder="https://www.youtube.com/<username>"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="uTube" [readonly]="planDetail == 'Plan A'">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
@@ -327,7 +327,7 @@
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Twitter</label>
                             <input type="text" formControlName="twitterProfile"
                               placeholder="https://www.twitter.com/<username>"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
                               aria-describedby="textHelp" [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A' ">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
@@ -508,13 +508,13 @@
                       </div>
                       <div class="col-md-12">
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf="inputValue || scheduleLink">
+                          *ngIf="dataForApps?.scheduleText || dataForApps?.scheduleLink">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
                                   <img src="assets/images/online-scheduler.png"
-                                    alt="Online Scheduler Image" /><span>Online
+                                    alt="Online Scheduler Image" /><span class="ps-3">Online
                                     Scheduler</span>
 
                                 </div>
@@ -534,13 +534,13 @@
 
                         <!-- ---------------desclaimer-------- -->
 
-                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="content">
+                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="dataForApps?.disclaimer">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
                                   <img src="assets/images/disclaimer.png"
-                                    alt="Online Scheduler Image" /><span>Desclaimer
+                                    alt="Online Scheduler Image" /><span class="ps-3">Disclaimer
                                   </span>
 
                                 </div>
@@ -560,12 +560,12 @@
                         <!-- -------------------------greenfooter-------------- -->
 
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf="footerText || greenIcon">
+                          *ngIf=" dataForApps?.greenFooter || dataForApps?.greenIcon">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/green-footer.png" alt="Online Scheduler Image" /><span>Green
+                                  <img src="assets/images/green-footer.png" alt="Online Scheduler Image" /><span class="ps-3">Green
                                     Footer
                                   </span>
 
@@ -587,12 +587,12 @@
 
 
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf=" url1 ||  url2 ||  url3 ||  url4 ">
+                          *ngIf=" dataForApps?.customProfile1 || dataForApps?.customProfile2 || dataForApps?.customProfile3 || dataForApps?.customProfile4  ">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/image-gallary.png" alt="Online Scheduler Image" /><span>Image
+                                  <img src="assets/images/image-gallary.png" alt="Online Scheduler Image" /><span class="ps-3">Image
                                     Gallery
                                   </span>
 
@@ -614,12 +614,12 @@
 
                         <!-- -----------------------youtube---------- -->
 
-                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="videoUrl">
+                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="dataForApps?.youtubeUrl">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/youtube-icon.png" alt="Online Scheduler Image" /><span>Youtube
+                                  <img src="assets/images/youtube-icon.png" alt="Online Scheduler Image" /><span class="ps-3">Youtube
                                     Channel
                                   </span>
 
@@ -642,12 +642,12 @@
                         <!-- -------------custombutton------------- -->
 
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf="customText ||customUrl">
+                          *ngIf="dataForApps?.customButtonText ||dataForApps?.customUrl">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/custom-button.png" alt="Online Scheduler Image" /><span>Custom
+                                  <img src="assets/images/custom-button.png" alt="Online Scheduler Image" /><span class="ps-3">Custom
                                     Button
                                   </span>
 
@@ -667,12 +667,12 @@
                         </div>
                         <!-- ----------------upload banner------------- -->
 
-                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="bannerUrl">
+                        <div class="delete_apps row align-items-center justify-content-center" *ngIf="dataForApps?.bannerImage">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/upload-banner.png" alt="Online Scheduler Image" /><span>Upload
+                                  <img src="assets/images/upload-banner.png" alt="Online Scheduler Image" /><span class="ps-3">Upload
                                     Banner
                                   </span>
 
@@ -695,12 +695,12 @@
 
 
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf="eventName || eventIcon">
+                          *ngIf="dataForApps?.eventTitle || dataForApps?.eventName || dataForApps?.eventIcon" >
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/sales-event.png" alt="Online Scheduler Image" /><span> Sales
+                                  <img src="assets/images/sales-event.png" alt="Online Scheduler Image" /><span class="ps-3"> Sales
                                     Event
                                   </span>
 
@@ -722,12 +722,12 @@
                         <!-- ----------------------downloadapp---------------- -->
 
                         <div class="delete_apps row align-items-center justify-content-center"
-                          *ngIf="appName || googleAppLink || appleAppLink">
+                          *ngIf="dataForApps?.appName || dataForApps?.googleAppLink || dataForApps?.appleAppLink">
                           <button class="apps_button w-445">
                             <div class="row align-items-center">
                               <div class="col-md-6 col-lg-6">
                                 <div class="app_div">
-                                  <img src="assets/images/downlod-app.png" alt="Online Scheduler Image" /><span>Download
+                                  <img src="assets/images/downlod-app.png" alt="Online Scheduler Image" /><span class="ps-3">Download
                                     App
                                   </span>
 
@@ -750,49 +750,49 @@
                         <div class="row align-items-center justify-content-center">
                           <button class="apps_button">
                             <div onclick="openscheduler()" class="app_div"><img src="assets/images/online-scheduler.png"
-                                alt="Online Scheduler Image" /><span>Online
+                                alt="Online Scheduler Image" /><span class="ps-3">Online
                                 Scheduler</span></div>
                           </button>
                           <button onclick="opendisclaimer()" class="apps_button">
                             <div class="app_div"><img src="assets/images/disclaimer.png"
-                                alt="Disclaimer Image" /><span>Disclaimer</span>
+                                alt="Disclaimer Image" /><span class="ps-3">Disclaimer</span>
                             </div>
                           </button>
                           <button onclick="openaddgreenfooter()" class="apps_button">
                             <div class="app_div"><img src="assets/images/green-footer.png"
-                                alt="Green Footer Image" /><span>Green Footer</span>
+                                alt="Green Footer Image" /><span class="ps-3">Green Footer</span>
                             </div>
                           </button>
                           <button onclick="openimagegallery()" class="apps_button">
                             <div class="app_div"><img src="assets/images/image-gallary.png"
-                                alt="Image Gallary Image" /><span>Image
+                                alt="Image Gallary Image" /><span class="ps-3">Image
                                 Gallery</span>
                             </div>
                           </button>
                           <button onclick="openyoutubechannel()" class="apps_button">
                             <div class="app_div"><img src="assets/images/youtube-icon.png"
-                                alt="Youtube Channel" /><span>Youtube Channel</span>
+                                alt="Youtube Channel" /><span class="ps-3">Youtube Channel</span>
                             </div>
                           </button>
                           <button onclick="opencustombutton()" class="apps_button">
                             <div class="app_div"><img src="assets/images/custom-button.png"
-                                alt="Custom BUtton" /><span>Custom Button</span>
+                                alt="Custom BUtton" /><span class="ps-3">Custom Button</span>
                             </div>
                           </button>
                           <button onclick="openuploadbanner()" class="apps_button">
                             <div class="app_div"><img src="assets/images/upload-banner.png"
-                                alt="Upload Banner Image /"><span>Upload
+                                alt="Upload Banner Image /"><span class="ps-3">Upload
                                 Banner</span>
                             </div>
                           </button>
                           <button onclick="opensalesevent()" class="apps_button">
                             <div class="app_div"><img src="assets/images/sales-event.png"
-                                alt="Sales Event Image" /><span>Sales Event</span>
+                                alt="Sales Event Image" /><span class="ps-3">Sales Event</span>
                             </div>
                           </button>
                           <button onclick="opendownloadapp()" class="apps_button">
                             <div class="app_div"><img src="assets/images/downlod-app.png"
-                                alt="Download Image" /><span>Download App</span>
+                                alt="Download Image" /><span class="ps-3">Download App</span>
                             </div>
                           </button>
                         </div>
@@ -908,14 +908,14 @@
                           </p>
                         </div>
                       </td>
-                      <td style="vertical-align:center;">
+                      <td colspan="2" style="vertical-align:center;">
                         <div style="text-align:end;">
 
                           <img class="width" [src]="url"
-                            style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                            style="width:100px;height:100px;padding-right:8px; border-radius:50%"
                             *ngIf="url">
                           <img alt="Profile"
-                            style="width:100px;height:100px;box-shadow: 0 0 0px 9px #fff; border-radius:50%"
+                            style="width:100px;height:100px;padding-right:8px; border-radius:50%"
                             *ngIf="userProfile && !url"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                         </div>
@@ -2069,16 +2069,13 @@
                       </td>
                       <td style="vertical-align: center;padding:20px;">
 
-                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%;" *ngIf="url">
+                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%;"  [style.border-radius.px]="borderRadius" *ngIf="url">
 
                         <img alt="Profile" [style.border-radius.px]="borderRadius" style=" border-radius:50%; vertical-align:
                                                     middle; height: 80px;border-radius:50%;"
                           *ngIf="userProfile && !url"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                        <!-- <img [style.border-radius.px]="borderRadius"
-                                                        *ngIf="proList[0]?.profileImage"
-                                                        style="width:100px;height:100px;border-radius:50%;"
-                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[0]?.profileImage}}"> -->
+                       
 
                       </td>
 
@@ -2537,24 +2534,24 @@
 
                       </td>
                       <td>
-                        <p *ngIf="useraddress" style="margin:0; padding: 5px;" [style.color]="contactDetailColor"
-                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                          [style.font-size.px]="itemFontSize">
-                          <span style="padding:0 5px;color:#fff"> <span style="padding:0 5px;"><img
+                        <p *ngIf="useraddress" style="margin:0; padding: 5px;" 
+                        >
+                          <span style="padding:0 5px;"> <span style="padding:0 5px;" ><img
                                 style="width:12px;height:12px;background-color:#4a9b9e;padding: 3px;border-radius: 50%;"
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction.png"></span>{{useraddress}}</span>
+                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction.png"></span><span [style.color]="contactDetailColor"  [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                [style.font-size.px]="itemFontSize">{{useraddress}}</span></span>
                         </p>
 
-                        <p *ngIf="Email" style="margin:0; padding: 5px;" [style.color]="contactDetailColor"
+                        <p *ngIf="Email" style="margin:0; padding: 5px;" 
                           [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                           [style.font-size.px]="itemFontSize">
-                          <span style="padding:0 5px;color:#fff"><span style="padding:0 5px;"><img
+                          <span style="padding:0 5px;"><span style="padding:0 5px;" [style.color]="contactDetailColor"><img
                                 style="width:12px;height:12px;background-color:#4a9b9e;padding: 3px;border-radius: 50%;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail.png"></span>
                             {{Email}}</span>
                         </p>
 
-                        <p *ngIf="compWebsite" style="margin:0; padding: 5px;" [style.color>
+                        <p *ngIf="compWebsite" style="margin:0; padding: 5px;" >
                           <span style="padding:0 5px;color:#fff"><span style="padding:0 5px;color:#000"><img
                                 style="width:12px;height:12px;background-color:#4a9b9e;padding: 3px;border-radius: 50%;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail.png"></span>
@@ -3129,7 +3126,7 @@
               <div *ngIf="templateId == 1" class="pt-5">
                 <p>{{title}}</p>
                 <table cellpadding="0" cellspacing="0" id="one" #tableData
-                  style="background-color: #fff  ;font-size: medium;width:560px;height:280px; font-family: Arial;">
+                  style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                   <tbody>
 
                     <tr>
@@ -3232,15 +3229,51 @@
                         </div>
                       </td>
                     </tr>
+                    <tr *ngIf="content">
+                      <td style=" font-size:8px ;padding:10px 15px;" colspan="4" *ngIf="content"
+                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
+                        [style.color]="disclaimerColor">
 
+                        {{content}}
+                      </td>
+
+                    </tr>
+                    <tr *ngIf="scheduleIcon || inputValue ">
+                      <td colspan="3" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%; padding: 10px 15px;font-weight:600; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
+                    <tr *ngIf="greenIcon || footerText ">
+                      <td colspan="2" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
+
+                          </div>
+                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
                     <tr *ngIf="videoUrl">
                       <td colspan="3" style="padding:10px 15px;" [style.text-align]="youtubeAlignment">
-                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
+                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}" *ngIf="videoUrl"
                             alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
 
 
-                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img *ngIf="videoUrl"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
                             [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
 
@@ -3253,7 +3286,7 @@
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="padding:10px 15px;" >{{galleryTitle}}</td>
+                      <td style="padding:10px 15px;text-transform: capitalize;font-weight: 500px;font-size:10px;" >{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -3284,51 +3317,23 @@
 
                       </td>
                     </tr>
-                    <tr *ngIf="content">
-                      <td style=" font-size:8px ;padding:10px 15px;" colspan="4" *ngIf="content"
-                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
-                        [style.color]="disclaimerColor">
-
-                        {{content}}
-                      </td>
-
-                    </tr>
+                 
                     <tr *ngIf="eventName || eventTitle || eventIcon ">
 
                       <td style="padding:10px 15px;" colspan="4" [style.text-align]="eventAlignment">
                         <a href="">
                           <img *ngIf="eventIcon" src="{{eventIcon}}" [style.width.px]="iconSize"
                             [style.height.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;padding-left:10px;"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:10px; text-transform: capitalize;"
                             [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;padding-left:10px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:10px; text-transform: capitalize;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
                     </tr>
 
-                    <tr *ngIf="greenIcon || footerText ">
-                      <td colspan="2" [style.text-align]="footerAlignment">
-                        <div style="display: flex;">
-                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
-                        border-right: 1px solid #e5e5e5;">
-                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
-
-                          </div>
-                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
-                            <span>{{footerText}}</span>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr *ngIf="bannerUrl">
-                      <td colspan="3" style="padding:10px 0;">
-
-                        <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
-                          alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
-                      </td>
-                    </tr>
-
+                 
+                   
                     <tr *ngIf=" customText">
                       <td style="padding: 10px 15px;" colspan="3" [style.text-align]="customAlign">
 
@@ -3342,20 +3347,7 @@
                         </a>
                       </td>
                     </tr>
-                    <tr *ngIf="scheduleIcon || inputValue ">
-                      <td colspan="3" style="padding: 10px 15px;">
-
-
-
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
-
-                          <button style="border-radius:50%;padding: 10px 15px;font-weight:600; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
-                      </td>
-                    </tr>
+                   
 
                     <tr *ngIf="appName || googleAppLink || appleAppLink">
                       <td colspan="3" style="padding: 10px 15px;padding-bottom:20px;"
@@ -3377,7 +3369,14 @@
                       </td>
 
                     </tr>
+                    <tr *ngIf="bannerUrl">
+                      <td colspan="3" style="padding:10px 0;">
 
+                        <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
+                          alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
+                      </td>
+                    </tr>
+                  
                   </tbody>
                 </table>
               </div>
@@ -3495,34 +3494,49 @@
                       </td>
                       <td></td>
                     </tr>
+                    <tr *ngIf="eventName || eventTitle || eventIcon">
 
+                      <td style="padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
+                        <a href="">
+                          <img *ngIf="eventIcon" src="{{eventIcon}}" [style.height.px]="iconSize"
+                            [style.width.px]="iconSize">
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;text-transform:capitalize;"
+                            [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
+                          <span style="margin:1px 3px;padding-left:7px;text-transform:capitalize;" [style.font-size.px]="eventSize"
+                            [style.color]="eventColor">{{eventName}}</span></a>
+                      </td>
 
+                    </tr>
+                    <tr *ngIf="greenIcon || footerText ">
+                      <td colspan="3" [style.text-align]="footerAlignment">
+                        <div style="display: flex;">
+                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
+                        border-right: 1px solid #e5e5e5;">
+                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
-                    <tr *ngIf="videoUrl">
-                      <td style="padding: 10px 15px;" colspan="3" [style.text-align]="youtubeAlignment">
-                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
-                            alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
-
-
-
-                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
-                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-                            [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
-
-
-
-                        <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
-                          [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
-                          {{youtubeTitle}}</p>
+                          </div>
+                          <div style="padding:10px 15px;text-transform:capitalize;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                            <span>{{footerText}}</span>
+                          </div>
+                        </div>
                       </td>
                     </tr>
+                    <tr *ngIf="content">
+                      <td style="padding: 10px 15px;font-size:8px ;text-transform:capitalize;" colspan="3" *ngIf="content"
+                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
+                        [style.color]="disclaimerColor">
+
+                        {{content}}
+                      </td>
+
+                    </tr>
+                  
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
+                      <td style="padding: 10px 15px;font-size:10px;font-weight:500px;text-transform:capitalize;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
-                      <td style="padding:5px 15px;" colspan="3">
+                      <td style="padding:10px 15px;" colspan="3">
                         <div style="display:flex; text-align:start;">
                           <img style="margin: 0 5px;" [style.width.px]="imageSize" [style.height.px]="imageSize"
                             [style.border-radius.px]="imageRadious" [style.margin-right.px]="imageSpace"
@@ -3549,57 +3563,16 @@
 
                       </td>
                     </tr>
-                    <tr *ngIf="content">
-                      <td style="padding: 10px 15px;font-size:8px ;" colspan="3" *ngIf="content"
-                        [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
-                        [style.color]="disclaimerColor">
+                   
+                   
 
-                        {{content}}
-                      </td>
-
-                    </tr>
-                    <tr *ngIf="eventName || eventTitle || eventIcon">
-
-                      <td style="padding: 10px 15px;" colspan="4" [style.text-align]="eventAlignment">
-                        <a href="">
-                          <img *ngIf="eventIcon" src="{{eventIcon}}" [style.height.px]="iconSize"
-                            [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;"
-                            [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
-                            [style.color]="eventColor">{{eventName}}</span></a>
-                      </td>
-
-                    </tr>
-
-                    <tr *ngIf="greenIcon || footerText ">
-                      <td colspan="3" [style.text-align]="footerAlignment">
-                        <div style="display: flex;">
-                          <div *ngIf="greenIcon" style="padding:10px;padding-left:15px;width: 15%;
-                        border-right: 1px solid #e5e5e5;">
-                            <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
-
-                          </div>
-                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
-                            <span>{{footerText}}</span>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr *ngIf="bannerUrl">
-                      <td colspan="3" style="padding:15px 0px;">
-
-                        <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
-                          alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
-                      </td>
-                    </tr>
-
+                
 
                     <tr *ngIf="customText">
                       <td style="padding: 10px 15px;" colspan="3" [style.text-align]="customAlign">
 
                         <a href="{{customUrl}}" *ngIf=" customText">
-                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;"
+                          <p style="border-radius:50px;text-transform:capitalize; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;"
                             *ngIf="customText" [style.padding-left.px]="customButtonSize"
                             [style.padding-right.px]="customButtonSize" [style.color]="buttonTextColor"
                             [style.background-color]="customButtonBg" [style.border-radius.px]="customButtonShape">
@@ -3615,16 +3588,44 @@
 
                         <a href="{{scheduleLink}}" *ngIf=" inputValue">
 
-                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
+                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px;text-transform:capitalize; border:0;color:white;"
                             *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
                             [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
                             [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
                               style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
                       </td>
                     </tr>
+                      
+                    <tr *ngIf="bannerUrl">
+                      <td colspan="3" style="padding:15px 0px;">
+
+                        <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl"
+                          alt="" [style.width.%]="bannerSize" [style.text-align]="bannerAlign" height="150">
+                      </td>
+                    </tr>
+
+                    <tr *ngIf="videoUrl">
+                      <td style="padding: 10px 15px;" colspan="3" [style.text-align]="youtubeAlignment">
+                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}" *ngIf="videoUrl && thumbnail"
+                            alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
+
+
+
+                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img *ngIf="videoUrl"
+                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                            [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
+
+
+
+                        <br>
+                        <p style="text-transform:capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform:capitalize;"
+                          [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
+                          {{youtubeTitle}}</p>
+                      </td>
+                    </tr>
                     <tr *ngIf="appName || googleAppLink || appleAppLink">
                       <td colspan="3" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
-                        <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                        <p style="padding:5px 15px;text-transform:capitalize;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
 
@@ -3687,7 +3688,7 @@
                         </div>
                       </td>
                       <td>
-                        <p style="padding:10px;border-radius:  10px 10px 0 0;">
+                        <p style="padding:10px;border-radius:  10px 10px 0 0;margin:0;">
                           <span *ngIf="faceB"> <a href="{{faceB}}" target="_blank"><img
                                 style="width:20px;height:20px;margin:5px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/face.png"></a>
@@ -3696,7 +3697,8 @@
                             <a href="{{Linkedin}}" target="_blank"><img
                                 style="width:20px;height:20px;margin:5px; background-color: #280823;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/link.png"></a>
-                          </span><span *ngIf="Twitter"><a href="{{Twitter}}" target="_blank"><img
+                          </span>
+                          <span *ngIf="Twitter"><a href="{{Twitter}}" target="_blank"><img
                                 style="width:20px;height:20px;margin:5px;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twtr.png"></a></span><span
                             *ngIf="insta">
@@ -3716,8 +3718,8 @@
 
                     <tr>
 
-                      <td colspan="2" style="vertical-align: end;padding:10px;padding-left: 42px;">
-                        <span *ngIf="number" style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
+                      <td colspan="3" style="vertical-align: end;padding:10px;padding-left: 22px;">
+                       <p style="margin:0"> <span *ngIf="number" style=" border-right: 2px solid #b4199a;  padding: 5px;"><span
                             style="font-weight: bold;">Mob:</span>
                           <span [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew"
@@ -3727,13 +3729,13 @@
                           <a href="https:// {{compWebsite}}" [style.color]="contactDetailColor"
                             [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                             [style.font-size.px]="itemFontSize" target="_blank">{{compWebsite}}</a>
-                        </span>
-                        <span *ngIf="useraddress"
+                        </span></p>
+                        <p style="margin:0"><span *ngIf="useraddress"
                           style=" border-right: 2px solid #b4199a;  padding: 5px; text-transform: capitalize;"><span
                             style="font-weight: bold;">Address:</span>
                           <span [style.color]="contactDetailColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">
-                            {{useraddress}}</span></span>
+                            {{useraddress}}</span></span></p>
                       </td>
 
                     </tr>
@@ -3741,7 +3743,7 @@
                     <tr>
                       <td></td>
                       <td colspan="3" style="color:black; margin: 3px;">
-                        <p [style.font-family]="fontFamilyNew" style="padding: 20px;
+                        <p [style.font-family]="fontFamilyNew" style="padding: 20px ; margin: 0px;;
                 ">
                           <q *ngIf="proplus[2]?.quotesId?.quotesName">
                             {{proplus [2]?.quotesId?.quotesName}}
@@ -3761,7 +3763,7 @@
                         <a target="_blank"><img alt="Logo" style="width:70px;height:30px;border:0"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" border="0"></a>
                       </div>
-                      <p *ngIf="logo" style="font-size:8px;text-align:left;" (click)="remove(3)">
+                      <p *ngIf="logo" style="font-size:8px;text-align:left; margin: 0px;" (click)="remove(3)">
                         Remove Brand</p>
 
                     </td>
@@ -3771,27 +3773,9 @@
                       </td>
 
                     </tr>
-                    <tr *ngIf="videoUrl">
-                      <td style="padding: 10px 15px;" colspan="5" [style.text-align]="youtubeAlignment">
-                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
-                            alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
-
-
-
-                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
-                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
-                            [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
-
-
-
-                        <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
-                          [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
-                          {{youtubeTitle}}</p>
-                      </td>
-                    </tr>
+                
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 10px 15px;font-size:10px;">{{galleryTitle}}</td>
+                      <td style="padding: 10px 15px;font-size:10px;text-transform: capitalize;font-weight:semibold;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -3822,8 +3806,22 @@
 
                       </td>
                     </tr>
+                    <tr *ngIf="scheduleIcon || inputValue ">
+                      <td colspan="5" style="padding: 10px 15px;">
+
+
+
+                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+
+                          <button style="border-radius:50%;font-weight:bold;text-transform: capitalize; padding: 10px 12px; border:0;color:white;"
+                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
+                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
+                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
+                              style="padding-right:10px;text-transform: capitalize;" alt="">{{inputValue}}</button> </a>
+                      </td>
+                    </tr>
                     <tr *ngIf="content">
-                      <td style="padding: 10px 15px;font-size:8px ;" colspan="5" *ngIf="content"
+                      <td style="padding: 10px 15px;font-size:8px ;text-transform: capitalize;" colspan="5" *ngIf="content"
                         [style.font-size.px]="disclaimerSize" [style.text-align]="disclaimerAlignment"
                         [style.color]="disclaimerColor">
 
@@ -3837,9 +3835,9 @@
                         <a href="">
                           <img *ngIf="eventIcon" src="{{eventIcon}}" [style.height.px]="iconSize"
                             [style.width.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:7px;text-transform: capitalize;"
                             [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;padding-left:7px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:7px;text-transform: capitalize;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
@@ -3853,7 +3851,7 @@
                             <img style="width:20px;height:20px;" src="{{greenIcon}}" alt="">
 
                           </div>
-                          <div style="padding:10px 15px;" [style.font-size.px]="footerSize" [style.color]="footerColor">
+                          <div style="padding:10px 15px;text-transform: capitalize;" [style.font-size.px]="footerSize" [style.color]="footerColor">
                             <span>{{footerText}}</span>
                           </div>
                         </div>
@@ -3872,7 +3870,7 @@
                       <td style="padding: 10px 15px;" colspan="5" [style.text-align]="customAlign">
 
                         <a href="{{customUrl}}" *ngIf=" customText">
-                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px; display: inline;"
+                          <p style="border-radius:50px; padding: 10px;width: max-content;font-weight:600;border-radius:15px;text-transform: capitalize; display: inline;"
                             *ngIf="customText" [style.padding-left.px]="customButtonSize"
                             [style.padding-right.px]="customButtonSize" [style.color]="buttonTextColor"
                             [style.background-color]="customButtonBg" [style.border-radius.px]="customButtonShape">
@@ -3881,23 +3879,29 @@
                         </a>
                       </td>
                     </tr>
-                    <tr *ngIf="scheduleIcon || inputValue ">
-                      <td colspan="5" style="padding: 10px 15px;">
+                   
+                    <tr *ngIf="videoUrl">
+                      <td style="padding: 10px 15px;" colspan="5" [style.text-align]="youtubeAlignment">
+                        <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
+                            alt="" height="80" [style.text-align]="youtubeAlignment" width="107"></a>
 
 
 
-                        <a href="{{scheduleLink}}" *ngIf=" inputValue">
+                        <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                            src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
+                            [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
 
-                          <button style="border-radius:50%;font-weight:bold; padding: 10px 12px; border:0;color:white;"
-                            *ngIf="inputValue" [style.padding-left.px]="scheduleSize"
-                            [style.padding-right.px]="scheduleSize" [style.background-color]="scheduleBg"
-                            [style.border-radius.px]="scheduleShape"> <img src="{{scheduleIcon}}"
-                              style="padding-right:10px;" alt="">{{inputValue}}</button> </a>
+
+
+                        <br>
+                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                          [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
+                          {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="appName || googleAppLink || appleAppLink">
                       <td colspan="5" style="padding-bottom:25px;" [style.text-align]="appbuttonAlign">
-                        <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                        <p style="padding:5px 15px;text-transform: capitalize;" [style.color]="appButtonColor"
                           [style.font-size.px]="appButtonSize">{{appName}}</p>
 
 
@@ -4181,7 +4185,7 @@
               </div>
               <!-- ..............................Template-5................... -->
               <div *ngIf="templateId == 5">
-                <p>{{title}}</p>
+                <p style=" text-transform: capitalize;">{{title}}</p>
                 <table cellpadding="0" cellspacing="0" id="five" #tableData
                   style="  background-color: #f5edee;font-size: medium;width:500px;height:280px; font-family: Arial;font-style: italic;">
                   <tbody>
@@ -4934,113 +4938,123 @@
               <div *ngIf="templateId == 30">
                 {{title}}
                 <table cellpadding="0" cellspacing="0" id="eight" #tableData
-                  style="background-image:  linear-gradient(110deg, #02213d 35%, #fff 20% 70%);font-size: medium;width:500px;height:280px; font-family: Arial;">
+                  style="background-color:#fff;font-size: medium;width:500px;height:280px; font-family: Arial;">
                   <tbody>
                     <tr>
-                      <td rowspan="2" style=" vertical-align: top;width:275px;-webkit-clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);">
-                        <img src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65" height="65">
-                        <p [style.font-family]="fontFamilyNew" style="color:#fff;   color: #fff;
-width: 170px;
-padding: 21px;">
+                      <td>
+                        <table style="background-image:url('https://giveaspark.s3.us-west-1.amazonaws.com/giveASpark/Group+1863.png');background-size: 500px;background-repeat: no-repeat;">
+                          <tbody>
+                            <tr>
+                              <td rowspan="2"
+                                style=" border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
+  
+                                <img class="width" [src]="url" style="
+                       margin: 3px;" *ngIf="url">
+                                <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url" style="
+                       margin: 3px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+  
+                                <div class="" *ngIf="logo">
+                                  <a target="_blank"><img alt="Logo" style="width:70px;height:30px;border:0"
+                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" border="0"></a>
+                                </div>
+                                <p *ngIf="logo" style="font-size:8px;text-align:left;" (click)="remove(30)">Remove Brand</p>
+  
+  
+  
+  
+                              </td>
+                              <td style="width:365px;border-radius: 0 50% 0 50%;">
+                                <h2 style="margin-bottom:0px; text-transform: capitalize;" [style.text-align]="nameAlign"
+                                  [style.color]="firstNameColor" [style.line-height]="lineHeight"
+                                  [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">
+                                  {{username}}</h2>
+                                <h6 style="text-transform: capitalize;"[style.text-align]="nameAlign" [style.color]="designationColor"
+                                  [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                  [style.font-size.px]="itemFontSize">
+                                  {{desig}}</h6>
+                              </td>
+                              <td style=" vertical-align: bottom;width:265px;
+                   ">
+                                <img style="margin:15px;" src="https://giveaspark.s3.amazonaws.com/{{code}}" width="65" height="65">
+  
+                              </td>
+  
+  
+  
+                            </tr>
+  
+                            <tr>
+                              <td colspan="2" style="padding: 5px;margin: 3px;">
+  
+                                <div style="margin-top:5px;">
+                                  <p style="margin: 0;">
+                                    <span *ngIf="number" style="padding:0 5px;" >Mobile.
+                                      <span [style.color]="contactDetailColor"
+                                      [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                      [style.font-size.px]="itemFontSize">{{number}}</span> </span>
+                                    
+                                    <span *ngIf="Email" style="padding:0 5px;;" >Emil.
+                                      <span [style.color]="contactDetailColor"
+                                      [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                      [style.font-size.px]="itemFontSize">{{Email}}</span> </span>
 
-                          <q *ngIf="proplus[7]?.quotesId?.quotesName">
-                            {{proplus[7]?.quotesId?.quotesName}}
-                          </q>
-                          <q *ngIf="proplus[7]?.quotes">
-                            {{quotevar}}
-                          </q>
-                        </p>
-                      </td>
-                      <td
-                        style="position:relative;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
-
-                        <img class="width" [src]="url" style="position: absolute;
-                top: 50%;
-                left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;" *ngIf="url">
-                        <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url" style="position: absolute;
-                top: 50%;
-                left: -80%;box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
-                          src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-
-
-
-
-
-
-                      </td>
-
-                      <td rowspan="2" style="background-color:white;width:365px;border-radius: 0 50% 0 50%;">
-                        <h2 style="margin-bottom:0px; text-transform: capitalize;" [style.text-align]="nameAlign"
-                          [style.color]="firstNameColor" [style.line-height]="lineHeight"
-                          [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">
-                          {{username}}</h2>
-                        <h6 style="text-transform: capitalize;" [style.color]="designationColor"
-                          [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                          [style.font-size.px]="itemFontSize">
-                          {{desig}}</h6>
-                        <div style="margin-top:5px;">
-                          <p>
-                            <span *ngIf="number" style="padding:0 5px;" [style.color]="contactDetailColor"
-                              [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                              [style.font-size.px]="itemFontSize"><img
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/p-b-2.png">
-                              {{number}} </span>
-                            <a *ngIf="Email" style="padding:0 5px;;" [style.color]="contactDetailColor"
-                              [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                              [style.font-size.px]="itemFontSize"><img
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/m-b-2.png">
-                              {{Email}} </a>
-                          </p>
-
-
-
-                          <p style="font-size: 12px;">
-                            <span *ngIf="useraddress" style="padding:0 5px;" [style.color]="contactDetailColor"
-                              [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                              [style.font-size.px]="itemFontSize"><img
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/a-b-2.png">
-                              {{useraddress}} </span>
-                            <span *ngIf="compWebsite" style="padding:0 5px;">
-                              <a href="https://{{compWebsite}} " target="_blank" [style.color]="contactDetailColor"
-                                [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
-                                [style.font-size.px]="itemFontSize">{{compWebsite}}
-                              </a></span>
-                          </p>
-                          <div style="padding:10px">
-                            <span *ngIf="faceB">
-                              <a href="{{faceB}}" target="_blank"><img
-                                  style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/f.png"></a></span>
-                            <span *ngIf="Twitter"> <a href="{{Twitter}}" target="_blank">
-                                <img style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twit.png"></a></span><span
-                              *ngIf="Linkedin">
-                              <a href="{{Linkedin}}" target="_blank"><img
-                                  style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/lin.png"></a></span><span
-                              *ngIf="insta">
-                              <a href="{{insta}}" target="_blank"><img
-                                  style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/inn.png"></a></span>
-                          </div>
-
-                        </div>
-                    </tr>
-
-                    <tr>
-                      <td colspan="2" style="background-color: #fff;padding: 5px;margin: 3px;">
-
-                        <div class="" *ngIf="logo">
-                          <a target="_blank"><img alt="Logo" style="width:70px;height:30px;border:0"
-                              src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" border="0"></a>
-                        </div>
-                        <p *ngIf="logo" style="font-size:8px;text-align:left;" (click)="remove(30)">Remove Brand</p>
-
-                      </td>
-                      <td style="height:100px;color:white;"></td>
-
-                    </tr>
+                                  </p>
+  
+  
+  
+                                  <p style="font-size: 12px;margin: 0;">
+                                    <span *ngIf="useraddress" style="padding:0 5px;" >Address.
+                                      <span [style.color]="contactDetailColor"
+                                      [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                      [style.font-size.px]="itemFontSize">{{useraddress}}</span> </span>
+                                      </p>
+                                    <p style="font-size: 12px;margin: 0;">
+                                    <span *ngIf="compWebsite" style="padding:0 5px;">Website.
+                                      <a href="https://{{compWebsite}} " target="_blank" [style.color]="contactDetailColor"
+                                        [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
+                                        [style.font-size.px]="itemFontSize"> {{compWebsite}}
+                                      </a></span>
+                                  </p>
+                                  <p [style.font-family]="fontFamilyNew" style="color:#fff;   color: #fff;
+  
+                                  padding: 14px;margin:0;">
+  
+                                    <q *ngIf="proplus[7]?.quotesId?.quotesName">
+                                      {{proplus[7]?.quotesId?.quotesName}}
+                                    </q>
+                                    <q *ngIf="proplus[7]?.quotes">
+                                      {{quotevar}}
+                                    </q>
+                                  </p>
+                                  <div style="padding:10px;text-align: end;">
+                                    <span *ngIf="faceB">
+                                      <a href="{{faceB}}" target="_blank"><img
+                                          style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/f.png"></a></span>
+                                    <span *ngIf="Twitter"> <a href="{{Twitter}}" target="_blank">
+                                        <img style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/twit.png"></a></span><span
+                                      *ngIf="Linkedin">
+                                      <a href="{{Linkedin}}" target="_blank"><img
+                                          style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/lin.png"></a></span><span
+                                      *ngIf="insta">
+                                      <a href="{{insta}}" target="_blank"><img
+                                          style="width:20px;height:20px;margin:5px; background-color: #1c4366;"
+                                          src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/inn.png"></a></span>
+                                  </div>
+  
+                                </div>
+  
+  
+                              </td>
+  
+  
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
                     <tr *ngIf="videoUrl">
                       <td colspan="3" [style.text-align]="youtubeAlignment">
                         <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img src="{{thumbnail}}"
@@ -6437,9 +6451,9 @@ padding: 21px;">
                         <a href="">
                           <img *ngIf="eventIcon" src="{{eventIcon}}" [style.width.px]="iconSize"
                             [style.height.px]="iconSize">
-                          <span style="font-weight:bold;margin:1px 3px;padding-left:10px;"
+                          <span style="font-weight:bold;margin:1px 3px;padding-left:10px; text-transform: capitalize;"
                             [style.font-size.px]="eventSize" [style.color]="eventColor">{{eventTitle}}</span>
-                          <span style="margin:1px 3px;padding-left:10px;" [style.font-size.px]="eventSize"
+                          <span style="margin:1px 3px;padding-left:10px; text-transform: capitalize;" [style.font-size.px]="eventSize"
                             [style.color]="eventColor">{{eventName}}</span></a>
                       </td>
 
@@ -7543,27 +7557,8 @@ padding: 21px;">
     </div>
 
     <h6>Choose Scheduling Provider</h6>
-    <form class="mt-4" [formGroup]="scheduleForm">
-      <!-- <p class="mb-0 fs-14">Which scheduling service would you like to use</p> -->
-      <!-- <div class="form-check text-black ">
-  
-          <input class="form-check-input" type="radio" [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" name="options"  value="option1" (click)="showInputBox = false">
-          <label class="form-check-label fs-14" >
-     Use  Scheduling Solution( Recommended by Give a spark)
-          </label>
-        </div> -->
-      <!-- <div class="form-check">
-          <input class="form-check-input" type="radio"  [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}"  name="options"  value="option2" (click)="showInputBox = true">
-          <label class="form-check-label fs-14" >
-      I already have a scheduler provider
-          </label>
-        </div>
-        <div *ngIf="showInputBox">
-          <label>
-            Input box:
-            <input type="text" [(ngModel)] ="scheduleLink"  formControlName="scheduleLink">
-          </label>
-        </div> -->
+    <form class="mt-4" [formGroup]="scheduleForm"  >
+     
       <div class="row fs-14 fw-semibold align-items-center form-floating">
         <div class="col-auto">
           <label class="floatingInput">

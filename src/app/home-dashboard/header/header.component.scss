@@ -1,32 +1,225 @@
-ul.nav li.dropdown:hover ul.dropdown-menu{ display: block;  padding: 15px;transition-duration: 1000ms; }
+ul.nav li.dropdown:hover ul.dropdown-menu {
+  display: block;
+  padding: 15px;
+  transition-duration: 1000ms;
+}
+
 .dropdown {
   position: absolute;
-  top: -25px;
-  translate: -45px;
+  top: -75px;
+  translate: -28px;
 
- 
+
 }
+
 .navbar-nav .dropdown-menu {
   position: absolute;
   right: -73px;
   width: 212px;
 }
-.wh-20
-{
+
+.wh-20 {
   width: 35px;
   height: 20px;
   /* padding: 2px; */
 }
-.fs-12{
-  font-size:12px;
+
+.fs-12 {
+  font-size: 12px;
 }
-.drop-hover{
+
+.drop-hover {
   padding-right: 0 0px;
 }
-.hover-light:hover{
-  background-color:#F44336;
-  border-radius:5px;
+
+.hover-light:hover {
+  background-color: #F44336;
+  border-radius: 5px;
 }
-.hover-light:hover a{
+
+.hover-light:hover a {
   color: #fff;
+}
+
+
+
+.icons {
+  display: inline;
+  float: right
+}
+
+.notification {
+  padding-top: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.number {
+  height: 20px;
+  width: 20px;
+  background-color: #d63031;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: -6px;
+  left: 58px;
+  padding: 1px;
+  border-style: solid;
+  border-width: 2px;
+  z-index: 1;
+  font-size: 11px;
+}
+
+.number:empty {
+  display: none;
+}
+
+.notBtn {
+  transition: 0.5s;
+  cursor: pointer
+}
+
+.fas {
+  font-size: 35pt;
+  padding-bottom: 10px;
+  color: black;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.box {
+  width: 400px;
+  height: 0px;
+  border-radius: 10px;
+  transition: 0.5s;
+  position: absolute;
+  overflow-y: scroll;
+  padding: 0px;
+  left: -300px;
+  margin-top: 52px;
+  background-color: #F4F4F4;
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+  cursor: context-menu;
+}
+
+.fas:hover {
+  color: #d63031;
+}
+
+.notBtn:hover>.box {
+  height: 60vh
+}
+
+.content {
+  padding: 20px;
+  color: black;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.gry {
+  background-color: #F4F4F4;
+}
+
+.top {
+  color: black;
+  padding: 10px
+}
+
+.display {
+  position: relative;
+}
+
+.cont {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+
+.cont:empty {
+  display: none;
+}
+
+.stick {
+  text-align: center;
+  display: block;
+  font-size: 50pt;
+  padding-top: 70px;
+  padding-left: 80px
+}
+
+.stick:hover {
+  color: black;
+}
+
+.cent {
+  text-align: center;
+  display: block;
+}
+
+.sec {
+  padding: 10px;
+  background-color: #F4F4F4;
+  transition: 0.5s;
+}
+
+.profCont {
+  padding-left: 15px;
+}
+
+.profile {
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  width: 80px;
+  float: left;
+}
+
+.txt {
+  vertical-align: top;
+  font-size: 1.00rem;
+
+}
+
+.sub {
+  font-size: 0.6rem;
+  color: grey;
+}
+
+.new {
+  border-style: none none solid none;
+  border-color: red;
+}
+
+.sec:hover {
+  background-color: #BFBFBF;
+}
+
+.bell-position {
+  position: absolute;
+  font-size: 35px;
+  top: 0
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

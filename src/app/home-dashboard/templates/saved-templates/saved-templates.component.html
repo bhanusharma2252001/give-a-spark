@@ -30,8 +30,8 @@
                             <img style="width:95px ;height:35px;" *ngIf="!(planDetail == 'Plan A')"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
 
-                            <p style=" font-size: 10px; display: inline; color: blue;">Remove logo</p><span
-                                (click)="remove(details?._id)" style="margin-left: 4px; font-size: 10px;">X</span>
+                            <p style=" font-size: 10px; display: inline; color: blue; cursor: pointer;" (click)="remove(details?._id)">Remove logo</p>
+                                
 
                         </div>
                     </td>
@@ -338,7 +338,7 @@
                         class="signature-item-edit-btn-text">Sync Signature</span></button>
             </div>
             <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash" (click)="delTemplate(details?._id)"><i
-                        class='far fa-trash-alt' style='font-size:36px;color:red'></i></span></div>
+                        class='far fa-trash-alt' style='font-size:36px;color:red; cursor: pointer;'></i></span></div>
 
 
 

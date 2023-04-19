@@ -263,6 +263,7 @@ img.w-500 {
 
 .nav-item {
   padding: 0px;
+  cursor: pointer;
 }
 
 .nav-item a {
@@ -846,7 +847,7 @@ img.top-left {
   width: 70%;
   border-radius: 55px;
   display: flex;
-  justify-content: center;
+
   align-items: center;
 }
 
@@ -929,7 +930,7 @@ img.top-left {
 
 .app_div {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
   text-align: center;
   font-weight: 500;
@@ -1055,7 +1056,7 @@ img.top-left {
 
 .timeline .timeline-item:after {
   background-color: hsl(0, 0%, 90%);
-  left: -48px;
+  left: -50px;
   border-radius: 50%;
   height: 25px;
   width: 30px;
@@ -1609,8 +1610,6 @@ img.author_image {
 }
 .font_strt{
   text-transform: capitalize;
-}#myTab {
-  background-color: #f6f9fa !important;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: #222222;

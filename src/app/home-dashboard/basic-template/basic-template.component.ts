@@ -17,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class BasicTemplateComponent implements OnInit {
+  progessAray=[] as any
   showInputBox: boolean = false;
   selectedOption: string = 'option1';
   inputValue: string = '';
@@ -252,6 +253,7 @@ scheduleShape:any=0
   bannerSizeVal: number=3;
   eventFontVal: number=2;
   appSizeFont: number=1;
+  updateBar: any;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -338,9 +340,7 @@ this.scheduleForm=this.fb.group({
   }
 
 
-  get c(){  
-    return this.scheduleForm.controls; 
-  }  
+  
 
 
   ngOnInit(): void {
@@ -630,6 +630,96 @@ this.scheduleForm=this.fb.group({
 
         console.log(this.username)
       }
+      if(this.useraddress){
+
+        this.progessAray.push(this.useraddress);
+
+      }
+      if(this.Email){
+        this.progessAray.push(this.Email);
+
+      }
+      if(this.compName){
+        this.progessAray.push(this.compName);
+
+      }
+      if(this.compWebsite){
+        this.progessAray.push(this.compWebsite);
+
+      }
+      if(this.number){
+        this.progessAray.push(this.number);
+
+      }
+      if(this.compPhone){
+        this.progessAray.push(this.compPhone);
+
+      }
+      if(this.desig){
+        this.progessAray.push(this.desig);
+
+      }
+
+      if(this.userProfile){
+        this.progessAray.push(this.userProfile);
+
+      }
+      if(this.insta){
+        this.progessAray.push(this.insta);
+
+      }
+      if(this.uTube){
+        this.progessAray.push(this.uTube);
+
+      }
+      if(this.Linkedin){
+        this.progessAray.push(this.Linkedin);
+
+      }
+      if(this.Twitter){
+        this.progessAray.push(this.Twitter);
+
+      }
+      if(this.faceB){
+        this.progessAray.push(this.faceB);
+
+      }
+
+
+      // this.progressdata = this.progessAray.length;
+      if(this.progessAray.length == 3 ){
+        this.updateBar = 25
+      }
+      if(this.progessAray.length == 5 ){
+        this.updateBar = 25
+      }
+      if(this.progessAray.length == 4 ){
+        this.updateBar = 25
+      }
+      if(this.progessAray.length == 6 ){
+        this.updateBar = 50
+      }
+      if(this.progessAray.length == 7 ){
+        this.updateBar = 50
+      }
+      if(this.progessAray.length == 8 ){
+        this.updateBar = 50
+      }
+      if(this.progessAray.length == 9 ){
+        this.updateBar = 75
+      }
+      if(this.progessAray.length == 10 ){
+        this.updateBar = 75
+      }
+      if(this.progessAray.length == 11 ){
+        this.updateBar = 75
+      }
+      if(this.progessAray.length == 12 ){
+        this.updateBar = 100
+      }
+  
+      console.log(this.updateBar, 'barvalue')
+      console.log(this.progessAray.length, "progress array")
 
     })
 
@@ -1873,4 +1963,6 @@ this.banner = ''
 this.bannerUrl=''
 console.log(this.banner)
   }
+
+
 }

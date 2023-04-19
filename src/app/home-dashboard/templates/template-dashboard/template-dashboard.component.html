@@ -91,8 +91,18 @@
 
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <img src="assets/images/top-demanding.png" class="top-demanding">
+                        <div class="col-md-12 mt-4 pt-4" style="background: #f6d5e5;">
+                            <h3 class="ps-2" >Top Demading</h3>
+                            <div style="    padding: 3px;
+                            width: 85px;
+                            height: 0px;
+                            margin-left: 12px;
+                            background-color: #ffc118;"></div>
+                            <div class="row ">
+                                <div class="col-md-6"><img src="assets/images/pro-banner.gif" class="ps-2 top-demanding"></div>
+                                <div class="col-md-6"><img src="assets/images/pro-banner-1.gif" class="ps-2 top-demanding"></div>
+                            </div>
+                            
                         </div>
                         <div class="col-md-4 col-lg-4 p-0">
                             <div class=" temp_pro_shadow  position-relative  m-2">
@@ -245,7 +255,18 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <img src="assets/images/pro-banner.png" class="top-demanding">
+                            <div class="col-md-12 mt-4 pt-4" style="background: #e1f4ff;">
+                                <h3 class="ps-2" >Top Priority</h3>
+                                <div style="    padding: 3px;
+                                width: 85px;
+                                height: 0px; margin-left: 12px; background-color: #000;"></div>
+                                <div class="row ">
+                                    <div class="col-md-6"><img src="assets/images/pro-banner-2.gif" class="ps-2 top-demanding"></div>
+                                    <div class="col-md-6"><img src="assets/images/pro-banner-3.gif" class="ps-2 top-demanding"></div>
+                                </div>
+                                
+                            </div>
+                          
                         </div>
                         <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
@@ -296,7 +317,18 @@
                 <!-- P   R   O    P   L   U   S -->
                 <div class="tab-pane fade" id="pills-Pro-Plus" role="tabpanel" aria-labelledby="pills-Pro-Plus-tab">
                     <div class="col-md-12">
-                        <img src="assets/images/pr_plus.png" class="top-demanding">
+                        <div class="col-md-12 mt-4 pt-4" style="background: #fbf2d3;">
+                            <h3 class="ps-2" >Top Professionals</h3>
+                            <div style="    padding: 3px;
+                            width: 85px;
+                            height: 0px; margin-left: 12px; background-color: #000;"></div>
+                            <div class="row ">
+                                <div class="col-md-6"><img src="assets/images/pro-banner-2.gif" class="ps-2 top-demanding"></div>
+                                <div class="col-md-6"><img src="assets/images/pro-banner-3.gif" class="ps-2 top-demanding"></div>
+                            </div>
+                            
+                        </div>
+                      
                     </div>
                     <div class="row bg-white p-3">
                         <div class="col-md-4 col-lg-4">
@@ -413,8 +445,35 @@
                             </div>
 
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4 col-lg-4">
+                          
+                            <div class=" temp_pro_shadow  position-relative  m-2 ">
+                                <img src="assets/images/eight_temp.png" alt="" class="free-wh m-1"
+                                >
+                                    <div class="overlay"></div>
+                                    <div class="hover_btn position-absolute top-50 start-50 translate-middle"><a routerLink="/home-dashboard/plan/plan-dashboard"  *ngIf="planDetail=='Plan A' || planDetail=='Plan B'">Unlock with Pro+</a></div>
+                                    <div class="hover_btn position-absolute top-50 start-50 translate-middle"><a  *ngIf=" planDetail == 'Plan C'" (click)="editTemplate(proplus[7]?._id)" >Click me</a></div>
+                            </div>
+
+                        </div>
+                        <!-- <img src="assets/images/eight_temp.png" alt="" class="free-wh m-1"
+                        (click)="editTemplate(proplus[7]?._id)"> -->
+                        <!-- <div class="col-md-12">
                             <img src="assets/images/pro+banner.png" class="top-demanding">
+                        </div> -->
+                        <div class="col-md-12">
+                            <div class="col-md-12 mt-4 pt-4" style="background: #fbf2d3;">
+                                <h3 class="ps-2" >Top Professionals</h3>
+                                <div style="    padding: 3px;
+                                width: 85px;
+                                height: 0px; margin-left: 12px; background-color: #000;"></div>
+                                <div class="row ">
+                                    <div class="col-md-6"><img src="assets/images/pro-banner-2.gif" class="ps-2 top-demanding"></div>
+                                    <div class="col-md-6"><img src="assets/images/pro-banner-3.gif" class="ps-2 top-demanding"></div>
+                                </div>
+                                
+                            </div>
+                          
                         </div>
                         <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
@@ -437,11 +496,11 @@
                         <img src="assets/images/seventh_temp.png" alt="" class="free-wh m-1">
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4">
+                        <!-- <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
                         <img src="assets/images/eight_temp.png" alt="" class="free-wh m-1">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
                         <img src="assets/images/nine_temp.jpg" alt="" class="free-wh m-1">
@@ -532,15 +591,15 @@
 
                         </div>
                         <!-- ----------------------------TEMPLATE-8---------------- -->
-                        <div class="col-md-4 col-lg-4">
+                        <!-- <div class="col-md-4 col-lg-4">
                             <div class=" temp_pro_shadow  position-relative  m-2 ">
-                                <img src="assets/images/pro+8.PNG" alt="" class="free-wh m-1"
+                                <img src="assets/images/eight_temp.png" alt="" class="free-wh m-1"
                                     (click)="editTemplate(proplus[7]?._id)">
 
                             </div>
 
 
-                        </div>
+                        </div> -->
                        
 
 

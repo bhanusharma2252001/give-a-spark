@@ -86,30 +86,38 @@
         </div>
       </nav>
     </div>
-    <div class="col-md-2 col-lg-2 user_back">
+    <div class="col-md-1 col-lg-1 user_back">
       <div class="gif_img">
         <!-- <img src="assets/images/gif-right.gif" class="right_new_gif" alt=""> -->
+        <img src="assets/images/profile-background.gif" class="" alt="">
+
         <form class="d-flex justify-content-center position-relative">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur dropdown-toggle" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"
-            routerLink="/home-dashboard/myprofile/profile-dashboard" style="border-radius: 50%;">
+              <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur dropdown-toggle"
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"
+                routerLink="/home-dashboard/myprofile/profile-dashboard" style="border-radius: 50%;">
               <img *ngIf="userDetails?.profile" class="wh-50 cur dropdown-toggle"
-                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt="" style="border-radius: 50%;">
+                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt=""
+                style="border-radius: 50%;">
+
+
 
               <ul class="dropdown-menu">
-                <li class="py-2 hover-light"><a routerLink="/home-dashboard/myprofile/profile-dashboard" class="fs-14 p-1"><span
-                      class="drop-hover"><img class="wh-20 pe-3 fw-semibold" src="assets/images/headerprofile.png"></span>Profile</a></li>
-                <li class="py-2 hover-light"><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span class="drop-hover"><img
-                        class="wh-20 pe-3 fw-semibold" src="assets/images/header-plan.png"></span>Plan And Billing</a></li>
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
-                        src="assets/images/faq.png"></span>FAQ</a></li>
+                <li class="py-2 hover-light"><a routerLink="/home-dashboard/myprofile/profile-dashboard"
+                    class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
+                        src="assets/images/headerprofile.png"></span>Profile</a></li>
+                <li class="py-2 hover-light"><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span
+                      class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
+                        src="assets/images/header-plan.png"></span>Plan And Billing</a></li>
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                        class="wh-20 pe-3 fw-semibold" src="assets/images/faq.png"></span>FAQ</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
-                        src="assets/images/help.png"></span>Help</a></li>
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                        class="wh-20 pe-3 fw-semibold" src="assets/images/help.png"></span>Help</a></li>
 
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
-                        src="assets/images/cnt.png"></span>Contact Us</a></li>
+                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                        class="wh-20 pe-3 fw-semibold" src="assets/images/cnt.png"></span>Contact Us</a></li>
               </ul>
             </li>
           </ul>
@@ -117,6 +125,76 @@
             routerLink="/home-dashboard/myprofile/profile-dashboard">
             <img  *ngIf="userDetails?.profile" class="wh-50 cur" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt=""> -->
         </form>
+      </div>
+    </div>
+    <div class="col-md-1  col-lg-1">
+      <div class="notification">
+
+        <div class="notBtn">
+          <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
+          <div class="number">0</div>
+          <i class="fas fa-bell bell-position"></i>
+          <div class="box">
+            <div class="display">
+              <!-- <div class = "nothing"> 
+                  <i class="fas fa-child stick"></i> 
+                  <div class = "cent">Looks Like your all caught up!</div>
+                </div> -->
+              <div class="cont"><!-- Fold this div and try deleting evrything inbetween -->
+                <div class="sec d-flex align-items-center new">
+
+                  <div class="profCont">
+                    <img class="profile" src="assets/images/no-notification.png" height="79" width="83">
+
+                  </div>
+                  <div class="">
+                  <div class="txt">No New Notification Yet!!</div>
+                  <div class="txt sub">11/7 - 2:30 pm</div>
+                </div>
+                </div>
+              </div>
+              <!-- <div class = "sec new">
+                   
+                     <div class = "profCont">
+                     <img class = "profile" src = "https://obamawhitehouse.archives.gov/sites/obamawhitehouse.archives.gov/files/styles/person_medium_photo/public/person-photo/amanda_lucidon22.jpg?itok=JFPi8OFJ">
+                      </div>
+                     <div class = "txt">Annita liked your post: "Pure css notification box"</div>
+                    <div class = "txt sub">11/7 - 2:13 pm</div>
+                    
+                  </div>
+                   <div class = "sec">
+                   
+                     <div class = "profCont">
+                     <img class = "profile" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3O45RK9qyCrZJivYsY6PmeVEJH07l7bkoolJmscBsNjzump27">
+                      </div>
+                     <div class = "txt">Brie liked your post: "Pure css notification box"</div>
+                    <div class = "txt sub">11/6 - 9:35 pm</div>
+                    
+                  </div>
+                   <div class = "sec">
+                   
+                     <div class = "profCont">
+                     <img class = "profile" src = "https://c1.staticflickr.com/4/3725/10214643804_75c0b6eeab_b.jpg">
+                      </div>
+                     <div class = "txt">Madison liked your post: "Pure css notification box"</div>
+                    <div class = "txt sub">11/6 - 4:04 pm</div>
+                    
+                  </div>
+                   <div class = "sec">
+                   
+                     <div class = "profCont">
+                     <img class = "profile" src="https://upload.wikimedia.org/wikipedia/commons/5/52/NG_headshot_white_shirt_square_Jan18.jpg">
+                      </div>
+                     <div class = "txt">Ted liked your post: "Pure css notification box"</div>
+                    <div class = "txt sub">11/6 - 10:37 am</div>
+                    
+                  </div>
+                 -->
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

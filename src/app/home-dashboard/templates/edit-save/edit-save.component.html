@@ -540,7 +540,7 @@
                                             </button>
                                           </div>
                   
-                                          <!-- ---------------desclaimer-------- -->
+                                          <!-- ---------------disclaimer-------- -->
                   
                                           <div class="delete_apps row align-items-center justify-content-center" *ngIf="content">
                                             <button class="apps_button w-445">
@@ -548,7 +548,7 @@
                                                 <div class="col-md-6 col-lg-6">
                                                   <div class="app_div" >
                                                     <img src="assets/images/disclaimer.png"
-                                                      alt="Online Scheduler Image" /><span>Desclaimer
+                                                      alt="Online Scheduler Image" /><span>Disclaimer
                                                       </span>
                   
                                                   </div>
@@ -985,7 +985,7 @@
                                   </tr>
                                   <tr *ngIf="videoUrl">
                                     <td colspan="3" [style.text-align]="youtubeAlignment">
-                                      <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
+                                      <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img *ngIf="videoUrl"
                                           src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
                                           width="107"></a>
                                       <!-- 
@@ -993,7 +993,7 @@
                                           [style.text-align]="youtubeAlignment" height="80" width="107" alt=""></a> -->
           
           
-                                      <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img
+                                      <a href="{{videoUrl}}" *ngIf="(icon =='youIcon' && showIcon)"><img *ngIf="videoUrl"
                                           src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube-icon.png"
                                           [style.text-align]="youtubeAlignment" height="60" width="83" alt=""></a>
           
@@ -2221,7 +2221,7 @@ Please fill the blank field.
       
         <div class="col-md-6 ">
           <div class="d-flex" (click)="removeBanner()">
-            <img class="wh-25" src="assets/images/delete.png ">
+            <img class="wh-25" src="assets/images/delete.png " style="    cursor: pointer;">
             <p class="px-3 mb-0">Delete</p>
           </div>
         </div>

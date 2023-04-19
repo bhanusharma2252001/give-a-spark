@@ -36,6 +36,7 @@ export class UpdateProfileComponent implements OnInit {
   yBio: any;
   countryName: any;
   maxDate: string;
+  profile: any;
 
   constructor(private api: SparkService, private router:Router, private fb:FormBuilder, private spinner:NgxSpinnerService,private toast:ToastrService) { 
     this.profileUpdate=this.fb.group({
@@ -77,7 +78,7 @@ profile:['']
   getbasicDetails() {
     this.api.getbasicDetaiofUseer().subscribe((res: any) => {
       this.details = res.result[0];
-
+this.profile=res.result[0]?.profile
       this.userName = res.result[0]?.firstName
       this.Email=res.result[0].email
       this.compname = res.result[0]?.companyName
