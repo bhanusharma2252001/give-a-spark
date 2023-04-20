@@ -306,7 +306,7 @@ content!: string;
     this.EventForm = this.fb.group({
       eventTitle: ['',Validators.required],
       eventName: ['',Validators.required],
-      eventLink: ['', [Validators.pattern(reg)]]
+      eventLink: ['', [Validators.required,Validators.pattern(reg)]]
     })
 
     this.footerForm = this.fb.group({

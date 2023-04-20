@@ -779,7 +779,7 @@
                           </td>
 
                         </tr>
-                        <tr>
+                        <tr *ngIf="videoUrl">
                           <td colspan="3" style="padding:5px 15px;" [style.text-align]="youtubeAlignment">
                             <a *ngIf="(videoUrl && !showIcon)" href="{{videoUrl}}" target="_blank"> <img
                                 src="{{thumbnail}}" alt="" height="80" [style.text-align]="youtubeAlignment"
@@ -802,10 +802,10 @@
                           </td>
                         </tr>
 
-                        <tr>
+                        <tr *ngIf="galleryTitle">
                           <td style="padding:5px 15px;font-size:10px;">{{galleryTitle}}</td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="url1 || url2 || url3 || url4">
 
                           <td style="padding:5px 15px;" colspan="3">
                             <div style="display:flex; text-align:start;">
@@ -845,15 +845,15 @@
                         <tr>
 
                           <td colspan="3" style="padding:5px 15px;"
-                            [style.text-align]="eventAlignment">
-                        <tr>
+                            >
+                        <tr *ngIf="eventIcon || eventTitle ||eventName ">
                           <a href="">
-                            <td style="width:10%;">
+                            <td style="width:10%;" [style.text-align]="eventAlignment">
                               <img *ngIf="eventIcon" src="{{eventIcon}}" [style.width.px]="iconSize"
                                 [style.height.px]="iconSize">
 
                             </td>
-                            <td>
+                            <td [style.text-align]="eventAlignment">
                               <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="eventSize"
                                 [style.color]="eventColor">{{eventTitle}}</span>
                               <span style="margin:1px 3px;" [style.font-size.px]="eventSize"
@@ -885,7 +885,7 @@
 
 
                         </tr>
-                        <tr>
+                        <tr *ngIf="bannerUrl">
                           <td colspan="3" style="padding:5px 15px;">
                             <img *ngIf="bannerUrl" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{bannerUrl}}" alt="" [style.width.%]="bannerSize"
                               [style.text-align]="bannerAlign" height="150">
@@ -904,7 +904,7 @@
                         </tr> -->
                         <tr>
                           <td colspan="3" [style.text-align]="appbuttonAlign">
-                            <p style="padding:5px 15px;" [style.color]="appButtonColor"
+                            <p *ngIf="appName" style="padding:5px 15px;" [style.color]="appButtonColor"
                               [style.font-size.px]="appButtonSize">{{appName}}</p>
                        
 
@@ -1668,7 +1668,7 @@
           <button class="green-btn py-2 px-3" onclick="closeaddgreenfooter()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeaddgreenfooter()" (click)="cancelFooter()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1827,7 +1827,7 @@
                 onclick="closeimagegallery()" [disabled]="customGalleryForm.invalid">Add</button>
             </div>
             <div class="col-auto">
-              <button class="gray-btn py-2 px-3" onclick="closeimagegallery()">Cancel</button>
+              <button class="gray-btn py-2 px-3" onclick="closeimagegallery()" (click)="cancelGallery()">Cancel</button>
             </div>
 
           </div>
@@ -1945,7 +1945,7 @@
           <button class="green-btn py-2 px-3" onclick="closedisclaimer()">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedisclaimer()" (click)="cancelDesclaimer()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2105,7 +2105,7 @@ Please enter a valid Url.
             <button class="green-btn py-2 px-3" onclick="closescheduler()" (click)="getScheduleDetails()" [disabled]="scheduleForm.invalid">Add</button>
           </div>
           <div class="col-auto">
-            <button class="gray-btn py-2 px-3" onclick="closescheduler()">Cancel</button>
+            <button class="gray-btn py-2 px-3" onclick="closescheduler()" (click)="cancelMeeting()">Cancel</button>
           </div>
         </div>
       </div>
@@ -2224,7 +2224,7 @@ Please enter a valid Url.
             onclick="closeyoutubechannel()" [disabled]="youtubeForm.invalid">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel()" (click)="cancelYoutube()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2386,7 +2386,7 @@ Please fill the blank field.
         <button class="green-btn py-2 px-3" onclick="closecustombutton()" (click)="getCustoBtDetails()" [disabled]="customButtonForm.invalid">Add</button>
       </div>
       <div class="col-auto">
-        <button class="gray-btn py-2 px-3" onclick="closecustombutton()">Cancel</button>
+        <button class="gray-btn py-2 px-3" onclick="closecustombutton()" (click)="cancelCustomButton()">Cancel</button>
       </div>
     </div>
   </div>
@@ -2488,7 +2488,7 @@ Please fill the blank field.
           <button class="green-btn py-2 px-3" (click)="bannerValue()" onclick="closeuploadbanner()" [disabled]="bannerForm.invalid">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeuploadbanner()" (click)="cancelBanner()">Cancel</button>
         </div>
       </div>
     </div>
@@ -2644,7 +2644,7 @@ Please fill the blank field.
           <button class="green-btn py-2 px-3" onclick="closesalesevent()" (click)="getSalesDetails()" [disabled]="EventForm.invalid">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closesalesevent()" >Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closesalesevent()" (click)="cancelEvent()" >Cancel</button>
         </div>
       </div>
     </div>
@@ -2751,7 +2751,7 @@ Please fill the blank field.
           <button class="green-btn py-2 px-3" onclick="closedownloadapp()" (click)="getAppDetails()" [disabled]="downloadAppForm.invalid">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()" >Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closedownloadapp()" (click)="cancelApps()" >Cancel</button>
         </div>
       </div>
     </div>

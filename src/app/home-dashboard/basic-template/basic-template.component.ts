@@ -298,7 +298,7 @@ scheduleShape:any=0
     this.EventForm = this.fb.group({
       eventTitle: ['',Validators.required],
       eventName: ['',Validators.required],
-      eventLink: ['', [Validators.pattern(reg)]]
+      eventLink: ['', [Validators.required,Validators.pattern(reg)]]
     })
 
     this.footerForm = this.fb.group({
@@ -1965,4 +1965,65 @@ console.log(this.banner)
   }
 
 
+// ---------------cacel -gallery---------------
+
+cancelGallery(){
+  this.url1= ''
+  this.url2= ''
+  this.url3= ''
+  this.url4= ''
+  this.galleryTitle=''
+}
+
+
+// ---------------cacel -banner---------------
+
+
+cancelBanner(){
+  this.banner=''
+  this.bannerLink=''
+}
+
+// ---------------cacel -disclaimer---------------
+
+
+cancelDesclaimer(){
+  this.content=''
+}
+
+// ---------------cacel -apps---------------
+
+
+cancelApps(){
+  this.appName=''
+  this.appleAppLink=''
+  this.googleAppLink=''
+}
+
+// ---------------cacel -custom---------------
+cancelCustomButton(){
+  this.customUrl=''
+  this.customText=''
+}
+// ---------------cacel -even---------------
+cancelEvent(){
+  this.eventTitle=''
+this.eventLink=''
+ this.eventName=''
+ this.eventIcon=''
+}
+cancelYoutube(){
+  this.thumbnail=''
+  this.videoUrl=''
+}
+cancelFooter(){
+  this.footerText=''
+  this.greenIcon=''
+}
+cancelMeeting(){
+  this.inputValue=''
+
+  this.scheduleLink=''
+this.scheduleIcon=''
+}
 }
