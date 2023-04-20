@@ -38,7 +38,7 @@ this.router.navigate(['/plan/plan-dashboard'])
   }
   profile(){
     this.api.myProfile().subscribe((res:any)=>{
-      this.userDetails = res;
+      this.userDetails = res[0];
       // console.log(this.userDetails?.address[0]?.addressline1, "addddd")
     })
   }

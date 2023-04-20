@@ -1,4 +1,8 @@
 .bg-giftcard {
     width: 75vw !important;
     height: 76vh !important;
-  }
+  }.green-btn:disabled{
+    background-color:#c8d9f7 !important ;
+    color:white ;
+    border: 1px solid gray;
+  }  

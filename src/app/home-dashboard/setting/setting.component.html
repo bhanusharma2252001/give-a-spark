@@ -19,7 +19,7 @@
                 <input type="text" placeholder="Phone Number" class="form-control" id="exampleInputnumber"
                   aria-describedby="emailHelp" formControlName="phone" [(ngModel)]="number">
                   <div *ngIf="Submitted && f['phone']errors" class="invalid-feedback">
-                    <span *ngIf="f['phone']errors['required']">phone no. is required</span>
+                    <span *ngIf="f['phone']errors['required']">*phone no. is required</span>
                   </div>
                   <ng-container class="po-re"
                   *ngIf="updateProfile.controls['phone'].touched && !updateProfile.controls['phone'].valid">
@@ -90,7 +90,7 @@
                 *ngIf="updatePasswordForm.controls['newPassword'].touched && !updatePasswordForm.controls['newPassword'].valid">
                 <small class="text-danger"
                     *ngIf="updatePasswordForm.controls['newPassword'].hasError('pattern')">
-                    Password must contain more than 8 characters, 1 upper case letter, and 1
+                   *Password must contain more than 8 characters, 1 upper case letter, and 1
                     special character
                 </small>
             </ng-container>
@@ -102,12 +102,12 @@
               *ngIf="updatePasswordForm.controls['confirmPassword'].touched && !updatePasswordForm.controls['confirmPassword'].valid">
               <small class="text-danger"
                   *ngIf="updatePasswordForm.controls['confirmPassword'].hasError('pattern')">
-                  Password must contain more than 8 characters, 1 upper case letter, and 1
+                  *Password must contain more than 8 characters, 1 upper case letter, and 1
                   special character
               </small>
           </ng-container>
               <div *ngIf="updatePasswordForm.hasError('passwordNotMatch')">
-                <small class="text-danger ">Password does not match</small> <br>
+                <small class="text-danger ">*Password does not match</small> <br>
  
             </div>
               <div class="mb-3">
