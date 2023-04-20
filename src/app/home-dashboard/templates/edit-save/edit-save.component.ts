@@ -23,7 +23,8 @@ export class EditSaveComponent implements OnInit {
   compName: any;
   compWebsite: any;
   number: any;
- 
+  designFontSize:any=3
+  designLineHeigh:any=3
 img:boolean=true;
 @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
@@ -704,12 +705,39 @@ this.api.gmail(this.templateRef.outerHTML
   this.designationColor = data?.designationColor?data?.designationColor:this.designationColor
   this.contactDetailColor = data?.contactDetailColor?data?.contactDetailColor:this.contactDetailColor
   this.fontFamilyNew = data?.fontFamily?data?.fontFamily:this.fontFamilyNew
-  this.templateFontSize = data?.fontSize?data?.fontSize:this.templateFontSize
+  this.templateFontSize = data?.fontSize?data?.fontSize:this.templateFontSize 
   this.lineHeight = data?.lineHeight?data?.lineHeight:this.lineHeight
   this.itemFontSize = data?.fontSizeItem?data?.fontSizeItem:this.itemFontSize
   this.fontSizeName = data?.nameFontSize?data?.nameFontSize:this.fontSizeName
   this.nameAlign = data?.nameAlign?data?.nameAlign:this.nameAlign
   this.borderRadius = data?.borderRadius?data?.borderRadius:this.borderRadius
+  
+  // for desgin tab size 
+  if (this.templateFontSize == 33) {
+    this.designFontSize = 4
+  } else if (this.templateFontSize == 36) {
+    this.designFontSize = 5
+  } else if (this.templateFontSize == 32) {
+    this.designFontSize = 3
+  } else if (this.templateFontSize == 31) {
+    this.designFontSize = 2
+  } else {
+    this.designFontSize = 1
+  }
+
+  // for design tab line height
+  if (this.lineHeight == 2.4) {
+    this.designLineHeigh = 4
+  } else if (this.lineHeight == 3.4) {
+    this.designLineHeigh = 5
+  } else if (this.lineHeight == 1.4) {
+    this.designLineHeigh= 3
+  } else if (this.lineHeight == 1.1) {
+    this.designLineHeigh = 2
+  } else {
+    this.designLineHeigh = 1
+  }
+
    }
 
  getBindData(data:any) {

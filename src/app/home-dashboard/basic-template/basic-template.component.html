@@ -433,12 +433,11 @@
                                 <div class="d-flex">
                                   <i class="m-1 fa fa-align-left text-gray highlight-align" aria-hidden="true"  [class.activeNameAlign]="nameAlign == 'left'" 
                                     (click)="getAlign('left')"></i>
-                                  <i class="m-1 fa fa-align-center text-gray highlight-align" aria-hidden="true"
+                                  <i class="m-1 fa fa-align-center text-gray highlight-align" aria-hidden="true" [class.activeNameAlign]="nameAlign == 'center'"
                                     (click)="getAlign('center')"></i>
-                                  <i class="m-1 fa fa-align-right text-gray highlight-align" aria-hidden="true"
+                                  <i class="m-1 fa fa-align-right text-gray highlight-align" aria-hidden="true" [class.activeNameAlign]="nameAlign == 'right'"
                                     (click)="getAlign('right')"></i>
-                                  <i class="m-1 fa fa-align-justify text-gray highlight-align" aria-hidden="true"
-                                    (click)="getAlign('center')"></i>
+                                 
                                 </div>
                               </div>
 
@@ -2517,7 +2516,7 @@ Please fill the blank field.
             formControlName="eventTitle" [(ngModel)]="eventTitle">
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventTitle'].touched && !EventForm.controls['eventTitle'].valid">
-            <small class="fs-12">Event Title is required </small>
+            <small class="fs-12 text-danger">Event Title is required </small>
  
   </ng-container>
               <!-- <ng-container class="po-re"
@@ -2534,7 +2533,7 @@ Please fill the blank field.
             formControlName="eventName" [(ngModel)]="eventName">
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventName'].touched && !EventForm.controls['eventName'].valid">
-            <small class="fs-12">Text is required </small>
+            <small class="fs-12 text-danger">Event Name is required </small>
   
   </ng-container>
           </div>

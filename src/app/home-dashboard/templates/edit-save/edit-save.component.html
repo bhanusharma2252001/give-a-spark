@@ -391,7 +391,7 @@
                                                               class="form-label fw-semibold ">Size
                                                               :</label>
                                                           <input type="range" class="form-range" min="0" max="5"
-                                                              value="3" (change)="changeSize($event)"
+                                                              [value]="designFontSize" (change)="changeSize($event)" 
                                                               id="customRange2" [disabled]="planDetail == 'Plan A'">
 
                                                       </div>
@@ -400,21 +400,20 @@
                                                           <label for="customRange2"
                                                               class="form-label fw-semibold ">Line
                                                               Height :</label>
-                                                          <input type="range" value="3" (change)="changeLine($event)"
+                                                          <input type="range" [value]="designLineHeigh" (change)="changeLine($event)"
                                                               class="form-range" min="0" max="5" id="customRange2" [disabled]="planDetail == 'Plan A'">
 
                                                       </div>
                                                       <div class="mb-2 grid-2">
                                                           <div>Align :</div>
                                                           <div class="d-flex">
-                                                              <i class="m-1 fa fa-align-left" aria-hidden="true"
-                                                                  (click)="getAlign('left')"></i>
-                                                              <i class="m-1 fa fa-align-center" aria-hidden="true"
-                                                                  (click)="getAlign('center')"></i>
-                                                              <i class="m-1 fa fa-align-right" aria-hidden="true"
+                                                              <i class="m-1 fa fa-align-left text-gray highlight-align" aria-hidden="true" [class.designTabActive]="nameAlign == 'left'"
+                                                                  (click)="getAlign('left')" ></i>
+                                                              <i class="m-1 fa fa-align-center text-gray highlight-align " aria-hidden="true" [class.designTabActive]="nameAlign == 'center'"
+                                                                  (click)="getAlign('center') "></i>
+                                                              <i class="m-1 fa fa-align-right text-gray highlight-align" aria-hidden="true" [class.designTabActive]="nameAlign == 'right'"
                                                                   (click)="getAlign('right')"></i>
-                                                              <i class="m-1 fa fa-align-justify" aria-hidden="true"
-                                                                  (click)="getAlign('center')"></i>
+
                                                           </div>
                                                       </div>
 
@@ -2260,7 +2259,7 @@ Please fill the blank field.
             formControlName="eventTitle" [(ngModel)]="eventTitle">
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventTitle'].touched && !EventForm.controls['eventTitle'].valid">
-            <small class="fs-12">Event Title is required </small>
+            <small class="fs-12 text-danger">Event Title is required </small>
  
   </ng-container></div>
       </div>
@@ -2271,7 +2270,7 @@ Please fill the blank field.
             formControlName="eventName" [(ngModel)]="eventName">
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventName'].touched && !EventForm.controls['eventName'].valid">
-            <small class="fs-12">Text is required </small>
+            <small class="fs-12 text-danger">Text is required </small>
   
   </ng-container></div>
       </div>

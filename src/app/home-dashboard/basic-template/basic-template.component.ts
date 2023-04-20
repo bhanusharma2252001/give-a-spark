@@ -467,11 +467,11 @@ this.scheduleForm=this.fb.group({
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
-
+      this.templateFontSize = 33
       this.itemFontSize = 14
       this.fontSizeName = 14
     } else if (currnetSize == 5) {
-
+      this.templateFontSize = 36
       this.fontSizeName = 15
       this.itemFontSize = 15
     } else if (currnetSize == 3) {
