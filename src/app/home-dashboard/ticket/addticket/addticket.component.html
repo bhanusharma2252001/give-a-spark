@@ -1,9 +1,9 @@
 <form class="row mt-5 p-1 align-items-center" [formGroup]="addticketForm"   (ngSubmit)="addticket()">
   <div class="col-md-6 col-lg-6">
       <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label text-blue fs-12"> Name
+          <label for="exampleFormControlInput1" class="form-label text-blue fs-14 fw-500"> Name
           </label>
-          <input type="text" class="form-control text-white bg-semiblack p-3"
+          <input type="text" class="form-control bg-semiblack p-3"
               id="exampleFormControlInput1" placeholder="Name" formControlName="name" >
 
 
@@ -12,9 +12,9 @@
   </div>
   <div class="col-md-6 col-lg-6">
       <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label text-blue fs-12">Email
+          <label for="exampleFormControlInput1" class="form-label text-blue fs-14 fw-500">Email
           </label>
-          <input type="email" class="form-control text-white bg-semiblack p-3"
+          <input type="email" class="form-control bg-semiblack p-3"
               id="exampleFormControlInput1" placeholder="Email" formControlName="email">
 
       </div>
@@ -24,8 +24,8 @@
 
   <div class="col-md-6 col-lg-6">
       <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label text-blue fs-12">Date</label>
-          <input type="date" class="form-control text-white bg-semiblack p-3"
+          <label for="exampleFormControlInput1" class="form-label text-blue fs-14 fw-500">Date</label>
+          <input type="date" class="form-control bg-semiblack p-3"
               id="exampleFormControlInput1" placeholder="Date" formControlName="date">
 
       </div>
@@ -33,20 +33,20 @@
 
   <div class="col-md-6 col-lg-6">
       <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label text-blue fs-12">Subject</label>
-          <input type="text" class="form-control text-white bg-semiblack p-3"
+          <label for="exampleFormControlInput1" class="form-label text-blue fs-14 fw-500">Subject</label>
+          <input type="text" class="form-control bg-semiblack p-3"
               id="exampleFormControlInput1" placeholder="Subject" formControlName="subject">
       </div>
   </div>
   <div class=" align-self-start">
       <div class="mt-3 ">
-          <div class="upload-file  text-white bg-semiblack ">
-
+          <div class="upload-file  bg-semiblack ">
+            <label for="" class="upload-document text-blue fs p-2 fs-14 pt-3-50">Description
+            </label>
               <input type="text" a formControlName="description" class="p-3 form-control  fs-14 fw-light"
                   placeholder="Description">
 
-              <label for="" class="upload-document p-2 fs-14 pt-3 text-white-50">Description
-              </label>
+           
 
           </div>
 
@@ -63,8 +63,9 @@
   <div class="col-md-2 col-lg-2">
 
   </div>
-  <div class="text-center mt-4">
-      <button class="button blue-btn w-20 pt-1 pb-1" type="submit">
+  <div class="mt-4">
+      <button class="button green
+      -btn w-20 px-3 py-2" type="submit">
          Submit
       </button>
   </div>

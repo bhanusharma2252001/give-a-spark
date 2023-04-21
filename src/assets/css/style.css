@@ -1260,7 +1260,7 @@ background-color: var(--pink);
 padding-left: 140px !important;
 } */
 .dekstop-menu {
-  margin-top: 65px;
+  margin-top: 45px;
   position: sticky;
   top: 10px;
   z-index: 1;
@@ -1522,6 +1522,7 @@ img.author_image {
   height: 310px;
   border-radius: 8px;
   position: relative;
+  margin-bottom: 132px;
 }
 
 .red_temp {
@@ -1708,4 +1709,7 @@ img.author_image {
 .editor-scroll{
   height: 435px;
   overflow: scroll;
+}
+.mb-130px{
+  margin-bottom: 130px !important;
 }

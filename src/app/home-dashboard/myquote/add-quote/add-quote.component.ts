@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -28,9 +28,9 @@ export class AddQuoteComponent implements OnInit {
   constructor( private api:SparkService, private fb:FormBuilder,private spinner:NgxSpinnerService ,private router:Router, private toast:ToastrService) { 
     this.addQuoteForm=this.fb.group({
 
-      writerName:[''],
-      writerProfile:[''],
-      enterQuotes:[''],
+      writerName:['',Validators.required],
+      writerProfile:['',Validators.required],
+      enterQuotes:['',Validators.required],
 
     })
   }

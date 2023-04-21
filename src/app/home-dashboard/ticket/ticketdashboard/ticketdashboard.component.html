@@ -1,53 +1,53 @@
-<button class="blue-btn fs-14 fw-bold mt-4 p-2 ps-3 pe-3 ">
-  <a routerLink="../addticket" class="fs-14 fw-normal text-light">Create New Ticket
+<button class="green-btn fs-14  mt-4 p-2 ps-3 pe-3 ">
+  <a routerLink="../addticket" class="fs-14 fw-500 text-light">Create New Ticket
   </a>
 
 </button>
 
 
 
-<div class="row m-0 p-0 justify-content-center mt-3">
-  <div class="col-md-12 col-lg-12 pe-0 ps-3">
-      <div class=" p-3 bg-dark h-100">
+<div class="row m-0 p-0 justify-content-center mt-4">
+  <div class="col-md-12 col-lg-12 p-0">
+      <div class=" pe-4  h-100">
           <div class="table-scroll ">
               <table class="table table-bordered text-center mb-0">
                   <thead class="position-sticky border-orng border-15">
                       <tr>
-                          <th scope="col" class="first-child fs-16 pt-4 pb-4 text-white  fw-500">
+                          <th scope="col" class="first-child fs-16 bg-gray-t   fw-500">
                               Ticket Id
                           </th>
-                          <th scope="col" class="fs-16 text-white  fw-500">Name
+                          <th scope="col" class="fs-16 bg-gray-t  fw-500">Name
                           </th>
 
-                          <th scope="col" class="fs-16 text-white  fw-500">Email</th>
-                          <th scope="col" class="fs-16 text-white  fw-500">Date</th>
-                          <th scope="col" class="fs-16 text-white  fw-500">subject</th>
-                          <th scope="col" class="fs-16 text-white  fw-500">Ticket Status</th>
+                          <th scope="col" class="fs-16 bg-gray-t  fw-500">Email</th>
+                          <th scope="col" class="fs-16 bg-gray-t  fw-500">Date</th>
+                          <th scope="col" class="fs-16 bg-gray-t  fw-500">subject</th>
+                          <th scope="col" class="fs-16 bg-gray-t  fw-500">Ticket Status</th>
 
-                          <th scope="col" class="last-child fs-16 text-white  fw-500">Action</th>
+                          <th scope="col" class="last-child fs-16 bg-gray-t  fw-500">Action</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr class="border-none mt-2 text-white bg-semiblack fs-12 first-child fw-500"
+                      <tr class="border-none mt-2 bg-semiblack fs-12 first-child fw-500"
                           *ngFor=" let data of ticketlist; let i = index;">
-                          <td class="border-start-dark">
+                          <td class="border-start-dark light-bg fw-semibold">
                               {{data.ticketId}}
                           </td>
-                          <td class="border-start-dark">
+                          <td class="border-start-dark light-bg fw-semibold">
                               {{data.name}}
                           </td>
-                          <td class="border-start-dark pt-3 pb-3">{{data.email}}
+                          <td class="border-start-dark light-bg fw-semibold ">{{data.email}}
                           </td>
-                          <td class="border-start-dark pt-3 pb-3">{{data.date }}
+                          <td class="border-start-dark light-bg fw-semibold ">{{data.date }}
                           </td>
-                          <td class="border-start-dark">
+                          <td class="border-start-dark light-bg fw-semibold">
                               {{data.subject}}
                           </td>
 
-                          <td class="border-start-dark">
+                          <td class="border-start-dark light-bg fw-semibold">
                               {{data.ticketStatus}}
                           </td>
-                          <td class="border-start-dark" data-bs-toggle="modal" data-bs-target="#morestories"
+                          <td class="border-start-dark light-bg fw-semibold" data-bs-toggle="modal" data-bs-target="#morestories"
                               (click)="ticketEvent($event, data)">more</td>
                       </tr>
                   </tbody>
@@ -65,8 +65,8 @@
   <div class="modal-dialog  modal-xl">
       <div class="modal-content bg-dark">
           <div class="modal-header">
-              <h5 class="modal-title text-white" id="morestoriesLabel">Ticket Details</h5>
-              <button type="button" class="btn-close text-white blue-btn" data-bs-dismiss="modal"
+              <h5 class="modal-title" id="morestoriesLabel">Ticket Details</h5>
+              <button type="button" class="btn-close blue-btn" data-bs-dismiss="modal"
                   aria-label="Close"></button>
 
           </div>
@@ -82,7 +82,7 @@
                                           <p class="mb-0 text-blue">Name</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50 me-3">
+                                          <p class="mb-0-50 me-3">
                                               {{ticketdata?.name}}
                                           </p>
                                       </div>
@@ -94,7 +94,7 @@
                                           <p class="mb-0 text-blue">Ticket Id</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50 me-3">
+                                          <p class="mb-0-50 me-3">
                                               {{ticketdata?.ticketId}}
                                           </p>
                                       </div>
@@ -106,7 +106,7 @@
                                           <p class="mb-0 text-blue">Email</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50">
+                                          <p class="mb-0-50">
                                               {{ticketdata?.email}}
                                           </p>
                                       </div>
@@ -116,7 +116,7 @@
                                           <p class="mb-0 text-blue">Subject</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50">
+                                          <p class="mb-0-50">
                                               {{ticketdata?.subject}}
                                           </p>
                                       </div>
@@ -126,7 +126,7 @@
                                           <p class="mb-0 text-blue">Date</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50">
+                                          <p class="mb-0-50">
                                               {{ticketdata?.date}}
                                           </p>
                                       </div>
@@ -137,7 +137,7 @@
                                           <p class="mb-0 text-blue">Ticket Status</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50">
+                                          <p class="mb-0-50">
                                               {{ticketdata?.ticketStatus}}
                                           </p>
                                       </div>
@@ -149,7 +149,7 @@
                                           <p class="mb-0 text-blue">Description</p>
                                       </div>
                                       <div class="col-md-8">
-                                          <p class="mb-0 text-white-50">
+                                          <p class="mb-0-50">
                                               {{ticketdata?.description}}
                                           </p>
                                       </div>

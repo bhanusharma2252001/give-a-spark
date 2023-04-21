@@ -18,7 +18,10 @@
                                 Name</label>
                             <input type="text" class="form-control rounded-0  p-2"
                                 id="exampleInputfiled" aria-describedby="textHelp" formControlName="writerName">
-
+                                <div *ngIf="addQuoteForm.get('writerName')?.hasError('required') "
+                                class="text-danger  fs-12text-sm">
+                                <small class="fs-12">Writer Name is required </small>
+                            </div>
                         </div>
 
                     </div>
@@ -26,6 +29,10 @@
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Image</label>
                             <input class="form-control p-2" type="file" accept="image/png, image/gif, image/jpeg" id="formFile" formControlName="writerProfile" (change)="onSelectImage($event)">
+                            <div *ngIf="addQuoteForm.get('writerProfile')?.hasError('required') "
+                            class="text-danger  fs-12text-sm">
+                            <small class="fs-12">Writer Profile is required </small>
+                        </div>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -33,11 +40,15 @@
                             </label>
                         <textarea class="form-control" placeholder="Enter quote" id="exampleFormControlTextarea1" formControlName="enterQuotes"
                             rows="3"></textarea>
+                            <div *ngIf="addQuoteForm.get('enterQuotes')?.hasError('required') "
+                            class="text-danger  fs-12text-sm">
+                            <small class="fs-12">Please Add Quote </small>
+                        </div>
                     </div>
                     <div class="col-md-6 col-lg-6">
 
 
-                        <button type="submit" class="btn green-btn   ">Create</button>
+                        <button type="submit" class="btn green-btn   " [disabled]="addQuoteForm.invalid">Create</button>
                     </div>
                 </form>
             </div>

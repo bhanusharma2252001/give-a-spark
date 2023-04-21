@@ -101,7 +101,7 @@ export class SignupComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.toast.success('Logged in Successfully');
-      alert('login Successfully')
+   
         this.success(res);
 
      sessionStorage.setItem('username', this.signupForm.value.firstName)

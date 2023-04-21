@@ -1,0 +1,12 @@
+.table-bordered>:not(caption)>*>* {
+    border-width: 0 2px !important;
+    padding: 20px !important;
+    border:1px solid white !important;
+}
+.bg-gray-t{
+    background:#0412a7 !important;
+    color: #fff !important;
+}
+.light-bg {
+    background-color: #E8E8EA !important;
+}

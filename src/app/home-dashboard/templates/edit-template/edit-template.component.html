@@ -833,7 +833,7 @@
                   </div>
                 </div>
 
-                <div class="mt-4 text-end">
+                <div class="mt-4 mb-4 text-end mb-130px">
                   <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3"
                     (click)="onSubmit(editTemplateForm.value)">Update
                     Signature</button>
@@ -2210,7 +2210,7 @@
                         <img class="width" [src]="url" style="border-radius: 159px;
                                                     height: 100px;
                                                     width: 100px;
-                                                    padding: 6px;" *ngIf="url">
+                                                    padding: 6px;" *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img alt="Profile" [style.border-radius.px]="borderRadius" style="border-radius: 159px;
                                                     height: 100px;
                                                     width: 100px;
@@ -2326,7 +2326,7 @@
 
                         <div
                           style="background-color: #fff;height: 140px;width:150px ;text-align:center;border-radius:0 0 225px 225px; ">
-                          <img class="width" [src]="url"
+                          <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                             style="width:110px;height:110px;box-shadow: 24px 0 0px -8px #fff;padding:5px; border-radius:50%"
                             *ngIf="url">
                           <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
@@ -2462,7 +2462,7 @@
                     <tr>
                       <td
                         style="width:194px;padding:10px;background-color: #fff; vertical-align: center;text-align:center;border-radius:0 225px 225px 0; ">
-                        <img class="width" [src]="url" style="width:110px;height:110px;padding:5px; border-radius:50%"
+                        <img class="width" [src]="url" [style.border-radius.px]="borderRadius" style="width:110px;height:110px;padding:5px; border-radius:50%"
                           *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:100px;height:100px;margin-left:-55px; border-radius:50%"
@@ -2555,7 +2555,7 @@
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize"> <span
                               style="padding:5px;">{{desig}}</span></h5>
                           <div style="padding:10px 0;">
-                            <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%;"
+                            <img class="width" [style.border-radius.px]="borderRadius" [src]="url" style="width:100px;height:100px;border-radius:50%;"
                               *ngIf="url">
                             <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                               style="width:100px;height:100px;border-radius:50%;"
@@ -2640,7 +2640,7 @@
                                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[5]?.profileImage}}"> -->
 
                           <img class="width" [src]="url"
-                            style="margin:8px;width:100px;height:100px;border-radius:50%;"
+                            style="margin:8px;width:100px;height:100px;border-radius:50%; " [style.border-radius.px]="borderRadius"
                             *ngIf="url">
                           <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                             style="margin:8px;width:100px;height:100px;border-radius:50%;"
@@ -2766,7 +2766,7 @@
                                                                   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[6]?.profileImage}}"> -->
 
 
-                        <img [src]="url" style="width:100px;height:100px;" *ngIf="url">
+                        <img [src]="url" style="width:100px;height:100px;" *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:100px;height:100px;"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -2845,7 +2845,7 @@
                       <td rowspan="2"
                         style="vertical-align: top; text-align:center;padding-top:15px;padding-right: 5px;">
 
-                        <img class="width" [src]="url"
+                        <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                           style="box-shadow: 0 2px 0 10px #ffff;width:100px;height:100px;border-radius:50%;"
                           *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
@@ -2963,7 +2963,7 @@
 
                         <img class="width" [src]="url"
                           style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
-                          *ngIf="url">
+                          *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="box-shadow: 0 0 0 2px #f96501; margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -3083,7 +3083,7 @@
                           <img [style.border-radius.px]="borderRadius"  style="width:100px;height:100px;margin-left:8px;border-radius:130px 101px 0 100px"
                             *ngIf="userProfile && !url"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                          <img  style="width:100px;height:100px;margin-left:8px;border-radius:130px 101px 0 100px" [src]="url" *ngIf="url">
+                          <img  style="width:100px;height:100px;margin-left:8px;border-radius:130px 101px 0 100px" [style.border-radius.px]="borderRadius" [src]="url" *ngIf="url">
                         <!-- </div> -->
                         <h6
                           style="margin-bottom:2px;padding:10px;font-family: 'Mynerve';color:#3b575f;font-weight: bold;font-size: 18x;"
@@ -3193,11 +3193,11 @@
                       </td>
                       <td style="width:100px;position:relative; text-align:center;vertical-align:center;">
                         <div style="background-color: #341c30;width:100px;margin:20px;rotate: 40deg;">
-                          <img class="width" [src]="url"
-                            style="rotate: -37deg;box-shadow: 0 0 0px 5px #fff;border-radius: 50%;width: 100px;height:100px; margin: 3px;"
+                          <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
+                            style="rotate: -37deg;box-shadow: 0 0 0px 5px #fff;width: 100px;height:100px; margin: 3px;"
                             *ngIf="url">
                           <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
-                            style="rotate: -37deg;box-shadow: 0 0 0px 5px #fff;border-radius: 50%;width: 100px;height:100px; margin: 3px;"
+                            style="rotate: -37deg;box-shadow: 0 0 0px 5px #fff;width: 100px;height:100px; margin: 3px;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
@@ -3312,13 +3312,13 @@
 
 
                         <br>
-                        <p style="padding:2px 1px;text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="padding:2px 1px;text-transform: capitalize;font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="padding:10px 15px;text-transform: capitalize;font-weight: 500px;font-size:10px;" >{{galleryTitle}}</td>
+                      <td style="padding:10px 15px;text-transform: capitalize;font-weight:600;font-size:11px;" >{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -3434,7 +3434,7 @@
 
                       <td style="vertical-align: center;padding:10px 15px;">
 
-                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%;" *ngIf="url">
+                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%; " [style.border-radius.px]="borderRadius" *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:100px;height:100px;border-radius:50%;"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -3443,7 +3443,7 @@
                       </td>
 
                       <td style="vertical-align: end;padding-left:10px;">
-                        <h2 style="margin-bottom:10px;" [style.text-align]="nameAlign" [style.color]="firstNameColor"
+                        <h2 style="margin-bottom:10px ;margin-top:3px;" [style.text-align]="nameAlign" [style.color]="firstNameColor"
                           [style.line-height]="lineHeight" [style.font-family]="fontFamilyNew"
                           [style.font-size.px]="templateFontSize">{{username}}</h2>
                         <h5 style="margin-bottom:20px;width:180px;background-color: #f2c030;text-align: center;    padding: 4px;
@@ -3564,7 +3564,7 @@
                     </tr>
                   
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 12px 15px;font-size:10px;font-weight:500px;text-transform:capitalize;">{{galleryTitle}}</td>
+                      <td style="padding: 12px 15px;font-weight:600;font-size:11px;text-transform:capitalize;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -3650,7 +3650,7 @@
 
 
                         <br>
-                        <p style="text-transform:capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform:capitalize;"
+                        <p style="text-transform:capitalize;font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform:capitalize;"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
@@ -3703,9 +3703,10 @@
 
                       </td>
                       <td rowspan="3" style="vertical-align: top; text-align:end;padding-top:35px;padding-right: 0;">
-                        <img [style.border-radius.px]="borderRadius" *ngIf="proplus[2]?.profileImage"
+                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:50%; " [style.border-radius.px]="borderRadius" *ngIf="url">
+                        <img [style.border-radius.px]="borderRadius"  *ngIf="userProfile && !url"
                           style="width:130px;height:130px;border-radius:50%;"
-                          src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proplus[2]?.profileImage}}">
+                          src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
                       </td>
                       <td>
                         <div
@@ -3807,7 +3808,7 @@
                     </tr>
                 
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 12px 15px;font-size:10px;text-transform: capitalize;font-weight:semibold;">{{galleryTitle}}</td>
+                      <td style="padding: 12px 15px;font-size:10px;text-transform: capitalize;font-weight:600;font-size:11px;font-size:11px;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -3926,7 +3927,7 @@
 
 
                         <br>
-                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="text-transform: capitalize; font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
@@ -3984,8 +3985,8 @@
 
                       </td>
                       <td rowspan="2" style="vertical-align:top;padding:0 20px;">
-
-                        <img class="width" [src]="url"
+ 
+                        <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                           style="box-shadow: 0 2px 0 10px #b08aeb;width:150px;height:150px;border-radius:50%;"
                           *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
@@ -4091,13 +4092,13 @@
 
 
                         <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;"
+                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;font-weight:600"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr>
-                      <td style="text-transform: capitalize;font-weight:bold
+                      <td style="text-transform: capitalize;font-weight:600;font-size:11px;font-size:11px;
                       ">{{galleryTitle}}</td>
                     </tr>
                     <tr>
@@ -4225,7 +4226,7 @@
                     <tr>
                       <td rowspan="2" style="text-align: center;vertical-align: baseline;padding:15px;">
 
-                        <img class="width" [src]="url" style="width:100px;height:100px;" *ngIf="url">
+                        <img class="width" [src]="url" style="width:100px;height:100px;" *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:100px;height:100px;border-radius:50%"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -4355,13 +4356,13 @@
 
 
                         <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;"
+                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;font-weight:600"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 12px 15px;font-size:10px;text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td style="padding: 12px 15px;font-size:10px;text-transform: capitalize;font-weight:600;font-size:11px;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -4502,7 +4503,7 @@
                               alt="">
 
 
-                            <img class="width" [src]="url"
+                            <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                               style="border-radius: 0 0 85px 85px;position: absolute;left:90px;" *ngIf="url">
                             <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                               style="border-radius: 0 0 85px 85px;position: absolute;left:90px;"
@@ -4625,13 +4626,13 @@
 
 
                             <br>
-                            <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;"
+                            <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;font-weight:600;font-weight:600"
                               [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                               {{youtubeTitle}}</p>
                           </td>
                         </tr>
                         <tr *ngIf="galleryTitle">
-                          <td style="text-transform: capitalize;">{{galleryTitle}}</td>
+                          <td style="text-transform: capitalize;font-weight:600;font-size:11px;">{{galleryTitle}}</td>
                         </tr>
                         <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -4777,7 +4778,7 @@
                       </td>
                       <td
                         style="background-color:white;width:155px;margin-bottom:-10px; border-radius: 0 0 50% 50%; width: 140px; border-radius: 0 0 186px 186px;">
-                        <img class="width" [src]="url"
+                        <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                           style="box-shadow: 0 0 0px 10px #fff;border-radius: 50%;width: 150px; margin: 3px;"
                           *ngIf="url">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
@@ -4843,13 +4844,13 @@
 
 
                         <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;"
+                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;font-weight:600"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td style="text-transform: capitalize;font-weight:600;font-size:11px;">{{galleryTitle}}</td>
                     </tr>
                     <tr  *ngIf="url1 || url2 || url3 || url4">
 
@@ -4982,7 +4983,7 @@
                                 style="text-align:center; border-radius: 0 0 50% 50%; width: 140px; text-align:start;vertical-align:center;">
   
                                 <img class="width" [src]="url" style="
-                       margin: 3px;" *ngIf="url">
+                       margin: 3px;" *ngIf="url" [style.border-radius.px]="borderRadius">
                                 <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url" style="
                        margin: 3px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
   
@@ -5102,13 +5103,13 @@
 
 
                         <br>
-                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;"
+                        <p *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor" style="text-transform: capitalize;font-weight:600"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td style="text-transform: capitalize;font-weight:600;font-size:11px;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -5235,7 +5236,7 @@
                       <td rowspan="2"
                         style="background-color: #181818;width: 150px;height:100px;text-align: center;  border-radius: 0 0 76px; ">
 
-                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:10px;" *ngIf="url">
+                        <img class="width" [src]="url" style="width:100px;height:100px;border-radius:10px;" *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:100px;height:100px;border-radius:10px;"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -5368,13 +5369,13 @@
 
 
                         <br>
-                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="text-transform: capitalize;font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="padding: 12px 15px;font-size:10px;text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td style="padding: 12px 15px;font-weight:600;font-size:11px;text-transform: capitalize;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -5538,7 +5539,7 @@
                       <td style="vertical-align: top; padding-top:35px;padding-right: 0;" *ngIf="userProfile">
 
 
-                        <img class="width" [src]="url" style="width:150px;height:150px;border-radius:50%;" *ngIf="url">
+                        <img class="width" [src]="url" style="width:150px;height:150px;border-radius:50%;" *ngIf="url" [style.border-radius.px]="borderRadius">
                         <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                           style="width:150px;height:150px;border-radius:50%;"
                           src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
@@ -5623,13 +5624,13 @@
 
 
                         <br>
-                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="text-transform: capitalize;font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr  *ngIf="galleryTitle">
-                      <td style="text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td style="text-transform: capitalize;font-weight:600;font-size:11px;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -5889,13 +5890,13 @@
 
 
                         <br>
-                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="text-transform: capitalize;font-weight:600" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td colspan="6" style="padding: 12px 15px;font-size:10px;text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td colspan="6" style="padding: 12px 15px;font-weight:600;font-size:11px;text-transform: capitalize;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -6170,13 +6171,13 @@
 
 
                         <br>
-                        <p style="text-transform: capitalize;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="text-transform: capitalize;font-weight:600;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr  *ngIf="galleryTitle">
-                      <td colspan="6" style="padding: 12px 15px;font-size:10px;text-transform: capitalize;">{{galleryTitle}}</td>
+                      <td colspan="6" style="padding: 12px 15px;font-weight:600;font-size:11px;text-transform: capitalize;">{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 
@@ -6327,10 +6328,10 @@
                                 <td style="text-align: center;" colspan="2">
                                   <p style="padding: 0px; margin: 0px;">
           
-                                    <img class="width" [src]="url"
+                                    <img class="width" [src]="url" [style.border-radius.px]="borderRadius"
                                       style="max-width:100px; height:100px; border-radius:10px 45px 10px 10px;" *ngIf="url">
                                     <img alt="Profile" style="max-width:100px; height:100px; border-radius:10px 45px 10px 10px;"
-                                      *ngIf="userProfile && !url"
+                                      *ngIf="userProfile && !url" [style.border-radius.px]="borderRadius"
                                       src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
           
                                   </p>
@@ -6440,13 +6441,13 @@
 
 
                         <br>
-                        <p style="padding:2px 1px;text-transform: capitalize; " *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
+                        <p style="padding:2px 1px;text-transform: capitalize;font-weight:600;" *ngIf="youtubeTitle && (videoUrl)" [style.color]="youtubeColor"
                           [style.font-size.px]="youtubeFont" [style.text-align]="youtubeAlignment">
                           {{youtubeTitle}}</p>
                       </td>
                     </tr>
                     <tr *ngIf="galleryTitle">
-                      <td style="padding:15px;text-transform: capitalize;" >{{galleryTitle}}</td>
+                      <td style="padding:15px;text-transform: capitalize;font-weight:600;font-size:11px;" >{{galleryTitle}}</td>
                     </tr>
                     <tr *ngIf="url1 || url2 || url3 || url4">
 

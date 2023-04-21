@@ -27,8 +27,8 @@ export class AddStoryComponent implements OnInit {
     this.addStoryForm=this.fb.group({
 
       writerName:['',Validators.required],
-      writerProfile:[''],
-      enterStories:[''],
+      writerProfile:['',Validators.required],
+      enterStories:['',Validators.required],
 
     })
   }
