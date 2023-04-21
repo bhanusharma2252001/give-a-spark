@@ -33,3 +33,8 @@
       justify-content: center;
       margin-left: 5px;
   }
+  .green-btn:disabled{
+    background-color:#d7c58c !important ;
+    color:white ;
+    border: 1px solid #d7c58c;
+  }  

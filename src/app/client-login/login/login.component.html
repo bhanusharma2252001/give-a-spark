@@ -1,112 +1,116 @@
 <div class="row m-0 p-0">
-    <div class="col-md-6 position-relative col-lg-6 bg-lgblue min-vh-100">
-        <div class="box p-2 ">
-          
-       
-            <form [formGroup]="LoginForm" class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450">
-                <div  class="text-center mb-3 ">
+  <div class="col-md-6 position-relative col-lg-6 bg-lgblue min-vh-100">
+    <div class="box p-2 ">
 
-                
-                  
-                    <h4  class="mb-0 log_in text-capitalize">Log In</h4>
-                    <img src="assets/images/pink-line.png"  class="img-fluid">
-                </div>
-                <div class="mb-3 position-relative">
-                    <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
-                    <input type="email" class="form-control bg-transparent p-2 rounded-pill" id="exampleInputinput-field" aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
-                    <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
-                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                      <div *ngIf="f['email'].errors['required']">Email is required</div>
-                      <div *ngIf="f['email'].errors'[email]'">Email must be a valid email address</div>
-                    </div>
-<!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
-                </div>
-                <div class="mb-3 position-relative">
-                    <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
-                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control bg-transparent p-2 rounded-pill" id="exampleInputPassword1" formControlName="password">
-                    <i
-                    class="fa mt-1 icon-position text-purple position-absolute top-50 start-50  mt-3 ms-2 translate-middle-y" aria-hidden="true" style="margin-left:50px;"
-                    [ngClass]="{
+
+      <form [formGroup]="LoginForm"
+        class="position-absolute top-50 start-50 translate-middle bg-white p-4 rounded-3 w-450">
+        <div class="text-center mb-3 ">
+
+
+
+          <h4 class="mb-0 log_in text-capitalize">Log In</h4>
+          <img src="assets/images/pink-line.png" class="img-fluid">
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="exampleInputinput-field" class="form-label fw-semibold text-capitalize">User Name</label>
+          <input type="email" class="form-control bg-transparent p-2 rounded-pill" id="exampleInputinput-field"
+            aria-describedby="emailHelp" [(ngModel)]="Email" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+          <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors'[email]'">Email must be a valid email address</div>
+          </div>
+          <!-- <i class="fa fa-user position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" aria-hidden="true"></i> -->
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="exampleInputPassword1" class="form-label fw-semibold text-capitalize">Password</label>
+          <input [type]="fieldTextType ? 'text' : 'password'" class="form-control bg-transparent p-2 rounded-pill"
+            id="exampleInputPassword1" formControlName="password">
+          <i class="fa mt-1 icon-position text-purple position-absolute top-50 start-50  mt-3 ms-2 translate-middle-y"
+            aria-hidden="true" style="margin-left:50px;" [ngClass]="{
                       'fa-eye-slash': !fieldTextType,
                       'fa-eye': fieldTextType
-                    }"
-                    (click)="toggleFieldTextType()"
-                  ></i> 
-                 <div >
-                    <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" hide aria-hidden="true"></i> -->
-                </div>
-                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                        <div *ngIf="f['password'].errors['required']">Password is required</div>
-                        <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-                      </div>
-      
-                </div>
-                <div class="text-end">
-                    <a class="fw-semibold forget_txt" routerLink="/client-login/forget-password/forget-email">Forgot Password?</a>
-                </div>
-               
-                <button class="pink-btn w-100 p-2 text-capitalize" type="submit" (click)="onSubmit()" >Log In</button>
-                <div class="text-center mt-2">
-                    <p class="fw-semibold text-capitalize mb-1">or login with</p>
-     
-                </div>
-          
-                
-             
-                    <!-- <button type="button" (click)="loginWithFacebook()" style="border:none; background-color: #FFFFFF;">
+                    }" (click)="toggleFieldTextType()"></i>
+          <div>
+            <!-- <i class="fa fa-lock position-absolute top-50 start-0  mt-3 ms-2 translate-middle-y" hide aria-hidden="true"></i> -->
+          </div>
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+          </div>
+
+        </div>
+        <div class="text-end">
+          <a class="fw-semibold forget_txt" routerLink="/client-login/forget-password/forget-email">Forgot Password?</a>
+        </div>
+
+        <button class="pink-btn w-100 p-2 text-capitalize" type="submit" (click)="onSubmit()">Log In</button>
+        <div class="text-center mt-2">
+          <p class="fw-semibold text-capitalize mb-1">or login with</p>
+
+        </div>
+
+
+
+        <!-- <button type="button" (click)="loginWithFacebook()" style="border:none; background-color: #FFFFFF;">
                         <img src="assets/images/facebook.png" class="img-fluid me-2 rounded-circle">
                     </button> -->
-                    <!-- <button type="button" style="border:none; background-color: #FFFFFF;" class="login-with-google-btn" #loginRef id="buttonDiv" >
+        <!-- <button type="button" style="border:none; background-color: #FFFFFF;" class="login-with-google-btn" #loginRef id="buttonDiv" >
                      <img src="assets/images/google.png" class=" ms-2 wh-30 " >
                       </button> -->
-                      <div class="ps-5 pt-3">
-                        <button class="d-flex outer-box" #loginRef id="buttonDiv"  (click)="requestRestrictedScopes()">
-                          <div class="google-box">
-                            <img src="assets/images/google.png" class="google-icon" >
-                          </div>
-        
-                          <p class="google-text" >SIGN IN WITH GOOGLE</p>
-                        </button>
-                      </div>
-                      <div class="ps-5 pt-3">
-                        <button class="d-flex outer-box" (click)="loginWithFacebook()">
-                          <div class="google-box">
-                            <img src="assets/images/facebook.png" class="google-icon" >
-                          </div>
-        
-                          <p class="google-text">SIGN IN WITH FACEBOOK</p>
-                        </button>
-                      </div>
-                      
-                      <!-- <button #request (click)="requestRestrictedScopes()" >Request Restricted Scope</button> -->
+        <div class="ps-5 pt-3">
+          <button class="d-flex outer-box" #loginRef id="buttonDiv" (click)="requestRestrictedScopes()">
+            <div class="google-box">
+              <img src="assets/images/google.png" class="google-icon">
+            </div>
 
-              
-                <div class="text-center mt-3 d-flex justify-content-between">
-
-                    <p class="fw-semibold mb-0 text-capitalize">You haven’t account</p>
-                    <p class="fw-semibold text-green text-capitalize"><a (click)="signup()">Sign Up</a></p>
-                </div>
-            </form>
-          
-            
-            <img src="assets/images/login-gif.gif"  class="login-gif position-absolute bottom-0 end-0">
-            <img src="assets/images/login-gif2.gif"  class="login-gif position-absolute top-0 start-0">
+            <p class="google-text">SIGN IN WITH GOOGLE</p>
+          </button>
         </div>
+        <div class="ps-5 pt-3">
+          <button class="d-flex outer-box" (click)="loginWithFacebook()">
+            <div class="google-box">
+              <img src="assets/images/facebook.png" class="google-icon">
+            </div>
+
+            <p class="google-text">SIGN IN WITH FACEBOOK</p>
+          </button>
+        </div>
+
+        <!-- <button #request (click)="requestRestrictedScopes()" >Request Restricted Scope</button> -->
+
+
+        <div class="text-center mt-3 d-flex justify-content-between">
+
+          <p class="fw-semibold mb-0 text-capitalize">You haven’t account</p>
+          <p class="fw-semibold text-green text-capitalize"><a (click)="signup()">Sign Up</a></p>
+        </div>
+        <div class="login-form-footer">By signing up you agree with our <a
+            href="https://www.giveaspark.com/terms&condition" target="_blank">terms of service</a> &amp; <a
+            href="https://www.giveaspark.com/privacypolicy" target="_blank">privacy policy</a></div>
+      </form>
+
+
+      <img src="assets/images/login-gif.gif" class="login-gif position-absolute bottom-0 end-0">
+      <img src="assets/images/login-gif2.gif" class="login-gif position-absolute top-0 start-0">
     </div>
-    <div class="col-md-6 col-lg-6 bg-white position-relative min-vh-100">
-        <div class="position-absolute top-50 start-50 translate-middle ">
-            
-            <img src="assets/images/login.gif" class="wh-250">
-            <!-- <video width="100%" height="200" autoplay loop controls>
+  </div>
+  <div class="col-md-6 col-lg-6 bg-white position-relative min-vh-100">
+    <div class="position-absolute top-50 start-50 translate-middle ">
+
+      <img src="assets/images/login.gif" class="wh-250">
+      <!-- <video width="100%" height="200" autoplay loop controls>
               <source src="assets/images/writing-signature.mp4" type="video/mp4">
            
      
             </video> -->
-        </div>
     </div>
+  </div>
 </div>
 <!-- <img src="assets/images/spinner.gif"> -->
- 
+
 <!-- <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"
   size="medium"
@@ -116,5 +120,5 @@
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner> -->
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-clip-rotate-pulse" [fullScreen]="true">
-    <img src="assets/images/spinner.gif">
-  </ngx-spinner>
+  <img src="assets/images/spinner.gif">
+</ngx-spinner>

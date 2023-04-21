@@ -165,8 +165,8 @@
                       <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
                         aria-describedby="emailHelp" formControlName="companyName" [(ngModel)]="compName">
                       <div *ngIf="companyDetailForm.get('companyName')?.hasError('required') "
-                        class="text-danger text-sm">
-                        Company Name is required </div>
+                        class="text-danger fs-12 text-sm">
+                        *Company Name is required </div>
                     </div>
                     <div class="col-md-4 col-lg-4">
                       <div class="d-flex"> <img class="w-10 h-25" src="assets/images/pen.png"><img class="w-10 h-25"
@@ -191,7 +191,7 @@
                           *url is required
                         </div>
                         <div *ngIf="companyDetailForm.get('companyWebsite')?.hasError('pattern')"
-                          class="text-danger text-sm">
+                          class="text-danger text-sm fs-12">
                           *Please enter valid url
                         </div>
                       </div>
@@ -219,17 +219,17 @@
                       <input type="text" class="form-control border-none bottom-border" id="exampleInputtext"
                         aria-describedby="emailHelp"  formControlName="companyPhone">
                       <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')"
-                        class="text-danger text-sm" style="    bottom: 25px;
+                        class="text-danger  fs-12 text-sm" style="    bottom: 25px;
                                                 position: relative;
                                                 left: 233px;">
 
                       </div>
                       <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('required')"
-                        class="text-danger text-sm">
+                        class="text-danger  fs-12 text-sm">
                         <small>phone no. is required</small>
                       </div>
                       <div *ngIf="companyDetailForm.get('companyPhone')?.hasError('pattern')"
-                        class="text-danger text-sm">
+                        class="text-danger fs-12  text-sm">
                         <small>*Please enter valid no. </small>
                       </div>
 
@@ -300,7 +300,7 @@
                       <input type="url" class="form-control border-none bottom-border" id="exampleInputtext"
                         aria-describedby="emailHelp" formControlName="instagramProfile" placeholder="https://www.instagram.com/<username>"> 
                       <div *ngIf="companyDetailForm.get('instagramProfile')?.hasError('required')"
-                        class="text-danger text-sm">
+                        class="text-danger fs-12 text-sm">
                         <small>please enter your profile</small>
                       </div>
                       <div

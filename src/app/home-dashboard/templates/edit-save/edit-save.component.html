@@ -6,7 +6,7 @@
               <div class="col-md-12 col-lg-12">
                   <div class="row pe-5">
                       <div class="col-md-6 col-lg-6">
-                          <ul class="nav nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around"
+                          <ul class="nav bg-gray nav-tabs rounded-pill px-3 py-4 align-items-center justify-content-around"
                               id="myTab" role="tablist">
                               <li class="nav-item" role="presentation">
                                   <button class="nav-link box-link p-1 active" id="details-tab" data-bs-toggle="tab"
@@ -142,7 +142,7 @@
                                                           [(ngModel)]="number">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['phoneNo'].touched && !editTemplateForm.controls['phoneNo'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['phoneNo'].hasError('pattern')">
                                             Please enter a valid no.
                                           </small>
                                         </ng-container>
@@ -158,7 +158,7 @@
                                                           [(ngModel)]="compPhone">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['companyPhone'].touched && !editTemplateForm.controls['companyPhone'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['companyPhone'].hasError('pattern')">
                                             Please enter a valid no.
                                           </small>
                                         </ng-container>
@@ -197,7 +197,7 @@
                                                           [(ngModel)]="compWebsite" placeholder="www.domainname.com">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['companyWebsite'].touched && !editTemplateForm.controls['companyWebsite'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['companyWebsite'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small></ng-container>
 
@@ -285,7 +285,7 @@
                                                           [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['fbProfile'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small>
                                         </ng-container>
@@ -300,7 +300,7 @@
                                                           [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['instagramProfile'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small>
                                         </ng-container>
@@ -314,7 +314,7 @@
                                                           [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'"> 
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['linkedInProfile'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small></ng-container>
                                                   </div>
@@ -327,7 +327,7 @@
                                                           [(ngModel)]="uTube">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['youtubeChannel'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small></ng-container>
 
@@ -341,7 +341,7 @@
                                                           [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
                                                           <ng-container class="po-re"
                                                           *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
-                                          <small class="text-danger" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">
+                                          <small class="text-danger fs-12" *ngIf="editTemplateForm.controls['twitterProfile'].hasError('pattern')">
                                             Please enter a valid URL.
                                           </small></ng-container>
                                                           
@@ -471,10 +471,10 @@
 
                                               <div class="row p-1">
                                                   <div class="col-md-4 rounded-3" (click)="borderRadius = '0'">
-                                                      <i class="p-2  fa fa-square" aria-hidden="true"></i>
+                                                      <i class="p-2  fa fa-square edit-cursor" aria-hidden="true"></i>
                                                   </div>
                                                   <div class="col-md-4 rounded-3" (click)="borderRadius = '50'">
-                                                      <i class="p-2  fa fa-circle" aria-hidden="true"></i>
+                                                      <i class="p-2  fa fa-circle edit-cursor" aria-hidden="true"></i>
                                                   </div>
                                                   <div class="col-md-4 rounded-3">
                                                       <i class="p-2  fa fa-line" aria-hidden="true"></i>
@@ -521,7 +521,7 @@
                                                 <div class="col-md-6 col-lg-6">
                                                   <div class="app_div" >
                                                     <img src="assets/images/online-scheduler.png" 
-                                                      alt="Online Scheduler Image" /><span>Online
+                                                      alt="Online Scheduler Image" /><span class="ps-3">Online
                                                       Scheduler</span>
                   
                                                   </div>
@@ -547,7 +547,7 @@
                                                 <div class="col-md-6 col-lg-6">
                                                   <div class="app_div" >
                                                     <img src="assets/images/disclaimer.png"
-                                                      alt="Online Scheduler Image" /><span>Disclaimer
+                                                      alt="Online Scheduler Image" /><span class="ps-3">Disclaimer
                                                       </span>
                   
                                                   </div>
@@ -572,7 +572,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/green-footer.png"
-                              alt="Online Scheduler Image" /><span>Green Footer
+                              alt="Online Scheduler Image" /><span class="ps-3">Green Footer
                               </span>
                   
                           </div>
@@ -598,7 +598,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/image-gallary.png"
-                              alt="Online Scheduler Image" /><span>Image
+                              alt="Online Scheduler Image" /><span class="ps-3">Image
                                 Gallery
                               </span>
                   
@@ -626,7 +626,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/youtube-icon.png"
-                              alt="Online Scheduler Image" /><span>Youtube Channel
+                              alt="Online Scheduler Image" /><span class="ps-3">Youtube Channel
                               </span>
                   
                           </div>
@@ -653,7 +653,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/custom-button.png"
-                              alt="Online Scheduler Image" /><span>Custom Button
+                              alt="Online Scheduler Image" /><span class="ps-3">Custom Button
                               </span>
                   
                           </div>
@@ -678,7 +678,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/upload-banner.png"
-                              alt="Online Scheduler Image" /><span>Upload
+                              alt="Online Scheduler Image" /><span class="ps-3">Upload
                                 Banner
                               </span>
                   
@@ -706,7 +706,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/sales-event.png"
-                              alt="Online Scheduler Image" /><span> Sales Event
+                              alt="Online Scheduler Image" /><span class="ps-3"> Sales Event
                               </span>
                   
                           </div>
@@ -733,7 +733,7 @@
                         <div class="col-md-6 col-lg-6">
                           <div class="app_div" >
                             <img src="assets/images/downlod-app.png"
-                              alt="Online Scheduler Image" /><span>Download App
+                              alt="Online Scheduler Image" /><span class="ps-3">Download App
                               </span>
                   
                           </div>
@@ -750,58 +750,85 @@
                   
                     </button>
                   </div>
-                                          <div class="row align-items-center justify-content-center">
-                                            
-                                            <button class="apps_button">
-                                              <div onclick="openscheduler()" class="app_div"><img
-                                                  src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span>Online
-                                                  Scheduler</span></div>
-                                            </button>
-                                            <button onclick="opendisclaimer()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/disclaimer.png"
-                                                  alt="Disclaimer Image" /><span>Disclaimer</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="openaddgreenfooter()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/green-footer.png"
-                                                  alt="Green Footer Image" /><span>Green Footer</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="openimagegallery()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/image-gallary.png"
-                                                  alt="Image Gallary Image" /><span>Image
-                                                  Gallery</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="openyoutubechannel()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/youtube-icon.png"
-                                                  alt="Youtube Channel" /><span>Youtube Channel</span>
-
-                                              </div>
-                                            </button>
-                                            <!-- <button (click)="delyoutube()">delete</button> -->
-                                            <button onclick="opencustombutton()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/custom-button.png"
-                                                  alt="Custom BUtton" /><span>Custom Button</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="openuploadbanner()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/upload-banner.png"
-                                                  alt="Upload Banner Image /"><span>Upload
-                                                  Banner</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="opensalesevent()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/sales-event.png"
-                                                  alt="Sales Event Image" /><span>Sales Event</span>
-                                              </div>
-                                            </button>
-                                            <button onclick="opendownloadapp()" class="apps_button">
-                                              <div class="app_div"><img src="assets/images/downlod-app.png"
-                                                  alt="Download Image" /><span>Download App</span>
-                                              </div>
-                                            </button>
-                                          </div>
+                  <div class="row align-items-center justify-content-center">
+                    <button class="apps_button">
+                      <div onclick="openscheduler()" *ngIf="planDetail == 'Plan C'"  class="app_div"><img
+                          src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span class="ps-3">Online
+                          Scheduler</span></div>
+                          <div *ngIf="!(planDetail == 'Plan C')"  class="app_div"><img
+                            src="assets/images/online-scheduler.png" alt="Online Scheduler Image" /><span class="ps-3">Online
+                            Scheduler</span></div>
+                          
+                    </button>
+                    <button class="apps_button">
+                      <div class="app_div" onclick="opendisclaimer()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/disclaimer.png"
+                          alt="Disclaimer Image" /><span class="ps-3">Disclaimer</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/disclaimer.png"
+                        alt="Disclaimer Image" /><span class="ps-3">Disclaimer</span>
+                    </div>
+                    </button>
+                    <button    class="apps_button">
+                      <div class="app_div" onclick="openaddgreenfooter()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/green-footer.png"
+                          alt="Green Footer Image" /><span class="ps-3">Green Footer</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/green-footer.png"
+                        alt="Green Footer Image" /><span class="ps-3">Green Footer</span>
+                    </div>
+                    </button>
+                    <button  class="apps_button">
+                      <div class="app_div" onclick="openimagegallery()" *ngIf="planDetail == 'Plan C'" ><img src="assets/images/image-gallary.png"
+                          alt="Image Gallary Image" /><span class="ps-3">Image
+                          Gallery</span>
+                      </div>
+                      <div class="app_div"  *ngIf="!(planDetail == 'Plan C')" ><img src="assets/images/image-gallary.png"
+                        alt="Image Gallary Image" /><span class="ps-3">Image
+                        Gallery</span>
+                    </div>
+                    </button>
+                    <button class="apps_button">
+                      <div class="app_div" onclick="openyoutubechannel()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/youtube-icon.png"
+                          alt="Youtube Channel" /><span class="ps-3">Youtube Channel</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')" ><img src="assets/images/youtube-icon.png"
+                        alt="Youtube Channel" /><span class="ps-3">Youtube Channel</span>
+                    </div>
+                    </button>
+                    <button  class="apps_button">
+                      <div class="app_div" onclick="opencustombutton()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/custom-button.png"
+                          alt="Custom BUtton" /><span class="ps-3">Custom Button</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/custom-button.png"
+                        alt="Custom BUtton" /><span class="ps-3">Custom Button</span>
+                    </div>
+                    </button>
+                    <button  class="apps_button">
+                      <div class="app_div" onclick="openuploadbanner()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/upload-banner.png"
+                          alt="Upload Banner Image /"><span class="ps-3">Upload
+                          Banner</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/upload-banner.png"
+                        alt="Upload Banner Image /"><span class="ps-3">Upload
+                        Banner</span>
+                    </div>
+                    </button>
+                    <button  class="apps_button">
+                      <div class="app_div" onclick="opensalesevent()"  *ngIf="planDetail == 'Plan C'"><img src="assets/images/sales-event.png"
+                          alt="Sales Event Image" /><span class="ps-3">Sales Event</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/sales-event.png"
+                        alt="Sales Event Image" /><span class="ps-3">Sales Event</span>
+                    </div>
+                    </button>
+                    <button  class="apps_button">
+                      <div class="app_div" onclick="opendownloadapp()" *ngIf="planDetail == 'Plan C'"><img src="assets/images/downlod-app.png"
+                          alt="Download Image" /><span class="ps-3">Download App</span>
+                      </div>
+                      <div class="app_div" *ngIf="!(planDetail == 'Plan C')"><img src="assets/images/downlod-app.png"
+                        alt="Download Image" /><span class="ps-3">Download App</span>
+                    </div>
+                    </button>
+                  </div>
                                         </div>
                                       </div>
                                     </div>
@@ -861,10 +888,10 @@
                                   <tr>
                                       <td style="vertical-align: baseline;">
                                           <div style="padding: 7px 15px;" >
-                                              <img class="width"  [src]="url" height="65" width="72" *ngIf="url">
+                                              <img class="width"  [src]="url" height="65" width="72" *ngIf="url" [style.border-radius.px]="borderRadius">
                                               <img style="width: 72px;
                                           vertical-align: middle; height: 65px;border-radius:50%;" *ngIf="userProfile && ! url"
-                                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
+                                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}" [style.border-radius.px]="borderRadius">
 
 
                                           </div>
@@ -1300,7 +1327,7 @@
     <div class="d-flex">
       <h4 class="fw-bold">Add A Green Footer
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closeaddgreenfooter()">×</a>
+      <button  class="closebtn" (click)="getFooterData()" onclick="closeaddgreenfooter()">×</button>
     </div>
 
     <h6>Choose A Text</h6>
@@ -1461,7 +1488,7 @@
     <div class="d-flex">
       <h4 class="fw-bold">Image Gallery
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closeimagegallery()">×</a>
+      <a href="javascript:void(0)" class="closebtn"  (click)="getGalleryData()" onclick="closeimagegallery()">×</a>
     </div>
 
     <h6>Add your images :</h6>
@@ -1586,7 +1613,7 @@
               <input type="text" [(ngModel)]="imageLink" class="form-control" placeholder="  https://www.applylink" formControlName="imageLink">
               <ng-container class="po-re"
               *ngIf="customGalleryForm.controls['imageLink'].touched && !customGalleryForm.controls['imageLink'].valid">
-              <small class="text-danger"
+              <small class="text-danger fs-12"
                 *ngIf="customGalleryForm.controls['imageLink'].hasError('pattern')">
                 Please enter a valid Url.
               </small>
@@ -1619,7 +1646,7 @@
     <div class="d-flex">
       <h4 class="fw-bold">Add A Disclaimer
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closedisclaimer()">×</a>
+      <a href="javascript:void(0)" class="closebtn" (click)="getDisclamierData()" onclick="closedisclaimer()">×</a>
     </div>
 
     <h6>Choose A Disclaimer Type</h6>
@@ -1736,7 +1763,7 @@
     <div class="d-flex">
       <h4 class="fw-bold">Online Meeting Scheduler
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()">×</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closescheduler()" (click)="getScheduleData()">×</a>
     </div>
 
     <h6>Choose Scheduling Provider</h6>
@@ -1752,7 +1779,7 @@
           <ng-container class="po-re"
           *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
           <small class="fs-12 text-danger">Url is required </small> <br>
-<small class="text-danger" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
+<small class="text-danger fs-12" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
 Please enter a valid Url.
 </small>
 </ng-container>
@@ -1771,7 +1798,7 @@ Please enter a valid Url.
           <input type="text" id="inputtext" class="form-control fs-14" formControlName="scheduleText" [(ngModel)]="inputValue">
           <ng-container class="po-re"
           *ngIf="scheduleForm.controls['scheduleText'].touched && !scheduleForm.controls['scheduleText'].valid">
-<small class="text-danger">
+<small class="text-danger fs-12">
   Text is required
 </small>
 </ng-container>
@@ -1884,7 +1911,7 @@ Please enter a valid Url.
     <div class="d-flex">
       <h4 class="fw-bold">Youtube Channel
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closeyoutubechannel()">×</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeyoutubechannel()" (click)="getYouTubeData(); cancelYoutube()">×</a>
     </div>
 
     <h6>Enter your channel URL/Title</h6>
@@ -1901,7 +1928,7 @@ Please enter a valid Url.
             (keyup)="getUrl()" class="form-control" width="300" height="80">
             <ng-container class="po-re"
             *ngIf="youtubeForm.controls['youtubeUrl'].touched && !youtubeForm.controls['youtubeUrl'].valid">
-  <small class="text-danger" >
+  <small class="text-danger fs-12" >
  * Youtube url is required
   </small> 
   </ng-container>
@@ -1923,7 +1950,7 @@ Please enter a valid Url.
         <div class="form-check">
           <span> <img src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/youtube.png"></span>
 
-          <label class="switch">
+          <label class="ms-5 switch">
             <input type="checkbox" name="status" (change)="youtubeIcon('youIcon')">
             <span class="slider round"></span>
 
@@ -1979,7 +2006,7 @@ Please enter a valid Url.
             onclick="closeyoutubechannel()" [disabled]="youtubeForm.invalid">Add</button>
         </div>
         <div class="col-auto">
-          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel() " (click)="getYouTubeData()">Cancel</button>
+          <button class="gray-btn py-2 px-3" onclick="closeyoutubechannel() " (click)="getYouTubeData(); cancelYoutube()">Cancel</button>
         </div>
       </div>
     </div>
@@ -1994,7 +2021,7 @@ Please enter a valid Url.
     <div class="d-flex">
       <h4 class="fw-bold">Custom Button
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closecustombutton()">×</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closecustombutton()" (click)="getCustomData()">×</a>
     </div>
 
     <h5>Button Details</h5>
@@ -2008,7 +2035,7 @@ Please enter a valid Url.
             formControlName="customButtonText" [(ngModel)]="customText">
             <ng-container class="po-re"
             *ngIf="customButtonForm.controls['customButtonText'].touched && !customButtonForm.controls['customButtonText'].valid">
-  <small class="text-danger" >
+  <small class="text-danger fs-12" >
 Please fill the blank field.
   </small>
   </ng-container></div>
@@ -2019,8 +2046,8 @@ Please fill the blank field.
         <div class="col-auto"><input type="text" placeholder="  https://www.applylink" class="form-control"
             formControlName="customUrl" [(ngModel)]="customUrl">  <ng-container class="po-re"
             *ngIf="customButtonForm.controls['customUrl'].touched && !customButtonForm.controls['customUrl'].valid">
-            <small class="fs-12">Url is required </small>
-  <small class="text-danger" *ngIf="customButtonForm.controls['customUrl'].hasError('pattern')">
+            <small class="text-danger fs-12">*Url is required </small>
+  <small class="text-danger fs-12" *ngIf="customButtonForm.controls['customUrl'].hasError('pattern')">
   Please enter a valid Url.
   </small>
   </ng-container></div>
@@ -2150,7 +2177,7 @@ Please fill the blank field.
     <div class="d-flex">
       <h4 class="fw-bold">Upload My Banner
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closeuploadbanner()">×</a>
+      <a href="javascript:void(0)" class="closebtn"  (click)=" getBannerData()" onclick="closeuploadbanner()">×</a>
     </div>
 
     <h6>Upload your banner (jpg,png,gif)</h6>
@@ -2198,7 +2225,7 @@ Please fill the blank field.
               formControlName="bannerLink">
               <ng-container class="po-re"
               *ngIf="bannerForm.controls['bannerLink'].touched && !bannerForm.controls['bannerLink'].valid">
-    <small class="text-danger" *ngIf="bannerForm.controls['bannerLink'].hasError('pattern')">
+    <small class="text-danger fs-12" *ngIf="bannerForm.controls['bannerLink'].hasError('pattern')">
     Please enter a valid Url.
     </small></ng-container></div>
         </div>
@@ -2246,7 +2273,7 @@ Please fill the blank field.
     <div class="d-flex">
       <h4 class="fw-bold">Sales Event
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closesalesevent()">×</a>
+      <a href="javascript:void(0)" class="closebtn"  (click)="getSalesEventData()" onclick="closesalesevent()">×</a>
     </div>
 
     <h6>Enter your sale event details</h6>
@@ -2270,7 +2297,7 @@ Please fill the blank field.
             formControlName="eventName" [(ngModel)]="eventName">
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventName'].touched && !EventForm.controls['eventName'].valid">
-            <small class="fs-12 text-danger">Text is required </small>
+            <small class="fs-12 text-danger">Event Name is required </small>
   
   </ng-container></div>
       </div>
@@ -2281,7 +2308,7 @@ Please fill the blank field.
             [(ngModel)]="eventLink"></div>
             <ng-container class="po-re"
             *ngIf="EventForm.controls['eventLink'].touched && !EventForm.controls['eventLink'].valid">
-            <small class="text-danger"
+            <small class="text-danger fs-12"
               *ngIf="EventForm.controls['eventLink'].hasError('pattern')">
               Please enter a valid url.
             </small>
@@ -2396,7 +2423,7 @@ Please fill the blank field.
     <div class="d-flex">
       <h4 class="fw-bold">Download Our App
       </h4>
-      <a href="javascript:void(0)" class="closebtn" onclick="closedownloadapp()">×</a>
+      <a href="javascript:void(0)" class="closebtn"  (click)="getDownloadAppData()" onclick="closedownloadapp()">×</a>
     </div>
 
     <h6>Add app title & links</h6>
@@ -2414,7 +2441,7 @@ Please fill the blank field.
             formControlName="appleAppLink" [(ngModel)]="appleAppLink"></div>
             <ng-container class="po-re"
             *ngIf="downloadAppForm.controls['appleAppLink'].touched && !downloadAppForm.controls['appleAppLink'].valid">
-            <small class="text-danger"
+            <small class="text-danger fs-12"
               *ngIf="downloadAppForm.controls['appleAppLink'].hasError('pattern')">
               Please enter a valid url.
             </small>
@@ -2427,7 +2454,7 @@ Please fill the blank field.
             formControlName="googleAppLink" [(ngModel)]="googleAppLink"></div>
             <ng-container class="po-re"
             *ngIf="downloadAppForm.controls['googleAppLink'].touched && !downloadAppForm.controls['googleAppLink'].valid">
-            <small class="text-danger"
+            <small class="text-danger fs-12"
               *ngIf="downloadAppForm.controls['googleAppLink'].hasError('pattern')">
               Please enter a valid url.
             </small>

@@ -29,6 +29,7 @@
 .temp_pro_shadow {
     cursor: pointer;
     position: relative;
+    transition:all .5s ease-in-out;
 }
 
 .overlay {
@@ -86,3 +87,12 @@
     // line-height: 50px;
 }
 
+// .temp_pro_shadow:hover{
+//     width:90%;
+//     height:90%;
+//     margin:5%;
+// //    transform:rotate(350deg);
+//     background:#f5f5f5;
+//     box-shadow:0 0 10px 1px rgba(0,0,0,.5);
+   
+// }

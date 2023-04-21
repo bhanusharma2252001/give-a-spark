@@ -6,7 +6,7 @@ import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SafepipePipe } from 'src/app/homedashboard/pipe/safepipe.pipe';
+
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
@@ -1057,9 +1057,11 @@ console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
   this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
   this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
   this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
- 
- }
 
+ }
+cancelYoutube(){
+  window.location.reload(); 
+}
  getCustomData() {
   let data = this.bindData
   this.customText = data?.customButtonText

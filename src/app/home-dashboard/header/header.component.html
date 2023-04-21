@@ -57,7 +57,7 @@
   </div>
 
 </header> -->
-<header class="header-shadow" *ngIf="!(href =='/home-dashboard/user-profile' ) " style="z-index: 1;">
+<header class="header-shadow position-sticky" *ngIf="!(href =='/home-dashboard/user-profile' ) ">
 
   <div class="row align-items-center back_clr">
     <!-- <div class="mouse_move">
@@ -107,17 +107,20 @@
                 <li class="py-2 hover-light"><a routerLink="/home-dashboard/myprofile/profile-dashboard"
                     class="fs-14 p-1"><span class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
                         src="assets/images/headerprofile.png"></span>Profile</a></li>
-                <li class="py-2 hover-light"><a routerLink="/home-dashboard/plan/plan-dashboard" class="fs-14 p-1"><span
+                <li class="py-2 hover-light"><a routerLink="/home-dashboard/plan/myplan" class="fs-14 p-1"><span
                       class="drop-hover"><img class="wh-20 pe-3 fw-semibold"
                         src="assets/images/header-plan.png"></span>Plan And Billing</a></li>
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                <li class="py-2 hover-light"><a  class="fs-14 p-1"><span class="drop-hover"><img
                         class="wh-20 pe-3 fw-semibold" src="assets/images/faq.png"></span>FAQ</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                <li class="py-2 hover-light"><a  class="fs-14 p-1"><span class="drop-hover"><img
                         class="wh-20 pe-3 fw-semibold" src="assets/images/help.png"></span>Help</a></li>
 
-                <li class="py-2 hover-light"><a href="#" class="fs-14 p-1"><span class="drop-hover"><img
+                <li class="py-2 hover-light"><a  class="fs-14 p-1"><span class="drop-hover"><img
                         class="wh-20 pe-3 fw-semibold" src="assets/images/cnt.png"></span>Contact Us</a></li>
+                        
+                <li class="py-2 hover-light"><a routerLink="./setting" class="fs-14 p-1"><span class="drop-hover"><img
+                  class="wh-20 pe-3 fw-semibold" src="assets/images/cnt.png"></span>Settings</a></li>
               </ul>
             </li>
           </ul>
@@ -133,7 +136,7 @@
         <div class="notBtn">
           <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
           <div class="number">0</div>
-          <i class="fas fa-bell bell-position"></i>
+          <i class="fas fa-bell bell-position "></i>
           <div class="box">
             <div class="display">
               <!-- <div class = "nothing"> 

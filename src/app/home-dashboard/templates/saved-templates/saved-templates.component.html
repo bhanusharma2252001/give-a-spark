@@ -94,11 +94,11 @@
 
 
                                 <span style="font-weight:bold;"
-                                    [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">A:</span>
-                                {{details?.address[0]?.city}}
+                                    >A:</span>
+                               <span [style.color]="details?.templateDesign?.contactDetailColor"
+                               [style.line-height]="details?.templateDesign?.lineHeight"
+                               [style.font-family]="details?.templateDesign?.fontFamily"
+                               [style.font-size.px]="details?.templateDesign?.fontSizeItem"> {{details?.address[0]?.city}}</span>
                             </p>
                         </div>
 

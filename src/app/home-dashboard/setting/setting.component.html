@@ -23,7 +23,7 @@
                   </div>
                   <ng-container class="po-re"
                   *ngIf="updateProfile.controls['phone'].touched && !updateProfile.controls['phone'].valid">
-  <small class="text-danger" *ngIf="updateProfile.controls['phone'].hasError('pattern')">
+  <small class="text-danger fs-12" *ngIf="updateProfile.controls['phone'].hasError('pattern')">
     Please enter a valid no.
   </small>
 </ng-container>
@@ -53,7 +53,7 @@
                 <input type="text" placeholder="Company Phone Number" class="form-control" id="exampleInputtext" formControlName="companyPhone" [(ngModel)]="compPhone" >
                 <ng-container class="po-re"
                   *ngIf="updateProfile.controls['companyPhone'].touched && !updateProfile.controls['companyPhone'].valid">
-  <small class="text-danger" *ngIf="updateProfile.controls['companyPhone'].hasError('pattern')">
+  <small class="text-danger fs-12" *ngIf="updateProfile.controls['companyPhone'].hasError('pattern')">
     Please enter a valid no.
   </small>
 </ng-container>
@@ -88,7 +88,7 @@
                 <input type="password" placeholder="New Password" class="form-control" id="inputPasswo" formControlName="newPassword">
                 <ng-container class="po-re"
                 *ngIf="updatePasswordForm.controls['newPassword'].touched && !updatePasswordForm.controls['newPassword'].valid">
-                <small class="text-danger"
+                <small class="text-danger fs-12"
                     *ngIf="updatePasswordForm.controls['newPassword'].hasError('pattern')">
                    *Password must contain more than 8 characters, 1 upper case letter, and 1
                     special character
@@ -100,14 +100,14 @@
               </div>
               <ng-container class="po-re"
               *ngIf="updatePasswordForm.controls['confirmPassword'].touched && !updatePasswordForm.controls['confirmPassword'].valid">
-              <small class="text-danger"
+              <small class="text-danger fs-12"
                   *ngIf="updatePasswordForm.controls['confirmPassword'].hasError('pattern')">
                   *Password must contain more than 8 characters, 1 upper case letter, and 1
                   special character
               </small>
           </ng-container>
               <div *ngIf="updatePasswordForm.hasError('passwordNotMatch')">
-                <small class="text-danger ">*Password does not match</small> <br>
+                <small class="text-danger fs-12 ">*Password does not match</small> <br>
  
             </div>
               <div class="mb-3">

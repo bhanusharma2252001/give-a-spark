@@ -47,7 +47,7 @@
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="firstName">
                                                 <div *ngIf="profileForm.get('firstName')?.hasError('required') "
-                                                    class="text-danger text-sm">
+                                                    class="text-danger fs-12 text-sm">
                                                     <small class="fs-12">Name is required </small>
                                                 </div>
 
@@ -60,7 +60,7 @@
                                                     id="exampleInputfiled" aria-describedby="textHelp"
                                                     formControlName="companyName" [(ngModel)]="compname">
                                                 <div *ngIf="profileForm.get('companyName')?.hasError('required') "
-                                                    class="text-danger text-sm">
+                                                    class="text-danger  fs-12text-sm">
                                                     <small class="fs-12"> Company Name is required</small>
                                                 </div>
                                             </div>
@@ -72,12 +72,12 @@
                                                     id="exampleInputfiled" aria-describedby="textHelp" placeholder="www.domainname.com"
                                                     formControlName="companyWebsite" [(ngModel)]="compwebsite">
                                                 <div *ngIf="profileForm.get('companyWebsite')?.hasError('required') "
-                                                    class="text-danger text-sm">
+                                                    class="text-danger  fs-12text-sm">
                                                     <small class="fs-12">Company website is required </small>
                                                 </div>
                                                 <ng-container class="po-re"
                                                 *ngIf="profileForm.controls['companyWebsite'].touched && !profileForm.controls['companyWebsite'].valid">
-                                <small class="text-danger" *ngIf="profileForm.controls['companyWebsite'].hasError('pattern')">
+                                <small class="text-danger fs-12"  *ngIf="profileForm.controls['companyWebsite'].hasError('pattern')">
                                   Please enter a valid Domain.
                                 </small>
                               </ng-container>

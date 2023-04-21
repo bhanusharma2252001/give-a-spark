@@ -71,7 +71,7 @@ export class BasicTemplateComponent implements OnInit {
   bannerSize: any = 100
 
  public buttonTextColor:string ='#fff'
-  public customButtonBg:string ='#0d6efd'
+  public customButtonBg:string ='#01a3f0'
   quotesList: any;
   desig: any;
   addr: any;
@@ -204,7 +204,7 @@ export class BasicTemplateComponent implements OnInit {
 
 
 
- public scheduleBg:string='#0009a3'
+ public scheduleBg:string='##01a3f0'
 scheduleSize:any=10
 scheduleShape:any=0
 
@@ -668,10 +668,10 @@ this.scheduleForm=this.fb.group({
         this.progessAray.push(this.insta);
 
       }
-      if(this.uTube){
-        this.progessAray.push(this.uTube);
+      // if(this.uTube){
+      //   this.progessAray.push(this.uTube);
 
-      }
+      // }
       if(this.Linkedin){
         this.progessAray.push(this.Linkedin);
 
@@ -2015,6 +2015,7 @@ this.eventLink=''
 cancelYoutube(){
   this.thumbnail=''
   this.videoUrl=''
+   window.location.reload();
 }
 cancelFooter(){
   this.footerText=''

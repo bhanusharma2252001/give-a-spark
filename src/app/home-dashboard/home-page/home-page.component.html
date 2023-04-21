@@ -12,7 +12,7 @@
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
             aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        <div style="z-index: -1;" class="carousel-inner">
           <div class="carousel-item active position-relative">
             <img src="assets/images/banner_one.png" class="d-block w-100" alt="Banner-Temp">
             <div class="carousel-caption d-none d-md-block banner_content  position-absolute">
@@ -97,9 +97,9 @@
           <div class="black_temp position-relative">
             <div class="position-absolute order_img"><img src="assets/images/order.png" alt=""></div>
             <div class="position-absolute order_content">
-            <h6>Total Orders</h6>
-            <p class="count">{{details?.order}}</p>
-            <!-- <p class="exp">Expiry</p> -->
+              <h6>Total Orders</h6>
+              <p class="count">{{details?.order}}</p>
+              <!-- <p class="exp">Expiry</p> -->
             </div>
           </div>
         </div>
@@ -110,62 +110,68 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl position-absolute top-50 start-50 translate-middle">
-    <div class="modal-content bg-giftcard">
-      <div class="modal-header">
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-3">
-        <div class="row align-items-center h-100">
-          <div class="col-md-6 col-lg-6" style="padding-left:30px;">
-            <div class="bg-gray p-4 rounded-3">
-              <h3>Gift your someone special</h3>
-              <h6 class="text-gray">Receiver Details</h6>
-              <form  [formGroup]="giftForm" (ngSubmit)="onSubmit(giftForm.value)">
+
+</section>
+<div class="modal fade" id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl position-absolute top-50 start-50 translate-middle">
+  <div class="modal-content bg-giftcard">
+    <div class="modal-header">
+
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body p-3">
+      <div class="row align-items-center h-100">
+        <div class="col-md-6 col-lg-6" style="padding-left:30px;">
+          <div class="bg-gray p-4 rounded-3">
+            <h3>Gift your someone special</h3>
+            <h6 class="text-gray">Receiver Details</h6>
+            <form [formGroup]="giftForm" (ngSubmit)="onSubmit(giftForm.value)">
               <div class="mb-3">
                 <label for="text" class="form-label">Name</label>
-                <input formControlName="firstName" class="form-control bg-gray text-gray ps-2 rounded-0 border-0 border-bottom p-0 " type="text" value="Readonly input here...">
+                <input formControlName="firstName"
+                  class="form-control bg-gray text-gray ps-2 rounded-0 border-0 border-bottom p-0 " type="text"
+                  value="Readonly input here...">
                 <ng-container class="po-re"
-                *ngIf="giftForm.controls['firstName'].touched && !giftForm.controls['firstName'].valid">
-                <small class="text-danger"
-                  *ngIf="giftForm.controls['firstName'].hasError('pattern')">Please
-              Fill Name
-                </small>  <small class="fs-12 text-danger"  *ngIf="giftForm.get('firstName')?.hasError('required') ">Name is required </small>
-              </ng-container>
+                  *ngIf="giftForm.controls['firstName'].touched && !giftForm.controls['firstName'].valid">
+                  <small class="text-danger fs-12" *ngIf="giftForm.controls['firstName'].hasError('pattern')">Please
+                    Fill Name
+                  </small> <small class="fs-12 text-danger"
+                    *ngIf="giftForm.get('firstName')?.hasError('required') ">Name is required </small>
+                </ng-container>
               </div>
               <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input formControlName="email" type="email" class="form-control text-gray ps-2 bg-gray rounded-0 border-0 border-bottom p-0 " id="exampleFormControlInput1" mailto:placeholder="name@example.com">
+                <input formControlName="email" type="email"
+                  class="form-control text-gray ps-2 bg-gray rounded-0 border-0 border-bottom p-0 "
+                  id="exampleFormControlInput1" mailto:placeholder="name@example.com">
                 <ng-container class="po-re"
-                *ngIf="giftForm.controls['email'].touched && !giftForm.controls['email'].valid">
-                <small class="text-danger"
-                  *ngIf="giftForm.controls['email'].hasError('pattern')">Please
-                  enter a valid Email.
-                </small>
-                
-                <small class="fs-12 text-danger" *ngIf="giftForm.get('email')?.hasError('required') "> Email is required </small>
-           
-              </ng-container>
+                  *ngIf="giftForm.controls['email'].touched && !giftForm.controls['email'].valid">
+                  <small class="text-danger fs-12" *ngIf="giftForm.controls['email'].hasError('pattern')">Please
+                    enter a valid Email.
+                  </small>
+
+                  <small class="fs-12 text-danger" *ngIf="giftForm.get('email')?.hasError('required') "> Email is
+                    required </small>
+
+                </ng-container>
               </div>
               <div class="mb-3">
-                <button class="green-btn px-3 py-2" [disabled]="giftForm.invalid"   data-bs-dismiss="modal" aria-label="Close">Continue</button>
+                <button class="green-btn px-3 py-2" [disabled]="giftForm.invalid" data-bs-dismiss="modal"
+                  aria-label="Close">Continue</button>
 
               </div>
             </form>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-6 text-center">
-            <img src="assets/images/gift-img.png" style="width:300px;height:300px">
           </div>
         </div>
-      </div>
 
+        <div class="col-md-6 col-lg-6 text-center">
+          <img src="assets/images/gift-img.png" style="width:300px;height:300px">
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
-
-</section>
+</div>

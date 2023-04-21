@@ -1,0 +1,44 @@
+.editing-header{
+    // position: sticky;
+    top: 80px;
+    overflow: scroll;
+    height: 75vh;
+    overflow-x: hidden;
+  }
+  
+  // .editing-sidebar{
+  // position: fixed;
+  // top: 155px;
+
+  // height: 100vh;
+  
+  // }
+  
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    z-index: 0;
+  direction: rtl;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    z-index: 0;
+  direction: rtl;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    z-index: 0;
+  direction: rtl;
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    z-index: 0;
+  direction: rtl;
+  }
+  

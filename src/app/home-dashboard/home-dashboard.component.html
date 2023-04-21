@@ -11,16 +11,20 @@
       </div>
 
       <div  class="col-md-1 col-lg-1 p-0 side-nav-sec dekstop-menu">
-        <div *ngIf="!(href =='/home-dashboard/user-profile')"class="position-relative h-100" >
+        <div *ngIf="!(href =='/home-dashboard/user-profile')" class="" >
+          <div class="editing-sidebar">
           <app-sidebar></app-sidebar>
-
+        </div>
       </div>
     </div>
       <div class="col-md-11 col-lg-11 pb-4  mt-4 all-pages_padding">
-        <router-outlet></router-outlet>
+        <div class="editing-header">
+          <router-outlet></router-outlet>
+        </div>
+
       </div>
     </div>
   </div>
-  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"  color="#fff" type="ball-clip-rotate-pulse" [fullScreen]="true">
-    <img src="assets/images/spinner1.gif" style="width:150px; height:130px;">
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-clip-rotate-pulse" [fullScreen]="true">
+    <img src="assets/images/spinner.gif">
   </ngx-spinner>

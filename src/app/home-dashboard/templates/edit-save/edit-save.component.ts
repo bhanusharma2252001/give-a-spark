@@ -844,9 +844,11 @@ this.userProfile=data?.profileImage
   this.youtubeAlignment = data?.templateDesign?.youtubeAlignment
   this.youtubeFont= Number(data?.templateDesign?.youtubeFont)
   this.youtubeVal = (this.youtubeFont == 12)?5:(this.youtubeFont == 9)?4:(this.youtubeFont == 8) ? 3 : (this.youtubeFont == 7)? 2 : 1
- 
+  
  }
-
+ cancelYoutube(){
+  window.location.reload(); 
+}
  getCustomData() {
   let data = this.bindData
   this.customText = data?.customButtonText
