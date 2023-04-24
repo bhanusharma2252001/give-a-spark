@@ -33,8 +33,15 @@ export class EnterEmailComponent implements OnInit {
         this.toast.success('A verfication code has been sent to your email')
       this.router.navigate(["client-login/enter-otp"])
     }),  (error) => {
+      console.log(error.error.error, 'erroro')
       // this.toast.error('please try again');
-      this.toast.error(error.error.body);
+      if(
+        error.error.error = "Email already exists"
+      ){
+
+        this.router.navigate(['client-login/signup'])
+      }
+      // this.toast.error(error.error.body);
     }
     )
 

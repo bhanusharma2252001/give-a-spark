@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
 
 
+
 :root {
   --body-bg: hsl(0deg 0% 22%);
   --box-bg: hsl(0deg 0% 27%);
@@ -269,7 +270,7 @@ img.w-500 {
 }
 
 .nav-item a {
-  padding: 15px 10px;
+  padding: 9px 10px;
 }
 
 .nav-item_details {
@@ -505,7 +506,7 @@ span.carousel-control-next-icon {
   position: relative;
   background-size: 210px;
   background-repeat: no-repeat;
-  padding: 15px;
+
   left: 15px;
 }
 
@@ -795,13 +796,17 @@ img.top-left {
   font-size: 14px;
 }
 
-.user_back {
+/* .user_back {
   background-image: url(../images/right_bck.png);
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 10px;
   top: -15px;
+} */
+.gif_img {
+  position: relative;
+ 
 }
 .notification{
  
@@ -1260,7 +1265,7 @@ background-color: var(--pink);
 padding-left: 140px !important;
 } */
 .dekstop-menu {
-  margin-top: 45px;
+  margin-top: 40px;
   position: sticky;
   top: 10px;
   z-index: 1;

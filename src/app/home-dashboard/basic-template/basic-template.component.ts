@@ -264,7 +264,7 @@ scheduleShape:any=0
 
   @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
 
-
+   urlPattern = /^((http[s]?|ftp):\/\/)?(www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$/;
 
   constructor(private api: SparkService, myElement: ElementRef,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private dialog: MatDialog, private spinner: NgxSpinnerService) {
@@ -291,7 +291,9 @@ scheduleShape:any=0
 
  
     this.youtubeForm = this.fb.group({
-      youtubeUrl: ['', [Validators.required,]],
+      youtubeUrl: ['', [Validators.required, Validators.pattern(
+        /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/
+      )]],
       youtubeTitle: ['', Validators.required]
     })
 
@@ -331,7 +333,8 @@ scheduleShape:any=0
     })
 
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  // scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleLink: ['', [Validators.required,Validators.pattern(this.urlPattern)]],
   scheduleText: ['',Validators.required], 
 })
   }
@@ -668,10 +671,10 @@ this.scheduleForm=this.fb.group({
         this.progessAray.push(this.insta);
 
       }
-      // if(this.uTube){
-      //   this.progessAray.push(this.uTube);
+      if(this.username){
+        this.progessAray.push(this.username);
 
-      // }
+      }
       if(this.Linkedin){
         this.progessAray.push(this.Linkedin);
 
@@ -1936,7 +1939,7 @@ getScheduleIcon(event: any, data: any){
       console.log(this.TemplateId, 'iddddd');
 
 
-      this.toast.success('Signature Updated Successfully');
+      this.toast.success('Signature Created Successfully');
 
 
 

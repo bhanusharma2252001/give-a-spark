@@ -277,6 +277,7 @@ content!: string;
   eventFontVal: number=2;
   appSizeFont: number=1;
   bindData: any;
+  urlPattern = /^((http[s]?|ftp):\/\/)?(www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$/;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,private location: Location,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
       const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -302,7 +303,9 @@ content!: string;
 
   
     this.youtubeForm = this.fb.group({
-      youtubeUrl: ['', [Validators.required]],
+      youtubeUrl: ['', [Validators.required, Validators.pattern(
+        /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/
+      )]],
       youtubeTitle: ['', Validators.required]
     })
 

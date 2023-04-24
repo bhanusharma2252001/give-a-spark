@@ -299,7 +299,9 @@ content!: string;
     })
 
     this.youtubeForm = this.fb.group({
-      youtubeUrl: ['', [Validators.required]],
+      youtubeUrl: ['', [Validators.required, Validators.pattern(
+        /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/
+      )]],
       youtubeTitle: ['', Validators.required]
     })
 

@@ -257,6 +257,7 @@ this.firstNameColor = templateResult?.firstNameColor,
 
 console.log(this.youTubeUrl, 'youtubeurl');
 
+
     })
   }
 

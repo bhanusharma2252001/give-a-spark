@@ -36,9 +36,19 @@
                       
                       <button (click)="navigate()" class="px-3 py-2 mb-3 green-btn   ">Add quote</button>
                   </div> -->
-                  <div class="row mt-4" *ngFor="let quote of quotesList">
-                      <div class="col-md-6 col-lg-6">
-                          <div class="row align-items-center">
+                  <div class="row mt-4" >
+
+                    <div class="col-md-6 col-lg-6" *ngIf="!quotesList?.enterQuotes">
+                      <div class="row align-items-center">
+                        You haven't created any quote yet
+                      </div>
+                    </div>
+                      <div class="col-md-6 col-lg-6" *ngFor="let quote of quotesList"> 
+
+
+
+
+                          <div *ngIf="quotesList" class="row align-items-center">
                               <div class="col-md-3 col-lg-3 p-0">
                               
                                     <div
@@ -113,8 +123,13 @@
         
         
                   </div> -->
-                  <div class="row " *ngFor="let story of storyList">
-                      <div class="col-md-6 col-lg-6">
+                  <div class="row ">
+                    <div class="col-md-6 col-lg-6" *ngIf="!storyList?.writerName">
+                      <div class="row align-items-center">
+                        You haven't created any Story yet
+                      </div>
+                    </div>
+                      <div class="col-md-6 col-lg-6"  *ngFor="let story of storyList">
                           <div class="row align-items-center">
                               <div class="col-md-3 col-lg-3 p-0">
         

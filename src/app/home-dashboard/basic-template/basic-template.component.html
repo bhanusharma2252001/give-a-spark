@@ -2010,8 +2010,8 @@
           
           <ng-container class="po-re"
           *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
-          <small class="fs-12">Url is required </small> <br>
-<small class=" fs-12" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
+          <small class="fs-12 text-danger">Url is required </small> <br>
+<small class=" fs-12 text-danger" *ngIf="scheduleForm.controls['scheduleLink'].hasError('pattern')">
 Please enter a valid Url.
 </small>
 </ng-container>
@@ -2169,10 +2169,16 @@ Please enter a valid Url.
            
         <ng-container class="po-re"
             *ngIf="youtubeForm.controls['youtubeUrl'].touched && !youtubeForm.controls['youtubeUrl'].valid">
-  <small class=" fs-12" >
- * Youtube url is required
+  <small class=" fs-12 text-danger" >
+ *Youtube Url is required
   </small> 
   </ng-container>
+  <div *ngIf="youtubeForm.get('youtubeUrl')?.invalid && (youtubeForm.get('youtubeUrl')?.dirty || youtubeForm.get('youtubeUrl')?.touched)">
+    <div *ngIf="youtubeForm.get('youtubeUrl')?.errors?.['pattern']" class=" fs-12 text-danger m-2">
+      The URL must be a valid YouTube URL
+    </div>
+  </div>
+  
         </div>
       </div>
       <div class="row g-3 align-items-center mb-3">

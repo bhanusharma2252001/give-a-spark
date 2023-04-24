@@ -1,4 +1,11 @@
 <div class="row mt-4 mb-130px">
+    <div *ngIf="tempDetails?.length == 0">
+        <p>You haven't created an Email signature. Please create an Email Signature.
+
+
+        </p>
+    </div>
+
     <div class="col-md-7 m-4 " *ngFor="let details of tempDetails">
 
         <table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData
@@ -30,8 +37,9 @@
                             <img style="width:95px ;height:35px;" *ngIf="!(planDetail == 'Plan A')"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
 
-                            <p style=" font-size: 10px; display: inline; color: blue; cursor: pointer;" (click)="remove(details?._id)">Remove logo</p>
-                                
+                            <p style=" font-size: 10px; display: inline; color: blue; cursor: pointer;"
+                                (click)="remove(details?._id)">Remove logo</p>
+
 
                         </div>
                     </td>
@@ -93,12 +101,12 @@
                     color: #212121; white-space: wrap;font-size: 13px;" *ngIf="details?.address[0]?.city">
 
 
-                                <span style="font-weight:bold;"
-                                    >A:</span>
-                               <span [style.color]="details?.templateDesign?.contactDetailColor"
-                               [style.line-height]="details?.templateDesign?.lineHeight"
-                               [style.font-family]="details?.templateDesign?.fontFamily"
-                               [style.font-size.px]="details?.templateDesign?.fontSizeItem"> {{details?.address[0]?.city}}</span>
+                                <span style="font-weight:bold;">A:</span>
+                                <span [style.color]="details?.templateDesign?.contactDetailColor"
+                                    [style.line-height]="details?.templateDesign?.lineHeight"
+                                    [style.font-family]="details?.templateDesign?.fontFamily"
+                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">
+                                    {{details?.address[0]?.city}}</span>
                             </p>
                         </div>
 
@@ -214,7 +222,7 @@
                 </tr>
                 </td>
                 </tr>
-                <tr >
+                <tr>
                     <td style="font-size:8px ;padding:10px 15px" colspan="3" *ngIf="details?.disclaimer"
                         [style.font-size.px]="details?.templateDesign?.disclaimerSize"
                         [style.text-align]="details?.templateDesign?.disclaimerAlignment"
@@ -303,7 +311,7 @@
                 </tr>
 
 
-                <tr *ngIf= "details?.appName || details?.googleAppLink || details?.appleAppLink ">
+                <tr *ngIf="details?.appName || details?.googleAppLink || details?.appleAppLink ">
                     <td style="padding:10px 15px ;padding-bottom:20px;" colspan="3"
                         [style.text-align]="details?.templateDesign?.appbuttonAlign">
                         <p style="margin:0;" [style.color]="details?.templateDesign?.appButtonColor"
@@ -316,7 +324,7 @@
                                 src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
                                 height="33" style=" height: 33px; display: inline-block;" alt="Download App"> </a>
                         <a style="padding:0 10px;" *ngIf="details?.appleAppLink" href="{{details?.appleAppLink}}"
-     style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
+                            style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
                                 src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
                                 height="33" style=" height: 33px; display: inline-block;" alt="Download App"></a>
                     </td>
@@ -327,18 +335,57 @@
             </tbody>
         </table>
         <div class="row  m-3">
-            <div class="col-md-2">
+            <!-- <div class="col-md-2">
                 <button class="signature-item-edit-btn" (click)="editTemplate(details?._id)"><span
                         class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
                         class="signature-item-edit-btn-text">Edit</span></button>
-            </div>
-            <div class="col-md-3">
+            </div> -->
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle green-btn" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false"> Action <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="px-3 py-1"><a href="#"> <button class="signature-item-edit-btn"
+                                    (click)="editTemplate(details?._id)"><span
+                                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
+                                        class="signature-item-edit-btn-text">Edit</span></button></a></li>
+                        <li class="px-3 py-1"><a href="#"> <button class="signature-item-edit-btn"
+                                    (click)="openModal(details?._id)" onclick="openNav()"><span
+                                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
+                                        class="signature-item-edit-btn-text">Sync Signature</span></button></a></li>
+
+                    
+                        <li class="px-3 py-1"><a href="#">
+                                <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash"
+                                        (click)="delTemplate(details?._id)"><i class='far fa-trash-alt'
+                                            style='font-size:36px;color:red; cursor: pointer;'></i></span></div>
+                            </a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- <div class="col-md-3">
                 <button class="signature-item-edit-btn" (click)="openModal(details?._id)" onclick="openNav()"><span
                         class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
                         class="signature-item-edit-btn-text">Sync Signature</span></button>
-            </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--             
             <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash" (click)="delTemplate(details?._id)"><i
-                        class='far fa-trash-alt' style='font-size:36px;color:red; cursor: pointer;'></i></span></div>
+                        class='far fa-trash-alt' style='font-size:36px;color:red; cursor: pointer;'></i></span></div> -->
 
 
 
@@ -404,6 +451,12 @@
                             aria-labelledby="v-pills-home-tab">
                             <div class="Gmail_gif"><img src="assets/images/sync-gif.gif" alt="Gmail GIF"></div>
                             <div class="ref_btn"><button>Refresh Your Gmail</button></div>
+
+                            <p>If you click on the gmail signature it will replace the your previous signature.</p>
+
+                            <div class="col-md-6">
+
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab">.Coming Soon.......</div>

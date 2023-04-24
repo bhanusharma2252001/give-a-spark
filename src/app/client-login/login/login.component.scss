@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+
 .fa-eye-slash:before {
     margin-left: 115px;
     content: "\f070";
@@ -52,11 +55,12 @@
 }
 .google-text
 {
-  font-family:Roboto-Medium;
+  font-family: "Roboto";
   font-size: 14px;
   margin-bottom: 0;
   color:#787878;
   padding-right: 8px;
+
 }
 .outer-box
 {
