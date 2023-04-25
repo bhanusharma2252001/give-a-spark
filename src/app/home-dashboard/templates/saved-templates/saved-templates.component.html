@@ -1,12 +1,19 @@
 <div class="row mt-4 mb-130px">
-    <div *ngIf="tempDetails?.length == 0">
-        <p>You haven't created an Email signature. Please create an Email Signature.
-
-
-        </p>
-    </div>
-
-    <div class="col-md-7 m-4 " *ngFor="let details of tempDetails">
+  
+    <div class="col-md-12 col-lg-12" *ngIf="!tempDetails?.yourName">
+        <section class="nerdy-pen">
+            <h1 class="nerdy-pen__text">Hii !
+              
+              <span
+                 class="txt-rotate text-green"
+                 data-period="100"
+                 data-rotate='[ " You have not created an Email signature. ", "You have not created an Email signature.  "]' ></span>
+               
+    
+            </h1>
+            </section>
+      </div>
+    <div class="col-md-5 m-4 " *ngFor="let details of tempDetails">
 
         <table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData
             style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
@@ -334,33 +341,44 @@
 
             </tbody>
         </table>
-        <div class="row  m-3">
+        <div class="d-flex justify-content-end  m-3">
             <!-- <div class="col-md-2">
                 <button class="signature-item-edit-btn" (click)="editTemplate(details?._id)"><span
                         class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
                         class="signature-item-edit-btn-text">Edit</span></button>
             </div> -->
 
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle green-btn" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false"> Action <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li class="px-3 py-1"><a href="#"> <button class="signature-item-edit-btn"
-                                    (click)="editTemplate(details?._id)"><span
-                                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                                        class="signature-item-edit-btn-text">Edit</span></button></a></li>
-                        <li class="px-3 py-1"><a href="#"> <button class="signature-item-edit-btn"
-                                    (click)="openModal(details?._id)" onclick="openNav()"><span
-                                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                                        class="signature-item-edit-btn-text">Sync Signature</span></button></a></li>
+            <ul class="nav navbar-nav mt-4">
+                <li class="dropdown text-end">
+                    <a class="dropdown-toggle bg-green text-white rounded-3 py-3 px-4" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false"> Action <span class="caret"></span></a>
+                    <ul class="dropdown-menu border-0 shadow bg-transparent mt-4">
+                        <li class="px-3 py-1 hover-light">
+                            <div class="d-flex align-items-center" (click)="editTemplate(details?._id)">
+                                <i class="fa fa-edit"></i>
+                                 <span class="signature-item-edit-btn-text ps-3">Edit</span>
+                            </div>
+                        </li>
 
-                    
-                        <li class="px-3 py-1"><a href="#">
+                        <li class="px-3 py-1 hover-light">
+                            <div class="d-flex align-items-center"  (click)="delTemplate(details?._id)"><i class="fa fa-trash" aria-hidden="true"></i>
+                                <span class="signature-item-edit-btn-text ps-3">Delete</span>
+                            </div>
+                        </li>
+
+                        <li class="px-3 py-1 hover-light">
+                            <div class="d-flex align-items-center" (click)="openModal(details?._id)"
+                                onclick="openNav()"><i class='fas fa-sync-alt'></i>
+                                <span
+                                    class="signature-item-edit-btn-text ps-3">Sync Signature</span></div>
+                        </li>
+
+
+                        <!-- <li class="px-3 py-1"><a href="#">
                                 <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash"
                                         (click)="delTemplate(details?._id)"><i class='far fa-trash-alt'
                                             style='font-size:36px;color:red; cursor: pointer;'></i></span></div>
-                            </a></li>
+                            </a></li> -->
 
                     </ul>
                 </li>

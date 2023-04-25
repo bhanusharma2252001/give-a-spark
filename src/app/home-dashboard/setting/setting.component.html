@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+<ul class="nav nav-tabs bg-transparent " id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link fs-4 px-4 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
         role="tab" aria-controls="home" aria-selected="true">General</button>
@@ -9,7 +9,7 @@
     </li>
   
   </ul>
-  <div class="tab-content mt-4" id="myTabContent">
+  <div class="tab-content mb-130px mt-4" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="row">
         <div class="col-md-8 col-lg-8">
@@ -78,14 +78,16 @@
         </div>
         <div class="col-md-4 col-lg-4">
           <div class="general">
+
             <form class="row" [formGroup]="updatePasswordForm">
               <h4>Change Password</h4>
               <p class="setting-color">You can change password easily</p>
               <div class="mb-3">
-                <input type="password" placeholder="Password" class="form-control" id="inputPasswor" formControlName="oldPassword">
+                <input [type]="repeatFieldTextType ? 'text' : 'password'"  placeholder="Password" class="form-control" id="inputPasswor" formControlName="oldPassword">
               </div>
               <div class="mb-3">
-                <input type="password" placeholder="New Password" class="form-control" id="inputPasswo" formControlName="newPassword">
+                <input  placeholder="New Password"  [type]="repeatFieldTextType ? 'text' : 'password'" class="form-control" id="inputPasswo" formControlName="newPassword">
+              
                 <ng-container class="po-re"
                 *ngIf="updatePasswordForm.controls['newPassword'].touched && !updatePasswordForm.controls['newPassword'].valid">
                 <small class="text-danger fs-12"
@@ -95,8 +97,16 @@
                 </small>
             </ng-container>
               </div>
-              <div class="mb-3">
-                <input type="password" placeholder="Confirm Password" class="form-control" id="inputPassw" formControlName="confirmPassword">
+              <div class="mb-3 position-relative">
+                <input  [type]="repeatFieldTextType ? 'text' : 'password'" placeholder="Confirm Password" class="form-control" id="inputPassw" formControlName="confirmPassword">
+                <i
+                class="fa  text-purple  position-absolute me-2 top-50 end-0 translate-middle-y pe-3"
+                [ngClass]="{
+                  'fa-eye-slash': !repeatFieldTextType,
+                  'fa-eye': repeatFieldTextType
+                }"
+                (click)="toggleRepeatFieldTextType()"
+              ></i>
               </div>
               <ng-container class="po-re"
               *ngIf="updatePasswordForm.controls['confirmPassword'].touched && !updatePasswordForm.controls['confirmPassword'].valid">

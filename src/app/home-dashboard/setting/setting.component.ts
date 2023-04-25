@@ -23,7 +23,7 @@ export class SettingComponent implements OnInit {
   updateProfile:FormGroup;
   updatePasswordForm:FormGroup;
   fileData = [] as any;
-  
+  repeatFieldTextType!:boolean;
   Submitted = false;
   fileImageName: any = '';
  
@@ -242,6 +242,8 @@ myOrder(){
     this.previousDetails=res?.previousPlan;
   })
 }
-
+toggleRepeatFieldTextType() {
+  this.repeatFieldTextType = !this.repeatFieldTextType;
+}
 
 }

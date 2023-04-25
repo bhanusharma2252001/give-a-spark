@@ -274,6 +274,7 @@ content!: string;
   // --------------end---------
   @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   bindData: any;
+  displayTab: any;
 
   constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,private location: Location,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
@@ -378,6 +379,9 @@ this.scheduleForm=this.fb.group({
   }
 
 
+  showPopup(val:any){
+    this.displayTab = val
+  }
 CopyToClipboard(element:any) {
 
   var doc:any = document
@@ -824,8 +828,15 @@ console.log(this.tempId,'iiiiidddddd');
     this.Submitted = true;
     this.img=false;
     let files = event.target.files;
+    
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.uploadImage = files[0]
       this.subImageSubmit()
       for (let file of files) {
@@ -1300,7 +1311,13 @@ onSelectFile1(event: any) {
   this.Submitted = true;
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
-  if (files) {
+  let fileSize= event.target.files[0].size
+    if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
     this.imageProfile1 = files[0]
     this.File1ubmit()
     for (let file of files) {
@@ -1354,7 +1371,13 @@ onSelectFile2(event: any) {
   this.Submitted = true;
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
+  let fileSize= event.target.files[0].size
   if (files) {
+    if (fileSize> 1 * 1024 * 1024) {
+
+
+      this.toast.error('File size exceeds 5MB limit.');
+      return;}
     this.imageProfile2 = files[0]
     this.File1ubmit2()
     for (let file of files) {
@@ -1407,7 +1430,13 @@ onSelectFile3(event: any) {
   this.Submitted = true;
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
-  if (files) {
+  let fileSize= event.target.files[0].size
+    if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
     this.imageProfile3 = files[0]
     this.File1ubmit3()
     for (let file of files) {
@@ -1460,7 +1489,13 @@ onSelectFile4(event: any) {
   this.Submitted = true;
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
-  if (files) {
+  let fileSize= event.target.files[0].size
+    if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
     this.imageProfile4 = files[0]
     this.File1ubmit4()
     for (let file of files) {
@@ -1781,7 +1816,13 @@ selectBanner(event: any) {
   this.Submitted = true;
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
-  if (files) {
+  let fileSize= event.target.files[0].size
+    if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
     this.bannerImage = files[0]
     this.submitBanner();
     for (let file of files) {

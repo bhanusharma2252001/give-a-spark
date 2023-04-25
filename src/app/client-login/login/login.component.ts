@@ -36,7 +36,7 @@ googleEmail:any;
   loginId: any;
   fieldTextType!: boolean;
   repeatFieldTextType!: boolean;
-
+  intervalId:any
 token:any;
 
 
@@ -78,10 +78,15 @@ token:any;
    
     
     this.getData()
-    this.googleAuthSDK();
-    
-  }
+    this.intervalId =  setInterval(() => {
+      this.googleAuthSDK();
+      console.log('google login')}, 1000);
 
+
+ }
+ ngOnDestroy() {
+   clearInterval(this.intervalId); // clear the interval on component destruction
+ }
   getData() {
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;

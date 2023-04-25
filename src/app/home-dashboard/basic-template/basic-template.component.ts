@@ -836,7 +836,13 @@ this.scheduleForm=this.fb.group({
     this.img = false;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.uploadImage = files[0]
       this.subImageSubmit()
       for (let file of files) {
@@ -1134,7 +1140,13 @@ this.scheduleForm=this.fb.group({
     this.Submitted = true;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+   let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.imageProfile1 = files[0]
       this.File1ubmit()
       for (let file of files) {
@@ -1188,7 +1200,13 @@ this.scheduleForm=this.fb.group({
     this.Submitted = true;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.imageProfile2 = files[0]
       this.File1ubmit2()
       for (let file of files) {
@@ -1241,7 +1259,13 @@ this.scheduleForm=this.fb.group({
     this.Submitted = true;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.imageProfile3 = files[0]
       this.File1ubmit3()
       for (let file of files) {
@@ -1294,7 +1318,13 @@ this.scheduleForm=this.fb.group({
     this.Submitted = true;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.imageProfile4 = files[0]
       this.File1ubmit4()
       for (let file of files) {
@@ -1565,7 +1595,13 @@ this.scheduleForm=this.fb.group({
     this.Submitted = true;
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
+    let fileSize= event.target.files[0].size
     if (files) {
+      if (fileSize> 1 * 1024 * 1024) {
+
+
+        this.toast.error('File size exceeds 5MB limit.');
+        return;}
       this.bannerImage = files[0]
       this.submitBanner();
       for (let file of files) {

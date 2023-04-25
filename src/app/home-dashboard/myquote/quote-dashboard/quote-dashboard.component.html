@@ -38,10 +38,18 @@
                   </div> -->
                   <div class="row mt-4" >
 
-                    <div class="col-md-6 col-lg-6" *ngIf="!quotesList?.enterQuotes">
-                      <div class="row align-items-center">
-                        You haven't created any quote yet
-                      </div>
+                    <div class="col-md-12 col-lg-12" *ngIf="!quotesList?.enterQuotes">
+                      <section class="nerdy-pen">
+                        <h1 class="nerdy-pen__text">Hii !
+                          
+                          <span
+                             class="txt-rotate text-green"
+                             data-period="100"
+                             data-rotate='[ " `You have not created any quote yet`", "You have not created any quote yet "  ]' ></span>
+                           
+
+                        </h1>
+                        </section>
                     </div>
                       <div class="col-md-6 col-lg-6" *ngFor="let quote of quotesList"> 
 
@@ -124,11 +132,21 @@
         
                   </div> -->
                   <div class="row ">
-                    <div class="col-md-6 col-lg-6" *ngIf="!storyList?.writerName">
-                      <div class="row align-items-center">
-                        You haven't created any Story yet
+                    
+                      <div class="col-md-12 col-lg-12" *ngIf="!storyList?.writerName">
+                        <section class="nerdy-pen">
+                          <h1 class="nerdy-pen__text">Hii !
+                            
+                            <span
+                               class="txt-rotate text-green"
+                               data-period="100"
+                               data-rotate='[ " `You have not created any Story yet`", "You have not created any Story yet "  ]' ></span>
+                             
+  
+                          </h1>
+                          </section>
                       </div>
-                    </div>
+                  
                       <div class="col-md-6 col-lg-6"  *ngFor="let story of storyList">
                           <div class="row align-items-center">
                               <div class="col-md-3 col-lg-3 p-0">
@@ -191,5 +209,9 @@
         </div>
     </div>
   </section>
+  
+
+
+
 
 

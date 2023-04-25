@@ -21,6 +21,7 @@ export class QuoteDashboardComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+    
   }
 
 
