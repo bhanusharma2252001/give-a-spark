@@ -274,7 +274,7 @@
                               placeholder="https://www.facebook.com/<username>"
                               class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
                               id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="faceB"
-                              [readonly]="planDetail == 'Plan A'">
+                              [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
                               <small class="text-danger fs-12"
@@ -289,7 +289,7 @@
                               placeholder="https://www.instagram.com/<username>"
                               class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
                               id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="insta"
-                              [readonly]="planDetail == 'Plan A'">
+                              [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
                               <small class="text-danger fs-12"
@@ -305,7 +305,7 @@
                               placeholder="https://www.linkedIn.com/<username>"
                               class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
                               id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Linkedin"
-                              [readonly]="planDetail == 'Plan A'">
+                              [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
                               <small class="text-danger fs-12"
@@ -321,7 +321,7 @@
                               placeholder="https://www.youtube.com/<username>"
                               class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
                               id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="uTube"
-                              [readonly]="planDetail == 'Plan A'">
+                              [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['youtubeChannel'].touched && !editTemplateForm.controls['youtubeChannel'].valid">
                               <small class="text-danger fs-12"
@@ -337,7 +337,7 @@
                               placeholder="https://www.twitter.com/<username>"
                               class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
                               id="exampleInputfiled" aria-describedby="textHelp" [(ngModel)]="Twitter"
-                              [readonly]="planDetail == 'Plan A' ">
+                              [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
                               <small class="text-danger fs-12"
@@ -872,7 +872,7 @@
 
                 <div class="mt-4 mb-4 text-end mb-130px">
                   <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3"
-                    (click)="onSubmit(editTemplateForm.value)" [disabled]="editTemplateForm.invalid">Update
+                    (click)="onSubmit(editTemplateForm.value)" >Update
                     Signature</button>
                 </div>
 
@@ -913,22 +913,75 @@
 
 
               <!-- -------------                  TEMPLATE -1         ------------ -->
-              <!-- <div class="pop-anni"
-                *ngIf="(displayTab == 'social') && (planDetail == 'Plan B' || planDetail == 'Plan C') && (templateId == 8 || templateId == 9 || templateId == 10 || templateId == 11 || templateId == 12 || templateId == 7 || templateId == 13 || templateId == 14 || templateId == 15 || templateId == 16 )">
-                <p class="align-center">
-               
-                This is a popup When user clicked on social tab!</p>
+              <div class="box-annimation"  [hidden]="isVisible"
+                *ngIf="(displayTab == 'social') && ( planDetail == 'Plan C') && (templateId == 8 || templateId == 9 || templateId == 10 || templateId == 11 || templateId == 12 || templateId == 7 || templateId == 13 || templateId == 14 || templateId == 15 || templateId == 16 )">
+              
+                <div class="popup">
+                  <h2> Oops !</h2>
+                  <a class="close" (click)="closeDiv()" >×</a>
+                  <div class="content">
+                    you can't use this feature , please select  pro+ template
+                  </div>
+                </div>
      
                 
-              </div> -->
+              </div>
+              <div class="box-annimation"  [hidden]="isVisible"
+              *ngIf="(displayTab == 'design') && ( planDetail == 'Plan B' || planDetail == 'Plan C') && (templateId == 8 || templateId == 9 || templateId == 10 || templateId == 11 || templateId == 12 || templateId == 7 || templateId == 13 || templateId == 14 || templateId == 15 || templateId == 16 )">
+            
+              <div class="popup">
+                <h2> Oops !</h2>
+                <a class="close" (click)="closeDiv()">×</a>
+                <div class="content">
+                  you can't use this feature , please select pro or pro+ template
+                </div>
+              </div>
+   
+              
+            </div>
+ 
+            <div class="box-annimation" [hidden]="isVisible"
+            *ngIf="(displayTab == 'apps') && (  planDetail == 'Plan C') && (templateId == 8 || templateId == 9 || templateId == 10 || templateId == 11 || templateId == 12 || templateId == 7 || templateId == 13 || templateId == 14 || templateId == 15 || templateId == 16 )">
+          
+            <div class="popup">
+              <h2> Oops !</h2>
+              <a class="close" (click)="closeDiv()" >×</a>
+              <div class="content">
+               you can't use this feature , please select pro+ template
+              </div>
+            </div>
+ 
+            
+          </div>
 
+             <!-- -------For pro Temp--------- -->
+             <div class="box-annimation" [hidden]="isVisible"
+             *ngIf="(displayTab == 'apps') && (  planDetail == 'Plan C') && (templateId == 21 || templateId == 22 || templateId == 23 || templateId == 24 || templateId == 25 || templateId == 26 || templateId == 27 || templateId == 34 || templateId == 35 || templateId == 36 )">
+           
+             <div class="popup">
+               <h2>Oops !</h2>
+               <a class="close" (click)="closeDiv()" >×</a>
+               <div class="content">
+                  you can't use this feature , please select pro+ template
+               </div>
+             </div>
+  
+             
+           </div>
+ 
+           <div class="box-annimation" [hidden]="isVisible"
+           *ngIf="(displayTab == 'social') && (  planDetail == 'Plan C') && (templateId == 21 || templateId == 22 || templateId == 23 || templateId == 24 || templateId == 25 || templateId == 26 || templateId == 27 || templateId == 34 || templateId == 35 || templateId == 36 )">
+         
+           <div class="popup">
+             <h2> Oops !</h2>
+             <a class="close" (click)="closeDiv()">×</a>
+             <div class="content">
+               you can't use this feature , please select pro+ template
+             </div>
+           </div>
 
-              <!-- -------------                  TEMPLATE -1         ------------ -->
-              <!-- <div
-                *ngIf="(displayTab == 'design') && (planDetail == 'Plan B' || planDetail == 'Plan C') && (templateId == 8 || templateId == 9 || templateId == 10 || templateId == 11 || templateId == 12 || templateId == 7 || templateId == 13 || templateId == 14 || templateId == 15 || templateId == 16 )">
-                <p class="text-green">This is a popup When user clicked on Desgin tab!</p>
-
-              </div> -->
+           
+         </div>
               <!-- -----------------------  TEMPLATE -2   ----------------------- -->
 
               <div *ngIf="templateId == 8" class="p-3">

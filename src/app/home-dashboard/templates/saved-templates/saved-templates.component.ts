@@ -21,7 +21,15 @@ export class SavedTemplatesComponent implements OnInit {
   // @ViewChild('tableData',{static:false})tableData!:ElementRef
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
   @ViewChild('request', { static: true }) request: ElementRef;
+  @ViewChild('textElement') textElement: ElementRef;
 // chrome: any;
+text = `You haven't created an Email signature.`;
+currentIndex = 0;
+
+Animation=false;
+
+
+
  logotext="Cookies for outlook"
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
@@ -101,7 +109,7 @@ export class SavedTemplatesComponent implements OnInit {
   thumbnail: string;
   youTubeUrl: any;
   outLookRef: any;
-
+  intervalId:any;
   private clientId: string = '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com';
   private discoveryDocs: string[] = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
   auth2: any;
@@ -118,54 +126,41 @@ export class SavedTemplatesComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.clientId, 'client id')
-   
+  
 
 
     this.spinner.show();
 
     setTimeout(() => {
-
-
-
-
-
-
-
-
-
-
-
-
       this.spinner.hide();
     }, 1000);
     this. getTemplateDetails();
     this.gettemplatebyUser();
 
+   this.intervalId= setInterval(() => {
+      this.updateText();
+    }, 500);
 
-
-
-  //   console.log("set on gmail fn");
-  //   console.log("set on gmail",gapi);
-  //   var CLIENT_ID = '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com';
-  
-  // gapi.load('client', function initClient() {
-  //   console.log("starting of function");
-    
-  //   gapi.client.init({
-  //     discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
-  //     clientId: '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com',
-  //     scope: 'https://www.googleapis.com/auth/gmail.settings.basic'
-  //   }).then(function () {
-  //     // do stuff with loaded APIs
-  //     console.log('it worked');
-  //   }).catch((error:any) =>
-  //   {
-  // console.log("error thrown from gapi",error);
-  
-  //   });
-  // });
   }
   
+  updateText(): void {
+    if (this.currentIndex >= this.text.length) {
+      this.currentIndex = 0;
+    }
+    const currentText = this.text.substring(0, this.currentIndex);
+    this.currentIndex++;
+    if(this.textElement){
+    this.textElement.nativeElement.textContent = currentText;}
+  }
+
+
+
+    ngOnDestroy(){
+      clearInterval(this.intervalId);
+     
+    
+    }
+
   changeSize(evt: any) {
     let currnetSize = Number(evt.target.value);
     if (currnetSize == 4) {
@@ -220,6 +215,9 @@ export class SavedTemplatesComponent implements OnInit {
       this.std=res?.userData[0]?.stdCode
 
       this.tempDetails = res.result;
+      if(this.tempDetails?.length == 0){
+        this.Animation = true
+       }
       this.username = this.tempDetails?.yourName
       this.Email = this.tempDetails?.email
       this.compName = this.tempDetails?.companyName

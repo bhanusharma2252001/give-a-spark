@@ -77,8 +77,7 @@ export class AddStoryComponent implements OnInit {
         console.log(res);
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
-        console.log(this.imageData1[0].key, "image key ")
-       console.log(this.imageData2) 
+        this.toast.success('Image Uploaded Successfully')
       },
       (err: any) => {
     

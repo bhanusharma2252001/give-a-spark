@@ -37,15 +37,13 @@
                       <button (click)="navigate()" class="px-3 py-2 mb-3 green-btn   ">Add quote</button>
                   </div> -->
                   <div class="row mt-4" >
-
-                    <div class="col-md-12 col-lg-12" *ngIf="!quotesList?.enterQuotes">
+                  
+                    <div class="col-md-12 col-lg-12" >
+                     
                       <section class="nerdy-pen">
-                        <h1 class="nerdy-pen__text">Hii !
-                          
-                          <span
-                             class="txt-rotate text-green"
-                             data-period="100"
-                             data-rotate='[ " `You have not created any quote yet`", "You have not created any quote yet "  ]' ></span>
+                        <h1 class="nerdy-pen__text" *ngIf="showAnimation">Hii !
+                          <span #textElement></span>
+
                            
 
                         </h1>
@@ -59,15 +57,13 @@
                           <div *ngIf="quotesList" class="row align-items-center">
                               <div class="col-md-3 col-lg-3 p-0">
                               
-                                    <div
-                                    *ngIf="quote?.writerProfile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                    <img class="wh-140"
-                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
-                                  </div>
+                                  
+                                
                                   <div
-                                    *ngIf="quote?.writerProfile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                    <img class="p-2" src="{{quote?.writerProfile }}">
-                                  </div>
+                                  *ngIf="quote?.writerProfile ">
+                                  <img class="wh-150 " *ngIf="quote?.writerProfile "
+                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
+                                </div>
                              
                               </div>
                               <div class="col-md-9 col-lg-9 p-0 pe-1  ">
@@ -86,31 +82,8 @@
                           </div>
                           
                       </div>
-                      <!-- <div class="col-md-6 col-lg-6">
-                          <div class="row align-items-center">
-                              <div class="col-md-3 col-lg-3 ps-1 p-0">
-                                  <div class="">
-                                      <img class="img-fluid" src="images/thomas-edition.jpg">
-                                  </div>
-                              </div>
-                              <div class="col-md-9 col-lg-9 p-0">
-                                  <div class="bg-darkgray p-2">
-                                      <figure>
-                                          <blockquote class="blockquote">
-                                            <p class="fs-12"> "Many of life’s failures are people who did not realize how close they were to success when they gave up." –
-        
-                                              </p>
-                                          </blockquote>
-                                          <figcaption class="blockquote-footer text-black">
-                                             
-                                            <cite class="fs-16" title="Source Title"> {{quote?.writerName}} </cite>
-                                          </figcaption>
-                                        </figure>
-                                  </div>
-                              </div>
-                          </div>
-                      </div> -->
-                  </div>
+                 
+                    </div>
               </div>
           </div>
         </div></div>
@@ -133,14 +106,11 @@
                   </div> -->
                   <div class="row ">
                     
-                      <div class="col-md-12 col-lg-12" *ngIf="!storyList?.writerName">
+                      <div class="col-md-12 col-lg-12" *ngIf="storyMation" >
                         <section class="nerdy-pen">
-                          <h1 class="nerdy-pen__text">Hii !
+                          <h1 class="nerdy-pen__text" >Hii !
                             
-                            <span
-                               class="txt-rotate text-green"
-                               data-period="100"
-                               data-rotate='[ " `You have not created any Story yet`", "You have not created any Story yet "  ]' ></span>
+                            <span #storyElement class="animate-charcter"></span>
                              
   
                           </h1>
@@ -152,14 +122,11 @@
                               <div class="col-md-3 col-lg-3 p-0">
         
                                     <div
-                                    *ngIf="story?.createdBy?.profile !='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                    <img class="wh-150 rounded-circle"
-                                      src="https://giveaspark.s3.us-west-1.amazonaws.com/{{story?.createdBy?.profile }}" />
+                                    *ngIf="story?.createdBy?.profile ">
+                                    <img class="wh-150 " *ngIf="story?.createdBy?.profile "
+                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{story?.createdBy?.profile }}" />
                                   </div>
-                                  <div
-                                    *ngIf=" story?.createdBy?.profile == 'https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                    <img class="w-40 p-2" src="{{story?.createdBy?.profile }}">
-                                  </div>
+                                
         
                               </div>
                               <div class="col-md-9 col-lg-9 p-0 pe-1  ">

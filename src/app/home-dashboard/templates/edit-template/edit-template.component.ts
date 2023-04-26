@@ -128,7 +128,7 @@ TemplateId:any
   quotevar: any;
   useraddress: any;
   // chnage end
-
+  isVisible = false;
 copytext:any;
   // logo="assets/images/logo-1.png"
   templateData: any;
@@ -381,6 +381,7 @@ this.scheduleForm=this.fb.group({
 
   showPopup(val:any){
     this.displayTab = val
+    this.isVisible = false;
   }
 CopyToClipboard(element:any) {
 
@@ -423,7 +424,9 @@ b.value= "Copied"
 
 // document.getElementById("btn").value="Copied";
 }
-
+closeDiv() {
+  this.isVisible = true;
+}
 
 setonGmail(){
 

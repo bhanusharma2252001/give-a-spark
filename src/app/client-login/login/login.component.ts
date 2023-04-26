@@ -385,7 +385,7 @@ this.googleEmail=details.getEmail()
      
   }, (error: any) => {
     // console.log(error);
-    alert(JSON.stringify(error, undefined, 2));
+    this.toast.error(JSON.stringify(error, undefined, 2));
   });
   // }, (error:any) => {
   //   // Error occurred while granting scopes

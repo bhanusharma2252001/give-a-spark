@@ -264,7 +264,7 @@
                               placeholder="https://www.facebook.com/<username>"
                               class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                               (click)="changeSocialLink($event)" id="exampleInputfiled" aria-describedby="textHelp"
-                              [(ngModel)]="faceB" [readonly]="planDetail == 'Plan A'">
+                              [(ngModel)]="faceB" [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['fbProfile'].touched && !editTemplateForm.controls['fbProfile'].valid">
                               <small class="text-danger fs-12"
@@ -280,7 +280,7 @@
                               placeholder="https://www.instagram.com/<username>"
                               class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                               (click)="changeSocialLink($event)" id="exampleInputfiled" aria-describedby="textHelp"
-                              [(ngModel)]="insta" [readonly]="planDetail == 'Plan A'">
+                              [(ngModel)]="insta" [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['instagramProfile'].touched && !editTemplateForm.controls['instagramProfile'].valid">
                               <small class="text-danger fs-12"
@@ -295,7 +295,7 @@
                               placeholder="https://www.linkedIn.com/<username>"
                               class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                               (click)="changeSocialLink($event)" id="exampleInputfiled" aria-describedby="textHelp"
-                              [(ngModel)]="Linkedin" [readonly]="planDetail == 'Plan A'">
+                              [(ngModel)]="Linkedin" [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['linkedInProfile'].touched && !editTemplateForm.controls['linkedInProfile'].valid">
                               <small class="text-danger fs-12"
@@ -305,7 +305,7 @@
                           </div>
                           <div class="mb-4">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Youtube</label>
-                            <input type="text" formControlName="youtubeChannel"
+                            <input type="text" formControlName="youtubeChannel" [readonly]="!(planDetail == 'Plan C')"
                               placeholder="https://www.youtube.com/<username>"
                               class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                               (click)="changeSocialLink($event)" id="exampleInputfiled" aria-describedby="textHelp"
@@ -324,7 +324,7 @@
                               placeholder="https://www.twitter.com/<username>"
                               class="form-control bg-gray rounded-0 border-0 border-bottom p-0"
                               (click)="changeSocialLink($event)" id="exampleInputfiled" aria-describedby="textHelp"
-                              [(ngModel)]="Twitter" [readonly]="planDetail == 'Plan A'">
+                              [(ngModel)]="Twitter" [readonly]="!(planDetail == 'Plan C')">
                             <ng-container class="po-re"
                               *ngIf="editTemplateForm.controls['twitterProfile'].touched && !editTemplateForm.controls['twitterProfile'].valid">
                               <small class="text-danger fs-12"
@@ -841,7 +841,7 @@
                 </div>
 
                 <div class="mt-4 text-end">
-                  <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" [disabled]="editTemplateForm.invalid"
+                  <button type="submit" class="green-btn shadow  p-2 pe-3 ps-3" 
                     (click)="onSubmit(editTemplateForm.value)">Update
                     Signature</button>
                 </div>

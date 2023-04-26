@@ -352,13 +352,13 @@
   }
   .pop-anni{
     width: 500px;
-    height: 100px;
+    height: 300px;
     padding: 10px;
     text-align: center;
     opacity: 0.7;
     vertical-align: middle;
     background-color: black;
- 
+ z-index:2;
 
     animation-name: example;
     animation-duration: 4s;
@@ -417,19 +417,29 @@
 }
 
 .popup {
-  margin: 70px auto;
+ 
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
+  width: 300px;
+  height: 150px;
   position: relative;
   transition: all 5s ease-in-out;
+  
+  border-radius: 20px;
+  box-shadow: 0 0 1px 0 #e0e0e0;
+
 }
 
 .popup h2 {
   margin-top: 0;
   color: #333;
+  margin-top: 0;
+  border-bottom: 2px solid #c1c1c1;
+  padding: 3px;
+  color: #333;
   font-family: Tahoma, Arial, sans-serif;
+
 }
 
 .popup .close {
@@ -450,6 +460,34 @@
 }
 
 .popup .content {
-  max-height: 30%;
+  max-height: 100%;
   overflow: auto;
+  max-height: 100%;
+  overflow: auto;
+  color: #888888;
+  font-size: 12px;
+  padding: 10px 5px;
+  font-family: sans-serif;
+}
+.box-annimation {
+  position: absolute;
+  right: 0;
+  top:235px;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 150px;
+  z-index: 9;
+  animation: animate-box 2s ease-in-out forwards;
+}
+
+@keyframes animate-box {
+  from {
+    left: 100%;
+ }
+ to {
+    left: 72%;
+ }
+}
+.close{
+  cursor: pointer;
 }

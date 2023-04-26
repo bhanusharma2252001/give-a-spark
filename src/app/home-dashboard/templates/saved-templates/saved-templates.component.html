@@ -1,14 +1,10 @@
 <div class="row mt-4 mb-130px">
   
-    <div class="col-md-12 col-lg-12" *ngIf="!tempDetails?.yourName">
+    <div class="col-md-12 col-lg-12" *ngIf="Animation">
         <section class="nerdy-pen">
             <h1 class="nerdy-pen__text">Hii !
               
-              <span
-                 class="txt-rotate text-green"
-                 data-period="100"
-                 data-rotate='[ " You have not created an Email signature. ", "You have not created an Email signature.  "]' ></span>
-               
+                <span #textElement></span> 
     
             </h1>
             </section>
@@ -354,20 +350,20 @@
                         role="button" aria-haspopup="true" aria-expanded="false"> Action <span class="caret"></span></a>
                     <ul class="dropdown-menu border-0 shadow bg-transparent mt-4">
                         <li class="px-3 py-1 hover-light">
-                            <div class="d-flex align-items-center" (click)="editTemplate(details?._id)">
+                            <div class="d-flex align-items-center" style="cursor: pointer;" (click)="editTemplate(details?._id)">
                                 <i class="fa fa-edit"></i>
                                  <span class="signature-item-edit-btn-text ps-3">Edit</span>
                             </div>
                         </li>
 
                         <li class="px-3 py-1 hover-light">
-                            <div class="d-flex align-items-center"  (click)="delTemplate(details?._id)"><i class="fa fa-trash" aria-hidden="true"></i>
+                            <div class="d-flex align-items-center"  style="cursor: pointer;" (click)="delTemplate(details?._id)"><i class="fa fa-trash" aria-hidden="true"></i>
                                 <span class="signature-item-edit-btn-text ps-3">Delete</span>
                             </div>
                         </li>
 
                         <li class="px-3 py-1 hover-light">
-                            <div class="d-flex align-items-center" (click)="openModal(details?._id)"
+                            <div class="d-flex align-items-center"  style="cursor: pointer;" (click)="openModal(details?._id)"
                                 onclick="openNav()"><i class='fas fa-sync-alt'></i>
                                 <span
                                     class="signature-item-edit-btn-text ps-3">Sync Signature</span></div>
