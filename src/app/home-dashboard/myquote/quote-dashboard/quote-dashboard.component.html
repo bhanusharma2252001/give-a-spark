@@ -7,9 +7,9 @@
             <li class="nav-item" role="presentation">
               <div class="tab d-flex justify-content-end">
                 <button class="nav-link active tablink" id="pills-home-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="showQButton()">My
+                  data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="showQButton(); ShowTab('hide')">My
                   Quote</button>
-                <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab"> Create Quote</button>
+                <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab || hidebutton == 'hide'"> Create Quote</button>
               </div>
             </li>
             <li class="nav-item" role="presentation">
