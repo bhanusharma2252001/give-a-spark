@@ -29,6 +29,10 @@ export class BasicTemplateComponent implements OnInit {
   number: any;
   
   img: boolean = true;
+  isLoading :boolean = false;
+  isLoading1 :boolean = false;
+  isLoading2 :boolean = false;
+  isLoading3 :boolean = false;
   @ViewChild('tableData', { static: false }) tableData!: ElementRef
   signatureDetailsForm: FormGroup
   customGalleryForm: FormGroup;
@@ -368,7 +372,7 @@ this.scheduleForm=this.fb.group({
       this.LongQuote = localStorage.getItem('LongQuotes')
 
     }
-    console.log(this.LongQuote, this.QuoteId)
+    
     // this.getBasicProfile();
     this.getScanText();
 
@@ -403,7 +407,7 @@ this.scheduleForm=this.fb.group({
       this.content = ''
     }
 
-    console.log(this.eventdata, this.content, "toggle data");
+    
 
 
   }
@@ -419,8 +423,7 @@ this.scheduleForm=this.fb.group({
 
     this.textareaValue = this.disclaimerForm.value.disclaimer
     this.content = this.textareaValue
-    console.log(this.textareaValue, 'kaya');
-    console.log(this.content, 'content');
+    
 
 
 
@@ -436,7 +439,7 @@ this.scheduleForm=this.fb.group({
     var doc: any = document
       , text = doc.getElementById(element)
       , range, selection: any;
-    console.log(element, 'kaya')
+  
     if (doc.body.createTextRange) {
       range = doc.body.createTextRange();
       range.moveToElementText(text);
@@ -449,18 +452,18 @@ this.scheduleForm=this.fb.group({
       range.selectNodeContents(text);
       selection.removeAllRanges();
       selection.addRange(range);
-      console.log(text, 't');
+      
       alert(text)
 
     }
     document.execCommand('copy');
     let a: any = window.getSelection();
     a.removeAllRanges();
-    console.log(a, 'a');
+    
 
     let b: any = document.getElementById("btn")
     b.value = "Copied"
-    console.log(b, 'b');
+    
 
     // document.getElementById("btn").value="Copied";
   }
@@ -539,44 +542,13 @@ this.scheduleForm=this.fb.group({
   //new change end
   getSignature() {
     this.sign = this.signatureDetailsForm.value.signatureName;
-    console.log(this.sign, "signature name");
+  
 
   }
 
 
 
-  // getBasicProfile() {
-  //   this.api.getbasicDetaiofUseer().subscribe((res: any) => {
-  //     this.details = res.result[0];
-  //     console.log(this.details, 'dddddd')
-  //     console.log(res, 'xasds');
-
-  //     this.useraddress=this.details?.address[0]?.city
-  //     this.username=this.details?.firstName
-  //     this.Email = this.details?.email
-  //     this.compName = this.details?.companyName
-  //     this.compWebsite = this.details?.companyWebsite
-  //     this.number = this.details?.phone
-  //     this.compPhone = this.details?.companyPhone
-  //     this.desig = this.details?.designation
-  //     this.addr =this.details?.address
-
-  //     this.insta =  this.details?.instagramProfile
-  //     this.uTube =  this.details?.youtubeChannel
-
-  //     this.Linkedin = res.result[0]?.linkedInProfile
-  //     this.Twitter = res.result[0]?.twitterProfile
-  //     this.faceB = res.result[0]?.fbProfile
-
-
-  //     console.log(this.compWebsite, 'jojo')
-
-  //     console.log(this.details)
-  //   })
-
-
-
-  // }
+  
   getTemplateDetails() {
 
     this.api.getsignatureDetails().subscribe((res: any) => {
@@ -631,7 +603,7 @@ this.scheduleForm=this.fb.group({
         this.Twitter = this.defaultDetails?.twitterProfile
         this.faceB = this.defaultDetails?.fbProfile
 
-        console.log(this.username)
+     
       }
       if(this.useraddress){
 
@@ -721,8 +693,7 @@ this.scheduleForm=this.fb.group({
         this.updateBar = 100
       }
   
-      console.log(this.updateBar, 'barvalue')
-      console.log(this.progessAray.length, "progress array")
+      
 
     })
 
@@ -742,7 +713,7 @@ this.scheduleForm=this.fb.group({
     this.icon = val
 
     this.showIcon = !this.showIcon;
-    console.log(this.showIcon);
+  
 
   }
 
@@ -791,7 +762,7 @@ this.scheduleForm=this.fb.group({
   }
 
   saveChanges() {
-    console.log(this.TemplateId, "template id");
+    
 
     let log = {
       templateDesign: {
@@ -810,7 +781,7 @@ this.scheduleForm=this.fb.group({
       }
     }
     this.api.templateCustomize(this.TemplateId, log).subscribe((res: any) => {
-      console.log(res);
+      
       this.toast.success('Signature Updated Successfully');
 
       // this.getDesign();
@@ -841,7 +812,7 @@ this.scheduleForm=this.fb.group({
       if (fileSize> 1 * 1024 * 1024) {
 
 
-        this.toast.error('File size exceeds 5MB limit.');
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.uploadImage = files[0]
       this.subImageSubmit()
@@ -868,22 +839,22 @@ this.scheduleForm=this.fb.group({
     formData.append('attachment', this.uploadImage);
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
-        console.log(res);
+       
         this.hideModel()
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
-        console.log(this.imageData2, 'xxxxxx');
+      
         if (this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite && this.imageData2) {
           this.progress = 50;
         } else if (this.imageData2) {
           this.progress = 25
         }
-        console.log(this.imageData1[0].key, "image key ")
+    
         this.toast.success('Image upload Successfully');
       },
       (err: any) => {
 
-        console.log(err);
+     
         this.toast.error('File size is too Large ');
       }
     )
@@ -893,9 +864,9 @@ this.scheduleForm=this.fb.group({
 
 
   setimageSignature() {
-    console.log(this.tableData.nativeElement);
+   
     this.templateRef = this.tableData.nativeElement
-    console.log(this.templateRef, "templatesssssssss")
+    
   }
 
   changeDesignation() {
@@ -919,8 +890,7 @@ this.scheduleForm=this.fb.group({
 
   changeSocialLink(evt: any) {
     if (this.planDetail == 'Plan C') {
-      console.log(this.imageData2, this.useraddress, this.desig, this.username, this.Email, this.compName, this.compWebsite, this.faceB, this.insta, this.Linkedin, this.uTube, this.Twitter);
-
+     
       if (this.imageData2 && this.useraddress && this.desig && this.username && this.Email && this.compName && this.compWebsite) {
         if (this.faceB && this.insta && this.Linkedin && this.uTube && this.Twitter) {
           this.progress = 75
@@ -998,7 +968,7 @@ this.scheduleForm=this.fb.group({
 
     if (this.planDetail == 'Plan C' || this.planDetail == 'Plan B') {
       this.api.removeLogo(this.tempId).subscribe((res: any) => {
-        console.log(this.tempId);
+       
         this.getTemplateDetails();
         this.toast.show('Logo Removed')
       })
@@ -1008,21 +978,16 @@ this.scheduleForm=this.fb.group({
 
       if (this.planDetail == 'Plan B' || this.planDetail == 'Plan c') {
         this.api.removeLogo(this.tempId).subscribe((res: any) => {
-          console.log(this.tempId);
+         
           this.getTemplateDetails();
           this.toast.show('Logo Removed')
         })
       }
-      //       else{
-      // this.logo
-      //       }
+   
     }
 
 
-    console.log(this.tempId, 'iiiiidddddd');
 
-    console.log('working');
-    // debugger
 
   }
 
@@ -1036,17 +1001,17 @@ this.scheduleForm=this.fb.group({
 
     this.videoUrl = this.youtubeForm.value.youtubeUrl;
 
-    console.log(this.videoUrl, "videoUrl name");
+    
 
     this.videoid = this.videoUrl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
     if (this.videoid != null) {
-      console.log("video id = ", this.videoid[1]);
+     
       this.youId = this.videoid[1];
-      console.log(this.youId, "youtube ID");
+  
 
 
     } else {
-      console.log("The youtube url is not valid.");
+     
     }
     this.thumbnail = "http://img.youtube.com/vi/" + this.youId + "/" + "mqdefault" + ".jpg";
 
@@ -1059,7 +1024,7 @@ this.scheduleForm=this.fb.group({
   youTubeDetails() {
     this.youtubeTitle = this.youtubeForm.value.youtubeTitle;
     this.getUrl();
-    console.log(this.youtubeTitle)
+ 
     this.toast.show('Please click On Create Signature to Save ')
   }
 
@@ -1141,11 +1106,12 @@ this.scheduleForm=this.fb.group({
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
    let fileSize= event.target.files[0].size
+   this.isLoading = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.imageProfile1 = files[0]
       this.File1ubmit()
@@ -1175,18 +1141,15 @@ this.scheduleForm=this.fb.group({
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
 
-        // this.imageData1 = res;
-        // this.imageData2 = this.imageData1[0].key;
+        this.isLoading = false;
         this.profile1 = res[0]?.key;
         this.url1 = this.profile1
-        console.log(this.profile1, 'image111111');
-
-        // console.log(this.imageData1[0].key, "image key ")
+        
 
       },
       (err: any) => {
-        // this.spinner.hide()
-        console.log(err);
+        this.isLoading = false;
+   
 
       }
     )
@@ -1201,11 +1164,12 @@ this.scheduleForm=this.fb.group({
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
     let fileSize= event.target.files[0].size
+    this.isLoading1 = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading1 = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.imageProfile2 = files[0]
       this.File1ubmit2()
@@ -1235,18 +1199,16 @@ this.scheduleForm=this.fb.group({
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
 
-        // this.imageData1 = res;
-        // this.imageData2 = this.imageData1[0].key;
+        this.isLoading1 = false;
         this.profile2 = res[0]?.key;
         this.url2 = this.profile2
-        console.log(this.profile2, 'image111111');
+      
 
-        // console.log(this.imageData1[0].key, "image key ")
-
+   
       },
       (err: any) => {
-        // this.spinner.hide()
-        console.log(err);
+        this.isLoading1 = false;
+   
 
       }
     )
@@ -1260,11 +1222,13 @@ this.scheduleForm=this.fb.group({
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
     let fileSize= event.target.files[0].size
+    this.isLoading2 = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
 
+        this.isLoading2 = false;
 
-        this.toast.error('File size exceeds 5MB limit.');
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.imageProfile3 = files[0]
       this.File1ubmit3()
@@ -1294,18 +1258,19 @@ this.scheduleForm=this.fb.group({
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
 
-        // this.imageData1 = res;
-        // this.imageData2 = this.imageData1[0].key;
+        this.isLoading2 = false;
+
         this.profile3 = res[0]?.key;
         this.url3 = this.profile3
-        console.log(this.profile3, 'image111111');
+        
 
-        // console.log(this.imageData1[0].key, "image key ")
+        
 
       },
       (err: any) => {
-        // this.spinner.hide()
-        console.log(err);
+        this.isLoading2 = false;
+
+ 
 
       }
     )
@@ -1319,11 +1284,12 @@ this.scheduleForm=this.fb.group({
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
     let fileSize= event.target.files[0].size
+    this.isLoading3 = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading3 = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.imageProfile4 = files[0]
       this.File1ubmit4()
@@ -1353,18 +1319,17 @@ this.scheduleForm=this.fb.group({
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
 
-        // this.imageData1 = res;
-        // this.imageData2 = this.imageData1[0].key;
+        this.isLoading3 = false;
         this.profile4 = res[0]?.key;
         this.url4 = this.profile4
-        console.log(this.profile4, 'image111111');
+        
 
-        // console.log(this.imageData1[0].key, "image key ")
+        
 
       },
       (err: any) => {
-        // this.spinner.hide()
-        console.log(err);
+        this.isLoading3 = false;
+    
 
       }
     )
@@ -1375,8 +1340,7 @@ this.scheduleForm=this.fb.group({
   imageDetails(data: any) {
     this.galleryTitle = data.imageTitle
     this.galleryLink = data.imageLink
-    console.log(this.galleryLink, 'link of image')
-    console.log(this.galleryTitle, 'title')
+
     this.toast.show('Please click On Create Signature to Save after you done editing ')
   }
 
@@ -1429,7 +1393,7 @@ this.scheduleForm=this.fb.group({
     }
 
 
-    console.log(this.eventdata, this.eventIcon, "toggle data");
+   
 
 
   }
@@ -1467,7 +1431,7 @@ this.scheduleForm=this.fb.group({
     this.eventTitle = this.EventForm.value.eventTitle;
     this.eventName = this.EventForm.value.eventName;
     this.eventLink = this.EventForm.value.eventLink;
-    console.log(this.eventTitle, this.eventName, this.eventLink, 'Sales Event')
+    
   }
 
 
@@ -1508,7 +1472,7 @@ this.scheduleForm=this.fb.group({
       this.footerText = ''
     }
 
-    console.log(this.eventdata, this.footerText, "toggle data");
+ 
 
 
   }
@@ -1524,8 +1488,7 @@ this.scheduleForm=this.fb.group({
 
     this.footerValue = this.footerForm.value.greenFooter
     this.footerText = this.footerValue
-    // console.log(this.textareaValue , 'kaya');
-    console.log(this.footerText, 'content');
+    
 
 
 
@@ -1548,7 +1511,7 @@ this.scheduleForm=this.fb.group({
     }
 
 
-    console.log(this.eventdata, this.greenIcon, "toggle data");
+   
   }
 
 
@@ -1596,11 +1559,12 @@ this.scheduleForm=this.fb.group({
     let files = event.target.files;
     this.fileImageName = event.target.files[0].name;
     let fileSize= event.target.files[0].size
+    this.isLoading = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
+        this.isLoading = false;
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.bannerImage = files[0]
       this.submitBanner();
@@ -1630,19 +1594,16 @@ this.scheduleForm=this.fb.group({
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
 
-        // this.imageData1 = res;
-        // this.imageData2 = this.imageData1[0].key;
+        this.isLoading = false;
         this.banner = res[0]?.key;
         this.bannerUrl = this.banner
-        console.log(this.profile4, 'image111111');
+      
 
-        // console.log(this.imageData1[0].key, "image key ")
-
+       
       },
       (err: any) => {
-        // this.spinner.hide()
-        console.log(err);
-
+      
+        this.isLoading = false;
       }
     )
 
@@ -1683,7 +1644,7 @@ this.scheduleForm=this.fb.group({
 
   bannerValue() {
     this.bannerLink = this.bannerForm.value.bannerLink
-    console.log(this.bannerLink);
+   
 
   }
 
@@ -1741,7 +1702,7 @@ console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
 // -------------------CUSTOM  BUTTON--------------------
 customButtonAlign(val:any){
   this.customAlign=val
-  console.log(this.customAlign, 'size')
+  
   }
   getButtonShape(val:any){
     this.customButtonShape=val
@@ -1749,7 +1710,7 @@ customButtonAlign(val:any){
   
   getCustomSize(val:any){
     this.customButtonSize=val
-    console.log(this.customButtonSize, 'size')
+  
   
   }
   getCustoBtDetails(){
@@ -1763,18 +1724,18 @@ customButtonAlign(val:any){
 
 getScheduleSize(val:any){
   this.scheduleSize=val
-  console.log(this.scheduleSize, 'size')
+ 
 }
 
 getScheduleShape(val:any){
   this.scheduleShape=val
-  console.log(this.scheduleShape, 'size')
+ 
 }
 getScheduleDetails(){
   this.Submitted = true;
 this.inputValue=this.scheduleForm.value.scheduleText
 this.scheduleLink=this.scheduleForm.value.scheduleLink
-console.log(this.inputValue, this.scheduleLink, 'schedule')
+
 }
 
 
@@ -1796,7 +1757,7 @@ getScheduleIcon(event: any, data: any){
     }
 
 
-    console.log(this.scheduleData, this.scheduleIcon, "toggle data");
+    
 
 
   }
@@ -1849,7 +1810,7 @@ getScheduleIcon(event: any, data: any){
 
     }
 
-    console.log(this.showIcon, "showicon value");
+    
 
 
 
@@ -1966,13 +1927,13 @@ getScheduleIcon(event: any, data: any){
         }
     }
 
-    console.log(body, 'sbxkabxak');
+   
 
 
     this.api.addsignatureDetails(body).subscribe((res: any) => {
-      console.log(res);
+ 
       this.TemplateId = res?.data?._id
-      console.log(this.TemplateId, 'iddddd');
+      
 
 
       this.toast.success('Signature Created Successfully');
@@ -2000,7 +1961,7 @@ getScheduleIcon(event: any, data: any){
   removeBanner(){
 this.banner = ''
 this.bannerUrl=''
-console.log(this.banner)
+
   }
 
 

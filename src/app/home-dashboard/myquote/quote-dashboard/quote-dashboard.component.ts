@@ -13,7 +13,7 @@ export class QuoteDashboardComponent implements OnInit {
   storyMation=false;
   showAnimation= false
   storyList:any;
-  
+  hidebutton:any;
   @ViewChild('textElement') textElement: ElementRef;
   @ViewChild('storyElement') storyElement: ElementRef;
   text =`You Haven't Created any Quote Yet `;
@@ -22,6 +22,7 @@ export class QuoteDashboardComponent implements OnInit {
 storyIndex =0;
   intervalId: any;
   interVal:any;
+  tab=true;
   constructor(private api:SparkService,private router:Router, private spinner:NgxSpinnerService ) { }
 
   ngOnInit(): void {
@@ -36,10 +37,10 @@ storyIndex =0;
 
 this.intervalId = setInterval(() => {
       this.updateText();
-    }, 500);
+    }, 100);
   this.interVal= setInterval(() => {
       this.updateStory();
-    }, 500);
+    }, 100);
     
   }
 
@@ -105,4 +106,11 @@ navigate1(){
 }
 
 
+ShowTab(val:any){
+  this.hidebutton=val
+  this.tab = false;
+}
+showQButton(){
+  this.tab = true;
+}
 }

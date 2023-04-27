@@ -1730,7 +1730,10 @@
               <input class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
                 formControlName="customProfile1" (change)="onSelectFile1($event)">
               <span class="upload-button">
-                <i class="fas fa fa-plus" aria-hidden="true"></i>
+                <i class="fas fa fa-plus" aria-hidden="true"  *ngIf=" !isLoading"></i>
+                <div class="spinner-border text-info spin" role="status" *ngIf=" isLoading">
+                  <span class="sr-only">Loading...</span>
+                </div>
                 <img *ngIf="url1" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url1" alt="" width="50" height="50">
 
               </span>
@@ -1743,7 +1746,10 @@
               <input *ngIf="url1" class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
                 formControlName="customProfile2" (change)="onSelectFile2($event)">
               <span class="upload-button">
-                <i class="fas fa fa-plus" aria-hidden="true" *ngIf="url1"> </i>
+                <i class="fas fa fa-plus" aria-hidden="true" *ngIf="url1 && !isLoading1"> </i>
+                <div class="spinner-border text-info spin" role="status" *ngIf=" isLoading1">
+                  <span class="sr-only">Loading...</span>
+                </div>
                 <img *ngIf="url2" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url2" alt="" width="50" height="50">
               </span>
             </label>
@@ -1753,7 +1759,10 @@
               <input *ngIf="url1 && url2 " class="upload-display" type="file" accept="image/gif, image/jpeg, image/png"
                 formControlName="customProfile3" (change)="onSelectFile3($event)">
               <span class="upload-button">
-                <i *ngIf="url1 && url2" class="fas fa fa-plus" aria-hidden="true"> </i>
+                <i *ngIf="url1 && url2 && !isLoading2" class="fas fa fa-plus" aria-hidden="true"> </i>
+                <div class="spinner-border text-info spin" role="status" *ngIf=" isLoading2">
+                  <span class="sr-only">Loading...</span>
+                </div>
                 <img *ngIf="url3" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url3" alt="" width="50" height="50">
               </span>
             </label>
@@ -1763,7 +1772,10 @@
               <input *ngIf="url1 && url2 && url3" class="upload-display" type="file"
                 accept="image/gif, image/jpeg, image/png" formControlName="customProfile4"
                 (change)="onSelectFile4($event)">
-              <span class="upload-button"><i *ngIf="url1 && url2 && url3" class="fas fa fa-plus" aria-hidden="true"></i>
+              <span class="upload-button"><i *ngIf="url1 && url2 && url3 &&!isLoading3" class="fas fa fa-plus" aria-hidden="true"></i>
+                <div class="spinner-border text-info spin" role="status" *ngIf=" isLoading3">
+                  <span class="sr-only">Loading...</span>
+                </div>
                 <img *ngIf="url4" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + url4" alt="" width="50" height="50">
               </span>
             </label>
@@ -2442,6 +2454,9 @@ Please fill the blank field.
     <div class="">
       <label class="upload-area"><input type="file" class="upload-display" (change)="selectBanner($event)"
           accept="image/gif, image/jpeg, image/png"><span class="upload-button-1">
+            <div class="spinner-border text-info spin" role="status" *ngIf=" isLoading">
+              <span class="sr-only">Loading...</span>
+            </div>
           <img *ngIf="bannerUrl" [src]="'https://giveaspark.s3.us-west-1.amazonaws.com/' + bannerUrl" alt="" height="96px" width="800">
           <p *ngIf="!bannerUrl">Drag & Drop your banner here </p><br>
 

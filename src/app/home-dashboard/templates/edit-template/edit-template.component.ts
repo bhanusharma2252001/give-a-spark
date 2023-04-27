@@ -149,7 +149,10 @@ copytext:any;
   planDetail: any;
   tempId: any;
   logo: any;
-
+isLoading :boolean = false;
+isLoading1 :boolean = false;
+isLoading2 :boolean = false;
+isLoading3 :boolean = false;
   // -----------Modal----------
   videoUrl: any;
   videoid: any;
@@ -838,7 +841,7 @@ console.log(this.tempId,'iiiiidddddd');
       if (fileSize> 1 * 1024 * 1024) {
 
 
-        this.toast.error('File size exceeds 5MB limit.');
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
       this.uploadImage = files[0]
       this.subImageSubmit()
@@ -1315,11 +1318,12 @@ onSelectFile1(event: any) {
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
   let fileSize= event.target.files[0].size
+  this.isLoading = true;
     if (files) {
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
     this.imageProfile1 = files[0]
     this.File1ubmit()
@@ -1349,6 +1353,7 @@ File1ubmit() {
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
 
+      this.isLoading = false;
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile1 = res[0]?.key;
@@ -1361,7 +1366,7 @@ File1ubmit() {
     (err: any) => {
       // this.spinner.hide()
       console.log(err);
-
+      this.isLoading = false;
     }
   )
 
@@ -1375,11 +1380,12 @@ onSelectFile2(event: any) {
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
   let fileSize= event.target.files[0].size
+  this.isLoading1 = true;
   if (files) {
     if (fileSize> 1 * 1024 * 1024) {
+      this.isLoading1 = false;
 
-
-      this.toast.error('File size exceeds 5MB limit.');
+      this.toast.error('File size exceeds 1MB limit.');
       return;}
     this.imageProfile2 = files[0]
     this.File1ubmit2()
@@ -1408,7 +1414,7 @@ File1ubmit2() {
   // this.spinner.show()
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
-
+      this.isLoading1 = false;
       // this.imageData1 = res;
       // this.imageData2 = this.imageData1[0].key;
       this.profile2 = res[0]?.key;
@@ -1421,7 +1427,7 @@ File1ubmit2() {
     (err: any) => {
       // this.spinner.hide()
       console.log(err);
-
+      this.isLoading1 = false;
     }
   )
 
@@ -1434,11 +1440,13 @@ onSelectFile3(event: any) {
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
   let fileSize= event.target.files[0].size
+  this.isLoading2 = true;
     if (files) {
+
       if (fileSize> 1 * 1024 * 1024) {
+        this.isLoading2 = false;
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
     this.imageProfile3 = files[0]
     this.File1ubmit3()
@@ -1467,9 +1475,7 @@ File1ubmit3() {
   // this.spinner.show()
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
-
-      // this.imageData1 = res;
-      // this.imageData2 = this.imageData1[0].key;
+      this.isLoading2 = false;
       this.profile3 = res[0]?.key;
       this.url3 = this.profile3
       console.log(this.profile3, 'image111111');
@@ -1478,7 +1484,7 @@ File1ubmit3() {
 
     },
     (err: any) => {
-      // this.spinner.hide()
+      this.isLoading2 = false;
       console.log(err);
 
     }
@@ -1493,11 +1499,13 @@ onSelectFile4(event: any) {
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
   let fileSize= event.target.files[0].size
+  this.isLoading3 = true;
     if (files) {
+      
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading3 = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
     this.imageProfile4 = files[0]
     this.File1ubmit4()
@@ -1527,8 +1535,7 @@ File1ubmit4() {
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
 
-      // this.imageData1 = res;
-      // this.imageData2 = this.imageData1[0].key;
+      this.isLoading3 = false;
       this.profile4 = res[0]?.key;
       this.url4 = this.profile4
       console.log(this.profile4, 'image111111');
@@ -1537,7 +1544,7 @@ File1ubmit4() {
 
     },
     (err: any) => {
-      // this.spinner.hide()
+      this.isLoading3 = false;
       console.log(err);
 
     }
@@ -1820,11 +1827,13 @@ selectBanner(event: any) {
   let files = event.target.files;
   this.fileImageName = event.target.files[0].name;
   let fileSize= event.target.files[0].size
+  this.isLoading = true;
     if (files) {
+     
       if (fileSize> 1 * 1024 * 1024) {
 
-
-        this.toast.error('File size exceeds 5MB limit.');
+        this.isLoading = false;
+        this.toast.error('File size exceeds 1MB limit.');
         return;}
     this.bannerImage = files[0]
     this.submitBanner();
@@ -1854,8 +1863,7 @@ submitBanner() {
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
 
-      // this.imageData1 = res;
-      // this.imageData2 = this.imageData1[0].key;
+      this.isLoading = false;
       this.banner = res[0]?.key;
       this.bannerUrl = this.banner
       console.log(this.profile4, 'image111111');
@@ -1864,7 +1872,7 @@ submitBanner() {
 
     },
     (err: any) => {
-      // this.spinner.hide()
+      this.isLoading = false;
       console.log(err);
 
     }
