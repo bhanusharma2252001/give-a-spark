@@ -12,7 +12,7 @@ export class SparkService {
   [x: string]: any;
   public content = new BehaviorSubject<any>(null);
 
-  // private storage: chrome.storage.StorageArea;
+  private logoutSubject = new Subject<void>();
   email: any;
   token: any;
   isLoggedIn = false;
@@ -62,10 +62,17 @@ export class SparkService {
     }
   };
 
+  logOutTab(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.logoutSubject.next();
+  }
   ngOnDestroy(): void {
     window.removeEventListener('storage', this.handleStorageEvent, false);
   }
-
+  getLogoutObservable() {
+    return this.logoutSubject.asObservable();
+  }
   getLatestValue(data: any) {
     this.content.next(data);
   }

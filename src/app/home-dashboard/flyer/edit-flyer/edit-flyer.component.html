@@ -1,6 +1,6 @@
-<div class="col-md-11 col-lg-11 mb-130px">
+<div class="col-md-12 col-lg-12 mb-130px">
 
-  <div class="row m-0 p-0 mt-5 align-items-center">
+  <div class="row m-0 p-0  align-items-center">
     <div class="col-md-12 col-lg-12">
       <div class="row">
         <div class="col-md-3 col-lg-3">
@@ -22,6 +22,10 @@
               </div>
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-18.png" (click)="image15('flyer-3')">
+              </div>
+              
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/flyer-fruit.png" (click)="image15('flyer-fruit')">
               </div>
               <!-- <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-1.jpg" (click)="image1()">
@@ -73,7 +77,7 @@
           </div>
 
         </div>
-        <div class="col-md-9 col-lg-9 pt-2">
+        <div class="col-md-9 col-lg-9 px-4 pt-2">
           <!-- <div class="row text-center">
             <div class="col-auto">
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile">
@@ -139,8 +143,8 @@
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Upload">
                 <label class=" btn-sm center-block btn-file">
-                  <img src="assets/images/profile-upload.png">
-                  <input type="file" style="display: none;" (change)="onSelectFile($event);">
+                  <img class="pb-1" src="assets/images/profile-upload.png">Upload
+                  <input  class="p-2" type="file" style="display: none;" (change)="onSelectFile($event);">
                 </label>
               </button>
 
@@ -151,8 +155,8 @@
             <div class="col-auto">
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Logo">
                 <label class=" btn-sm center-block btn-file">
-                  <img src="assets/images/logo-upload.png">
-                  <input type="file" style="display: none;" (change)="onSelectFile1($event);">
+                  <img class="pb-1" src="assets/images/logo-upload.png">Logo
+                  <input  type="file" style="display: none;" (change)="onSelectFile1($event);">
                 </label>
               </button>
             </div>
@@ -160,7 +164,7 @@
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Background">
                 <label class=" btn-sm center-block btn-file">
-                  <img src="assets/images/image upload.png">
+                  <img class="pb-1" src="assets/images/image upload.png">Background
                   <input type="file" style="display: none;" (change)="onSelectFileImage($event);">
                 </label>
               </button>
@@ -170,15 +174,18 @@
 
 
 
-            <div class="col-auto d-flex align-items-center justify-content-center"><button
-                class="border-0 p-1 rounded-3 text-white" data-bs-toggle="tooltip" title="Import" (click)="func()">
-                <img src="assets/images/download.png">
+            <div class="col-auto">
+              <button
+                class="btn btn-icon" data-bs-toggle="tooltip" title="Import" (click)="func()">
+                <label class=" btn-sm center-block btn-file">
+                <img class="pb-1" src="assets/images/download.png">Import
+              </label>
               </button></div>
 
-            <div class="col-md-3 mt-3">
+            <div class="col-md-2 mt-3">
               <label for="exampleInputfiled" class="form-label fw-semibold " data-bs-toggle="tooltip"
                 title="Font Family">Font Family :</label>
-              <select class="form-select " [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}"
+              <select class="form-select fs-12 p-2 fw-semibold bg-transparent" [(ngModel)]="fontFamilyNew" [ngModelOptions]="{standalone: true}"
                 aria-label="Default select example">
                 <option *ngFor="let item of fontFamilyList" [value]="item">{{item}}</option>
               </select>
@@ -209,7 +216,7 @@
 
             </div> -->
 
-            <div class="col-md-3 mt-3">
+            <div class="col-md-2 mt-3">
 
               <label for="inputtext" class="col-form-label fs-14 fw-semibold" data-bs-toggle="tooltip"
                 title="Font Size">Font Size :</label>
@@ -623,16 +630,7 @@
             <div
               style="display:flex;background-image:url(assets/images/background.png);background-size:cover;padding:15px;">
               <div style="width:70%;position: relative;padding:20px;padding-right:50px;">
-                <!-- 
-                <textarea  cdkDragBoundary=".example-boundary" cdkDrag   [style.font-size.px]="contentSize" [style.font-family]="fontFamilyNew" style="color:#FFFFFF; 
-          background-color: transparent;
-          width: 800px;
-          height: auto;overflow: hidden;
-          font-size:28px;font-weight:600;position: absolute;top:30px;font-family: 'Mynerve', cursive;
-          left: -52px;
-          border: 0;" id="w3review" name="w3review">
-           Training Camp
-        </textarea> -->
+                
                 <img *ngIf="!urls" src="assets/images/flyer-logo.png"
                   style="width:100px;height:30px; position: absolute;top:8px; background-color: white;">
                 <img cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls"
@@ -644,7 +642,7 @@
           width: 800px;padding-left: 52px;
           height: auto;overflow: hidden;
           font-size:36px;font-weight:800;
-          border: 0;" id="w3review" name="w3review" cdkDragBoundary=".example-boundary" cdkDrag>
+          border: 0;" id="w3review" name="w3review" >
 
       ARE YOU READY?
         </textarea><br>
@@ -788,6 +786,73 @@
 
 
           </div>
+
+
+   <!-- ====================-------------        Flyer-4------------------------------ -->
+   <div  *ngIf="templateShow=='flyer-fruit'" id="your-element" style="display: flex;background-image: url('assets/images/fruit-bg.jpg'); width: 800px;background-size: 100%;
+    background-repeat: no-repeat;height: 400px;">
+        <div style="width: 50%; position: relative">
+            <div style="">
+                <img  *ngIf="!urls" style="
+                    width: 74px;
+                    height: 24px;
+                    padding: 10px;" src="logo-8.png" />
+                    <img *ngIf="urls"  style="
+                    width: 74px;
+                    height: 24px;
+                    padding: 10px;" [src]="urls" />
+
+            </div>
+          
+          
+            <div style="position: absolute;top: 130px;
+          left:40px;
+          translate: 0px 10px;
+        ">
+<textarea  cdkDragBoundary=".example-boundary" cdkDrag style="
+background-color: transparent;
+width: 345px;
+height: 25px;
+border: 0;
+font-size: 20px;
+overflow: hidden;padding:0 10px;
+font-weight: 800;   font-family: 'Rosarivo', serif;
+" id="w3review" name="w3review" [style.font-size.px]="contentSize"
+                [style.font-family]="fontFamilyNew">
+Fruit
+</textarea>
+<textarea  cdkDragBoundary=".example-boundary" cdkDrag style="
+    background-color: transparent;
+    width: 422px;
+    height: 111px;
+    border: 0;
+    font-size: 36px;
+    overflow: hidden;
+    font-weight: 800;
+    font-family: 'Rosarivo', serif;
+" id="w3review" name="w3review"     [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew" cdkDrag>
+Fruit are 
+nature’s candy
+</textarea>
+
+            </div>
+
+           
+           
+           
+        </div>
+        <div   cdkDragBoundary=".example-boundary" cdkDrag style="width: 50%; position: relative">
+            <div style="position:absolute;border-radius:0 25px 0px 0;width:50px;height:100px">
+  <img  *ngIf="!url"style="width: 400px;"
+  src="assets/images/funfruit.png">
+  <img  *ngIf="url"style="width: 400px;"
+  [src]="url">
+            </div>
+       
+          
+        </div>
+
+    </div>
         </div>
 
       </div>

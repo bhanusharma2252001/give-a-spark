@@ -37,10 +37,10 @@ storyIndex =0;
 
 this.intervalId = setInterval(() => {
       this.updateText();
-    }, 100);
+    }, 300);
   this.interVal= setInterval(() => {
       this.updateStory();
-    }, 100);
+    }, 300);
     
   }
 

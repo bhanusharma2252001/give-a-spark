@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class HeaderComponent implements OnInit {
 public href:string=""
   userDetails: any;
   planDetails: any;
-  constructor(private router:Router, private api:SparkService, private _ngZone:NgZone,) { 
+   private channel = new BroadcastChannel('logout');
+  private logoutSubscription: Subscription;
+  constructor(private router:Router, private api:SparkService, private _ngZone:NgZone) { 
     this.api.updateImage.subscribe((res:any)=>{
       if(res==true) {
         this.profileData()
@@ -23,6 +26,16 @@ public href:string=""
     this.profileData();
     this.href=this.router.url;
     console.log(this.router.url)
+
+    this.logoutSubscription = this.api.getLogoutObservable()
+    .subscribe(() => {
+      this.channel.postMessage('logout'); // send logout message to all tabs
+    });
+  this.channel.onmessage = (event) => {
+    if (event.data === 'logout') {
+      this.logout(); // log out the user
+    }
+  };
   }
 
 
@@ -32,9 +45,9 @@ public href:string=""
 
   public logout() {
     // this.socialAuthService.signOut();
-    sessionStorage.clear();
-    localStorage.clear();
-    // this.api.requestSyncSessionStorage().clear();
+
+  this.api.logOutTab()
+  localStorage.clear();
     this.api.isLoggedIn = false;
     this.api.signOutExternal();
     this._ngZone.run(() => {

@@ -16,6 +16,7 @@ import { take } from 'rxjs';
 // import {NgxCroppedEvent, NgxPhotoEditorService} from "ngx-photo-editor";
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { NgxPhotoEditorService } from 'ngx-photo-editor';
+import { NgxSpinnerService } from 'ngx-spinner';
 // import ImageResize from 'quill-image-resize-module'
 // Quill.register('modules/imageResize', ImageResize)
 
@@ -145,7 +146,7 @@ export class EditFlyerComponent implements OnInit {
   flyerform:any;
   heading = 'Heading';
 
-  constructor( private fb: FormBuilder,private route: ActivatedRoute,private _ngZone: NgZone,private service: NgxPhotoEditorService
+  constructor( private fb: FormBuilder,private route: ActivatedRoute,private _ngZone: NgZone,private service: NgxPhotoEditorService, private spinner:NgxSpinnerService
 ){
 
   // this.flyerform = new FormGroup({
@@ -174,7 +175,11 @@ public delete(){
 
 
   ngOnInit() {
+    this.spinner.show();
 
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.form = new FormGroup({
       'text': new FormControl('<p><strong>Hello</strong> World!</p>'),
       'fontFamilyNew': new FormControl(''),
@@ -258,7 +263,9 @@ public delete(){
     }
   }
 
-
+// url = profile
+// urls= logo
+// imageUrl- bg
   onSelectFile1(event: any) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();

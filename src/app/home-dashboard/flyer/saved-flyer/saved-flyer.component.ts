@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-saved-flyer',
@@ -10,9 +11,14 @@ export class SavedFlyerComponent implements OnInit {
     { id: 1, name: 'Netanel Basal', isAdmin: true },
     { id: 2, name: 'John Due', isAdmin: false },
   ]
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
 }

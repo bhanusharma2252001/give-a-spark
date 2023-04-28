@@ -139,10 +139,12 @@ Animation=false;
 
    this.intervalId= setInterval(() => {
       this.updateText();
-    }, 500);
+    }, 300);
 
   }
-  
+  openGmail() {
+    window.open("https://mail.google.com/mail/", "_blank");
+  }
   updateText(): void {
     if (this.currentIndex >= this.text.length) {
       this.currentIndex = 0;

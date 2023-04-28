@@ -288,17 +288,17 @@ content!: string;
       designation: [''],
       email: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phoneNo:['',[Validators.pattern('[0-9 ]+')]],
-      companyWebsite:  ['', [ Validators.pattern(reg)]],
+      companyWebsite:  ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
       address: [''],
-      fbProfile:  ['', [ Validators.pattern(reg)]],
-      instagramProfile: ['', [ Validators.pattern(reg)]],
-      linkedInProfile: ['', [ Validators.pattern(reg)]],
-      youtubeChannel: ['', [ Validators.pattern(reg)]],
+      fbProfile:  ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      instagramProfile: ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      linkedInProfile: ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      youtubeChannel: ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
       quotesId: [''],
       quotes: [''],
       profileImage: [''],
       companyPhone: ['',[Validators.pattern('[0-9 ]+')]],
-      twitterProfile: ['', [ Validators.pattern(reg)]],
+      twitterProfile: ['', [ Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
       signatureName:['']
     })
 
@@ -312,7 +312,7 @@ content!: string;
     this.EventForm = this.fb.group({
       eventTitle: ['',Validators.required],
       eventName: ['',Validators.required],
-      eventLink: ['', [Validators.required,Validators.pattern(reg)]]
+      eventLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.footerForm = this.fb.group({
@@ -324,7 +324,7 @@ content!: string;
       customProfile3: [''],
       customProfile4: [''],
       imageTitle: [''],
-      imageLink: ['', [Validators.pattern(reg)]]
+      imageLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.disclaimerForm = this.fb.group({
@@ -332,20 +332,20 @@ content!: string;
     })
 
     this.bannerForm = this.fb.group({
-      bannerLink: ['', [Validators.pattern(reg)]]
+      bannerLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.downloadAppForm = this.fb.group({
       appName: [''],
-      appleAppLink: ['', [Validators.pattern(reg)]],
-      googleAppLink: ['', [Validators.pattern(reg)]]
+      appleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      googleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.customButtonForm=this.fb.group({
       customButtonText: ['',Validators.required],
-      customUrl: ['', [Validators.required,Validators.pattern(reg)]],
+      customUrl: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
     })
 
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
   scheduleText: ['',Validators.required], 
 })
     this.getTemplateId()
@@ -429,6 +429,12 @@ b.value= "Copied"
 }
 closeDiv() {
   this.isVisible = true;
+}
+
+
+
+openGmail() {
+  window.open("https://mail.google.com/mail/", "_blank");
 }
 
 setonGmail(){

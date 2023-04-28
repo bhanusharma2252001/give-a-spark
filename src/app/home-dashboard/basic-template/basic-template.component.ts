@@ -304,7 +304,7 @@ scheduleShape:any=0
     this.EventForm = this.fb.group({
       eventTitle: ['',Validators.required],
       eventName: ['',Validators.required],
-      eventLink: ['', [Validators.required,Validators.pattern(reg)]]
+      eventLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.footerForm = this.fb.group({
@@ -316,7 +316,7 @@ scheduleShape:any=0
       customProfile3: [''],
       customProfile4: [''],
       imageTitle: [''],
-      imageLink: ['', [Validators.pattern(reg)]]
+      imageLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.disclaimerForm = this.fb.group({
@@ -324,21 +324,21 @@ scheduleShape:any=0
     })
 
     this.bannerForm = this.fb.group({
-      bannerLink: ['', [Validators.pattern(reg)]]
+      bannerLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.downloadAppForm = this.fb.group({
       appName: [''],
-      appleAppLink: ['', [Validators.pattern(reg)]],
-      googleAppLink: ['', [Validators.pattern(reg)]]
+      appleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      googleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.customButtonForm=this.fb.group({
       customButtonText: ['',Validators.required],
-      customUrl: ['', [Validators.required,Validators.pattern(reg)]],
+      customUrl: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
     })
 
 this.scheduleForm=this.fb.group({
-  // scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
-  scheduleLink: ['', [Validators.required,Validators.pattern(this.urlPattern)]],
+  // scheduleLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+  scheduleLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
   scheduleText: ['',Validators.required], 
 })
   }

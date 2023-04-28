@@ -315,7 +315,7 @@ content!: string;
     this.EventForm = this.fb.group({
       eventTitle: ['',Validators.required],
       eventName: ['',Validators.required],
-      eventLink: ['', [Validators.required,Validators.pattern(reg)]]
+      eventLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.footerForm = this.fb.group({
@@ -327,7 +327,7 @@ content!: string;
       customProfile3: [''],
       customProfile4: [''],
       imageTitle: [''],
-      imageLink: ['', [Validators.pattern(reg)]]
+      imageLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
 
     this.disclaimerForm = this.fb.group({
@@ -335,20 +335,20 @@ content!: string;
     })
 
     this.bannerForm = this.fb.group({
-      bannerLink: ['', [Validators.pattern(reg)]]
+      bannerLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.downloadAppForm = this.fb.group({
       appName: [''],
-      appleAppLink: ['', [Validators.pattern(reg)]],
-      googleAppLink: ['', [Validators.pattern(reg)]]
+      appleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
+      googleAppLink: ['', [Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]]
     })
     this.customButtonForm=this.fb.group({
       customButtonText: ['',Validators.required],
-      customUrl: ['', [Validators.required,Validators.pattern(reg)]],
+      customUrl: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
     })
 
 this.scheduleForm=this.fb.group({
-  scheduleLink: ['', [Validators.required,Validators.pattern(reg)]],
+  scheduleLink: ['', [Validators.required,Validators.pattern(/^https:\/\/[\w.-]+(\.[\w]{2,})+[\w\-._~:/?#[\]@!$&'()*+,;=%]+$/)]],
   scheduleText: ['',Validators.required], 
 })
 
@@ -654,15 +654,14 @@ this.api.gmail(this.templateRef.outerHTML
     formData.append('attachment', this.uploadImage);
     this.api.addAttachments(formData).subscribe(
       (res: any) => {
-        console.log(res);
+     
         this.imageData1 = res;
         this.imageData2 = this.imageData1[0].key;
-        console.log(this.imageData1[0].key, "image key ")
+       
         this.toast.success('Image upload Successfully');
       },
       (err: any) => {
 
-        console.log(err);
         this.toast.error('File size is too big ');
       }
     )
