@@ -27,6 +27,15 @@
               <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-fruit.png" (click)="image15('flyer-fruit')">
               </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/watch-flyer.png" (click)="image15('watch-flyer')">
+              </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/Fashion sale flyer.jpg" (click)="image15('fashion-flyer')">
+              </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/girl-flyer.png" (click)="image15('girl-flyer')">
+              </div>
               <!-- <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-1.jpg" (click)="image1()">
               </div>
@@ -144,7 +153,7 @@
                 title="Upload">
                 <label class=" btn-sm center-block btn-file">
                   <img class="pb-1" src="assets/images/profile-upload.png">Upload
-                  <input  class="p-2" type="file" style="display: none;" (change)="onSelectFile($event);">
+                  <input  class="p-2" type="file" style="display: none;" accept="image/gif, image/jpeg, image/png" (change)="onSelectFile($event);">
                 </label>
               </button>
 
@@ -156,19 +165,19 @@
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Logo">
                 <label class=" btn-sm center-block btn-file">
                   <img class="pb-1" src="assets/images/logo-upload.png">Logo
-                  <input  type="file" style="display: none;" (change)="onSelectFile1($event);">
+                  <input  type="file" style="display: none;" accept="image/gif, image/jpeg, image/png" (change)="onSelectFile1($event);">
                 </label>
               </button>
             </div>
-            <div class="col-auto">
+            <!-- <div class="col-auto">
               <button type="button" class="btn btn-icon" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Background">
                 <label class=" btn-sm center-block btn-file">
                   <img class="pb-1" src="assets/images/image upload.png">Background
-                  <input type="file" style="display: none;" (change)="onSelectFileImage($event);">
+                  <input type="file" style="display: none;" accept="image/gif, image/jpeg, image/png" (change)="onSelectFileImage($event);">
                 </label>
               </button>
-            </div>
+            </div> -->
 
 
 
@@ -796,7 +805,7 @@
                 <img  *ngIf="!urls" style="
                     width: 74px;
                     height: 24px;
-                    padding: 10px;" src="logo-8.png" />
+                    padding: 10px;" src="./images/logo-8.png" />
                     <img *ngIf="urls"  style="
                     width: 74px;
                     height: 24px;
@@ -853,6 +862,299 @@ nature’s candy
         </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- --------------------------watch -flyer----------------------- -->
+    <div  *ngIf="templateShow=='watch-flyer'" id="your-element"  style="display: flex;background-image: url('assets/images/bg-9.jpg'); width: 800px;background-size: 100%;
+    background-repeat: no-repeat;height: 400px;">
+        <div style="width: 50%; position: relative">
+            <div style="">
+                <img *ngIf="!urls" style="
+                    width: 90px;
+                    height: 54px;
+                    padding: 10px;" src="assets/images/logo-9.jpg" />
+ <img *ngIf="urls"  style="
+ width: 90px;
+ height: 54px;
+ padding: 10px;" [src]="urls" />
+            </div>
+          
+          
+            <div style="position: absolute;top: 130px;
+          left:40px;
+          translate: 0px 10px;
+        ">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag style="
+background-color: transparent;
+width: 345px;
+height: 25px;
+border: 0;color:#1D9DC6;
+font-size: 16px;
+overflow: hidden;padding:0 10px;
+font-weight: 800; font-family: 'Kaushan Script', cursive;
+" id="w3review" name="w3review"  [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew">
+New Arrivals
+</textarea>
+<textarea [style.font-size.px]="contentSize"
+[style.font-family]="fontFamilyNew" cdkDragBoundary=".example-boundary" cdkDrag  style="
+    background-color: transparent;
+    width: 422px;
+    height: 40px;
+    border: 0;color:#FAC41B;
+    font-size: 45px;
+    overflow: hidden;
+    font-weight: 500;
+    font-family: 'Rosarivo', serif;
+" id="w3review" name="w3review">
+SMART 
+
+</textarea>
+<textarea  cdkDragBoundary=".example-boundary" cdkDrag style="
+    background-color: transparent;
+    width: 422px;
+    height: 111px;color:#fff;
+    border: 0;
+    font-size: 45px;
+    overflow: hidden;
+    font-weight: 500;
+    font-family: 'Rosarivo', serif;
+" id="w3review" name="w3review" [style.font-size.px]="contentSize"
+                [style.font-family]="fontFamilyNew">
+WATCH
+</textarea>
+
+            </div>
+
+           
+           
+           
+        </div>
+        <div style="width: 50%; position: relative">
+            <div style="position:absolute;top:126px;left: 131px;border-radius:0 25px 0px 0;width:50px;height:100px" cdkDragBoundary=".example-boundary" cdkDrag>
+  <img style="width: 170px;"
+  src="assets/images/profile-9.png" *ngIf="!url">
+  <img  *ngIf="url"style="    height: 207px;
+  width: 212px;
+  border-radius: 51%;;"
+  [src]="url">
+ 
+
+            </div>
+       
+          
+        </div>
+
+    </div>
+
+
+<!-- --------------------------fashion-flyer-------------------- -->
+<div  *ngIf="templateShow=='fashion-flyer'" id="your-element" style="display: flex;background-image: url('assets/images/fashion-bg.jpg'); width: 800px;background-size: 100%;
+background-repeat: no-repeat;height: 400px;">
+    <div style="width: 50%; position: relative">
+        <div style="">
+            <img   *ngIf="!urls" style="
+               
+                padding: 10px;" src="assets/images/fashion-logo.png" />
+                 <img style="width: 50%; position: relative;  height: 32px;;" cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls" />
+
+        </div>
+      
+      
+        <div style="position: absolute;top: 100px;
+      left:155px;
+      translate: 0px 10px;
+    ">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag style="
+background-color: transparent;
+width: 345px;
+height: 25px;
+border: 0;color:#E9AD01;
+font-size: 16px;
+overflow: hidden;padding:0 10px;
+font-weight: 800; font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review" [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew">
+New Arrivals
+</textarea>
+</div>
+<div style="position: absolute;top: 118px;
+left:70px;
+translate: 0px 10px;
+">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag  style="
+background-color: transparent;
+width: 422px;
+height: 70px;
+border: 0;color:#EA5839;
+font-size: 45px;
+overflow: hidden;
+font-weight: 800;
+font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review" [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew">
+Just For You
+
+</textarea>
+</div><div style="position: absolute;top: 170px;
+left:40px;
+translate: 0px 10px;
+">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag style="
+background-color: transparent;
+width: 380px;
+height: 111px;
+border: 0;
+
+overflow: hidden;
+font-weight: 500;
+font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review" [style.font-size.px]="contentSize"
+[style.font-family]="fontFamilyNew">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+</textarea>
+
+        </div>
+
+       
+       
+       
+    </div>
+    <div style="width: 50%; position: relative">
+        <div style="position:absolute;top:126px;left: 131px;border-radius:0 25px 0px 0;width:50px;height:100px" cdkDragBoundary=".example-boundary" cdkDrag>
+<img style="width: 170px;"
+src="assets/images/profile-10.png" *ngIf="!url">
+<img style="    border-radius: 50%;
+width: 257px;
+height: 258px;
+position: relative;
+right: 51px;
+bottom: 39px;
+"  *ngIf="url"
+  [src]="url">
+
+        </div>
+   
+      
+    </div>
+
+</div>
+
+
+<!-- -------------------------girl-flyer-------------- -->
+
+<div *ngIf="templateShow=='girl-flyer'" id="your-element"  style="display: flex;background-image: url('assets/images/bg-11.jpg'); width: 800px;background-size: 100%;
+background-repeat: no-repeat;height: 400px;">
+    <div style="width: 50%; position: relative">
+        <div style="">
+            <img *ngIf="!urls" style="width:100px;
+                
+                padding: 10px;" src="assets/images/logo-11.png" />
+                  <img style="width:100px;" cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls" />
+
+        </div>
+      
+      
+        <div style="position: absolute;top: 100px;
+      left:155px;
+      translate: 0px 10px;
+    ">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag  style="
+background-color: transparent;
+width: 345px;
+height: 25px;
+border: 0;color:#E9AD01;
+font-size: 16px;
+overflow: hidden;padding:0 10px;
+font-weight: 800; font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review" [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew">
+New Arrivals
+</textarea>
+</div>
+<div style="position: absolute;top: 118px;
+left:70px;
+translate: 0px 10px;
+">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew" style="
+background-color: transparent;
+width: 422px;
+height: 70px;
+border: 0;color:#fff;
+font-size: 45px;
+overflow: hidden;
+font-weight: 800;
+font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review">
+Just For You
+
+</textarea>
+</div><div style="position: absolute;top: 170px;
+left:40px;
+translate: 0px 10px;
+">
+<textarea cdkDragBoundary=".example-boundary" cdkDrag style="
+background-color: transparent;
+width: 380px;
+height: 111px;
+border: 0;
+color:#fff;
+overflow: hidden;
+font-weight: 500;
+font-family: 'Inter', sans-serif;
+" id="w3review" name="w3review" [style.font-size.px]="contentSize"
+[style.font-family]="fontFamilyNew">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+</textarea>
+
+        </div>
+
+       
+       
+       
+    </div>
+    <div style="width: 50%; position: relative">
+        <div style="position:absolute;top:126px;left: 131px;border-radius:0 25px 0px 0;width:50px;height:100px" cdkDragBoundary=".example-boundary" cdkDrag>
+<img style="width: 170px;"
+src="assets/images/profile-11.png" *ngIf="!url">
+
+<img style="    border-radius: 50%;
+width: 257px;
+height: 258px;
+position: relative;
+right: 51px;
+bottom: 39px;
+"  *ngIf="url"
+  [src]="url">
+        </div>
+   
+      
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
 
       </div>
