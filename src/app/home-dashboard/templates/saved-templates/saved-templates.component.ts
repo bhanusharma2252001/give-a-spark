@@ -22,12 +22,13 @@ export class SavedTemplatesComponent implements OnInit {
   @ViewChildren('tableData')tableData! : QueryList<ElementRef>
   @ViewChild('request', { static: true }) request: ElementRef;
   @ViewChild('textElement') textElement: ElementRef;
-// chrome: any;
+  @ViewChild('myVideo') videoPlayer: ElementRef;
 text = `You haven't created an Email signature.`;
 currentIndex = 0;
 
 Animation=false;
 
+isPlaying: boolean = false;
 
 
  logotext="Cookies for outlook"
@@ -449,5 +450,13 @@ setOnOutlook(){
     })
    
     }
-
+    toggleVideo() {
+      if (this.isPlaying) {
+        this.videoPlayer.nativeElement.pause();
+        this.isPlaying = false;
+      } else {
+        this.videoPlayer.nativeElement.play();
+        this.isPlaying = true;
+      }
+    }
   }

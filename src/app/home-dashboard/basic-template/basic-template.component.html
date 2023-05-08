@@ -796,12 +796,22 @@
                           <td style="padding:5px 15px;" colspan="2">
 
                             <p style="font-size:12px;">
-                              <q *ngIf="tempDetails?.quotesId?.quotesName">
+                              <q *ngIf="tempDetails?.quotesId?.quotesName && !LongQuote && !quotevar ">
                                 {{tempDetails?.quotesId?.quotesName}}
                               </q>
                               <q *ngIf="quotevar">
                                 {{quotevar}}
                               </q>
+
+
+
+                            </p>
+                            
+                            <p style="font-size:12px;">
+                              <q *ngIf="LongQuote">
+                                {{LongQuote}}
+                              </q>
+                              
 
 
 

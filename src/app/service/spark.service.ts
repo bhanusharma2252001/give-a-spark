@@ -563,7 +563,7 @@ export class SparkService {
   }
 
   getTicketList(): Observable<any> {
-    return this.http.get(environment.localApiURL + '/api/Ticket/getTicketList', {
+    return this.http.get(environment.localApiURL + '/api/Ticket/getTicketListByUser', {
       headers: {
         Authorization: `bearer ${this.token}`
       },

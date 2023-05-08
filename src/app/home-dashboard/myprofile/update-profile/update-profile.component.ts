@@ -76,18 +76,18 @@ profile:['']
 
   }
   getbasicDetails() {
-    this.api.getbasicDetaiofUseer().subscribe((res: any) => {
-      this.details = res.result[0];
-this.profile=res.result[0]?.profile
-      this.userName = res.result[0]?.firstName
-      this.Email=res.result[0].email
-      this.compname = res.result[0]?.companyName
-      this.compwebsite = res.result[0]?.companyWebsite
-      this.number = res.result[0]?.phone
-this.addr=res.result[0]?.address[0]?.addressline1
-this.designation=res.result[0]?.designation
-this.yBio=res.result[0]?.yourBio
-this.countryName=res.result[0]?.country
+    this.api.myProfile().subscribe((res: any) => {
+      this.details = res[0];
+this.profile=res[0]?.profile
+      this.userName = res[0]?.firstName
+      this.Email=res[0].email
+      this.compname = res[0]?.companyName
+      this.compwebsite = res[0]?.companyWebsite
+      this.number = res[0]?.phone
+this.addr=res[0]?.address[0]?.addressline
+this.designation=res[0]?.designation
+this.yBio=res[0]?.yourBio
+this.countryName=res[0]?.country
       console.log(this.compwebsite, 'jojo')
 
       console.log(this.details),

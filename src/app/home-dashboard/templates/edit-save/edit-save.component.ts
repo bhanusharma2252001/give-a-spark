@@ -772,7 +772,7 @@ this.userProfile=data?.profileImage
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
-      this.QuoteId = data?.quotesId
+      this.QuoteId = data?.quotesId?._id
       if (localStorage.getItem('templatequoteId')) {
         this.QuoteId = localStorage.getItem('templatequoteId')
   
@@ -784,6 +784,7 @@ this.userProfile=data?.profileImage
   
       }
 
+console.log(this.QuoteId,' idid')
       this.getScheduleData()
       this.getDisclamierData()
       this.getFooterData()
@@ -954,7 +955,7 @@ console.log(this.code);
   
       }
     }
-    
+    console.log(this.QuoteId, 'longquotesllll')
   }
 
 

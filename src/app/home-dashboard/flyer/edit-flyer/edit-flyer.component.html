@@ -36,6 +36,12 @@
               <div class="mt-4">
                 <img class="w-250" src="assets/images/girl-flyer.png" (click)="image15('girl-flyer')">
               </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/interior-flyer.jpg" (click)="image15('interior-flyer')">
+              </div>
+              <div class="mt-4">
+                <img class="w-250" src="assets/images/Lawyer-flyer.jpg" (click)="image15('Lawyer-flyer')">
+              </div>
               <!-- <div class="mt-4">
                 <img class="w-250" src="assets/images/flyer-1.jpg" (click)="image1()">
               </div>
@@ -1144,15 +1150,156 @@ bottom: 39px;
 
 
 
+<!-- -----------------------interior -flyer----- -->
 
 
+<div  *ngIf="templateShow=='interior-flyer'" id="your-element"  style="display: flex;background-image: url('assets/images/interior template background.jpg'); width: 800px;background-size: 100%;
+background-repeat: no-repeat;height: 392px; border: 2px solid blue;">
+    <div style="width: 30%; position: relative">
+        <img  style="
+        width: 27%;
+    " src="assets/images/interior logo.jpg">
+            <img  style="padding: 10px!important;
+            position: absolute!important;
+            bottom: 59px!important;
+            width: 57%!important;
+            left: 40px!important;
+            padding: 10px;
+            z-index: 10;" src="assets/images/interior-2.png">
+            <img style=" padding: 10px!important;
+            position: absolute!important;
+            bottom: 95px!important;
+            width: 91%!important;
+            left: 84px!important;"  src="assets/images/home img.jpg">
+
+    </div>
+    <div style="width: 50%;position: relative;bottom: -30px;">
+        <div style="position:absolute;top:70px;left: 131px;border-radius:0 25px 0px 0;width:50px;height:100px">
+            <div class="mb-3">
+                <textarea style="
+                background-color: transparent; 
+                height: 35px;
+                border: 0;
+                font-size: 30px;
+                overflow: hidden;
+                font-weight: 400;
+                font-family: 'Inter', sans-serif;" id="exampleFormControlTextarea1" rows="3">Modern</textarea>
+              </div>
+              <div  style="margin-bottom: 3px;  border: none;
+              width: 50%;">
+                <textarea style="
+                background-color: transparent;
+                height: 50px;
+                border: 0;
+                font-size: 30px;
+                overflow: hidden;
+                font-weight: 400;
+                font-family: 'Inter', sans-serif;"id="exampleFormControlTextarea1" rows="3">Interior Design</textarea>
+              </div>
+              <div class="mb-3">
+                <textarea  style="
+                background-color: transparent;
+                width: 380px;
+                height: 100px;
+                border: 0;
+                overflow: hidden;
+                font-weight: 500;
+                font-family: 'Inter', sans-serif;"id="exampleFormControlTextarea1" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rem veniam ipsam. Doloremque placeat veniam voluptatem officia ipsam inventore, nesciunt eos aperiam corrupti, quo quam? Mollitia, quas nesciunt? Eveniet, voluptatum?</textarea>
+                
+              </div>
+
+        </div>
+   
+      
+    </div>
+
+</div>
+
+<!-- -----------------------lawyer-flyer--------------- -->
 
 
+<div  *ngIf="templateShow=='Lawyer-flyer'" id="your-element"  style="display: flex;background-image: url('assets/images/Lawyer background.jpg'); width: 800px;background-size: 100%;
+background-repeat: no-repeat;height: 392px; border: 2px solid blue;">
+ <div style="width: 35%;position: relative;bottom: 0px;">
+    <img *ngIf="!urls"  style="
+        width: 27%;
+    " src="assets/images/lawyer logo.png">
+    <img style=" width: 27%;" cdkDragBoundary=".example-boundary" cdkDrag *ngIf="urls" [src]="urls" />
+    
+    <div style="position:absolute;top:80px;left: 52px;border-radius:0 25px 0px 0;width:50px;height:100px">
+        <div class="mb-3">
+            <textarea cdkDragBoundary=".example-boundary" cdkDrag style="
+            background-color: transparent; 
+            height: 45px;
+            border: 0;
+            font-size: 40px;
+            overflow: hidden;
+            font-weight: 600;
+            color: blue;
+            font-family: 'Inter', sans-serif;" id="exampleFormControlTextarea1" rows="3" [style.font-size.px]="HeadingSize" [style.font-family]="fontFamilyNew">Be</textarea>
+          </div>
+          <div  style="margin-bottom: 0px;  border: none;
+          width: 50%;">
+            <textarea cdkDragBoundary=".example-boundary" cdkDrag [style.font-size.px]="contentSize"
+            [style.font-family]="fontFamilyNew" style="
+            background-color: transparent;
+            height: 50px;
+            border: 0;
+            font-size: 40px;
+            overflow: hidden;
+            font-weight: 600;
+            color: blue;
+            font-family: 'Inter', sans-serif;"id="exampleFormControlTextarea1" rows="3">Professional</textarea>
+          </div>
+          <div class="mb-3">
+            <textarea cdkDragBoundary=".example-boundary" cdkDrag [style.font-size.px]="contentSize"
+            [style.font-family]="fontFamilyNew" style="
+            background-color: transparent;
+            width: 380px;
+            height: 100px;
+            border: 0;
+            color: blue;
+            font-size: 40px;
+            overflow: hidden;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;"id="exampleFormControlTextarea1" rows="3">In Law</textarea>
+          </div>
+    </div>      
+</div>
+    <div style="width: 50%;position: relative;bottom: -30px;">
+        <div style="position:absolute;top:70px;left: 131px;border-radius:0 25px 0px 0;width:50px;height:100px">
+              <div style="width: 30%; position: relative">
+                <div style="border-radius: 50%;
+                background-color: purple;
+                height: 238px;
+                width: 235px;
+                position: relative;
+                left: -23px;
+                top: -22px;">
+                    <img *ngIf="!url" style="padding: 10px!important;
+                    position: absolute!important;
+                    bottom: -3px!important;
+                    width: 221px!important;
+                    left: -3px!important;
+                    padding: 10px;
+                    z-index: 10;" src="assets/images/lawyer model.jpg" cdkDragBoundary=".example-boundary" cdkDrag>
+                     <img *ngIf="url" style="padding: 10px!important;
+                     position: absolute!important;
+                     bottom: -3px!important;
+                     width: 221px!important;
+                     left: -3px!important;
+                     padding: 10px;
+                     z-index: 10;" [src]="url" cdkDragBoundary=".example-boundary" cdkDrag>
+                     
+                    
+                    </div>
+            </div>
+        </div>
+   
+      
+    </div>
 
-
-
-
-
+</div>
 
 
         </div>

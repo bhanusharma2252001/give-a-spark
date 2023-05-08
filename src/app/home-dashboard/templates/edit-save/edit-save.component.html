@@ -997,10 +997,10 @@
 
                       </td>
 
-                      <td style="padding-left:10px" colspan="2">
+                      <td style="padding-left:10px" colspan="2" >
 
                         <p style="font-size:12px;">
-                          <q *ngIf="details?.quotesId?.quotesName">
+                          <q *ngIf="details?.quotesId?.quotesName && !LongQuote && !quotevar">
                             {{details?.quotesId?.quotesName}}
                           </q>
                           <q *ngIf="quotevar">
@@ -1010,8 +1010,9 @@
 
 
                         </p>
+                        <p style="font-size:12px; " *ngIf="LongQuote" >{{LongQuote}}</p>
                       </td>
-
+                    
                     </tr>
                     <tr *ngIf="videoUrl">
                       <td colspan="3" [style.text-align]="youtubeAlignment">

@@ -52,6 +52,7 @@ export class QuoteDashboardComponent implements OnInit {
   getQuoteEvent(event: any, data: any) {
     this.quotedata = data;
     this.quoteId = this.quotedata._id;
+    console.log(this.quoteId, 'id of quote id')
     this.LongQuotes = data?.quotesName
     console.log(this.templateId,this.templatesId,'SAQ');
     

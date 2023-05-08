@@ -21,7 +21,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: baseline;text-align: center;padding: 5px">
+                    <td style="vertical-align: baseline;text-align: center;padding: 5px; border-right: solid 1px #BDBDBD;"  *ngIf="details?.profileImage || details?.logo">
                         <div *ngIf="details?.profileImage">
                             <img style="width: 72px;
                     vertical-align: middle; height: 65px;border-radius:50%;"
@@ -47,7 +47,7 @@
                         </div>
                     </td>
                     <td
-                        style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top; border-left: solid 1px #BDBDBD; ">
+                        style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top;">
                         <h5 *ngIf="details?.yourName" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
                 line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
                             [style.color]="details?.templateDesign?.firstNameColor"
@@ -115,19 +115,19 @@
 
                         <div style="padding:10px;border-radius:  10px 10px 0 0;" *ngIf="planDetail=='Plan C'">
                             <span *ngIf="details?.fbProfile">
-                                <a href="{{details?.fbProfile}}"><img
+                                <a href="{{details?.fbProfile}}"  target="_blank"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/fb-1.png"></a>
                             </span>
-                            <span *ngIf="details?.twitterProfile"><a href="{{details?.twitterProfile}}"><img
+                            <span *ngIf="details?.twitterProfile"><a href="{{details?.twitterProfile}}" target="_blank"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/tt-1.png"></a></span>
                             <span *ngIf="details?.linkedInProfile">
-                                <a href="{{details?.linkedInProfile}}"><img
+                                <a href="{{details?.linkedInProfile}}" target="_blank"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/ln-1.png"></a>
                             </span><span *ngIf="details?.instagramProfile">
-                                <a href="{{details?.instagramProfile}}"><img
+                                <a href="{{details?.instagramProfile}}" target="_blank"><img
                                         style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
                                         src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/it-1.png"></a>
                             </span>
@@ -485,7 +485,23 @@
                              If you’re using Chrome download our Chrome extension and follow the instructions in the Chrome Web Store.
                              
                             </p>
-                            <a href="https://chrome.google.com/webstore/detail/give-a-spark/jidgbkbacnjgfgdoamjkjndhjloopdhg/related?hl=en&authuser=0">Chrome Extension</a></div>
+                            <a href="https://chrome.google.com/webstore/detail/give-a-spark/jidgbkbacnjgfgdoamjkjndhjloopdhg/related?hl=en&authuser=0">Chrome Extension</a>
+
+                            
+                            <div class="video-container">
+                                <video #myVideo (click)="toggleVideo()" width="400" height="200">
+                                    <source src="assets/images/yahoo-video.mp4" type="video/mp4">
+                                </video>
+                                <button class="play-pause-btn" (click)="toggleVideo()">
+                                  <i class="fas" [ngClass]="{'fa-play': !isPlaying, 'fa-pause': isPlaying}"></i>
+                                </button>
+                              </div>
+                              </div>
+
+
+                         
+                         
+                              
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
                             aria-labelledby="v-pills-messages-tab"><h4>How do I add my new email signature to Outlookweb?</h4>
                             <p>
