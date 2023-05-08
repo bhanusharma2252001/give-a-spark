@@ -200,9 +200,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 
 .bell-position {
-  position: absolute;
-  font-size: 35px;
-  top: -6px;
+  position: absolute !important;
+  font-size: 32px !important;
+  top: -6px !important;
 }
 
 ::-webkit-scrollbar {

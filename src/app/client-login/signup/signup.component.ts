@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
 
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
   isLoggedin?: boolean = undefined;
   token:any;
 
-  constructor(private fb:FormBuilder, private sparkService:SparkService, private toast:ToastrService, private _Router:Router, private _ngZone: NgZone) { 
+  constructor(private fb:FormBuilder, private sparkService:SparkService, private spinner: NgxSpinnerService, private toast:ToastrService, private _Router:Router, private _ngZone: NgZone) { 
     this.signupForm=this.fb.group({
           firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
         email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -61,30 +62,59 @@ export class SignupComponent implements OnInit {
     return this.signupForm.controls;
   }
 
-  onSubmit() {
-  
+
+  success(data: any) {
+    // debugger
+    this.tokenValue = data.token;
+    if (data) {
+
+      sessionStorage.setItem('ClientSpark', this.tokenValue);
+      localStorage.setItem('ClientSpark', this.tokenValue);
+      this.sparkService.isLoggedInAdmin();
+      console.log(this.sparkService.isLoggedIn);
+    console.log(data?.reult?.roleId ,'roleid');
+    
+      if(data?.reult?.roleId == 0) {
+        sessionStorage.setItem('roleId', data?.reult?.roleId);
+        // this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard/user-profile']);
+            // }) 
+
+      } 
+      // else {
+      //   sessionStorage.setItem('roleId', data?.result?.roleId);
+      //   this._Router.navigate(['home-dashboard/author/authordashboard'])
+      // }
+      this.spinner.show();
+
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
+      
+    }
+    
+  }
+  getbasicDetails(){
+    this.sparkService.getbasicDetaiofUseer().subscribe((res:any)=>{
+let userDetail=res.result[0];
+      if(userDetail?.firstName && userDetail?.email && userDetail?.companyName && userDetail?.companyWebsite && userDetail?.phone && userDetail?.stdCode) {
+       
+        this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard/home-page']);
+        }) 
+
+      } else {
+        this._ngZone.run(() => {
+          this._Router.navigate(['home-dashboard/user-profile']);
+        }) 
+     
+      }
+    })
+
+
+
   }
 
-  // success(data: any) {
-  //   // debugger
-  //   this.tokenValue = data.token;
-  //   if (data) {
-  //     sessionStorage.setItem('ClientSpark', this.tokenValue);
-  //     this.sparkService.isLoggedInAdmin();
-  //     console.log(this.sparkService.isLoggedIn);
-  //     // if(data?.result?.roleId == 0) {
-
-  //       // sessionStorage.setItem('roleId', data?.result?.roleId);
-  //       this._Router.navigate(['home-dashboard']);
-  //     // } 
-  //     // else {
-  //     //   sessionStorage.setItem('roleId', data?.result?.roleId);
-  //     //   this._Router.navigate(['home-dashboard/author/authordashboard'])
-  //     // }
-      
-      
-  //   }
-  // }
 
   signup(){
     this.submitted = true;
@@ -101,34 +131,19 @@ export class SignupComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.toast.success('Logged in Successfully');
-   
-        this.success(res);
+  
+ 
 
      sessionStorage.setItem('username', this.signupForm.value.firstName)
      sessionStorage.setItem('email', this.signupForm.value.email)
-        this._Router.navigate(['/']);
+     this.success(res);
       },
       (error) => {
         this.toast.error('please try again');
       }
     );
   }
-  success(data: any) {
-    // debugger
-    this.tokenValue = data.token;
-    if (data) {
-      sessionStorage.setItem('ClientSpark', this.tokenValue);
-      this.sparkService.isLoggedInAdmin();
-      console.log(this.sparkService.isLoggedIn);
-     
-      // else {
-      //   sessionStorage.setItem('roleId', data?.result?.roleId);
-      //   this._Router.navigate(['home-dashboard/author/authordashboard'])
-      // }
-      
-      
-    }
-  }
+
 
 
 

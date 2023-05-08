@@ -34,14 +34,8 @@ export class EnterEmailComponent implements OnInit {
       this.router.navigate(["client-login/enter-otp"])
     }),  (error) => {
       console.log(error.error.error, 'erroro')
-      // this.toast.error('please try again');
-      if(
-        error.error.error = "Email already exists"
-      ){
-
-        this.router.navigate(['client-login/signup'])
-      }
-      // this.toast.error(error.error.body);
+  
+      this.toast.error(error.error.body);
     }
     )
 

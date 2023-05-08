@@ -62,9 +62,10 @@ token:any;
   ngOnInit(): void {
     // setTimeout(() => { this.getData()
     // this.googleAuthSDK();}, 1000 * 10)
- if (sessionStorage.getItem('email'))
- this.Email=sessionStorage.getItem('email')
- sessionStorage.removeItem('email')
+ if (sessionStorage.getItem('email')) {
+  this.Email=sessionStorage.getItem('email')
+ }
+//  sessionStorage.removeItem('email')
 
 //  this.isLoggedInAdmin();
     // this.spinner.show();
@@ -85,7 +86,10 @@ token:any;
 
  }
  ngOnDestroy() {
+  if(this.intervalId){
    clearInterval(this.intervalId); // clear the interval on component destruction
+
+  }
  }
   getData() {
     this.socialAuthService.authState.subscribe((user) => {
