@@ -18,6 +18,9 @@ import { Location } from '@angular/common';
   encapsulation: ViewEncapsulation.None
 })
 export class EditTemplateComponent implements OnInit {
+  outlookWebUrl: string = 'https://outlook.com';
+yahooMailUrl: string = 'https://mail.yahoo.com';
+isPlaying: boolean = false;
   dataForApps:any
   details: any;
   username: any;
@@ -28,6 +31,7 @@ export class EditTemplateComponent implements OnInit {
   designFontSize:any=3
   designLineHeigh:any=3
 img:boolean=true;
+@ViewChild('myVideo') videoPlayer: ElementRef;
   @ViewChild('tableData',{static:false})tableData!:ElementRef
   editTemplateForm: FormGroup
   planShow = false;
@@ -2195,10 +2199,23 @@ delBanner(){
   })
  }
 
+ toggleVideo() {
+  if (this.isPlaying) {
+    this.videoPlayer.nativeElement.pause();
+    this.isPlaying = false;
+  } else {
+    this.videoPlayer.nativeElement.play();
+    this.isPlaying = true;
+  }
+}
 
 
-
-
+ openOutlookWeb() {
+  window.open(this.outlookWebUrl, '_blank');
+}
+openYahooMail() {
+  window.open(this.yahooMailUrl, '_blank');
+}
 
 
 

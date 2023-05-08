@@ -765,7 +765,7 @@ this.api.gmail(this.templateRef.outerHTML
       this.compPhone = data?.companyPhone
       this.desig = data?.designation
       this.addr = data?.address
-      this.quotevar=data?.quotes
+      this.quotevar=data?.quotesId?.quotesName
       this.insta = data?.instagramProfile
       this.uTube = data?.youtubeChannel
 this.userProfile=data?.profileImage
@@ -784,7 +784,6 @@ this.userProfile=data?.profileImage
   
       }
 
-console.log(this.QuoteId,' idid')
       this.getScheduleData()
       this.getDisclamierData()
       this.getFooterData()
@@ -952,10 +951,10 @@ console.log(this.code);
       }
       if (localStorage.getItem('templateLongQuotes')) {
         this.LongQuote = localStorage.getItem('templateLongQuotes')
-  
+  this.quotevar = this.LongQuote
       }
     }
-    console.log(this.QuoteId, 'longquotesllll')
+    
   }
 
 
@@ -1844,7 +1843,7 @@ getScheduleIcon(event: any, data: any){
         borderRadius: this.borderRadius
 
       },
-      quotesId:data.quotesId,
+      quotesId:this.QuoteId,
       quotes: this.quotevar,  
       companyPhone: data.companyPhone,
       profileImage:this.imageData2?this.imageData2:this.userProfile,

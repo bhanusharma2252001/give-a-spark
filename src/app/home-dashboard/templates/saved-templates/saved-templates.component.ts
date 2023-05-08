@@ -25,7 +25,8 @@ export class SavedTemplatesComponent implements OnInit {
   @ViewChild('myVideo') videoPlayer: ElementRef;
 text = `You haven't created an Email signature.`;
 currentIndex = 0;
-
+outlookWebUrl: string = 'https://outlook.com';
+yahooMailUrl: string = 'https://mail.yahoo.com';
 Animation=false;
 
 isPlaying: boolean = false;
@@ -458,5 +459,11 @@ setOnOutlook(){
         this.videoPlayer.nativeElement.play();
         this.isPlaying = true;
       }
+    }
+    openOutlookWeb() {
+      window.open(this.outlookWebUrl, '_blank');
+    }
+    openYahooMail() {
+      window.open(this.yahooMailUrl, '_blank');
     }
   }
