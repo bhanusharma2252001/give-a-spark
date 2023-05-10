@@ -39,5 +39,11 @@
     background-color:#d7c58c !important ;
     color:white ;
     border: 1px solid #d7c58c;
-  }  
+  } 
+  .dekstop-menu {
+    margin-top: -3px;
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+} 
   

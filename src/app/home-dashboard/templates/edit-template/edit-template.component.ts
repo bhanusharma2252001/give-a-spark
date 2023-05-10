@@ -282,6 +282,7 @@ content!: string;
   @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   bindData: any;
   displayTab: any;
+  std: any;
 
   constructor(private api: SparkService, private dialog: MatDialog,myElement: ElementRef,private route: ActivatedRoute,private location: Location,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner:NgxSpinnerService) {
@@ -1000,6 +1001,8 @@ this.title=data?.signatureName
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
 this.userProfile=data?.profileImage
+this.std=data?.stdCode
+
 console.log(this.logo,';naskjxbaskjbxakjwcbxdbs');
 
       this.QuoteId = data?.quotesId

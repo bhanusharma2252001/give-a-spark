@@ -146,7 +146,6 @@ export class SparkService {
 
 
 
-
   // userProfile
 
   basicDetailofUser(data: any): Observable<any> {
@@ -729,6 +728,15 @@ delProGallery(id: any){
     },
   });
 
+}
+
+// -----------------Notification-------------------
+getNotifications(): Observable<any> {
+  return this.http.get(environment.localApiURL + '/api/Notification/getNotificationByUser', {
+    headers: {
+      Authorization: `bearer ${this.token}`
+    },
+  });
 }
 }
 

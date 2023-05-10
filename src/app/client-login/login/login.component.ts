@@ -79,17 +79,17 @@ token:any;
    
     
     this.getData()
-    this.intervalId =  setInterval(() => {
+    // this.intervalId =  setInterval(() => {
       this.googleAuthSDK();
-      console.log('google login')}, 1000);
+      // console.log('google login')}, 1000);
 
 
  }
  ngOnDestroy() {
-  if(this.intervalId){
-   clearInterval(this.intervalId); // clear the interval on component destruction
+  // if(this.intervalId){
+  //  clearInterval(this.intervalId); // clear the interval on component destruction
 
-  }
+  // }
  }
   getData() {
     this.socialAuthService.authState.subscribe((user) => {

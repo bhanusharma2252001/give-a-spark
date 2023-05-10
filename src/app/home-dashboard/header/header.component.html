@@ -67,14 +67,16 @@
           </div> -->
     <div class="col-md-2 col-lg-2 align-self-center text-center logo-bg position-relative">
       <div class="gif_img">
-        <img src="assets/images/gif_left.gif" alt="" class="gif_style">
+        <div class="gif_style">
         <a class="navbar-brand d-flex justify-content-center" href="assets/index.html">
           <img src="assets/images/logo(round).png" class="img-fl ms-4 position-absolute">
         </a>
       </div>
+      </div>
     </div>
     <div class="col-md-8 col-lg-8">
-      <nav class="container">
+      <nav class="container" style="
+      margin-bottom: 10px;">
         <div class="d-flex align-items-center justify-content-evenly">
           <div class="col-md-9 col-lg-9">
             <p *ngIf="planDetails == 'Plan A'" class="mx-3 bg-yellow text-white header-center">Your free trial ends in 10
@@ -94,14 +96,16 @@
     <div class="col-md-1 col-lg-1">
       <div class="gif_img">
         <!-- <img src="assets/images/gif-right.gif" class="right_new_gif" alt=""> -->
-        <img src="assets/images/profile-background.gif" class="" alt="">
+        <img src="assets/images/profile-background.gif" class="" alt=""style="
+        height: 85px;
+    ">
 
         <form class="d-flex  user_editing justify-content-center ">
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <img *ngIf="!userDetails?.profile" alt="profile" class="wh-50 cur dropdown-toggle"
                 src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/user_icon_second.png"
-                routerLink="/home-dashboard/myprofile/profile-dashboard" style="border-radius: 50%;">
+                 style="border-radius:50%;">
               <img *ngIf="userDetails?.profile" class="wh-50 cur dropdown-toggle"
                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}" alt=""
                 style="border-radius: 50%;">
