@@ -17,8 +17,8 @@ import { take } from 'rxjs';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { NgxPhotoEditorService } from 'ngx-photo-editor';
 import { NgxSpinnerService } from 'ngx-spinner';
-// import ImageResize from 'quill-image-resize-module'
-// Quill.register('modules/imageResize', ImageResize)
+import domtoimage from 'dom-to-image';
+
 
 @Component({
   selector: 'app-edit-flyer',
@@ -320,15 +320,33 @@ triggerResize() {
   }
 
   func(){
-    const portalDiv = document.getElementById('your-element')!;
-    htmlToImage.toJpeg((portalDiv), { quality: 0.95 })
-    .then(function (dataUrl) {
-      var link = document.createElement('a');
-      link.download = 'my-image-name.jpeg';
+    // const portalDiv = document.getElementById('your-element')!;
+    // htmlToImage.toJpeg((portalDiv), { quality: 0.95 })
+    // .then(function (dataUrl) {
+    //   var link = document.createElement('a');
+    //   link.download = 'flyer.jpeg';
+    //   link.href = dataUrl;
+    //   link.click();
+    // });
+    const element = document.getElementById('your-element')!;
+    // html2canvas(element, { useCORS: true }).then(canvas => {
+    //   const link = document.createElement('a');
+    //   link.download = 'my-image.png';
+    //   link.href = canvas.toDataURL();
+    //   link.click();
+    // });
+
+
+    domtoimage.toPng(element ).then((dataUrl) => {
+      const link = document.createElement('a');
+      link.download = 'my-image.png';
       link.href = dataUrl;
       link.click();
     });
+
+
   }
+
 
   public blur(): void {
     console.log('blur');

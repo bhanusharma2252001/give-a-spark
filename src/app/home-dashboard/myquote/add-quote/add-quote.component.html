@@ -11,12 +11,12 @@
         </div>
         <div class="row m-0 p-0 mt-4">
             <div class="col-md-12 col-lg-12">
-                <form class="row position-relative" [formGroup]="addQuoteForm" (ngSubmit)="saveQuote(addQuoteForm.value)">
+                <form class="row position-relative" [formGroup]="addQuoteForm">
                     <div class="col-md-6 col-lg-6">
                         <div class="mb-2">
                             <label for="exampleInputfiled" class="form-label">Your
                                 Name</label>
-                            <input type="text" class="form-control rounded-0  p-2"
+                            <input type="text" class="form-control rounded-0  p-2" [(ngModel)]="quoteWriterName"
                                 id="exampleInputfiled" aria-describedby="textHelp" formControlName="writerName">
                                 <div *ngIf="addQuoteForm.get('writerName')?.hasError('required') "
                                 class="text-danger  fs-12text-sm">
@@ -28,7 +28,7 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Image</label>
-                            <input class="form-control p-2" type="file" accept="image/png, image/gif, image/jpeg" id="formFile" formControlName="writerProfile" (change)="onSelectImage($event)">
+                            <input class="form-control p-2" type="file"  accept="image/png, image/gif, image/jpeg" id="formFile" formControlName="writerProfile" (change)="onSelectImage($event)">
                             <div *ngIf="addQuoteForm.get('writerProfile')?.hasError('required') "
                             class="text-danger  fs-12text-sm">
                             <small class="fs-12">Writer Profile is required </small>
@@ -39,7 +39,7 @@
                         <label for="exampleFormControlTextarea1" class="form-label">Enter Quote
                             </label>
                         <textarea class="form-control" placeholder="Enter quote" id="exampleFormControlTextarea1" formControlName="enterQuotes"
-                            rows="3"></textarea>
+                            rows="3" [(ngModel)]="quoteName"></textarea>
                             <div *ngIf="addQuoteForm.get('enterQuotes')?.hasError('required') "
                             class="text-danger  fs-12text-sm">
                             <small class="fs-12">Please Add Quote </small>
@@ -48,7 +48,8 @@
                     <div class="col-md-6 col-lg-6">
 
 
-                        <button type="submit" class="btn green-btn   " [disabled]="addQuoteForm.invalid">Create</button>
+                        <button type="submit" class="btn green-btn" [disabled]="addQuoteForm.invalid" *ngIf="!quoteId"(click)="saveQuote(addQuoteForm.value)">Create</button>
+                        <button type="submit" class="btn green-btn" *ngIf="quoteId" [disabled]="addQuoteForm.invalid" (click)="updateQuote(quoteId)">update</button>
                     </div>
                 </form>
             </div>

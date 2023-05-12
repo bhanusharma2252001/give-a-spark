@@ -208,19 +208,33 @@
 
 
 
-                            <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                            <div class="mb-4 d-flex 
+                            position: relative;
+                        ">
 
-                              <p class=" mb-0 mt-1">
+                              <p class=" mb-0 mt-1"  data-bs-toggle="modal" data-bs-target="#quoteModal">
                                 <i class="fa fa-plus-circle text-blue"></i>
 
 
                               </p>
                               <p class="mb-0 ps-2 text-blue">
                                 Add Quotes</p>
+                                <p class=" mb-0 mt-1" style="
+                                position: absolute;
+                                left: 267px;
+                            " data-bs-toggle="modal" data-bs-target="#quoteModal">
+                                  <i class="fa fa-plus-circle text-blue"></i>
+  
+  
+                                </p>
+                                
+                                <p class="mb-0 ps-2 text-blue" style="
+                                position: absolute;
+                                right: 150px;
+                            ">
+                                  My Quotes</p>
 
                             </div>
-
-
 
                           </div>
                           <div class="col-md-1 col-lg-3 ps-0">
@@ -2827,6 +2841,21 @@ Please fill the blank field.
     <div class="modal-content">
       <div class="modal-body">
         <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----------------my quote-modal--------- -->
+<div class="modal fade" id="#myquoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-quote-dashboard (myQuoteSelect)="chooseQuotes($event)"></app-quote-dashboard>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

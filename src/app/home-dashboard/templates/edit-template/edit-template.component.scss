@@ -479,7 +479,11 @@
   z-index: 9;
   animation: animate-box 2s ease-in-out forwards;
 }
+.form-check {
 
+   padding-left: 13px!important;
+
+}
 @keyframes animate-box {
   from {
     left: 100%;
@@ -539,8 +543,8 @@
 }
 
 .play-pause-btn i {
-  font-size: 3rem;
-  color: white;
+  font-size:4rem;
+  color: rgb(82, 70, 70);
   transition: all 0.2s ease;
 }
 
@@ -551,3 +555,8 @@
   margin-top: -45px;
 }
 
+.scroll-bar-1 {
+  overflow: scroll;
+  height: 392px;
+  margin-top: 51px;
+}

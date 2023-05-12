@@ -113,4 +113,47 @@ ShowTab(val:any){
 showQButton(){
   this.tab = true;
 }
+
+
+
+delQuote(id:any){
+ const quoteId = id
+ console.log(quoteId,'id')
+this.api.delMyQuote(quoteId).subscribe((res:any)=>{
+  console.log(res,'del quote ')
+  this.getmyQuote()
+})
+}
+
+
+  editQuote(val:any) {
+  
+    let id :number = val;
+    console.log(id,'qupte')
+  
+  
+    this.router.navigate(['home-dashboard/myquote/add-quote'], { queryParams: { quoteId: id } })
+  }
+
+ 
+
+
+
+delStory(id:any){
+  const storyId= id
+  this.api.delMyStory(storyId).subscribe((res:any)=>{
+  this.getMyStories();
+  })
+}
+
+
+editStory(val:any){
+  let id :number = val;
+  console.log(id,'story')
+
+
+  this.router.navigate(['home-dashboard/myquote/add-story'], { queryParams: { storyId: id } })
+}
+
+
 }

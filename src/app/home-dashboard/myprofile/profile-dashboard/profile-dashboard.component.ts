@@ -40,7 +40,7 @@ export class ProfileDashboardComponent implements OnInit {
   }
 
 navigate(){
-  this.router.navigate(['/home-dashboard/myprofile/update-profile'])
+  this.router.navigate(['/home-dashboard/setting'])
 }
 
 

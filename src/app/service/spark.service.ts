@@ -214,6 +214,18 @@ export class SparkService {
       headers: { Authorization: `bearer ${this.token}` },
     });
   }
+
+  delMyQuote(id:any){
+    return this.http.delete(environment.localApiURL + '/api/Quotes/deleteMyQuotesById?id=' + id, {
+      headers: { Authorization: `bearer ${this.token}` },
+    })
+  }
+  updateQuotes(id:any, data:any){
+    return this.http.put(environment.localApiURL + '/api/Quotes/updateMyQuotesById?id=' + id, data,{
+      headers: { Authorization: `bearer ${this.token}` },
+    })
+  }
+
   //  My Story
 
 
@@ -231,6 +243,17 @@ export class SparkService {
     });
   }
 
+delMyStory(id:any){
+    return this.http.delete(environment.localApiURL + '/api/Stories/deleteMyStoriesById?id=' + id, {
+      headers: { Authorization: `bearer ${this.token}` },
+    })
+  }
+
+  updateStory(id:any, data:any){
+    return this.http.put(environment.localApiURL + '/api/Stories/updateMyStoriesById?id=' + id,data, {
+      headers: { Authorization: `bearer ${this.token}` },
+    })
+  }
 
   // Motivational Quotes
 
@@ -538,7 +561,7 @@ export class SparkService {
   }
 
   createTicket(data: any): Observable<any> {
-    return this.http.post(environment.localApiURL + '/api/user/addAuthor', data, {
+    return this.http.post(environment.localApiURL + '/api/Ticket/createTickets', data, {
       headers: {
         Authorization: `bearer ${this.token}`,
       },
@@ -738,5 +761,21 @@ getNotifications(): Observable<any> {
     },
   });
 }
+
+// --------------list of lost-----temp-----------
+
+getLIst() {
+  return this.http.get(environment.localApiURL + '/api/freeTemplate/getEditTemplateList', {
+    headers: { Authorization: `bearer ${this.token}` },
+  });
 }
+}
+
+
+
+
+
+
+
+
 

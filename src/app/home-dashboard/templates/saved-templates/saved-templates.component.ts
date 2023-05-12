@@ -31,7 +31,7 @@ Animation=false;
 
 isPlaying: boolean = false;
 
-
+signatureId:any;
  logotext="Cookies for outlook"
   templateFontSize: any = 24;
   public contactDetailColor: string = '';
@@ -115,6 +115,9 @@ isPlaying: boolean = false;
   private clientId: string = '314583230343-p4lviak4saq374tr9bqld4kuhdceedat.apps.googleusercontent.com';
   private discoveryDocs: string[] = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
   auth2: any;
+  tempList: any;
+  proList: any;
+  proplus: any;
 
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
@@ -127,7 +130,8 @@ isPlaying: boolean = false;
 
 
   ngOnInit(): void {
-    console.log(this.clientId, 'client id')
+    this.getSaveList()
+
   
 
 
@@ -143,6 +147,8 @@ isPlaying: boolean = false;
       this.updateText();
     }, 300);
 
+
+
   }
   openGmail() {
     window.open("https://mail.google.com/mail/", "_blank");
@@ -155,6 +161,12 @@ isPlaying: boolean = false;
     this.currentIndex++;
     if(this.textElement){
     this.textElement.nativeElement.textContent = currentText;}
+
+
+
+
+
+
   }
 
 
@@ -466,4 +478,74 @@ setOnOutlook(){
     openYahooMail() {
       window.open(this.yahooMailUrl, '_blank');
     }
+
+
+
+    // getSaveList(){
+    //   this.api.getLIst().subscribe((res:any)=>{
+    //     console.log(res, ' List of Templates')
+    //   }) 
+    // }
+
+
+
+     getSaveList(){
+      this.api.getLIst().subscribe((res: any) => {
+        this.tempList = res?.freeTemplates;
+
+        const freeListIds = [];
+
+        this.tempList?.forEach((obj:any) => {
+          const proListId = obj?.id;
+          freeListIds.push(proListId);
+        });
+    
+        // console.log(proListIds);
+
+
+
+
+
+
+
+
+
+
+
+
+        console.log(this.tempList, 'freelist')
+  
+        this.proList = res?.templateForPro;
+
+
+        const proListIds: string[] = [];
+        this.proList?.forEach((obj: any) => {
+          const proListId = obj?._id;
+          proListIds.push(proListId);
+        });
+    
+        console.log(proListIds, 'ids of pro list ');
+
+
+
+
+        
+        console.log(this.proList,'prolist')
+  
+        this.proplus = res?.templateForProPlus;
+        
+      
+  
+
+      })
+    }
+    editsignatureTemplate(val:any) {
+  
+      let id :number = val;
+      console.log(id,'kaya')
+    
+    
+      this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: id } })
+    }
+    
   }

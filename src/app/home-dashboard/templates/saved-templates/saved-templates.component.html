@@ -370,21 +370,12 @@
                         </li>
 
 
-                        <!-- <li class="px-3 py-1"><a href="#">
-                                <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash"
-                                        (click)="delTemplate(details?._id)"><i class='far fa-trash-alt'
-                                            style='font-size:36px;color:red; cursor: pointer;'></i></span></div>
-                            </a></li> -->
-
+                 
                     </ul>
                 </li>
             </ul>
 
-            <!-- <div class="col-md-3">
-                <button class="signature-item-edit-btn" (click)="openModal(details?._id)" onclick="openNav()"><span
-                        class="signature-item-edit-btn-icon sw-icon-pen"></span> <span
-                        class="signature-item-edit-btn-text">Sync Signature</span></button>
-            </div> -->
+        
 
 
 
@@ -396,10 +387,6 @@
 
 
 
-
-            <!--             
-            <div class="col-md-2"> <span data-v-614574b9="" class="sw-icon-trash" (click)="delTemplate(details?._id)"><i
-                        class='far fa-trash-alt' style='font-size:36px;color:red; cursor: pointer;'></i></span></div> -->
 
 
 
@@ -410,6 +397,647 @@
 
 
     </div>
+    
+<div >
+    <ng-container *ngFor="let freelist of tempList"> 
+    <!-- -----temp-1---- -->
+<div *ngIf="freelist?._id  == 10" class="col-lg-6 m-4">
+    <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}} </p>
+    <img class="free-white" src="assets/images/free-1.png" alt=""
+    >
+
+    <div>
+        <button  (click)="editsignatureTemplate(freelist?._id)">
+            View & sync
+        </button>
+    </div>
+
+</div>
+
+
+
+<!-- ---temp-2---- -->
+
+<div *ngIf="freelist?._id == 11" class="col-lg-6 m-4">
+    <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+    <img class="free-white" src="assets/images/fix-2.png" alt=""
+    >
+
+    <div>
+        <button  (click)="editsignatureTemplate(freelist?._id
+        )">
+            View & sync
+        </button>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<!-- -------temp-3------ -->
+
+
+    <div *ngIf="freelist?._id== 12" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/free-6.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+
+
+
+
+<!-- -------temp----4---- -->
+
+
+    <div *ngIf="freelist?._id  == 13" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/free-7.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+<!-- ----------------temp--5---- -->
+
+
+
+
+    <div *ngIf="freelist?._id  == 14" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/free-11.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+  
+
+
+<!-- ------------temp--6------- -->
+
+
+
+    <div *ngIf="freelist?._id  == 15" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/free-9.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+ 
+
+
+
+
+
+<!-- -------------temp-7------------ -->
+
+    <div *ngIf="freelist?._id  == 16" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/temp-16.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+<!-- -------------temp-8----------- -->
+
+
+
+
+    <div *ngIf="freelist?._id  ==7" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/fee-1.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+
+
+
+<!-- ----------------temp-9------------- -->
+
+    <div *ngIf="freelist?._id ==8" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/fii-2.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+ 
+
+
+<!-- --------------temp-10----------- -->
+
+
+
+
+    <div *ngIf="freelist?._id== 9" class="col-lg-6 m-4">
+        <p *ngIf="freelist?.signatureName">{{freelist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/fix-3.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(freelist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+ 
+</ng-container>
+<!-- -------------------------------pro list------------ -->
+<!-- ---------------0------------------ -->
+<ng-container *ngFor="let pro of proList"> 
+
+
+    <div *ngIf="pro?._id == 21" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pix-1.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+
+<!-- ---------1--------------- -->
+
+    <div *ngIf="pro?._id== 22" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pix-3.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+<!-- ------------------2-------------- -->
+
+    <div *ngIf="pro?._id == 23" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-3.PNG" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+
+    
+    </div>
+
+<!-- -------------------3------------- -->
+
+    <div *ngIf="pro?._id == 24" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pix-2.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+  
+    
+    </div>
+<!-- -------------------4------------- -->
+
+    <div *ngIf="pro?._id== 25" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-final.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+ 
+    
+    </div>
+<!-- -------------------5------------- -->
+
+    <div *ngIf="proList[5]?.templateId == 26" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/proo-4.PNG" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    
+    
+    </div>
+<!-- -------------------6------------- -->
+    <div *ngIf="pro?._id== 27" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/new-img.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+  
+<!-- -------------------7------------- -->
+
+    <div *ngIf="pro?._id  == 34" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-8.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+ 
+<!-- -------------------8------------- -->
+
+    <div *ngIf="pro?._id  == 35" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-9.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    
+<!-- -------------------9------------- -->
+
+    <div *ngIf="pro?._id == 36" class="col-lg-6 m-4">
+        <p *ngIf="pro?.signatureName">{{pro?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-10.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(pro?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+   
+
+
+</ng-container>
+
+
+
+
+
+
+
+
+<!-- --------------pro plus----------proplus----------- -->
+<ng-container *ngFor="let PropLlist of proplus"> 
+
+
+    <div *ngIf="PropLlist?._id == 1" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/sm-2.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+<!-- -------------------1------------- -->
+
+
+    <div *ngIf="PropLlist?._id == 2" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/sm1.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+<!-- -------------------2------------- -->
+
+    <div *ngIf="PropLlist?._id  == 3" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/sm-3.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+
+<!-- -------------------3------------- -->
+
+    <div *ngIf="PropLlist?._id  == 4" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+4.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+
+<!-- -------------------4------------- -->
+
+
+    <div *ngIf="PropLlist?._id  == 5" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+5.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+<!-- -------------------5------------- -->
+
+
+    <div *ngIf="PropLlist?._id  == 6" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+6.PNG" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    
+
+<!-- -------------------6------------- -->
+
+    <div *ngIf="PropLlist?._id   == 32" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+7.PNG" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id  )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+  
+<!-- -------------------7------------- -->
+
+    <div *ngIf="PropLlist?._id  == 30" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureNamee">{{PropLlist?.signatureNamee}}</p>
+        <img class="free-white" src="assets/images/eight_temp.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id  )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+<!-- -------------------8------------- -->
+
+    <div *ngIf="PropLlist?._id  == 33" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro-9x.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    
+<!-- -------------------9------------- -->
+
+    <div *ngIf="PropLlist?._id == 31" class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+10.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+<!-- -------------------10------------- -->
+<div class="col-lg-6 m-4">
+    <div *ngIf="PropLlist?._id== 38">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+11.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id)">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+    </div>
+<!-- -------------------11------------- -->
+
+    <div *ngIf="PropLlist?._id  == 39"  class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+12.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+  
+
+<!-- -------------------12------------- -->
+
+
+    <div *ngIf="PropLlist?._id  == 40"  class="col-lg-6 m-4">
+        <p *ngIf="PropLlist?.signatureName">{{PropLlist?.signatureName}}</p>
+        <img class="free-white" src="assets/images/pro+13.png" alt=""
+        >
+    
+        <div>
+            <button  (click)="editsignatureTemplate(PropLlist?._id )">
+                View & sync
+            </button>
+        </div>
+    
+    </div>
+    
+
+
+
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

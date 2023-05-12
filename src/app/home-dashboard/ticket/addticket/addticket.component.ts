@@ -38,6 +38,7 @@ addticket(){
       console.log(res);
       this.ticketdata = res;
       this.toast.success('submitted');
+      this.router.navigate(['home-dashboard/ticket/ticketdashboard'])
     },
     (err: any) => {
 

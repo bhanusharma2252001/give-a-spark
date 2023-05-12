@@ -14,12 +14,12 @@
                 </div>
                 <div class="row m-0 p-0 mt-4">
                     <div class="col-md-12 col-lg-12">
-                        <form class="row position-relative" [formGroup]="addStoryForm" (ngSubmit)="  saveStory(addStoryForm.value)">
+                        <form class="row position-relative" [formGroup]="addStoryForm" >
                             <div class="col-md-6 col-lg-6">
                                 <div class="mb-2">
                                     <label for="exampleInputfiled" class="form-label">Your
                                         Name</label>
-                                    <input type="text" class="form-control border-blue rounded-0  p-2" formControlName="writerName"
+                                    <input type="text" class="form-control border-blue rounded-0  p-2" formControlName="writerName" [(ngModel)]="storyWriterName"
                                         id="exampleInputfiled" aria-describedby="textHelp">
                                         <div *ngIf="addStoryForm.get('writerName')?.hasError('required') "
                                         class="text-danger  fs-12text-sm">
@@ -45,7 +45,7 @@
                                 <label for="exampleFormControlTextarea1" class="form-label">Enter Story
                                     </label>
                                 <textarea class="form-control border-blue" placeholder="Enter story" id="exampleFormControlTextarea1"
-                                    rows="3" formControlName="enterStories"></textarea>
+                                    rows="3" formControlName="enterStories" [(ngModel)]="storyName"></textarea>
                                     <div *ngIf="addStoryForm.get('enterStories')?.hasError('required') "
                                     class="text-danger  fs-12text-sm">
                                     <small class="fs-12">Please add Story </small>
@@ -54,7 +54,9 @@
                             <div class="col-md-6 col-lg-6">
 
 
-                                <button type="submit" class="btn green-btn" [disabled]="addStoryForm.invalid">Create</button>
+                                <button type="submit" class="btn green-btn" *ngIf="!storyId" [disabled]="addStoryForm.invalid" (click)=" saveStory(addStoryForm.value)">Create</button>
+                                
+                                <button type="submit" class="btn green-btn" *ngIf="storyId" [disabled]="addStoryForm.invalid" (click)="updateStory(storyId)">Create</button>
                             </div>
                         </form>
                     </div>

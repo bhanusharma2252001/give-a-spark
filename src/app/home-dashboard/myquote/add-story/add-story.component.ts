@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -23,7 +23,12 @@ export class AddStoryComponent implements OnInit {
 
   imageData1:any;
   imageData2:any;
-  constructor( private api:SparkService, private fb:FormBuilder, private router:Router, private toast:ToastrService, private spinner:NgxSpinnerService) { 
+  storyName: any;
+  storyWriterImage: any;
+  storyWriterName: any;
+  storyList: any;
+  storyId: number;
+  constructor( private api:SparkService, private route: ActivatedRoute,private fb:FormBuilder, private router:Router, private toast:ToastrService, private spinner:NgxSpinnerService) { 
     this.addStoryForm=this.fb.group({
 
       writerName:['',Validators.required],
@@ -35,7 +40,8 @@ export class AddStoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-
+    this.getstoryId();
+    this.getmyStory();
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
@@ -115,5 +121,67 @@ export class AddStoryComponent implements OnInit {
         this.toast.error('please try again');
       })
   }
+
+
+  getstoryId(){
+    
+    this.route.queryParamMap.subscribe((params: any) => {
+     let storyId = params.params['storyId'] || 0;
+     this.storyId = Number(storyId)
+     console.log(this.storyId, 'iddd')
+     if (this.storyId == 0) {
+   
+       this.getmyStory();
+
+     }
+   });
+ }
+ getmyStory(){
+  this.api.getMyStory().subscribe((res:any)=>{
+    this.storyList = res?.result
+    this.storyList.filter((item:any)=>{
+      if(item?._id == this.storyId) {
+     
+        this.getBindData(item)
+       
+      }
+  
+    })
+   
+      })
+}
+getBindData(data:any){
+  console.log(data, 'story llist')
+  this.storyName= data?.enterStories
+ this.storyWriterImage = data?.writerProfile
+ this.storyWriterName= data?.writerName
+}
+
+
+updateStory(id:any, ){
+let sId=id
+console.log(sId, 'idiiid')
+  let body={
+    writerName: this.storyWriterName,
+      writerProfile:this.imageData2?this.imageData2:this.storyWriterImage,
+      enterStories:this.storyName  
+  }
+  this.api.updateStory(sId,body).subscribe((res:any)=>{
+    console.log(res,'update story')
+    this.toast.success('Updated Successfully')
+    this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+  }
+  )
+}
+
+
+
+
+
+
+
+
+
+
 
 }

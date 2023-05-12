@@ -67,6 +67,7 @@ export class UpdateticketComponent implements OnInit {
         this.ticketdata = res;
         this.toast.success("submitted");
         this.getTicketbyId(this.id);
+        this.router.navigate(['./ticket/ticketdashboard'])
       },
       (err: any) => {
         this.toast.error("not submitted");

@@ -1,151 +1,202 @@
-
 <section class="quote_story mt-3">
-    <div class="col-md-11 col-lg-11">
-      <div class="row">
-        <div class="col-md-12 col-lg-12">
-          <ul class="nav nav-pills mb-3 d-flex justify-content-between" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <div class="tab d-flex justify-content-end">
-                <button class="nav-link active tablink" id="pills-home-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" (click)="showQButton(); ShowTab('hide')">My
-                  Quote</button>
-                <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab || hidebutton == 'hide'"> Create Quote</button>
-              </div>
-            </li>
-            <li class="nav-item" role="presentation">
-              <div class="tab d-flex justify-content-end">
-                <button class="nav-link tablink" id="pills-profile-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false" (click)="ShowTab('storytab')" >My Stories</button>
-                <button class="tab_btn rounded-pill" (click)="navigate1()" *ngIf="hidebutton == 'storytab'">Create Stories</button>
-              </div>
-            </li>
-          </ul>
-        </div>
+  <div class="col-md-11 col-lg-11">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <ul class="nav nav-pills mb-3 d-flex justify-content-between" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <div class="tab d-flex justify-content-end">
+              <button class="nav-link active tablink" id="pills-home-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"
+                (click)="showQButton(); ShowTab('hide')">My
+                Quote</button>
+              <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab || hidebutton == 'hide'"> Create
+                Quote</button>
+            </div>
+          </li>
+          <li class="nav-item" role="presentation">
+            <div class="tab d-flex justify-content-end">
+              <button class="nav-link tablink" id="pills-profile-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                aria-selected="false" (click)="ShowTab('storytab')">My Stories</button>
+              <button class="tab_btn rounded-pill" (click)="navigate1()" *ngIf="hidebutton == 'storytab'">Create
+                Stories</button>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-  
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <div class="col-md-11 col-lg-11">
-        
-          <div class="row m-0 p-0 mt-5 align-items-center">
-              <div class="col-md-12 col-lg-12">
-                  <!-- <div class="d-flex justify-content-between border-bottom">
+  </div>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <div class="col-md-11 col-lg-11">
+
+        <div class="row m-0 p-0 mt-5 align-items-center">
+          <div class="col-md-12 col-lg-12">
+            <!-- <div class="d-flex justify-content-between border-bottom">
                       <h3>My Quotes</h3>
                       
                       <button (click)="navigate()" class="px-3 py-2 mb-3 green-btn   ">Add quote</button>
                   </div> -->
-                  <div class="row mt-4" >
-                  
-                    <div class="col-md-12 col-lg-12" >
-                     
-                      <section class="nerdy-pen">
-                        <h1 class="nerdy-pen__text" *ngIf="showAnimation">Hii !
-                          <span #textElement class=""></span>
+            <div class="row mt-4">
 
-                           
-
-                        </h1>
-                        </section>
-                    </div>
-                      <div class="col-md-6 col-lg-6" *ngFor="let quote of quotesList"> 
-
-
-
-
-                          <div *ngIf="quotesList" class="row align-items-center">
-                              <div class="col-md-3 col-lg-3 p-0">
-                              
-                                  
-                                
-                                  <div
-                                  *ngIf="quote?.writerProfile ">
-                                  <img class="wh-150 " *ngIf="quote?.writerProfile "
-                                  src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
-                                </div>
-                             
-                              </div>
-                              <div class="col-md-9 col-lg-9 p-0 pe-1  ">
-                                  <div class="bg-darkgray p-2  quotes-box">
-                                      <figure>
-                                          <blockquote class="blockquote">
-                                            <p class="fs-12"> {{quote?.enterQuotes}}</p>
-                                          </blockquote>
-                                          <figcaption class="blockquote-footer text-black">
-                                             
-                                            <cite class="fs-16" title="Source Title ">{{quote?.writerName}}</cite>
-                                          </figcaption>
-                                        </figure>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                      </div>
-                 
-                    </div>
-              </div>
-          </div>
-        </div></div>
-
-
-
-
-        <!-- my story -->
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <div class="col-md-11 col-lg-11">
-        
-          <div class="row m-0 p-0 mt-5 align-items-center">
               <div class="col-md-12 col-lg-12">
-                  <!-- <div class="d-flex justify-content-between border-bottom">
+
+                <section class="nerdy-pen">
+                  <h1 class="nerdy-pen__text" *ngIf="showAnimation">Hii !
+                    <span #textElement class=""></span>
+
+
+
+                  </h1>
+                </section>
+              </div>
+              <div class="col-md-6 col-lg-6" *ngFor="let quote of quotesList">
+
+                <div class="main" style="
+display: flex;
+position: relative;
+justify-content: end;
+top: -24px;
+">
+                  <p style="
+  position: absolute;
+  right: 65px;
+" (click)="editQuote(quote?._id)">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </p>
+                  <p style="
+  position: absolute;
+  right: 39px;
+" (click)="delQuote(quote?._id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </p>
+                  <p style="
+  position: absolute;
+  right: 14px;
+">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  </p>
+                </div>
+
+
+                <div *ngIf="quotesList" class="row align-items-center">
+                  <div class="col-md-3 col-lg-3 p-0">
+
+
+
+                    <div *ngIf="quote?.writerProfile ">
+                      <img class="wh-150 " *ngIf="quote?.writerProfile "
+                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.writerProfile }}" />
+                    </div>
+
+                  </div>
+                  <div class="col-md-9 col-lg-9 p-0 pe-1  ">
+                    <div class="bg-darkgray p-2  quotes-box">
+                      <figure>
+                        <blockquote class="blockquote">
+                          <p class="fs-12"> {{quote?.enterQuotes}}</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer text-black">
+
+                          <cite class="fs-16" title="Source Title ">{{quote?.writerName}}</cite>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- my story -->
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="col-md-11 col-lg-11">
+
+        <div class="row m-0 p-0 mt-5 align-items-center">
+          <div class="col-md-12 col-lg-12">
+            <!-- <div class="d-flex justify-content-between border-bottom">
                       <h3 class="mb-0">My Story</h3>
                       <div class=""><button class="green-btn shadow  px-3 p-2 mb-3" (click)="navigate1()" >Add story</button></div>
         
         
         
                   </div> -->
-                  <div class="row ">
-                    
-                      <div class="col-md-12 col-lg-12" *ngIf="storyMation" >
-                        <section class="nerdy-pen">
-                          <h1 class="nerdy-pen__text" >Hii !
-                            
-                            <span #storyElement class=""></span>
-                             
-  
-                          </h1>
-                          </section>
-                      </div>
-                  
-                      <div class="col-md-6 col-lg-6"  *ngFor="let story of storyList">
-                          <div class="row align-items-center">
-                              <div class="col-md-3 col-lg-3 p-0">
-        
-                                    <div
-                                    *ngIf="story?.createdBy?.profile ">
-                                    <img class="wh-150 " *ngIf="story?.createdBy?.profile "
-                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{story?.createdBy?.profile }}" />
-                                  </div>
-                                
-        
-                              </div>
-                              <div class="col-md-9 col-lg-9 p-0 pe-1  ">
-                                  <div class="bg-darkgray p-2 rounded-3">
-                                      <figure>
-                                          <blockquote class="blockquote">
-                                            <p class="fs-12">{{story?.enterStories}}</p>
-                                          </blockquote>
-                                          <figcaption class="blockquote-footer text-black">
-        
-                                            <cite class="fs-16" title="Source Title ">{{story?.writerName}}</cite>
-                                          </figcaption>
-                                        </figure>
-                                  </div>
-                              </div>
-                          </div>
-        
-                      </div>
-                      <!-- <div class="col-md-6 col-lg-6">
+            <div class="row ">
+
+              <div class="col-md-12 col-lg-12" *ngIf="storyMation">
+                <section class="nerdy-pen">
+                  <h1 class="nerdy-pen__text">Hii !
+
+                    <span #storyElement class=""></span>
+
+
+                  </h1>
+                </section>
+              </div>
+
+              <div class="col-md-6 col-lg-6" *ngFor="let story of storyList">
+                <div class="main" style="
+                display: flex;
+                position: relative;
+                justify-content: end;
+                top: -24px;
+                ">
+                                  <p style="
+                  position: absolute;
+                  right: 65px;
+                " (click)="editStory(story?._id)">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                  </p>
+                                  <p style="
+                  position: absolute;
+                  right: 39px;
+                "  (click)="delStory(story?._id)">
+                                    <i class="fa fa-trash" aria-hidden="true" ></i>
+                                  </p>
+                                  <p style="
+                  position: absolute;
+                  right: 14px;
+                ">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  </p>
+                                </div>
+                
+                <div class="row align-items-center">
+                  <div class="col-md-3 col-lg-3 p-0">
+
+                    <div *ngIf="story?.writerProfile ">
+                      <img class="wh-150 " *ngIf="story?.writerProfile "
+                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{story?.writerProfile }}" />
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-9 col-lg-9 p-0 pe-1  ">
+                    <div class="bg-darkgray p-2 rounded-3">
+                      <figure>
+                        <blockquote class="blockquote">
+                          <p class="fs-12">{{story?.enterStories}}</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer text-black">
+
+                          <cite class="fs-16" title="Source Title ">{{story?.writerName}}</cite>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- <div class="col-md-6 col-lg-6">
                           <div class="row align-items-center">
                               <div class="col-md-3 col-lg-3 ps-1 p-0">
                                   <div class="">
@@ -169,16 +220,10 @@
                               </div>
                           </div>
                       </div> -->
-                  </div>
-              </div>
+            </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
-  </section>
-  
-
-
-
-
-
+  </div>
+</section>

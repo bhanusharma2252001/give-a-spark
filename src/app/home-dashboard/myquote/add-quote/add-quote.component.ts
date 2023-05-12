@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SparkService } from 'src/app/service/spark.service';
@@ -12,7 +12,7 @@ import { SparkService } from 'src/app/service/spark.service';
 })
 export class AddQuoteComponent implements OnInit {
 
-
+  quoteId:any;
   addQuoteForm:FormGroup;
   imageData = [] as any;
   Submitted = false;
@@ -25,7 +25,11 @@ export class AddQuoteComponent implements OnInit {
 
   imageData1:any;
   imageData2:any;
-  constructor( private api:SparkService, private fb:FormBuilder,private spinner:NgxSpinnerService ,private router:Router, private toast:ToastrService) { 
+  quotesList: any;
+  quoteName: any;
+  quoteWriterImage: any;
+  quoteWriterName: any;
+  constructor( private api:SparkService, private route: ActivatedRoute,private fb:FormBuilder,private spinner:NgxSpinnerService ,private router:Router, private toast:ToastrService) { 
     this.addQuoteForm=this.fb.group({
 
       writerName:['',Validators.required],
@@ -36,7 +40,9 @@ export class AddQuoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getmyQuote();
     this.spinner.show();
+    this.getquoteId();
 
     setTimeout(() => {
       this.spinner.hide();
@@ -117,4 +123,56 @@ export class AddQuoteComponent implements OnInit {
         this.toast.error('please try again');
       })
   }
+ 
+
+  getquoteId() {
+    
+    this.route.queryParamMap.subscribe((params: any) => {
+     let quoteId = params.params['quoteId'] || 0;
+     this.quoteId = Number(quoteId)
+     console.log(this.quoteId, 'iddd')
+     if (this.quoteId == 0) {
+   
+       this. getmyQuote();
+
+     }
+   });
+ }
+ getmyQuote(){
+  this.api.getMyQuotes().subscribe((res:any)=>{
+    this.quotesList=res?.result
+    this.quotesList.filter((item:any)=>{
+      if(item?._id == this.quoteId) {
+     
+        this.getBindData(item)
+       
+      }
+  
+    })
+   
+      })
+}
+getBindData(data:any){
+  console.log(data, 'quote llist')
+  this.quoteName= data?.enterQuotes
+ this.quoteWriterImage = data?.writerProfile
+ this.quoteWriterName= data?.writerName
+}
+
+
+updateQuote(id:any, ){
+let qId=id
+console.log(qId, 'idiiid')
+  let body={
+    writerName: this.quoteWriterName,
+      writerProfile:this.imageData2?this.imageData2:this.quoteWriterImage,
+      enterQuotes:this.quoteName  
+  }
+  this.api.updateQuotes(qId,body).subscribe((res:any)=>{
+    console.log(res,'update quote')
+    this.toast.success('Updated Successfully')
+    this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+  }
+  )
+}
 }
