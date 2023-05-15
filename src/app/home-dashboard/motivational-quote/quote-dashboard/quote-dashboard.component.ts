@@ -35,7 +35,11 @@ export class QuoteDashboardComponent implements OnInit {
   SubSubstoryData: any;
   SubSubStoryList: any;
   templatesId: number;
+  checkedItem:boolean = false
   @Output() quotesSelect = new EventEmitter() 
+  storydata: any;
+  storyName: any;
+  storyId: any;
   constructor(private api: SparkService,private spinner:NgxSpinnerService, private fb: FormBuilder, private router: Router,private route : ActivatedRoute) {
     this.showQuotesForm = this.fb.group({
       categoriesId: [''],
@@ -48,35 +52,71 @@ export class QuoteDashboardComponent implements OnInit {
       subCategoriesId:[''],
       subSubCategoriesId:[''],
     })
+
+    this.resetQuotes()
   }
-  getQuoteEvent(event: any, data: any) {
+  getQuoteEvent(event: any, data: any,type:any) {
     this.quotedata = data;
     this.quoteId = this.quotedata._id;
-    console.log(this.quoteId, 'id of quote id')
     this.LongQuotes = data?.quotesName
-    console.log(this.templateId,this.templatesId,'SAQ');
-    
+    if(type == 'category') {
+      this.catQuotes.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+    if(type == 'subcat') {
+      this.subCatQuotes.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+    if(type == 'subsub') {
+      this.quoteList.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+       
     //  if(this.templatesId != 0) {
     //   localStorage.setItem('templatequoteId', this.quoteId)
     //   localStorage.setItem('templateLongQuotes', this.LongQuotes)      
     //   this.router.navigate(['home-dashboard/templates/edit-save'], { queryParams: { templateId: this.templateId } })
     // }
 
-    if(this.templateId == 0 ) {
-      // this.router.navigate(['/home-dashboard/basic-template'])
-      localStorage.setItem('quoteId', this.quoteId)  
-      localStorage.setItem('LongQuotes', this.LongQuotes)
-      this.quotesSelect.emit('getQuotes');
-    }  else {
-      localStorage.setItem('templatequoteId', this.quoteId)
-      localStorage.setItem('templateLongQuotes', this.LongQuotes)  
-      this.quotesSelect.emit('getQuotes');    
-      // this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
+    // if(this.templateId == 0 ) {
+    //   // this.router.navigate(['/home-dashboard/basic-template'])
+    //   localStorage.setItem('quoteId', this.quoteId)  
+    //   localStorage.setItem('LongQuotes', this.LongQuotes)
+    //   this.quotesSelect.emit('getQuotes');
+    // }  else {
+    //   localStorage.setItem('templatequoteId', this.quoteId)
+    //   localStorage.setItem('templateLongQuotes', this.LongQuotes)  
+    //   this.quotesSelect.emit('getQuotes');    
+    //   // this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: this.templateId } })
+    // }
+    let getQuotes = {
+      isQuoteId :this.quotedata._id,
+      isStoryId:null,
+      myQuoteId:null,
+      myStoryId:null,
+      name : data?.quotesName
     }
+    this.emitData(getQuotes)
   }
  
-
-
+  emitData(data:any) {
+    this.quotesSelect.emit(data);
+  }
 
 
   ngOnInit(): void {
@@ -86,6 +126,32 @@ export class QuoteDashboardComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+  }
+
+  resetQuotes() {
+    this.api.closeQuotes.subscribe((res:any)=>{
+      console.log(res,'ssss');
+      if(res) {
+       this.resetQuotesForm()
+       this.resetStoryForm()
+       this.catQuotes = null
+       this.subCatQuotes = null
+       this.quoteList = null
+      }
+    })
+  }
+
+  resetQuotesForm() {
+    this.showQuotesForm.controls['categoriesId'].setValue('')
+    this.showQuotesForm.controls['subCategoriesId'].setValue('')
+    this.showQuotesForm.controls['subSubCategoriesId'].setValue('')
+  }
+
+  resetStoryForm() {
+    this.showStoriesForm.controls['categoriesId'].setValue('')
+    this.showStoriesForm.controls['subCategoriesId'].setValue('')
+    this.showStoriesForm.controls['subSubCategoriesId'].setValue('')
+
   }
 
   getTemplateId() {
@@ -116,6 +182,7 @@ export class QuoteDashboardComponent implements OnInit {
   getSubCategory() {
     let data = this.showQuotesForm.value;
     console.log(data);
+    console.log(data?.categoriesId, 'idid')
     this.api.getSubCategoryList(data.categoriesId).subscribe((res) => {
       this.subCategory = res;
       console.log(this.subCategory);
@@ -150,17 +217,20 @@ export class QuoteDashboardComponent implements OnInit {
 
     this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
       this.quoteList=res?.result;
+      if(this.quoteList) {
+        this.quoteList.map((item:any)=>{return item['isChecked'] = false})
+      }
       this.catQuotes = '';
       this.subCatQuotes = '';
       console.log(res);
-      // this.toast.success('Added  Successfully');
+      
 console.log(body)
 console.log(this.quoteList, "qqqq")
 
 
     },
       (error) => {
-        // this.toast.error('please try again');
+        
       })
   }
 
@@ -181,17 +251,20 @@ console.log(this.quoteList, "qqqq")
 
     this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
       this.catQuotes=res?.result;
+      if(this.catQuotes) {
+        this.catQuotes.map((item:any)=>{return item['isChecked'] = false})
+      }
       this.subCatQuotes= '';
       this.quoteList = '';
       console.log(res);
-      // this.toast.success('Added  Successfully');
+      
 console.log(body)
 console.log(this.catQuotes, "qqqq")
 
 
     },
       (error) => {
-        // this.toast.error('please try again');
+        
       })
   }
 
@@ -210,17 +283,20 @@ console.log(this.catQuotes, "qqqq")
 
     this.api.motivaionalQuotebyFilter(body).subscribe((res: any) => {
       this.subCatQuotes=res?.result;
+      if(this.subCatQuotes) {
+        this.subCatQuotes.map((item:any)=>{return item['isChecked'] = false})
+      }
       this.catQuotes = '';
       this.quoteList = '';
       console.log(res);
-      // this.toast.success('Added  Successfully');
+      
 console.log(body)
 console.log(this.quoteList, "qqqq")
 
 
     },
       (error) => {
-        // this.toast.error('please try again');
+        
       })
   }
 
@@ -254,38 +330,11 @@ viewQuotes(data:any) {
     console.log(this.SubSubQuotesData, 'ssjfgjldfkg;dkg;kf;gdflkg')
   }
   
-  showStory(data:any) {
-
-    let body:any = {
-    filters:
-      {
-      categoriesId:data.categoriesId,
-      subCategoriesId:data.subCategoriesId,
-      subSubCategoriesId:data.subSubCategoriesId
- 
-    }}
-    console.log(body, 'body')
-
-
-    this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
-      this.SubSubStoryList=res?.result;
-      this.catStory = '';
-      this.subStory = '';
-      console.log(res);
-      // this.toast.success('Added  Successfully');
-console.log(body)
-console.log(this.SubSubStoryList, "qqqq")
-
-
-    },
-      (error) => {
-        // this.toast.error('please try again');
-      })
-  }
 
 
 
-    // category quote
+
+    // category story
   showStoryCat(data:any) {
 
     let body:any = {
@@ -300,21 +349,24 @@ console.log(this.SubSubStoryList, "qqqq")
 
     this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
       this.catStory=res?.result;
+      if(this.catStory) {
+        this.catStory.map((item:any)=>{return item['isChecked'] = false})
+      }
       this.subStory= '';
       this.SubSubStoryList = '';
       console.log(res);
-      // this.toast.success('Added  Successfully');
+      
 console.log(body)
 console.log(this.catStory, "qqqq")
 
 
     },
       (error) => {
-        // this.toast.error('please try again');
+        
       })
   }
 
-// Sub cat Quote
+// Sub cat story
   showStorySubCat(data:any) {
 
     let body:any = {
@@ -329,6 +381,9 @@ console.log(this.catStory, "qqqq")
 
     this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
       this.subStory=res?.result;
+      if(this.subStory) {
+        this.subStory.map((item:any)=>{return item['isChecked'] = false})
+      }
       this.catStory = '';
       this.SubSubStoryList = '';
       console.log(res);
@@ -339,14 +394,44 @@ console.log(this.storyList, "qqqq")
 
     },
       (error) => {
-        // this.toast.error('please try again');
+        
       })
   }
 
 
+// ------subsubstory-
+
+showStory(data:any) {
+
+  let body:any = {
+  filters:
+    {
+    categoriesId:data.categoriesId,
+    subCategoriesId:data.subCategoriesId,
+    subSubCategoriesId:data.subSubCategoriesId
+
+  }}
+  console.log(body, 'body')
 
 
+  this.api.motivaionalStorybyFilter(body).subscribe((res: any) => {
+    this.SubSubStoryList=res?.result;
+    if(this.SubSubStoryList) {
+      this.SubSubStoryList.map((item:any)=>{return item['isChecked'] = false})
+    }
+    this.catStory = '';
+    this.subStory = '';
+    console.log(res);
+    
+console.log(body)
+console.log(this.SubSubStoryList, "qqqq")
 
+
+  },
+    (error) => {
+      
+    })
+}
 
 // LONG STORY FOR CATEGORY
   viewStory(data:any) {
@@ -366,4 +451,60 @@ console.log(this.storyList, "qqqq")
     this.SubSubstoryData = data;
     console.log(this.SubSubstoryData, 'ssjfgjldfkg;dkg;kf;gdflkg')
   }
+
+
+
+
+
+  getStoyEvent(event: any, data: any,type:any) {
+    console.log(data);
+    
+    this.storydata = data;
+    this.storyId = this.storydata._id;
+    this.storyName = data?.storiesName
+    if(type == 'scat') {
+      this.catStory.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+    if(type == 'ssubcat') {
+      this.subStory.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+    if(type == 'ssubsub') {
+      this.SubSubStoryList.map((item:any)=>{
+        if(data?._id == item?._id) {
+          item.isChecked = true
+        } else {
+          item.isChecked = false
+        }
+      })
+    }
+           
+    let getStory = {
+      isQuoteId:null,
+      isStoryId :this.storydata._id,
+      myQuoteId:null,
+      myStoryId:null,
+      name : data?.storiesName
+    }
+    this.emitData(getStory)
+  }
+
+
+
+
+
+
+
+
 }

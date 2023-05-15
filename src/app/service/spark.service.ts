@@ -17,6 +17,8 @@ export class SparkService {
   token: any;
   isLoggedIn = false;
   updateImage = new Subject()
+  closeQuotes= new Subject()
+  closeMyQuotes = new Subject()
   // private path = environment.apiUrl
   constructor(private http: HttpClient) {
     console.log(environment);
@@ -768,6 +770,13 @@ getLIst() {
   return this.http.get(environment.localApiURL + '/api/freeTemplate/getEditTemplateList', {
     headers: { Authorization: `bearer ${this.token}` },
   });
+}
+
+modalCloseQuotes(data:any) {
+  this.closeQuotes.next(data)
+}
+modalCloseMyQuotes(data:any) {
+  this.closeMyQuotes.next(data)
 }
 }
 

@@ -11,7 +11,7 @@ import {ProgressBarAngularModule} from "progress-bar-angular"
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuoteDashboardModule } from '../motivational-quote/quote-dashboard/quote-dashboard.module';
-
+import { QuoteMyDashboardModule } from '../myquote/quote-dashboard/quote-dashboard.module'
 @NgModule({
   declarations: [
     BasicTemplateComponent
@@ -28,7 +28,9 @@ import { QuoteDashboardModule } from '../motivational-quote/quote-dashboard/quot
     ProgressBarAngularModule,
     NgxSpinnerModule,
     MatDialogModule,
-    QuoteDashboardModule
+    QuoteDashboardModule,
+    QuoteMyDashboardModule
+    
   ]
 })
 export class BasicTemplateModule { }

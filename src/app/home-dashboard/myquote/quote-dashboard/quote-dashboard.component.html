@@ -9,17 +9,23 @@
                 data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"
                 (click)="showQButton(); ShowTab('hide')">My
                 Quote</button>
-              <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab || hidebutton == 'hide'"> Create
-                Quote</button>
+                <ng-container *ngIf="isChecked">
+                  <button class="tab_btn rounded-pill" (click)="navigate()" *ngIf="tab || hidebutton == 'hide'"> Create
+                    Quote</button>
+                </ng-container>
+             
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="tab d-flex justify-content-end">
-              <button class="nav-link tablink" id="pills-profile-tab" data-bs-toggle="pill"
-                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+              <button class="nav-link tablink" id="pills-story-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-story" type="button" role="tab" aria-controls="pills-story"
                 aria-selected="false" (click)="ShowTab('storytab')">My Stories</button>
-              <button class="tab_btn rounded-pill" (click)="navigate1()" *ngIf="hidebutton == 'storytab'">Create
-                Stories</button>
+                <ng-container *ngIf="isChecked">
+                  <button class="tab_btn rounded-pill" (click)="navigate1()" *ngIf="hidebutton == 'storytab'">Create
+                    Stories</button>
+                </ng-container>
+              
             </div>
           </li>
         </ul>
@@ -53,29 +59,29 @@
               </div>
               <div class="col-md-6 col-lg-6" *ngFor="let quote of quotesList">
 
-                <div class="main" style="
-display: flex;
-position: relative;
-justify-content: end;
-top: -24px;
-">
-                  <p style="
-  position: absolute;
-  right: 65px;
-" (click)="editQuote(quote?._id)">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </p>
-                  <p style="
-  position: absolute;
-  right: 39px;
-" (click)="delQuote(quote?._id)">
+                <div class="main" style="display: flex;
+                position: relative;
+                justify-content: end;
+                top: -24px;
+                ">
+
+                  <p *ngIf="isChecked" style="position: absolute;right: 65px;" (click)="editQuote(quote?._id)">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </p>
+  
+
+                   
+                  <p *ngIf="isChecked" style="position: absolute;right: 39px;" (click)="delQuote(quote?._id)">
+  
+  
+
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </p>
-                  <p style="
-  position: absolute;
-  right: 14px;
-">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <p  style=" position: absolute;right: 14px;">
+ 
+  <!-- ------------select quote--------- -->
+
+                    <input class="form-check-input" type="radio" value="" (click)="selectQuotes(quote)"  id="flexCheckDefault">
                   </p>
                 </div>
 
@@ -118,7 +124,7 @@ top: -24px;
 
 
     <!-- my story -->
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
       <div class="col-md-11 col-lg-11">
 
         <div class="row m-0 p-0 mt-5 align-items-center">
@@ -131,7 +137,6 @@ top: -24px;
         
                   </div> -->
             <div class="row ">
-
               <div class="col-md-12 col-lg-12" *ngIf="storyMation">
                 <section class="nerdy-pen">
                   <h1 class="nerdy-pen__text">Hii !
@@ -150,13 +155,13 @@ top: -24px;
                 justify-content: end;
                 top: -24px;
                 ">
-                                  <p style="
+                                  <p *ngIf="isChecked" style="
                   position: absolute;
                   right: 65px;
                 " (click)="editStory(story?._id)">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                   </p>
-                                  <p style="
+                                  <p *ngIf="isChecked" style="
                   position: absolute;
                   right: 39px;
                 "  (click)="delStory(story?._id)">
@@ -166,7 +171,8 @@ top: -24px;
                   position: absolute;
                   right: 14px;
                 ">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <!-- ------------select story--------- -->
+                            <input class="form-check-input" type="radio" (click)="selectStory(story)" value="" id="flexCheckDefault">
                                   </p>
                                 </div>
                 

@@ -208,7 +208,7 @@ export class BasicTemplateComponent implements OnInit {
 
 
 
- public scheduleBg:string='##01a3f0'
+ public scheduleBg:string='#1295d3'
 scheduleSize:any=10
 scheduleShape:any=0
 
@@ -258,6 +258,12 @@ scheduleShape:any=0
   eventFontVal: number=2;
   appSizeFont: number=1;
   updateBar: any;
+  quotesId: any;
+  storiesId: any;
+  userQuotesId: any;
+  userStoriesId: any;
+  quotesDataList: any;
+  quotes: any;
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
@@ -363,15 +369,15 @@ this.scheduleForm=this.fb.group({
     // this.getDesign();
     this.getTemplateDetails();
 
-    if (localStorage.getItem('quoteId')) {
-      this.QuoteId = localStorage.getItem('quoteId')
+    // if (localStorage.getItem('quoteId')) {
+    //   this.QuoteId = localStorage.getItem('quoteId')
 
-    }
+    // }
 
-    if (localStorage.getItem('LongQuotes')) {
-      this.LongQuote = localStorage.getItem('LongQuotes')
+    // if (localStorage.getItem('LongQuotes')) {
+    //   this.LongQuote = localStorage.getItem('LongQuotes')
 
-    }
+    // }
     
     // this.getBasicProfile();
     this.getScanText();
@@ -1026,20 +1032,6 @@ this.scheduleForm=this.fb.group({
     this.getUrl();
  
     this.toast.show('Please click On Create Signature to Save ')
-  }
-
-
-
-  chooseQuotes(evt: any) {
-    if (evt) {
-      if (localStorage.getItem('quoteId')) {
-        this.QuoteId = localStorage.getItem('quoteId')
-      }
-      if (localStorage.getItem('LongQuotes')) {
-        this.LongQuote = localStorage.getItem('LongQuotes')
-      }
-    }
-
   }
 
 
@@ -1801,8 +1793,11 @@ getScheduleIcon(event: any, data: any){
         }
 
       ],
-      quotesId: this.QuoteId ? this.QuoteId : '',
-      quotes: data.quotes ? data.quotes : '',
+      quotes: data.quotes ? data.quotes : this.quotes,
+      quotesId:this.quotesId,
+      storiesId:this.storiesId,
+      userQuotesId:this.userQuotesId,
+      userStoriesId:this.userStoriesId,
       profileImage: this.imageData2 ? this.imageData2 : this.userProfile,
       companyPhone: data.companyPhone ? data.companyPhone : '',
 
@@ -1926,10 +1921,7 @@ getScheduleIcon(event: any, data: any){
 
         }
     }
-
-   
-
-
+    
     this.api.addsignatureDetails(body).subscribe((res: any) => {
  
       this.TemplateId = res?.data?._id
@@ -1942,15 +1934,15 @@ getScheduleIcon(event: any, data: any){
 
 
       this.getTemplateDetails();
-      if (localStorage.getItem('quoteId')) {
-        localStorage.removeItem('quoteId')
+      // if (localStorage.getItem('quoteId')) {
+      //   localStorage.removeItem('quoteId')
 
-      }
+      // }
 
-      if (localStorage.getItem('LongQuotes')) {
-        localStorage.removeItem('LongQuotes')
+      // if (localStorage.getItem('LongQuotes')) {
+      //   localStorage.removeItem('LongQuotes')
 
-      }
+      // }
       // this.saveChanges() ;
       this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
@@ -2027,4 +2019,44 @@ cancelMeeting(){
   this.scheduleLink=''
 this.scheduleIcon=''
 }
+
+closeQuoteModal() {
+  this.api.modalCloseQuotes(true)
+}
+  saveMyQuoteModal() {
+
+  this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+    this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+  }
+  savedQuotes(qId:any,sId:any,uId:any,usId:any,name:any) {
+    this.quotesId = qId;
+    this.storiesId = sId;
+    this.userQuotesId = uId;
+    this.userStoriesId = usId
+    this.LongQuote = name
+    this.quotes =null
+    this.signatureDetailsForm.controls['quotes'].setValue('')
+  }
+openMyQuotes() {
+    this.api.modalCloseMyQuotes(true)
+  }
+
+  chooseMyQuotes(evt: any) {    
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
+
+  chooseQuotes(evt: any) {
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
+
+  saveQuoteModal() {
+    this.api.modalCloseQuotes(true)
+    this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+      this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+  }
+
 }

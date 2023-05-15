@@ -213,26 +213,28 @@
                         ">
 
                               <p class=" mb-0 mt-1"  data-bs-toggle="modal" data-bs-target="#quoteModal">
-                                <i class="fa fa-plus-circle text-blue"></i>
-
-
-                              </p>
-                              <p class="mb-0 ps-2 text-blue">
-                                Add Quotes</p>
-                                <p class=" mb-0 mt-1" style="
-                                position: absolute;
-                                left: 267px;
-                            " data-bs-toggle="modal" data-bs-target="#quoteModal">
-                                  <i class="fa fa-plus-circle text-blue"></i>
-  
-  
-                                </p>
+                                <i class="fa fa-plus-circle text-blue"></i></p>
+                                <p class="mb-0 ps-2 text-blue">
+                                  Add Quotes</p>
                                 
-                                <p class="mb-0 ps-2 text-blue" style="
-                                position: absolute;
-                                right: 150px;
-                            ">
-                                  My Quotes</p>
+
+                              
+                             
+
+                                <p class=" mb-0 mt-1" style="position: absolute;left: 267px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
+                                  <i class="fa fa-plus-circle text-blue"></i>
+                                </p>
+                            
+                                
+  
+  
+                               
+                                
+                                <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;">My Quotes</p>
+                               
+                                
+                            
+                                  
 
                             </div>
 
@@ -2042,7 +2044,8 @@
             Schedule Meeting : </label>
         </div>
         <div class="col-auto">
-          <input type="text" class="design-input fs-14 col-md-6" formControlName="scheduleLink">
+          <input type="text" class="design-input fs-14 col-md-6" placeholder="Scheduler Url"
+           formControlName="scheduleLink">
           
           <ng-container class="po-re"
           *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
@@ -2063,7 +2066,7 @@ Please enter a valid Url.
           </div>
           <div class="col-auto">
             <input type="text" id="inputtext" class="form-control bg-transparent fs-14" formControlName="scheduleText"
-              [(ngModel)]="inputValue">
+              [(ngModel)]="inputValue" placeholder="Book A Meeting">
               <div *ngIf="Submitted && f['scheduleText']errors" class="invalid-feedback">
                 <span *ngIf="f['scheduleText']errors['required']">Text is required</span>
               </div>
@@ -2093,7 +2096,7 @@ Please enter a valid Url.
             <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
           </div>
           <div class="col-auto">
-            <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg" style="width:20px;height: 20px;" />
+            <input [(colorPicker)]="scheduleBg" [style.background-color]="scheduleBg" style="width:20px;height: 20px;" />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
@@ -2843,23 +2846,23 @@ Please fill the blank field.
         <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeQuoteModal()">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveQuoteModal()">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- -----------------my quote-modal--------- -->
-<div class="modal fade" id="#myquoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
-        <app-quote-dashboard (myQuoteSelect)="chooseQuotes($event)"></app-quote-dashboard>
+        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
       </div>
     </div>
   </div>

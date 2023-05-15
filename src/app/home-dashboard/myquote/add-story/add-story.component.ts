@@ -113,7 +113,7 @@ export class AddStoryComponent implements OnInit {
     this.api.addMyStory(body).subscribe((res: any) => {
       console.log(res);
       this.toast.success('Added  Successfully');
-      this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+      this.router.navigate(["home-dashboard/myquote/myquote-dashboard"])
 
 
     },
@@ -169,7 +169,7 @@ console.log(sId, 'idiiid')
   this.api.updateStory(sId,body).subscribe((res:any)=>{
     console.log(res,'update story')
     this.toast.success('Updated Successfully')
-    this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+    this.router.navigate(["home-dashboard/myquote/myquote-dashboard"])
   }
   )
 }

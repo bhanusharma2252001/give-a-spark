@@ -12,6 +12,7 @@ import { QuoteDashboardComponent } from './quote-dashboard.component';
   imports: [
     CommonModule,
     QuoteDashboardRoutingModule
-  ]
+  ],
+  exports: [QuoteDashboardComponent]
 })
-export class QuoteDashboardModule { }
+export class QuoteMyDashboardModule { }

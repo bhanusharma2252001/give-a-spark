@@ -21,10 +21,10 @@ const routes: Routes = [
     path:'', component:MyquoteComponent,
     children:[
       {
-        path:'', redirectTo:'quote-dashboard', pathMatch: 'full'
+        path:'', redirectTo:'myquote-dashboard', pathMatch: 'full'
       },
       {
-        path:'quote-dashboard', loadChildren:()=> import('./quote-dashboard/quote-dashboard.module').then((m)=>m.QuoteDashboardModule)
+        path:'myquote-dashboard', loadChildren:()=> import('./quote-dashboard/quote-dashboard.module').then((m)=>m.QuoteMyDashboardModule)
       },
       { path: 'add-quote', loadChildren: () => import('./add-quote/add-quote.module').then((m) => m.AddQuoteModule)},
       {

@@ -79,8 +79,10 @@
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <img class="author_image" src="assets/images/author image.jpg"
-                                                            alt="Author Image">
+                                                        <img class="author_image" src="assets/images/deafault-author.jpeg"
+                                                        alt="Author Image" *ngIf="!ss?.authorId?.profile">
+                                                        <img class="author_image" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{ss?.authorId?.profile}}"
+                                                        alt="Author Image" *ngIf="ss?.authorId?.profile">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
@@ -96,9 +98,10 @@
                                                                 </div>
                                                               
                                                                 <div class="form-check px-3">
-                                                                    <input class="form-check-input" type="checkbox" value=""
+                                                                    <input class="form-check-input" type="radio" value=""
                                                                         id="flexCheckDefault"
-                                                                        (click)="getQuoteEvent($event, ss)">
+                                                                        [checked]="ss?.isChecked"
+                                                                        (click)="getQuoteEvent($event, ss,'category')">
         
                                                                 </div>
                                                             </div>
@@ -128,8 +131,10 @@
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <img class="author_image" src="assets/images/author image.jpg"
-                                                            alt="Author Image">
+                                                        <img class="author_image" src="assets/images/deafault-author.jpeg"
+                                                        alt="Author Image" *ngIf="!subQ?.authorId?.profile">
+                                                        <img class="author_image" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{subQ?.authorId?.profile}}"
+                                                        alt="Author Image" *ngIf="subQ?.authorId?.profile">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
@@ -141,8 +146,10 @@
                                                                    
                                                                
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value=""
-                                                                        id="flexCheckDefault" (click)="getQuoteEvent($event, subQ)"
+                                                                    <input class="form-check-input" type="radio" value=""
+                                                                        id="flexCheckDefault"
+                                                                        [checked]="subQ?.isChecked"
+                                                                         (click)="getQuoteEvent($event, subQ,'subcat')"
                                                                         >
                 
                                                                 </div>
@@ -175,8 +182,10 @@
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <img class="author_image" src="assets/images/author image.jpg"
-                                                            alt="Author Image">
+                                                        <img class="author_image" src="assets/images/deafault-author.jpeg"
+                                                        alt="Author Image" *ngIf="!quote?.authorId?.profile">
+                                                        <img class="author_image" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{quote?.authorId?.profile}}"
+                                                        alt="Author Image" *ngIf="quote?.authorId?.profile">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
@@ -192,9 +201,10 @@
                                                                         more...</span>
                                                                 </p>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value=""
+                                                                    <input class="form-check-input" type="radio" value=""
                                                                         id="flexCheckDefault"
-                                                                        (click)="getQuoteEvent($event, quote)">
+                                                                        [checked]="quote?.isChecked"
+                                                                        (click)="getQuoteEvent($event, quote,'subsub')">
         
                                                                 </div>
                                                             </div>
@@ -227,13 +237,7 @@
                         <div class="modal-dialog  modal-xl">
         
                             <div class="modal-content ">
-                                <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
-                        <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
-                        <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
-                           </h5>
-                        <button type="button" class="btn-close text-white blue-btn" ></button>
-        
-                    </div> -->
+                          
                                 <div class="modal-body p-0" *ngIf="catQuotes">
                                     <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="catQuotes">
                                         <div class="col-md-12 col-lg-12 p-0">
@@ -248,11 +252,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="catQuoteData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
+                                                                <div>
                                                                     <img class="rounded-circle image-circle-design" style="
                                                 height:100px;
-                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{catQuoteData?.uploadImage}}" />
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{catQuoteData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!catQuoteData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px py-2 end-radius bg-pink">
                                                                     <h3 class="text-white mb-0">Author</h3>
@@ -369,12 +377,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="subQuotesData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="rounded-circle" style="
-                                                                             height:100px;
-                                                                             width: 100px;"
-                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{subQuotesData?.uploadImage}}" />
+                                                                <div>
+                                                                    <img class="rounded-circle image-circle-design" *ngIf="subQuotesData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{subQuotesData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!subQuotesData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px end-radius bg-pink">
                                                                     <h3 class="text-white">Author</h3>
@@ -470,13 +481,7 @@
                         <div class="modal-dialog  modal-xl">
         
                             <div class="modal-content ">
-                                <!-- <div class="modal-header " *ngIf="catStory" style="background-color:#e9d5da;">
-                                                     <h5 class="modal-title " id="morestoriesLabel">Story Details</h5> 
-                                                     <h5 class="modal-title text-dark" id="morelong" style="margin-left:323px; margin-top:35px;">
-                                                        </h5>
-                                                     <button type="button" class="btn-close text-white blue-btn" ></button>
-                                     
-                                                 </div> -->
+                             
                                 <div class="modal-body p-0" *ngIf="quoteList">
                                     <div class="row m-0 p-0 position-relative justify-content-center" *ngIf="quoteList">
                                         <div class="col-md-12 col-lg-12 p-0">
@@ -491,12 +496,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="SubSubQuotesData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="rounded-circle image-circle-design" style="
-                                                                             height:100px;
-                                                                             width: 100px;"
-                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubQuotesData?.uploadImage}}" />
+                                                                <div>
+                                                                    <img class="rounded-circle image-circle-design" *ngIf="SubSubQuotesData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubQuotesData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!SubSubQuotesData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px py-2 end-radius bg-pink">
                                                                     <h3 class="text-white mb-0">Author</h3>
@@ -646,8 +654,10 @@
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <img class="author_image" src="assets/images/author image.jpg"
-                                                            alt="Author Image">
+                                                        <img class="author_image" src="assets/images/deafault-author.jpeg"
+                                                            alt="Author Image" *ngIf="!ll?.authorId?.profile">
+                                                            <img class="author_image" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{ll?.authorId?.profile}}"
+                                                            alt="Author Image" *ngIf="ll?.authorId?.profile">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9 p-0">
@@ -655,8 +665,12 @@
                                                         <blockquote class="blockquote">
                                                             <p class="fs-14 limit"> {{ll?.longStory}} </p>
                                                             <span data-bs-toggle="modal" data-bs-target="#x" (click)="viewStory(ll)" class="text-blue fs-12">Read more...</span>
-            
-                                                                
+                                                            <div class="form-check px-3">
+                                                            <input class="form-check-input" type="radio" value=""
+                                                            id="flexCheckDefault"
+                                                            [checked]="ll?.isChecked"
+                                                            (click)="getStoyEvent($event, ll,'scat')"></div>
+
                                                         </blockquote>
                                                         <figcaption class="blockquote-footer">
                                                             <cite class="fs-24"
@@ -672,7 +686,7 @@
                                     </div>
                                     <!-- <div class="border-10 box-border m-2 p-2 author_section" *ngFor="let ss of catStory">
                                     <div class="author_image">
-                                        <img src="assets/images/author image.jpg" alt="Author Image">
+                                        <img src="assets/images/deafault-author.jpeg" alt="Author Image">
                                     </div>
                                     <figure class="text-centers">
                                         <blockquote class="blockquote">
@@ -697,8 +711,12 @@
                                             <div class="border-10 box-border p-2 author_section">
                                                 <div class="row">
                                                     <div class="col-md-3 p-0">
-                                                        <img class="author_image" src="assets/images/author image.jpg"
+                                                        <img class="author_image" *ngIf="!substory?.authorId?.profile" src="assets/images/deafault-author.jpeg"
                                                             alt="Author Image">
+                                                        <img class="author_image" *ngIf="substory?.authorId?.profile" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{substory?.authorId?.profile}}"
+                                                            alt="Author Image">
+                                                         
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9 p-0">
@@ -712,6 +730,11 @@
                                                                     more...</span>
                                                             </p>
                                                         </blockquote>
+                                                        <div class="form-check px-3">
+                                                            <input class="form-check-input" type="radio" value=""
+                                                            id="flexCheckDefault"
+                                                            [checked]="substory?.isChecked"
+                                                            (click)="getStoyEvent($event, substory,'ssubcat')"></div>
                                                         <figcaption class="blockquote-footer">
         
                                                             <cite class="fs-24" title="Source Title">
@@ -730,7 +753,9 @@
                                                 <div class="border-10 box-border p-2 author_section">
                                                     <div class="row">
                                                         <div class="col-md-3 p-0">
-                                                            <img class="author_image" src="assets/images/author image.jpg"
+                                                            <img class="author_image"  *ngIf="!stories?.authorId?.profile" src="assets/images/deafault-author.jpeg"
+                                                                alt="Author Image">
+                                                            <img class="author_image" *ngIf="stories?.authorId?.profile" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{stories?.authorId?.profile}}"
                                                                 alt="Author Image">
                                                         </div>
                                                     </div>
@@ -744,6 +769,11 @@
                                                                         class="text-blue fs-12">Read
                                                                         more...</span>
                                                                 </p>
+                                                                <div class="form-check px-3">
+                                                                    <input class="form-check-input" type="radio" value=""
+                                                                    id="flexCheckDefault"
+                                                                    [checked]="stories?.isChecked"
+                                                                    (click)="getStoyEvent($event, stories,'ssubsub')"></div>
                                                             </blockquote>
                                                             <figcaption class="blockquote-footer">
                                                                 <cite class="fs-24" title="Source Title">
@@ -792,11 +822,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="storyData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="rounded-circle image-circle-design" style="
+                                                                <div>
+                                                                    <img class="rounded-circle image-circle-design" *ngIf="storyData?.authorId?.profile" style="
                                                 height:100px;
-                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.uploadImage}}" />
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{storyData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!storyData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px py-2 end-radius bg-pink">
                                                                     <h3 class="text-white mb-0">Author</h3>
@@ -919,12 +953,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="substoryData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="rounded-circle" style="
-                                                                             height:100px;
-                                                                             width: 100px;"
-                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{substoryData?.uploadImage}}" />
+                                                                <div>
+                                                                    <img class="rounded-circle image-circle-design" *ngIf="substoryData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{substoryData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!substoryData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px end-radius bg-pink">
                                                                     <h3 class="text-white">Author</h3>
@@ -1041,12 +1078,15 @@
                                                     <div class="row m-0 p-0">
                                                         <div class="col-md-6 col-lg-6">
                                                             <div class="d-flex align-items-center position-relative">
-                                                                <div
-                                                                    *ngIf="SubSubstoryData?.uploadImage!='https://stargazeevents.s3.ap-south-1.amazonaws.com/pfiles/profile.png' ">
-                                                                    <img class="rounded-circle image-circle-design" style="
-                                                                             height:100px;
-                                                                             width: 100px;"
-                                                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubstoryData?.uploadImage}}" />
+                                                                <div>
+                                                                    <img class="rounded-circle image-circle-design" *ngIf="SubSubstoryData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{SubSubstoryData?.authorId?.profile}}" />
+                                                                    <img class="rounded-circle image-circle-design"  *ngIf="!SubSubstoryData?.authorId?.profile" style="
+                                                height:100px;
+                                                width: 100px;" src="assets/images/deafault-author.jpeg" />
+
+
                                                                 </div>
                                                                 <div class="w-200px py-2 end-radius bg-pink">
                                                                     <h3 class="text-white mb-0">Author</h3>

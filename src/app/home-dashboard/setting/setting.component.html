@@ -8,7 +8,8 @@
         role="tab" aria-controls="profile" aria-selected="false">Subscription</button>
     </li>
   <li class="tab_person">
-    <i class="fa fa-user" aria-hidden="true"></i>
+    <i class="fa fa-user" aria-hidden="true" *ngIf="!userDetails?.profile"></i>
+    <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userDetails?.profile}}"  *ngIf="userDetails?.profile"class="wh-50 cur" alt="">
   </li>
   </ul>
   <div class="tab-content mb-130px mt-4" id="myTabContent">

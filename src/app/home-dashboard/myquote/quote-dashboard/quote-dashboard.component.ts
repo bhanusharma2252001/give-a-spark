@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
 
 @Component({
-  selector: 'app-quote-dashboard',
+  selector: 'app-myquote-dashboard',
   templateUrl: './quote-dashboard.component.html',
   styleUrls: ['./quote-dashboard.component.scss']
 })
@@ -16,6 +16,8 @@ export class QuoteDashboardComponent implements OnInit {
   hidebutton:any;
   @ViewChild('textElement') textElement: ElementRef;
   @ViewChild('storyElement') storyElement: ElementRef;
+  @Output() myquotesSelect = new EventEmitter() 
+
   text =`You Haven't Created any Quote Yet `;
   storyText=`You Haven't Created any Story Yet `
   currentIndex = 0;
@@ -23,7 +25,10 @@ storyIndex =0;
   intervalId: any;
   interVal:any;
   tab=true;
-  constructor(private api:SparkService,private router:Router, private spinner:NgxSpinnerService ) { }
+  isChecked: boolean=true;
+  constructor(private api:SparkService,private router:Router, private spinner:NgxSpinnerService ) {
+    this.resetQuotes()
+   }
 
   ngOnInit(): void {
     this.getmyQuote();
@@ -42,6 +47,14 @@ this.intervalId = setInterval(() => {
       this.updateStory();
     }, 300);
     
+  }
+
+  resetQuotes() {
+    this.api.closeMyQuotes.subscribe((res:any)=>{
+      if(res) {
+        this.isChecked = false
+      }
+    })
   }
 
   updateText(): void {
@@ -155,5 +168,33 @@ editStory(val:any){
   this.router.navigate(['home-dashboard/myquote/add-story'], { queryParams: { storyId: id } })
 }
 
+selectQuotes(data:any) {
+  console.log(data,'xabkjdbxaskj');
+  
+  let getQuotes = {
+    isQuoteId :null,
+    isStoryId:null,
+    myQuoteId:data._id,
+    myStoryId:null,
+    name : data?.enterQuotes
+  }
+  this.emitData(getQuotes)
+}
+selectStory(data:any) {
+  console.log(data,'xabkjdbxaskj');
+  
+  let getQuotes = {
+    isQuoteId :null,
+    isStoryId:null,
+    myQuoteId:null,
+    myStoryId:data._id,
+    name : data?.enterStories
+  }
+  
+  this.emitData(getQuotes)
+}
+emitData(data:any) {
+  this.myquotesSelect.emit(data);
+}
 
 }

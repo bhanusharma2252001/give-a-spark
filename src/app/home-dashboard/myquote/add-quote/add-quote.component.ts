@@ -115,7 +115,7 @@ export class AddQuoteComponent implements OnInit {
     this.api.addQuote(body).subscribe((res: any) => {
       console.log(res);
       this.toast.success('Added  Successfully');
-      this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+      this.router.navigate(["home-dashboard/myquote/myquote-dashboard"])
 
 
     },
@@ -156,6 +156,9 @@ getBindData(data:any){
   console.log(data, 'quote llist')
   this.quoteName= data?.enterQuotes
  this.quoteWriterImage = data?.writerProfile
+ if(this.imageData2){
+  this.quoteWriterImage=this.imageData2
+ }
  this.quoteWriterName= data?.writerName
 }
 
@@ -171,7 +174,7 @@ console.log(qId, 'idiiid')
   this.api.updateQuotes(qId,body).subscribe((res:any)=>{
     console.log(res,'update quote')
     this.toast.success('Updated Successfully')
-    this.router.navigate(["home-dashboard/myquote/quote-dashboard"])
+    this.router.navigate(["home-dashboard/myquote/myquote-dashboard"])
   }
   )
 }
