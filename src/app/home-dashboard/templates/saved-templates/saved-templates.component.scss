@@ -1,13 +1,17 @@
 .signatures-list-create {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 101px;
-    background: rgba(28, 183, 235, .1);
-    border: 1px dashed #1cb7eb;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background: rgba(28, 183, 235, 0.1);
+  border: 1px dashed #00BF7F;
+  border-radius: 107px;
+  cursor: pointer;
+  width: 22%;
+  position: relative;
+  margin: auto;
+  background-color: #00bf7f;
+  color: #ffffff;
 }
 
 .signature-item-edit-btn {
@@ -167,5 +171,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
   
   .play-pause-btn:hover i {
     transform: scale(1.2);
+  }
+
+  .delt_modal_top{
+    margin-top: 50%;
   }
   

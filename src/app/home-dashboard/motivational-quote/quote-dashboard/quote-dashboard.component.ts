@@ -199,6 +199,28 @@ export class QuoteDashboardComponent implements OnInit {
     }))
   }
 
+ 
+
+
+  getStorySubCategory() {
+    let data = this.showStoriesForm.value;
+    console.log(data);
+    console.log(data?.categoriesId, 'idid')
+    this.api.getSubCategoryList(data.categoriesId).subscribe((res) => {
+      this.subCategory = res;
+      console.log(this.subCategory);
+    });
+  }
+
+  getStorySubsubCategory(){
+
+    let data= this.showStoriesForm.value;
+    console.log(data);
+    this.api.getSubSubCat(data.subCategoriesId).subscribe((res=>{
+      this.subSubCategory = res;
+      console.log(this.subSubCategory)
+    }))
+  }
 
 
 

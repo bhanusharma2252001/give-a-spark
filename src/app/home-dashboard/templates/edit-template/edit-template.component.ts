@@ -283,6 +283,11 @@ export class EditTemplateComponent implements OnInit {
   bindData: any;
   displayTab: any;
   std: any;
+  quotesDataList: any;
+  quotesId: any;
+  storiesId: any;
+  userQuotesId: any;
+  userStoriesId: any;
 
   constructor(private api: SparkService, private dialog: MatDialog, myElement: ElementRef, private route: ActivatedRoute, private location: Location,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner: NgxSpinnerService) {
@@ -616,8 +621,15 @@ export class EditTemplateComponent implements OnInit {
         borderRadius: this.borderRadius
 
       },
-      quotesId: this.QuoteId,
-      quotes: this.quotevar,
+      // quotesId: this.QuoteId,
+      // quotes: this.quotevar,
+
+      quotes: data.quotes ? data.quotes : null,
+      quotesId:this.quotesId,
+      storiesId:this.storiesId,
+      userQuotesId:this.userQuotesId,
+      userStoriesId:this.userStoriesId,
+
       companyPhone: data.companyPhone,
       profileImage: this.imageData2 ? this.imageData2 : this.userProfile,
       fbProfile: data.fbProfile,
@@ -716,16 +728,16 @@ export class EditTemplateComponent implements OnInit {
 
 
     this.api.updateTemplate(this.templateId, body).subscribe((res: any) => {
-      console.log(res);
+      console.log(res,'update result',res?.data?._id);
       this.TemplateId = res?.data?._id
       this.toast.success('Signature  Updated Successfully');
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-      }
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-        this.quotevar = this.LongQuote
-      }
+      // if (localStorage.getItem('templatequoteId')) {
+      //   this.QuoteId = localStorage.getItem('templatequoteId')
+      // }
+      // if (localStorage.getItem('templateLongQuotes')) {
+      //   this.LongQuote = localStorage.getItem('templateLongQuotes')
+      //   this.quotevar = this.LongQuote
+      // }
 
       this.getFreeTemplate();
 
@@ -904,7 +916,7 @@ export class EditTemplateComponent implements OnInit {
       this.proList = res?.templateForPro;
 
       this.proplus = res?.templateForProPlus;
-      console.log(this.proList, 'ppppppppppppppppppppppppp');
+      console.log(this.proList, 'pro template');
 
       console.log(this.tempDetails, 'free Templates');
       this.tempDetails.filter((item: any) => {
@@ -982,7 +994,7 @@ export class EditTemplateComponent implements OnInit {
   }
 
   getBindData(data: any) {
-    console.log(data, 'adadcw');
+    console.log(data, 'bind data');
     this.bindData = data;
     this.username = data?.yourName
     this.logo = data?.logo
@@ -994,7 +1006,6 @@ export class EditTemplateComponent implements OnInit {
     this.compPhone = data?.companyPhone
     this.desig = data?.designation
     this.addr = data?.address
-    this.quotevar = data?.quotes
     this.insta = data?.instagramProfile
     this.uTube = data?.youtubeChannel
     this.title = data?.signatureName
@@ -1005,19 +1016,18 @@ export class EditTemplateComponent implements OnInit {
     this.std = data?.stdCode
 
     console.log(this.logo, ';naskjxbaskjbxakjwcbxdbs');
-
-    this.QuoteId = data?.quotesId
-    if (localStorage.getItem('templatequoteId')) {
-      this.QuoteId = localStorage.getItem('templatequoteId')
-
+    this.quotesId = data?.quotesId
+    this.storiesId = data?.storiesId;
+    this.userQuotesId = data?.userQuotesId;
+    this.userStoriesId = data?.userStoriesId
+    // this.LongQuote = data?.quotes
+   
+    this.quotevar = data.quotes ? data.quotes : null
+    if(!data?.quotes) {
+      this.LongQuote = data?.quotesId?.quotesName ?  data?.quotesId?.quotesName : data.storiesId?.storiesName ? data.storiesId?.storiesName : data?.userQuotesId?.enterQuotes ? data?.userQuotesId?.enterQuotes : data?.userStoriesId?.enterStories ? data?.userStoriesId?.enterStories : null
+      this.quotevar=this.LongQuote
     }
-
-    if (localStorage.getItem('templateLongQuotes')) {
-      this.LongQuote = localStorage.getItem('templateLongQuotes')
-      this.quotevar = this.LongQuote
-
-    }
-
+    console.log(this.quotevar ,'data of  selection quoteioeipipipipi')
 
     this.getScheduleData();
     this.getDisclamierData();
@@ -1166,33 +1176,70 @@ export class EditTemplateComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    if (localStorage.getItem('templateLongQuotes')) {
-      localStorage.removeItem('templatequoteId');
-    }
-    if (localStorage.getItem('templateLongQuotes')) {
-      localStorage.removeItem('templateLongQuotes')
-    }
+    // if (localStorage.getItem('templateLongQuotes')) {
+    //   localStorage.removeItem('templatequoteId');
+    // }
+    // if (localStorage.getItem('templateLongQuotes')) {
+    //   localStorage.removeItem('templateLongQuotes')
+    // }
   }
 
   // Pro Templates
 
 
 
-  chooseQuotes(evt: any) {
-    if (evt) {
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-      }
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-        this.quotevar = this.LongQuote
+  // chooseQuotes(evt: any) {
+  //   if (evt) {
+  //     if (localStorage.getItem('templatequoteId')) {
+  //       this.QuoteId = localStorage.getItem('templatequoteId')
+  //     }
+  //     if (localStorage.getItem('templateLongQuotes')) {
+  //       this.LongQuote = localStorage.getItem('templateLongQuotes')
+  //       this.quotevar = this.LongQuote
 
-      }
-    }
+  //     }
+  //   }
 
+  // }
+
+  openMyQuotes() {
+    this.api.modalCloseMyQuotes(true)
   }
 
+  chooseMyQuotes(evt: any) {    
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
 
+  closeQuoteModal() {
+    this.api.modalCloseQuotes(true)
+  }
+
+  saveMyQuoteModal() {
+
+    this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+      this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+    }
+    savedQuotes(qId:any,sId:any,uId:any,usId:any,name:any) {
+      this.quotesId = qId;
+      this.storiesId = sId;
+      this.userQuotesId = uId;
+      this.userStoriesId = usId
+      this.LongQuote = name
+      this.quotevar =name
+      this.editTemplateForm.controls['quotes'].setValue('')
+    }
+  chooseQuotes(evt: any) {
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
+  saveQuoteModal() {
+    this.api.modalCloseQuotes(true)
+    this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+      this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+  }
 
 
 
@@ -1764,7 +1811,7 @@ export class EditTemplateComponent implements OnInit {
     if (data == "Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy." || data == "Please consider the environment before printing this e-mail!" || data == "Do you really need to print this email?" || data == "Printing emails kills trees. Print is murder!" || data == "Do not print this, Ok?") {
       return false
     } else {
-      console.log('footer kk');
+      // console.log('footer kk');
 
       return true
     }

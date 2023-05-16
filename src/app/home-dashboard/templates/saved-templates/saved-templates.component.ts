@@ -28,7 +28,7 @@ currentIndex = 0;
 outlookWebUrl: string = 'https://outlook.com';
 yahooMailUrl: string = 'https://mail.yahoo.com';
 Animation=false;
-
+animateText=false;
 isPlaying: boolean = false;
 
 signatureId:any;
@@ -118,6 +118,9 @@ signatureId:any;
   tempList: any;
   proList: any;
   proplus: any;
+  freeId: any;
+  proId: any;
+  proproId: any;
 
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
@@ -401,11 +404,13 @@ setonGmail(){
   
   }
   openModal (evt:any) {  console.log(evt);
-  this. selectedTemplateId = evt
+  this.selectedTemplateId = evt
+  console.log( this.selectedTemplateId , 'tetmplaid')
     
 
 
 }
+
 
 setOnOutlook(){
   // this.outLookRef = this.tableData.nativeElement
@@ -456,6 +461,7 @@ setOnOutlook(){
 
     delTemplate(val:any){
       this.tempId=val
+      console.log(this.tempId, 'idoftteem')
       this.api.delTemplate(this.tempId).subscribe((res:any)=>{
         console.log(this.tempId);
         this.toast.success('This Signature is deleted successfully.');
@@ -493,27 +499,11 @@ setOnOutlook(){
       this.api.getLIst().subscribe((res: any) => {
         this.tempList = res?.freeTemplates;
 
-        const freeListIds = [];
+       if(res?.count == 0 && res?.countPro == 0 && res?. countProPlus == 0){
+        this.animateText = true
+       }
 
-        this.tempList?.forEach((obj:any) => {
-          const proListId = obj?.id;
-          freeListIds.push(proListId);
-        });
-    
-        // console.log(proListIds);
-
-
-
-
-
-
-
-
-
-
-
-
-        console.log(this.tempList, 'freelist')
+        
   
         this.proList = res?.templateForPro;
 
@@ -524,13 +514,7 @@ setOnOutlook(){
           proListIds.push(proListId);
         });
     
-        console.log(proListIds, 'ids of pro list ');
-
-
-
-
-        
-        console.log(this.proList,'prolist')
+    
   
         this.proplus = res?.templateForProPlus;
         
@@ -547,5 +531,56 @@ setOnOutlook(){
     
       this.router.navigate(['home-dashboard/templates/edit-template'], { queryParams: { templateId: id } })
     }
+
+
+    delProSignatures(val:any){
+      this.signatureId=val
+      console.log(this.signatureId, 'id')
+      this.api.delproSignatureTemp( this.signatureId).subscribe((res:any)=>{
+        console.log(res,'reee')
+        this.getSaveList();
+      })
+    }
     
+    delProProTemp(val:any){
+      this.signatureId=val
+      console.log(this.signatureId, 'id')
+      this.api.delproPRoSignatureTemp( this.signatureId).subscribe((res:any)=>{
+        console.log(res,'reee')
+        this.getSaveList();
+      })
+    }
+    delFreeTemp(val:any){
+      this.signatureId=val
+      console.log(this.signatureId, 'id')
+      this.api.delfreeSignatureTemp( this.signatureId).subscribe((res:any)=>{
+        console.log(res,'reee')
+        this.getSaveList();
+      })  
+    }
+
+
+
+
+    openFreeModal (evt:any) {  console.log(evt);
+      this.freeId = evt
+      console.log( this.freeId , 'freetetmplaid')
+        
+    
+    
+    }
+    openProModal (evt:any) {  console.log(evt);
+      this.proId = evt
+      console.log( this.proId , 'freetetmplaid')
+        
+    
+    
+    }
+    openProProModal(evt:any) {  console.log(evt);
+      this.proproId = evt
+      console.log( this.proproId , 'idididi')
+        
+    
+    
+    }
   }

@@ -12,6 +12,8 @@ import { EditSaveComponent } from './edit-save/edit-save.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuoteDashboardModule } from '../motivational-quote/quote-dashboard/quote-dashboard.module';
+import { QuoteMyDashboardModule } from '../myquote/quote-dashboard/quote-dashboard.module';
+
 // import {MatDialog} from '@angular/material/dialog';
 
 @NgModule({
@@ -31,7 +33,8 @@ import { QuoteDashboardModule } from '../motivational-quote/quote-dashboard/quot
     NgxSpinnerModule,
     MatDialogModule,
     // MatDialog
-    QuoteDashboardModule
+    QuoteDashboardModule,
+    QuoteMyDashboardModule
     
 
   ]

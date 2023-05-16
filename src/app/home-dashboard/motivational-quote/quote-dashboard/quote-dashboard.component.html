@@ -613,7 +613,7 @@
                                 <div class="col-md-4 col-lg-4">
                                     <select class="form-select light-bg  p-3" aria-label="Default select example"
                                         formControlName="categoriesId"
-                                        (change)="getSubCategory(); showStoryCat(showStoriesForm.value)">
+                                        (change)="getStorySubCategory(); showStoryCat(showStoriesForm.value)">
                                         <option value="" disabled selected>Select Category</option>
                                         <option *ngFor="let data of category" [value]="data._id">{{data.name}}</option>
                                     </select>
@@ -621,7 +621,7 @@
                                 <div class="col-md-4 col-lg-4">
                                     <select class="form-select light-bg  p-3" aria-label="Default select example"
                                         formControlName="subCategoriesId"
-                                        (change)="getSubsubCategory(); showStorySubCat(showStoriesForm.value)">
+                                        (change)="getStorySubsubCategory(); showStorySubCat(showStoriesForm.value)">
         
                                         <option value="" disabled selected>Select Sub Category</option>
                                         <option *ngFor="let subcat of subCategory" [value]="subcat?._id">{{subcat?.name}}

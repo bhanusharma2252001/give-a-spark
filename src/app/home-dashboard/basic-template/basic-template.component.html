@@ -2044,8 +2044,7 @@
             Schedule Meeting : </label>
         </div>
         <div class="col-auto">
-          <input type="text" class="design-input fs-14 col-md-6" placeholder="Scheduler Url"
-           formControlName="scheduleLink">
+          <input type="text" class="design-input fs-14 col-md-6" formControlName="scheduleLink">
           
           <ng-container class="po-re"
           *ngIf="scheduleForm.controls['scheduleLink'].touched && !scheduleForm.controls['scheduleLink'].valid">
@@ -2066,7 +2065,7 @@ Please enter a valid Url.
           </div>
           <div class="col-auto">
             <input type="text" id="inputtext" class="form-control bg-transparent fs-14" formControlName="scheduleText"
-              [(ngModel)]="inputValue" placeholder="Book A Meeting">
+              [(ngModel)]="inputValue">
               <div *ngIf="Submitted && f['scheduleText']errors" class="invalid-feedback">
                 <span *ngIf="f['scheduleText']errors['required']">Text is required</span>
               </div>
@@ -2096,7 +2095,7 @@ Please enter a valid Url.
             <label for="inputtext" class="col-form-label fs-14 fw-semibold">Color :</label>
           </div>
           <div class="col-auto">
-            <input [(colorPicker)]="scheduleBg" [style.background-color]="scheduleBg" style="width:20px;height: 20px;" />
+            <input [(colorPicker)]="scheduleBg" [style.background]="scheduleBg" style="width:20px;height: 20px;" />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">

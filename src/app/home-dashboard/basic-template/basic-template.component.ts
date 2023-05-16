@@ -208,7 +208,7 @@ export class BasicTemplateComponent implements OnInit {
 
 
 
- public scheduleBg:string='#1295d3'
+ public scheduleBg:string='##01a3f0'
 scheduleSize:any=10
 scheduleShape:any=0
 
@@ -1793,7 +1793,7 @@ getScheduleIcon(event: any, data: any){
         }
 
       ],
-      quotes: data.quotes ? data.quotes : this.quotes,
+      quotes: data.quotes ? data.quotes : this.quotes, 
       quotesId:this.quotesId,
       storiesId:this.storiesId,
       userQuotesId:this.userQuotesId,

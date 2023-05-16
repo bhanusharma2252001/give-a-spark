@@ -764,6 +764,7 @@ getNotifications(): Observable<any> {
   });
 }
 
+
 // --------------list of lost-----temp-----------
 
 getLIst() {
@@ -771,6 +772,27 @@ getLIst() {
     headers: { Authorization: `bearer ${this.token}` },
   });
 }
+
+delproSignatureTemp(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteEditTemplateById?proTemplateId=' + id, {
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+
+}
+delfreeSignatureTemp(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteEditTemplateById?templateId=' + id, {
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+
+}
+
+delproPRoSignatureTemp(id: any){
+  return this.http.delete(environment.localApiURL + '/api/freeTemplate/deleteEditTemplateById?proPlusTemplateId=' + id, {
+    headers: { Authorization: `bearer ${this.token}` },
+  })
+
+}
+
 
 modalCloseQuotes(data:any) {
   this.closeQuotes.next(data)
