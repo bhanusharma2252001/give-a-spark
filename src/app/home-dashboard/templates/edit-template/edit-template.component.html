@@ -1395,7 +1395,9 @@
                       <tr>
                         <td colspan="2" style="padding: 12px 15px; margin-bottom:0; text-align: center;"> 
                           <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
-                            *ngIf="quotevar"> "{{quotevar}}"</a>
+                            *ngIf="!LongQuote"> "{{quotevar}}qq"</a>
+                            <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
+                            *ngIf="LongQuote">{{LongQuote}} ll"</a>
                         </td>
                         <td>
                           <div style="padding:5px 0" *ngIf=logo> <img
@@ -1623,7 +1625,7 @@
 
                 <!-- /...............................Template-7................... -->
 
-                <div *ngIf="templateId==13">
+                <div *ngIf="templateId == 13">
                   <p style="font-size:8px;text-align:center;">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="free-7" #tableData
                     style="background-color: #fff;border-radius:15px;font-size: medium;width:480px;height:280px; font-family: Arial;">
@@ -1633,7 +1635,7 @@
                         <td style="padding: 0px 10px">
 
                           <h2 style="margin:0px;color:#add27b;font-size:22px;text-transform: capitalize;">
-                            {{username}}</h2>
+                            {{username}} jk</h2>
                           <h6 style="margin:0px;font-weight: 600;font-size: 14px;text-transform: capitalize;">
                             {{desig}}</h6>
                         </td>
@@ -1721,9 +1723,12 @@
                         </td>
                         <td>
                           
-                          <p style="font-size:12px;color:#000c;margin:0px;" *ngIf="quotevar">
-                            {{quotevar}}
+                          <p style="font-size:12px;color:#000c;margin:0px;" >
+                            {{LongQuote}} Long quotr
                           </p>
+                          <a
+                            style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
+                            > "{{quotevar}}"  quotevar</a>
                         </td>
 
                       </tr>

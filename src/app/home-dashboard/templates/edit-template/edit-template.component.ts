@@ -1020,14 +1020,24 @@ export class EditTemplateComponent implements OnInit {
     this.storiesId = data?.storiesId;
     this.userQuotesId = data?.userQuotesId;
     this.userStoriesId = data?.userStoriesId
-    // this.LongQuote = data?.quotes
-   
+    // changing
     this.quotevar = data.quotes ? data.quotes : null
     if(!data?.quotes) {
       this.LongQuote = data?.quotesId?.quotesName ?  data?.quotesId?.quotesName : data.storiesId?.storiesName ? data.storiesId?.storiesName : data?.userQuotesId?.enterQuotes ? data?.userQuotesId?.enterQuotes : data?.userStoriesId?.enterStories ? data?.userStoriesId?.enterStories : null
-      this.quotevar=this.LongQuote
+      this.quotevar= this.LongQuote
     }
-    console.log(this.quotevar ,'data of  selection quoteioeipipipipi')
+    // this.QuoteId = data?.quotesId
+    // if (localStorage.getItem('templatequoteId')) {
+    //   this.QuoteId = localStorage.getItem('templatequoteId')
+
+    // }
+
+    // if (localStorage.getItem('templateLongQuotes')) {
+    //   this.LongQuote = localStorage.getItem('templateLongQuotes')
+    //   this.quotevar = this.LongQuote
+
+    // }
+
 
     this.getScheduleData();
     this.getDisclamierData();
@@ -1226,8 +1236,8 @@ export class EditTemplateComponent implements OnInit {
       this.storiesId = sId;
       this.userQuotesId = uId;
       this.userStoriesId = usId
+      this.quotevar = name
       this.LongQuote = name
-      this.quotevar =name
       this.editTemplateForm.controls['quotes'].setValue('')
     }
   chooseQuotes(evt: any) {

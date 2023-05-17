@@ -699,10 +699,10 @@ this.scheduleForm=this.fb.group({
         this.updateBar = 100
       }
   
-      
+      console.log(this.updateBar, 'bar')
 
     })
-
+console.log(this.progessAray.length, 'lengthproge')
 
   }
 

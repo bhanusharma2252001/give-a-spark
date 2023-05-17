@@ -281,6 +281,11 @@ content!: string;
   appSizeFont: number=1;
   bindData: any;
   urlPattern = /^((http[s]?|ftp):\/\/)?(www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/\S*)?$/;
+  quotesDataList: any;
+  quotesId: any;
+  storiesId: any;
+  userQuotesId: any;
+  userStoriesId: any;
   constructor(private api: SparkService, myElement: ElementRef,private route: ActivatedRoute,private dialog: MatDialog,private location: Location,
     private fb: FormBuilder, private toast: ToastrService,private spinner:NgxSpinnerService, private router: Router, private clipboard: Clipboard) {
       const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -765,24 +770,36 @@ this.api.gmail(this.templateRef.outerHTML
       this.compPhone = data?.companyPhone
       this.desig = data?.designation
       this.addr = data?.address
-      this.quotevar=data?.quotesId?.quotesName
+      // this.quotevar=data?.quotesId?.quotesName
       this.insta = data?.instagramProfile
       this.uTube = data?.youtubeChannel
 this.userProfile=data?.profileImage
       this.Linkedin = data?.linkedInProfile
       this.Twitter = data?.twitterProfile
       this.faceB = data?.fbProfile
-      this.QuoteId = data?.quotesId?._id
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-  
+      // this.QuoteId = data?.quotesId?._id
+
+      this.quotesId = data?.quotesId
+      this.storiesId = data?.storiesId;
+      this.userQuotesId = data?.userQuotesId;
+      this.userStoriesId = data?.userStoriesId
+      // changing
+      this.quotevar = data.quotes ? data.quotes : null
+      if(!data?.quotes) {
+        this.LongQuote = data?.quotesId?.quotesName ?  data?.quotesId?.quotesName : data.storiesId?.storiesName ? data.storiesId?.storiesName : data?.userQuotesId?.enterQuotes ? data?.userQuotesId?.enterQuotes : data?.userStoriesId?.enterStories ? data?.userStoriesId?.enterStories : null
+        this.quotevar= this.LongQuote
       }
+
+      // if (localStorage.getItem('templatequoteId')) {
+      //   this.QuoteId = localStorage.getItem('templatequoteId')
   
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-        // this.quotevar=this.LongQuote
+      // }
   
-      }
+      // if (localStorage.getItem('templateLongQuotes')) {
+      //   this.LongQuote = localStorage.getItem('templateLongQuotes')
+      //   // this.quotevar=this.LongQuote
+  
+      // }
 
       this.getScheduleData()
       this.getDisclamierData()
@@ -944,19 +961,58 @@ console.log(this.code);
     }
   }
 
-  chooseQuotes(evt:any) {
-    if(evt) {
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-      }
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-  this.quotevar = this.LongQuote
-      }
-    }
+  // chooseQuotes(evt:any) {
+  //   if(evt) {
+  //     if (localStorage.getItem('templatequoteId')) {
+  //       this.QuoteId = localStorage.getItem('templatequoteId')
+  //     }
+  //     if (localStorage.getItem('templateLongQuotes')) {
+  //       this.LongQuote = localStorage.getItem('templateLongQuotes')
+  // this.quotevar = this.LongQuote
+  //     }
+  //   }
     
+  // }
+
+
+  openMyQuotes() {
+    this.api.modalCloseMyQuotes(true)
   }
 
+  chooseMyQuotes(evt: any) {    
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
+
+  closeQuoteModal() {
+    this.api.modalCloseQuotes(true)
+  }
+
+  saveMyQuoteModal() {
+
+    this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+      this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+    }
+    savedQuotes(qId:any,sId:any,uId:any,usId:any,name:any) {
+      this.quotesId = qId;
+      this.storiesId = sId;
+      this.userQuotesId = uId;
+      this.userStoriesId = usId
+      // this.LongQuote = name
+      this.quotevar =name
+      this.editTemplateForm.controls['quotes'].setValue('')
+    }
+  chooseQuotes(evt: any) {
+    if (evt) {
+      this.quotesDataList=evt
+    }
+  }
+  saveQuoteModal() {
+    this.api.modalCloseQuotes(true)
+    this.savedQuotes(this.quotesDataList?.isQuoteId,this.quotesDataList?.isStoryId,
+      this.quotesDataList?.myQuoteId,this.quotesDataList?.myStoryId,this.quotesDataList?.name)
+  }
 
 
 
@@ -1843,8 +1899,14 @@ getScheduleIcon(event: any, data: any){
         borderRadius: this.borderRadius
 
       },
-      quotesId:this.QuoteId,
-      quotes: this.quotevar,  
+      // quotesId:this.QuoteId,
+      // quotes: this.quotevar,  
+
+      quotes: data.quotes ? data.quotes : null,
+      quotesId:this.quotesId,
+      storiesId:this.storiesId,
+      userQuotesId:this.userQuotesId,
+      userStoriesId:this.userStoriesId,
       companyPhone: data.companyPhone,
       profileImage:this.imageData2?this.imageData2:this.userProfile,
       fbProfile: data.fbProfile,

@@ -1308,7 +1308,20 @@
   </div>
 </div>
 
-
+<!-- -----------------my quote-modal--------- -->
+<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -221,7 +221,7 @@
                               
                              
 
-                                <p class=" mb-0 mt-1" style="position: absolute;left: 267px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
+                                <p class=" mb-0 mt-1" style="position: absolute;left: 269px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
                                   <i class="fa fa-plus-circle text-blue"></i>
                                 </p>
                             
@@ -653,7 +653,7 @@
 
                 <div class="row position-relative progress_padd">
                   <div class="profile_complt-detail">
-                    <p class="profile_status"> Profile
+                    <p class="profile_status" *ngIf="'updateBar != 0'"> Profile
                     {{updateBar}}
                       % Completed
                     </p>
