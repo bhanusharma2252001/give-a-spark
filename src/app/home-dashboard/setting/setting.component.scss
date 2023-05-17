@@ -16,7 +16,25 @@ disabled{
   }
 .tab_person{
     position: absolute;
-    left: 96%;
-    top: 24%;
+    left: 95%;
+    top: 0%;
     font-size: 25px;
+}
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 80px;
+    cursor: pointer;
+}
+.image-upload{
+  font-size: 15px !important;
+  border-radius: 6px;
+  border: 1px solid#e8e8ea;
+  background-color: #eff0f2;
+  padding: 13px;
+  width: 100%;
 }

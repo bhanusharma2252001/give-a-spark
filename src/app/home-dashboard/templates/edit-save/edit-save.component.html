@@ -189,18 +189,19 @@
                           <div class="mb-4" *ngIf="!LongQuote">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
                             <input type="text" formControlName="quotes"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                              aria-describedby="textHelp" placeholder="write quote" [(ngModel)]="quotevar">
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
+                              id="exampleInputfiled" aria-describedby="textHelp" placeholder="write quote"
+                              [(ngModel)]="quotevar">
 
                           </div>
                           <div class="mb-4" *ngIf="LongQuote">
                             <label for="exampleInputfiled" class="form-label fw-semibold ">Quotes</label>
 
                             <p style="position: relative;
-                                                      top: 40px">{{LongQuote}}</p>
+                                                        top: 40px">{{LongQuote}}</p>
                             <input type="text" formControlName="quotesId"
-                              class="form-control bg-gray rounded-0 border-0 border-bottom p-0" id="exampleInputfiled"
-                              aria-describedby="textHelp">
+                              class="form-control bg-gray ps-2 rounded-0 border-0 border-bottom p-0"
+                              id="exampleInputfiled" aria-describedby="textHelp">
 
                           </div>
 
@@ -208,16 +209,21 @@
 
 
 
-                          <div class="mb-4 d-flex" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                          <div class="mb-4 d-flex position: relative;" >
 
-                            <p class="mb-0 mt-1 ">
+                            <p class=" mb-0 mt-1" data-bs-toggle="modal" data-bs-target="#quoteModal">
                               <i class="fa fa-plus-circle text-blue"></i>
 
 
                             </p>
                             <p class="mb-0 ps-2 text-blue">
                               Add Quotes</p>
-                          </div>
+
+                              <p class=" mb-0 mt-1" style="position: absolute;left: 307px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
+                                <i class="fa fa-plus-circle text-blue"></i>
+                              </p>
+                              <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;">My Quotes</p>
+                            </div>
 
 
 
@@ -1000,10 +1006,10 @@
                       <td style="padding-left:10px" colspan="2">
 
                         <p style="font-size:12px;">
-                          <q *ngIf="details?.quotesId?.quotesName">
-                            {{details?.quotesId?.quotesName}}
+                          <q *ngIf="LongQuote">
+                            {{LongQuote}}
                           </q>
-                          <q *ngIf="quotevar">
+                          <q *ngIf="!LongQuote">
                             {{quotevar}}
                           </q>
 
@@ -1294,34 +1300,6 @@
   </section>
 </main>
 
-<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width:75%;height:75%;">
-    <div class="modal-content">
-      <div class="modal-body">
-        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- -----------------my quote-modal--------- -->
-<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width:75%;height:75%;">
-    <div class="modal-content">
-      <div class="modal-body">
-        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -2631,5 +2609,33 @@
       </div>
     </div>
 
+  </div>
+</div>
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----------------my quote-modal--------- -->
+<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

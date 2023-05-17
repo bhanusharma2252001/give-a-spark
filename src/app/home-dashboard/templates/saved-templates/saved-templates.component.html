@@ -2,7 +2,7 @@
     <div class="signatures-list-create-title with-badge">
         <div class="signatures-list-create-title-icon sw-icon-plus-rounded"></div>
         <div class="signatures-list-create-title-text" routerLink="/home-dashboard/basic-template" style="
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
     ">Create
             another
@@ -160,14 +160,9 @@
                     <td style="padding-left:13px" colspan="2">
 
                         <p style="font-size:12px;">
-                            <!-- <q *ngIf="details?.quotesId?.quotesName">
-                                {{details?.quotesId?.quotesName}}
-                            </q> -->
-                            <q *ngIf="details?.quotes">
-                                {{details?.quotes}}
-                            </q>
-
-
+                           
+                        <q> {{ (details?.quotesId?.quotesName ? details?.quotesId?.quotesName : '') + (details?.userQuotesId?.enterQuotes ? ' ' + details?.userQuotesId?.enterQuotes : '') + (details?.userStoriesId?.enterStories ? ' ' + details?.userStoriesId?.enterStories : '') +(details?.storiesId?.storiesName ? ' ' + details?.storiesId?.storiesName : '')  +(details?.quotes ? ' ' + details?.quotes : '')}}</q>
+                        
 
                         </p>
                     </td>
@@ -419,6 +414,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 ">
         <ng-container *ngFor="let freelist of tempList">
             <!-- -----temp-1---- -->
@@ -431,9 +427,12 @@
                 <img class="free-white" src="assets/images/free-1.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -446,6 +445,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -466,9 +466,12 @@
                 <img class="free-white" src="assets/images/fix-2.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id
                                     )" style="
@@ -484,6 +487,7 @@
                     <i class="fa fa-trash" aria-hidden="true" style="
                                     color: red;
                                     font-size: 1.5rem;
+                                    margin-top: 0.7rem;
                                 " data-bs-toggle="modal" data-bs-target="#freeModal"
                         (click)="openFreeModal(freelist?._id)"></i>
                 </div>
@@ -503,9 +507,12 @@
                 <img class="free-white" src="assets/images/free-6.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -518,6 +525,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -544,9 +552,12 @@
                 <img class="free-white" src="assets/images/free-7.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -559,6 +570,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -580,9 +592,12 @@
                 <img class="free-white" src="assets/images/free-11.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -595,6 +610,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -616,9 +632,12 @@
                 <img class="free-white" src="assets/images/free-9.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -631,6 +650,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -653,9 +673,12 @@
                 <img class="free-white" src="assets/images/temp-16.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -668,6 +691,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -689,9 +713,12 @@
                 <img class="free-white" src="assets/images/fee-1.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -704,6 +731,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -722,9 +750,12 @@
                 <img class="free-white" src="assets/images/fii-2.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -737,6 +768,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -759,9 +791,12 @@
                 <img class="free-white" src="assets/images/fix-3.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(freelist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -774,6 +809,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#freeModal" (click)="openFreeModal(freelist?._id)"></i>
@@ -795,9 +831,12 @@
                 <img class="free-white" src="assets/images/pix-1.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -810,6 +849,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal"></i>
@@ -829,9 +869,12 @@
                 <img class="free-white" src="assets/images/pix-3.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -844,6 +887,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -862,9 +906,12 @@
                 <img class="free-white" src="assets/images/pro-3.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -877,6 +924,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" (click)="openProModal(pro?._id)" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal"></i>
@@ -895,9 +943,12 @@
                 <img class="free-white" src="assets/images/pix-2.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -910,6 +961,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -927,9 +979,12 @@
                 <img class="free-white" src="assets/images/pro-final.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -942,6 +997,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -959,9 +1015,12 @@
                 <img class="free-white" src="assets/images/proo-4.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -974,6 +1033,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -990,9 +1050,12 @@
                 <img class="free-white" src="assets/images/new-img.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -1005,6 +1068,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -1022,9 +1086,12 @@
                 <img class="free-white" src="assets/images/pro-8.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1037,6 +1104,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -1054,9 +1122,12 @@
                 <img class="free-white" src="assets/images/pro-9.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1069,6 +1140,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -1086,9 +1158,12 @@
                 <img class="free-white" src="assets/images/pro-10.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(pro?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1101,6 +1176,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proModal" (click)="openProModal(pro?._id)"></i>
@@ -1129,8 +1205,11 @@
 
                 <div style="
                 position: absolute;
-                left: 21rem;
-                bottom: -66px;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -1143,6 +1222,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1171,9 +1251,12 @@
                 <img class="free-white" src="assets/images/sm1.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id)" style="
                     padding: 0.8rem 1.5rem;
@@ -1186,6 +1269,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1204,9 +1288,12 @@
                 <img class="free-white" src="assets/images/sm-3.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1219,6 +1306,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1239,9 +1327,12 @@
                 <img class="free-white" src="assets/images/pro+4.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1254,6 +1345,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1275,9 +1367,12 @@
                 <img class="free-white" src="assets/images/pro+5.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1290,6 +1385,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1310,9 +1406,12 @@
                 <img class="free-white" src="assets/images/pro+6.PNG" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1325,6 +1424,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1344,9 +1444,12 @@
                 <img class="free-white" src="assets/images/pro+7.PNG" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id  )" style="
                     padding: 0.8rem 1.5rem;
@@ -1359,6 +1462,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1376,9 +1480,12 @@
                 <img class="free-white" src="assets/images/eight_temp.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id  )" style="
                     padding: 0.8rem 1.5rem;
@@ -1391,6 +1498,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1409,9 +1517,12 @@
                 <img class="free-white" src="assets/images/pro-9x.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1424,6 +1535,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1442,9 +1554,12 @@
                 <img class="free-white" src="assets/images/pro+10.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1457,6 +1572,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1476,9 +1592,12 @@
                 <img class="free-white" src="assets/images/pro+11.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id)" style="
                         padding: 0.8rem 1.5rem;
@@ -1491,6 +1610,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1509,9 +1629,12 @@
                 <img class="free-white" src="assets/images/pro+12.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1524,6 +1647,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>
@@ -1543,9 +1667,12 @@
                 <img class="free-white" src="assets/images/pro+13.png" alt="">
 
                 <div style="
-                position: absolute;
-                left: 21rem;
-                margin: 1rem;
+position: absolute;
+    left: -2rem;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: end;
             ">
                     <button (click)="editsignatureTemplate(PropLlist?._id )" style="
                     padding: 0.8rem 1.5rem;
@@ -1558,6 +1685,7 @@
                         View & sync
                     </button>
                     <i class="fa fa-trash" aria-hidden="true" style="
+   margin-top: 0.7rem;
     color: red;
     font-size: 1.5rem;
 " data-bs-toggle="modal" data-bs-target="#proproModal" (click)="openProProModal(PropLlist?._id)"></i>

@@ -779,7 +779,7 @@ this.userProfile=data?.profileImage
       this.faceB = data?.fbProfile
       // this.QuoteId = data?.quotesId?._id
 
-      this.quotesId = data?.quotesId
+      this.quotesId = data?.quotesId?._id
       this.storiesId = data?.storiesId;
       this.userQuotesId = data?.userQuotesId;
       this.userStoriesId = data?.userStoriesId
@@ -983,6 +983,7 @@ console.log(this.code);
     if (evt) {
       this.quotesDataList=evt
     }
+
   }
 
   closeQuoteModal() {
@@ -999,14 +1000,17 @@ console.log(this.code);
       this.storiesId = sId;
       this.userQuotesId = uId;
       this.userStoriesId = usId
-      // this.LongQuote = name
-      this.quotevar =name
+      this.quotevar = name
+      this.LongQuote = name
+      console.log(this.LongQuote,'quoteee')
       this.editTemplateForm.controls['quotes'].setValue('')
     }
   chooseQuotes(evt: any) {
     if (evt) {
       this.quotesDataList=evt
+
     }
+    console.log(this.quotesDataList)
   }
   saveQuoteModal() {
     this.api.modalCloseQuotes(true)
@@ -2001,24 +2005,24 @@ getScheduleIcon(event: any, data: any){
     console.log(body,'dssfcsfvcs');
     
 
-    this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
-      console.log(res);
-      this.TemplateId=res?.data?._id      
-      this.toast.success('Template  Updated Successfully');
-      if (localStorage.getItem('templatequoteId')) {
-        this.QuoteId = localStorage.getItem('templatequoteId')
-      }
-      if (localStorage.getItem('templateLongQuotes')) {
-        this.LongQuote = localStorage.getItem('templateLongQuotes')
-        this.quotevar=this.LongQuote
-      }
-      // this.saveChanges() ;
-      this.getTemplate();
-      this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    },
-      (error) => {
-        this.toast.error('please try again');
-      })
+    // this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
+    //   console.log(res);
+    //   this.TemplateId=res?.data?._id      
+    //   this.toast.success('Template  Updated Successfully');
+    //   if (localStorage.getItem('templatequoteId')) {
+    //     this.QuoteId = localStorage.getItem('templatequoteId')
+    //   }
+    //   if (localStorage.getItem('templateLongQuotes')) {
+    //     this.LongQuote = localStorage.getItem('templateLongQuotes')
+    //     this.quotevar=this.LongQuote
+    //   }
+ 
+    //   this.getTemplate();
+    //   this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    // },
+    //   (error) => {
+    //     this.toast.error('please try again');
+    //   })
   }
 
 

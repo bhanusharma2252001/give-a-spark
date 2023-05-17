@@ -1244,6 +1244,7 @@ export class EditTemplateComponent implements OnInit {
     if (evt) {
       this.quotesDataList=evt
     }
+    console.log(this.quotesDataList, 'qqqqioeitpitpi')
   }
   saveQuoteModal() {
     this.api.modalCloseQuotes(true)

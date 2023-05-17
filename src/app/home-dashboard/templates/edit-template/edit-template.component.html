@@ -1083,10 +1083,13 @@
                       <tr>
                         <td colspan="2" style="color:black; margin: 0px;padding:4px 14px;">
                           <p style="font-size:12px;padding:10px 15px;color: #4d6e65;margin: 0;">
-                            <q *ngIf="quotevar">
+                            <q *ngIf="!LongQuote">
                               {{quotevar}}
                             </q>
-                           
+                            <q *ngIf="LongQuote">
+                              {{LongQuote}}
+                            </q>
+                          
                           </p>
                         </td>
                         <td style="vertical-align: center;padding:4px 14px;">
@@ -1220,13 +1223,14 @@
                         <td colspan="2" *ngIf="tempDetails[2]?.quotesId?.quotesName || tempDetails[2]?.quotes"
                           style="font-size: 9pt; line-height: 11px; color: #8a8a8a;padding-right: 60px; font-family: Arial, sans-serif; text-transform: capitalize;">
                        
-                          <q *ngIf="quotevar"> {{quotevar}} </q>
+                          <q *ngIf="!LongQuote"> {{quotevar}} </q>
+                          <q *ngIf="LongQuote"> {{LongQuote}} </q>
                         </td>
 
                       </tr>
                       <tr>
                         <td colspan="3" style="background-color:#b26b42; height: 60px; border-radius: 0 0 10px 10px;">
-                          <p style="color:#b26b42;">avc</p>
+                          <p style="color:#b26b42;">.</p>
                         </td>
                       </tr>
                     </tbody>
@@ -1308,7 +1312,11 @@
                           
                             <a
                             style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
-                            *ngIf="quotevar"> "{{quotevar}}"</a>
+                            *ngIf="!LongQuote"> "{{quotevar}}"</a>
+                            <a
+                            style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
+                            *ngIf="LongQuote"> "{{LongQuote}}"</a>
+
                         </td>
                       </tr>
                       <tr>
@@ -1395,9 +1403,9 @@
                       <tr>
                         <td colspan="2" style="padding: 12px 15px; margin-bottom:0; text-align: center;"> 
                           <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
-                            *ngIf="!LongQuote"> "{{quotevar}}qq"</a>
+                            *ngIf="!LongQuote"> "{{quotevar}}"</a>
                             <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
-                            *ngIf="LongQuote">{{LongQuote}} ll"</a>
+                            *ngIf="LongQuote">{{LongQuote}} "</a>
                         </td>
                         <td>
                           <div style="padding:5px 0" *ngIf=logo> <img
@@ -1483,8 +1491,10 @@
                         <td
                           style=" text-align:start; padding:5px 15px; font-size: 8pt; color: #f55a79; line-height: 8pt; max-width: 440px; text-transform: capitalize;">
                          
-                          <a  *ngIf="quotevar">
+                          <a  *ngIf="!LongQuote">
                             "{{quotevar}}"</a>
+                            <a  *ngIf="LongQuote">
+                              "{{LongQuote}}"</a>
                         </td>
                         <td>
                           <div style="padding:5px" *ngIf="logo">
@@ -1592,8 +1602,11 @@
 
                           
                           <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;font-family: Arial, sans-serif; text-align:justify;"
-                            *ngIf="quotevar">
+                            *ngIf="!LongQuote">
                             "{{quotevar}}"</a>
+                            <a style="font-size: 9pt; line-height: 11px; color: #2e9aa4;font-family: Arial, sans-serif; text-align:justify;"
+                            *ngIf="LongQuote">
+                            "{{LongQuote}}"</a>
 
                         </td>
 
@@ -1635,7 +1648,7 @@
                         <td style="padding: 0px 10px">
 
                           <h2 style="margin:0px;color:#add27b;font-size:22px;text-transform: capitalize;">
-                            {{username}} jk</h2>
+                            {{username}} </h2>
                           <h6 style="margin:0px;font-weight: 600;font-size: 14px;text-transform: capitalize;">
                             {{desig}}</h6>
                         </td>
@@ -1722,19 +1735,20 @@
 
                         </td>
                         <td>
-                          
+<!--                           
                           <p style="font-size:12px;color:#000c;margin:0px;" >
-                            {{LongQuote}} Long quotr
+                        
                           </p>
                           <a
                             style="font-size: 9pt; padding: 0 15px;line-height: 11px; color:#d53700; font-family: Arial, sans-serif; text-transform: capitalize;"
-                            > "{{quotevar}}"  quotevar</a>
+                            >{{LongQuote}}  </a> -->
                         </td>
 
                       </tr>
                       <tr>
                         <td colspan="3" style="background-color: #add27b; height: 60px; border-radius: 0 0 10px 10px;">
-                          <p style="color:#add27b; ">-</p>
+                          <p style="color:#ffffff; font-size:12px; text-align: center;" *ngIf="LongQuote">{{LongQuote}}</p>
+                          <p style="color:#ffffff; font-size:12px;text-align: center;" *ngIf="!LongQuote">{{quotevar}}</p>
                         </td>
                       </tr>
                     </tbody>
@@ -1744,109 +1758,7 @@
 
 
                 <!-- .....................TEMPLATTE-8,,,........... -->
-                <!-- <div *ngIf="templateId==14">
-                                <table cellpadding="0" cellspacing="0" id="free-8" #tableData
-                                    style="background-color: #fff;font-size: medium;width:500px;height:280px; font-family: Arial;">
-                                    <tbody>
-                                        <tr>
-                                            <p style="font-size:8px;text-align:center;padding:6px 3px;">{{title}}
-                                            </p>
-                                        <tr>
-                                     
-                                            <td colspan="3"
-                                                style="padding:8px 3px;width:400px;text-transform: capitalize;">
-                                                <h2
-                                                    style="margin-bottom:0px;color:#000;text-align:center;font-size:22x">
-                                                    {{username}}
-                                                </h2>
-                                                <h6
-                                                    style="text-align:center;margin-bottom:0px;color:#2cc39af7;font-weight: 600;font-size: 16px;text-transform: capitalize;">
-                                                    {{desig}}</h6>
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-left:10px;">
-                                                <img class="width" [src]="url"
-                                                    style="text-align:center;width:80px;height:80px; border-radius:50%"
-                                                    *ngIf="url">
-                                                <img alt="Profile"
-                                                    style="text-align:center;width:80px;height:80px; border-radius:50%"
-                                                    *ngIf="userProfile && !url"
-                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                                         
-                                            </td>
-                                            <td>
-                                                <div style="margin-top:5px;">
-                                                    <p style="color:#000;font-size: 12px;margin-bottom:0px;">
-                                                        <span style="padding:0 5px;color:#000"><img
-                                                                style="width:12px;height:12px;background-color:#2cc39af7;padding: 3px;border-radius: 50%;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/phone-white.png">
-                                                            {{number}}
-                                                        </span>
-
-
-                                                        <span style="padding:0 5px;color:#000"><img
-                                                                style="width:12px;height:12px;background-color:#2cc39af7;padding: 3px;border-radius: 50%;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/loaction.png">
-                                                            {{useraddress}} </span>
-
-                                                    </p>
-                                                    <p style="color:#000;font-size: 12px;margin-bottom:0px;">
-                                                        <span style="padding:0 5px;color:#000"><img
-                                                                style="width:12px;height:12px;background-color:#2cc39af7;padding: 3px;border-radius: 50%;"
-                                                                src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/mail.png">
-                                                            {{Email}}</span>
-                                                    </p>
-
-                                                </div>
-                                            </td>
-
-                                            <td style="padding:0px;vertical-align: top;text-align:start;">
-                                                <img style="width: 65px;height:65px;"
-                                                    src="https://giveaspark.s3.amazonaws.com/{{code}}">
-                                                <p style="font-size:8px;">
-                                                    Scan/Click QR</p>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-
-                                            <td colspan="2"
-                                                style="text-align:start;padding:15px;border-radius:0 225px 225px 0">
-
-                                                <p style="font-size:12px;text-align:center;padding:10px;color:#000c;"
-                                                    *ngIf="quotevar">
-                                                    {{quotevar}}
-                                                </p>
-                                                <p style="font-size:12px;text-align:center;padding:10px;color:#000c;"
-                                                    *ngIf="tempDetails[7]?.quotesId?.quotesName">
-                                                    {{tempDetails[7]?.quotesId?.quotesName}}
-                                                </p>
-
-                                            </td>
-                                            <td>
-                                                <div style="padding:5px 0" *ngIf="logo">
-                                                    <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"
-                                                        alt="Photo" style="max-width:65px; height:auto; border:0;">
-                                                    <p style="font-size:8px;" (click)="remove(14)">Remove Brand</p>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
-                                        <tr>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div> -->
-
-
-
+               
 
                 <div *ngIf="templateId==14" id="free-8" #tableData>
                   <p style="font-size:12px;text-align:left;">{{title}}</p>
@@ -1909,7 +1821,8 @@
                         <td colspan="2" style="padding:5px 10px;">
                           <p style="margin:0;font-size: 12px;
                                                   ">
-                            <q *ngIf="quotevar">{{quotevar}}</q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td>
@@ -2107,8 +2020,11 @@
 
                           <p style="font-size:12px;margin:0">
                           
-                            <q *ngIf="quotevar">
+                            <q *ngIf="!LongQuote">
                               {{quotevar}}
+                            </q>
+                            <q *ngIf="!LongQuote">
+                              {{LongQuote}}
                             </q>
 
 
@@ -2244,9 +2160,13 @@
                         <td colspan="2" style="color:black; margin: 3px; text-transform: capitalize;font-size: 14px;">
                          
                           <p [style.font-family]="fontFamilyNew" style="padding: 10px;
-                                            " *ngIf="quotevar"> "{{quotevar}}"
+                                            " *ngIf="!LongQuote"> "{{quotevar}}"
 
                           </p>
+                          <p [style.font-family]="fontFamilyNew" style="padding: 10px;
+                          " *ngIf="LongQuote"> "{{LongQuote}}"
+
+        </p>
                         </td>
                       </tr>
 
@@ -2364,7 +2284,8 @@
                                   </span> <span [style.font-family]="fontFamilyNew"
                                     style="padding-left:10px;color:#f8f1f1;font-size: 12px;">
                                    
-                                   <q *ngIf="quotevar">{{quotevar}}</q>
+                                   <q *ngIf="!LongQuote">{{quotevar}}</q>
+                                   <q *ngIf="LongQuote">{{LongQuote}}</q>
                                     
                                   </span> </td>
                               </tr>
@@ -2424,8 +2345,12 @@
                           <div>
                             
                             <p [style.font-family]="fontFamilyNew" style="margin-bottom:0;text-align:left;color:#fff;"
-                              colspan="2" *ngIf="quotevar">
+                              colspan="2" *ngIf="!LongQuote">
                               {{quotevar}}
+                            </p>
+                            <p [style.font-family]="fontFamilyNew" style="margin-bottom:0;text-align:left;color:#fff;"
+                              colspan="2" *ngIf="LongQuote">
+                              {{LongQuote}}
                             </p>
                           </div>
                         </td>
@@ -2526,7 +2451,7 @@
 
                       <tr>
                         <td></td>
-                        <td colspan="2" style=" ">
+                        <td colspan="2">
                           <h2 style="margin:0px;font-weight: bold;" [style.text-align]="nameAlign"
                             [style.color]="firstNameColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">{{username}}
@@ -2596,7 +2521,8 @@
 
                       <tr>
                         <td colspan="2" style="padding:2px 10px;height:100px;font-size: 14px;">
-                                               <q *ngIf="quotevar" [style.font-family]="fontFamilyNew">{{quotevar}}</q>
+                                               <q *ngIf="!LongQuote" [style.font-family]="fontFamilyNew">{{quotevar}}</q>
+                                               <q *ngIf="LongQuote" [style.font-family]="fontFamilyNew">{{LongQuote}}</q>
                         </td>
                         <td>
                           <div class="" *ngIf="logo">
@@ -2685,7 +2611,8 @@
                           <p style="padding: 20px;color: #11213a;font-size: 12px;font-family:sans-serif;
                                                 " [style.font-family]="fontFamilyNew">
                             
-                            <q *ngIf="quotevar">{{quotevar}}</q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
 
@@ -2753,7 +2680,8 @@
                       <tr>
                         <td colspan="2" style="padding: 2px 11px;font-size: 12px;">
                           
-                          <q *ngIf="quotevar">{{quotevar}}</q>
+                          <q *ngIf="!LongQuote">{{quotevar}}</q>
+                          <q *ngIf="LongQuote">{{LongQuote}}</q>
                         </td>
                       </tr>
                       <tr style="background-color: #77653c;">
@@ -2895,7 +2823,8 @@
                         <td colspan="2" [style.font-family]="fontFamilyNew"
                           style="width:300px;padding:0 10px; font-size:12px;color:#000;">
                           
-                          <q *ngIf="quotevar">{{quotevar}}</q>
+                          <q *ngIf="!LongQuote">{{quotevar}}</q>
+                          <q *ngIf="LongQuote">{{LongQuote}}</q>
                         </td>
 
                       </tr>
@@ -3012,7 +2941,8 @@
                           <p style="padding:0 10px;margin:0;font-size: 12px;
                                                 ">
                         
-                            <q *ngIf="quotevar">{{quotevar}}</q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td style="vertical-align: center;">
@@ -3116,8 +3046,8 @@
                         <td colspan="2" style="background-color: #f96501;padding:5px 10px;">
                           <p [style.font-family]="fontFamilyNew" style="margin:0;color: #fff;font-size: 12px;
                                                 ">
-                            <q *ngIf="proList[8]?.quotesId?.quotesName">{{proList[8]?.quotesId?.quotesName}}</q>
-                            <q *ngIf="proList[8]?.quotes">{{quotevar}}</q>
+                           <q *ngIf="!LongQuote">{{quotevar}}</q>
+                           <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td style="background-color: #f96501;" *ngIf="logo">
@@ -3215,7 +3145,8 @@
                           <p style="font-size:12px;color:#3b575f;margin:0;padding:0 10px;"
                             [style.font-family]="fontFamilyNew">
                             
-                            <q *ngIf="quotevar">{{quotevar}}</q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
 
@@ -3341,9 +3272,8 @@
                               <p *ngIf="proplus" [style.font-family]="fontFamilyNew" style="margin:0;padding: 10px; padding: 0px;font-size: 12px; width: 250px;color:#fff;
                             ">
                                 
-                                <q *ngIf="quotevar">
-                                  {{quotevar}}
-                                </q>
+                                <q *ngIf="!LongQuote">{{quotevar}}</q>
+                                <q *ngIf="LongQuote">{{LongQuote}}</q>
                               </p>
 
                             </div>
@@ -3620,9 +3550,8 @@
                           <p style="padding: 10px;font-size:12px;text-transform:capitalize; color: #fff;margin:0;"
                             [style.font-family]="fontFamilyNew">
 
-                            <q *ngIf="quotevar">
-                              {{quotevar}}
-                            </q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td></td>
@@ -3888,9 +3817,8 @@
                           <p [style.font-family]="fontFamilyNew" style="padding: 20px ; margin: 0px;;
                 ">
                             
-                            <q *ngIf="quotevar">
-                              {{quotevar}}
-                            </q>
+                            <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td style="vertical-align: center;">
@@ -4149,9 +4077,8 @@
                         <td colspan="2" style="color:black; margin: 3px;">
                           <p style="padding: 10px;
                 ">
-                            <q *ngIf="quotevar">
-                              {{quotevar}}
-                            </q>
+                           <q *ngIf="!LongQuote">{{quotevar}}</q>
+                           <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                         <td colspan="2" style="background-color: #fff;padding: 5px;margin: 3px;">
@@ -4456,9 +4383,8 @@
                         <td style="font-size:12px;padding:10px;height:100px;color:#000c;"
                           [style.font-family]="fontFamilyNew">
                          
-                          <q *ngIf="quotevar">
-                            {{quotevar}}
-                          </q>
+                          <q *ngIf="!LongQuote">{{quotevar}}</q>
+                          <q *ngIf="LongQuote">{{LongQuote}}</q>
                         </td>
 
 
@@ -4677,9 +4603,8 @@
 
                               <p style="color: #e97977;" [style.font-family]="fontFamilyNew">
                                 
-                                <q *ngIf="quotevar">
-                                  {{quotevar}}
-                                </q>
+                                <q *ngIf="!LongQuote">{{quotevar}}</q>
+                            <q *ngIf="LongQuote">{{LongQuote}}</q>>
 
                               </p>
 
@@ -4948,9 +4873,8 @@
                       <tr>
                         <td style="color:white; height:110px;" [style.font-family]="fontFamilyNew">
                          
-                          <q *ngIf="quotevar">
-                            {{quotevar}}
-                          </q>
+                          <q *ngIf="!LongQuote">{{quotevar}}</q>
+                          <q *ngIf="LongQuote">{{LongQuote}}</q>
                         </td>
                         <td colspan="2" style="background-color: #fff;padding: 5px;margin: 3px;">
 
@@ -5199,9 +5123,8 @@
                                   padding: 14px;margin:0;">
 
                                     
-                                      <q *ngIf="quotevar">
-                                        {{quotevar}}
-                                      </q>
+<q *ngIf="!LongQuote">{{quotevar}}</q>
+<q *ngIf="LongQuote">{{LongQuote}}</q>
                                     </p>
                                     <div style="padding:10px;text-align: end;">
                                       <span *ngIf="faceB">
@@ -5770,7 +5693,8 @@
                         <td colspan="2">
                           <p [style.font-family]="fontFamilyNew" style="padding: 20px;color: #11213a;font-size: 12px;font-family:sans-serif;
     ">
-                            <q *ngIf="quotevar">{{quotevar}}</q>
+                           <q *ngIf="!LongQuote">{{quotevar}}</q>
+                           <q *ngIf="LongQuote">{{LongQuote}}</q>
                           </p>
                         </td>
                       </tr>
@@ -6033,12 +5957,11 @@
                           </div>
                         </td>
 
-                        <td colspan="2" style="color:black; margin: 3px;" [style.font-family]="fontFamilyNew">
+                        <td colspan="2" style="color:black; font-size: 12px; margin: 3px;" [style.font-family]="fontFamilyNew">
                          
-                          <p *ngIf="quotevar" style="font-size: 12px;margin: 0;
-                                                ">
-                            " {{quotevar}}"
-                          </p>
+                          
+                          <q *ngIf="!LongQuote">{{quotevar}}</q>
+                          <q *ngIf="LongQuote">{{LongQuote}}</q>
                         </td>
                         <td style="vertical-align: center;">
                           <img style="width:60px ;height:60px" src="https://giveaspark.s3.amazonaws.com/{{code}}">
@@ -6294,12 +6217,17 @@
                         </td>
 
 
-                        <td colspan="2" style="color:black; margin: 0px;padding:4px 14px;"
+                        <td colspan="2" style="color:black; font-size: 12px;margin: 0px;padding:4px 14px;"
                           [style.font-family]="fontFamilyNew">
-                          <p style="font-size: 12px;margin: 0;" *ngIf="quotevar">
+                          <p  *ngIf="!LongQuote">
 
                             {{quotevar}}
                           </p>
+                          <p  *ngIf="LongQuote">
+
+                            {{LongQuote}}
+                          </p>
+                          
                          
                         </td>
                         <td rowspan="2" style="width: 1px;">
@@ -6570,10 +6498,14 @@
                                 </td>
                               <tr>
                                 <td style="padding: 0 15px;" colspan="2">
-
+                                 
                                   <a style="font-size: 9pt; line-height: 11px; color:#fff; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
-                                  *ngIf="quotevar">
+                                  *ngIf="!LongQuote">
                                     "{{quotevar}}"</a>
+                                    <a style="font-size: 9pt; line-height: 11px; color:#fff; font-family: Arial, sans-serif; text-align:justify; text-transform: capitalize;"
+                                    *ngIf="LongQuote">
+                                      "{{LongQuote}}"</a>
+
                                 </td>
                                 <td rowspan="2" style="text-align:center;">
                                   <div style="padding:5px 0" *ngIf=logo>
@@ -7108,36 +7040,7 @@
     </mat-dialog-actions> -->
 </ng-template>
 
-<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width:75%;height:75%;">
-    <div class="modal-content">
-      <div class="modal-body">
-        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeQuoteModal()">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveQuoteModal()">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> 
 
-
-
-<!-- -----------------my quote-modal--------- -->
-<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width:75%;height:75%;">
-    <div class="modal-content">
-      <div class="modal-body">
-        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -8431,5 +8334,46 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeQuoteModal()">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveQuoteModal()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+<!-- -----------------my quote-modal--------- -->
+<div class="modal fade" id="myquote" tabindex="-1" aria-labelledby="myquoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:75%;height:75%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveMyQuoteModal()">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

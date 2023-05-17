@@ -21,7 +21,7 @@
               <div class="col-md-6 mb-3">
                 <input type="text" placeholder="Phone Number" class="form-control" id="exampleInputnumber"
                   aria-describedby="emailHelp" formControlName="phone" [(ngModel)]="number">
-                  <div *ngIf="Submitted && f['phone']errors" class="invalid-feedback">
+                  <div *ngIf="Submitted && f['phone']errors " class="invalid-feedback">
                     <span *ngIf="f['phone']errors['required']">*phone no. is required</span>
                   </div>
                   <ng-container class="po-re"
@@ -64,8 +64,18 @@
               <div class="col-md-6 mb-3">
                 <div class="input-group">
                   
-                  <input type="file"  accept="image/gif, image/jpeg, image/png" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                    aria-label="Upload" formControlName="profile" (change)="onSelectImage($event)" [(ngModel)]="userProfile" >
+                  <!-- <input type="file"  accept="image/gif, image/jpeg, image/png" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload" formControlName="profile" (change)="onSelectImage($event)" [(ngModel)]="userProfile" > -->
+                    <div class="image-upload">
+                    <span *ngIf="!url">{{userProfile}}</span>
+                    <span *ngIf="url">{{fileImageName}}</span>
+                      <label for="file-input">
+                        <i class="fa fa-folder" aria-hidden="true" style="position: absolute;/* display: flex; */right: 18px;top: 18px;"></i>
+                          <!-- <img src="https://goo.gl/pB9rpQ" style="position: absolute;/* display: flex; */right: -35px;top: 18px;"/> -->
+                      </label>
+                  
+                      <input id="file-input" accept="image/gif, image/jpeg, image/png" type="file" (change)="onSelectImage($event)"/>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">

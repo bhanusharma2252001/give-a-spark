@@ -119,6 +119,7 @@ this.useraddress=res[0]?.address[0]?.addressline
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event) => {
         this.url = event.target?.result;
+        console.log(this.url)
       };
     }
   }

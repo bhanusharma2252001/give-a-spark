@@ -994,8 +994,9 @@ img.top-left {
 }
 
 .right_new_gif {
-  width: 240px;
+  width: 220px;
   height: auto;
+  margin-left: -10rem;
 }
 
 .first_temp {
@@ -1353,7 +1354,7 @@ img.author_image {
   display: flex;
   align-items: center;
   margin: 10px;
-  color: #c7c7e2 !important;
+  color: #8c8c90 !important;
   font-weight: 600;
   cursor: pointer;
   font-size: 25px;
