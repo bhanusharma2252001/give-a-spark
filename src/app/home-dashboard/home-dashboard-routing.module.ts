@@ -21,10 +21,10 @@ const routes: Routes = [
       { path: 'basic-template', loadChildren: () => import('./basic-template/basic-template.module').then((m) => m.BasicTemplateModule)},
       
       // { path: 'homepage', loadChildren: () => import('./homepage/homepage.module').then((m) => m.HomepageModule)},
-      { path: 'mystory', loadChildren: () => import('./mystory/mystory.module').then((m) => m.MystoryModule)},
+     
       { path: 'myquote', loadChildren: () => import('./myquote/myquote.module').then((m) => m.MyquoteModule)},
       { path: 'motivational-quote', loadChildren: () => import('./motivational-quote/motivational-quote.module').then((m) => m.MotivationalQuoteModule)},
-      { path: 'motivational-story', loadChildren: () => import('./motivational-story/motivational-story.module').then((m) => m.MotivationalStoryModule)},
+    
       { path: 'plan', loadChildren: () => import('./plan/plan.module').then((m) => m.PlanModule)},
       { path: 'myprofile', loadChildren: () => import('./myprofile/myprofile.module').then((m) => m.MyprofileModule)},
       { path: 'flyer', loadChildren: () => import('./flyer/flyer.module').then((m) => m.FlyerModule)},

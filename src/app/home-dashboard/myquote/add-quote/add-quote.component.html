@@ -26,10 +26,20 @@
 
                     </div>
                     <div class="col-md-6 col-lg-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Image</label>
-                            {{quoteWriterImage}}
-                            <input class="form-control p-2" type="file"  accept="image/png, image/gif, image/jpeg" id="formFile" formControlName="writerProfile" (change)="onSelectImage($event)">
+                        <div class="mb-3">Image
+                            <div class="image-upload">
+                                <span *ngIf="!url">{{quoteWriterImage}}</span>
+                                <span *ngIf="url">{{imageFile}}</span>
+                                  <label for="file-input">
+                                    <i class="fa fa-folder" aria-hidden="true" style="position: absolute;/* display: flex; */right: 18px;top: 18px;"></i>
+                                      
+                                  </label>
+                              
+                                  <input id="file-input" accept="image/gif, image/jpeg, image/png" type="file" formControlName="writerProfile" (change)="onSelectImage($event)"/>
+                              </div>
+                            <!-- <label for="formFile" class="form-label">Image</label>
+                           
+                            <input class="form-control p-2" type="file"  accept="image/png, image/gif, image/jpeg" id="formFile" formControlName="writerProfile" (change)="onSelectImage($event)"> -->
                             <div *ngIf="addQuoteForm.get('writerProfile')?.hasError('required') "
                             class="text-danger  fs-12text-sm">
                             <small class="fs-12">Writer Profile is required </small>

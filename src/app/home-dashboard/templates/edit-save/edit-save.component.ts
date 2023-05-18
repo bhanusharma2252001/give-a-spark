@@ -780,9 +780,9 @@ this.userProfile=data?.profileImage
       // this.QuoteId = data?.quotesId?._id
 
       this.quotesId = data?.quotesId?._id
-      this.storiesId = data?.storiesId;
-      this.userQuotesId = data?.userQuotesId;
-      this.userStoriesId = data?.userStoriesId
+      this.storiesId = data?.storiesId?._id;
+      this.userQuotesId = data?.userQuotesId?._id;
+      this.userStoriesId = data?.userStoriesId?._id
       // changing
       this.quotevar = data.quotes ? data.quotes : null
       if(!data?.quotes) {
@@ -2005,24 +2005,24 @@ getScheduleIcon(event: any, data: any){
     console.log(body,'dssfcsfvcs');
     
 
-    // this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
-    //   console.log(res);
-    //   this.TemplateId=res?.data?._id      
-    //   this.toast.success('Template  Updated Successfully');
-    //   if (localStorage.getItem('templatequoteId')) {
-    //     this.QuoteId = localStorage.getItem('templatequoteId')
-    //   }
-    //   if (localStorage.getItem('templateLongQuotes')) {
-    //     this.LongQuote = localStorage.getItem('templateLongQuotes')
-    //     this.quotevar=this.LongQuote
-    //   }
+    this.api.updateCreateTemplate(this.templateId,body).subscribe((res: any) => {
+      console.log(res);
+      this.TemplateId=res?.data?._id      
+      this.toast.success('Template  Updated Successfully');
+      if (localStorage.getItem('templatequoteId')) {
+        this.QuoteId = localStorage.getItem('templatequoteId')
+      }
+      if (localStorage.getItem('templateLongQuotes')) {
+        this.LongQuote = localStorage.getItem('templateLongQuotes')
+        this.quotevar=this.LongQuote
+      }
  
-    //   this.getTemplate();
-    //   this.router.navigate(['/home-dashboard/templates/saved-templates'])
-    // },
-    //   (error) => {
-    //     this.toast.error('please try again');
-    //   })
+      this.getTemplate();
+      this.router.navigate(['/home-dashboard/templates/saved-templates'])
+    },
+      (error) => {
+        this.toast.error('please try again');
+      })
   }
 
 
