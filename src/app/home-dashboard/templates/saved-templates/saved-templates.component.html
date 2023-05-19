@@ -1,4 +1,5 @@
-<div class="signatures-list-create">
+<section class="sig_tempL">
+<!-- <div class="signatures-list-create">
     <div class="signatures-list-create-title with-badge">
         <div class="signatures-list-create-title-icon sw-icon-plus-rounded"></div>
         <div class="signatures-list-create-title-text" routerLink="/home-dashboard/basic-template" style="
@@ -8,6 +9,9 @@
             another
             signature</div>
     </div>
+</div> -->
+<div class="signatures-list-create">
+    <button class="sig_bton" routerLink="/home-dashboard/basic-template">Create another signature</button>
 </div>
 <div class="row mt-4 mb-130px">
 
@@ -24,328 +28,7 @@
             position: relative;
         " *ngFor="let details of tempDetails">
 
-        <table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData
-            style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;">
-            <tbody style="padding:10px;
-        ">
-                <tr>
-                    <td style="padding: 7px 15px;" colspan="3">
-                        {{details?.signatureName}}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: baseline;text-align: center;padding: 5px; border-right: solid 1px #BDBDBD;"
-                        *ngIf="details?.profileImage || details?.logo">
-                        <div *ngIf="details?.profileImage">
-                            <img style="width: 72px;
-                    vertical-align: middle; height: 65px;border-radius:50%;"
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profileImage}}">
-
-
-                        </div>
-                        <div style="text-align:center;" *ngIf="details?.logo">
-
-                            <a href="home-dashboard/plan/plan-dashboard" *ngIf="planDetail == 'Plan A'">
-                                <img style="width:95px ;height:35px"
-                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del">
-                            </a>
-
-
-                            <img style="width:95px ;height:35px;" *ngIf="!(planDetail == 'Plan A')"
-                                src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br>
-
-                            <p style=" font-size: 10px; display: inline; color: blue; cursor: pointer;"
-                                (click)="remove(details?._id)">Remove logo</p>
-
-
-                        </div>
-                    </td>
-                    <td style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top;">
-                        <h5 *ngIf="details?.yourName" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px;
-                line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign"
-                            [style.color]="details?.templateDesign?.firstNameColor"
-                            [style.line-height]="details?.templateDesign?.lineHeight"
-                            [style.font-family]="details?.templateDesign?.fontFamily"
-                            [style.font-size.px]="details?.templateDesign?.fontSize"><span>{{details?.yourName}}</span>
-                        </h5>
-                        <h6 *ngIf="details?.designation"
-                            style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;">
-                            <span style="border-bottom:3px solid#FFBA00;padding:5px;"
-                                [style.color]="details?.templateDesign?.designationColor"
-                                [style.line-height]="details?.templateDesign?.lineHeight"
-                                [style.font-family]="details?.templateDesign?.fontFamily">{{details?.designation}}
-                            </span>
-                        </h6>
-                        <div style="padding-top:10px;margin-bottom:0px;">
-                            <p *ngIf="details?.phoneNo" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: wrap;font-size: 13px;"><span style="font-weight:bold;">M:</span> <span
-                                    [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{std}}{{details?.phoneNo}}</span>
-                            </p>
-                            <p *ngIf="details?.companyPhone" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                        color: #212121; white-space: wrap;font-size: 13px;"><span style="font-weight:bold;">P:</span>
-                                <span [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyPhone}}</span>
-                            </p>
-
-                            <p *ngIf="details?.email" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: wrap;font-size: 13px;">
-                                <span style="font-weight:bold;">E:</span>
-                                <span [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">
-                                    {{details?.email}}</span>
-                            </p>
-
-                            <p *ngIf="details?.companyWebsite" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: wrap;font-size: 13px;">
-                                <span style="font-weight:bold;">W:</span>
-                                <a href="https://{{details?.companyWebsite}}" target="_blank"
-                                    [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyWebsite}}</a>
-
-                            </p>
-
-                            <p style="line-height:1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only;
-                    color: #212121; white-space: wrap;font-size: 13px;" *ngIf="details?.address[0]?.city">
-
-
-                                <span style="font-weight:bold;">A:</span>
-                                <span [style.color]="details?.templateDesign?.contactDetailColor"
-                                    [style.line-height]="details?.templateDesign?.lineHeight"
-                                    [style.font-family]="details?.templateDesign?.fontFamily"
-                                    [style.font-size.px]="details?.templateDesign?.fontSizeItem">
-                                    {{details?.address[0]?.city}}</span>
-                            </p>
-                        </div>
-
-                        <div style="padding:10px;border-radius:  10px 10px 0 0;" *ngIf="planDetail=='Plan C'">
-                            <span *ngIf="details?.fbProfile">
-                                <a href="{{details?.fbProfile}}" target="_blank"><img
-                                        style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/fb-1.png"></a>
-                            </span>
-                            <span *ngIf="details?.twitterProfile"><a href="{{details?.twitterProfile}}"
-                                    target="_blank"><img
-                                        style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/tt-1.png"></a></span>
-                            <span *ngIf="details?.linkedInProfile">
-                                <a href="{{details?.linkedInProfile}}" target="_blank"><img
-                                        style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/ln-1.png"></a>
-                            </span><span *ngIf="details?.instagramProfile">
-                                <a href="{{details?.instagramProfile}}" target="_blank"><img
-                                        style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%"
-                                        src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/it-1.png"></a>
-                            </span>
-                        </div>
-
-                    </td>
-                    <td style="vertical-align:baseline;">
-                        <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
-                            <img style="width:60px; height:60px;"
-                                src="https://giveaspark.s3.amazonaws.com/{{code}}"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-
-                    <td style="padding-left:13px" colspan="2">
-
-                        <p style="font-size:12px;">
-                           
-                        <q> {{ (details?.quotesId?.quotesName ? details?.quotesId?.quotesName : '') + (details?.userQuotesId?.enterQuotes ? ' ' + details?.userQuotesId?.enterQuotes : '') + (details?.userStoriesId?.enterStories ? ' ' + details?.userStoriesId?.enterStories : '') +(details?.storiesId?.storiesName ? ' ' + details?.storiesId?.storiesName : '')  +(details?.quotes ? ' ' + details?.quotes : '')}}</q>
-                        
-
-                        </p>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td *ngIf="planDetail=='Plan C'" colspan="3" style="padding:10px 15px"
-                        [style.text-align]="details?.templateDesign?.youtubeAlignment">
-                        <a href="{{details?.youtubeUrl}}" target="_blank" *ngIf="details?.thumbnailImage"><img
-                                src="{{details?.thumbnailImage}}" height="80" width="107a" alt=""></a>
-                        <p *ngIf="details?.youtubeUrl" [style.color]="details?.templateDesign?.youtubeColor"
-                            [style.font-size.px]="details?.templateDesign?.youtubeFont">
-                            {{details?.youtubeTitle}}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td *ngIf="details?.imageTitle" colspan="3" style="padding:10px 15px">
-                        <p style="margin:0;font-weight:bold">{{details?.imageTitle}}</p>
-                    </td>
-
-                </tr>
-                <tr *ngIf="details?.customProfile1">
-
-                    <td colspan="3" style="border-bottom: 3px solid #e0e0e0;padding:15px 15px">
-                <tr>
-                    <td style="width: 100px;" *ngIf="details?.customProfile1">
-                        <a href="{{details?.imageLink}}" target="_blank"><img
-                                [style.width.px]="details?.templateDesign?.imageSize"
-                                [style.margin-right.px]="details?.templateDesign?.imageSpace"
-                                [style.margin-left.px]="details?.templateDesign?.imageSpace"
-                                [style.border-radius.px]="details?.templateDesign?.imageRadious"
-                                style="  display: block;"
-                                src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile1}}"
-                                alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
-
-
-                    </td>
-                    <td style="width: 100px;" *ngIf="details?.customProfile2">
-                        <a href="{{details?.imageLink}}" target="_blank"> <img
-                                [style.width.px]="details?.templateDesign?.imageSize"
-                                [style.margin-right.px]="details?.templateDesign?.imageSpace"
-                                [style.margin-left.px]="details?.templateDesign?.imageSpace"
-                                [style.height.px]="details?.templateDesign?.imageSize"
-                                [style.border-radius.px]="details?.templateDesign?.imageRadious"
-                                style="  display: block; "
-                                src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile2}}"
-                                alt="Gallery Image"></a>
-                    </td>
-                    <td style="width: 100px;" *ngIf="details?.customProfile3">
-                        <a href="{{details?.imageLink}}" target="_blank"><img
-                                [style.width.px]="details?.templateDesign?.imageSize"
-                                [style.margin-right.px]="details?.templateDesign?.imageSpace"
-                                [style.margin-left.px]="details?.templateDesign?.imageSpace"
-                                [style.border-radius.px]="details?.templateDesign?.imageRadious"
-                                style=" display: block; "
-                                src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile3}}"
-                                alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
-                    </td>
-                    <td style="width: 100px;" *ngIf="details?.customProfile4">
-                        <a href="{{details?.imageLink}}" target="_blank"><img
-                                [style.width.px]="details?.templateDesign?.imageSize"
-                                [style.margin-right.px]="details?.templateDesign?.imageSpace"
-                                [style.margin-left.px]="details?.templateDesign?.imageSpace"
-                                [style.border-radius.px]="details?.templateDesign?.imageRadious"
-                                style=" display: block; "
-                                src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile4}}"
-                                alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a>
-                    </td>
-                </tr>
-                </td>
-                </tr>
-                <tr>
-                    <td style="font-size:8px ;padding:10px 15px" colspan="3" *ngIf="details?.disclaimer"
-                        [style.font-size.px]="details?.templateDesign?.disclaimerSize"
-                        [style.text-align]="details?.templateDesign?.disclaimerAlignment"
-                        [style.color]="details?.templateDesign?.disclaimerColor">
-
-                        {{details?.disclaimer}}
-                    </td>
-
-                </tr>
-                <tr *ngIf="details?.eventIcon || details?.eventTitle || details?.eventName ">
-
-                    <td style="padding:10px 15px" colspan="3"
-                        [style.text-align]="details?.templateDesign?.eventAlignment">
-                        <a href="{{details?.eventLink}}">
-                            <img *ngIf="details?.eventIcon" style="width:30px;height:30px;" src="{{details?.eventIcon}}"
-                                [style.width.px]="details?.templateDesign?.iconSize">
-                            <span style="font-weight:bold;margin:1px 3px;"
-                                [style.font-size.px]="details?.templateDesign?.eventSize"
-                                [style.color]="details?.templateDesign?.eventColor">{{details?.eventTitle}}</span>
-                            <span style="margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize"
-                                [style.color]="details?.templateDesign?.eventColor">{{details?.eventName}}</span></a>
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td style="padding:15px" colspan="3">
-                <tr *ngIf="details?.greenIcon || details?.greenFooter">
-                    <td style="padding:5px;" *ngIf="details?.greenIcon"
-                        [style.text-align]="details?.templateDesign?.footerAlignment"
-                        style=" border-right: 1px solid #e5e5e5;text-align: center;">
-                        <img style="width:20px;height:20px;padding:5px;" src="{{details?.greenIcon}}" alt="">
-
-                    </td>
-                    <td [style.text-align]="details?.templateDesign?.footerAlignment" style="padding:2px 10px;"
-                        colspan="2" [style.font-size.px]="details?.templateDesign?.footerSize"
-                        [style.color]="details?.templateDesign?.footerColor">
-                        <span>{{details?.greenFooter}}</span>
-                    </td>
-                </tr>
-                </td>
-                </tr>
-                <tr *ngIf="details?.bannerImage">
-                    <td colspan="3" style="padding:7px 0px;">
-                        <img *ngIf="details?.bannerImage"
-                            src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt=""
-                            [style.width.%]="details?.templateDesign?.bannerSize"
-                            [style.text-align]="details?.templateDesign?.bannerAlign" height="150">
-                    </td>
-
-
-                </tr>
-
-
-                <tr *ngIf="details?.customButtonText">
-                    <td colspan="3" style="padding:10px 15px;">
-
-                        <a href="{{ details?.customUrl}}" *ngIf=" details?.customButtonText"
-                            [style.text-align]="details?.templateDesign?.customAlign">
-                            <button style="border-radius:50px;border:0; padding: 10px;"
-                                *ngIf="details?.customButtonText"
-                                [style.padding-left.px]="details?.templateDesign?.customButtonSize"
-                                [style.padding-right.px]="details?.templateDesign?.customButtonSize"
-                                [style.color]="details?.templateDesign?.buttonTextColor"
-                                [style.background-color]="details?.templateDesign?.customButtonBg"
-                                [style.border-radius.px]="details?.templateDesign?.customButtonShape">{{details?.customButtonText}}</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr *ngIf="details?.scheduleText">
-                    <td colspan="3" style="padding:10px 15px;">
-
-
-
-                        <a href="{{details?.scheduleLink}}" *ngIf=" details?.scheduleText">
-
-                            <button style="border-radius:50%;border:0; padding: 10px 12px; border:0;color:white;"
-                                *ngIf="details?.scheduleText"
-                                [style.padding-left.px]="details?.templateDesign?.scheduleSize"
-                                [style.padding-right.px]="details?.templateDesign?.scheduleSize"
-                                [style.background-color]="details?.templateDesign?.scheduleBg"
-                                [style.border-radius.px]="details?.templateDesign?.scheduleShape"> <img
-                                    src="{{details?.scheduleIcon}}" style="padding-right:10px;"
-                                    alt="">{{details?.scheduleText}}</button> </a>
-                    </td>
-                </tr>
-
-
-                <tr *ngIf="details?.appName || details?.googleAppLink || details?.appleAppLink ">
-                    <td style="padding:10px 15px ;padding-bottom:20px;" colspan="3"
-                        [style.text-align]="details?.templateDesign?.appbuttonAlign">
-                        <p style="margin:0;" [style.color]="details?.templateDesign?.appButtonColor"
-                            [style.font-size.px]="details?.templateDesign?.appButtonSize">{{details?.appName}}</p>
-
-
-
-                        <a style="padding:0 10px;" *ngIf="details?.googleAppLink" href="{{details?.googleAppLink}}"
-                            style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img
-                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png"
-                                height="33" style=" height: 33px; display: inline-block;" alt="Download App"> </a>
-                        <a style="padding:0 10px;" *ngIf="details?.appleAppLink" href="{{details?.appleAppLink}}"
-                            style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img
-                                src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png"
-                                height="33" style=" height: 33px; display: inline-block;" alt="Download App"></a>
-                    </td>
-                <tr>
-
-
-
-            </tbody>
-        </table>
+        <table cellpadding="0" cellspacing="0" id="{{details?._id}}" #tableData style="background-color: #FBFEFF ;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-size: medium;width:500px;height:280px; font-family: Arial;"> <tbody style="padding:10px; "> <tr> <td style="padding: 7px 15px;" colspan="3"> {{details?.signatureName}} </td> </tr> <tr> <td style="vertical-align: baseline;text-align: center;padding: 5px; border-right: solid 1px #BDBDBD;" *ngIf="details?.profileImage || details?.logo"> <div *ngIf="details?.profileImage"> <img style="width: 72px; vertical-align: middle; height: 65px;border-radius:50%;" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.profileImage}}"> </div> <div style="text-align:center;" *ngIf="details?.logo"> <a href="home-dashboard/plan/plan-dashboard" *ngIf="planDetail == 'Plan A'"> <img style="width:95px ;height:35px" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"> </a> <img style="width:95px ;height:35px;" *ngIf="!(planDetail == 'Plan A')" src="https://giveaspark.s3.us-west-1.amazonaws.com/{{details?.logo}}" id="del"><br> <p style=" font-size: 10px; display: inline; color: blue; cursor: pointer;" (click)="remove(details?._id)">Remove logo</p> </div> </td> <td style="padding: 0.01px 0.01px 0.01px 14px; vertical-align:top;"> <h5 *ngIf="details?.yourName" style=" text-transform: initial;font-weight: bold;color: #646464;letter-spacing: 0px; line-height: 1.2; font-size: 16.0px;" [style.text-align]="nameAlign" [style.color]="details?.templateDesign?.firstNameColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSize"><span>{{details?.yourName}}</span> </h5> <h6 *ngIf="details?.designation" style="margin-bottom:0px;color:#000;font-weight: bold;font-size: 18x;"> <span style="border-bottom:3px solid#FFBA00;padding:5px;" [style.color]="details?.templateDesign?.designationColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily">{{details?.designation}} </span> </h6> <div style="padding-top:10px;margin-bottom:0px;"> <p *ngIf="details?.phoneNo" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only; color: #212121; white-space: wrap;font-size: 13px;"><span style="font-weight:bold;">M:</span> <span [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{std}}{{details?.phoneNo}}</span> </p> <p *ngIf="details?.companyPhone" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only; color: #212121; white-space: wrap;font-size: 13px;"><span style="font-weight:bold;">P:</span> <span [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyPhone}}</span> </p> <p *ngIf="details?.email" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only; color: #212121; white-space: wrap;font-size: 13px;"> <span style="font-weight:bold;">E:</span> <span [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSizeItem"> {{details?.email}}</span> </p> <p *ngIf="details?.companyWebsite" style="line-height: 1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only; color: #212121; white-space: wrap;font-size: 13px;"> <span style="font-weight:bold;">W:</span> <a href="https://{{details?.companyWebsite}}" target="_blank" [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSizeItem">{{details?.companyWebsite}}</a> </p> <p style="line-height:1.2;margin-bottom:0;padding:0 10px; font-family: Arial;color-scheme: light only; color: #212121; white-space: wrap;font-size: 13px;" *ngIf="details?.address[0]?.city"> <span style="font-weight:bold;">A:</span> <span [style.color]="details?.templateDesign?.contactDetailColor" [style.line-height]="details?.templateDesign?.lineHeight" [style.font-family]="details?.templateDesign?.fontFamily" [style.font-size.px]="details?.templateDesign?.fontSizeItem"> {{details?.address[0]?.city}}</span> </p> </div> <div style="padding:10px;border-radius: 10px 10px 0 0;" *ngIf="planDetail=='Plan C'"> <span *ngIf="details?.fbProfile"> <a href="{{details?.fbProfile}}" target="_blank"><img style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/fb-1.png"></a> </span> <span *ngIf="details?.twitterProfile"><a href="{{details?.twitterProfile}}" target="_blank"><img style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/tt-1.png"></a></span> <span *ngIf="details?.linkedInProfile"> <a href="{{details?.linkedInProfile}}" target="_blank"><img style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/ln-1.png"></a> </span><span *ngIf="details?.instagramProfile"> <a href="{{details?.instagramProfile}}" target="_blank"><img style="width:20px;height:20px;margin:5px;background-color: #000;border-radius:50%" src="https://giveaspark.s3.us-west-1.amazonaws.com/Soical_icons/it-1.png"></a> </span> </div> </td> <td style="vertical-align:baseline;"> <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank"> <img style="width:60px; height:60px;" src="https://giveaspark.s3.amazonaws.com/{{code}}"></a> </td> </tr> <tr> <td></td> <td style="padding-left:13px" colspan="2"> <p style="font-size:12px;"> <q> {{ (details?.quotesId?.quotesName ? details?.quotesId?.quotesName : '') + (details?.userQuotesId?.enterQuotes ? ' ' + details?.userQuotesId?.enterQuotes : '') + (details?.userStoriesId?.enterStories ? ' ' + details?.userStoriesId?.enterStories : '') +(details?.storiesId?.storiesName ? ' ' + details?.storiesId?.storiesName : '') +(details?.quotes ? ' ' + details?.quotes : '')}}</q> </p> </td> </tr> <tr> <td *ngIf="planDetail=='Plan C'" colspan="3" style="padding:10px 15px" [style.text-align]="details?.templateDesign?.youtubeAlignment"> <a href="{{details?.youtubeUrl}}" target="_blank" *ngIf="details?.thumbnailImage"><img src="{{details?.thumbnailImage}}" height="80" width="107a" alt=""></a> <p *ngIf="details?.youtubeUrl" [style.color]="details?.templateDesign?.youtubeColor" [style.font-size.px]="details?.templateDesign?.youtubeFont"> {{details?.youtubeTitle}}</p> </td> </tr> <tr> <td *ngIf="details?.imageTitle" colspan="3" style="padding:10px 15px"> <p style="margin:0;font-weight:bold; color:#84848d; font-size:12px; ">{{details?.imageTitle}}</p> </td> </tr> <tr *ngIf="details?.customProfile1"> <td colspan="3" style="border-bottom: 3px solid #e0e0e0;padding:15px 15px"> <tr> <td style="width: 100px;" *ngIf="details?.customProfile1"> <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize" [style.margin-right.px]="details?.templateDesign?.imageSpace" [style.margin-left.px]="details?.templateDesign?.imageSpace" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block;" src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile1}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a> </td> <td style="width: 100px;" *ngIf="details?.customProfile2"> <a href="{{details?.imageLink}}" target="_blank"> <img [style.width.px]="details?.templateDesign?.imageSize" [style.margin-right.px]="details?.templateDesign?.imageSpace" [style.margin-left.px]="details?.templateDesign?.imageSpace" [style.height.px]="details?.templateDesign?.imageSize" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block; " src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile2}}" alt="Gallery Image"></a> </td> <td style="width: 100px;" *ngIf="details?.customProfile3"> <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize" [style.margin-right.px]="details?.templateDesign?.imageSpace" [style.margin-left.px]="details?.templateDesign?.imageSpace" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block; " src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile3}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a> </td> <td style="width: 100px;" *ngIf="details?.customProfile4"> <a href="{{details?.imageLink}}" target="_blank"><img [style.width.px]="details?.templateDesign?.imageSize" [style.margin-right.px]="details?.templateDesign?.imageSpace" [style.margin-left.px]="details?.templateDesign?.imageSpace" [style.border-radius.px]="details?.templateDesign?.imageRadious" style=" display: block; " src="https://giveaspark.s3.amazonaws.com/{{details?.customProfile4}}" alt="Gallery Image" [style.height.px]="details?.templateDesign?.imageSize"></a> </td> </tr> </td> </tr> <tr> <td style="font-size:8px ;padding:10px 15px" colspan="3" *ngIf="details?.disclaimer" [style.font-size.px]="details?.templateDesign?.disclaimerSize" [style.text-align]="details?.templateDesign?.disclaimerAlignment" [style.color]="details?.templateDesign?.disclaimerColor"> {{details?.disclaimer}} </td> </tr> <tr *ngIf="details?.eventIcon || details?.eventTitle || details?.eventName "> <td style="padding:10px 15px" colspan="3" [style.text-align]="details?.templateDesign?.eventAlignment"> <a href="{{details?.eventLink}}"> <img *ngIf="details?.eventIcon" style="width:30px;height:30px;" src="{{details?.eventIcon}}" [style.width.px]="details?.templateDesign?.iconSize"> <span style="font-weight:bold;margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize" [style.color]="details?.templateDesign?.eventColor">{{details?.eventTitle}}</span> <span style="margin:1px 3px;" [style.font-size.px]="details?.templateDesign?.eventSize" [style.color]="details?.templateDesign?.eventColor">{{details?.eventName}}</span></a> </td> </tr> <tr> <td style="padding:15px" colspan="3"> <tr *ngIf="details?.greenIcon || details?.greenFooter"> <td style="padding:5px;" *ngIf="details?.greenIcon" [style.text-align]="details?.templateDesign?.footerAlignment" style=" border-right: 1px solid #e5e5e5;text-align: center;"> <img style="width:20px;height:20px;padding:5px;" src="{{details?.greenIcon}}" alt=""> </td> <td [style.text-align]="details?.templateDesign?.footerAlignment" style="padding:2px 10px;" colspan="2" [style.font-size.px]="details?.templateDesign?.footerSize" [style.color]="details?.templateDesign?.footerColor"> <span>{{details?.greenFooter}}</span> </td> </tr> </td> </tr> <tr *ngIf="details?.bannerImage"> <td colspan="3" style="padding:7px 0px;"> <img *ngIf="details?.bannerImage" src="https://giveaspark.s3.amazonaws.com/{{details?.bannerImage}}" alt="" [style.width.%]="details?.templateDesign?.bannerSize" [style.text-align]="details?.templateDesign?.bannerAlign" height="150"> </td> </tr> <tr *ngIf="details?.customButtonText"> <td colspan="3" style="padding:10px 15px;"> <a href="{{ details?.customUrl}}" *ngIf=" details?.customButtonText" [style.text-align]="details?.templateDesign?.customAlign"> <button style="border-radius:50px;border:0; padding: 10px;" *ngIf="details?.customButtonText" [style.padding-left.px]="details?.templateDesign?.customButtonSize" [style.padding-right.px]="details?.templateDesign?.customButtonSize" [style.color]="details?.templateDesign?.buttonTextColor" [style.background-color]="details?.templateDesign?.customButtonBg" [style.border-radius.px]="details?.templateDesign?.customButtonShape">{{details?.customButtonText}}</button> </a> </td> </tr> <tr *ngIf="details?.scheduleText"> <td colspan="3" style="padding:10px 15px;"> <a href="{{details?.scheduleLink}}" *ngIf=" details?.scheduleText"> <button style="border-radius:50%;border:0; padding: 10px 12px; border:0;color:white;" *ngIf="details?.scheduleText" [style.padding-left.px]="details?.templateDesign?.scheduleSize" [style.padding-right.px]="details?.templateDesign?.scheduleSize" [style.background-color]="details?.templateDesign?.scheduleBg" [style.border-radius.px]="details?.templateDesign?.scheduleShape"> <img src="{{details?.scheduleIcon}}" style="padding-right:10px;" alt="">{{details?.scheduleText}}</button> </a> </td> </tr> <tr *ngIf="details?.appName || details?.googleAppLink || details?.appleAppLink "> <td style="padding:10px 15px ;padding-bottom:20px;" colspan="3" [style.text-align]="details?.templateDesign?.appbuttonAlign"> <p style="margin:0;" [style.color]="details?.templateDesign?.appButtonColor" [style.font-size.px]="details?.templateDesign?.appButtonSize">{{details?.appName}}</p> <a style="padding:0 10px;" *ngIf="details?.googleAppLink" href="{{details?.googleAppLink}}" style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"> <img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/google-play-badge.png" height="33" style=" height: 33px; display: inline-block;" alt="Download App"> </a> <a style="padding:0 10px;" *ngIf="details?.appleAppLink" href="{{details?.appleAppLink}}" style="text-decoration: none;" target="_blank" rel="nofollow noreferrer"><img src="https://d1n2mpfyq0bf3x.cloudfront.net/25fd1656f988fc225b58d51011c76026/app-store-badge.png" height="33" style=" height: 33px; display: inline-block;" alt="Download App"></a> </td> <tr> </tbody> </table>
         <div class="d-flex justify-content-end  m-3">
 
 
@@ -979,8 +662,7 @@ position: absolute;
         ">
                 <p>{{pro?.signatureName}}</p>
                 <img class="free-white" src="assets/images/pro-final.png" alt="">
-                <img src="assets/images/pro-final.PNG" alt="" class="free-wh m-1"
-                >
+                <img src="assets/images/pro-final.PNG" alt="" class="free-wh m-1">
                 <div style="
 position: absolute;
     left: -2rem;
@@ -1703,12 +1385,12 @@ position: absolute;
         </ng-container>
 
 
+    </div>  
+   
 
+</div>
 
-
-
-
-
+</section>
 
 
 
@@ -1946,7 +1628,7 @@ position: absolute;
 
 
 
-    </div>
+  
 
 
 

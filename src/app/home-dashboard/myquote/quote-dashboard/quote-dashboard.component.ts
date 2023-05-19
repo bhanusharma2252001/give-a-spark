@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,Output,EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SparkService } from 'src/app/service/spark.service';
@@ -14,6 +14,7 @@ export class QuoteDashboardComponent implements OnInit {
   showAnimation= false
   storyList:any;
   hidebutton:any;
+  @Input() hideElement: boolean = false;
   @ViewChild('textElement') textElement: ElementRef;
   @ViewChild('storyElement') storyElement: ElementRef;
   @Output() myquotesSelect = new EventEmitter() 

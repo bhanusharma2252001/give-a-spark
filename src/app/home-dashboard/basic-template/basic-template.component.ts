@@ -667,7 +667,7 @@ this.scheduleForm=this.fb.group({
       }
 
 
-      // this.progressdata = this.progessAray.length;
+      
       if(this.progessAray.length == 3 ){
         this.updateBar = 25
       }
@@ -699,10 +699,13 @@ this.scheduleForm=this.fb.group({
         this.updateBar = 100
       }
   
-      console.log(this.updateBar, 'bar')
+     console.log(this.progessAray.length,'lllllll')
 
     })
-console.log(this.progessAray.length, 'lengthproge')
+
+console.log(this.defaultDetails, 'default details')
+
+
 
   }
 
@@ -1681,7 +1684,7 @@ console.log(this.progessAray.length, 'lengthproge')
     this.appName = this.downloadAppForm.value.appName
     this.appleAppLink = this.downloadAppForm.value.appleAppLink
     this.googleAppLink = this.downloadAppForm.value.googleAppLink
-console.log(this.appName, this.appleAppLink, this.googleAppLink, 'linllll');
+
 
   }
 
@@ -1934,16 +1937,7 @@ getScheduleIcon(event: any, data: any){
 
 
       this.getTemplateDetails();
-      // if (localStorage.getItem('quoteId')) {
-      //   localStorage.removeItem('quoteId')
-
-      // }
-
-      // if (localStorage.getItem('LongQuotes')) {
-      //   localStorage.removeItem('LongQuotes')
-
-      // }
-      // this.saveChanges() ;
+     
       this.router.navigate(['/home-dashboard/templates/saved-templates'])
     },
       (error) => {

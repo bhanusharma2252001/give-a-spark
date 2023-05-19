@@ -800,13 +800,21 @@ modalCloseQuotes(data:any) {
 modalCloseMyQuotes(data:any) {
   this.closeMyQuotes.next(data)
 }
+
+
+
+// ---------------------faq ------------------
+
+getFaqList(type:any) {
+  return this.http.get(environment.localApiURL + '/api/Faq/listOfFaq?subject='+ type, {
+    headers: {
+      Authorization: `bearer ${this.token}`
+    },
+  });
 }
 
 
-
-
-
-
+}
 
 
 

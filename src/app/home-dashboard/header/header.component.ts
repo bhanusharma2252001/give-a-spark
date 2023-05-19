@@ -36,6 +36,7 @@ public href:string=""
       this.logout(); // log out the user
     }
   };
+  this.notify();
   }
 
 
@@ -61,6 +62,11 @@ public href:string=""
       this.planDetails=res[0]?.SelectPlan
 
       console.log(this.userDetails?.address[0]?.addressline1, "addddd",this.userDetails.profile)
+    })
+  }
+  notify(){
+    this.api.getNotifications().subscribe((res:any)=>{
+      console.log(res, 'notifications')
     })
   }
 }

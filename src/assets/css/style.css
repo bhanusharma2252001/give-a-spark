@@ -1719,3 +1719,10 @@ img.author_image {
 .mb-130px{
   margin-bottom: 130px !important;
 }
+
+
+/* new styling start here===== */
+.sig_tempL{
+  width: 100%;
+  height: auto;
+}

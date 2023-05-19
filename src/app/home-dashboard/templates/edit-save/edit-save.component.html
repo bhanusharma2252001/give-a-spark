@@ -78,7 +78,7 @@
                         </div>
                         <div class="d-flex ">
                           <p class="plus_icon">
-                            <i class="fa fa-plus-circle text-blue"></i>
+                            <i class="fa fa-plus-circle text-blue" data-bs-toggle="modal" href="#exampleModalToggle"></i>
                           </p>
                           <a class="my_sign" data-bs-toggle="modal" href="#exampleModalToggle" role="button">My
                             Signature</a>
@@ -216,13 +216,13 @@
 
 
                             </p>
-                            <p class="mb-0 ps-2 text-blue">
+                            <p class="mb-0 ps-2 text-blue" data-bs-toggle="modal" data-bs-target="#quoteModal">
                               Add Quotes</p>
 
                               <p class=" mb-0 mt-1" style="position: absolute;left: 307px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
                                 <i class="fa fa-plus-circle text-blue"></i>
                               </p>
-                              <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;">My Quotes</p>
+                              <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">My Quotes</p>
                             </div>
 
 
@@ -2630,7 +2630,7 @@
   <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
-        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+        <app-myquote-dashboard [hideElement]="true" (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>

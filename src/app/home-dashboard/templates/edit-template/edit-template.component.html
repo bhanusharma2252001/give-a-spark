@@ -221,13 +221,13 @@
 
 
                             </p>
-                            <p class="mb-0 ps-2 text-blue">
+                            <p class="mb-0 ps-2 text-blue" data-bs-toggle="modal" data-bs-target="#quoteModal">
                               Add Quotes</p>
 
                               <p class=" mb-0 mt-1" style="position: absolute;left: 307px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">
                                 <i class="fa fa-plus-circle text-blue"></i>
                               </p>
-                              <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;">My Quotes</p>
+                              <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;" (click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">My Quotes</p>
                           </div>
 
 
@@ -907,24 +907,33 @@
 
 
             <!-- T E M P L A T E S -->
+         
 
 
             <div class="col-md-6 col-lg-6 pe-3 ">
 
 
-              <div class="row position-relative progress_padd mb-4 pb-4">
+              <div class="row position-relative progress_padd">
                 <div class="profile_complt-detail">
-
+                  <p class="profile_status" *ngIf="'!updateBar == 0'"> Profile
+                  {{updateBar}}
+                    % Completed
+                  </p>
                 </div>
                 <div class="col-md-2 signature_images"><img src="assets/images/signature-two.png" class="sign_two"
                     alt="Signature image" /></div>
-                <div class=" col-md-7">
-
+                <div class=" col-md-7 progress bar">
+                  <div class=" pro_red" *ngIf="updateBar == 25 ||updateBar == 50 || updateBar == 75 ||updateBar == 100"></div>
+                  <div class=" pro_blue" *ngIf="updateBar == 50 || updateBar == 75 ||updateBar == 100"></div>
+                  <div class=" pro_green" *ngIf="updateBar == 75 ||updateBar == 100"></div>
+                  <div class=" pro_yellow" *ngIf="updateBar == 100"></div>
                 </div>
+              
                 <div class="col-md-3 row signature_image position-absolute"><img src="assets/images/signature-one.png"
-                    class="sign_one" alt="Signature image" />
-                </div>
+                    class="sign_one" alt="Signature image" /></div>
               </div>
+
+             
               <div class="scroll-bar-1">
                 <!-- ......................Free Templates.................... -->
 
@@ -1002,7 +1011,7 @@
                 <!-- -----------------------  TEMPLATE -2   ----------------------- -->
 
                 <div *ngIf="templateId == 8" class="p-3">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" #tableData id="free-2"
                     style="font-size: medium;width:500px;height:280px;background-color: #FFFFFF; font-family: Arial;">
                     <tbody>
@@ -1118,7 +1127,7 @@
 
                 <!-- ---------------------------TEMPLATE-3 ----------------------------- -->
                 <div *ngIf="templateId == 9" style="padding:10px; border-radius: 15px;" class="mt-5">
-                  <p style="font-size:8px;text-align:center;">{{title}}</p>
+                  <p style="font-size:12px;text-align:center;">{{title}}</p>
                   <table #tableData
                     style="width: 500px; background-color: #FFFFFF;font-size: 11pt;filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); font-family: Arial, sans-serif;"
                     id="free-3" cellspacing="0" cellpadding="0" border="0">
@@ -1243,7 +1252,7 @@
                 <!-- ------------------------TEMPLATE - 4----------------------------- -->
 
                 <div *ngIf="templateId == 10" style="padding:10px;" class="mt-4">
-                  <p style="font-size:10px;text-align:left"> {{title}} </p>
+                  <p style="font-size:12px;text-align:left"> {{title}} </p>
                   <table id="free-4" #tableData
                     style="background-color: #FFFFFF; border-radius:15px; FONT-FAMILY: Tahoma, sans-serif; filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); color:#3a4345; max-width:520px;"
                     cellspacing="0" cellpadding="0">
@@ -1334,7 +1343,7 @@
 
                 <!-- -----------------------------TEMPLATE-5------------------------ -->
                 <div *ngIf="templateId == 11" class="mt-5">
-                  <p style="font-size:8px;">{{title}}</p>
+                  <p style="font-size:12px;">{{title}}</p>
                   <table id="free-5" #tableData
                     style="FONT-FAMILY: Arial, sans-serif;background-color: #FFFFFF; border-radius:15px; COLOR: #2e9aa4;max-width:520px;"
                     cellspacing="0" cellpadding="0" border="0">
@@ -1391,7 +1400,7 @@
                               style="font-size: 9pt; line-height: 13pt; color: #101010; text-transform: capitalize;">{{useraddress}}</span>
                           </p>
                         </td>
-                        <td style="" width="120">
+                        <td  width="120">
                           <p style="padding: 10px 10px 0 10px; margin: 0px;"> <a
                               href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard" target="_blank">
                               <img src="https://giveaspark.s3.amazonaws.com/{{code}}" alt="Photo"
@@ -1429,6 +1438,7 @@
 
                 <!-- ----------------------------TEMPLATE-6---------------- -->
                 <div *ngIf="templateId == 12">
+                  <p class="f-12">{{title}}</p>
                   <table id="free-6" cellspacing="0" cellpadding="0" #tableData
                     style="color: #808080;background-color:#ffff;border-radius:10px; font-family: Arial, sans-serif; width: 500px;">
                     <tbody>
@@ -1639,7 +1649,7 @@
                 <!-- /...............................Template-7................... -->
 
                 <div *ngIf="templateId == 13">
-                  <p style="font-size:8px;text-align:center;">{{title}}</p>
+                  <p style="font-size:12px;text-align:center;">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="free-7" #tableData
                     style="background-color: #fff;border-radius:15px;font-size: medium;width:480px;height:280px; font-family: Arial;">
                     <tbody>
@@ -1766,7 +1776,7 @@
                     style="font-size: medium;border-radius:10px;width:480px;height:250px; font-family: Arial;background-color: #fff;">
                     <tbody>
                       <tr>
-                        <td colspan="2" style="">
+                        <td colspan="2" >
                           <div style="vertical-align: center;text-align:start;padding:0 10px;">
 
                             <h2 style="margin:0px; color:#1b7592;text-transform: capitalize;">{{username}}
@@ -1799,10 +1809,8 @@
                           <img [style.border-radius.px]="borderRadius" *ngIf="userProfile && !url"
                             style=" margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
-                          <!-- <img style=" margin:0 5px;padding:2px;width:100px;height:100px;border-radius:50%;"
-                                                                    *ngIf="proList[8]?.profileImage"
-                                                                    src="https://giveaspark.s3.us-west-1.amazonaws.com/{{proList[8]?.profileImage}}"> -->
-                          <div style="" *ngIf="logo">
+                  
+                          <div  *ngIf="logo">
                             <div class="">
                               <a target="_blank"><img alt="Logo" style="max-width:100%;width:95px;height:35px;border:0"
                                   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" height="56"
@@ -1843,7 +1851,7 @@
                 </div>
                 <!-- .....................TEMPLATTE-9,,,........... -->
                 <div *ngIf="templateId==15">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
 
                   <table cellpadding="0" cellspacing="0" id="free-9" #tableData
                     style="background-color: #fff;font-size: medium;width:500px;height:280px; font-family: Arial;">
@@ -1928,7 +1936,7 @@
                 </div>
 
                 <div *ngIf="templateId==16">
-                  <p style="padding: 7px 15px;" colspan="3">
+                  <p style="padding: 7px 15px; font-size: 12px;" colspan="3">
                     {{title}}
                   </p>
                   <table cellpadding="0" cellspacing="0" id="free-10" #tableData
@@ -2056,7 +2064,7 @@
                 <div *ngIf="templateId == 21" class=" temp-style p-3 mt-5">
 
 
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="pro-1" #tableData
                     style="background-color: #fff;border-radius:15px;font-size: medium;width:480px;height:280px; font-family: Arial;">
                     <tbody>
@@ -2190,7 +2198,7 @@
                 </div>
 
                 <!-- .......................  T  E  M P L A T E -2 PRO ................ -->
-                <div *ngIf="templateId == 22" class="mt-5">
+                <div *ngIf="templateId == 22" class="mt-5"><p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="pro-2" #tableData
                     style="background-color: #0D1A2A;border-radius:10px; font-size: medium;width:480px;height:280px; font-family: Arial;">
                     <tbody>
@@ -2214,7 +2222,7 @@
                             src="https://giveaspark.s3.us-west-1.amazonaws.com/{{userProfile}}">
 
 
-                          <div style="" *ngIf="logo">
+                          <div  *ngIf="logo">
                             <a><img alt="Logo" style="width:85px;height:55px;border:0;text-align:center;"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}"></a>
                           </div>
@@ -2316,7 +2324,7 @@
 
 
                 <div *ngIf="templateId == 23">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="pro-3" #tableData
                     style="background-color: #078B7B;font-size: medium;width:500px;height:280px;font-family: Arial;">
                     <tbody>
@@ -2734,7 +2742,7 @@
                 <!-- .......................  T  E  M P L A T E -7 PRO ................ -->
 
                 <div *ngIf="templateId == 27">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="pro-7" #tableData
                     style="background-color:#EDFFFA;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -3065,7 +3073,7 @@
                 </div>
                 <!-- .......................  T  E  M P L A T E -10 PRO ................ -->
                 <div *ngIf="templateId==36">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="pro-10" #tableData
                     style="background-color: #E9E3D5;font-size: medium;width:500px;border-radius:15px;height:280px; font-family: Arial;">
                     <tbody>
@@ -3176,7 +3184,7 @@
 
 
                 <div *ngIf="templateId == 1" class="pt-5">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="one" #tableData
                     style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -3224,7 +3232,7 @@
 
                           </div>
 
-                          <div style="" *ngIf="logo">
+                          <div  *ngIf="logo">
                             <div class="">
                               <a target="_blank"><img alt="Logo" style="max-width:100%;width:95px;height:35px;border:0"
                                   src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" height="56"
@@ -3449,7 +3457,7 @@
 
 
                 <div *ngIf="templateId == 2" #tableData class="mt-5">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="two"
                     style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -3719,7 +3727,7 @@
 
                 <!-- ..............................Template-3................... -->
                 <div *ngIf="templateId == 3" class="mt-5">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="three" #tableData
                     style="background-color: #fff  ;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -3998,7 +4006,7 @@
                 </div>
                 <!-- ..............................Template-4................... -->
                 <div *ngIf="templateId == 4">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="four" #tableData
                     style="background-color: #fff  ;font-size: medium;width:600px;height:280px; font-family: Arial;">
                     <tbody>
@@ -4182,7 +4190,7 @@
                       </tr>
                       <tr>
 
-                        <td style="" colspan="4" [style.text-align]="eventAlignment">
+                        <td  colspan="4" [style.text-align]="eventAlignment">
                           <a href="">
                             <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                               [style.width.px]="iconSize">
@@ -4265,7 +4273,7 @@
                 </div>
                 <!-- ..............................Template-5................... -->
                 <div *ngIf="templateId == 5">
-                  <p style=" text-transform: capitalize;">{{title}}</p>
+                  <p style=" text-transform: capitalize; font-size: 12px;">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="five" #tableData
                     style="  background-color: #f5edee;font-size: medium;width:500px;height:280px; font-family: Arial;font-style: italic;">
                     <tbody>
@@ -4543,7 +4551,7 @@
                 </div>
                 <!-- ..............................Template-6................... -->
                 <div *ngIf="templateId == 6">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
 
                   <table width="1000" align="center" id="six" #tableData>
                     <tr>
@@ -4727,7 +4735,7 @@
                           </tr>
                           <tr *ngIf="eventName || eventTitle || eventIcon ">
 
-                            <td style="" colspan="4" [style.text-align]="eventAlignment">
+                            <td  colspan="4" [style.text-align]="eventAlignment">
                               <a href="">
                                 <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                                   [style.width.px]="iconSize">
@@ -4813,7 +4821,7 @@
                 </div>
                 <!-- ..............................Template-7................... -->
                 <div *ngIf="templateId == 32">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="seven" #tableData
                     style="background-color:#6f266e;width:600px;height:280px; font-family: Arial;">
                     <tbody>
@@ -4950,7 +4958,7 @@
                       <tr *ngIf="eventName || eventTitle || eventIcon ">
 
 
-                        <td style="" colspan="4" [style.text-align]="eventAlignment">
+                        <td  colspan="4" [style.text-align]="eventAlignment">
                           <a href="">
                             <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                               [style.width.px]="iconSize">
@@ -5033,7 +5041,7 @@
                 </div>
                 <!-- ..............................Template-8................... -->
                 <div *ngIf="templateId == 30">
-                  {{title}}
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="eight" #tableData
                     style="background-color:#fff;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -5220,7 +5228,7 @@
                       </tr>
                       <tr *ngIf="eventName || eventTitle || eventIcon ">
 
-                        <td style="padding:15px;" style="" colspan="4" [style.text-align]="eventAlignment">
+                        <td style="padding:15px;"  colspan="4" [style.text-align]="eventAlignment">
                           <a href="">
                             <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                               [style.width.px]="iconSize">
@@ -5307,7 +5315,7 @@
                 </div>
                 <!-- ..............................Template-9................... -->
                 <div *ngIf="templateId==33">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" id="nine" #tableData
                     style="  background-color: #fff;font-size: medium;width:600px;height:280px; font-family: Arial;">
                     <tbody>
@@ -5590,7 +5598,7 @@
                 </div>
                 <!-- ................................TEMPLATE-10.......... -->
                 <div *ngIf="templateId==31">
-                  <p>{{title}}</p>
+                  <p class="f-12">{{title}}</p>
 
 
                   <table cellpadding="0" cellspacing="0" id="ten" #tableData
@@ -5638,7 +5646,7 @@
                             <a target="_blank"><img alt="Logo" style="max-width:100%;width:95px;height:35px;border:0"
                                 src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" height="56" border="0"></a>
                           </div>
-                          <p *ngIf="logo" style="font-size:8px;margin:0" (click)="remove(38)">
+                          <p *ngIf="logo" style="font-size:8px;margin:0" (click)="remove(31)">
                             Remove Brand</p>
 
 
@@ -5761,7 +5769,7 @@
                       </tr>
                       <tr *ngIf="eventName || eventTitle || eventIcon ">
 
-                        <td style="" colspan="4" [style.text-align]="eventAlignment">
+                        <td  colspan="4" [style.text-align]="eventAlignment">
                           <a href="">
                             <img *ngIf="eventIcon" [style.height.px]="iconSize" src="{{eventIcon}}"
                               [style.width.px]="iconSize">
@@ -6128,6 +6136,7 @@
                 <!-- ------------------- template -12------------- -->
 
                 <div *ngIf="templateId==39">
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0" #tableData id="twelve"
                     style="background-color: #fff  ;font-size: medium;width:520px;height:280px; font-family: Arial;">
                     <tbody>
@@ -6173,7 +6182,7 @@
                           <p style="color:#FFC118;margin:0;font-size: 36px;" [style.text-align]="nameAlign"
                             [style.color]="firstNameColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="templateFontSize">{{username}}</p>
-                          <p style="" [style.color]="designationColor" [style.line-height]="lineHeight"
+                          <p  [style.color]="designationColor" [style.line-height]="lineHeight"
                             [style.font-family]="fontFamilyNew" [style.font-size.px]="itemFontSize">{{desig}}</p>
                           <p *ngIf="number" style=" font-weight: bold;margin:0;white-space: nowrap;">Mob. :<span
                               style="margin:0;" [style.color]="contactDetailColor" [style.line-height]="lineHeight"
@@ -6418,6 +6427,7 @@
 
 
                 <div *ngIf="templateId==40" #tableData id="thirteen">
+                  <p class="f-12">{{title}}</p>
                   <table cellpadding="0" cellspacing="0"
                     style="background-color: cover;font-size: medium;width:500px;height:280px; font-family: Arial;">
                     <tbody>
@@ -6507,14 +6517,7 @@
                                       "{{LongQuote}}"</a>
 
                                 </td>
-                                <td rowspan="2" style="text-align:center;">
-                                  <div style="padding:5px 0" *ngIf=logo>
-                                    <img src="https://giveaspark.s3.us-west-1.amazonaws.com/{{logo}}" alt="Photo"
-                                      style="max-width:65px; height:auto; border:0;">
-                                    <p style="font-size:8px;color:#fff;margin:0px" (click)="remove(40)">
-                                      Remove Brand</p>
-                                  </div>
-                                </td>
+                               
                                 <div style="padding:10px;padding-left:15px;width: 20%;
                               ">
                                   <a href="https://app.giveaspark.com/home-dashboard/myquote/quote-dashboard"
@@ -8368,7 +8371,7 @@
   <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
-        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+        <app-myquote-dashboard [hideElement]="true" (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>

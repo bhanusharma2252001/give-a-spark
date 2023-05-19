@@ -43,7 +43,7 @@ export class EditTemplateComponent implements OnInit {
   ShowOneQuote: boolean = true;
   freeTempId: any;
   TemplateId: any
-
+updateBar:any;
   url: string | ArrayBuffer | null | undefined;
   Submitted = false
   fileData = [] as any;
@@ -278,6 +278,7 @@ export class EditTemplateComponent implements OnInit {
   bannerSizeVal: number = 3;
   eventFontVal: number = 2;
   appSizeFont: number = 1;
+  progessAray=[] as any
   // --------------end---------
   @ViewChild('secondDialog', { static: true }) secondDialog!: TemplateRef<any>;
   bindData: any;
@@ -754,6 +755,8 @@ export class EditTemplateComponent implements OnInit {
   getPlanbyUser() {
     this.api.getsignatureDetails().subscribe((res: any) => {
       this.planDetail = res.plan;
+
+
     })
   }
 
@@ -946,7 +949,7 @@ export class EditTemplateComponent implements OnInit {
           this.getBindData(item)
           this.getTemplateDesign(item?.templateDesign)
         }
-        console.log(this.dataForApps, 'app check items')
+       
 
       })
     })
@@ -1016,27 +1019,17 @@ export class EditTemplateComponent implements OnInit {
     this.std = data?.stdCode
 
     console.log(this.logo, ';naskjxbaskjbxakjwcbxdbs');
-    this.quotesId = data?.quotesId
-    this.storiesId = data?.storiesId;
-    this.userQuotesId = data?.userQuotesId;
-    this.userStoriesId = data?.userStoriesId
+    this.quotesId = data?.quotesId?._id
+    this.storiesId = data?.storiesId?._id
+    this.userQuotesId = data?.userQuotesId?._id
+    this.userStoriesId = data?.userStoriesId?._id
     // changing
     this.quotevar = data.quotes ? data.quotes : null
     if(!data?.quotes) {
       this.LongQuote = data?.quotesId?.quotesName ?  data?.quotesId?.quotesName : data.storiesId?.storiesName ? data.storiesId?.storiesName : data?.userQuotesId?.enterQuotes ? data?.userQuotesId?.enterQuotes : data?.userStoriesId?.enterStories ? data?.userStoriesId?.enterStories : null
       this.quotevar= this.LongQuote
     }
-    // this.QuoteId = data?.quotesId
-    // if (localStorage.getItem('templatequoteId')) {
-    //   this.QuoteId = localStorage.getItem('templatequoteId')
 
-    // }
-
-    // if (localStorage.getItem('templateLongQuotes')) {
-    //   this.LongQuote = localStorage.getItem('templateLongQuotes')
-    //   this.quotevar = this.LongQuote
-
-    // }
 
 
     this.getScheduleData();
@@ -1048,6 +1041,102 @@ export class EditTemplateComponent implements OnInit {
     this.getBannerData();
     this.getSalesEventData();
     this.getDownloadAppData();
+
+
+
+
+    if(this.useraddress){
+
+      this.progessAray.push(this.useraddress);
+
+    }
+    if(this.Email){
+      this.progessAray.push(this.Email);
+
+    }
+    if(this.compName){
+      this.progessAray.push(this.compName);
+
+    }
+    if(this.compWebsite){
+      this.progessAray.push(this.compWebsite);
+
+    }
+    if(this.number){
+      this.progessAray.push(this.number);
+
+    }
+    if(this.compPhone){
+      this.progessAray.push(this.compPhone);
+
+    }
+    if(this.desig){
+      this.progessAray.push(this.desig);
+
+    }
+
+    if(this.userProfile){
+      this.progessAray.push(this.userProfile);
+
+    }
+    if(this.insta){
+      this.progessAray.push(this.insta);
+
+    }
+    if(this.username){
+      this.progessAray.push(this.username);
+
+    }
+    if(this.Linkedin){
+      this.progessAray.push(this.Linkedin);
+
+    }
+    if(this.Twitter){
+      this.progessAray.push(this.Twitter);
+
+    }
+    if(this.faceB){
+      this.progessAray.push(this.faceB);
+
+    }
+
+
+    
+    if(this.progessAray.length == 3 ){
+      this.updateBar = 25
+    }
+    if(this.progessAray.length == 5 ){
+      this.updateBar = 25
+    }
+    if(this.progessAray.length == 4 ){
+      this.updateBar = 25
+    }
+    if(this.progessAray.length == 6 ){
+      this.updateBar = 50
+    }
+    if(this.progessAray.length == 7 ){
+      this.updateBar = 50
+    }
+    if(this.progessAray.length == 8 ){
+      this.updateBar = 50
+    }
+    if(this.progessAray.length == 9 ){
+      this.updateBar = 75
+    }
+    if(this.progessAray.length == 10 ){
+      this.updateBar = 75
+    }
+    if(this.progessAray.length == 11 ){
+      this.updateBar = 75
+    }
+    if(this.progessAray.length == 12 ){
+      this.updateBar = 100
+    }
+    if(this.progessAray.length == 13 ){
+      this.updateBar = 100
+    }
+console.log(this.progessAray.length, ' length of  bar')
+console.log(this.updateBar)
   }
 
   //  / schedule fn

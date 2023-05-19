@@ -1,0 +1,79 @@
+.header{
+    text-align: center;
+    // margin-top: 30px;
+}
+.text{
+    font-size: 28px;
+    font-weight: 600;
+}
+.text1{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+.parah{
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: -15px;
+}
+.nav-pills .nav-link.active{
+    // height: 60px!important;
+    background-color:orange!important;
+    border-radius: 0px !important;
+    color: #ffffff !important;
+}
+.nav_text{
+    color: black;
+    font-size: 15px;
+    font-weight: 400
+}
+.hr{
+    height: 2px;
+    width: 10%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+}
+.nav_bacK{
+    background-color: #E8E8EA;
+    height: auto;
+    border-radius: 9px;
+    // margin-top: 23px;
+}
+.border_line{
+    border: 1px solid black;
+    width: 100%;
+    border-right-color: orange;
+    border-right-width: 5px;
+        border-left-width: 5px;
+        height: 60px;
+border-left-color: orange;
+}
+
+
+
+// faq styling start here====
+
+.Faq_itms{
+    background-color: #E8E8EA!important;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #FFBB02;
+    border-right: 4px solid #FFBB02;
+}
+.faq_systm{
+    padding: 10px;
+}
+.faq_systm_para{
+    border-top: 2px solid #000000;
+    padding: 10px;
+}
+.active{
+    background-color: orange !important;
+    border-radius: 0px !important;
+    color: #ffffff !important;  
+}

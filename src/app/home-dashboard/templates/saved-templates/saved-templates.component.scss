@@ -1,18 +1,32 @@
 .signatures-list-create {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // height: 65px;
+  // background: rgba(28, 183, 235, 0.1);
+  // border: 1px dashed #00BF7F;
+  // border-radius: 107px;
+  // cursor: pointer;
+  // width: 20%;
+  // position: relative;
+  // margin-left: auto;
+  // background-color: #00bf7f;
+  // color: #ffffff;
+  // left: -3rem;
   display: flex;
+  justify-content: end;
   align-items: center;
-  justify-content: center;
-  height: 65px;
-  background: rgba(28, 183, 235, 0.1);
-  border: 1px dashed #00BF7F;
-  border-radius: 107px;
+  text-align: center;
+  padding-right: 20px;
+}
+.signatures-list-create .sig_bton{
+  background-color: #33cc9d;
   cursor: pointer;
-  width: 20%;
-  position: relative;
-  margin-left: auto;
-  background-color: #00bf7f;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 50px;
   color: #ffffff;
-  left: -3rem;
+  border: none;
 }
 
 .signature-item-edit-btn {

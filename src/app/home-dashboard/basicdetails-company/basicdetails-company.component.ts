@@ -101,9 +101,6 @@ this.number=res.result[0]?.phone
 this.stdCode=res.result[0]?.stdCode
 
 
-console.log(this.compWebsite, 'jojo')
-
-console.log(this.details)
   })
 
 
@@ -144,15 +141,15 @@ subImageSubmit(){
   formData.append('attachment', this.uploadImage);
   this.api.addAttachments(formData).subscribe(
     (res: any) => {
-      console.log(res);
+    
       this.imageData1 = res;
       this.imageData2 = this.imageData1[0].key;
-      console.log(this.imageData1[0].key, "image key ")
+     
       
     },
     (err: any) => {
   
-      console.log(err);
+   
       
     }
   )
@@ -184,11 +181,9 @@ onSubmit() {
 }
   this.api.addCompanyDetails(body).subscribe(
     (res: any) => {
-      console.log(res);
+ 
       this.toast.success('submitted');
-    //   // this.companyDetailForm.reset()
-    //  sessionStorage.setItem('newcompanyweb',data.companyWebsite),
-    //  sessionStorage.setItem('newcompanyname',data.companyName),
+  
       this.router.navigate(["home-dashboard/basicdetails-company"])
       this.getBasicProfile();
     },

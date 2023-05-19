@@ -213,7 +213,7 @@
                         ">
 
                               <p class=" mb-0 mt-1"  data-bs-toggle="modal" data-bs-target="#quoteModal">
-                                <i class="fa fa-plus-circle text-blue"></i></p>
+                                <i class="fa fa-plus-circle text-blue" data-bs-toggle="modal" data-bs-target="#quoteModal"></i></p>
                                 <p class="mb-0 ps-2 text-blue">
                                   Add Quotes</p>
                                 
@@ -230,7 +230,7 @@
   
                                
                                 
-                                <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;">My Quotes</p>
+                                <p class="mb-0 ps-2 text-blue" style=" position: absolute;right: 150px;"(click)="openMyQuotes()" data-bs-toggle="modal" data-bs-target="#myquote">My Quotes</p>
                                
                                 
                             
@@ -2842,7 +2842,7 @@ Please fill the blank field.
   <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
-        <app-quote-dashboard (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
+        <app-quote-dashboard  (quotesSelect)="chooseQuotes($event)"></app-quote-dashboard>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeQuoteModal()">Close</button>
@@ -2857,7 +2857,7 @@ Please fill the blank field.
   <div class="modal-dialog" style="max-width:75%;height:75%;">
     <div class="modal-content">
       <div class="modal-body">
-        <app-myquote-dashboard (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
+        <app-myquote-dashboard  [hideElement]="true" (myquotesSelect)="chooseMyQuotes($event)"></app-myquote-dashboard>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>

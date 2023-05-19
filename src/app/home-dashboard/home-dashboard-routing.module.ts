@@ -41,6 +41,7 @@ const routes: Routes = [
       path:'setting', component:SettingComponent
      },
      { path: 'ticket', loadChildren: () => import('./ticket/ticket.module').then(m => m.TicketModule) },
+     { path: 'faq', loadChildren: () => import('./faq/faq.module').then((m) => m.FAQModule)},
     ]}
 
 ];
