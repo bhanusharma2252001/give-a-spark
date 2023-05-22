@@ -14,6 +14,7 @@ public href:string=""
   planDetails: any;
    private channel = new BroadcastChannel('logout');
   private logoutSubscription: Subscription;
+  warning: any;
   constructor(private router:Router, private api:SparkService, private _ngZone:NgZone) { 
     this.api.updateImage.subscribe((res:any)=>{
       if(res==true) {
@@ -24,6 +25,7 @@ public href:string=""
 
   ngOnInit(): void {
     this.profileData();
+    this.getTrialTime();
     this.href=this.router.url;
     console.log(this.router.url)
 
@@ -39,7 +41,12 @@ public href:string=""
   this.notify();
   }
 
-
+getTrialTime(){
+  this.api.getTime().subscribe((res:any)=>{
+    console.log(res, 'time')
+    this.warning= res?.msg
+  })
+}
 
  
 

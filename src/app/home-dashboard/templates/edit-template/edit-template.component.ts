@@ -289,6 +289,7 @@ updateBar:any;
   storiesId: any;
   userQuotesId: any;
   userStoriesId: any;
+  userEmail: any;
 
   constructor(private api: SparkService, private dialog: MatDialog, myElement: ElementRef, private route: ActivatedRoute, private location: Location,
     private fb: FormBuilder, private toast: ToastrService, private router: Router, private clipboard: Clipboard, private spinner: NgxSpinnerService) {
@@ -375,7 +376,7 @@ updateBar:any;
     }, 1000);
     this.gettemplatebyUser();
     this.getPlanbyUser();
-
+this.profileData();
   }
 
 
@@ -2374,7 +2375,14 @@ console.log(this.updateBar)
   }
 
 
+  profileData() {
+    this.api.myProfile().subscribe((res:any)=>{
+      this.userEmail = res[0]?.email;
+   
 
+      console.log( this.userEmail, 'emaillllll' )
+    })
+  }
 
 
 

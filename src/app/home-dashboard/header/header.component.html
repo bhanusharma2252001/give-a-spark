@@ -80,11 +80,7 @@
       margin-bottom: 10px;">
         <div class="d-flex align-items-center justify-content-evenly">
           <div class="col-md-9 col-lg-9">
-            <p *ngIf="planDetails == 'Plan A'" class="mx-3 bg-yellow text-white header-center">Your free trial ends in
-              10
-              days.Upgrade now and get 15% early
-              bird
-              discount.
+            <p *ngIf="planDetails == 'Plan A'" class="mx-3 bg-yellow text-white header-center">{{warning}}
             </p>
           </div>
           <div class="col-md-3 col-lg-3">

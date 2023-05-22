@@ -121,6 +121,7 @@ signatureId:any;
   freeId: any;
   proId: any;
   proproId: any;
+  userEmail: string | null;
 
   constructor(private fb: FormBuilder, private api:SparkService, private router:Router, private spinner:NgxSpinnerService, private toast:ToastrService) {
     this.form = this.fb.group({
@@ -133,6 +134,11 @@ signatureId:any;
 
 
   ngOnInit(): void {
+this.profileData();
+    if( sessionStorage.getItem('email')){
+      this.userEmail= sessionStorage.getItem('email')
+    }
+    console.log(this.userEmail, 'user email')
     this.getSaveList()
 
   
@@ -430,11 +436,26 @@ setOnOutlook(){
   this.toast.success('Please Check your Outlook');
     // localStorage.setItem('outlook',this.templateRef.outerHTML)
 
-   
+   this.sendTokenToExtension();
 
+  }
+  sendTokenToExtension(): void {
+    // const token = this.userEmail
+    // console.log(token, 'email');
+    
+    // const event = new CustomEvent('tokenEvent', { detail: token });
+    const token = localStorage.getItem('ClientSpark');
+    console.log(token);
+    
+    window.postMessage({ type: 'TOKEN', token }, 'outlook/script.js');
+    console.log( window.postMessage({ type: 'TOKEN', token }, '*'))
+    
   }
 
 
+
+
+  
 
   Yahoo(){
     // this.outLookRef = this.tableData.nativeElement
@@ -582,5 +603,13 @@ setOnOutlook(){
         
     
     
+    }
+    profileData() {
+      this.api.myProfile().subscribe((res:any)=>{
+        this.userEmail = res[0]?.email;
+     
+  
+        console.log( this.userEmail, 'emaillllll' )
+      })
     }
   }

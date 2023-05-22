@@ -814,6 +814,14 @@ getFaqList(type:any) {
 }
 
 
+
+getTime() {
+  return this.http.get(environment.localApiURL + '/api/user/freeTrialWillEnd', {
+    headers: {
+      Authorization: `bearer ${this.token}`
+    },
+  });
+}
 }
 
 
