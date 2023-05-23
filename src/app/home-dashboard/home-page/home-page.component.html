@@ -1,8 +1,8 @@
 <!-- Home page start here====>>>>>-->
 
-<section class="banner_slider pt-5">
-  <div class="row position-relative">
-    <div class="col-md-11 col-lg-11 z-indexss">
+<section class="banner_slider pt-1">
+  <div class="row position-relative sig_tempL m-0 p-0">
+    <div class="col-md-12 col-lg-12 z-indexss">
       <div id="carouselExampleCaptions" class="carousel slide position-relative" data-bs-ride="carousel">
         <div class="carousel-indicators button-yellow">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -62,12 +62,12 @@
         </button> -->
       </div>
     </div>
-    <div class="col-md-1 col-lg-1 position-absolute banner_main_img">
+    <!-- <div class="col-md-1 col-lg-1 position-absolute banner_main_img">
       <img src="assets/images/signature-one.png" alt="" class="banner_msg">
-    </div>
+    </div> -->
   </div>
-  <div class="row">
-    <div class="col-md-11 col-lg-11 mt-5">
+  <div class="row sig_tempL m-0 p-0">
+    <div class="col-md-12 col-lg-12 mt-5">
       <div class="bannner_one">
         <div class="row justify-content-evenly ">
           <div class="red_temp position-relative">
@@ -103,8 +103,8 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-center mt-5 mb-5">
-          <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="buy_manage p-2">Buy Package For
+        <div class="d-flex justify-content-center mt-4 mb-4">
+          <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="buy_manage p-3">Buy Package For
             Someone</button>
         </div>
       </div>
@@ -112,66 +112,67 @@
   </div>
 
 
+
 </section>
-<div class="modal fade" id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog modal-xl position-absolute top-50 start-50 translate-middle">
-  <div class="modal-content bg-giftcard">
-    <div class="modal-header">
+<div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content bg-giftcard modal_margin">
+      <div class="modal-header modal_Header_Clr">
+        <h4>Buy Plan For Someone</h4>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-lg-6" style="padding-left:30px;">
+            <div class="bg-gray p-4 rounded-3">
+              <h4>Gift your someone special</h4>
+              <h6 class="text-gray">Receiver Details</h6>
+              <form [formGroup]="giftForm" (ngSubmit)="onSubmit(giftForm.value)">
+                <div class="mb-3">
+                  <label for="text" class="form-label">Name</label>
+                  <input formControlName="firstName"
+                    class="form-control bg-gray text-gray ps-2 rounded-0 border-0 border-bottom p-0 " type="text"
+                    value="Readonly input here...">
+                  <ng-container class="po-re"
+                    *ngIf="giftForm.controls['firstName'].touched && !giftForm.controls['firstName'].valid">
+                    <small class="text-danger fs-12" *ngIf="giftForm.controls['firstName'].hasError('pattern')">Please
+                      Fill Name
+                    </small> <small class="fs-12 text-danger"
+                      *ngIf="giftForm.get('firstName')?.hasError('required') ">Name is required </small>
+                  </ng-container>
+                </div>
+                <div class="mb-4">
+                  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                  <input formControlName="email" type="email"
+                    class="form-control text-gray ps-2 bg-gray rounded-0 border-0 border-bottom p-0 "
+                    id="exampleFormControlInput1" mailto:placeholder="name@example.com">
+                  <ng-container class="po-re"
+                    *ngIf="giftForm.controls['email'].touched && !giftForm.controls['email'].valid">
+                    <small class="text-danger fs-12" *ngIf="giftForm.controls['email'].hasError('pattern')">Please
+                      enter a valid Email.
+                    </small>
 
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body p-3">
-      <div class="row align-items-center h-100">
-        <div class="col-md-6 col-lg-6" style="padding-left:30px;">
-          <div class="bg-gray p-4 rounded-3">
-            <h3>Gift your someone special</h3>
-            <h6 class="text-gray">Receiver Details</h6>
-            <form [formGroup]="giftForm" (ngSubmit)="onSubmit(giftForm.value)">
-              <div class="mb-3">
-                <label for="text" class="form-label">Name</label>
-                <input formControlName="firstName"
-                  class="form-control bg-gray text-gray ps-2 rounded-0 border-0 border-bottom p-0 " type="text"
-                  value="Readonly input here...">
-                <ng-container class="po-re"
-                  *ngIf="giftForm.controls['firstName'].touched && !giftForm.controls['firstName'].valid">
-                  <small class="text-danger fs-12" *ngIf="giftForm.controls['firstName'].hasError('pattern')">Please
-                    Fill Name
-                  </small> <small class="fs-12 text-danger"
-                    *ngIf="giftForm.get('firstName')?.hasError('required') ">Name is required </small>
-                </ng-container>
-              </div>
-              <div class="mb-4">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input formControlName="email" type="email"
-                  class="form-control text-gray ps-2 bg-gray rounded-0 border-0 border-bottom p-0 "
-                  id="exampleFormControlInput1" mailto:placeholder="name@example.com">
-                <ng-container class="po-re"
-                  *ngIf="giftForm.controls['email'].touched && !giftForm.controls['email'].valid">
-                  <small class="text-danger fs-12" *ngIf="giftForm.controls['email'].hasError('pattern')">Please
-                    enter a valid Email.
-                  </small>
+                    <small class="fs-12 text-danger" *ngIf="giftForm.get('email')?.hasError('required') "> Email is
+                      required </small>
 
-                  <small class="fs-12 text-danger" *ngIf="giftForm.get('email')?.hasError('required') "> Email is
-                    required </small>
+                  </ng-container>
+                </div>
+                <div class="mb-3">
+                  <button class="green-btn px-3 py-2" [disabled]="giftForm.invalid" data-bs-dismiss="modal"
+                    aria-label="Close">Continue</button>
 
-                </ng-container>
-              </div>
-              <div class="mb-3">
-                <button class="green-btn px-3 py-2" [disabled]="giftForm.invalid" data-bs-dismiss="modal"
-                  aria-label="Close">Continue</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
-              </div>
-            </form>
+          <div class="col-md-6 col-lg-6 text-center">
+            <img src="assets/images/gift-img.png" style="width:300px;height:300px">
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-6 text-center">
-          <img src="assets/images/gift-img.png" style="width:300px;height:300px">
-        </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
 </div>

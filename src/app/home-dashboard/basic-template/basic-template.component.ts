@@ -86,11 +86,10 @@ export class BasicTemplateComponent implements OnInit {
   faceB: any;
 
   showMainContent: Boolean = true;
-  templatData: boolean = true;
+ 
 
   // QR Code
-  elementType = NgxQrcodeElementTypes.URL;
-  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+
   value = ""
   // change new
 
@@ -267,7 +266,7 @@ scheduleShape:any=0
   getScanText() {
     let token: any = sessionStorage.getItem('ClientSpark')
     this.value = 'https://app.giveaspark.com/home-dashboard/myprofile/profile-dashboard?token=' + btoa(token)
-    // this.router.navigateByUrl('home-dashboard/myprofile/profile-dashboard?token='+btoa(token))
+
   }
 
 
@@ -365,8 +364,7 @@ this.scheduleForm=this.fb.group({
     }, 1000);
 
 
-    // this.getBasicProfile()
-    // this.getDesign();
+this.openTemp('defaultTemp')
     this.getTemplateDetails();
 
     // if (localStorage.getItem('quoteId')) {
@@ -756,10 +754,8 @@ console.log(this.defaultDetails, 'default details')
   }
 
   openTemp(val: any) {
-    // if (this.showPro = !this.showPro) {
-    //   this.templatData = false;
-    // }
-    this.templatData = false
+   
+  
     this.templateShow = val
 
   }

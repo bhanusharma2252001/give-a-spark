@@ -14,10 +14,13 @@
   --shadow: 0px 0px 25px 4px #2929296e;
 
 }
-
+.Rw{
+  width: 100%;
+  height: auto;
+}
 .all-pages_padding {
   padding-top: 16px;
-  padding-left: 40px !important;
+  /* padding-left: 40px !important; */
   /* z-index: -1; */
 }
 
@@ -239,7 +242,7 @@ img.w-250 {
 .menu-text {
   display: none;
   position: absolute;
-  left: 82px;
+  left: 88px;
   color: white;
   background-color: #2e6bff;
   z-index: 1;
@@ -270,7 +273,12 @@ img.w-500 {
 }
 
 .nav-item a {
-  padding: 9px 10px;
+  padding: 15px;
+}
+.side_set{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-item_details {
@@ -963,7 +971,6 @@ img.top-left {
 .form-label {
   font-size: 15px;
   font-weight: 500;
-  padding-left: 7px;
 }
 
 
@@ -995,8 +1002,8 @@ img.top-left {
 
 .right_new_gif {
   width: 220px;
-  height: auto;
-  margin-left: -10rem;
+  height: 110px;
+  margin-left: -5rem;
 }
 
 .first_temp {
@@ -1523,12 +1530,12 @@ img.author_image {
 .bannner_one {
   background: url(../images/botoom-banner.png);
   background-repeat: no-repeat;
+  background-size: 100%;
   background-size: cover;
+  background-position: center; 
   width: 100%;
   height: 310px;
   border-radius: 8px;
-  position: relative;
-  margin-bottom: 132px;
 }
 
 .red_temp {
@@ -1725,4 +1732,14 @@ img.author_image {
 .sig_tempL{
   width: 100%;
   height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_Header_Clr{
+  background-color: #0412a7;
+  color: #ffffff;
+}
+.modal_margin{
+  margin-top: 125px;
 }
