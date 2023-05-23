@@ -134,7 +134,7 @@ signatureId:any;
 
 
   ngOnInit(): void {
-this.profileData();
+
     if( sessionStorage.getItem('email')){
       this.userEmail= sessionStorage.getItem('email')
     }
@@ -604,12 +604,5 @@ setOnOutlook(){
     
     
     }
-    profileData() {
-      this.api.myProfile().subscribe((res:any)=>{
-        this.userEmail = res[0]?.email;
-     
-  
-        console.log( this.userEmail, 'emaillllll' )
-      })
-    }
+
   }
