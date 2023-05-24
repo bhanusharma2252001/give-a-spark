@@ -1743,3 +1743,8 @@ img.author_image {
 .modal_margin{
   margin-top: 125px;
 }
+.save_temp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

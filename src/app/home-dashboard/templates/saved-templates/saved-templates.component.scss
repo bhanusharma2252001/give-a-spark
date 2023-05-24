@@ -111,6 +111,7 @@
 }
 .bg-green{
     background-color: #33cc9d;
+    padding: 10px 30px;
 }
 
 
@@ -120,7 +121,8 @@
 ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 .hover-light:hover {
     background-color: #F44336;
-    border-radius: 5px;
+    color: #ffffff;
+    // border-radius: 5px;
   }
   .fas{
     position: static !important;
@@ -190,4 +192,13 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 
   .delt_modal_top{
     margin-top: 50%;
+  }
+
+
+  .navbar-nav .dropdown-menu{
+    position: absolute;
+    padding: 0;
+    top: 32px;
+    left: 0px;
+    width: 185px;
   }

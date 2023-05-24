@@ -50,7 +50,7 @@ export class PlanDashboardComponent implements OnInit {
     }
     this.api.makePayment(data).subscribe(async (res: any) => {
 
-      let stripe = await loadStripe('pk_live_51Mds83SEEnMfzbAjs4DBJPc0LR3eaVUxn3zz6dJVeIQZVHEfXhgw648VGZI5OSetcVJFUkImaNHDAnPGDmnDsJ22001CDI558x');
+      let stripe = await loadStripe('pk_live_51Hj78kE26wvx34FaJqR9v53cKoxbUKaT0mQAfD3b6062td3XMJo3IWPbzNobSlTq22qIpFNJ0dfTxUO9PLincuWp00aArAg1BP');
       stripe?.redirectToCheckout({
         sessionId: res.id,
       });
@@ -69,7 +69,7 @@ export class PlanDashboardComponent implements OnInit {
     }
     this.api.makePayment(data).subscribe(async (res: any) => {
 
-      let stripe = await loadStripe('pk_live_51Mds83SEEnMfzbAjs4DBJPc0LR3eaVUxn3zz6dJVeIQZVHEfXhgw648VGZI5OSetcVJFUkImaNHDAnPGDmnDsJ22001CDI558x');
+      let stripe = await loadStripe('pk_live_51Hj78kE26wvx34FaJqR9v53cKoxbUKaT0mQAfD3b6062td3XMJo3IWPbzNobSlTq22qIpFNJ0dfTxUO9PLincuWp00aArAg1BP');
       stripe?.redirectToCheckout({
         sessionId: res.id,
       });
